@@ -19,11 +19,9 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
+    <title>计算机视觉相关单词</title>
     <url>/2022/03/12/CN/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%8D%95%E8%AF%8D%E8%A1%A8/</url>
-    <content><![CDATA[<pre><code>                                                 计算机视觉单词表
-</code></pre>
-<p>artificial neural network,ANN        人工神经网络</p>
+    <content><![CDATA[<p>artificial neural network,ANN        人工神经网络</p>
 <p>perceptron        感知机，人工神经元</p>
 <p>activation function        激活函数</p>
 <p>rectified linear unit,RELU        修正线性单元</p>
@@ -296,5 +294,12 @@
 <p>saturation    饱和度</p>
 <p>superimpose    叠加</p>
 ]]></content>
+      <categories>
+        <category>计算机视觉</category>
+      </categories>
+      <tags>
+        <tag>CV</tag>
+        <tag>English</tag>
+      </tags>
   </entry>
 </search>

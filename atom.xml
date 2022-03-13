@@ -6,31 +6,38 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-03-11T07:01:15.570Z</updated>
+  <updated>2022-03-13T13:03:48.618Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>计算机视觉相关单词</title>
     <link href="http://pistachio0812.github.io/2022/03/12/CN/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%8D%95%E8%AF%8D%E8%A1%A8/"/>
     <id>http://pistachio0812.github.io/2022/03/12/CN/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%8D%95%E8%AF%8D%E8%A1%A8/</id>
     <published>2022-03-12T08:48:16.114Z</published>
-    <updated>2022-03-11T07:01:15.570Z</updated>
+    <updated>2022-03-13T13:03:48.618Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;pre&gt;&lt;code&gt;                                                 计算机视觉单词表
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;artificial neural network,ANN       </summary>
+    <summary type="html">&lt;p&gt;artificial neural network,ANN        人工神经网络&lt;/p&gt;
+&lt;p&gt;perceptron        感知机，人工神经元&lt;/p&gt;
+&lt;p&gt;activation function        激活函数&lt;/p&gt;
+&lt;p&gt;rectified</summary>
         
       
     
     
     
+    <category term="计算机视觉" scheme="http://pistachio0812.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+    
+    <category term="CV" scheme="http://pistachio0812.github.io/tags/CV/"/>
+    
+    <category term="English" scheme="http://pistachio0812.github.io/tags/English/"/>
     
   </entry>
   
