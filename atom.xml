@@ -6,10 +6,35 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-03-13T13:03:48.618Z</updated>
+  <updated>2022-03-14T05:19:49.335Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习网站集合</title>
+    <link href="http://pistachio0812.github.io/2022/03/14/en/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/"/>
+    <id>http://pistachio0812.github.io/2022/03/14/en/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/</id>
+    <published>2022-03-14T05:07:01.833Z</published>
+    <updated>2022-03-14T05:19:49.335Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;万门好课&quot;&gt;&lt;a href=&quot;#万门好课&quot; class=&quot;headerlink&quot; title=&quot;万门好课&quot;&gt;&lt;/a&gt;万门好课&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.wanmen.org/&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="学习网站" scheme="http://pistachio0812.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/"/>
+    
+    
+    <category term="学习网站" scheme="http://pistachio0812.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机视觉相关单词</title>
@@ -46,7 +71,7 @@
     <link href="http://pistachio0812.github.io/2022/03/11/CN/hello-world/"/>
     <id>http://pistachio0812.github.io/2022/03/11/CN/hello-world/</id>
     <published>2022-03-11T08:11:46.667Z</published>
-    <updated>2022-03-11T08:11:46.667Z</updated>
+    <updated>2022-03-14T04:42:29.621Z</updated>
     
     
       
@@ -59,6 +84,12 @@
     
     
     
+    <category term="Hexo博客搭建" scheme="http://pistachio0812.github.io/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="博客搭建" scheme="http://pistachio0812.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="Hexo" scheme="http://pistachio0812.github.io/tags/Hexo/"/>
     
   </entry>
   
