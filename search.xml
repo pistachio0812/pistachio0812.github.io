@@ -339,7 +339,7 @@
 <p><img src="http://www.cvpapers.com/img/cvpapers.png" alt="CVPR"></p>
 <h2 id="CVF"><a href="#CVF" class="headerlink" title="CVF"></a>CVF</h2><p><a href="https://openaccess.thecvf.com/">CVF</a>研究论文是由计算机视觉基金会提供的开放获取版本。除水印外，它们与接受的版本相同;最后发表的论文集可以在IEEE Xplore上找到。本材料的提出，以确保及时传播学术和技术工作。版权和其中的所有权利由作者或其他版权持有人保留。所有复制此信息的人都应遵守每个作者的版权所援引的条款和约束。</p>
 <p>相关页面如下：</p>
-<p><img src="https://openaccess.thecvf.com/img/cropped-cvf-s.jpg" alt="CVF"></p>
+<p><img src="https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/images/cropped-cvf-s.jpg" alt="CVF"></p>
 ]]></content>
   </entry>
   <entry>
@@ -586,6 +586,17 @@ print(&#39;Test score:&#39;, score[0])
 <p><code>#freeze feature layers and rebuild model for l in feature_layers:     l.trainable = False</code></p>
 <p><code>#transfer: train dense layers for new classification task(5~9) train_model(model,     (x_train_gte5, y_train_get5),     (x_test_get5, y_test_get5), num_classes)</code></p>
 <p>​<br>​<br>​    </p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/03/17/CN/%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="就地操作"><a href="#就地操作" class="headerlink" title="就地操作"></a>就地操作</h3><p>问题来源：看代码发现<code>self.relu=nn.ReLU(inplace=True)</code>不明白<code>inplace=True</code>什么意思。</p>
+<p>解答：查看pytorch官网关于ReLU定义，<a href="https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html#torch.nn.ReLU">ReLU</a>其中inplace参数表示可以选择就地执行操作，默认为False,就地执行操作是指图像处理函数的输入图像和输出图像是同一对象，即同一张图像，常规的图像处理函数是不支持输入图像和输出图像是同一图像的。</p>
+<p>eg:中值滤波函数</p>
+<p><code>medianBlur(src, dst, 7);  //常规操作</code></p>
+<p><code>medianBlur(src,  src, 7); //就地操作</code></p>
+<p>就地操作直接更改张量的内容，而无需复制它。由于它不创建输入的副本，因此在处理高维数据时减少了内存使用，就地操作有助于使用更少的GPU内存，详情请看该博客<a href="https://www.ksgszhuce.com/tetl/37.html">如何在Pytorch中执行就地操作</a></p>
 ]]></content>
   </entry>
 </search>
