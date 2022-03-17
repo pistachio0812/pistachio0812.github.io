@@ -1,351 +1,209 @@
-<?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/03/11/CN/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>学习笔记 | 相思似海深旧事如天远</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="tf中矩阵量存在形式常用有三种，具体如下：1.tf.Variable()表示神经网络中可变化的量（可以通过trainable&#x3D;False设置成不可变),可在运行中赋值，可以通过constant或者其他方式进行初始化。2.tf.constant()可以通过numpy中的array或者list,还有给定的shape和数值进行赋值3.tf.placeholder()相当于占位符，也是有shap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习笔记">
+<meta property="og:url" content="http://pistachio0812.github.io/2022/03/17/en/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="相思似海深旧事如天远">
+<meta property="og:description" content="tf中矩阵量存在形式常用有三种，具体如下：1.tf.Variable()表示神经网络中可变化的量（可以通过trainable&#x3D;False设置成不可变),可在运行中赋值，可以通过constant或者其他方式进行初始化。2.tf.constant()可以通过numpy中的array或者list,还有给定的shape和数值进行赋值3.tf.placeholder()相当于占位符，也是有shap">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-17T01:30:47.993Z">
+<meta property="article:modified_time" content="2022-03-17T02:02:24.696Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="相思似海深旧事如天远" type="application/atom+xml">
+  
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+  
 
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
 
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>Hexo博客搭建</category>
-      </categories>
-      <tags>
-        <tag>博客搭建</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机视觉相关单词</title>
-    <url>/2022/03/12/CN/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%8D%95%E8%AF%8D%E8%A1%A8/</url>
-    <content><![CDATA[<p>artificial neural network,ANN        人工神经网络</p>
-<p>perceptron        感知机，人工神经元</p>
-<p>activation function        激活函数</p>
-<p>rectified linear unit,RELU        修正线性单元</p>
-<p>bias        偏置</p>
-<p>loss function        损失函数</p>
-<p>universal approximation theorem        万能逼近定理</p>
-<p>one-hot encoding        独热编码</p>
-<p>cross-entropy        交叉熵</p>
-<p>dropout        丢弃</p>
-<p>bagging        装袋</p>
-<p>model averaging        模型平均</p>
-<p>batch normalization        批归一化</p>
-<p>backpropagation        反向传播</p>
-<p>stochastic gradient descent,SGD        随机梯度下降</p>
-<p>acquisition         学习，获得</p>
-<p>integrate       整合，集成，合并</p>
-<p>diverse         多样化的，不同的</p>
-<p>tune          调优</p>
-<p>curation        内容管理</p>
-<p>projection      投影，预测</p>
-<p>coherent         有条理的，连贯的</p>
-<p>redundant        冗余的</p>
-<p>entity          实体</p>
-<p>synthetic     合成的，虚假的，不诚恳的</p>
-<p>spammy     垃圾邮件式的，无聊的</p>
-<p>crowdsourcing          众包</p>
-<p>continuity        连续性，连贯性</p>
-<p>manifold       多种多样的</p>
-<p>inherent        固有的，内在的</p>
-<p>pseudo     假的，仿冒的</p>
-<p>ensemble         套</p>
-<p>heuristic        启发式的；启发式教育法</p>
-<p>erroneous        错误的，不正确的</p>
-<p>resilient        有弹性的，可迅速恢复的</p>
-<p>degraded        堕落的，退化的</p>
-<p>converge        收敛，集中</p>
-<p>outlier        离群值，异常值</p>
-<p>violate        违反，违背</p>
-<p>syntactic        语法的</p>
-<p>cartesian        笛卡尔的</p>
-<p>categorical        分类，绝对的</p>
-<p>prune        修剪</p>
-<p>param        停止</p>
-<p>translation  invariance        平移不变性</p>
-<p>suppress        抑制，镇压，阻止</p>
-<p>bidirectional        双向</p>
-<p>tabular        扁平的，列成表格的</p>
-<p>revenue        收入，税收</p>
-<p>latency        延迟</p>
-<p>harmonic        和声的，谐和的，音乐般的</p>
-<p>harmonic mean        调和平均数</p>
-<p>harmonic series        调和级数</p>
-<p>rote        死记硬背，生搬硬套</p>
-<p>bid        出价，投标</p>
-<p>leaderboard        排行榜，通栏广告</p>
-<p>minor        较小的，次要的，轻微的</p>
-<p>contaminated        受污染的，弄脏的</p>
-<p>tradeoff        权衡，折中</p>
-<p>ensemble learning        集成学习</p>
-<p>decompose        分解，使腐烂</p>
-<p>intrinsic        内在的，固有的</p>
-<p>notable         显要的，值得注意的；非常成功的，令人尊敬的</p>
-<p>camouflaged        伪装的</p>
-<p>facilitate        促进，使便利</p>
-<p>overlap:与……重叠，部分地相同；重叠的部分，互搭量</p>
-<p>threshold:入口，门槛，开始，极限，临界值</p>
-<p>conjecture:猜测，推测</p>
-<p>within:在……之内</p>
-<p>oversample:过采样</p>
-<p>trade off:权衡，卖掉，折中方案</p>
-<p>ultimately:最后，根本，基本上</p>
-<p>robotics：机器人学</p>
-<p>areial:空中的，航空的，空气的</p>
-<p>underperform:表现不佳，工作不如预期</p>
-<p>crucial:重要的，决定性的</p>
-<p>high-resolution:高分辨率的</p>
-<p>deploy:配置，展开，部署</p>
-<p>barely:仅仅，勉强，几乎不</p>
-<p>tumor:肿瘤，肿块</p>
-<p>diagnosis:诊断</p>
-<p>inspection:检查，视察</p>
-<p>defect:缺陷，缺点，不足之处</p>
-<p>annotate:注释，作注解</p>
-<p>address:地址，编址</p>
-<p>potentially:可能地，潜在地</p>
-<p>imply:意味，暗示，隐含</p>
-<p>diversity:多样性，差异</p>
-<p>generalize:概括，推广，使……一般化</p>
-<p>portion:部分</p>
-<p>crop:裁剪</p>
-<p>merge:合并</p>
-<p>align:匹配，排列，对齐，对准</p>
-<p>mask:掩码，掩膜</p>
-<p>cascade:小瀑布，串联，级联</p>
-<p>fuse:融合，熔接，熔化</p>
-<p>computational:计算的</p>
-<p>overhead:经常性费用，运营费用</p>
-<p>fraction:分数，部分，小部分，稍微</p>
-<p>schematic illustration:示意图</p>
-<p>respect to:关于，考虑</p>
-<p>validate:验证，确认，使生效</p>
-<p>stochastic:随机的，猜测的</p>
-<p>decay:衰退，衰减</p>
-<p>coefficient:系数，率</p>
-<p>explicitly:明确地，明白地</p>
-<p>outline:大纲，概要</p>
-<p>distillation:蒸馏</p>
-<p>curvature:曲率</p>
-<p>stochastic:随机</p>
-<p>variance:差异，方差</p>
-<p>spectrum:光谱，频谱；范围</p>
-<p>neat:灵巧的，整洁的；优雅的，平滑的</p>
-<p>heterogenerous:由很多种类组成的</p>
-<p>intricate:复杂的，错综的</p>
-<p>arbitrary:任意的，武断的</p>
-<p>vanilla:香草，比较原始的</p>
-<p>sketch:示意图</p>
-<p>incarnation:化身，典型</p>
-<p>waive:放弃，搁置</p>
-<p>shrinkage    收缩，皱缩，缩水; 跌价; 抽缩</p>
-<p>alleviate    缓解，减轻</p>
-<p>de-facto    事实上</p>
-<p>corpus    文集，语料库</p>
-<p>unprecedented    前所未有的</p>
-<p>inductive    归纳的</p>
-<p>empirical    经验主义的</p>
-<p>allergic    过敏的，反感的</p>
-<p>pollen     花粉</p>
-<p>badminton    羽毛球运动</p>
-<p>pharmacy    药房</p>
-<p>jasmine    茉莉</p>
-<p>latent    潜在的，潜伏的，潜意识的</p>
-<p>prepend    预先考虑</p>
-<p>embedding    编码</p>
-<p>alternating    交互的</p>
-<p>interpolation    插入，篡改，添写</p>
-<p>de-duplicate    删除重复数据</p>
-<p>suite    一套，套件</p>
-<p>geometric    几何图形的，几何的</p>
-<p>intermediate    中间的</p>
-<p>fine-tuning    微调</p>
-<p>appendix    附录</p>
-<p>warmup    预热</p>
-<p>least-squares regression    最小二乘回归</p>
-<p>on-the-fly    匆匆忙忙地；在空中；（计）运行中</p>
-<p>literature    文献</p>
-<p>outperform    胜过，做的比……好</p>
-<p>substantially    实质上；大体上；充分地</p>
-<p>standard deviation    标准差</p>
-<p>co-training    协同训练</p>
-<p>boost    促进，增加</p>
-<p>overtake    赶上，压倒，突然来袭</p>
-<p>plateau    趋于平稳，进入停滞期</p>
-<p>vanish    消失</p>
-<p>versus     与</p>
-<p>saturate    饱和的</p>
-<p>principal    最主要的</p>
-<p>plausible    貌似可信的，花言巧语的；貌似真实的，貌似有理的</p>
-<p>sinusoidal    正弦曲线的</p>
-<p>degree    程度</p>
-<p>analogous    类似的</p>
-<p>preliminary    初步的</p>
-<p>manual    手动的，手工的</p>
-<p>insight    洞察力，领悟</p>
-<p>exponentially    以指数方式的</p>
-<p>holistically    整体论地</p>
-<p>unidirectional    单向性的</p>
-<p>incorporate    包含，吸收，体现；把……合并</p>
-<p>alleviate    减轻</p>
-<p>shallow    浅的，肤浅的</p>
-<p>discriminate    区分，辨别</p>
-<p>coarser    粗糙的</p>
-<p>granularity    间隔尺寸，粒度</p>
-<p>derived    导出的，衍生的，派生的</p>
-<p>predecessor    前任，前辈;(被取代的)原有事物，前身</p>
-<p>cloze    adj. 完形的；填充测验法的</p>
-<p>cloze task    完形填空</p>
-<p>recipe    秘诀，处方</p>
-<p>distinctive    有特色的，与众不同的</p>
-<p>unambiguously    不含糊地，明白地</p>
-<p>intuitively    直观地；直觉地</p>
-<p>trivially    琐细地，平凡地，无能地</p>
-<p>mitigate    使缓和，使减轻</p>
-<p>monolingual    单语的；仅用一种语言的；仅懂一种语言的</p>
-<p>procedure    程序，手续，步骤</p>
-<p>degenerate    使退化，恶化</p>
-<p>de-facto    (法)实际上的</p>
-<p>explicitly    显式地</p>
-<p>reformulate    重新构造</p>
-<p>ensemble    全体，总效果</p>
-<p>nontrivial    重要的，显著的</p>
-<p>obstacle    阻碍，障碍</p>
-<p>notorious    臭名昭著的，声名狼藉的</p>
-<p>vanishing&#x2F;exploding gradients    梯度消失&#x2F;梯度爆炸</p>
-<p>hamper    妨碍，束缚</p>
-<p>degradation    退化，降级，堕落</p>
-<p>thoroughly    完全地，彻底地</p>
-<p>counterpart    副本，配对物</p>
-<p>feasible    可行的，可能的</p>
-<p>akin to     类似于</p>
-<p>generic    类的，属性的; 一般的; 不受商标保护的; [生]属的，类的</p>
-<p>retrieval    检索</p>
-<p>quantization    量化</p>
-<p>partial differential equations    偏微分方程</p>
-<p>auxiliary    辅助的，备用的</p>
-<p>Concurrent    并发的，同时发生的</p>
-<p>asymptotically    渐近地</p>
-<p>counterintuitive    违反直觉的</p>
-<p>perturbations    [流]扰动，不安</p>
-<p>trial    测试</p>
-<p>curse    咒骂，诅咒</p>
-<p>estimation    评估，评价，判断</p>
-<p>surrogate    代理的</p>
-<p>prominent    突出的，显著的，卓越的，杰出的</p>
-<p>thes    命题，论文</p>
-<p>recalibrate    重新校准</p>
-<p>pruning    剪枝</p>
-<p>proxy    代理人，代表权</p>
-<p>compound    加重; 使复杂化; 混合;混合的</p>
-<p>criteria    标准，条件</p>
-<p>panoptic    全景的</p>
-<p>controversial    有争议的</p>
-<p>problematic    有疑问的，有问题的</p>
-<p>contrastive    对比的</p>
-<p>intuitive    直觉的; 凭直觉获知的; 直观的</p>
-<p>preserve    保存；保护；维持；腌；禁猎</p>
-<p>intractable    棘手的；难治的；倔强的；不听话的</p>
-<p>pretext    借口，托辞; 假象，掩饰</p>
-<p>permutation    排列，置换</p>
-<p>discrimination    区别对待; 鉴别力; 区别</p>
-<p>shuffle    洗牌; 曳脚而行; 搬移; 搁置，随手放</p>
-<p>neatness    整洁，干净</p>
-<p>blur    模糊</p>
-<p>permutation    排列，置换</p>
-<p>infrared    红外线的</p>
-<p>attenuation    衰减，衰变</p>
-<p>tricky    棘手的，难对付的</p>
-<p>plethora    过多，过剩</p>
-<p>deluge    泛滥，淹没</p>
-<p>elaborate    精心制作的，详尽的</p>
-<p>repurpose    改换意图，重新</p>
-<p>assistive    辅助性的</p>
-<p>eliminate    消除</p>
-<p>duplicate    重复的</p>
-<p>coordinate    坐标</p>
-<p>refreshingly    清爽地，有精神地，令人耳目一新地</p>
-<p>millisecond     毫秒</p>
-<p>implicitly    隐式地</p>
-<p>delimiter    分隔符</p>
-<p>diverge    分歧，相异</p>
-<p>remedy    解决方法，纠正方法</p>
-<p>deviation    偏差</p>
-<p>coarse    粗糙的</p>
-<p>begnign    无有害的，认为无关紧要的</p>
-<p>malicious    恶意的，怀恨的</p>
-<p>rigorous    严格的</p>
-<p>outlier    离群值</p>
-<p>deliberate    故意的；深思熟虑的；从容的</p>
-<p>susceptible    易受影响的；易感动的；容许…的</p>
-<p>leverage    利用</p>
-<p>kinda    有点，有几分</p>
-<p>centroid    形心，重心</p>
-<p>exclusively    专门地，唯一地</p>
-<p>collision    碰撞，警告</p>
-<p>hint    暗示，示意</p>
-<p>stand-alone    （计算机）独立运行的；（公司、组织）独立的</p>
-<p>photometric distortion    光度失真</p>
-<p>geometric    几何失真</p>
-<p>hue    色调</p>
-<p>saturation    饱和度</p>
-<p>superimpose    叠加</p>
-]]></content>
-      <categories>
-        <category>计算机视觉</category>
-      </categories>
-      <tags>
-        <tag>CV</tag>
-        <tag>English</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>学习网站集合</title>
-    <url>/2022/03/14/en/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/</url>
-    <content><![CDATA[<h2 id="万门好课"><a href="#万门好课" class="headerlink" title="万门好课"></a>万门好课</h2><p><a href="https://www.wanmen.org/" title="加油吧少年">万门好课</a>是一家提供多品类原创精品课程的在线教育平台 ，课程覆盖IT与互联网类、职业成长类、经济金融类、本科学习类等领域 。 整体课程定位侧重于“用户刚需”类课程，如语言版块的出国英语考试类课程、小语种培训课程，本科学习版块的各学科基础大课，以及特色的万门通识课程包括PS、化妆等。</p>
-<h2 id="网易云课堂"><a href="#网易云课堂" class="headerlink" title="网易云课堂"></a>网易云课堂</h2><p><a href="https://study.163.com/">网易云课堂</a>立足于实用性的要求，网易云课堂与多家教育、培训机构建立合作，课程数量已达4100+，课时总数超50000,涵盖实用软件、IT与互联网、外语学习、生活家居、兴趣爱好、职场技能、金融管理、考试认证、中小学、亲子教育等十余大门类。</p>
-<h2 id="网易公开课"><a href="#网易公开课" class="headerlink" title="网易公开课"></a>网易公开课</h2><p><a href="https://open.163.com/">网易公开课</a>首批1200集课程上线，其中有200多集配有中文字幕。用户可以在线免费观看来自于哈佛大学等世界级名校的公开课课程，可汗学院，TED等教育性组织的精彩视频，内容涵盖人文、社会、艺术、科学、金融等领域。 力求为爱学习的网友创造一个公开的免费课程平台，借此向外界公开招聘兼职字幕翻译。</p>
-<h2 id="爱课程网"><a href="#爱课程网" class="headerlink" title="爱课程网"></a>爱课程网</h2><p><a href="https://www.icourses.cn/home">爱课程网</a>利用现代信息技术和网络技术， 面向高校师生和社会大众。提供优质教育资源共享和个性化教学资源服务，具有资源浏览、搜索、重组、评价、课程包的导入导出、发布、互动参与和“教”“学”兼备等功能。</p>
-]]></content>
-      <categories>
-        <category>学习网站</category>
-      </categories>
-      <tags>
-        <tag>学习网站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>学术搜索网站集合</title>
-    <url>/2022/03/15/CN/%E5%AD%A6%E6%9C%AF%E6%90%9C%E7%B4%A2%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/</url>
-    <content><![CDATA[<p>搞学术研究的必不可少的就是论文，而且是大量的论文。因此，在这里我特意把我平时用到的积累到的论文搜索网站集中到了这里，后续遇到了其他的还会继续补充。</p>
-<h2 id="谷歌学术"><a href="#谷歌学术" class="headerlink" title="谷歌学术"></a>谷歌学术</h2><p><a href="https://xs.scqylaw.com/">谷歌学术</a>是一个可以免费搜索学术文章的Google网络应用。2004年11月，Google第一次发布了Google学术搜索的试用版。该项索引包括了世界上绝大部分出版的学术期刊， 可广泛搜索学术文献的简便方法。您可以从一个位置搜索众多学科和资料来源：来自学术著作出版商、专业性社团、预印本、各大学及其他学术组织的经同行评论的文章、论文、图书、摘要和文章。Google 学术搜索可帮助您在整个学术领域中确定相关性最强的研究。</p>
-<p>相关页面如下：</p>
-<p><img src="https://img.99lb.net/images1/logo.png" alt="谷歌学术搜索"></p>
-<h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><p><a href="https://github.com/">github</a>于2008年4月10日正式上线，除了代码仓库托管及基本的Web管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过350万，托管版本数量也是非常之多，其中不乏知名开源项目Ruby on Rails、jQuery、python等。</p>
-<p>相关页面如下：</p>
-<p><img src="https://pic2.zhimg.com/v2-3224a8e2da3f76575baaa77e5768fcb2_1440w.jpg?source=172ae18b" alt="github"></p>
-<h2 id="CVPR"><a href="#CVPR" class="headerlink" title="CVPR"></a>CVPR</h2><p>国际计算机视觉与模式识别会议（<a href="http://www.cvpapers.com/">CVPR</a>）是IEEE一年一度的学术性会议，会议的主要内容是计算机视觉与模式识别技术。CVPR是世界顶级的计算机视觉会议（三大顶会之一，另外两个是ICCV和ECCV，近年来每年有约1500名参加者，收录的论文数量一般300篇左右。本会议每年都会有固定的研讨主题，而每一年都会有公司赞助该会议并获得在会场展示的机会。</p>
-<p>相关页面如下：</p>
-<p><img src="http://www.cvpapers.com/img/cvpapers.png" alt="CVPR"></p>
-<h2 id="CVF"><a href="#CVF" class="headerlink" title="CVF"></a>CVF</h2><p><a href="https://openaccess.thecvf.com/">CVF</a>研究论文是由计算机视觉基金会提供的开放获取版本。除水印外，它们与接受的版本相同;最后发表的论文集可以在IEEE Xplore上找到。本材料的提出，以确保及时传播学术和技术工作。版权和其中的所有权利由作者或其他版权持有人保留。所有复制此信息的人都应遵守每个作者的版权所援引的条款和约束。</p>
-<p>相关页面如下：</p>
-<p><img src="https://openaccess.thecvf.com/img/cropped-cvf-s.jpg" alt="CVF"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>学习笔记</title>
-    <url>/2022/03/17/en/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>tf中矩阵量存在形式常用有三种，具体如下：<br>1.tf.Variable()<br>表示神经网络中可变化的量（可以通过trainable&#x3D;False设置成不可变),可在运行中赋值，可以通过constant或者其他方式进行初始化。<br>2.tf.constant()<br>可以通过numpy中的array或者list,还有给定的shape和数值进行赋值<br>3.tf.placeholder()<br>相当于占位符，也是有shape的量，因为训练过程中需要不断赋值和替换值，而整体计算的结构是不变的。<br>代码：<br>&#x2F;&#x2F;导包</p>
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-学习笔记" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/03/17/en/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+	  <time datetime="2022-03-17T01:30:47.993Z" itemprop="datePublished">2022-03-17</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>tf中矩阵量存在形式常用有三种，具体如下：<br>1.tf.Variable()<br>表示神经网络中可变化的量（可以通过trainable&#x3D;False设置成不可变),可在运行中赋值，可以通过constant或者其他方式进行初始化。<br>2.tf.constant()<br>可以通过numpy中的array或者list,还有给定的shape和数值进行赋值<br>3.tf.placeholder()<br>相当于占位符，也是有shape的量，因为训练过程中需要不断赋值和替换值，而整体计算的结构是不变的。<br>代码：<br>&#x2F;&#x2F;导包</p>
 <p><code>import tensorflow as tf    </code>    </p>
 <p>&#x2F;&#x2F;定义变量<br><code>A = tf.Variable(tf.ones([4,4]))    </code></p>
 <p>&#x2F;&#x2F;变量初始化<br><code>import numpy as np       cst = tf.constant(np.ones([4,4]),dtype=tf.float32)        </code><br>#需要指定类型dtype&#x3D;tf.float32,tf中不能隐式转换浮点和整型<br>#cst &#x3D; tf.constant(1.0,shape&#x3D;[4,4],dtype&#x3D;tf.float32)也是可以的<br><code>A = tf.Variable(cst)</code></p>
@@ -442,7 +300,7 @@
 <p>4.5性能优化建议<br>&#x2F;&#x2F;训练前的优化技巧<br>1.网络结构优化<br>Relu和BN能够有效加快神经网络训练速度<br>卷积核心的选取可以从大的卷积核心修改为多个小的卷积核心<br>将nxn修改为nx1+1xn，减少参数量，不同的输出内容之间可以进行concat<br>引入跨层支路解决梯度问题（ResNet)<br>2.初始值的选取<br>不好的初始值对训练的影响非常大，有效的初始化方法包括xavier初始化方法和He初始化方法<br>3.数据预处理<br>包括去均值和方差均衡<br>&#x2F;&#x2F;训练过程中的优化技巧<br>1）优化算法的选择<br>Adam<br>2）学习率的选取<br>从大的步长开始进行迭代，逐步减少学习率<br>3）Batchsize选择<br>4）model ensembles<br>使用不同初始值同时训练多个模型，预测过程中将多个模型输出结果做平均，有效提升结果精度<br>5)dropout选择<br>从0.5附近进行调整，调整步长为0.05左右</p>
 <p>&#x2F;&#x2F;物体检测<br>1.传统检测方法<br>2001年，基于Haar特征和Adaboost检测方法引起轰动<br>2012年之前，三方面不断创新与优化：特征的设计更新、检测窗口的选择、分类器的设计更新</p>
 <p>2.深度学习的物体检测<br>1）基于分类的物体检测<br>处理过程：图像被分解成多个小区域，每个小区域将运行一个分类算法以确定区域是否包含待检测物体，之后再在这个小区域的周围确认物体的边界框。代表算法：R-CNN、Fast-RCNN、Faster-RCNN<br>2) 基于回归的物体检测<br>将问题建模为回归问题，通过深度神经网络直接预测出边界框和所属类别的置信度。代表算法：SSD、YOLO模型</p>
-<p>&#x2F;&#x2F;YOLO模型<br>官网：<a href="https://pjreddie.com/darknet/yolo/">https://pjreddie.com/darknet/yolo/</a><br>&#x2F;&#x2F;选讲tiny YOLO v1模型，由9个卷积层和3个全连接层组成，每个卷积层都由卷积层、LeakyRelu和Max Pooling操作组成，前9个卷积层可被理解为特征提取器，最后三个全连接层可被理解为预测边界框的回归器。<br>参考论文：You Only Look Once:Unified, Real-Time Object Detection<br>参考实例：<a href="https://github.com/xslittlegrass/CarND-Vehicle-Detection">https://github.com/xslittlegrass/CarND-Vehicle-Detection</a><br>模型参数：45089374<br>深度学习框架：Keras 1.2.2</p>
+<p>&#x2F;&#x2F;YOLO模型<br>官网：<a target="_blank" rel="noopener" href="https://pjreddie.com/darknet/yolo/">https://pjreddie.com/darknet/yolo/</a><br>&#x2F;&#x2F;选讲tiny YOLO v1模型，由9个卷积层和3个全连接层组成，每个卷积层都由卷积层、LeakyRelu和Max Pooling操作组成，前9个卷积层可被理解为特征提取器，最后三个全连接层可被理解为预测边界框的回归器。<br>参考论文：You Only Look Once:Unified, Real-Time Object Detection<br>参考实例：<a target="_blank" rel="noopener" href="https://github.com/xslittlegrass/CarND-Vehicle-Detection">https://github.com/xslittlegrass/CarND-Vehicle-Detection</a><br>模型参数：45089374<br>深度学习框架：Keras 1.2.2</p>
 <p>&#x2F;&#x2F;构建YOLO模型网络结构<br><code>import keras from keras.models import Sequential from keras.layers.convolutional import Convlution2D, MaxPooling2D from keras.layers.advanced_activations import LeakyReLU from keras.layers.core import Flatten, Dense, Activation, Reshape from utils import load_weights, Box, yolo_net_out_to_car_boxes, draw_box def construct_yolo_model():     keras.backend.set_image_dim_ordering(&#39;th&#39;)     model = Sequential()     model.add(Convolution2D(16, 3, 3, input_shape=(3, 448, 448), border_mode=&#39;same&#39;, subsample=(1, 1)))     model.add(LeakyReLU(alpha=0.1))     model.add(MaxPooling2D(pool_size=(2, 2)))</code></p>
 <pre><code>model.add(Convolution2D(32, 3, 3, border_mode=&#39;same&#39;))
 model.add(LeakyReLU(alpha=0.1))
@@ -524,7 +382,7 @@ return model
 <p>10.1.4初始化权重<br>&#x2F;&#x2F;在参数解空间内，好的权重初始化方式，意味着离全局最小值更近。<br>1.高斯初始化，为权重初始化较小的值，权重按照高斯分布随机进行初始化，固定均值和方差<br>2.Xaiver更新方法，使用tanh为激活函数，效果较好。进行梯度更新时，收敛速度较快，然而没有考虑Relu<br>3.MSRA方法，适用于从头训练深层深度神经网络的网络结构。权重以高斯分布随机进行初始化，方差需要考虑空间过滤器的大小和过滤器数量的影响。</p>
 <p>10.1.5优化算法<br>近些年最常用的是采用Adam优化算法，也可以采用自适应学习率的方法实现快速收敛。</p>
 <p>10.1.6超参数选择<br>一些实践经验：<br>1.在验证集上进行调参<br>2.优先调Learning Rate<br>3.通过初期设计卷积层尽量深、卷积核尽量多的模型，强行让模型拟合训练集，这时会出现过拟合，之后通过Dropout、正则化和Data Augument等等方式去改善模型结果<br>4.调整模型的层数和卷积核数量</p>
-<p>&#x2F;&#x2F;通过Scikit-learn的网格搜索库进行参数调优实例<br>1.常见搜索参数<br>学习率、Dropout、Epochs和神经元数量<br>2.数据集下载<br>数据集为Pima Indians Onset of Diabetes分类数据集<br>下载地址：<a href="https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/">https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/</a><br>3.搜索最优batchsize和epochs<br>&#x2F;&#x2F;以20的步长，从10到100逐步评估不同的微型批尺寸，epochs分别设置为10、50、100<br><code>import numpy from sklearn.grida_search import GridSearchCV from keras.models import Sequential from keras.layers import Dense from keras.wrappers.scikit_learn import KerasClassifier</code></p>
+<p>&#x2F;&#x2F;通过Scikit-learn的网格搜索库进行参数调优实例<br>1.常见搜索参数<br>学习率、Dropout、Epochs和神经元数量<br>2.数据集下载<br>数据集为Pima Indians Onset of Diabetes分类数据集<br>下载地址：<a target="_blank" rel="noopener" href="https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/">https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/</a><br>3.搜索最优batchsize和epochs<br>&#x2F;&#x2F;以20的步长，从10到100逐步评估不同的微型批尺寸，epochs分别设置为10、50、100<br><code>import numpy from sklearn.grida_search import GridSearchCV from keras.models import Sequential from keras.layers import Dense from keras.wrappers.scikit_learn import KerasClassifier</code></p>
 <p>#Function to create model, required for KerasClassifier<br><code>def create_model():     #create model     model = Sequential()     model.add(Dense(12, input_dim=8, activation=&#39;relu&#39;))     model.add(Dense(1, activation=&#39;sigmoid&#39;))</code></p>
 <pre><code>#compile model
 model.compile(loss=&#39;binary_crossentropy&#39;, optimizer=&#39;adam&#39;, metrics=[&#39;accuracy&#39;])
@@ -551,7 +409,7 @@ with open(&#39;timeline.json&#39;, &#39;w&#39;) as f:
 <p>10.2.5CPU瓶颈优化<br>1）多线程方式优化<br>以下两个针对tensorflow的配置可以通过适配线程池进行CPU的性能优化<br>intra_op_parallelism_threads：对tf操作符内部的任务进行并行化<br>inter_op_parallelism_threads: 控制多个运算符之间的并行化运算<br>&#x2F;&#x2F;多线程优化<br><code>config = tf.ConfigProto() config.intra_op_parallelism_threads = 22 config.inter_op_parallelism_threads = 22 tf.session(config=config)</code></p>
 <p>2)使用SIMD高级指令集<br>参考tf官方文档的”Performance Guide”章节</p>
 <p>10.2.6模型压缩<br>模型小型化：从模型权重的角度进行压缩和从网络架构的角度进行压缩<br>网络架构角度：提出新的网络结构或卷积方法进行压缩优化，如SqueezeNet, MobileNets等<br>模型权重角度：一般是在已经训练好的模型上进行裁剪，然后fine-tuning到原有模型的准确率，一般的优化方式包括剪枝、权值共享、神经网络二值化等。</p>
-<p>10.3工程实践建议<br>10.3.1Model格式转换<br>框架间的模型转换<br>参考链接：<br>1.<a href="https://github.com/ysh329/deep-learning-model-convertor">https://github.com/ysh329/deep-learning-model-convertor</a><br>2.<a href="https://github.com/Microsoft/MMdnn">https://github.com/Microsoft/MMdnn</a></p>
+<p>10.3工程实践建议<br>10.3.1Model格式转换<br>框架间的模型转换<br>参考链接：<br>1.<a target="_blank" rel="noopener" href="https://github.com/ysh329/deep-learning-model-convertor">https://github.com/ysh329/deep-learning-model-convertor</a><br>2.<a target="_blank" rel="noopener" href="https://github.com/Microsoft/MMdnn">https://github.com/Microsoft/MMdnn</a></p>
 <p>10.3.2迁移学习（Transfer Learning)<br>其思想是将训练好的模型参数迁移到新的模型来帮助新模型的训练和预测。</p>
 <p>&#x2F;&#x2F;通过MNIST数据集0<del>4的数字训练一个模型，然后将模型迁移到5</del>9数据集上进行迁移学习<br>1）在MNIST数据集上训练一个简单的卷积神经网络，只预测0<del>4的数字<br>2）将训练好的预测0</del>4数据集的模型，应用到5~9数据集上。对模型冻结卷积层参数，Fine-Tuning全连接层。<br>&#x2F;&#x2F;keras迁移学习实例<br><code>from __future__ import print_function import datetime import keras from keras.datasets import mnist from keras.models import Sequential from keras.layers import Dense, Dropout, Activation, Flatten from keras.layers import Conv2D, MaxPooling2D from keras import backend as K</code></p>
 <p><code>now = datetime.datetime.now batch_size = 128 num_classes = 5 epochs = 5</code></p>
@@ -586,6 +444,297 @@ print(&#39;Test score:&#39;, score[0])
 <p><code>#freeze feature layers and rebuild model for l in feature_layers:     l.trainable = False</code></p>
 <p><code>#transfer: train dense layers for new classification task(5~9) train_model(model,     (x_train_gte5, y_train_get5),     (x_test_get5, y_test_get5), num_classes)</code></p>
 <p>​<br>​<br>​    </p>
-]]></content>
-  </entry>
-</search>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/about/donate/image/WeChatPayQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/about/donate/image/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong></a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2022/03/17/en/学习笔记/" target="_blank" title="学习笔记">http://pistachio0812.github.io/2022/03/17/en/学习笔记/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/03/15/CN/%E5%AD%A6%E6%9C%AF%E6%90%9C%E7%B4%A2%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">学术搜索网站集合</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav">None</ol>
+    
+    </div>
+  </aside>
+
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2022 相思似海深旧事如天远 All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+    
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            相思似海深旧事如天远
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 相思似海深旧事如天远 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

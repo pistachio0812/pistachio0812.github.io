@@ -6,17 +6,38 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-03-16T13:10:03.164Z</updated>
+  <updated>2022-03-17T02:02:24.696Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习笔记</title>
+    <link href="http://pistachio0812.github.io/2022/03/17/en/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://pistachio0812.github.io/2022/03/17/en/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2022-03-17T01:30:47.993Z</published>
+    <updated>2022-03-17T02:02:24.696Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;tf中矩阵量存在形式常用有三种，具体如下：&lt;br&gt;1.tf.Variable()&lt;br&gt;表示神经网络中可变化的量（可以通过trainable&amp;#x3D;False设置成不可变),可在运行中赋值，可以通过constant或者其他方式进行初始化。&lt;br&gt;2.tf.constan</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>学术搜索网站集合</title>
     <link href="http://pistachio0812.github.io/2022/03/15/CN/%E5%AD%A6%E6%9C%AF%E6%90%9C%E7%B4%A2%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/"/>
     <id>http://pistachio0812.github.io/2022/03/15/CN/%E5%AD%A6%E6%9C%AF%E6%90%9C%E7%B4%A2%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/</id>
     <published>2022-03-15T01:58:59.113Z</published>
-    <updated>2022-03-16T13:10:03.164Z</updated>
+    <updated>2022-03-17T06:50:09.861Z</updated>
     
     
       
