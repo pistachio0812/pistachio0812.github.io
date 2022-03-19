@@ -17,7 +17,7 @@
 <meta property="og:description" content="就地操作问题来源：看代码发现self.relu&#x3D;nn.ReLU(inplace&#x3D;True)不明白inplace&#x3D;True什么意思。 解答：查看pytorch官网关于ReLU定义，ReLU其中inplace参数表示可以选择就地执行操作，默认为False,就地执行操作是指图像处理函数的输入图像和输出图像是同一对象，即同一张图像，常规的图像处理函数是不支持输入图像和输出图像是同一图像的。 eg:中值滤波">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-03-17T11:30:56.879Z">
-<meta property="article:modified_time" content="2022-03-18T01:32:39.652Z">
+<meta property="article:modified_time" content="2022-03-18T11:28:28.580Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="相思似海深旧事如天远" type="application/atom+xml">
@@ -209,6 +209,32 @@
 <p><code>medianBlur(src, dst, 7);  //常规操作</code></p>
 <p><code>medianBlur(src,  src, 7); //就地操作</code></p>
 <p>就地操作直接更改张量的内容，而无需复制它。由于它不创建输入的副本，因此在处理高维数据时减少了内存使用，就地操作有助于使用更少的GPU内存，详情请看该博客<a target="_blank" rel="noopener" href="https://www.ksgszhuce.com/tetl/37.html">如何在Pytorch中执行就地操作</a></p>
+<h3 id="torch-max中keepdim的作用"><a href="#torch-max中keepdim的作用" class="headerlink" title="torch.max中keepdim的作用"></a>torch.max中keepdim的作用</h3><p>torch.max的用法：</p>
+<p>(max, max_indices) &#x3D; torch.max(input, dim, keepdim&#x3D;False)</p>
+<ul>
+<li>输入：</li>
+</ul>
+<ol>
+<li>input 是输入的tensor。</li>
+<li>dim 是索引的维度，dim&#x3D;0寻找每一列的最大值，dim&#x3D;1寻找每一行的最大值。</li>
+<li>keepdim 表示是否需要保持输出的维度与输入一样，keepdim&#x3D;True表示输出和输入的维度一样，keepdim&#x3D;False表示输出的维度被压缩了，也就是输出会比输入低一个维度。</li>
+</ol>
+<ul>
+<li>输出：</li>
+</ul>
+<ol>
+<li><p>max 表示取最大值后的结果。</p>
+</li>
+<li><p>2max_indices 表示最大值的索引</p>
+</li>
+</ol>
+<p><code>import torch</code></p>
+<p><code>import numpy as np</code></p>
+<p><code>x = torch.randint(0,9,(2,4))</code></p>
+<p><code>print(x) tensor([[7, 8, 7, 2],         [6, 0, 3, 0]])</code></p>
+<p>#取每一行的最大值，torch.max的输出结果</p>
+<p><code>y = torch.max(x, 1)   print(y) torch.return_types.max(values=tensor([8, 6]),indices=tensor([1, 0])) #索引值</code></p>
+<p><code>y = torch.max(x, 1, keepdim=True)[0]</code><br><code>print(y)</code><br><code>print(np.shape(y)) # keepdim=True，输出仍然是二维的</code><br><code>tensor([[8],          [6]])torch.Size([2, 1])</code><br><code>y = torch.max(x, 1, keepdim=False)[0]</code><br><code>print(y)</code><br><code>print(np.shape(y)) keepdim=False # 输出变成了一维 </code>tensor([8, 6])<br><code>torch.Size([2])</code></p>
 
       
     </div>
@@ -302,7 +328,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%B1%E5%9C%B0%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">就地操作</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%B1%E5%9C%B0%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">就地操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-max%E4%B8%ADkeepdim%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">torch.max中keepdim的作用</span></a></li></ol>
     
     </div>
   </aside>

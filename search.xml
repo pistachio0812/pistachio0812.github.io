@@ -597,6 +597,32 @@ print(&#39;Test score:&#39;, score[0])
 <p><code>medianBlur(src, dst, 7);  //常规操作</code></p>
 <p><code>medianBlur(src,  src, 7); //就地操作</code></p>
 <p>就地操作直接更改张量的内容，而无需复制它。由于它不创建输入的副本，因此在处理高维数据时减少了内存使用，就地操作有助于使用更少的GPU内存，详情请看该博客<a href="https://www.ksgszhuce.com/tetl/37.html">如何在Pytorch中执行就地操作</a></p>
+<h3 id="torch-max中keepdim的作用"><a href="#torch-max中keepdim的作用" class="headerlink" title="torch.max中keepdim的作用"></a>torch.max中keepdim的作用</h3><p>torch.max的用法：</p>
+<p>(max, max_indices) &#x3D; torch.max(input, dim, keepdim&#x3D;False)</p>
+<ul>
+<li>输入：</li>
+</ul>
+<ol>
+<li>input 是输入的tensor。</li>
+<li>dim 是索引的维度，dim&#x3D;0寻找每一列的最大值，dim&#x3D;1寻找每一行的最大值。</li>
+<li>keepdim 表示是否需要保持输出的维度与输入一样，keepdim&#x3D;True表示输出和输入的维度一样，keepdim&#x3D;False表示输出的维度被压缩了，也就是输出会比输入低一个维度。</li>
+</ol>
+<ul>
+<li>输出：</li>
+</ul>
+<ol>
+<li><p>max 表示取最大值后的结果。</p>
+</li>
+<li><p>2max_indices 表示最大值的索引</p>
+</li>
+</ol>
+<p><code>import torch</code></p>
+<p><code>import numpy as np</code></p>
+<p><code>x = torch.randint(0,9,(2,4))</code></p>
+<p><code>print(x) tensor([[7, 8, 7, 2],         [6, 0, 3, 0]])</code></p>
+<p>#取每一行的最大值，torch.max的输出结果</p>
+<p><code>y = torch.max(x, 1)   print(y) torch.return_types.max(values=tensor([8, 6]),indices=tensor([1, 0])) #索引值</code></p>
+<p><code>y = torch.max(x, 1, keepdim=True)[0]</code><br><code>print(y)</code><br><code>print(np.shape(y)) # keepdim=True，输出仍然是二维的</code><br><code>tensor([[8],          [6]])torch.Size([2, 1])</code><br><code>y = torch.max(x, 1, keepdim=False)[0]</code><br><code>print(y)</code><br><code>print(np.shape(y)) keepdim=False # 输出变成了一维 </code>tensor([8, 6])<br><code>torch.Size([2])</code></p>
 ]]></content>
   </entry>
 </search>
