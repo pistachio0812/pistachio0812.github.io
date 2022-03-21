@@ -623,6 +623,22 @@ print(&#39;Test score:&#39;, score[0])
 <p>#取每一行的最大值，torch.max的输出结果</p>
 <p><code>y = torch.max(x, 1)   print(y) torch.return_types.max(values=tensor([8, 6]),indices=tensor([1, 0])) #索引值</code></p>
 <p><code>y = torch.max(x, 1, keepdim=True)[0]</code><br><code>print(y)</code><br><code>print(np.shape(y)) # keepdim=True，输出仍然是二维的</code><br><code>tensor([[8],          [6]])torch.Size([2, 1])</code><br><code>y = torch.max(x, 1, keepdim=False)[0]</code><br><code>print(y)</code><br><code>print(np.shape(y)) keepdim=False # 输出变成了一维 </code>tensor([8, 6])<br><code>torch.Size([2])</code></p>
+<h3 id="ConstantPad2d的用法"><a href="#ConstantPad2d的用法" class="headerlink" title="ConstantPad2d的用法"></a>ConstantPad2d的用法</h3><p>torch.nn.ConstantPad2d(padding, value)</p>
+<p>参数：padding(int, tuple)-padding的尺寸，如果是整型，那么所有的边界都使用相同的填充，如果是四元组，使用（padding_left, padding_right, padding_top, padding_bottom)</p>
+<p>形状：</p>
+<ul>
+<li><p>输入：<br>$$<br>(N, C, H_{in}, W_{in}) or (C, H_{in}, W_{in})<br>$$</p>
+</li>
+<li><p>输出：<br>$$<br>(N, C, H_{out}, W_{out}) or (C, H_{out}, W_{out})<br>$$<br>其中，<br>$$<br>H_{out} &#x3D; H_{in}+padding_{top}+padding_{bottom}<br>$$</p>
+<p>$$<br>W_{out}&#x3D;W_{in}+padding_{left}+padding_{right}<br>$$</p>
+</li>
+</ul>
+<p>测试用例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line"></span><br><span class="line">n1 = nn.ConstantPad2d(2, 0)</span><br><span class="line">n2 = nn.ConstantPad2d((0, 1, 0, 1), 0)</span><br><span class="line">n3 = nn.ConstantPad2d((-1, 0, -1, 0), 0)</span><br><span class="line">input = torch.randn(1, 2, 2)</span><br><span class="line">print(input)</span><br><span class="line">t = n1(input)</span><br><span class="line">print(t)</span><br><span class="line">x = n2(input)</span><br><span class="line">y = n3(x)</span><br><span class="line">print(x)</span><br><span class="line">print(y)</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<p>tensor([[[ 1.0826,  0.1191],<br>         [-0.3506,  0.1677]]])<br>tensor([[[ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  1.0826,  0.1191,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000, -0.3506,  0.1677,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000]]])<br>tensor([[[ 1.0826,  0.1191,  0.0000],<br>         [-0.3506,  0.1677,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000]]])<br>tensor([[[0.1677, 0.0000],<br>         [0.0000, 0.0000]]])</p>
+<p>更多详情参考<a href="https://pytorch.org/docs/stable/generated/torch.nn.ConstantPad2d.html?highlight=constantpad2d#torch.nn.ConstantPad2d">ConstantPad2d</a></p>
 ]]></content>
   </entry>
 </search>
