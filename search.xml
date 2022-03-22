@@ -339,7 +339,7 @@
 <p><img src="http://www.cvpapers.com/img/cvpapers.png" alt="CVPR"></p>
 <h2 id="CVF"><a href="#CVF" class="headerlink" title="CVF"></a>CVF</h2><p><a href="https://openaccess.thecvf.com/">CVF</a>研究论文是由计算机视觉基金会提供的开放获取版本。除水印外，它们与接受的版本相同;最后发表的论文集可以在IEEE Xplore上找到。本材料的提出，以确保及时传播学术和技术工作。版权和其中的所有权利由作者或其他版权持有人保留。所有复制此信息的人都应遵守每个作者的版权所援引的条款和约束。</p>
 <p>相关页面如下：</p>
-<p><img src="https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/images/cropped-cvf-s.jpg" alt="CVF"></p>
+<p><img src="https://openaccess.thecvf.com/img/cropped-cvf-s.jpg" alt="CVF">)</p>
 ]]></content>
   </entry>
   <entry>
@@ -639,6 +639,20 @@ print(&#39;Test score:&#39;, score[0])
 <p>结果：</p>
 <p>tensor([[[ 1.0826,  0.1191],<br>         [-0.3506,  0.1677]]])<br>tensor([[[ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  1.0826,  0.1191,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000, -0.3506,  0.1677,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000]]])<br>tensor([[[ 1.0826,  0.1191,  0.0000],<br>         [-0.3506,  0.1677,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000]]])<br>tensor([[[0.1677, 0.0000],<br>         [0.0000, 0.0000]]])</p>
 <p>更多详情参考<a href="https://pytorch.org/docs/stable/generated/torch.nn.ConstantPad2d.html?highlight=constantpad2d#torch.nn.ConstantPad2d">ConstantPad2d</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>色彩搭配</title>
+    <url>/2022/03/22/en/%E6%95%99%E4%BD%A0%E5%AD%A6%E4%BC%9A%E8%89%B2%E5%BD%A9%E6%90%AD%E9%85%8D/</url>
+    <content><![CDATA[<h3 id="中国色"><a href="#中国色" class="headerlink" title="中国色"></a>中国色</h3><p><a href="http://zhongguose.com/">中国色</a></p>
+<h3 id="COULEUR"><a href="#COULEUR" class="headerlink" title="COULEUR"></a>COULEUR</h3><p><a href="https://www.code-couleur.com/signification/">couleur</a></p>
+<h3 id="color-space"><a href="#color-space" class="headerlink" title="color space"></a>color space</h3><p><a href="https://mycolor.space/">color space</a></p>
+<h3 id="hyper-color"><a href="#hyper-color" class="headerlink" title="hyper color"></a>hyper color</h3><p><a href="https://hypercolor.dev/">Hypercolor</a></p>
+<h3 id="colorable"><a href="#colorable" class="headerlink" title="colorable"></a>colorable</h3><p><a href="https://colorable.jxnblk.com/">Colorable</a></p>
+<h3 id="brandcolors"><a href="#brandcolors" class="headerlink" title="brandcolors"></a>brandcolors</h3><p><a href="https://brandcolors.net/">BrandColors</a></p>
+<h3 id="九月ppt"><a href="#九月ppt" class="headerlink" title="九月ppt"></a>九月ppt</h3><p><a href="https://jiuyueppt.com/#/">九月PPT</a></p>
+<h3 id="huemint"><a href="#huemint" class="headerlink" title="huemint"></a>huemint</h3><p><a href="https://huemint.com/">Huemint - AI color palette generator</a></p>
+<h3 id="Adobe-Color"><a href="#Adobe-Color" class="headerlink" title="Adobe Color"></a>Adobe Color</h3><p><a href="https://color.adobe.com/zh/create/color-wheel">色輪、調色盤產生器 | Adobe Color</a></p>
 ]]></content>
   </entry>
 </search>
