@@ -852,7 +852,52 @@ print(&#39;Test score:&#39;, score[0])
 <td>(A&lt;&#x3D;B)返回true</td>
 </tr>
 </tbody></table>
-<p>举例：读取w3cschool_tbl表中w3cschool_author字段值为</p>
+<p>举例：读取w3cschool_tbl表中w3cschool_author字段值为Sanjay的所有记录：</p>
+<p><code>SELECT * from w3cschool_tbl WHERE w3cschool_author=&#39;Sanjay&#39;;</code></p>
+<p>除非你使用LIKE来比较字符串，否则MySQL的WHERE子句的字符串比较是不区分大小写的。你可以使用BINARY关键字来设定WHERE子句的紫福春是区分大小写的。</p>
+<p><code>SELECT * from w3cschool_tbl WHERE BINARY w3cschool_author=&#39;sanjay&#39;;</code></p>
+<h3 id="MySQL-UPDATE查询"><a href="#MySQL-UPDATE查询" class="headerlink" title="MySQL UPDATE查询"></a>MySQL UPDATE查询</h3><h4 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE table_name SET field1=new-value1, field2=new-value2</span><br><span class="line"></span><br><span class="line">[WHERE Clause]</span><br></pre></td></tr></table></figure>
+
+<p>注：</p>
+<p>·你可以同时更新一个或多个字段</p>
+<p>·你可以在WHERE字句中指定任何条件</p>
+<p>·你可以在一个单独表中同时更新数据</p>
+<p>当你需要更新表中指定行的数据时，WHERE子句是非常有用的。</p>
+<p>举例：更新数据表中w3cschool_id为3的w3cschool_title字段值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE w3cschool_tbl</span><br><span class="line">SET w3cschool_title=&#x27;Learning JAVA&#x27;</span><br><span class="line">WHERE w3cschool_id=3;</span><br></pre></td></tr></table></figure>
+
+<h3 id="MySQL-DELETE语句"><a href="#MySQL-DELETE语句" class="headerlink" title="MySQL DELETE语句"></a>MySQL DELETE语句</h3><h4 id="语法-6"><a href="#语法-6" class="headerlink" title="语法"></a>语法</h4><p><code>DELETE FROM table_name [WHERE Clause]</code></p>
+<p>注：</p>
+<p>·如果没有指定WHERE子句，MySQL表中的所有记录将被删除</p>
+<p>·你可以在WHERE字句中指定任何条件</p>
+<p>·你可以在单个表中一次性删除记录</p>
+<p>当你想删除数据表中的指定记录时，WHERE子句是非常有用的</p>
+<p>举例：删除w3cschool_tbl表中w3cschool_id为3的记录：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELETE FROM w3cschool_tbl WHERE w3cschool_id=3;</span><br></pre></td></tr></table></figure>
+
+<h3 id="MySQL-LIKE子句"><a href="#MySQL-LIKE子句" class="headerlink" title="MySQL LIKE子句"></a>MySQL LIKE子句</h3><p>SQL LIKE子句中使用百分号（%）字符来表示任意字符，类似于UNIX或者正则表达式中的星号（*）。</p>
+<h4 id="语法-7"><a href="#语法-7" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT field1, field2, ...fieldN</span><br><span class="line">FROM table_name1, table_name2...</span><br><span class="line">WHERE field1 LIKE condition [[AND][OR]] field2=&#x27;somevalue&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>注：</p>
+<p>·你可以在WHERE子句中指定任何条件</p>
+<p>·你可以在WHERE字句中使用LIKE子句</p>
+<p>·你可以使用LIKE子句代替等号</p>
+<p>·LIKE通常与%一同使用，类似于一个元字符的搜索</p>
+<p>·你可以使用AND或OR指定一个或多个条件</p>
+<p>·你可以在DELETE或UPDATE命令中使用WHERE…LIKE子句来指定条件</p>
+<p>举例：查询w3cschool_tbl表中的w3cschool_author字段中以’jay’为结尾的所有记录：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT * from w3cschool_tbl</span><br><span class="line">WHERE w3cschool_author LIKE &#x27;%jay&#x27;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
 ]]></content>
       <categories>
         <category>MySQL</category>
