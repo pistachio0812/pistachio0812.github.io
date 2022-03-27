@@ -17,7 +17,7 @@
 <meta property="og:description" content="就地操作问题来源：看代码发现self.relu&#x3D;nn.ReLU(inplace&#x3D;True)不明白inplace&#x3D;True什么意思。 解答：查看pytorch官网关于ReLU定义，ReLU其中inplace参数表示可以选择就地执行操作，默认为False,就地执行操作是指图像处理函数的输入图像和输出图像是同一对象，即同一张图像，常规的图像处理函数是不支持输入图像和输出图像是同一图像的。 eg:中值滤波">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-03-17T11:30:56.879Z">
-<meta property="article:modified_time" content="2022-03-21T08:00:19.532Z">
+<meta property="article:modified_time" content="2022-03-26T09:13:32.801Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="相思似海深旧事如天远" type="application/atom+xml">
@@ -251,6 +251,25 @@
 <p>结果：</p>
 <p>tensor([[[ 1.0826,  0.1191],<br>         [-0.3506,  0.1677]]])<br>tensor([[[ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  1.0826,  0.1191,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000, -0.3506,  0.1677,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000]]])<br>tensor([[[ 1.0826,  0.1191,  0.0000],<br>         [-0.3506,  0.1677,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000]]])<br>tensor([[[0.1677, 0.0000],<br>         [0.0000, 0.0000]]])</p>
 <p>更多详情参考<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.nn.ConstantPad2d.html?highlight=constantpad2d#torch.nn.ConstantPad2d">ConstantPad2d</a></p>
+<h3 id="enumerate-函数"><a href="#enumerate-函数" class="headerlink" title="enumerate()函数"></a>enumerate()函数</h3><h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><p>enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。Python 2.3. 以上版本可用，2.6 添加 start 参数。</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p><code>enumerate(sequence, [start=0])</code></p>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p>·sequence–一个序列、迭代器或其他支持迭代对象</p>
+<p>·start–下标起始位置的值</p>
+<h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><p>返回enumerate(枚举)对象</p>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>以下展示了使用enumerate()方法的实例：</p>
+<blockquote>
+<p>seasons &#x3D; [‘Spring’, ‘Summer’, ‘Fall’, ‘Winter’]</p>
+<p>list(enumerate(seasons))</p>
+<p><code>[(0, &#39;Spring&#39;), (1, &#39;Summer&#39;), (2, &#39;Fall&#39;), (3, &#39;Winter&#39;)]</code></p>
+<p>list(enumerate(seasons, start&#x3D;1))    # 下标从1开始</p>
+<p><code>[(1, &#39;Spring&#39;), (2, &#39;Summer&#39;), (3, &#39;Fall&#39;), (4, &#39;Winter&#39;)]</code></p>
+</blockquote>
+<p>普通的for循环</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line">seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">enumerate</span>(seq):</span><br><span class="line">	<span class="built_in">print</span>(i, seq[i])</span><br><span class="line">	i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line"><span class="number">0</span> one</span><br><span class="line"><span class="number">1</span> two</span><br><span class="line"><span class="number">2</span> three</span><br></pre></td></tr></table></figure>
+
+<p>for循环使用enumerate</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i, element <span class="keyword">in</span> <span class="built_in">enumerate</span>(seq):</span><br><span class="line">	<span class="built_in">print</span>(i, element)</span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line"><span class="number">0</span> one</span><br><span class="line"><span class="number">1</span> two</span><br><span class="line"><span class="number">2</span> three</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -353,7 +372,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%B1%E5%9C%B0%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">就地操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-max%E4%B8%ADkeepdim%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">torch.max中keepdim的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConstantPad2d%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">ConstantPad2d的用法</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%B1%E5%9C%B0%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">就地操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-max%E4%B8%ADkeepdim%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">torch.max中keepdim的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConstantPad2d%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">ConstantPad2d的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#enumerate-%E5%87%BD%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">enumerate()函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-number">4.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E6%95%B0"><span class="nav-number">4.3.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">4.4.</span> <span class="nav-text">返回值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">4.5.</span> <span class="nav-text">实例</span></a></li></ol></li></ol>
     
     </div>
   </aside>
