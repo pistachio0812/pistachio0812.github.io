@@ -19,7 +19,7 @@
 <meta property="og:description" content="MySQL入门教程什么是数据库数据库是按照数据结构来组织、存储和管理数据的仓库 关系型数据库：建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据 RDBMS即关系数据库管理系统的特点： 1.数据以表格的形式出现 2.每行为各种记录名称 3.每列为记录名称所对应的数据域 4.许多行和列组成一张表单 5.若干的表单组成数据库 RDBMS相关概念· MySQL创建数据表语法">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-03-26T11:07:11.619Z">
-<meta property="article:modified_time" content="2022-03-27T05:21:41.631Z">
+<meta property="article:modified_time" content="2022-03-28T01:12:32.402Z">
 <meta property="article:tag" content="Note">
 <meta name="twitter:card" content="summary">
   
@@ -339,7 +339,6 @@
 <h3 id="MySQL-分组"><a href="#MySQL-分组" class="headerlink" title="MySQL 分组"></a>MySQL 分组</h3><p>GROUP BY语句根据一个或者多个列对结果集进行分组，在分组的列上我们可以使用COUNT,SUM,AVG等函数。</p>
 <h4 id="语法-9"><a href="#语法-9" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT column_name, function(column_name)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE column_name operator value</span><br><span class="line">GROUP BY column_name;</span><br></pre></td></tr></table></figure>
 
-<p>举例：将数据表按名字进行分组，并统计每个人有多少条记录：</p>
 <p>employee_tbl表格信息如下：</p>
 <table>
 <thead>
@@ -387,6 +386,59 @@
 <td>2</td>
 </tr>
 </tbody></table>
+<p>举例：将数据表按名字进行分组，并统计每个人有多少条记录：</p>
+<p><code>SELECT name, COUNT(*) FROM employ_tbl GROUP BY name;</code></p>
+<h3 id="使用WITH-ROLLUP"><a href="#使用WITH-ROLLUP" class="headerlink" title="使用WITH ROLLUP"></a>使用WITH ROLLUP</h3><p>WITH ROLLUP可以实现在分组统计数据基础上再进行相同的统计（SUM.AVG,COUNT).</p>
+<p>举例：将以上的数据表按名字进行分组，再统计每个人登录的次数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT name, SUM(singin) as singin_count</span><br><span class="line">FROM employee_tbl</span><br><span class="line">GROUP BY name WITH ROLLUP;</span><br></pre></td></tr></table></figure>
+
+<p>其中结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>singin_out</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>小丽</td>
+<td>2</td>
+</tr>
+<tr>
+<td>小明</td>
+<td>7</td>
+</tr>
+<tr>
+<td>小王</td>
+<td>7</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>16</td>
+</tr>
+</tbody></table>
+<p>其中记录NULL表示所有人的登录次数，我们可以使用coalesce来设置一个可以取代NULL的名称。</p>
+<h4 id="语法-10"><a href="#语法-10" class="headerlink" title="语法"></a>语法</h4><p><code>select coalesce(a, b, c);</code></p>
+<p>参数说明：如果a&#x3D;&#x3D;null,则选择b;如果b&#x3D;&#x3D;null,则选择c;如果a!&#x3D;null,则选择a;如果abc都为null,则返回null(没意义)。</p>
+<p>举例：如果名字为空，使用总数代替：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT coalesce(name, &#x27;总数&#x27;), SUM(singin) as singin_out</span><br><span class="line">FROM employee_tbl</span><br><span class="line">GROUP BY name WITH ROLLUP;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       
     </div>
@@ -482,7 +534,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">MySQL入门教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.1.</span> <span class="nav-text">什么是数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDBMS%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">1.2.</span> <span class="nav-text">RDBMS相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-number">1.3.</span> <span class="nav-text">MySQL创建数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-number">1.4.</span> <span class="nav-text">MySQL删除数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">1.5.</span> <span class="nav-text">MySQL插入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-2"><span class="nav-number">1.5.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-number">1.6.</span> <span class="nav-text">MySQL查询数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-3"><span class="nav-number">1.6.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-where%E5%AD%90%E5%8F%A5"><span class="nav-number">1.7.</span> <span class="nav-text">MySQL where子句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-4"><span class="nav-number">1.7.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-UPDATE%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.8.</span> <span class="nav-text">MySQL UPDATE查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-5"><span class="nav-number">1.8.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-DELETE%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.9.</span> <span class="nav-text">MySQL DELETE语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-6"><span class="nav-number">1.9.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-LIKE%E5%AD%90%E5%8F%A5"><span class="nav-number">1.10.</span> <span class="nav-text">MySQL LIKE子句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-7"><span class="nav-number">1.10.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E6%8E%92%E5%BA%8F"><span class="nav-number">1.11.</span> <span class="nav-text">MySQL排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-8"><span class="nav-number">1.11.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-%E5%88%86%E7%BB%84"><span class="nav-number">1.12.</span> <span class="nav-text">MySQL 分组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-9"><span class="nav-number">1.12.1.</span> <span class="nav-text">语法</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">MySQL入门教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.1.</span> <span class="nav-text">什么是数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDBMS%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">1.2.</span> <span class="nav-text">RDBMS相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-number">1.3.</span> <span class="nav-text">MySQL创建数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-number">1.4.</span> <span class="nav-text">MySQL删除数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">1.5.</span> <span class="nav-text">MySQL插入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-2"><span class="nav-number">1.5.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-number">1.6.</span> <span class="nav-text">MySQL查询数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-3"><span class="nav-number">1.6.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-where%E5%AD%90%E5%8F%A5"><span class="nav-number">1.7.</span> <span class="nav-text">MySQL where子句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-4"><span class="nav-number">1.7.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-UPDATE%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.8.</span> <span class="nav-text">MySQL UPDATE查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-5"><span class="nav-number">1.8.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-DELETE%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.9.</span> <span class="nav-text">MySQL DELETE语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-6"><span class="nav-number">1.9.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-LIKE%E5%AD%90%E5%8F%A5"><span class="nav-number">1.10.</span> <span class="nav-text">MySQL LIKE子句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-7"><span class="nav-number">1.10.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E6%8E%92%E5%BA%8F"><span class="nav-number">1.11.</span> <span class="nav-text">MySQL排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-8"><span class="nav-number">1.11.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-%E5%88%86%E7%BB%84"><span class="nav-number">1.12.</span> <span class="nav-text">MySQL 分组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-9"><span class="nav-number">1.12.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8WITH-ROLLUP"><span class="nav-number">1.13.</span> <span class="nav-text">使用WITH ROLLUP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-10"><span class="nav-number">1.13.1.</span> <span class="nav-text">语法</span></a></li></ol></li></ol></li></ol>
     
     </div>
   </aside>

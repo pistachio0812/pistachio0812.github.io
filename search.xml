@@ -904,7 +904,6 @@ print(&#39;Test score:&#39;, score[0])
 <h3 id="MySQL-分组"><a href="#MySQL-分组" class="headerlink" title="MySQL 分组"></a>MySQL 分组</h3><p>GROUP BY语句根据一个或者多个列对结果集进行分组，在分组的列上我们可以使用COUNT,SUM,AVG等函数。</p>
 <h4 id="语法-9"><a href="#语法-9" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT column_name, function(column_name)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE column_name operator value</span><br><span class="line">GROUP BY column_name;</span><br></pre></td></tr></table></figure>
 
-<p>举例：将数据表按名字进行分组，并统计每个人有多少条记录：</p>
 <p>employee_tbl表格信息如下：</p>
 <table>
 <thead>
@@ -952,6 +951,59 @@ print(&#39;Test score:&#39;, score[0])
 <td>2</td>
 </tr>
 </tbody></table>
+<p>举例：将数据表按名字进行分组，并统计每个人有多少条记录：</p>
+<p><code>SELECT name, COUNT(*) FROM employ_tbl GROUP BY name;</code></p>
+<h3 id="使用WITH-ROLLUP"><a href="#使用WITH-ROLLUP" class="headerlink" title="使用WITH ROLLUP"></a>使用WITH ROLLUP</h3><p>WITH ROLLUP可以实现在分组统计数据基础上再进行相同的统计（SUM.AVG,COUNT).</p>
+<p>举例：将以上的数据表按名字进行分组，再统计每个人登录的次数：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT name, SUM(singin) as singin_count</span><br><span class="line">FROM employee_tbl</span><br><span class="line">GROUP BY name WITH ROLLUP;</span><br></pre></td></tr></table></figure>
+
+<p>其中结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>singin_out</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>小丽</td>
+<td>2</td>
+</tr>
+<tr>
+<td>小明</td>
+<td>7</td>
+</tr>
+<tr>
+<td>小王</td>
+<td>7</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>16</td>
+</tr>
+</tbody></table>
+<p>其中记录NULL表示所有人的登录次数，我们可以使用coalesce来设置一个可以取代NULL的名称。</p>
+<h4 id="语法-10"><a href="#语法-10" class="headerlink" title="语法"></a>语法</h4><p><code>select coalesce(a, b, c);</code></p>
+<p>参数说明：如果a&#x3D;&#x3D;null,则选择b;如果b&#x3D;&#x3D;null,则选择c;如果a!&#x3D;null,则选择a;如果abc都为null,则返回null(没意义)。</p>
+<p>举例：如果名字为空，使用总数代替：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT coalesce(name, &#x27;总数&#x27;), SUM(singin) as singin_out</span><br><span class="line">FROM employee_tbl</span><br><span class="line">GROUP BY name WITH ROLLUP;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]]></content>
       <categories>
         <category>MySQL</category>
