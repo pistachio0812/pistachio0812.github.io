@@ -19,7 +19,7 @@
 <meta property="og:description" content="MySQL入门教程什么是数据库数据库是按照数据结构来组织、存储和管理数据的仓库 关系型数据库：建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据 RDBMS即关系数据库管理系统的特点： 1.数据以表格的形式出现 2.每行为各种记录名称 3.每列为记录名称所对应的数据域 4.许多行和列组成一张表单 5.若干的表单组成数据库 RDBMS相关概念· MySQL创建数据表语法">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-03-26T11:07:11.619Z">
-<meta property="article:modified_time" content="2022-03-28T01:12:32.402Z">
+<meta property="article:modified_time" content="2022-03-28T07:27:48.843Z">
 <meta property="article:tag" content="Note">
 <meta name="twitter:card" content="summary">
   
@@ -423,22 +423,7 @@
 <p>举例：如果名字为空，使用总数代替：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT coalesce(name, &#x27;总数&#x27;), SUM(singin) as singin_out</span><br><span class="line">FROM employee_tbl</span><br><span class="line">GROUP BY name WITH ROLLUP;</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/images/SQL_JOINS.png">q</a></p>
 
       
     </div>

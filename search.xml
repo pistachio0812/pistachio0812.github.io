@@ -660,7 +660,18 @@ print(&#39;Test score:&#39;, score[0])
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i, element <span class="keyword">in</span> <span class="built_in">enumerate</span>(seq):</span><br><span class="line">	<span class="built_in">print</span>(i, element)</span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line"><span class="number">0</span> one</span><br><span class="line"><span class="number">1</span> two</span><br><span class="line"><span class="number">2</span> three</span><br></pre></td></tr></table></figure>
 
 <h3 id="torch-clamp"><a href="#torch-clamp" class="headerlink" title="torch.clamp"></a>torch.clamp</h3><p><code>torch.clamp(input, min=None, max=None, *, out=None)-&gt;Tensor</code></p>
-<p>Clamps中所有输入的元素都在[min, max]范围内，让</p>
+<p>Clamps中所有输入的元素都在[min, max]范围内，让最小值和最大值分别是min和max，将会返回：<br>$$<br>y_i&#x3D;min(max(x_i,min_value_i),max_value_i)<br>$$<br>如果min为空，就没有下界。或者，如果max为空，没有上界。</p>
+<p>注：</p>
+<p>如果min大于max,<code>torch.clamp(...,min,max)</code>设置输入的所有元素为max的值。</p>
+<p>参数：</p>
+<p>·input(Tensor)-输入张量</p>
+<p>·min(Number或Tensor,可选)-被限制范围的下界</p>
+<p>·max(Number或Tensor,可选)-被限制范围的上界</p>
+<p>关键字参数：</p>
+<p>out(Tensor, 可选)-输出的张量</p>
+<p>举例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;a = torch.randn(<span class="number">4</span>)</span><br><span class="line">&gt;&gt;&gt;a</span><br><span class="line">tensor([-<span class="number">1.7120</span>, <span class="number">0.1734</span>, -<span class="number">0.0478</span>, -<span class="number">0.0922</span>])</span><br><span class="line">&gt;&gt;&gt;torch.clamp(a, <span class="built_in">min</span>=-<span class="number">0.5</span>, <span class="built_in">max</span>=<span class="number">0.5</span>)</span><br><span class="line">tensor([-<span class="number">0.5000</span>, <span class="number">0.1734</span>, -<span class="number">0.0478</span>, -<span class="number">0.0922</span>])</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;<span class="built_in">min</span> = torch.linspace(-<span class="number">1</span>, <span class="number">1</span>, steps=<span class="number">4</span>)</span><br><span class="line">&gt;&gt;&gt;torch.clamp(a, <span class="built_in">min</span>=<span class="built_in">min</span>)</span><br><span class="line">tensor([-<span class="number">1.000</span>, <span class="number">0.1734</span>, <span class="number">0.3333</span>, <span class="number">1.0000</span>])</span><br></pre></td></tr></table></figure>
+
 <h3 id="FPPI"><a href="#FPPI" class="headerlink" title="FPPI"></a>FPPI</h3><p><a href="https://blog.csdn.net/Bruce_0712/article/details/78462880">(68条消息) Recall&#x2F;Precision&#x2F;FPPI评价方式详解_Bruce_0712的博客-CSDN博客</a></p>
 ]]></content>
   </entry>
@@ -988,22 +999,7 @@ print(&#39;Test score:&#39;, score[0])
 <p>举例：如果名字为空，使用总数代替：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT coalesce(name, &#x27;总数&#x27;), SUM(singin) as singin_out</span><br><span class="line">FROM employee_tbl</span><br><span class="line">GROUP BY name WITH ROLLUP;</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p><a href="https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/images/SQL_JOINS.png">q</a></p>
 ]]></content>
       <categories>
         <category>MySQL</category>
