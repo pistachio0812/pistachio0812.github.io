@@ -999,7 +999,122 @@ print(&#39;Test score:&#39;, score[0])
 <p>举例：如果名字为空，使用总数代替：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT coalesce(name, &#x27;总数&#x27;), SUM(singin) as singin_out</span><br><span class="line">FROM employee_tbl</span><br><span class="line">GROUP BY name WITH ROLLUP;</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/images/SQL_JOINS.png">q</a></p>
+<h3 id="MySQL连接的使用"><a href="#MySQL连接的使用" class="headerlink" title="MySQL连接的使用"></a>MySQL连接的使用</h3><p>JOIN按照功能大致分为如下三类：</p>
+<p>·INNER JOIN(内连接，或等值连接)：获取两个表中字段匹配关系的记录</p>
+<p>·LEFT JOIN（左连接）：获取左表所有记录，即使右表没有对应匹配的记录</p>
+<p>·RIGHT JOIN(右连接)：用于获取右表所有记录，即使左表没有对应匹配的记录</p>
+<p><a href="https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/images/SQL_JOINS.png">SQL JOINS</a></p>
+<p>假设W3CSCHOOL数据库中有两张表tcount_tbl和w3cschool_tbl,两张数据表数据如下：</p>
+<p>1.tcount_tbl</p>
+<table>
+<thead>
+<tr>
+<th align="center">w3cschool_author</th>
+<th>w3cschool_count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">mahran</td>
+<td>20</td>
+</tr>
+<tr>
+<td align="center">mahnaz</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td align="center">Jen</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td align="center">Gill</td>
+<td>20</td>
+</tr>
+<tr>
+<td align="center">John Poul</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="center">Sanjay</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>2.w3cschool_tbl</p>
+<table>
+<thead>
+<tr>
+<th>w3cschool_id</th>
+<th>w3cschool_title</th>
+<th>w3cschool_author</th>
+<th>submission_date</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Learn PHP</td>
+<td>John Poul</td>
+<td>2007-05-24</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Learn MyQL</td>
+<td>Abdul S</td>
+<td>2007-05-24</td>
+</tr>
+<tr>
+<td>3</td>
+<td>JAVA Tutorial</td>
+<td>Sanjay</td>
+<td>2007-05-06</td>
+</tr>
+</tbody></table>
+<p>举例：使用INNER JOIN来连接以上两张表来读取w3cschool_tbl表中所有w3cschool_author字段在tcount_tbl表中对应的w3cschool_count字段值。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT a.w3cschool_id, a.w3cschool_author, b.w3cschool_count</span><br><span class="line">FROM w3cschool_tbl a INNER JOIN tcount_tbl b</span><br><span class="line">ON a.w3cschool_author = b.w3cschool_author</span><br></pre></td></tr></table></figure>
+
+<p>等价于：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT a.w3cschool_id, a_w3cschool_author, b.w3cschool_count</span><br><span class="line">FROM w3cschool_tbl a, tcount_tbl b</span><br><span class="line">WHERE a.w3cschool_author = b.w3cschool_author;</span><br></pre></td></tr></table></figure>
+
+<p>举例：以w3cschool_tbl为左表， t_count_tbl为右表，理解MySQL LEFT JOIN的应用：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT a.w3cschool_id, a.w3cschool_author, b.w3cschool_count</span><br><span class="line">FROM w3cschool_tbl a LEFT JOIN tcount_tbl b</span><br><span class="line">ON a.w3cschool_author = b.w3cschool_author;</span><br></pre></td></tr></table></figure>
+
+<p>举例：以tcount_tbl为左表， w3cschool_tbl为右表，理解MySQL RIGHT JOIN的应用：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT b.w3cschool_id, b.w3cschool_author, a.w3cschool_count</span><br><span class="line">FROM tcount_tbl a RIGHT JOIN w3cschool_tbl b</span><br><span class="line">ON a.w3cschool_author = b.w3cschool_author;</span><br></pre></td></tr></table></figure>
+
+<h3 id="MySQL-NULL值处理"><a href="#MySQL-NULL值处理" class="headerlink" title="MySQL NULL值处理"></a>MySQL NULL值处理</h3><p>查询条件字段为NULL时，该命令可能无法正常工作，为了处理这种情况，MySQL提供了三大运算符：</p>
+<p>·IS NULL:当列的值为NULL,此运算符返回True</p>
+<p>·IS NOT NULL:当列的值不为NULL,运算符返回True</p>
+<p>·&lt;&#x3D;&gt;:比较运算符，当比较的两个值为NULL时返回True</p>
+<p>关于NULL的条件比较运算是比较特殊的，你不能够使用&#x3D;NULL或！&#x3D;NULL在列中查找NULL值，在MySQL中，NULL值与任何其他值的比较永远返回false,即NULL&#x3D;NULL返回false。</p>
+<h4 id="在命令提示符中使用NULL值"><a href="#在命令提示符中使用NULL值" class="headerlink" title="在命令提示符中使用NULL值"></a>在命令提示符中使用NULL值</h4><p>假设数据库W3CSCHOOL中的表tcount_tbl含有两列w3cschool_author和w3cschool_count, w3cschool_count中设置插入NULL值。</p>
+<p>假设表如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>w3cschool_author</th>
+<th>w3cschool_count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mahran</td>
+<td>20</td>
+</tr>
+<tr>
+<td>mahnaz</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>Jen</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>Gill</td>
+<td>20</td>
+</tr>
+</tbody></table>
+<p>查询数据表中w3cschool_count列是否为NULL,必须使用IS NULL和IS NOT NULL,如下实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT * FROM tcount_tbl</span><br><span class="line">WHERE w3cschool_count IS NULL;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT * FROM tcount_tbl</span><br><span class="line">WHERE w3cschool_count IS NOT NULL;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>MySQL</category>
