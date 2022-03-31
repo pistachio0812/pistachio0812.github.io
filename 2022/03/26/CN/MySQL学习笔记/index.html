@@ -19,7 +19,7 @@
 <meta property="og:description" content="MySQL入门教程什么是数据库数据库是按照数据结构来组织、存储和管理数据的仓库 关系型数据库：建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据 RDBMS即关系数据库管理系统的特点： 1.数据以表格的形式出现 2.每行为各种记录名称 3.每列为记录名称所对应的数据域 4.许多行和列组成一张表单 5.若干的表单组成数据库 RDBMS相关概念· MySQL创建数据表语法">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-03-26T11:07:11.619Z">
-<meta property="article:modified_time" content="2022-03-29T12:45:14.076Z">
+<meta property="article:modified_time" content="2022-03-31T05:05:40.338Z">
 <meta property="article:tag" content="Note">
 <meta name="twitter:card" content="summary">
   
@@ -539,6 +539,52 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM tcount_tbl</span><br><span class="line">WHERE w3cschool_count IS NOT NULL;</span><br></pre></td></tr></table></figure>
 
+<h3 id="MySQL正则表达式"><a href="#MySQL正则表达式" class="headerlink" title="MySQL正则表达式"></a>MySQL正则表达式</h3><p>下表中的正则模式可应用于REGEXP操作符中。</p>
+<table>
+<thead>
+<tr>
+<th>^</th>
+<th>匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配’\n’或’\r’之后的位置。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$</td>
+<td>匹配输入字符串的结束位置。如果设置了RegExp对象的Multiline属性，^也匹配’\n’或’\r’之前的位置。</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配除’\n’之外的任何单个字符。要匹配包括’\n’在内的任何字符，请使用’[.\n]’的模式。</td>
+</tr>
+<tr>
+<td>[…]</td>
+<td>字符集合。匹配所包含的任何一个字符。例如’[abc]’可以匹配’plain’中的’a’。</td>
+</tr>
+<tr>
+<td>[^…]</td>
+<td>负值字符集合。匹配未包含的任意字符。例如，’[^abc]’可以匹配’plain’中的’a’。</td>
+</tr>
+<tr>
+<td>p1|p2|p3</td>
+<td>匹配p1或p2或p3.例如，’z|food’能匹配’z’或’food’。，’(z|f)food’能匹配’zood’或’food’</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配前面的子表达式零次或多次。例如，zo能匹配’z’以及’zoo’.*等价于{0，}。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>[^abc]: </p>
 
       
     </div>
@@ -617,6 +663,15 @@ var a = new Donate({
     
 <nav id="article-nav">
   
+    <a href="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          详解注意力机制
+        
+      </div>
+    </a>
+  
   
     <a href="/2022/03/25/en/pytorch%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
@@ -634,7 +689,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">MySQL入门教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.1.</span> <span class="nav-text">什么是数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDBMS%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">1.2.</span> <span class="nav-text">RDBMS相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-number">1.3.</span> <span class="nav-text">MySQL创建数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-number">1.4.</span> <span class="nav-text">MySQL删除数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">1.5.</span> <span class="nav-text">MySQL插入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-2"><span class="nav-number">1.5.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-number">1.6.</span> <span class="nav-text">MySQL查询数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-3"><span class="nav-number">1.6.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-where%E5%AD%90%E5%8F%A5"><span class="nav-number">1.7.</span> <span class="nav-text">MySQL where子句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-4"><span class="nav-number">1.7.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-UPDATE%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.8.</span> <span class="nav-text">MySQL UPDATE查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-5"><span class="nav-number">1.8.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-DELETE%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.9.</span> <span class="nav-text">MySQL DELETE语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-6"><span class="nav-number">1.9.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-LIKE%E5%AD%90%E5%8F%A5"><span class="nav-number">1.10.</span> <span class="nav-text">MySQL LIKE子句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-7"><span class="nav-number">1.10.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E6%8E%92%E5%BA%8F"><span class="nav-number">1.11.</span> <span class="nav-text">MySQL排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-8"><span class="nav-number">1.11.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-%E5%88%86%E7%BB%84"><span class="nav-number">1.12.</span> <span class="nav-text">MySQL 分组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-9"><span class="nav-number">1.12.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8WITH-ROLLUP"><span class="nav-number">1.13.</span> <span class="nav-text">使用WITH ROLLUP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-10"><span class="nav-number">1.13.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E8%BF%9E%E6%8E%A5%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.14.</span> <span class="nav-text">MySQL连接的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-NULL%E5%80%BC%E5%A4%84%E7%90%86"><span class="nav-number">1.15.</span> <span class="nav-text">MySQL NULL值处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E4%B8%AD%E4%BD%BF%E7%94%A8NULL%E5%80%BC"><span class="nav-number">1.15.1.</span> <span class="nav-text">在命令提示符中使用NULL值</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">MySQL入门教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.1.</span> <span class="nav-text">什么是数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDBMS%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">1.2.</span> <span class="nav-text">RDBMS相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-number">1.3.</span> <span class="nav-text">MySQL创建数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-number">1.4.</span> <span class="nav-text">MySQL删除数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">1.5.</span> <span class="nav-text">MySQL插入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-2"><span class="nav-number">1.5.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-number">1.6.</span> <span class="nav-text">MySQL查询数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-3"><span class="nav-number">1.6.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-where%E5%AD%90%E5%8F%A5"><span class="nav-number">1.7.</span> <span class="nav-text">MySQL where子句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-4"><span class="nav-number">1.7.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-UPDATE%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.8.</span> <span class="nav-text">MySQL UPDATE查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-5"><span class="nav-number">1.8.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-DELETE%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.9.</span> <span class="nav-text">MySQL DELETE语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-6"><span class="nav-number">1.9.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-LIKE%E5%AD%90%E5%8F%A5"><span class="nav-number">1.10.</span> <span class="nav-text">MySQL LIKE子句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-7"><span class="nav-number">1.10.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E6%8E%92%E5%BA%8F"><span class="nav-number">1.11.</span> <span class="nav-text">MySQL排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-8"><span class="nav-number">1.11.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-%E5%88%86%E7%BB%84"><span class="nav-number">1.12.</span> <span class="nav-text">MySQL 分组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-9"><span class="nav-number">1.12.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8WITH-ROLLUP"><span class="nav-number">1.13.</span> <span class="nav-text">使用WITH ROLLUP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-10"><span class="nav-number">1.13.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E8%BF%9E%E6%8E%A5%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.14.</span> <span class="nav-text">MySQL连接的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-NULL%E5%80%BC%E5%A4%84%E7%90%86"><span class="nav-number">1.15.</span> <span class="nav-text">MySQL NULL值处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E4%B8%AD%E4%BD%BF%E7%94%A8NULL%E5%80%BC"><span class="nav-number">1.15.1.</span> <span class="nav-text">在命令提示符中使用NULL值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.16.</span> <span class="nav-text">MySQL正则表达式</span></a></li></ol></li></ol>
     
     </div>
   </aside>
