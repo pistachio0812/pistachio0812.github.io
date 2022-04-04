@@ -6,10 +6,31 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-04-01T11:57:04.204Z</updated>
+  <updated>2022-04-04T09:01:16.426Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Matplotlib学习笔记</title>
+    <link href="http://pistachio0812.github.io/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://pistachio0812.github.io/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2022-04-03T12:25:29.304Z</published>
+    <updated>2022-04-04T09:01:16.426Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;Matplotlib 是 Python</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>pip换源</title>
