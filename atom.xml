@@ -6,10 +6,34 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-04-04T09:01:16.426Z</updated>
+  <updated>2022-04-04T12:15:02.088Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试</title>
+    <link href="http://pistachio0812.github.io/2022/04/04/CN/%E6%B5%8B%E8%AF%95/"/>
+    <id>http://pistachio0812.github.io/2022/04/04/CN/%E6%B5%8B%E8%AF%95/</id>
+    <published>2022-04-04T12:13:09.449Z</published>
+    <updated>2022-04-04T12:15:02.088Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;第一章&lt;/p&gt;
+
+
+</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Matplotlib学习笔记</title>
