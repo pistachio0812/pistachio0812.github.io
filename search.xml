@@ -26,9 +26,11 @@
       </tags>
   </entry>
   <entry>
-    <title>计算机视觉相关单词</title>
+    <title></title>
     <url>/2022/03/12/CN/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%8D%95%E8%AF%8D%E8%A1%A8/</url>
-    <content><![CDATA[<p>artificial neural network,ANN        人工神经网络</p>
+    <content><![CDATA[<pre><code>                                       计算机视觉单词表
+</code></pre>
+<p>artificial neural network,ANN        人工神经网络</p>
 <p>perceptron        感知机，人工神经元</p>
 <p>activation function        激活函数</p>
 <p>rectified linear unit,RELU        修正线性单元</p>
@@ -93,10 +95,10 @@
 <p>notable         显要的，值得注意的；非常成功的，令人尊敬的</p>
 <p>camouflaged        伪装的</p>
 <p>facilitate        促进，使便利</p>
-<p>overlap:与……重叠，部分地相同；重叠的部分，互搭量</p>
-<p>threshold:入口，门槛，开始，极限，临界值</p>
-<p>conjecture:猜测，推测</p>
-<p>within:在……之内</p>
+<p>overlap    与……重叠，部分地相同；重叠的部分，互搭量</p>
+<p>threshold    入口，门槛，开始，极限，临界值</p>
+<p>conjecture    猜测，推测</p>
+<p>within    在……之内</p>
 <p>oversample:过采样</p>
 <p>trade off:权衡，卖掉，折中方案</p>
 <p>ultimately:最后，根本，基本上</p>
@@ -131,23 +133,23 @@
 <p>respect to:关于，考虑</p>
 <p>validate:验证，确认，使生效</p>
 <p>stochastic:随机的，猜测的</p>
-<p>decay:衰退，衰减</p>
-<p>coefficient:系数，率</p>
-<p>explicitly:明确地，明白地</p>
-<p>outline:大纲，概要</p>
+<p>decay    衰退，衰减</p>
+<p>coefficient    系数，率</p>
+<p>explicitly    明确地，明白地</p>
+<p>outline    大纲，概要</p>
 <p>distillation:蒸馏</p>
 <p>curvature:曲率</p>
-<p>stochastic:随机</p>
-<p>variance:差异，方差</p>
-<p>spectrum:光谱，频谱；范围</p>
-<p>neat:灵巧的，整洁的；优雅的，平滑的</p>
-<p>heterogenerous:由很多种类组成的</p>
-<p>intricate:复杂的，错综的</p>
-<p>arbitrary:任意的，武断的</p>
-<p>vanilla:香草，比较原始的</p>
-<p>sketch:示意图</p>
-<p>incarnation:化身，典型</p>
-<p>waive:放弃，搁置</p>
+<p>stochastic    随机</p>
+<p>variance    差异，方差</p>
+<p>spectrum    光谱，频谱；范围</p>
+<p>neat    灵巧的，整洁的；优雅的，平滑的</p>
+<p>heterogenerous    由很多种类组成的</p>
+<p>intricate    复杂的，错综的</p>
+<p>arbitrary    任意的，武断的</p>
+<p>vanilla    香草，比较原始的</p>
+<p>sketch    示意图</p>
+<p>incarnation    化身，典型</p>
+<p>waive    放弃，搁置</p>
 <p>shrinkage    收缩，皱缩，缩水; 跌价; 抽缩</p>
 <p>alleviate    缓解，减轻</p>
 <p>de-facto    事实上</p>
@@ -300,14 +302,78 @@
 <p>hue    色调</p>
 <p>saturation    饱和度</p>
 <p>superimpose    叠加</p>
+<p>adjacent    相邻的</p>
+<p>incorporate    包含，吸收；体现；把……合并</p>
+<p>mimic    模仿</p>
+<p>tentative    初步的</p>
+<p>tackle    处理</p>
+<p>cortex    皮层</p>
+<p>factorization    因子分解，因式分解</p>
+<p>compatible    兼容的</p>
+<p>substantially    实质上；大体上；充分地</p>
+<p>explicitly    明确地；明白地</p>
+<p>reformulate    v. 再制订；换种方式说（或表达）</p>
+<p>nontrival    重要的</p>
+<p>notorious    声名狼藉的，臭名昭著的</p>
+<p>aggregated    聚合的，合计的</p>
+<p>cardinality    基数</p>
+<p>acquisition    获得物</p>
+<p>obscured    遮挡</p>
+<p>out-of-view    看不见的</p>
+<p>precedent    先前的</p>
+<p>intuitive    直观的</p>
+<p>overhead    开销</p>
+<p>efficacy    功效，效力</p>
+<p>hierarchical    分层的</p>
+<p>foeval    视网膜中心的</p>
+<p>iteratively    迭代地</p>
+<p>salient    重点的</p>
+<p>modality    形式，形态</p>
+<p>in a conditional fashion    有条件的方式</p>
+<p>squeeze    挤压</p>
+<p>excitation    激励</p>
+<p>self-contained    独立的，设备齐全的，沉默寡言的</p>
+<p>aggregate    集合，聚集</p>
+<p>superscript    上标</p>
+<p>an apples to apples comparison    比较两个相近的事物</p>
+<p>thoroughly    彻底地，完全地</p>
+<p>conjecture    推测，猜测</p>
+<p>auxiliary    辅助的</p>
+<p>parentheses    圆括号，插入成分</p>
+<p>nest    嵌套</p>
+<p>the best of both worlds    两全其美</p>
+<p>incur    带来（成本、花费）等；招致，遭受</p>
+<p>decimal    十进位的，小数的</p>
+<p>timestamp    时间戳</p>
+<p>clause    从句，分句；（法律文件的）条款</p>
+<p>overlap    重叠</p>
+<p>coalesce    合并，联合</p>
+<p>rollup    归纳，卷曲，袅袅上升</p>
+<p>coarse-to-fine    由粗到细，由繁到简</p>
+<p>tic-tac-toe    井字棋，圈叉游戏</p>
+<p>overlay    覆在……上面，覆盖</p>
+<p>cached    贮藏起来，高速缓存</p>
+<p>eigen    特征，固有的</p>
+<p>tremendous    巨大的，极好的</p>
+<p>versus    （比赛或诉讼中）以……为对手，与……竞争；与……相对，与……相比</p>
+<p>delineating    描述，描绘</p>
+<p>primitive    原始的</p>
+<p>recalibrating    重新调整</p>
+<p>magenta    洋红色</p>
+<p>cyan    青绿色</p>
+<p>pentagon    五边形</p>
+<p>hexagon    六边形</p>
+<p>diamond    菱形</p>
+<p>line chart    折线图</p>
+<p>flip    翻转</p>
+<p>alias    别名</p>
+<p>incurring    招致，遭受</p>
+<p>ellipse    椭圆</p>
+<p>tile    平铺，瓷砖</p>
+<p>diversity    多样性</p>
+<p>discard    丢弃</p>
+<p>adequately    充分地，足够地</p>
 ]]></content>
-      <categories>
-        <category>计算机视觉</category>
-      </categories>
-      <tags>
-        <tag>CV</tag>
-        <tag>English</tag>
-      </tags>
   </entry>
   <entry>
     <title>学习网站集合</title>
@@ -2740,5 +2806,12 @@ print(&#39;Test score:&#39;, score[0])
 
 <p><strong>注意：</strong>默认情况下，第一个扇形的绘制是从 x 轴开始并逆时针移动：</p>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/03D59143-B345-4B36-A7CD-53F698AB5284.jpg" style="zoom:50%;">]]></content>
+  </entry>
+  <entry>
+    <title>文献阅读笔记</title>
+    <url>/2022/04/08/en/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/</url>
+    <content><![CDATA[<p>1.DetNet</p>
+<p>2.SNIP</p>
+]]></content>
   </entry>
 </search>
