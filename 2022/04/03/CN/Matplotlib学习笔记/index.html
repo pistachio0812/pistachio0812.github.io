@@ -103,8 +103,6 @@
         
         <a class="title flat-box" target="_self" href="/">
           
-            <img no-lazy class="logo" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png">
-          
           
           
         </a>
@@ -1778,21 +1776,20 @@
     <br><br>
     
       
-        <div class="aplayer-container">
-          
-
-  
-    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="random" fixed="false" list-max-height="320px" server="netease" type="playlist" id="3175833810" list-folded="true">
-    </meting-js>
-  
-
-
-        </div>
-      
-    
-      
         <br>
         <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="/2395856915@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
           
             
               <a href="https://github.com/pistachio0812" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
@@ -1801,7 +1798,11 @@
             
           
             
-          
+              <a href="https://music.163.com/#/user/home?id=63035382" class="social  flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://img0.baidu.com/it/u=2862534777,914942650&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" class="lazyload" data-srcset="https://img0.baidu.com/it/u=2862534777,914942650&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="border-radius:120px">
+                
+              </a>
             
           
         </div>
@@ -1827,7 +1828,7 @@
     
       
         <div class="copyright">
-        <p><a href="/">Copyright © 2017-2022 相思似海深旧事如天远</a></p>
+        <p><a href="/">Copyright © 2020-2022 相思似海深旧事如天远</a></p>
 
         </div>
       
@@ -1958,6 +1959,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   
   
+  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/atom-one-light.css", window.volantis.loadcss);
+  
 </script>
 <!-- required -->
 
@@ -2051,7 +2054,7 @@ var loadCSS = function( href, before, media, attributes ){
         }
 	  function Pjax_backstretch(){
         
-          $('#cover-backstretch').backstretch(
+          $.backstretch(
             imgs,
           {
             duration: "10000",
@@ -2571,6 +2574,20 @@ function setSearchService() {
 
 
 
+
+  
+
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/lib/index.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
+</script>
 
 
 
