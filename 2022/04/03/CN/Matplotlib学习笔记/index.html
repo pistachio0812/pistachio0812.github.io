@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans,en,default">
+<html lang="zh-CN,en,zh-TW,default">
   <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
@@ -34,11 +34,27 @@
 
   <!-- import meta -->
   
+    
+      <meta name="msapplication-TileColor" content="#ffffff">
+    
+      <meta name="msapplication-config" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/browserconfig.xml">
+    
+      <meta name="theme-color" content="#ffffff">
+    
+  
 
   <!-- link -->
   
 
   <!-- import link -->
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/site.webmanifest">
+  <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon.ico">
   
 
   
@@ -102,6 +118,8 @@
       
         
         <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png">
           
           
           
@@ -408,13 +426,13 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>7.6k words</p>
+      <p>字数：7.6k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>35 min</p>
+      <p>时长：35分钟</p>
     </a>
   </div>
 
@@ -450,11 +468,11 @@
 <p>SciPy 包含的模块有最优化、线性代数、积分、插值、特殊函数、快速傅里叶变换、信号处理和图像处理、常微分方程求解和其他科学与工程中常用的计算。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>本章节，我们使用 pip 工具来安装 <code>Matplotlib</code> 库，如果还未安装该工具，可以参考 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/w3cnote/python-pip-install-usage.html">Python pip 安装与使用</a>。</p>
 <p>升级 pip：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install -U pip</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">python3 -m pip install -U pip
+</code></pre>
 <p>安装 <code>matplotlib</code> 库：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install -U matplotlib</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">python3 -m pip install -U matplotlib
+</code></pre>
 <p>安装完成后，我们就可以通过 import 来导入<code> matplotlib</code> 库：</p>
 <p><code>import matplotlib</code></p>
 <p>以下实例，我们通过导入 <code>matplotlib</code> 库，然后查看 <code>matplotlib </code>库的版本号：</p>
@@ -462,8 +480,8 @@
 <p><code>import matplotlib</code></p>
 <p><code>print(matplotlib.__version__)</code></p>
 <p>执行以上代码，输出结果如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.4.2</span><br></pre></td></tr></table></figure>
-
+<pre><code>3.4.2
+</code></pre>
 <h2 id="Matplotlib-Pyplot"><a href="#Matplotlib-Pyplot" class="headerlink" title="Matplotlib Pyplot"></a>Matplotlib Pyplot</h2><p>Pyplot 是 Matplotlib 的子库，提供了和 MATLAB 类似的绘图 API。</p>
 <p>Pyplot 是常用的绘图模块，能很方便让用户绘制 2D 图表。</p>
 <p>Pyplot 包含一系列绘图函数的相关函数，每个函数会对当前的图像进行一些修改，例如：给图像加上标记，生新的图像，在图像中产生新的绘图区域等等。</p>
@@ -472,58 +490,110 @@
 <p>这样我们就可以使用 <strong>plt</strong> 来引用 Pyplot 包的方法。</p>
 <p>以下实例，我们通过两个坐标 <strong>(0,0)</strong> 到 <strong>(6,100)</strong> 来绘制一条线:</p>
 <p>实例1:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">xpoints = np.array([<span class="number">0</span>, <span class="number">6</span>])</span><br><span class="line">ypoints = np.array([<span class="number">0</span>, <span class="number">100</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(xpoints, ypoints)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+xpoints = np.array([0, 6])
+ypoints = np.array([0, 100])
+
+plt.plot(xpoints, ypoints)
+plt.show()
+</code></pre>
 <p>输出结果如下：</p>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403204022943.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403204022943.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>以上实例中我们使用了 Pyplot 的<code> plot()</code> 函数， <strong>plot()</strong> 函数是绘制二维图形的最基本函数。</p>
 <p><strong>plot()</strong> 用于画图它可以绘制点和线，语法格式如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 画单条线</span></span><br><span class="line">plot([x], y, [fmt], *, data=<span class="literal">None</span>, **kwargs)</span><br><span class="line"><span class="comment"># 画多条线</span></span><br><span class="line">plot([x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs)</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python"># 画单条线
+plot([x], y, [fmt], *, data=None, **kwargs)
+# 画多条线
+plot([x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs)
+</code></pre>
 <p>参数说明：</p>
 <ul>
 <li><strong>x, y：</strong>点或线的节点，x 为 x 轴数据，y 为 y 轴数据，数据可以列表或数组。</li>
 <li><strong>fmt：</strong>可选，定义基本格式（如颜色、标记和线条样式）。</li>
 <li>*<strong>*kwargs：</strong>可选，用在二维平面图上，设置指定属性，如标签，线的宽度等。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>plot(x, y)        <span class="comment"># 创建 y 中数据与 x 中对应值的二维线图，使用默认样式</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>plot(x, y, <span class="string">&#x27;bo&#x27;</span>)  <span class="comment"># 创建 y 中数据与 x 中对应值的二维线图，使用蓝色实心圈绘制</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>plot(y)           <span class="comment"># x 的值为 0..N-1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>plot(y, <span class="string">&#x27;r+&#x27;</span>)     <span class="comment"># 使用红色 + 号</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">&gt;&gt;&gt; plot(x, y)        # 创建 y 中数据与 x 中对应值的二维线图，使用默认样式
+&gt;&gt;&gt; plot(x, y, &#39;bo&#39;)  # 创建 y 中数据与 x 中对应值的二维线图，使用蓝色实心圈绘制
+&gt;&gt;&gt; plot(y)           # x 的值为 0..N-1
+&gt;&gt;&gt; plot(y, &#39;r+&#39;)     # 使用红色 + 号
+</code></pre>
 <p><strong>颜色字符：</strong>‘b’ 蓝色，’m’ 洋红色，’g’ 绿色，’y’ 黄色，’r’ 红色，’k’ 黑色，’w’ 白色，’c’ 青绿色，’#008000’ RGB 颜色符串。多条曲线不指定颜色时，会自动选择不同颜色。</p>
 <p><strong>线型参数：</strong>‘‐’ 实线，’‐‐’ 破折线，’‐.’ 点划线，’:’ 虚线。</p>
 <p><strong>标记字符：</strong>‘.’ 点标记，’,’ 像素标记(极小点)，’o’ 实心圈标记，’v’ 倒三角标记，’^’ 上三角标记，’&gt;’ 右三角标记，’&lt;’ 左三角标记…等等。</p>
 <p>如果我们只想绘制两个坐标点，而不是一条线，可以使用 <strong>o</strong> 参数，表示一个实心圈的标记。</p>
 <p>实例2：绘制坐标 (1, 3) 和 (8, 10) 的两个点</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">xpoints = np.array([<span class="number">1</span>, <span class="number">8</span>])</span><br><span class="line">ypoints = np.array([<span class="number">3</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(xpoints, ypoints, <span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+xpoints = np.array([1, 8])
+ypoints = np.array([3, 10])
+
+plt.plot(xpoints, ypoints, &#39;o&#39;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205635489.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205635489.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>我们也可以绘制任意数量的点，只需确保两个轴上的点数相同即可。</p>
 <p>实例3：绘制一条不规则线，坐标为 (1, 3) 、 (2, 8) 、(6, 1) 、(8, 10)，对应的两个数组为：[1, 2, 6, 8] 与 [3, 8, 1, 10]。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">xpoints = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">8</span>])</span><br><span class="line">ypoints = np.array([<span class="number">3</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(xpoints, ypoints)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+xpoints = np.array([1, 2, 6, 8])
+ypoints = np.array([3, 8, 1, 10])
+
+plt.plot(xpoints, ypoints)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205827906.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205827906.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例4：如果我们不指定 x 轴上的点，y只限定范围。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">3</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([3, 10])
+
+plt.plot(ypoints)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210031623.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210031623.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>从上图可以看出 x 的值默认设置为 **[0, 1]**。</p>
 <p>实例5：如果我们不指定 x 轴上的点，y表明具体的点，则 x 会根据 y 的值来设置为 <strong>0, 1, 2, 3..N-1</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">3</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">7</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([3, 8, 1, 10, 5, 7])
+
+plt.plot(ypoints)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210331668.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210331668.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例6：以下实例我们绘制一个正弦和余弦图，在 plt.plot() 参数中包含两对 <strong>x,y</strong> 值，第一对是 <strong>x,y</strong>，这对应于正弦函数，第二对是 <strong>x,z</strong>，这对应于余弦函数。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">0</span>,<span class="number">4</span>*np.pi,<span class="number">0.1</span>)   <span class="comment"># start,stop,step</span></span><br><span class="line">y = np.sin(x)</span><br><span class="line">z = np.cos(x)</span><br><span class="line">plt.plot(x,y,x,z)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.arange(0,4*np.pi,0.1)   # start,stop,step
+y = np.sin(x)
+z = np.cos(x)
+plt.plot(x,y,x,z)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210514868.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210514868.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h2 id="Matplotlib-绘图标记"><a href="#Matplotlib-绘图标记" class="headerlink" title="Matplotlib 绘图标记"></a>Matplotlib 绘图标记</h2><p>绘图过程如果我们想要给坐标自定义一些不一样的标记，就可以使用 <strong>plot()</strong> 方法的 <code>marker </code>参数来定义。</p>
 <p>实例1:定义实心圆标记</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, marker = <span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([1,3,4,5,8,9,6,1,3,4,5,2,4])
+
+plt.plot(ypoints, marker = &#39;o&#39;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212010830.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212010830.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>marker可以定义的符号如下：</p>
@@ -732,22 +802,38 @@
 </tr>
 </tbody></table>
 <p>实例2:定义了 ***** 标记</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, marker = <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([1,3,4,5,8,9,6,1,3,4,5,2,4])
+
+plt.plot(ypoints, marker = &#39;*&#39;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212950411.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212950411.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例3:定义下箭头</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.markers</span><br><span class="line"></span><br><span class="line">plt.plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], marker=matplotlib.markers.CARETDOWNBASE)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import matplotlib.markers
 
+plt.plot([1, 2, 3], marker=matplotlib.markers.CARETDOWNBASE)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213418027.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213418027.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h3 id="fmt-参数"><a href="#fmt-参数" class="headerlink" title="fmt 参数"></a>fmt 参数</h3><p>fmt 参数定义了基本格式，如标记、线条样式和颜色。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmt = <span class="string">&#x27;[marker][line][color]&#x27;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">fmt = &#39;[marker][line][color]&#39;
+</code></pre>
 <p>例如 <strong>o:r</strong>，<strong>o</strong> 表示实心圆标记，**:** 表示虚线，<strong>r</strong> 表示颜色为红色。</p>
 <p>实例4：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">6</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, <span class="string">&#x27;o:r&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, &#39;o:r&#39;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213911622.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213911622.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>线类型：</p>
@@ -823,23 +909,46 @@
 <li>markeredgecolor，简写为 <strong>mec</strong>：定义标记边框的颜色。</li>
 </ul>
 <p>实例5：设置标记大小</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">6</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, marker = <span class="string">&#x27;o&#x27;</span>, ms = <span class="number">20</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, marker = &#39;o&#39;, ms = 20)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215102017.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215102017.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例6：设置标记外边框颜色</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">6</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, marker = <span class="string">&#x27;o&#x27;</span>, ms = <span class="number">20</span>, mec = <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mec = &#39;r&#39;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215856505.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215856505.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例7：设置标记内部颜色</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">6</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, marker = <span class="string">&#x27;o&#x27;</span>, ms = <span class="number">20</span>, mfc = <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mfc = &#39;r&#39;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220017186.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220017186.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例8：自定义标记内部与边框的颜色</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">6</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">10</span>])</span><br><span class="line">plt.plot(ypoints, marker = <span class="string">&#x27;o&#x27;</span>, ms = <span class="number">20</span>, mec = <span class="string">&#x27;#4CAF50&#x27;</span>, mfc = <span class="string">&#x27;#4CAF50&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([6, 2, 13, 10])
+plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mec = &#39;#4CAF50&#39;, mfc = &#39;#4CAF50&#39;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220233003.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220233003.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h2 id="Matplotlib-绘图线"><a href="#Matplotlib-绘图线" class="headerlink" title="Matplotlib 绘图线"></a>Matplotlib 绘图线</h2><p>绘图过程如果我们自定义线的样式，包括线的类型、颜色和大小等。</p>
@@ -879,13 +988,25 @@
 </tr>
 </tbody></table>
 <p>实例1：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">6</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, linestyle = <span class="string">&#x27;dotted&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, linestyle = &#39;dotted&#39;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221432174.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221432174.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例2：使用简写</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">6</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, ls = <span class="string">&#x27;-.&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, ls = &#39;-.&#39;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221604494.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221604494.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h3 id="线的颜色"><a href="#线的颜色" class="headerlink" title="线的颜色"></a>线的颜色</h3><p>线的颜色可以使用 <strong>color</strong> 参数来定义，简写为 <strong>c</strong>。</p>
@@ -932,47 +1053,110 @@
 </tbody></table>
 <p>当然也可以自定义颜色类型，例如：<strong>SeaGreen、#8FBC8F</strong> 等，完整样式可以参考 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/html/html-colorvalues.html">HTML 颜色值</a>。</p>
 <p>实例3：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">6</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, color = <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, color = &#39;r&#39;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221822295.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221822295.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例4：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">6</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, c = <span class="string">&#x27;#8FBC8F&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, c = &#39;#8FBC8F&#39;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222000966.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222000966.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例5：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">6</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, c = <span class="string">&#x27;SeaGreen&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, c = &#39;SeaGreen&#39;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222117925.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222117925.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h3 id="线的宽度"><a href="#线的宽度" class="headerlink" title="线的宽度"></a>线的宽度</h3><p>线的宽度可以使用 <strong>linewidth</strong> 参数来定义，简写为 <strong>lw</strong>，值可以是浮点数，如：<strong>1</strong>、<strong>2.0</strong>、<strong>5.67</strong> 等</p>
 <p>实例6：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ypoints = np.array([<span class="number">6</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, linewidth = <span class="string">&#x27;12.5&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, linewidth = &#39;12.5&#39;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222318825.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222318825.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h3 id="多条线"><a href="#多条线" class="headerlink" title="多条线"></a>多条线</h3><p>plot() 方法中可以包含多对 x,y 值来绘制多条线。</p>
 <p>实例7：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">y1 = np.array([<span class="number">3</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">9</span>])</span><br><span class="line">y2 = np.array([<span class="number">6</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(y1)</span><br><span class="line">plt.plot(y2)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+y1 = np.array([3, 7, 5, 9])
+y2 = np.array([6, 2, 13, 10])
+
+plt.plot(y1)
+plt.plot(y2)
+
+plt.show()
+</code></pre>
 <p>从上图可以看出 <strong>x</strong> 的值默认设置为 **[0, 1, 2, 3]**。</p>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222526935.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222526935.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例8：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x1 = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">y1 = np.array([<span class="number">3</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">9</span>])</span><br><span class="line">x2 = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">y2 = np.array([<span class="number">6</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(x1, y1, x2, y2)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x1 = np.array([0, 1, 2, 3])
+y1 = np.array([3, 7, 5, 9])
+x2 = np.array([0, 1, 2, 3])
+y2 = np.array([6, 2, 13, 10])
+
+plt.plot(x1, y1, x2, y2)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222628227.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222628227.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h2 id="Matplotlib-轴标签和标题"><a href="#Matplotlib-轴标签和标题" class="headerlink" title="Matplotlib 轴标签和标题"></a>Matplotlib 轴标签和标题</h2><p>我们可以使用 <strong>xlabel()</strong> 和 <strong>ylabel()</strong> 方法来设置 x 轴和 y 轴的标签。</p>
 <p>实例1：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>])</span><br><span class="line">plt.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">&quot;x - label&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y - label&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
 
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+plt.plot(x, y)
+
+plt.xlabel(&quot;x - label&quot;)
+plt.ylabel(&quot;y - label&quot;)
+
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404095612577.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404095612577.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>实例2：使用 <strong>title()</strong> 方法来设置标题:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>])</span><br><span class="line">plt.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.title(<span class="string">&quot;line chart&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;x - label&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y - label&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
 
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+plt.plot(x, y)
+
+plt.title(&quot;line chart&quot;)
+plt.xlabel(&quot;x - label&quot;)
+plt.ylabel(&quot;y - label&quot;)
+
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404100123540.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404100123540.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h3 id="图像中文显示"><a href="#图像中文显示" class="headerlink" title="图像中文显示"></a>图像中文显示</h3><p>Matplotlib 默认情况不支持中文，我们可以使用以下简单的方法来解决。</p>
@@ -986,33 +1170,89 @@
 <p>可以下载个 OTF 字体，比如 SourceHanSansSC-Bold.otf，将该文件文件放在当前执行的代码文件中：</p>
 <p><code>SourceHanSansSC-Bold.otf</code> 文件放在当前执行的代码文件中。</p>
 <p>实例3：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"> </span><br><span class="line"><span class="comment"># fname 为 你下载的字体库路径，注意 SourceHanSansSC-Bold.otf 字体的路径</span></span><br><span class="line">zhfont1 = matplotlib.font_manager.FontProperties(fname=<span class="string">&quot;SourceHanSansSC-Bold.otf&quot;</span>) </span><br><span class="line"> </span><br><span class="line">x = np.arange(<span class="number">1</span>,<span class="number">11</span>) </span><br><span class="line">y =  <span class="number">2</span>  * x +  <span class="number">5</span> </span><br><span class="line">plt.title(<span class="string">&quot;测试&quot;</span>, fontproperties=zhfont1) </span><br><span class="line"> </span><br><span class="line"><span class="comment"># fontproperties 设置中文显示，fontsize 设置字体大小</span></span><br><span class="line">plt.xlabel(<span class="string">&quot;x标签&quot;</span>, fontproperties=zhfont1)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y标签&quot;</span>, fontproperties=zhfont1)</span><br><span class="line">plt.plot(x,y) </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">import numpy as np 
+from matplotlib import pyplot as plt 
+import matplotlib
+ 
+# fname 为 你下载的字体库路径，注意 SourceHanSansSC-Bold.otf 字体的路径
+zhfont1 = matplotlib.font_manager.FontProperties(fname=&quot;SourceHanSansSC-Bold.otf&quot;) 
+ 
+x = np.arange(1,11) 
+y =  2  * x +  5 
+plt.title(&quot;测试&quot;, fontproperties=zhfont1) 
+ 
+# fontproperties 设置中文显示，fontsize 设置字体大小
+plt.xlabel(&quot;x标签&quot;, fontproperties=zhfont1)
+plt.ylabel(&quot;y标签&quot;, fontproperties=zhfont1)
+plt.plot(x,y) 
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104616081.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104616081.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p><em>此外，我们还可以使用系统的字体：</em></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line">a=<span class="built_in">sorted</span>([f.name <span class="keyword">for</span> f <span class="keyword">in</span> matplotlib.font_manager.fontManager.ttflist])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">from matplotlib import pyplot as plt
+import matplotlib
+a=sorted([f.name for f in matplotlib.font_manager.fontManager.ttflist])
 
+for i in a:
+    print(i)
+</code></pre>
 <p><em>打印出你的 font_manager 的 ttflist 中所有注册的名字，找一个看中文字体例如：STFangsong(仿宋）,然后添加以下代码即可：</em></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams[<span class="string">&#x27;font.family&#x27;</span>]=[<span class="string">&#x27;STFangsong&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">plt.rcParams[&#39;font.family&#39;]=[&#39;STFangsong&#39;]
+</code></pre>
 <p>实例4：:自定义字体的样式</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"> </span><br><span class="line"><span class="comment"># fname 为 你下载的字体库路径，注意 SourceHanSansSC-Bold.otf 字体的路径，size 参数设置字体大小</span></span><br><span class="line">zhfont1 = matplotlib.font_manager.FontProperties(fname=<span class="string">&quot;SourceHanSansSC-Bold.otf&quot;</span>, size=<span class="number">18</span>)</span><br><span class="line">font1 = &#123;<span class="string">&#x27;color&#x27;</span>:<span class="string">&#x27;blue&#x27;</span>,<span class="string">&#x27;size&#x27;</span>:<span class="number">20</span>&#125;</span><br><span class="line">font2 = &#123;<span class="string">&#x27;color&#x27;</span>:<span class="string">&#x27;darkred&#x27;</span>,<span class="string">&#x27;size&#x27;</span>:<span class="number">15</span>&#125;</span><br><span class="line">x = np.arange(<span class="number">1</span>,<span class="number">11</span>)</span><br><span class="line">y =  <span class="number">2</span>  * x +  <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># fontdict 可以使用 css 来设置字体样式</span></span><br><span class="line">plt.title(<span class="string">&quot;菜鸟教程 - 测试&quot;</span>, fontproperties=zhfont1, fontdict = font1)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># fontproperties 设置中文显示，fontsize 设置字体大小</span></span><br><span class="line">plt.xlabel(<span class="string">&quot;x 轴&quot;</span>, fontproperties=zhfont1)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y 轴&quot;</span>, fontproperties=zhfont1)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import numpy as np
+from matplotlib import pyplot as plt
+import matplotlib
+ 
+# fname 为 你下载的字体库路径，注意 SourceHanSansSC-Bold.otf 字体的路径，size 参数设置字体大小
+zhfont1 = matplotlib.font_manager.FontProperties(fname=&quot;SourceHanSansSC-Bold.otf&quot;, size=18)
+font1 = &#123;&#39;color&#39;:&#39;blue&#39;,&#39;size&#39;:20&#125;
+font2 = &#123;&#39;color&#39;:&#39;darkred&#39;,&#39;size&#39;:15&#125;
+x = np.arange(1,11)
+y =  2  * x +  5
 
+# fontdict 可以使用 css 来设置字体样式
+plt.title(&quot;菜鸟教程 - 测试&quot;, fontproperties=zhfont1, fontdict = font1)
+ 
+# fontproperties 设置中文显示，fontsize 设置字体大小
+plt.xlabel(&quot;x 轴&quot;, fontproperties=zhfont1)
+plt.ylabel(&quot;y 轴&quot;, fontproperties=zhfont1)
+plt.plot(x,y)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104841496.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104841496.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h3 id="标题与标签的定位"><a href="#标题与标签的定位" class="headerlink" title="标题与标签的定位"></a>标题与标签的定位</h3><p><strong>title()</strong> 方法提供了 <strong>loc</strong> 参数来设置标题显示的位置，可以设置为: **’left’, ‘right’, 和 ‘center’， 默认值为 ‘center’**。</p>
 <p><strong>xlabel()</strong> 方法提供了 <strong>loc</strong> 参数来设置 x 轴显示的位置，可以设置为: **’left’, ‘right’, 和 ‘center’， 默认值为 ‘center’**。</p>
 <p><strong>ylabel()</strong> 方法提供了 <strong>loc</strong> 参数来设置 y 轴显示的位置，可以设置为: **’bottom’, ‘top’, 和 ‘center’， 默认值为 ‘center’**。</p>
 <p>实例5：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"> </span><br><span class="line"><span class="comment"># fname 为 你下载的字体库路径，注意 SourceHanSansSC-Bold.otf 字体的路径，size 参数设置字体大小</span></span><br><span class="line">zhfont1 = matplotlib.font_manager.FontProperties(fname=<span class="string">&quot;SourceHanSansSC-Bold.otf&quot;</span>, size=<span class="number">18</span>)</span><br><span class="line">font1 = &#123;<span class="string">&#x27;color&#x27;</span>:<span class="string">&#x27;blue&#x27;</span>,<span class="string">&#x27;size&#x27;</span>:<span class="number">20</span>&#125;</span><br><span class="line">font2 = &#123;<span class="string">&#x27;color&#x27;</span>:<span class="string">&#x27;darkred&#x27;</span>,<span class="string">&#x27;size&#x27;</span>:<span class="number">15</span>&#125;</span><br><span class="line">x = np.arange(<span class="number">1</span>,<span class="number">11</span>)</span><br><span class="line">y =  <span class="number">2</span>  * x +  <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># fontdict 可以使用 css 来设置字体样式</span></span><br><span class="line">plt.title(<span class="string">&quot;菜鸟教程 - 测试&quot;</span>, fontproperties=zhfont1, fontdict = font1, loc=<span class="string">&quot;left&quot;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># fontproperties 设置中文显示，fontsize 设置字体大小</span></span><br><span class="line">plt.xlabel(<span class="string">&quot;x 轴&quot;</span>, fontproperties=zhfont1, loc=<span class="string">&quot;left&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y 轴&quot;</span>, fontproperties=zhfont1, loc=<span class="string">&quot;top&quot;</span>)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import numpy as np
+from matplotlib import pyplot as plt
+import matplotlib
+ 
+# fname 为 你下载的字体库路径，注意 SourceHanSansSC-Bold.otf 字体的路径，size 参数设置字体大小
+zhfont1 = matplotlib.font_manager.FontProperties(fname=&quot;SourceHanSansSC-Bold.otf&quot;, size=18)
+font1 = &#123;&#39;color&#39;:&#39;blue&#39;,&#39;size&#39;:20&#125;
+font2 = &#123;&#39;color&#39;:&#39;darkred&#39;,&#39;size&#39;:15&#125;
+x = np.arange(1,11)
+y =  2  * x +  5
 
+# fontdict 可以使用 css 来设置字体样式
+plt.title(&quot;菜鸟教程 - 测试&quot;, fontproperties=zhfont1, fontdict = font1, loc=&quot;left&quot;)
+ 
+# fontproperties 设置中文显示，fontsize 设置字体大小
+plt.xlabel(&quot;x 轴&quot;, fontproperties=zhfont1, loc=&quot;left&quot;)
+plt.ylabel(&quot;y 轴&quot;, fontproperties=zhfont1, loc=&quot;top&quot;)
+plt.plot(x,y)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104916266.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104916266.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h2 id="Matplotlib-网格线"><a href="#Matplotlib-网格线" class="headerlink" title="Matplotlib 网格线"></a>Matplotlib 网格线</h2><p>我们可以使用 pyplot 中的 grid() 方法来设置图表中的网格线。</p>
 <p>grid() 方法语法格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matplotlib.pyplot.grid(b=None, which=&#x27;major&#x27;, axis=&#x27;both&#x27;, )</span><br></pre></td></tr></table></figure>
-
+<pre><code>matplotlib.pyplot.grid(b=None, which=&#39;major&#39;, axis=&#39;both&#39;, )
+</code></pre>
 <p><strong>参数说明：</strong></p>
 <ul>
 <li><p><strong>b</strong>：可选，默认为 None，可以设置布尔值，true 为显示网格线，false 为不显示，如果设置 **kwargs 参数，则值为 true。</p>
@@ -1025,57 +1265,162 @@
 </li>
 </ul>
 <p>实例1：添加一个简单的网格线，参数使用默认值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.title(<span class="string">&quot;RUNOOB grid() Test&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;x - label&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y - label&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.grid()</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
 
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+
+
+plt.title(&quot;RUNOOB grid() Test&quot;)
+plt.xlabel(&quot;x - label&quot;)
+plt.ylabel(&quot;y - label&quot;)
+
+plt.plot(x, y)
+
+plt.grid()
+
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152016310.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152016310.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例2:添加一个简单的网格线，axis 参数使用 x，设置 x 轴方向显示网格线</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.title(<span class="string">&quot;RUNOOB grid() Test&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;x - label&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y - label&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.grid(axis=<span class="string">&#x27;x&#x27;</span>) <span class="comment"># 设置 y 就在轴方向显示网格线</span></span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
 
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+
+
+plt.title(&quot;RUNOOB grid() Test&quot;)
+plt.xlabel(&quot;x - label&quot;)
+plt.ylabel(&quot;y - label&quot;)
+
+plt.plot(x, y)
+
+plt.grid(axis=&#39;x&#39;) # 设置 y 就在轴方向显示网格线
+
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152129680.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152129680.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>以下实例添加一个简单的网格线，并设置网格线的样式，格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid(color = &#x27;color&#x27;, linestyle = &#x27;linestyle&#x27;, linewidth = number)</span><br></pre></td></tr></table></figure>
-
+<pre><code>grid(color = &#39;color&#39;, linestyle = &#39;linestyle&#39;, linewidth = number)
+</code></pre>
 <p><strong>参数说明：</strong></p>
 <p><strong>color：</strong>‘b’ 蓝色，’m’ 洋红色，’g’ 绿色，’y’ 黄色，’r’ 红色，’k’ 黑色，’w’ 白色，’c’ 青绿色，’#008000’ RGB 颜色符串。</p>
 <p><strong>linestyle：</strong>‘‐’ 实线，’‐‐’ 破折线，’‐.’ 点划线，’:’ 虚线。</p>
 <p><strong>linewidth</strong>：设置线的宽度，可以设置一个数字。</p>
 <p>实例3：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.title(<span class="string">&quot;RUNOOB grid() Test&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;x - label&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y - label&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.grid(color = <span class="string">&#x27;r&#x27;</span>, linestyle = <span class="string">&#x27;--&#x27;</span>, linewidth = <span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
 
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+
+
+plt.title(&quot;RUNOOB grid() Test&quot;)
+plt.xlabel(&quot;x - label&quot;)
+plt.ylabel(&quot;y - label&quot;)
+
+plt.plot(x, y)
+
+plt.grid(color = &#39;r&#39;, linestyle = &#39;--&#39;, linewidth = 0.5)
+
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152316633.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152316633.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h2 id="Matplotlib绘制多图"><a href="#Matplotlib绘制多图" class="headerlink" title="Matplotlib绘制多图"></a>Matplotlib绘制多图</h2><p>我们可以使用 pyplot 中的 <strong>subplot()</strong> 和 <strong>subplots()</strong> 方法来绘制多个子图。</p>
 <p><strong>subplot()</strong> 方法在绘图时需要指定位置，<strong>subplots()</strong> 方法可以一次生成多个，在调用时只需要调用生成对象的 ax 即可。</p>
-<h3 id="subplot"><a href="#subplot" class="headerlink" title="subplot"></a>subplot</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">subplot(nrows, ncols, index, **kwargs)</span><br><span class="line">subplot(pos, **kwargs)</span><br><span class="line">subplot(**kwargs)</span><br><span class="line">subplot(ax)</span><br></pre></td></tr></table></figure>
-
+<h3 id="subplot"><a href="#subplot" class="headerlink" title="subplot"></a>subplot</h3><pre><code class="python">subplot(nrows, ncols, index, **kwargs)
+subplot(pos, **kwargs)
+subplot(**kwargs)
+subplot(ax)
+</code></pre>
 <p>以上函数将整个绘图区域分成 nrows 行和 ncols 列，然后从左到右，从上到下的顺序对每个子区域进行编号 <strong>1…N</strong> ，左上的子区域的编号为 1、右下的区域编号为 N，编号可以通过参数 <strong>index</strong> 来设置。</p>
 <p>设置 numRows ＝ 1，numCols ＝ 2，就是将图表绘制成 1x2 的图片区域, 对应的坐标为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(1, 1), (1, 2)</span><br></pre></td></tr></table></figure>
-
+<pre><code>(1, 1), (1, 2)
+</code></pre>
 <p><strong>plotNum ＝ 1</strong>, 表示的坐标为(1, 1), 即第一行第一列的子图。</p>
 <p><strong>plotNum ＝ 2</strong>, 表示的坐标为(1, 2), 即第一行第二列的子图。</p>
 <p>实例1：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#plot 1:</span></span><br><span class="line">xpoints = np.array([<span class="number">0</span>, <span class="number">6</span>])</span><br><span class="line">ypoints = np.array([<span class="number">0</span>, <span class="number">100</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">plt.plot(xpoints,ypoints)</span><br><span class="line">plt.title(<span class="string">&quot;plot 1&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#plot 2:</span></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.title(<span class="string">&quot;plot 2&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.suptitle(<span class="string">&quot;RUNOOB subplot Test&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+#plot 1:
+xpoints = np.array([0, 6])
+ypoints = np.array([0, 100])
+
+plt.subplot(1, 2, 1)
+plt.plot(xpoints,ypoints)
+plt.title(&quot;plot 1&quot;)
+
+#plot 2:
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+
+plt.subplot(1, 2, 2)
+plt.plot(x,y)
+plt.title(&quot;plot 2&quot;)
+
+plt.suptitle(&quot;RUNOOB subplot Test&quot;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152756053.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152756053.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>设置 numRows ＝ 2，numCols ＝ 2，就是将图表绘制成 2x2 的图片区域, 对应的坐标为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(1, 1), (1, 2)</span><br><span class="line">(2, 1), (2, 2)</span><br></pre></td></tr></table></figure>
-
+<pre><code>(1, 1), (1, 2)
+(2, 1), (2, 2)
+</code></pre>
 <p><strong>plotNum ＝ 1</strong>, 表示的坐标为(1, 1), 即第一行第一列的子图。</p>
 <p><strong>plotNum ＝ 2</strong>, 表示的坐标为(1, 2), 即第一行第二列的子图。</p>
 <p><strong>plotNum ＝ 3</strong>, 表示的坐标为(2, 1), 即第二行第一列的子图。</p>
 <p><strong>plotNum ＝ 4</strong>, 表示的坐标为(2, 2), 即第二行第二列的子图。</p>
 <p>实例2：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#plot 1:</span></span><br><span class="line">x = np.array([<span class="number">0</span>, <span class="number">6</span>])</span><br><span class="line">y = np.array([<span class="number">0</span>, <span class="number">100</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.title(<span class="string">&quot;plot 1&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#plot 2:</span></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.title(<span class="string">&quot;plot 2&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#plot 3:</span></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">y = np.array([<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.title(<span class="string">&quot;plot 3&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#plot 4:</span></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">y = np.array([<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.title(<span class="string">&quot;plot 4&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.suptitle(<span class="string">&quot;RUNOOB subplot Test&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+#plot 1:
+x = np.array([0, 6])
+y = np.array([0, 100])
+
+plt.subplot(2, 2, 1)
+plt.plot(x,y)
+plt.title(&quot;plot 1&quot;)
+
+#plot 2:
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+
+plt.subplot(2, 2, 2)
+plt.plot(x,y)
+plt.title(&quot;plot 2&quot;)
+
+#plot 3:
+x = np.array([1, 2, 3, 4])
+y = np.array([3, 5, 7, 9])
+
+plt.subplot(2, 2, 3)
+plt.plot(x,y)
+plt.title(&quot;plot 3&quot;)
+
+#plot 4:
+x = np.array([1, 2, 3, 4])
+y = np.array([4, 5, 6, 7])
+
+plt.subplot(2, 2, 4)
+plt.plot(x,y)
+plt.title(&quot;plot 4&quot;)
+
+plt.suptitle(&quot;RUNOOB subplot Test&quot;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152958366.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152958366.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h3 id="subplots"><a href="#subplots" class="headerlink" title="subplots()"></a>subplots()</h3><p>subplots() 方法语法格式如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matplotlib.pyplot.subplots(nrows=<span class="number">1</span>, ncols=<span class="number">1</span>, *, sharex=<span class="literal">False</span>, sharey=<span class="literal">False</span>, squeeze=<span class="literal">True</span>, subplot_kw=<span class="literal">None</span>, gridspec_kw=<span class="literal">None</span>, **fig_kw)</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">matplotlib.pyplot.subplots(nrows=1, ncols=1, *, sharex=False, sharey=False, squeeze=True, subplot_kw=None, gridspec_kw=None, **fig_kw)
+</code></pre>
 <p><strong>参数说明：</strong></p>
 <ul>
 <li><strong>nrows</strong>：默认为 1，设置图表的行数。</li>
@@ -1087,8 +1432,46 @@
 <li>*<strong>*fig_kw</strong>：把详细的关键字参数传给 figure() 函数。</li>
 </ul>
 <p>实例3：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一些测试数据 -- 图1</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">400</span>)</span><br><span class="line">y = np.sin(x**<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个画像和子图 -- 图2</span></span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.plot(x, y)</span><br><span class="line">ax.set_title(<span class="string">&#x27;Simple plot&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建两个子图 -- 图3</span></span><br><span class="line">f, (ax1, ax2) = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, sharey=<span class="literal">True</span>)</span><br><span class="line">ax1.plot(x, y)</span><br><span class="line">ax1.set_title(<span class="string">&#x27;Sharing Y axis&#x27;</span>)</span><br><span class="line">ax2.scatter(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建四个子图 -- 图4</span></span><br><span class="line">fig, axs = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, subplot_kw=<span class="built_in">dict</span>(projection=<span class="string">&quot;polar&quot;</span>))</span><br><span class="line">axs[<span class="number">0</span>, <span class="number">0</span>].plot(x, y)</span><br><span class="line">axs[<span class="number">1</span>, <span class="number">1</span>].scatter(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 共享 x 轴</span></span><br><span class="line">plt.subplots(<span class="number">2</span>, <span class="number">2</span>, sharex=<span class="string">&#x27;col&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 共享 y 轴</span></span><br><span class="line">plt.subplots(<span class="number">2</span>, <span class="number">2</span>, sharey=<span class="string">&#x27;row&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 共享 x 轴和 y 轴</span></span><br><span class="line">plt.subplots(<span class="number">2</span>, <span class="number">2</span>, sharex=<span class="string">&#x27;all&#x27;</span>, sharey=<span class="string">&#x27;all&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个也是共享 x 轴和 y 轴</span></span><br><span class="line">plt.subplots(<span class="number">2</span>, <span class="number">2</span>, sharex=<span class="literal">True</span>, sharey=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建10 张图，已经存在的则删除</span></span><br><span class="line">fig, ax = plt.subplots(num=<span class="number">10</span>, clear=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+# 创建一些测试数据 -- 图1
+x = np.linspace(0, 2*np.pi, 400)
+y = np.sin(x**2)
+
+# 创建一个画像和子图 -- 图2
+fig, ax = plt.subplots()
+ax.plot(x, y)
+ax.set_title(&#39;Simple plot&#39;)
+
+# 创建两个子图 -- 图3
+f, (ax1, ax2) = plt.subplots(1, 2, sharey=True)
+ax1.plot(x, y)
+ax1.set_title(&#39;Sharing Y axis&#39;)
+ax2.scatter(x, y)
+
+# 创建四个子图 -- 图4
+fig, axs = plt.subplots(2, 2, subplot_kw=dict(projection=&quot;polar&quot;))
+axs[0, 0].plot(x, y)
+axs[1, 1].scatter(x, y)
+
+# 共享 x 轴
+plt.subplots(2, 2, sharex=&#39;col&#39;)
+
+# 共享 y 轴
+plt.subplots(2, 2, sharey=&#39;row&#39;)
+
+# 共享 x 轴和 y 轴
+plt.subplots(2, 2, sharex=&#39;all&#39;, sharey=&#39;all&#39;)
+
+# 这个也是共享 x 轴和 y 轴
+plt.subplots(2, 2, sharex=True, sharey=True)
+
+# 创建10 张图，已经存在的则删除
+fig, ax = plt.subplots(num=10, clear=True)
+
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153408476.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153408476.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153431942.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153431942.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
@@ -1099,8 +1482,8 @@
 
 <h2 id="Matplotlib散点图"><a href="#Matplotlib散点图" class="headerlink" title="Matplotlib散点图"></a>Matplotlib散点图</h2><p>我们可以使用 pyplot 中的 scatter() 方法来绘制散点图。</p>
 <p>scatter() 方法语法格式如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matplotlib.pyplot.scatter(x, y, s=<span class="literal">None</span>, c=<span class="literal">None</span>, marker=<span class="literal">None</span>, cmap=<span class="literal">None</span>, norm=<span class="literal">None</span>, vmin=<span class="literal">None</span>, vmax=<span class="literal">None</span>, alpha=<span class="literal">None</span>, linewidths=<span class="literal">None</span>, *, edgecolors=<span class="literal">None</span>, plotnonfinite=<span class="literal">False</span>, data=<span class="literal">None</span>, **kwargs)</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">matplotlib.pyplot.scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, *, edgecolors=None, plotnonfinite=False, data=None, **kwargs)
+</code></pre>
 <p><strong>参数说明：</strong></p>
 <p><strong>x，y</strong>：长度相同的数组，也就是我们即将绘制散点图的数据点，输入数据。</p>
 <p><strong>s</strong>：点的大小，默认 20，也可以是个数组，数组每个参数为对应点的大小。</p>
@@ -1116,28 +1499,78 @@
 <p>*<strong>*kwargs：</strong>：其他参数。</p>
 <p>以下实例 scatter() 函数接收长度相同的数组参数，一个用于 x 轴的值，另一个用于 y 轴上的值：</p>
 <p>实例1：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">23</span>, <span class="number">18</span>])</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+y = np.array([1, 4, 9, 16, 7, 11, 23, 18])
+
+plt.scatter(x, y)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155337371.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155337371.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例2：设置图标大小</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">23</span>, <span class="number">18</span>])</span><br><span class="line">sizes = np.array([<span class="number">20</span>,<span class="number">50</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">500</span>,<span class="number">1000</span>,<span class="number">60</span>,<span class="number">90</span>])</span><br><span class="line">plt.scatter(x, y, s=sizes)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+y = np.array([1, 4, 9, 16, 7, 11, 23, 18])
+sizes = np.array([20,50,100,200,500,1000,60,90])
+plt.scatter(x, y, s=sizes)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155550197.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155550197.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例3：自定义点的颜色</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>])</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">23</span>, <span class="number">18</span>])</span><br><span class="line">colors = np.array([<span class="string">&quot;red&quot;</span>,<span class="string">&quot;green&quot;</span>,<span class="string">&quot;black&quot;</span>,<span class="string">&quot;orange&quot;</span>,<span class="string">&quot;purple&quot;</span>,<span class="string">&quot;beige&quot;</span>,<span class="string">&quot;cyan&quot;</span>,<span class="string">&quot;magenta&quot;</span>])</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y, c=colors)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+y = np.array([1, 4, 9, 16, 7, 11, 23, 18])
+colors = np.array([&quot;red&quot;,&quot;green&quot;,&quot;black&quot;,&quot;orange&quot;,&quot;purple&quot;,&quot;beige&quot;,&quot;cyan&quot;,&quot;magenta&quot;])
+
+plt.scatter(x, y, c=colors)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155740263.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155740263.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例4：设置两组散点图</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">17</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">4</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">9</span>,<span class="number">6</span>])</span><br><span class="line">y = np.array([<span class="number">99</span>,<span class="number">86</span>,<span class="number">87</span>,<span class="number">88</span>,<span class="number">111</span>,<span class="number">86</span>,<span class="number">103</span>,<span class="number">87</span>,<span class="number">94</span>,<span class="number">78</span>,<span class="number">77</span>,<span class="number">85</span>,<span class="number">86</span>])</span><br><span class="line">plt.scatter(x, y, color = <span class="string">&#x27;hotpink&#x27;</span>)</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">2</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">15</span>,<span class="number">8</span>,<span class="number">12</span>,<span class="number">9</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">14</span>,<span class="number">12</span>])</span><br><span class="line">y = np.array([<span class="number">100</span>,<span class="number">105</span>,<span class="number">84</span>,<span class="number">105</span>,<span class="number">90</span>,<span class="number">99</span>,<span class="number">90</span>,<span class="number">95</span>,<span class="number">94</span>,<span class="number">100</span>,<span class="number">79</span>,<span class="number">112</span>,<span class="number">91</span>,<span class="number">80</span>,<span class="number">85</span>])</span><br><span class="line">plt.scatter(x, y, color = <span class="string">&#x27;#88c999&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
+y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])
+plt.scatter(x, y, color = &#39;hotpink&#39;)
+
+x = np.array([2,2,8,1,15,8,12,9,7,3,11,4,7,14,12])
+y = np.array([100,105,84,105,90,99,90,95,94,100,79,112,91,80,85])
+plt.scatter(x, y, color = &#39;#88c999&#39;)
+
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155923033.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155923033.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例5：使用随机数来设置散点图</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机数生成器的种子</span></span><br><span class="line">np.random.seed(<span class="number">19680801</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">N = <span class="number">50</span></span><br><span class="line">x = np.random.rand(N)</span><br><span class="line">y = np.random.rand(N)</span><br><span class="line">colors = np.random.rand(N)</span><br><span class="line">area = (<span class="number">30</span> * np.random.rand(N))**<span class="number">2</span>  <span class="comment"># 0 to 15 point radii</span></span><br><span class="line"></span><br><span class="line">plt.scatter(x, y, s=area, c=colors, alpha=<span class="number">0.5</span>) <span class="comment"># 设置颜色及透明度</span></span><br><span class="line"></span><br><span class="line">plt.title(<span class="string">&quot;RUNOOB Scatter Test&quot;</span>) <span class="comment"># 设置标题</span></span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
 
+# 随机数生成器的种子
+np.random.seed(19680801)
+
+
+N = 50
+x = np.random.rand(N)
+y = np.random.rand(N)
+colors = np.random.rand(N)
+area = (30 * np.random.rand(N))**2  # 0 to 15 point radii
+
+plt.scatter(x, y, s=area, c=colors, alpha=0.5) # 设置颜色及透明度
+
+plt.title(&quot;RUNOOB Scatter Test&quot;) # 设置标题
+
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160218777.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160218777.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h3 id="颜色条Colormap"><a href="#颜色条Colormap" class="headerlink" title="颜色条Colormap"></a>颜色条Colormap</h3><p>Matplotlib 模块提供了很多可用的颜色条。</p>
@@ -1146,18 +1579,47 @@
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160411035.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160411035.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例6：设置颜色条需要使用 cmap 参数，默认值为 ‘viridis’，之后颜色值设置为 0 到 100 的数组</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">17</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">4</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">9</span>,<span class="number">6</span>])</span><br><span class="line">y = np.array([<span class="number">99</span>,<span class="number">86</span>,<span class="number">87</span>,<span class="number">88</span>,<span class="number">111</span>,<span class="number">86</span>,<span class="number">103</span>,<span class="number">87</span>,<span class="number">94</span>,<span class="number">78</span>,<span class="number">77</span>,<span class="number">85</span>,<span class="number">86</span>])</span><br><span class="line">colors = np.array([<span class="number">0</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">45</span>, <span class="number">50</span>, <span class="number">55</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span>, <span class="number">100</span>])</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y, c=colors, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
+y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])
+colors = np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])
+
+plt.scatter(x, y, c=colors, cmap=&#39;viridis&#39;)
+
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160555429.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160555429.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例7：如果要显示颜色条，需要使用 <strong>plt.colorbar()</strong> 方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">17</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">4</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">9</span>,<span class="number">6</span>])</span><br><span class="line">y = np.array([<span class="number">99</span>,<span class="number">86</span>,<span class="number">87</span>,<span class="number">88</span>,<span class="number">111</span>,<span class="number">86</span>,<span class="number">103</span>,<span class="number">87</span>,<span class="number">94</span>,<span class="number">78</span>,<span class="number">77</span>,<span class="number">85</span>,<span class="number">86</span>])</span><br><span class="line">colors = np.array([<span class="number">0</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">45</span>, <span class="number">50</span>, <span class="number">55</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span>, <span class="number">100</span>])</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y, c=colors, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.colorbar()</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
+y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])
+colors = np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])
+
+plt.scatter(x, y, c=colors, cmap=&#39;viridis&#39;)
+
+plt.colorbar()
+
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160751739.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160751739.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例8：换个颜色条参数， cmap 设置为 <strong>afmhot_r</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">17</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">4</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">9</span>,<span class="number">6</span>])</span><br><span class="line">y = np.array([<span class="number">99</span>,<span class="number">86</span>,<span class="number">87</span>,<span class="number">88</span>,<span class="number">111</span>,<span class="number">86</span>,<span class="number">103</span>,<span class="number">87</span>,<span class="number">94</span>,<span class="number">78</span>,<span class="number">77</span>,<span class="number">85</span>,<span class="number">86</span>])</span><br><span class="line">colors = np.array([<span class="number">0</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">45</span>, <span class="number">50</span>, <span class="number">55</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span>, <span class="number">100</span>])</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y, c=colors, cmap=<span class="string">&#x27;afmhot_r&#x27;</span>)</span><br><span class="line">plt.colorbar()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
+y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])
+colors = np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])
+
+plt.scatter(x, y, c=colors, cmap=&#39;afmhot_r&#39;)
+plt.colorbar()
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160958004.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160958004.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>颜色条参数值可以是以下值：</p>
@@ -1505,8 +1967,8 @@
 
 <h2 id="Matplotlib柱形图"><a href="#Matplotlib柱形图" class="headerlink" title="Matplotlib柱形图"></a>Matplotlib柱形图</h2><p>我们可以使用 pyplot 中的 bar() 方法来绘制柱形图。</p>
 <p>bar() 方法语法格式如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matplotlib.pyplot.bar(x, height, width=<span class="number">0.8</span>, bottom=<span class="literal">None</span>, *, align=<span class="string">&#x27;center&#x27;</span>, data=<span class="literal">None</span>, **kwargs)</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">matplotlib.pyplot.bar(x, height, width=0.8, bottom=None, *, align=&#39;center&#39;, data=None, **kwargs)
+</code></pre>
 <p><strong>参数说明：</strong></p>
 <p><strong>x</strong>：浮点型数组，柱形图的 x 轴数据。</p>
 <p><strong>height</strong>：浮点型数组，柱形图的高度。</p>
@@ -1515,39 +1977,81 @@
 <p><strong>align</strong>：柱形图与 x 坐标的对齐方式，’center’ 以 x 位置为中心，这是默认值。 ‘edge’：将柱形图的左边缘与 x 位置对齐。要对齐右边缘的条形，可以传递负数的宽度值及 align&#x3D;’edge’。</p>
 <p>*<strong>*kwargs：</strong>：其他参数。</p>
 <p>实例1：简单实用 bar() 来创建一个柱形图</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="string">&quot;Runoob-1&quot;</span>, <span class="string">&quot;Runoob-2&quot;</span>, <span class="string">&quot;Runoob-3&quot;</span>, <span class="string">&quot;C-RUNOOB&quot;</span>])</span><br><span class="line">y = np.array([<span class="number">12</span>, <span class="number">22</span>, <span class="number">6</span>, <span class="number">18</span>])</span><br><span class="line"></span><br><span class="line">plt.bar(x,y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
+y = np.array([12, 22, 6, 18])
+
+plt.bar(x,y)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162147295.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162147295.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例2：垂直方向的柱形图可以使用 <strong>barh()</strong> 方法来设置</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="string">&quot;Runoob-1&quot;</span>, <span class="string">&quot;Runoob-2&quot;</span>, <span class="string">&quot;Runoob-3&quot;</span>, <span class="string">&quot;C-RUNOOB&quot;</span>])</span><br><span class="line">y = np.array([<span class="number">12</span>, <span class="number">22</span>, <span class="number">6</span>, <span class="number">18</span>])</span><br><span class="line"></span><br><span class="line">plt.barh(x,y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
+y = np.array([12, 22, 6, 18])
+
+plt.barh(x,y)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162341451.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162341451.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例3：设置柱形图颜色</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="string">&quot;Runoob-1&quot;</span>, <span class="string">&quot;Runoob-2&quot;</span>, <span class="string">&quot;Runoob-3&quot;</span>, <span class="string">&quot;C-RUNOOB&quot;</span>])</span><br><span class="line">y = np.array([<span class="number">12</span>, <span class="number">22</span>, <span class="number">6</span>, <span class="number">18</span>])</span><br><span class="line"></span><br><span class="line">plt.bar(x, y, color = <span class="string">&quot;#4CAF50&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
+y = np.array([12, 22, 6, 18])
+
+plt.bar(x, y, color = &quot;#4CAF50&quot;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162449487.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162449487.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例4：自定义各个柱形的颜色</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="string">&quot;Runoob-1&quot;</span>, <span class="string">&quot;Runoob-2&quot;</span>, <span class="string">&quot;Runoob-3&quot;</span>, <span class="string">&quot;C-RUNOOB&quot;</span>])</span><br><span class="line">y = np.array([<span class="number">12</span>, <span class="number">22</span>, <span class="number">6</span>, <span class="number">18</span>])</span><br><span class="line"></span><br><span class="line">plt.bar(x, y,  color = [<span class="string">&quot;#4CAF50&quot;</span>,<span class="string">&quot;red&quot;</span>,<span class="string">&quot;hotpink&quot;</span>,<span class="string">&quot;#556B2F&quot;</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
+y = np.array([12, 22, 6, 18])
+
+plt.bar(x, y,  color = [&quot;#4CAF50&quot;,&quot;red&quot;,&quot;hotpink&quot;,&quot;#556B2F&quot;])
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162554129.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162554129.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例5：设置柱形图宽度，<strong>bar()</strong> 方法使用 <strong>width</strong> 设置</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="string">&quot;Runoob-1&quot;</span>, <span class="string">&quot;Runoob-2&quot;</span>, <span class="string">&quot;Runoob-3&quot;</span>, <span class="string">&quot;C-RUNOOB&quot;</span>])</span><br><span class="line">y = np.array([<span class="number">12</span>, <span class="number">22</span>, <span class="number">6</span>, <span class="number">18</span>])</span><br><span class="line"></span><br><span class="line">plt.bar(x, y, width = <span class="number">0.1</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
+y = np.array([12, 22, 6, 18])
+
+plt.bar(x, y, width = 0.1)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162717588.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162717588.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例6：<strong>barh()</strong> 方法使用 <strong>height</strong> 设置 height</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([<span class="string">&quot;Runoob-1&quot;</span>, <span class="string">&quot;Runoob-2&quot;</span>, <span class="string">&quot;Runoob-3&quot;</span>, <span class="string">&quot;C-RUNOOB&quot;</span>])</span><br><span class="line">y = np.array([<span class="number">12</span>, <span class="number">22</span>, <span class="number">6</span>, <span class="number">18</span>])</span><br><span class="line"></span><br><span class="line">plt.barh(x, y, height = <span class="number">0.1</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
+y = np.array([12, 22, 6, 18])
+
+plt.barh(x, y, height = 0.1)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162753714.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162753714.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <h2 id="Matplotlib饼图"><a href="#Matplotlib饼图" class="headerlink" title="Matplotlib饼图"></a>Matplotlib饼图</h2><p>我们可以使用 pyplot 中的 pie() 方法来绘制饼图。</p>
 <p>pie() 方法语法格式如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matplotlib.pyplot.pie(x, explode=<span class="literal">None</span>, labels=<span class="literal">None</span>, colors=<span class="literal">None</span>, autopct=<span class="literal">None</span>, pctdistance=<span class="number">0.6</span>, shadow=<span class="literal">False</span>, labeldistance=<span class="number">1.1</span>, startangle=<span class="number">0</span>, radius=<span class="number">1</span>, counterclock=<span class="literal">True</span>, wedgeprops=<span class="literal">None</span>, textprops=<span class="literal">None</span>, center=<span class="number">0</span>, <span class="number">0</span>, frame=<span class="literal">False</span>, rotatelabels=<span class="literal">False</span>, *, normalize=<span class="literal">None</span>, data=<span class="literal">None</span>)[source]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">matplotlib.pyplot.pie(x, explode=None, labels=None, colors=None, autopct=None, pctdistance=0.6, shadow=False, labeldistance=1.1, startangle=0, radius=1, counterclock=True, wedgeprops=None, textprops=None, center=0, 0, frame=False, rotatelabels=False, *, normalize=None, data=None)[source]
+</code></pre>
 <p><strong>参数说明：</strong></p>
 <p><strong>x</strong>：浮点型数组，表示每个扇形的面积。</p>
 <p><strong>explode</strong>：数组，表示各个扇形之间的间隔，默认值为0。</p>
@@ -1566,18 +2070,46 @@
 <p><strong>frame</strong> ：布尔类型，默认值：False。如果是 True，绘制带有表的轴框架。</p>
 <p><strong>rotatelabels</strong> ：布尔类型，默认为 False。如果为 True，旋转每个 label 到指定的角度。</p>
 <p>实例1：简单实用 pie() 来创建一个柱形图</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">y = np.array([<span class="number">35</span>, <span class="number">25</span>, <span class="number">25</span>, <span class="number">15</span>])</span><br><span class="line"></span><br><span class="line">plt.pie(y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+y = np.array([35, 25, 25, 15])
+
+plt.pie(y)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165657025.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165657025.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例2：设置饼图各个扇形的标签与颜色</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">y = np.array([<span class="number">35</span>, <span class="number">25</span>, <span class="number">25</span>, <span class="number">15</span>])</span><br><span class="line"></span><br><span class="line">plt.pie(y,</span><br><span class="line">        labels=[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>], <span class="comment"># 设置饼图标签</span></span><br><span class="line">        colors=[<span class="string">&quot;#d5695d&quot;</span>, <span class="string">&quot;#5d8ca8&quot;</span>, <span class="string">&quot;#65a479&quot;</span>, <span class="string">&quot;#a564c9&quot;</span>], <span class="comment"># 设置饼图颜色</span></span><br><span class="line">       )</span><br><span class="line">plt.title(<span class="string">&quot;RUNOOB Pie Test&quot;</span>) <span class="comment"># 设置标题</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+y = np.array([35, 25, 25, 15])
+
+plt.pie(y,
+        labels=[&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;], # 设置饼图标签
+        colors=[&quot;#d5695d&quot;, &quot;#5d8ca8&quot;, &quot;#65a479&quot;, &quot;#a564c9&quot;], # 设置饼图颜色
+       )
+plt.title(&quot;RUNOOB Pie Test&quot;) # 设置标题
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165759838.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165759838.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>实例3：突出显示第二个扇形，并格式化输出百分比</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">y = np.array([<span class="number">35</span>, <span class="number">25</span>, <span class="number">25</span>, <span class="number">15</span>])</span><br><span class="line"></span><br><span class="line">plt.pie(y,</span><br><span class="line">        labels=[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>], <span class="comment"># 设置饼图标签</span></span><br><span class="line">        colors=[<span class="string">&quot;#d5695d&quot;</span>, <span class="string">&quot;#5d8ca8&quot;</span>, <span class="string">&quot;#65a479&quot;</span>, <span class="string">&quot;#a564c9&quot;</span>], <span class="comment"># 设置饼图颜色</span></span><br><span class="line">        explode=(<span class="number">0</span>, <span class="number">0.2</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="comment"># 第二部分突出显示，值越大，距离中心越远</span></span><br><span class="line">        autopct=<span class="string">&#x27;%.2f%%&#x27;</span>, <span class="comment"># 格式化输出百分比</span></span><br><span class="line">       )</span><br><span class="line">plt.title(<span class="string">&quot;RUNOOB Pie Test&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
 
+y = np.array([35, 25, 25, 15])
+
+plt.pie(y,
+        labels=[&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;], # 设置饼图标签
+        colors=[&quot;#d5695d&quot;, &quot;#5d8ca8&quot;, &quot;#65a479&quot;, &quot;#a564c9&quot;], # 设置饼图颜色
+        explode=(0, 0.2, 0, 0), # 第二部分突出显示，值越大，距离中心越远
+        autopct=&#39;%.2f%%&#39;, # 格式化输出百分比
+       )
+plt.title(&quot;RUNOOB Pie Test&quot;)
+plt.show()
+</code></pre>
 <img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404170000561.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404170000561.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p><strong>注意：</strong>默认情况下，第一个扇形的绘制是从 x 轴开始并逆时针移动：</p>
@@ -1809,7 +2341,7 @@
       
     
       
-        <div><p>Blog content follows the <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
@@ -1821,9 +2353,9 @@
       
     
       
-        Use
+        本站使用
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
-        as theme
+        作为主题
       
     
       
@@ -1959,7 +2491,7 @@ var loadCSS = function( href, before, media, attributes ){
   
   
   
-  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/atom-one-light.css", window.volantis.loadcss);
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2074,12 +2606,12 @@ var loadCSS = function( href, before, media, attributes ){
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
       <li class="option">
-        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand('copy')"><i class="fa fa-copy fa-fw"></i>Copy Text</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand('copy')"><i class="fa fa-copy fa-fw"></i>复制文本</a>
         <hr id="hr-text">
-        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>Copy Link</a>
-        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>Open Link in New Tab</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>复制链接</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>在新标签页打开</a>
         <hr id="hr-href">
-        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>Copy Image Link</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>复制图片地址</a>
         <hr id="hr-src">
       </li>
       
@@ -2169,7 +2701,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default ">
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
         <i class="fa fa-moon fa-fw"></i> 暗黑模式
       </a>
     </li>
@@ -2577,7 +3109,7 @@ function setSearchService() {
 
   
 
-<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/lib/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
 
 <script>hljs.initHighlightingOnLoad();</script>
 
@@ -2977,6 +3509,11 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 </script>
 
 <!-- more -->
+
+  
+  <script></script>
+
+
 
  
 	   

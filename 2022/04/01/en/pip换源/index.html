@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans,en,default">
+<html lang="zh-CN,en,zh-TW,default">
   <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
@@ -34,11 +34,27 @@
 
   <!-- import meta -->
   
+    
+      <meta name="msapplication-TileColor" content="#ffffff">
+    
+      <meta name="msapplication-config" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/browserconfig.xml">
+    
+      <meta name="theme-color" content="#ffffff">
+    
+  
 
   <!-- link -->
   
 
   <!-- import link -->
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/site.webmanifest">
+  <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon.ico">
   
 
   
@@ -102,6 +118,8 @@
       
         
         <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png">
           
           
           
@@ -408,7 +426,7 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>367 words</p>
+      <p>365 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -453,23 +471,29 @@
 <li>中国科学技术大学 <a target="_blank" rel="external nofollow noopener noreferrer" href="http://pypi.mirrors.ustc.edu.cn/simple/">http://pypi.mirrors.ustc.edu.cn/simple/</a></li>
 </ul>
 <h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><h3 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h3><p>可以在使用 pip 的时候在后面加上-i 参数，指定 pip 源</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg: pip install scrapy -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-
+<pre><code>eg: pip install scrapy -i https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre>
 <h3 id="永久修改"><a href="#永久修改" class="headerlink" title="永久修改"></a>永久修改</h3><h4 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h4><p>修改 ~&#x2F;.pip&#x2F;pip.conf (没有就创建一个文件夹及文件，文件夹要加“.”，表示是隐藏文件夹)， 内容如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">global</span>]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">[install]</span><br><span class="line">trusted-host = https://pypi.tuna.tsinghua.edu.cn</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host = https://pypi.tuna.tsinghua.edu.cn
+</code></pre>
 <h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><p>1.pip永久换源</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip config <span class="built_in">set</span> <span class="keyword">global</span>.index-url https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+</code></pre>
 <p>在cmd命令行中输入上述命令即可。</p>
 <p>最后，升级 pip 到最新的版本</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pip -U</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --user --upgrade pip</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">pip install pip -U
+</code></pre>
+<pre><code class="python">python -m pip install --user --upgrade pip
+</code></pre>
 <p>2.直接在 user 目录中创建一个 pip 目录，如：C:\Users\xx\pip，在 pip 目录下新建文件 pip.ini，即 %HOMEPATH%\pip\pip.ini，内容如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">[install]</span><br><span class="line">trusted-host = pypi.tuna.tsinghua.edu.cn</span><br></pre></td></tr></table></figure>
-
+<pre><code>[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host = pypi.tuna.tsinghua.edu.cn
+</code></pre>
 <p>可以在开始运行里面输入三个点 <code>...</code>，敲回车即可打开用户目录。</p>
 
   
@@ -699,7 +723,7 @@
       
     
       
-        <div><p>Blog content follows the <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
@@ -711,9 +735,9 @@
       
     
       
-        Use
+        本站使用
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
-        as theme
+        作为主题
       
     
       
@@ -849,7 +873,7 @@ var loadCSS = function( href, before, media, attributes ){
   
   
   
-  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/atom-one-light.css", window.volantis.loadcss);
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -1059,7 +1083,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default ">
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
         <i class="fa fa-moon fa-fw"></i> 暗黑模式
       </a>
     </li>
@@ -1467,7 +1491,7 @@ function setSearchService() {
 
   
 
-<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/lib/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
 
 <script>hljs.initHighlightingOnLoad();</script>
 
@@ -1867,6 +1891,11 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 </script>
 
 <!-- more -->
+
+  
+  <script></script>
+
+
 
  
 	   

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans,en,default">
+<html lang="zh-CN,en,zh-TW,default">
   <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
@@ -34,11 +34,27 @@
 
   <!-- import meta -->
   
+    
+      <meta name="msapplication-TileColor" content="#ffffff">
+    
+      <meta name="msapplication-config" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/browserconfig.xml">
+    
+      <meta name="theme-color" content="#ffffff">
+    
+  
 
   <!-- link -->
   
 
   <!-- import link -->
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/site.webmanifest">
+  <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon.ico">
   
 
   
@@ -100,6 +116,8 @@
       
         
         <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png">
           
           
           
@@ -395,7 +413,7 @@
             <div class="new-meta-item date">
   <a class="notlink">
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Mar 13, 2022</p>
+    <p>发布于：2022年3月13日</p>
   </a>
 </div>
 
@@ -406,13 +424,13 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>81 words</p>
+      <p>字数：81字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 min</p>
+      <p>时长：1分钟</p>
     </a>
   </div>
 
@@ -561,7 +579,7 @@
       
     
       
-        <div><p>Blog content follows the <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
@@ -573,9 +591,9 @@
       
     
       
-        Use
+        本站使用
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
-        as theme
+        作为主题
       
     
       
@@ -711,7 +729,7 @@ var loadCSS = function( href, before, media, attributes ){
   
   
   
-  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/atom-one-light.css", window.volantis.loadcss);
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -826,12 +844,12 @@ var loadCSS = function( href, before, media, attributes ){
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
       <li class="option">
-        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand('copy')"><i class="fa fa-copy fa-fw"></i>Copy Text</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand('copy')"><i class="fa fa-copy fa-fw"></i>复制文本</a>
         <hr id="hr-text">
-        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>Copy Link</a>
-        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>Open Link in New Tab</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>复制链接</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>在新标签页打开</a>
         <hr id="hr-href">
-        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>Copy Image Link</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>复制图片地址</a>
         <hr id="hr-src">
       </li>
       
@@ -921,7 +939,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default ">
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
         <i class="fa fa-moon fa-fw"></i> 暗黑模式
       </a>
     </li>
@@ -1329,7 +1347,7 @@ function setSearchService() {
 
   
 
-<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/lib/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
 
 <script>hljs.initHighlightingOnLoad();</script>
 
@@ -1729,6 +1747,11 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 </script>
 
 <!-- more -->
+
+  
+  <script></script>
+
+
 
  
 	   

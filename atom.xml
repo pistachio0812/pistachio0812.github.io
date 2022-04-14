@@ -50,9 +50,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;1.DetNet&lt;/p&gt;
-&lt;p&gt;2.SNIP&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -73,7 +71,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;Matplotlib 是 Python</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -94,9 +92,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;由于使用pip或pip3安装python第三方包时，经常出现read timed out问题，所以需要将pip的官方软件源服务器换成国内的镜像服务器，从而提升python软件包安装效率和成功率，pip 国内的一些镜像：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;阿里云 &lt;a</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -117,7 +113,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;注意力机制&quot;&gt;&lt;a href=&quot;#注意力机制&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -135,14 +131,14 @@
     <link href="http://pistachio0812.github.io/2022/03/26/CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://pistachio0812.github.io/2022/03/26/CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2022-03-26T11:07:11.619Z</published>
-    <updated>2022-04-07T00:32:13.014Z</updated>
+    <updated>2022-04-07T07:00:42.952Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;MySQL入门教程&quot;&gt;&lt;a href=&quot;#MySQL入门教程&quot; class=&quot;headerlink&quot; title=&quot;MySQL入门教程&quot;&gt;&lt;/a&gt;MySQL入门教程&lt;/h2&gt;&lt;h3 id=&quot;什么是数据库&quot;&gt;&lt;a href=&quot;#什么是数据库&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -167,7 +163,7 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;torch-nn&quot;&gt;&lt;a href=&quot;#torch-nn&quot; class=&quot;headerlink&quot; title=&quot;torch.nn&quot;&gt;&lt;/a&gt;torch.nn&lt;/h1&gt;&lt;h2 id=&quot;Container&quot;&gt;&lt;a href=&quot;#Container&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -185,15 +181,14 @@
     <link href="http://pistachio0812.github.io/2022/03/25/en/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
     <id>http://pistachio0812.github.io/2022/03/25/en/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</id>
     <published>2022-03-25T10:46:42.593Z</published>
-    <updated>2022-03-25T12:48:07.362Z</updated>
+    <updated>2022-03-25T12:50:05.222Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h4 id=&quot;git安装&quot;&gt;&lt;a href=&quot;#git安装&quot; class=&quot;headerlink&quot; title=&quot;git安装&quot;&gt;&lt;/a&gt;git安装&lt;/h4&gt;&lt;p&gt;1.安装git OSX版&lt;/p&gt;
-&lt;p&gt;下载地址：&lt;a</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -220,7 +215,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;Linux简介&quot;&gt;&lt;a href=&quot;#Linux简介&quot; class=&quot;headerlink&quot; title=&quot;Linux简介&quot;&gt;&lt;/a&gt;Linux简介&lt;/h3&gt;&lt;p&gt;UNIX 是一个交互式系统，用于同时处理多进程和多用户同时在线。为什么要说 UNIX，那是因为</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -238,15 +233,14 @@
     <link href="http://pistachio0812.github.io/2022/03/22/en/%E6%95%99%E4%BD%A0%E5%AD%A6%E4%BC%9A%E8%89%B2%E5%BD%A9%E6%90%AD%E9%85%8D/"/>
     <id>http://pistachio0812.github.io/2022/03/22/en/%E6%95%99%E4%BD%A0%E5%AD%A6%E4%BC%9A%E8%89%B2%E5%BD%A9%E6%90%AD%E9%85%8D/</id>
     <published>2022-03-22T10:22:49.177Z</published>
-    <updated>2022-03-24T03:05:11.564Z</updated>
+    <updated>2022-04-02T11:11:55.683Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;中国色&quot;&gt;&lt;a href=&quot;#中国色&quot; class=&quot;headerlink&quot; title=&quot;中国色&quot;&gt;&lt;/a&gt;中国色&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://zhongguose.com/&quot;&gt;中国色&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;COULEUR&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -267,7 +261,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;就地操作&quot;&gt;&lt;a href=&quot;#就地操作&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -288,7 +282,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;tf中矩阵量存在形式常用有三种，具体如下：&lt;br&gt;1.tf.Variable()&lt;br&gt;表示神经网络中可变化的量（可以通过trainable&amp;#x3D;False设置成不可变),可在运行中赋值，可以通过constant或者其他方式进行初始化。&lt;br&gt;2.tf.constan</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -309,8 +303,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;搞学术研究的必不可少的就是论文，而且是大量的论文。因此，在这里我特意把我平时用到的积累到的论文搜索网站集中到了这里，后续遇到了其他的还会继续补充。&lt;/p&gt;
-&lt;h2 id=&quot;谷歌学术&quot;&gt;&lt;a href=&quot;#谷歌学术&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -331,7 +324,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;万门好课&quot;&gt;&lt;a href=&quot;#万门好课&quot; class=&quot;headerlink&quot; title=&quot;万门好课&quot;&gt;&lt;/a&gt;万门好课&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.wanmen.org/&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -356,10 +349,7 @@
       
         
         
-    <summary type="html">&lt;pre&gt;&lt;code&gt;                                       计算机视觉单词表
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;artificial neural network,ANN        人工神经网络&lt;/p&gt;
-&lt;p&gt;perceptron  </summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
@@ -380,7 +370,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     

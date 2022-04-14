@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans,en,default">
+<html lang="zh-CN,en,zh-TW,default">
   <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
@@ -34,11 +34,27 @@
 
   <!-- import meta -->
   
+    
+      <meta name="msapplication-TileColor" content="#ffffff">
+    
+      <meta name="msapplication-config" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/browserconfig.xml">
+    
+      <meta name="theme-color" content="#ffffff">
+    
+  
 
   <!-- link -->
   
 
   <!-- import link -->
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/site.webmanifest">
+  <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon.ico">
   
 
   
@@ -102,6 +118,8 @@
       
         
         <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png">
           
           
           
@@ -408,13 +426,13 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>6.3k words</p>
+      <p>字数：6.3k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>29 min</p>
+      <p>时长：29分钟</p>
     </a>
   </div>
 
@@ -487,8 +505,21 @@
 </li>
 </ul>
 <p>测试用例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line"></span><br><span class="line">n1 = nn.ConstantPad2d(2, 0)</span><br><span class="line">n2 = nn.ConstantPad2d((0, 1, 0, 1), 0)</span><br><span class="line">n3 = nn.ConstantPad2d((-1, 0, -1, 0), 0)</span><br><span class="line">input = torch.randn(1, 2, 2)</span><br><span class="line">print(input)</span><br><span class="line">t = n1(input)</span><br><span class="line">print(t)</span><br><span class="line">x = n2(input)</span><br><span class="line">y = n3(x)</span><br><span class="line">print(x)</span><br><span class="line">print(y)</span><br></pre></td></tr></table></figure>
+<pre><code>import torch
+import torch.nn as nn
 
+n1 = nn.ConstantPad2d(2, 0)
+n2 = nn.ConstantPad2d((0, 1, 0, 1), 0)
+n3 = nn.ConstantPad2d((-1, 0, -1, 0), 0)
+input = torch.randn(1, 2, 2)
+print(input)
+t = n1(input)
+print(t)
+x = n2(input)
+y = n3(x)
+print(x)
+print(y)
+</code></pre>
 <p>结果：</p>
 <p>tensor([[[ 1.0826,  0.1191],<br>         [-0.3506,  0.1677]]])<br>tensor([[[ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  1.0826,  0.1191,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000, -0.3506,  0.1677,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000]]])<br>tensor([[[ 1.0826,  0.1191,  0.0000],<br>         [-0.3506,  0.1677,  0.0000],<br>         [ 0.0000,  0.0000,  0.0000]]])<br>tensor([[[0.1677, 0.0000],<br>         [0.0000, 0.0000]]])</p>
 <p>更多详情参考<a target="_blank" rel="external nofollow noopener noreferrer" href="https://pytorch.org/docs/stable/generated/torch.nn.ConstantPad2d.html?highlight=constantpad2d#torch.nn.ConstantPad2d">ConstantPad2d</a></p>
@@ -506,11 +537,27 @@
 <p><code>[(1, &#39;Spring&#39;), (2, &#39;Summer&#39;), (3, &#39;Fall&#39;), (4, &#39;Winter&#39;)]</code></p>
 </blockquote>
 <p>普通的for循环</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line">seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">enumerate</span>(seq):</span><br><span class="line">	<span class="built_in">print</span>(i, seq[i])</span><br><span class="line">	i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line"><span class="number">0</span> one</span><br><span class="line"><span class="number">1</span> two</span><br><span class="line"><span class="number">2</span> three</span><br></pre></td></tr></table></figure>
+<pre><code class="python">i = 0
+seq = [&#39;one&#39;, &#39;two&#39;, &#39;three&#39;]
+for i in enumerate(seq):
+    print(i, seq[i])
+    i += 1
 
+result:
+0 one
+1 two
+2 three
+</code></pre>
 <p>for循环使用enumerate</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i, element <span class="keyword">in</span> <span class="built_in">enumerate</span>(seq):</span><br><span class="line">	<span class="built_in">print</span>(i, element)</span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line"><span class="number">0</span> one</span><br><span class="line"><span class="number">1</span> two</span><br><span class="line"><span class="number">2</span> three</span><br></pre></td></tr></table></figure>
+<pre><code class="python">seq = [&#39;one&#39;, &#39;two&#39;, &#39;three&#39;]
+for i, element in enumerate(seq):
+    print(i, element)
 
+result:
+0 one
+1 two
+2 three
+</code></pre>
 <h3 id="torch-clamp"><a href="#torch-clamp" class="headerlink" title="torch.clamp"></a>torch.clamp</h3><p><code>torch.clamp(input, min=None, max=None, *, out=None)-&gt;Tensor</code></p>
 <p>Clamps中所有输入的元素都在[min, max]范围内，让最小值和最大值分别是min和max，将会返回：<br>$$<br>y_i&#x3D;min(max(x_i,min_value_i),max_value_i)<br>$$<br>如果min为空，就没有下界。或者，如果max为空，没有上界。</p>
 <p>注：</p>
@@ -522,8 +569,16 @@
 <p>关键字参数：</p>
 <p>out(Tensor, 可选)-输出的张量</p>
 <p>举例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a = torch.randn(<span class="number">4</span>)</span><br><span class="line">&gt;&gt;&gt;a</span><br><span class="line">tensor([-<span class="number">1.7120</span>, <span class="number">0.1734</span>, -<span class="number">0.0478</span>, -<span class="number">0.0922</span>])</span><br><span class="line">&gt;&gt;&gt;torch.clamp(a, <span class="built_in">min</span>=-<span class="number">0.5</span>, <span class="built_in">max</span>=<span class="number">0.5</span>)</span><br><span class="line">tensor([-<span class="number">0.5000</span>, <span class="number">0.1734</span>, -<span class="number">0.0478</span>, -<span class="number">0.0922</span>])</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;<span class="built_in">min</span> = torch.linspace(-<span class="number">1</span>, <span class="number">1</span>, steps=<span class="number">4</span>)</span><br><span class="line">&gt;&gt;&gt;torch.clamp(a, <span class="built_in">min</span>=<span class="built_in">min</span>)</span><br><span class="line">tensor([-<span class="number">1.000</span>, <span class="number">0.1734</span>, <span class="number">0.3333</span>, <span class="number">1.0000</span>])</span><br></pre></td></tr></table></figure>
+<pre><code class="python">&gt;&gt;&gt;a = torch.randn(4)
+&gt;&gt;&gt;a
+tensor([-1.7120, 0.1734, -0.0478, -0.0922])
+&gt;&gt;&gt;torch.clamp(a, min=-0.5, max=0.5)
+tensor([-0.5000, 0.1734, -0.0478, -0.0922])
 
+&gt;&gt;&gt;min = torch.linspace(-1, 1, steps=4)
+&gt;&gt;&gt;torch.clamp(a, min=min)
+tensor([-1.000, 0.1734, 0.3333, 1.0000])
+</code></pre>
 <h3 id="FPPI"><a href="#FPPI" class="headerlink" title="FPPI"></a>FPPI</h3><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/Bruce_0712/article/details/78462880">(68条消息) Recall&#x2F;Precision&#x2F;FPPI评价方式详解_Bruce_0712的博客-CSDN博客</a></p>
 <h3 id="torchvision-ops-box-iou"><a href="#torchvision-ops-box-iou" class="headerlink" title="torchvision.ops.box_iou"></a>torchvision.ops.box_iou</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><p><code>torchvision.ops.box_iou(boxes1:torch.Tensor, boxes2:torch.Tensor)-&gt;torch.Tensor</code><a target="_blank" rel="external nofollow noopener noreferrer" href="https://pytorch.org/vision/stable/_modules/torchvision/ops/boxes.html#box_iou">SOURCE</a></p>
 <p>返回两个框的交并比，这两个框的形式都是$$(x_1,y_1,x_2,y_2)$$并且$$0&lt;&#x3D;x_1&lt;x_2,0&lt;&#x3D;y_1&lt;y_2$$</p>
@@ -537,59 +592,173 @@
 <p>如果这里有多个最大值，则会返回第一个最大值的序号。</p>
 <h4 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h4><p><code>input(Tensor)-&gt;输入的张量</code></p>
 <p>举例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = torch.randn(<span class="number">4</span>, <span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">tensor([[ <span class="number">1.3398</span>,  <span class="number">0.2663</span>, -<span class="number">0.2686</span>,  <span class="number">0.2450</span>],</span><br><span class="line">        [-<span class="number">0.7401</span>, -<span class="number">0.8805</span>, -<span class="number">0.3402</span>, -<span class="number">1.1936</span>],</span><br><span class="line">        [ <span class="number">0.4907</span>, -<span class="number">1.3948</span>, -<span class="number">1.0691</span>, -<span class="number">0.3132</span>],</span><br><span class="line">        [-<span class="number">1.6092</span>,  <span class="number">0.5419</span>, -<span class="number">0.2993</span>,  <span class="number">0.3195</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.argmax(a)</span><br><span class="line">tensor(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">&gt;&gt;&gt; a = torch.randn(4, 4)
+&gt;&gt;&gt; a
+tensor([[ 1.3398,  0.2663, -0.2686,  0.2450],
+        [-0.7401, -0.8805, -0.3402, -1.1936],
+        [ 0.4907, -1.3948, -1.0691, -0.3132],
+        [-1.6092,  0.5419, -0.2993,  0.3195]])
+&gt;&gt;&gt; torch.argmax(a)
+tensor(0)
+</code></pre>
 <p><code>torch.argmax(input, dim, keppdim=False)-&gt;LongTensor</code></p>
 <p>通过指定维度返回张量最大值的序号，这个最大值将会通过<code>torch.max()</code>返回</p>
 <h4 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h4><p>·input(Tensor):输入的张量</p>
 <p>·dim(int):减少的维度，如果没有，将返回平铺后的张量的argmax.</p>
 <p>·keepdim(bool):输出的张量是否保持维度,如果<code>dim=None</code>将忽略。</p>
 <p>举例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = torch.randn(<span class="number">4</span>, <span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">tensor([[ <span class="number">1.3398</span>,  <span class="number">0.2663</span>, -<span class="number">0.2686</span>,  <span class="number">0.2450</span>],</span><br><span class="line">        [-<span class="number">0.7401</span>, -<span class="number">0.8805</span>, -<span class="number">0.3402</span>, -<span class="number">1.1936</span>],</span><br><span class="line">        [ <span class="number">0.4907</span>, -<span class="number">1.3948</span>, -<span class="number">1.0691</span>, -<span class="number">0.3132</span>],</span><br><span class="line">        [-<span class="number">1.6092</span>,  <span class="number">0.5419</span>, -<span class="number">0.2993</span>,  <span class="number">0.3195</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.argmax(a, dim=<span class="number">1</span>)</span><br><span class="line">tensor([ <span class="number">0</span>,  <span class="number">2</span>,  <span class="number">0</span>,  <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">a = torch.tensor([</span><br><span class="line">              [</span><br><span class="line">                  [<span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">2</span>],</span><br><span class="line">                  [<span class="number">9</span>, -<span class="number">6</span>, <span class="number">2</span>, <span class="number">8</span>],</span><br><span class="line">                  [-<span class="number">3</span>, <span class="number">7</span>, -<span class="number">9</span>, <span class="number">1</span>]</span><br><span class="line">              ],</span><br><span class="line"> </span><br><span class="line">              [</span><br><span class="line">                  [-<span class="number">1</span>, <span class="number">7</span>, -<span class="number">5</span>, <span class="number">2</span>],</span><br><span class="line">                  [<span class="number">9</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">8</span>],</span><br><span class="line">                  [<span class="number">3</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">1</span>]</span><br><span class="line">              ]])</span><br><span class="line">b = torch.argmax(a, dim=<span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br><span class="line"><span class="built_in">print</span>(a.shape)</span><br><span class="line"> </span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[0, 1, 0, 1],</span></span><br><span class="line"><span class="string">        [1, 1, 1, 1],</span></span><br><span class="line"><span class="string">        [1, 1, 1, 1]])</span></span><br><span class="line"><span class="string">torch.Size([2, 3, 4])&quot;&quot;&quot;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># dim=0,即将第一个维度消除，也就是将两个[3*4]矩阵只保留一个，因此要在两组中作比较，即将上下两个[3*4]的矩阵分别在对应的位置上比较大小</span></span><br><span class="line"> </span><br><span class="line">b = torch.argmax(a, dim=<span class="number">1</span>)</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[1, 2, 0, 1],</span></span><br><span class="line"><span class="string">        [1, 2, 2, 1]])</span></span><br><span class="line"><span class="string">torch.Size([2, 3, 4])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># dim=1，即将第二个维度消除,这么理解：矩阵维度变为[2*4];</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">[1, 5, 5, 2],</span></span><br><span class="line"><span class="string">[9, -6, 2, 8],</span></span><br><span class="line"><span class="string">[-3, 7, -9, 1];</span></span><br><span class="line"><span class="string">纵向压缩成一维，因此变为[1,2,0,1];同理得到[1,2,2,1];</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">b = torch.argmax(a,dim=<span class="number">2</span>)</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[2, 0, 1],</span></span><br><span class="line"><span class="string">        [1, 0, 2]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># dim=2,即将第三个维度消除，这么理解：矩阵维度变为[2*3]</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">   [1, 5, 5, 2],</span></span><br><span class="line"><span class="string">   [9, -6, 2, 8],</span></span><br><span class="line"><span class="string">   [-3, 7, -9, 1];</span></span><br><span class="line"><span class="string">横向压缩成一维</span></span><br><span class="line"><span class="string">[2,0,1],同理得到下面的&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">&gt;&gt;&gt; a = torch.randn(4, 4)
+&gt;&gt;&gt; a
+tensor([[ 1.3398,  0.2663, -0.2686,  0.2450],
+        [-0.7401, -0.8805, -0.3402, -1.1936],
+        [ 0.4907, -1.3948, -1.0691, -0.3132],
+        [-1.6092,  0.5419, -0.2993,  0.3195]])
+&gt;&gt;&gt; torch.argmax(a, dim=1)
+tensor([ 0,  2,  0,  1])
+</code></pre>
+<pre><code class="python">import torch
+a = torch.tensor([
+              [
+                  [1, 5, 5, 2],
+                  [9, -6, 2, 8],
+                  [-3, 7, -9, 1]
+              ],
+ 
+              [
+                  [-1, 7, -5, 2],
+                  [9, 6, 2, 8],
+                  [3, 7, 9, 1]
+              ]])
+b = torch.argmax(a, dim=0)
+print(b)
+print(a.shape)
+ 
+&quot;&quot;&quot;
+tensor([[0, 1, 0, 1],
+        [1, 1, 1, 1],
+        [1, 1, 1, 1]])
+torch.Size([2, 3, 4])&quot;&quot;&quot;
+ 
+# dim=0,即将第一个维度消除，也就是将两个[3*4]矩阵只保留一个，因此要在两组中作比较，即将上下两个[3*4]的矩阵分别在对应的位置上比较大小
+ 
+b = torch.argmax(a, dim=1)
+&quot;&quot;&quot;
+tensor([[1, 2, 0, 1],
+        [1, 2, 2, 1]])
+torch.Size([2, 3, 4])
+&quot;&quot;&quot;
+# dim=1，即将第二个维度消除,这么理解：矩阵维度变为[2*4];
+&quot;&quot;&quot;
+[1, 5, 5, 2],
+[9, -6, 2, 8],
+[-3, 7, -9, 1];
+纵向压缩成一维，因此变为[1,2,0,1];同理得到[1,2,2,1];
+&quot;&quot;&quot;
+b = torch.argmax(a,dim=2)
+&quot;&quot;&quot;
+tensor([[2, 0, 1],
+        [1, 0, 2]])
+&quot;&quot;&quot;
+# dim=2,即将第三个维度消除，这么理解：矩阵维度变为[2*3]
+&quot;&quot;&quot;
+   [1, 5, 5, 2],
+   [9, -6, 2, 8],
+   [-3, 7, -9, 1];
+横向压缩成一维
+[2,0,1],同理得到下面的&quot;&quot;&quot;
+</code></pre>
 <h3 id="python-call-方法"><a href="#python-call-方法" class="headerlink" title="python _call_()方法"></a>python _<em>call</em>_()方法</h3><p>本节再介绍 <a target="_blank" rel="external nofollow noopener noreferrer" href="http://c.biancheng.net/python/">Python</a> 类中一个非常特殊的实例方法，即 _<em>call</em>_()。该方法的功能类似于在类中重载 () 运算符，使得类实例对象可以像调用普通函数那样，以“对象名()”的形式使用。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 引用来自C语言中文网，详情请参考：http://c.biancheng.net/view/2380.html</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CLanguage</span>:</span><br><span class="line">    <span class="comment"># 定义__call__方法</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self,name,add</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;调用__call__()方法&quot;</span>,name,add)</span><br><span class="line"></span><br><span class="line">clangs = CLanguage()</span><br><span class="line">clangs(<span class="string">&quot;C语言中文网&quot;</span>,<span class="string">&quot;http://c.biancheng.net&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python"># 引用来自C语言中文网，详情请参考：http://c.biancheng.net/view/2380.html
+class CLanguage:
+    # 定义__call__方法
+    def __call__(self,name,add):
+        print(&quot;调用__call__()方法&quot;,name,add)
 
+clangs = CLanguage()
+clangs(&quot;C语言中文网&quot;,&quot;http://c.biancheng.net&quot;)
+</code></pre>
 <p>程序执行结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">调用__call__()方法 C语言中文网 http://c.biancheng.net</span><br></pre></td></tr></table></figure>
-
+<pre><code>调用__call__()方法 C语言中文网 http://c.biancheng.net
+</code></pre>
 <p>可以看到，通过在 CLanguage 类中实现 _<em>call</em>_() 方法，使的 clangs 实例对象变为了可调用对象。</p>
 <blockquote>
 <p>Python 中，凡是可以将 () 直接应用到自身并执行，都称为可调用对象。可调用对象包括自定义的函数、Python 内置函数以及本节所讲的类实例对象。</p>
 </blockquote>
 <p>对于可调用对象，实际上“名称()”可以理解为是“名称.<strong>call</strong>()”的简写。仍以上面程序中定义的 clangs 实例对象为例，其最后一行代码还可以改写为如下形式：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clangs.__call__(&quot;C语言中文网&quot;,&quot;http://c.biancheng.net&quot;)</span><br></pre></td></tr></table></figure>
-
+<pre><code>clangs.__call__(&quot;C语言中文网&quot;,&quot;http://c.biancheng.net&quot;)
+</code></pre>
 <p>运行程序会发现，其运行结果和之前完全相同。</p>
 <p>自定义函数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">say</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Python教程：http://c.biancheng.net/python&quot;</span>)</span><br><span class="line">say()</span><br><span class="line">say.__call__()</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">def say():
+    print(&quot;Python教程：http://c.biancheng.net/python&quot;)
+say()
+say.__call__()
+</code></pre>
 <p>程序执行结果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Python教程：http://c.biancheng.net/python</span><br><span class="line">Python教程：http://c.biancheng.net/python</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">Python教程：http://c.biancheng.net/python
+Python教程：http://c.biancheng.net/python
+</code></pre>
 <h4 id="用-call-弥补-hasattr-函数的短板"><a href="#用-call-弥补-hasattr-函数的短板" class="headerlink" title="用 call() 弥补 hasattr() 函数的短板"></a>用 <strong>call</strong>() 弥补 hasattr() 函数的短板</h4><p>前面章节介绍了 hasattr() 函数的用法，该函数的功能是查找类的实例对象中是否包含指定名称的属性或者方法，但该函数有一个缺陷，即它无法判断该指定的名称，到底是类属性还是类方法。</p>
 <p>要解决这个问题，我们可以借助可调用对象的概念。要知道，类实例对象包含的方法，其实也属于可调用对象，但类属性却不是。举个例子：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CLanguage</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span> (self):</span><br><span class="line">        self.name = <span class="string">&quot;C语言中文网&quot;</span></span><br><span class="line">        self.add = <span class="string">&quot;http://c.biancheng.net&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">say</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;我正在学Python&quot;</span>)</span><br><span class="line"></span><br><span class="line">clangs = CLanguage()</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">hasattr</span>(clangs,<span class="string">&quot;name&quot;</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">hasattr</span>(clangs.name,<span class="string">&quot;__call__&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;**********&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">hasattr</span>(clangs,<span class="string">&quot;say&quot;</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">hasattr</span>(clangs.say,<span class="string">&quot;__call__&quot;</span>))</span><br></pre></td></tr></table></figure>
+<pre><code class="python">class CLanguage:
+    def __init__ (self):
+        self.name = &quot;C语言中文网&quot;
+        self.add = &quot;http://c.biancheng.net&quot;
+    def say(self):
+        print(&quot;我正在学Python&quot;)
 
+clangs = CLanguage()
+if hasattr(clangs,&quot;name&quot;):
+    print(hasattr(clangs.name,&quot;__call__&quot;))
+print(&quot;**********&quot;)
+if hasattr(clangs,&quot;say&quot;):
+    print(hasattr(clangs.say,&quot;__call__&quot;))
+</code></pre>
 <p>程序执行结果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">False</span></span><br><span class="line">**********</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">False
+**********
+True
+</code></pre>
 <p>可以看到，由于 name 是类属性，它没有以 <strong>call</strong> 为名的 <strong>call</strong>() 方法；而 say 是类方法，它是可调用对象，因此它有 <strong>call</strong>() 方法。</p>
 <h3 id="argparse-函数"><a href="#argparse-函数" class="headerlink" title="argparse()函数"></a>argparse()函数</h3><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.python.org/zh-cn/2/library/argparse.html#module-argparse"><code>argparse</code></a> 模块可以让人轻松编写用户友好的命令行接口。程序定义它需要的参数，然后 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.python.org/zh-cn/2/library/argparse.html#module-argparse"><code>argparse</code></a> 将弄清如何从 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.python.org/zh-cn/2/library/sys.html#sys.argv"><code>sys.argv</code></a> 解析出那些参数。 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.python.org/zh-cn/2/library/argparse.html#module-argparse"><code>argparse</code></a> 模块还会自动生成帮助和使用手册，并在用户给程序传入无效参数时报出错误信息。</p>
 <p>以下代码是一个 Python 程序，它获取一个整数列表并计算总和或者最大值：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&#x27;Process some integers.&#x27;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;integers&#x27;</span>, metavar=<span class="string">&#x27;N&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, nargs=<span class="string">&#x27;+&#x27;</span>,</span><br><span class="line">                    <span class="built_in">help</span>=<span class="string">&#x27;an integer for the accumulator&#x27;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--sum&#x27;</span>, dest=<span class="string">&#x27;accumulate&#x27;</span>, action=<span class="string">&#x27;store_const&#x27;</span>,</span><br><span class="line">                    const=<span class="built_in">sum</span>, default=<span class="built_in">max</span>,</span><br><span class="line">                    <span class="built_in">help</span>=<span class="string">&#x27;sum the integers (default: find the max)&#x27;</span>)</span><br><span class="line"></span><br><span class="line">args = parser.parse_args()</span><br><span class="line"><span class="built_in">print</span> args.accumulate(args.integers)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import argparse
 
+parser = argparse.ArgumentParser(description=&#39;Process some integers.&#39;)
+parser.add_argument(&#39;integers&#39;, metavar=&#39;N&#39;, type=int, nargs=&#39;+&#39;,
+                    help=&#39;an integer for the accumulator&#39;)
+parser.add_argument(&#39;--sum&#39;, dest=&#39;accumulate&#39;, action=&#39;store_const&#39;,
+                    const=sum, default=max,
+                    help=&#39;sum the integers (default: find the max)&#39;)
+
+args = parser.parse_args()
+print args.accumulate(args.integers)
+</code></pre>
 <p>假设上面的 Python 代码保存在名为 <code>prog.py</code> 的文件中，它可以在命令行运行并提供有用的帮助信息：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ python prog.py -h</span><br><span class="line">usage: prog.py [-h] [--<span class="built_in">sum</span>] N [N ...]</span><br><span class="line"></span><br><span class="line">Process some integers.</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line"> N           an integer <span class="keyword">for</span> the accumulator</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line"> -h, --<span class="built_in">help</span>  show this <span class="built_in">help</span> message <span class="keyword">and</span> exit</span><br><span class="line"> --<span class="built_in">sum</span>       <span class="built_in">sum</span> the integers (default: find the <span class="built_in">max</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">$ python prog.py -h
+usage: prog.py [-h] [--sum] N [N ...]
 
+Process some integers.
+
+positional arguments:
+ N           an integer for the accumulator
+
+optional arguments:
+ -h, --help  show this help message and exit
+ --sum       sum the integers (default: find the max)
+</code></pre>
 <p>当使用适当的参数运行时，它会输出命令行传入整数的总和或者最大值：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python prog.py <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br><span class="line">$ python prog.py <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> --<span class="built_in">sum</span></span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+<pre><code class="python">$ python prog.py 1 2 3 4
+4
 
+$ python prog.py 1 2 3 4 --sum
+10
+</code></pre>
 <p>如果传入无效参数，则会报出错误：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ python prog.py a b c</span><br><span class="line">usage: prog.py [-h] [--<span class="built_in">sum</span>] N [N ...]</span><br><span class="line">prog.py: error: argument N: invalid <span class="built_in">int</span> value: <span class="string">&#x27;a&#x27;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">$ python prog.py a b c
+usage: prog.py [-h] [--sum] N [N ...]
+prog.py: error: argument N: invalid int value: &#39;a&#39;
+</code></pre>
 <p>更多详情参考python文档，网址：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.python.org/zh-cn/2/library/argparse.html">15.4. argparse — 命令行选项、参数和子命令解析器 — Python 2.7.18 文档</a></p>
 <h3 id="Distuils"><a href="#Distuils" class="headerlink" title="Distuils"></a>Distuils</h3><p>大部分Python程序员都知道，有很多第三方包管理器供选择，包括setuptools、distribute等等。 有些是为了替代标准库中的distutils。</p>
 <p>1.1概念和术语</p>
@@ -602,19 +771,34 @@
 <p>1.2简单例子</p>
 <p>由python编写的setup脚本一般都非常简单。作为autoconf类型的配置脚本，setup脚本可以在构建和安装模块发布时运行多次。</p>
 <p>比如，如果需要发布一个叫做foo的模块，它包含在一个文件foo.py，那setup脚本可以这样写：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup  </span><br><span class="line">setup(name=<span class="string">&#x27;foo&#x27;</span>,  </span><br><span class="line">       version=<span class="string">&#x27;1.0&#x27;</span>,  </span><br><span class="line">       py_modules=[<span class="string">&#x27;foo&#x27;</span>],  </span><br><span class="line">      )  </span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">from distutils.core import setup  
+setup(name=&#39;foo&#39;,  
+       version=&#39;1.0&#39;,  
+       py_modules=[&#39;foo&#39;],  
+      )  
+</code></pre>
 <p>setup函数的参数表示提供给Distutils的信息，这些参数分为两类：包的元数据（包名、版本号）以及包的信息（本例中是一个Python模块的列表）；模块由模块名表示，而不是文件名（对于包和扩展而言也是这样）；建议可以提供更多的元数据，比如你的名字，email地址和项目的URL地址。</p>
 <p>编写好setup.py之后，就可以创建该模块的源码发布了：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py sdist  </span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">python setup.py sdist  
+</code></pre>
 <p>sdist命令会创建一个archive 文件（比如Unix上的tar文件，Windows上的zip文件），它包含setup.py， foo.py。该archive文件命名为foo-1.0.tar.gz(zip)，解压之后的目录名是foo-1.0。</p>
 <p>如果一个用户希望安装foo模块，他只需要下载foo-1.0.tar.gz，解压，进入foo-1.0目录，然后运行：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py install  </span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">python setup.py install  
+</code></pre>
 <p>该命令最终会将foo.py复制到Python环境存放第三方模块的目录中。在linux环境下，运行该命令的输出是：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python setup.py install  </span></span><br><span class="line">running install  </span><br><span class="line">running build  </span><br><span class="line">running build_py  </span><br><span class="line">creating build  </span><br><span class="line">creating build/lib  </span><br><span class="line">copying foo.py -&gt; build/lib  </span><br><span class="line">running install_lib  </span><br><span class="line">copying build/lib/foo.py -&gt; /usr/lib/python2<span class="number">.7</span>/site-packages  </span><br><span class="line">byte-compiling /usr/lib/python2<span class="number">.7</span>/site-packages/foo.py to foo.pyc  </span><br><span class="line">running install_egg_info  </span><br><span class="line">Writing /usr/lib/python2<span class="number">.7</span>/site-packages/foo-<span class="number">1.0</span>-py2<span class="number">.7</span>.egg-info  </span><br></pre></td></tr></table></figure>
-
+<pre><code class="python"># python setup.py install  
+running install  
+running build  
+running build_py  
+creating build  
+creating build/lib  
+copying foo.py -&gt; build/lib  
+running install_lib  
+copying build/lib/foo.py -&gt; /usr/lib/python2.7/site-packages  
+byte-compiling /usr/lib/python2.7/site-packages/foo.py to foo.pyc  
+running install_egg_info  
+Writing /usr/lib/python2.7/site-packages/foo-1.0-py2.7.egg-info  
+</code></pre>
 <p>该命令生成的文件是：</p>
 <p><code>/usr/lib/python2.7/site-packages/foo-1.0-py2.7.egg-info</code></p>
 <p><code>/usr/lib/python2.7/site-packages/foo.py</code></p>
@@ -634,8 +818,42 @@
 
 <p>很多图片的长宽比不同导致缩放填充后，两端的黑边大小都不同。而如果填充的比较多，则存在信息冗余，影响推理速度。YOLOv5作者对letterbox的缩放策略进行了修改，对原图自适应的添加最少的黑边。<br> <strong>计算方法：</strong><br> 1.计算原始图片宽高与输入尺寸的缩放比例rw和rh，选取r &#x3D; min(rw,rh)后把原图按r进行缩放<br> 2.原图宽和高中一定有一边完全贴合输入尺寸，没有达到输入尺寸的一边计算与输入尺寸的差值，然后进行上下（or左右）的填充。</p>
 <p>代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------#</span></span><br><span class="line"><span class="comment">#   对输入图像进行resize,他人测试发现，不用letterbox_image直接resize的效果更好</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------#</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">resize_image</span>(<span class="params">image, size, letterbox_image</span>):</span><br><span class="line">    iw, ih  = image.size</span><br><span class="line">    w, h    = size      <span class="comment"># w=200, h=300</span></span><br><span class="line">    <span class="keyword">if</span> letterbox_image:</span><br><span class="line">        scale   = <span class="built_in">min</span>(w/iw, h/ih)</span><br><span class="line">        nw      = <span class="built_in">int</span>(iw*scale)</span><br><span class="line">        nh      = <span class="built_in">int</span>(ih*scale)</span><br><span class="line"></span><br><span class="line">        image   = image.resize((nw,nh), Image.BICUBIC)</span><br><span class="line">        new_image = Image.new(<span class="string">&#x27;RGB&#x27;</span>, size, (<span class="number">128</span>,<span class="number">128</span>,<span class="number">128</span>))       <span class="comment"># 新建一张image，第二个参数表示尺寸，第三个参数表示颜色</span></span><br><span class="line">        <span class="comment"># --------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   image.paste函数表示将一张图片覆盖到另一张图片的指定位置去</span></span><br><span class="line">        <span class="comment">#   a.paste(b, (50,50))   将b的左上顶点贴到a的坐标为（50，50）的位置，左上顶点为(0,0), b超出a的部分会被自动舍弃</span></span><br><span class="line">        <span class="comment"># ---------------------------------------------------#</span></span><br><span class="line">        <span class="comment"># new_image.paste(image, ((w-nw)//2, (h-nh)//2))    # 不变形resize，两端填充灰边</span></span><br><span class="line">        new_image.paste(image, (<span class="number">0</span>, <span class="number">0</span>))      <span class="comment"># 不变形resize，一端填充灰边</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        new_image = image.resize((w, h), Image.BICUBIC)</span><br><span class="line">    <span class="keyword">return</span> new_image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">img_PIL = Image.<span class="built_in">open</span>(<span class="string">&quot;Avatar.jpg&quot;</span>)</span><br><span class="line">img = resize_image(img_PIL, (<span class="number">200</span>, <span class="number">300</span>), <span class="literal">True</span>)   <span class="comment"># 第二参数表示目标尺寸，第三参数表示是否使用letterbox</span></span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.show()</span><br><span class="line"><span class="comment"># 作者：寻找永不遗憾</span></span><br><span class="line"><span class="comment"># 链接：https://www.jianshu.com/p/2ae3a497f5f4</span></span><br><span class="line"><span class="comment"># 来源：简书</span></span><br><span class="line"><span class="comment"># 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span></span><br></pre></td></tr></table></figure>
+<pre><code class="python">import matplotlib.pyplot as plt
+from PIL import Image
 
+# ---------------------------------------------------#
+#   对输入图像进行resize,他人测试发现，不用letterbox_image直接resize的效果更好
+# ---------------------------------------------------#
+def resize_image(image, size, letterbox_image):
+    iw, ih  = image.size
+    w, h    = size      # w=200, h=300
+    if letterbox_image:
+        scale   = min(w/iw, h/ih)
+        nw      = int(iw*scale)
+        nh      = int(ih*scale)
+
+        image   = image.resize((nw,nh), Image.BICUBIC)
+        new_image = Image.new(&#39;RGB&#39;, size, (128,128,128))       # 新建一张image，第二个参数表示尺寸，第三个参数表示颜色
+        # --------------------------------------------------#
+        #   image.paste函数表示将一张图片覆盖到另一张图片的指定位置去
+        #   a.paste(b, (50,50))   将b的左上顶点贴到a的坐标为（50，50）的位置，左上顶点为(0,0), b超出a的部分会被自动舍弃
+        # ---------------------------------------------------#
+        # new_image.paste(image, ((w-nw)//2, (h-nh)//2))    # 不变形resize，两端填充灰边
+        new_image.paste(image, (0, 0))      # 不变形resize，一端填充灰边
+    else:
+        new_image = image.resize((w, h), Image.BICUBIC)
+    return new_image
+
+
+img_PIL = Image.open(&quot;Avatar.jpg&quot;)
+img = resize_image(img_PIL, (200, 300), True)   # 第二参数表示目标尺寸，第三参数表示是否使用letterbox
+plt.imshow(img)
+plt.show()
+# 作者：寻找永不遗憾
+# 链接：https://www.jianshu.com/p/2ae3a497f5f4
+# 来源：简书
+# 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+</code></pre>
 <h3 id="图像resize插值方式比较"><a href="#图像resize插值方式比较" class="headerlink" title="图像resize插值方式比较"></a>图像resize插值方式比较</h3><p>resize函数说明：</p>
 <p><code>void resize(InputArray src, OutputArray dst,  Size dsize, double fx=0, double fy=0, int interpolation=INTER_LINEAR)</code></p>
 <p>参数说明：</p>
@@ -643,30 +861,232 @@
 <p><code>fx</code>：width方向的缩放比例，如果它是0，那么它就会按照(double)dsize.width&#x2F;src.cols来计算；<br><code>fy</code>：height方向的缩放比例，如果它是0，那么它就会按照(double)dsize.height&#x2F;src.rows来计算；<br><code>interpolation</code>：这个是指定插值的方式，图像缩放之后，肯定像素要进行重新计算的，就靠这个参数来指定重新计算像素的方式，有以下几种：<br>      ·<code>INTER_NEAREST</code> - 最邻近插值<br>      ·<code>INTER_LINEAR</code> - 双线性插值，如果最后一个参数你不指定，默认使用这种方法<br>      ·<code>INTER_AREA </code>-区域插值<br>      ·<code>INTER_CUBIC</code> - 4x4像素邻域内的双立方插值<br>     ·<code>INTER_LANCZOS4</code>- 8x8像素邻域内的Lanczos插值</p>
 <p>各种插值方式比较：</p>
 <p>每种插值算法的前部分代码是相同的，如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cv::Mat matSrc, matDst1, matDst2;</span><br><span class="line"></span><br><span class="line">matSrc = cv::imread(<span class="string">&quot;lena.jpg&quot;</span>, <span class="number">2</span> | <span class="number">4</span>);</span><br><span class="line">matDst1 = cv::Mat(cv::Size(<span class="number">800</span>, <span class="number">1000</span>), matSrc.<span class="built_in">type</span>(), cv::Scalar::<span class="built_in">all</span>(<span class="number">0</span>));</span><br><span class="line">matDst2 = cv::Mat(matDst1.size(), matSrc.<span class="built_in">type</span>(), cv::Scalar::<span class="built_in">all</span>(<span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">double scale_x = (double)matSrc.cols / matDst1.cols;</span><br><span class="line">double scale_y = (double)matSrc.rows / matDst1.rows;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">    cv::Mat matSrc, matDst1, matDst2;
+ 
+    matSrc = cv::imread(&quot;lena.jpg&quot;, 2 | 4);
+    matDst1 = cv::Mat(cv::Size(800, 1000), matSrc.type(), cv::Scalar::all(0));
+    matDst2 = cv::Mat(matDst1.size(), matSrc.type(), cv::Scalar::all(0));
+ 
+    double scale_x = (double)matSrc.cols / matDst1.cols;
+    double scale_y = (double)matSrc.rows / matDst1.rows;
+</code></pre>
 <p>最近邻：<br>$$<br>X_{src}&#x3D;X_{dst}<em>(Width_{src}&#x2F;Width_{dst})\<br>Y_{src}&#x3D;Y_{dst}</em>(Height_{src}&#x2F;Height_{dst})<br>$$<br>实现代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; matDst1.cols; ++i)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">int</span> sx = cvFloor(i * scale_x);</span><br><span class="line">	sx = std::<span class="built_in">min</span>(sx, matSrc.cols - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="built_in">int</span> j = <span class="number">0</span>; j &lt; matDst1.rows; ++j)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">int</span> sy = cvFloor(j * scale_y);</span><br><span class="line">		sy = std::<span class="built_in">min</span>(sy, matSrc.rows - <span class="number">1</span>);</span><br><span class="line">		matDst1.at&lt;cv::Vec3b&gt;(j, i) = matSrc.at&lt;cv::Vec3b&gt;(sy, sx);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">cv::imwrite(<span class="string">&quot;nearest_1.jpg&quot;</span>, matDst1);</span><br><span class="line"></span><br><span class="line">cv::resize(matSrc, matDst2, matDst1.size(), <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">cv::imwrite(<span class="string">&quot;nearest_2.jpg&quot;</span>, matDst2);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">    for (int i = 0; i &lt; matDst1.cols; ++i)
+    &#123;
+        int sx = cvFloor(i * scale_x);
+        sx = std::min(sx, matSrc.cols - 1);
+        for (int j = 0; j &lt; matDst1.rows; ++j)
+        &#123;
+            int sy = cvFloor(j * scale_y);
+            sy = std::min(sy, matSrc.rows - 1);
+            matDst1.at&lt;cv::Vec3b&gt;(j, i) = matSrc.at&lt;cv::Vec3b&gt;(sy, sx);
+        &#125;
+    &#125;
+    cv::imwrite(&quot;nearest_1.jpg&quot;, matDst1);
+ 
+    cv::resize(matSrc, matDst2, matDst1.size(), 0, 0, 0);
+    cv::imwrite(&quot;nearest_2.jpg&quot;, matDst2);
+</code></pre>
 <p>双线性：<br>$$<br>Dst(X, Y)&#x3D;(1-u)<em>(1-v)<em>Src(X’,Y’)+(1-u)<em>v</em>Src(X’, Y’+1)+\<br>        u</em>(1-v)<em>Src(X’+1, Y’)+u</em>v</em>Src(X’+1, Y’+1)<br>$$</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">uchar* dataDst = matDst1.data;</span><br><span class="line"><span class="built_in">int</span> stepDst = matDst1.step;</span><br><span class="line">uchar* dataSrc = matSrc.data;</span><br><span class="line"><span class="built_in">int</span> stepSrc = matSrc.step;</span><br><span class="line"><span class="built_in">int</span> iWidthSrc = matSrc.cols;</span><br><span class="line"><span class="built_in">int</span> iHiehgtSrc = matSrc.rows;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> j = <span class="number">0</span>; j &lt; matDst1.rows; ++j)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">float</span> fy = (<span class="built_in">float</span>)((j + <span class="number">0.5</span>) * scale_y - <span class="number">0.5</span>);</span><br><span class="line">	<span class="built_in">int</span> sy = cvFloor(fy);</span><br><span class="line">	fy -= sy;</span><br><span class="line">	sy = std::<span class="built_in">min</span>(sy, iHiehgtSrc - <span class="number">2</span>);</span><br><span class="line">	sy = std::<span class="built_in">max</span>(<span class="number">0</span>, sy);</span><br><span class="line"></span><br><span class="line">	short cbufy[<span class="number">2</span>];</span><br><span class="line">	cbufy[<span class="number">0</span>] = cv::saturate_cast&lt;short&gt;((<span class="number">1.</span>f - fy) * <span class="number">2048</span>);</span><br><span class="line">	cbufy[<span class="number">1</span>] = <span class="number">2048</span> - cbufy[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; matDst1.cols; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">float</span> fx = (<span class="built_in">float</span>)((i + <span class="number">0.5</span>) * scale_x - <span class="number">0.5</span>);</span><br><span class="line">		<span class="built_in">int</span> sx = cvFloor(fx);</span><br><span class="line">		fx -= sx;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (sx &lt; <span class="number">0</span>) &#123;</span><br><span class="line">			fx = <span class="number">0</span>, sx = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (sx &gt;= iWidthSrc - <span class="number">1</span>) &#123;</span><br><span class="line">			fx = <span class="number">0</span>, sx = iWidthSrc - <span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		short cbufx[<span class="number">2</span>];</span><br><span class="line">		cbufx[<span class="number">0</span>] = cv::saturate_cast&lt;short&gt;((<span class="number">1.</span>f - fx) * <span class="number">2048</span>);</span><br><span class="line">		cbufx[<span class="number">1</span>] = <span class="number">2048</span> - cbufx[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="built_in">int</span> k = <span class="number">0</span>; k &lt; matSrc.channels(); ++k)</span><br><span class="line">		&#123;</span><br><span class="line">			*(dataDst+ j*stepDst + <span class="number">3</span>*i + k) = (*(dataSrc + sy*stepSrc + <span class="number">3</span>*sx + k) * cbufx[<span class="number">0</span>] * cbufy[<span class="number">0</span>] + </span><br><span class="line">				*(dataSrc + (sy+<span class="number">1</span>)*stepSrc + <span class="number">3</span>*sx + k) * cbufx[<span class="number">0</span>] * cbufy[<span class="number">1</span>] + </span><br><span class="line">				*(dataSrc + sy*stepSrc + <span class="number">3</span>*(sx+<span class="number">1</span>) + k) * cbufx[<span class="number">1</span>] * cbufy[<span class="number">0</span>] + </span><br><span class="line">				*(dataSrc + (sy+<span class="number">1</span>)*stepSrc + <span class="number">3</span>*(sx+<span class="number">1</span>) + k) * cbufx[<span class="number">1</span>] * cbufy[<span class="number">1</span>]) &gt;&gt; <span class="number">22</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">cv::imwrite(<span class="string">&quot;linear_1.jpg&quot;</span>, matDst1);</span><br><span class="line"></span><br><span class="line">cv::resize(matSrc, matDst2, matDst1.size(), <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">cv::imwrite(<span class="string">&quot;linear_2.jpg&quot;</span>, matDst2);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">    uchar* dataDst = matDst1.data;
+    int stepDst = matDst1.step;
+    uchar* dataSrc = matSrc.data;
+    int stepSrc = matSrc.step;
+    int iWidthSrc = matSrc.cols;
+    int iHiehgtSrc = matSrc.rows;
+ 
+    for (int j = 0; j &lt; matDst1.rows; ++j)
+    &#123;
+        float fy = (float)((j + 0.5) * scale_y - 0.5);
+        int sy = cvFloor(fy);
+        fy -= sy;
+        sy = std::min(sy, iHiehgtSrc - 2);
+        sy = std::max(0, sy);
+ 
+        short cbufy[2];
+        cbufy[0] = cv::saturate_cast&lt;short&gt;((1.f - fy) * 2048);
+        cbufy[1] = 2048 - cbufy[0];
+ 
+        for (int i = 0; i &lt; matDst1.cols; ++i)
+        &#123;
+            float fx = (float)((i + 0.5) * scale_x - 0.5);
+            int sx = cvFloor(fx);
+            fx -= sx;
+ 
+            if (sx &lt; 0) &#123;
+                fx = 0, sx = 0;
+            &#125;
+            if (sx &gt;= iWidthSrc - 1) &#123;
+                fx = 0, sx = iWidthSrc - 2;
+            &#125;
+ 
+            short cbufx[2];
+            cbufx[0] = cv::saturate_cast&lt;short&gt;((1.f - fx) * 2048);
+            cbufx[1] = 2048 - cbufx[0];
+ 
+            for (int k = 0; k &lt; matSrc.channels(); ++k)
+            &#123;
+                *(dataDst+ j*stepDst + 3*i + k) = (*(dataSrc + sy*stepSrc + 3*sx + k) * cbufx[0] * cbufy[0] + 
+                    *(dataSrc + (sy+1)*stepSrc + 3*sx + k) * cbufx[0] * cbufy[1] + 
+                    *(dataSrc + sy*stepSrc + 3*(sx+1) + k) * cbufx[1] * cbufy[0] + 
+                    *(dataSrc + (sy+1)*stepSrc + 3*(sx+1) + k) * cbufx[1] * cbufy[1]) &gt;&gt; 22;
+            &#125;
+        &#125;
+    &#125;
+    cv::imwrite(&quot;linear_1.jpg&quot;, matDst1);
+ 
+    cv::resize(matSrc, matDst2, matDst1.size(), 0, 0, 1);
+    cv::imwrite(&quot;linear_2.jpg&quot;, matDst2);
+</code></pre>
 <p>双三次：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> iscale_x = cv::saturate_cast&lt;<span class="built_in">int</span>&gt;(scale_x);</span><br><span class="line"><span class="built_in">int</span> iscale_y = cv::saturate_cast&lt;<span class="built_in">int</span>&gt;(scale_y);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> j = <span class="number">0</span>; j &lt; matDst1.rows; ++j)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">float</span> fy = (<span class="built_in">float</span>)((j + <span class="number">0.5</span>) * scale_y - <span class="number">0.5</span>);</span><br><span class="line">	<span class="built_in">int</span> sy = cvFloor(fy);</span><br><span class="line">	fy -= sy;</span><br><span class="line">	sy = std::<span class="built_in">min</span>(sy, matSrc.rows - <span class="number">3</span>);</span><br><span class="line">	sy = std::<span class="built_in">max</span>(<span class="number">1</span>, sy);</span><br><span class="line"> </span><br><span class="line">	const <span class="built_in">float</span> A = -<span class="number">0.75</span>f;</span><br><span class="line"> </span><br><span class="line">	<span class="built_in">float</span> coeffsY[<span class="number">4</span>];</span><br><span class="line">	coeffsY[<span class="number">0</span>] = ((A*(fy + <span class="number">1</span>) - <span class="number">5</span>*A)*(fy + <span class="number">1</span>) + <span class="number">8</span>*A)*(fy + <span class="number">1</span>) - <span class="number">4</span>*A;</span><br><span class="line">	coeffsY[<span class="number">1</span>] = ((A + <span class="number">2</span>)*fy - (A + <span class="number">3</span>))*fy*fy + <span class="number">1</span>;</span><br><span class="line">	coeffsY[<span class="number">2</span>] = ((A + <span class="number">2</span>)*(<span class="number">1</span> - fy) - (A + <span class="number">3</span>))*(<span class="number">1</span> - fy)*(<span class="number">1</span> - fy) + <span class="number">1</span>;</span><br><span class="line">	coeffsY[<span class="number">3</span>] = <span class="number">1.</span>f - coeffsY[<span class="number">0</span>] - coeffsY[<span class="number">1</span>] - coeffsY[<span class="number">2</span>];</span><br><span class="line"> </span><br><span class="line">	short cbufY[<span class="number">4</span>];</span><br><span class="line">	cbufY[<span class="number">0</span>] = cv::saturate_cast&lt;short&gt;(coeffsY[<span class="number">0</span>] * <span class="number">2048</span>);</span><br><span class="line">	cbufY[<span class="number">1</span>] = cv::saturate_cast&lt;short&gt;(coeffsY[<span class="number">1</span>] * <span class="number">2048</span>);</span><br><span class="line">	cbufY[<span class="number">2</span>] = cv::saturate_cast&lt;short&gt;(coeffsY[<span class="number">2</span>] * <span class="number">2048</span>);</span><br><span class="line">	cbufY[<span class="number">3</span>] = cv::saturate_cast&lt;short&gt;(coeffsY[<span class="number">3</span>] * <span class="number">2048</span>);</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; matDst1.cols; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">float</span> fx = (<span class="built_in">float</span>)((i + <span class="number">0.5</span>) * scale_x - <span class="number">0.5</span>);</span><br><span class="line">		<span class="built_in">int</span> sx = cvFloor(fx);</span><br><span class="line">		fx -= sx;</span><br><span class="line"> </span><br><span class="line">		<span class="keyword">if</span> (sx &lt; <span class="number">1</span>) &#123;</span><br><span class="line">			fx = <span class="number">0</span>, sx = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (sx &gt;= matSrc.cols - <span class="number">3</span>) &#123;</span><br><span class="line">			fx = <span class="number">0</span>, sx = matSrc.cols - <span class="number">3</span>;</span><br><span class="line">		&#125;</span><br><span class="line"> </span><br><span class="line">		<span class="built_in">float</span> coeffsX[<span class="number">4</span>];</span><br><span class="line">		coeffsX[<span class="number">0</span>] = ((A*(fx + <span class="number">1</span>) - <span class="number">5</span>*A)*(fx + <span class="number">1</span>) + <span class="number">8</span>*A)*(fx + <span class="number">1</span>) - <span class="number">4</span>*A;</span><br><span class="line">		coeffsX[<span class="number">1</span>] = ((A + <span class="number">2</span>)*fx - (A + <span class="number">3</span>))*fx*fx + <span class="number">1</span>;</span><br><span class="line">		coeffsX[<span class="number">2</span>] = ((A + <span class="number">2</span>)*(<span class="number">1</span> - fx) - (A + <span class="number">3</span>))*(<span class="number">1</span> - fx)*(<span class="number">1</span> - fx) + <span class="number">1</span>;</span><br><span class="line">		coeffsX[<span class="number">3</span>] = <span class="number">1.</span>f - coeffsX[<span class="number">0</span>] - coeffsX[<span class="number">1</span>] - coeffsX[<span class="number">2</span>];</span><br><span class="line"> </span><br><span class="line">		short cbufX[<span class="number">4</span>];</span><br><span class="line">		cbufX[<span class="number">0</span>] = cv::saturate_cast&lt;short&gt;(coeffsX[<span class="number">0</span>] * <span class="number">2048</span>);</span><br><span class="line">		cbufX[<span class="number">1</span>] = cv::saturate_cast&lt;short&gt;(coeffsX[<span class="number">1</span>] * <span class="number">2048</span>);</span><br><span class="line">		cbufX[<span class="number">2</span>] = cv::saturate_cast&lt;short&gt;(coeffsX[<span class="number">2</span>] * <span class="number">2048</span>);</span><br><span class="line">		cbufX[<span class="number">3</span>] = cv::saturate_cast&lt;short&gt;(coeffsX[<span class="number">3</span>] * <span class="number">2048</span>);</span><br><span class="line"> </span><br><span class="line">		<span class="keyword">for</span> (<span class="built_in">int</span> k = <span class="number">0</span>; k &lt; matSrc.channels(); ++k)</span><br><span class="line">		&#123;</span><br><span class="line">			matDst1.at&lt;cv::Vec3b&gt;(j, i)[k] = <span class="built_in">abs</span>((matSrc.at&lt;cv::Vec3b&gt;(sy-<span class="number">1</span>, sx-<span class="number">1</span>)[k] * cbufX[<span class="number">0</span>] * cbufY[<span class="number">0</span>] + matSrc.at&lt;cv::Vec3b&gt;(sy, sx-<span class="number">1</span>)[k] * cbufX[<span class="number">0</span>] * cbufY[<span class="number">1</span>] +</span><br><span class="line">				matSrc.at&lt;cv::Vec3b&gt;(sy+<span class="number">1</span>, sx-<span class="number">1</span>)[k] * cbufX[<span class="number">0</span>] * cbufY[<span class="number">2</span>] + matSrc.at&lt;cv::Vec3b&gt;(sy+<span class="number">2</span>, sx-<span class="number">1</span>)[k] * cbufX[<span class="number">0</span>] * cbufY[<span class="number">3</span>] +</span><br><span class="line">				matSrc.at&lt;cv::Vec3b&gt;(sy-<span class="number">1</span>, sx)[k] * cbufX[<span class="number">1</span>] * cbufY[<span class="number">0</span>] + matSrc.at&lt;cv::Vec3b&gt;(sy, sx)[k] * cbufX[<span class="number">1</span>] * cbufY[<span class="number">1</span>] +</span><br><span class="line">				matSrc.at&lt;cv::Vec3b&gt;(sy+<span class="number">1</span>, sx)[k] * cbufX[<span class="number">1</span>] * cbufY[<span class="number">2</span>] + matSrc.at&lt;cv::Vec3b&gt;(sy+<span class="number">2</span>, sx)[k] * cbufX[<span class="number">1</span>] * cbufY[<span class="number">3</span>] +</span><br><span class="line">				matSrc.at&lt;cv::Vec3b&gt;(sy-<span class="number">1</span>, sx+<span class="number">1</span>)[k] * cbufX[<span class="number">2</span>] * cbufY[<span class="number">0</span>] + matSrc.at&lt;cv::Vec3b&gt;(sy, sx+<span class="number">1</span>)[k] * cbufX[<span class="number">2</span>] * cbufY[<span class="number">1</span>] +</span><br><span class="line">				matSrc.at&lt;cv::Vec3b&gt;(sy+<span class="number">1</span>, sx+<span class="number">1</span>)[k] * cbufX[<span class="number">2</span>] * cbufY[<span class="number">2</span>] + matSrc.at&lt;cv::Vec3b&gt;(sy+<span class="number">2</span>, sx+<span class="number">1</span>)[k] * cbufX[<span class="number">2</span>] * cbufY[<span class="number">3</span>] +</span><br><span class="line">				matSrc.at&lt;cv::Vec3b&gt;(sy-<span class="number">1</span>, sx+<span class="number">2</span>)[k] * cbufX[<span class="number">3</span>] * cbufY[<span class="number">0</span>] + matSrc.at&lt;cv::Vec3b&gt;(sy, sx+<span class="number">2</span>)[k] * cbufX[<span class="number">3</span>] * cbufY[<span class="number">1</span>] +</span><br><span class="line">				matSrc.at&lt;cv::Vec3b&gt;(sy+<span class="number">1</span>, sx+<span class="number">2</span>)[k] * cbufX[<span class="number">3</span>] * cbufY[<span class="number">2</span>] + matSrc.at&lt;cv::Vec3b&gt;(sy+<span class="number">2</span>, sx+<span class="number">2</span>)[k] * cbufX[<span class="number">3</span>] * cbufY[<span class="number">3</span>] ) &gt;&gt; <span class="number">22</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">cv::imwrite(<span class="string">&quot;cubic_1.jpg&quot;</span>, matDst1);</span><br><span class="line"> </span><br><span class="line">cv::resize(matSrc, matDst2, matDst1.size(), <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>);</span><br><span class="line">cv::imwrite(<span class="string">&quot;cubic_2.jpg&quot;</span>, matDst2);</span><br></pre></td></tr></table></figure>
+<pre><code class="python">int iscale_x = cv::saturate_cast&lt;int&gt;(scale_x);
+int iscale_y = cv::saturate_cast&lt;int&gt;(scale_y);
+ 
+for (int j = 0; j &lt; matDst1.rows; ++j)
+&#123;
+    float fy = (float)((j + 0.5) * scale_y - 0.5);
+    int sy = cvFloor(fy);
+    fy -= sy;
+    sy = std::min(sy, matSrc.rows - 3);
+    sy = std::max(1, sy);
+ 
+    const float A = -0.75f;
+ 
+    float coeffsY[4];
+    coeffsY[0] = ((A*(fy + 1) - 5*A)*(fy + 1) + 8*A)*(fy + 1) - 4*A;
+    coeffsY[1] = ((A + 2)*fy - (A + 3))*fy*fy + 1;
+    coeffsY[2] = ((A + 2)*(1 - fy) - (A + 3))*(1 - fy)*(1 - fy) + 1;
+    coeffsY[3] = 1.f - coeffsY[0] - coeffsY[1] - coeffsY[2];
+ 
+    short cbufY[4];
+    cbufY[0] = cv::saturate_cast&lt;short&gt;(coeffsY[0] * 2048);
+    cbufY[1] = cv::saturate_cast&lt;short&gt;(coeffsY[1] * 2048);
+    cbufY[2] = cv::saturate_cast&lt;short&gt;(coeffsY[2] * 2048);
+    cbufY[3] = cv::saturate_cast&lt;short&gt;(coeffsY[3] * 2048);
+ 
+    for (int i = 0; i &lt; matDst1.cols; ++i)
+    &#123;
+        float fx = (float)((i + 0.5) * scale_x - 0.5);
+        int sx = cvFloor(fx);
+        fx -= sx;
+ 
+        if (sx &lt; 1) &#123;
+            fx = 0, sx = 1;
+        &#125;
+        if (sx &gt;= matSrc.cols - 3) &#123;
+            fx = 0, sx = matSrc.cols - 3;
+        &#125;
+ 
+        float coeffsX[4];
+        coeffsX[0] = ((A*(fx + 1) - 5*A)*(fx + 1) + 8*A)*(fx + 1) - 4*A;
+        coeffsX[1] = ((A + 2)*fx - (A + 3))*fx*fx + 1;
+        coeffsX[2] = ((A + 2)*(1 - fx) - (A + 3))*(1 - fx)*(1 - fx) + 1;
+        coeffsX[3] = 1.f - coeffsX[0] - coeffsX[1] - coeffsX[2];
+ 
+        short cbufX[4];
+        cbufX[0] = cv::saturate_cast&lt;short&gt;(coeffsX[0] * 2048);
+        cbufX[1] = cv::saturate_cast&lt;short&gt;(coeffsX[1] * 2048);
+        cbufX[2] = cv::saturate_cast&lt;short&gt;(coeffsX[2] * 2048);
+        cbufX[3] = cv::saturate_cast&lt;short&gt;(coeffsX[3] * 2048);
+ 
+        for (int k = 0; k &lt; matSrc.channels(); ++k)
+        &#123;
+            matDst1.at&lt;cv::Vec3b&gt;(j, i)[k] = abs((matSrc.at&lt;cv::Vec3b&gt;(sy-1, sx-1)[k] * cbufX[0] * cbufY[0] + matSrc.at&lt;cv::Vec3b&gt;(sy, sx-1)[k] * cbufX[0] * cbufY[1] +
+                matSrc.at&lt;cv::Vec3b&gt;(sy+1, sx-1)[k] * cbufX[0] * cbufY[2] + matSrc.at&lt;cv::Vec3b&gt;(sy+2, sx-1)[k] * cbufX[0] * cbufY[3] +
+                matSrc.at&lt;cv::Vec3b&gt;(sy-1, sx)[k] * cbufX[1] * cbufY[0] + matSrc.at&lt;cv::Vec3b&gt;(sy, sx)[k] * cbufX[1] * cbufY[1] +
+                matSrc.at&lt;cv::Vec3b&gt;(sy+1, sx)[k] * cbufX[1] * cbufY[2] + matSrc.at&lt;cv::Vec3b&gt;(sy+2, sx)[k] * cbufX[1] * cbufY[3] +
+                matSrc.at&lt;cv::Vec3b&gt;(sy-1, sx+1)[k] * cbufX[2] * cbufY[0] + matSrc.at&lt;cv::Vec3b&gt;(sy, sx+1)[k] * cbufX[2] * cbufY[1] +
+                matSrc.at&lt;cv::Vec3b&gt;(sy+1, sx+1)[k] * cbufX[2] * cbufY[2] + matSrc.at&lt;cv::Vec3b&gt;(sy+2, sx+1)[k] * cbufX[2] * cbufY[3] +
+                matSrc.at&lt;cv::Vec3b&gt;(sy-1, sx+2)[k] * cbufX[3] * cbufY[0] + matSrc.at&lt;cv::Vec3b&gt;(sy, sx+2)[k] * cbufX[3] * cbufY[1] +
+                matSrc.at&lt;cv::Vec3b&gt;(sy+1, sx+2)[k] * cbufX[3] * cbufY[2] + matSrc.at&lt;cv::Vec3b&gt;(sy+2, sx+2)[k] * cbufX[3] * cbufY[3] ) &gt;&gt; 22);
+        &#125;
+    &#125;
+&#125;
+cv::imwrite(&quot;cubic_1.jpg&quot;, matDst1);
+ 
+cv::resize(matSrc, matDst2, matDst1.size(), 0, 0, 2);
+cv::imwrite(&quot;cubic_2.jpg&quot;, matDst2);
+</code></pre>
 <p>基于像素区域关系：共分三种情况，图像放大时类似于双线性插值，图像缩小(x轴、y轴同时缩小)又分两种情况，此情况下可以避免波纹出现</p>
 <p>具体实现代码可以参考<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/fengbingchun/OpenCV_Test/blob/master/src/fbc_cv/include/resize.hpp%EF%BC%8C%E7%94%A8%E6%B3%95%E5%A6%82%E4%B8%8B%EF%BC%9A">https://github.com/fengbingchun/OpenCV_Test/blob/master/src/fbc_cv/include/resize.hpp，用法如下：</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fbc::Mat3BGR src(matSrc.rows, matSrc.cols, matSrc.data);</span><br><span class="line">fbc::Mat3BGR dst(matDst1.rows, matDst1.cols, matDst1.data);</span><br><span class="line">fbc::resize(src, dst, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">fbc::Mat3BGR src(matSrc.rows, matSrc.cols, matSrc.data);
+fbc::Mat3BGR dst(matDst1.rows, matDst1.cols, matDst1.data);
+fbc::resize(src, dst, 3);
+</code></pre>
 <p>兰索斯插值：略</p>
 <p>测试代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;chrono&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span>  millisecond 1000000</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DEBUG_PRINT(...)  printf( __VA_ARGS__); printf(<span class="string">&quot;\n&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DEBUG_TIME(time_) auto time_ =std::chrono::high_resolution_clock::now()</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> RUN_TIME(time_)  (double)(time_).count()/millisecond</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="function">cv::Mat <span class="title">image_resize</span><span class="params">(cv::Mat image, <span class="type">int</span> width, <span class="type">int</span> height, <span class="type">int</span> interpolation, <span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">    cv::Mat dest;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; ++i) &#123;</span><br><span class="line">        cv::<span class="built_in">resize</span>(image, dest, cv::<span class="built_in">Size</span>(width, height), <span class="number">0</span>, <span class="number">0</span>, interpolation);<span class="comment">//最近邻插值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dest;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string path = <span class="string">&quot;../1.jpg&quot;</span>;</span><br><span class="line">    cv::Mat image = cv::<span class="built_in">imread</span>(path);</span><br><span class="line">    cv::<span class="built_in">resize</span>(image, image, cv::<span class="built_in">Size</span>(<span class="number">1000</span>, <span class="number">1000</span>));</span><br><span class="line">    <span class="type">int</span> re_width = <span class="number">900</span>;</span><br><span class="line">    <span class="type">int</span> re_height = <span class="number">900</span>;</span><br><span class="line">    <span class="type">int</span>  num=<span class="number">10</span>;</span><br><span class="line">    cv::Mat image2X_INTER_NEAREST;</span><br><span class="line">    cv::Mat image2X_INTER_LINEAR;</span><br><span class="line">    cv::Mat image2X_INTER_AREA;</span><br><span class="line">    cv::Mat image2X_INTER_CUBIC;</span><br><span class="line">    cv::Mat initMat;</span><br><span class="line">    <span class="built_in">DEBUG_PRINT</span>(<span class="string">&quot;image input size:%dx%d&quot;</span>, image.rows, image.cols);</span><br><span class="line">    <span class="built_in">DEBUG_TIME</span>(T0);</span><br><span class="line">    image2X_INTER_NEAREST=<span class="built_in">image_resize</span>(image, re_width, re_height, cv::INTER_NEAREST, num);</span><br><span class="line">    <span class="built_in">DEBUG_TIME</span>(T1);</span><br><span class="line">    image2X_INTER_LINEAR=<span class="built_in">image_resize</span>(image, re_width, re_height, cv::INTER_LINEAR, num);</span><br><span class="line">    <span class="built_in">DEBUG_TIME</span>(T2);</span><br><span class="line">    image2X_INTER_AREA=<span class="built_in">image_resize</span>(image, re_width, re_height, cv::INTER_AREA, num);</span><br><span class="line">    <span class="built_in">DEBUG_TIME</span>(T3);</span><br><span class="line">    image2X_INTER_CUBIC=<span class="built_in">image_resize</span>(image, re_width, re_height, cv::INTER_CUBIC, num);</span><br><span class="line">    <span class="built_in">DEBUG_TIME</span>(T4);</span><br><span class="line">    <span class="built_in">DEBUG_PRINT</span>(<span class="string">&quot;resize_image:%dx%d,INTER_NEAREST:%3.3fms&quot;</span>,</span><br><span class="line">            image2X_INTER_NEAREST.rows,</span><br><span class="line">            image2X_INTER_NEAREST.cols,</span><br><span class="line">            <span class="built_in">RUN_TIME</span>(T1 - T0)/num);</span><br><span class="line">    <span class="built_in">DEBUG_PRINT</span>(<span class="string">&quot;resize_image:%dx%d,INTER_LINEAR :%3.3fms&quot;</span>,</span><br><span class="line">            image2X_INTER_LINEAR.rows,</span><br><span class="line">            image2X_INTER_LINEAR.cols,</span><br><span class="line">            <span class="built_in">RUN_TIME</span>(T2 - T1)/num);</span><br><span class="line">    <span class="built_in">DEBUG_PRINT</span>(<span class="string">&quot;resize_image:%dx%d,INTER_AREA   :%3.3fms&quot;</span>,</span><br><span class="line">            image2X_INTER_AREA.rows,</span><br><span class="line">            image2X_INTER_AREA.cols,</span><br><span class="line">            <span class="built_in">RUN_TIME</span>(T3 - T2)/num);</span><br><span class="line">    <span class="built_in">DEBUG_PRINT</span>(<span class="string">&quot;resize_image:%dx%d,INTER_CUBIC  :%3.3fms&quot;</span>,</span><br><span class="line">            image2X_INTER_CUBIC.rows,</span><br><span class="line">            image2X_INTER_CUBIC.cols,</span><br><span class="line">            <span class="built_in">RUN_TIME</span>(T4 - T3)/num);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">版权声明：本文为CSDN博主「pan_jinquan」的原创文章，遵循CC <span class="number">4.0</span> BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https:<span class="comment">//blog.csdn.net/guyuealian/article/details/85097633</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="c++">#include &lt;chrono&gt;
+#include &lt;opencv2/opencv.hpp&gt;
+#define  millisecond 1000000
+#define DEBUG_PRINT(...)  printf( __VA_ARGS__); printf(&quot;\n&quot;)
+#define DEBUG_TIME(time_) auto time_ =std::chrono::high_resolution_clock::now()
+#define RUN_TIME(time_)  (double)(time_).count()/millisecond
+using namespace std;
+ 
+cv::Mat image_resize(cv::Mat image, int width, int height, int interpolation, int num) &#123;
+    cv::Mat dest;
+    for (int i = 0; i &lt; num; ++i) &#123;
+        cv::resize(image, dest, cv::Size(width, height), 0, 0, interpolation);//最近邻插值
+    &#125;
+    return dest;
+&#125;
+ 
+ 
+int main() &#123;
+    string path = &quot;../1.jpg&quot;;
+    cv::Mat image = cv::imread(path);
+    cv::resize(image, image, cv::Size(1000, 1000));
+    int re_width = 900;
+    int re_height = 900;
+    int  num=10;
+    cv::Mat image2X_INTER_NEAREST;
+    cv::Mat image2X_INTER_LINEAR;
+    cv::Mat image2X_INTER_AREA;
+    cv::Mat image2X_INTER_CUBIC;
+    cv::Mat initMat;
+    DEBUG_PRINT(&quot;image input size:%dx%d&quot;, image.rows, image.cols);
+    DEBUG_TIME(T0);
+    image2X_INTER_NEAREST=image_resize(image, re_width, re_height, cv::INTER_NEAREST, num);
+    DEBUG_TIME(T1);
+    image2X_INTER_LINEAR=image_resize(image, re_width, re_height, cv::INTER_LINEAR, num);
+    DEBUG_TIME(T2);
+    image2X_INTER_AREA=image_resize(image, re_width, re_height, cv::INTER_AREA, num);
+    DEBUG_TIME(T3);
+    image2X_INTER_CUBIC=image_resize(image, re_width, re_height, cv::INTER_CUBIC, num);
+    DEBUG_TIME(T4);
+    DEBUG_PRINT(&quot;resize_image:%dx%d,INTER_NEAREST:%3.3fms&quot;,
+            image2X_INTER_NEAREST.rows,
+            image2X_INTER_NEAREST.cols,
+            RUN_TIME(T1 - T0)/num);
+    DEBUG_PRINT(&quot;resize_image:%dx%d,INTER_LINEAR :%3.3fms&quot;,
+            image2X_INTER_LINEAR.rows,
+            image2X_INTER_LINEAR.cols,
+            RUN_TIME(T2 - T1)/num);
+    DEBUG_PRINT(&quot;resize_image:%dx%d,INTER_AREA   :%3.3fms&quot;,
+            image2X_INTER_AREA.rows,
+            image2X_INTER_AREA.cols,
+            RUN_TIME(T3 - T2)/num);
+    DEBUG_PRINT(&quot;resize_image:%dx%d,INTER_CUBIC  :%3.3fms&quot;,
+            image2X_INTER_CUBIC.rows,
+            image2X_INTER_CUBIC.cols,
+            RUN_TIME(T4 - T3)/num);
+    return 0;
+&#125;
+版权声明：本文为CSDN博主「pan_jinquan」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/guyuealian/article/details/85097633
+</code></pre>
 <p>运行结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">image input size:1000x1000</span><br><span class="line">resize_image:900x900,INTER_NEAREST:0.389ms</span><br><span class="line">resize_image:900x900,INTER_LINEAR :0.605ms</span><br><span class="line">resize_image:900x900,INTER_AREA   :2.611ms</span><br><span class="line">resize_image:900x900,INTER_CUBIC  :1.920ms</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<pre><code>image input size:1000x1000
+resize_image:900x900,INTER_NEAREST:0.389ms
+resize_image:900x900,INTER_LINEAR :0.605ms
+resize_image:900x900,INTER_AREA   :2.611ms
+resize_image:900x900,INTER_CUBIC  :1.920ms
+</code></pre>
 <p>总结：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> 速度比较：INTER<span class="emphasis">_NEAREST（最近邻插值)&gt;INTER_</span>LINEAR(线性插值)&gt;INTER<span class="emphasis">_CUBIC(三次样条插值)&gt;INTER_</span>AREA  (区域插值)</span><br><span class="line">对图像进行缩小时，为了避免出现波纹现象，推荐采用INTER<span class="emphasis">_AREA 区域插值方法。</span></span><br><span class="line"><span class="emphasis">OpenCV推荐：如果要缩小图像，通常推荐使用#INTER_</span>AREA插值效果最好，而要放大图像，通常使用INTER<span class="emphasis">_CUBIC(速度较慢，但效果最好)，或者使用INTER_</span>LINEAR(速度较快，效果还可以)。至于最近邻插值INTER<span class="emphasis">_NEAREST，一般不推荐使用</span></span><br><span class="line"><span class="emphasis"></span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="markdown"> 速度比较：INTER_NEAREST（最近邻插值)&gt;INTER_LINEAR(线性插值)&gt;INTER_CUBIC(三次样条插值)&gt;INTER_AREA  (区域插值)
+对图像进行缩小时，为了避免出现波纹现象，推荐采用INTER_AREA 区域插值方法。
+OpenCV推荐：如果要缩小图像，通常推荐使用#INTER_AREA插值效果最好，而要放大图像，通常使用INTER_CUBIC(速度较慢，但效果最好)，或者使用INTER_LINEAR(速度较快，效果还可以)。至于最近邻插值INTER_NEAREST，一般不推荐使用
+</code></pre>
 <p>更多详情参考：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.opencv.org/3.2.0/da/d54/group__imgproc__transform.html#ga47a974309e9102f5f08231edc7e7529d">OpenCV: Geometric Image Transformations</a></p>
 
   
@@ -899,7 +1319,7 @@ brandcolors...</p>
       
     
       
-        <div><p>Blog content follows the <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
@@ -911,9 +1331,9 @@ brandcolors...</p>
       
     
       
-        Use
+        本站使用
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
-        as theme
+        作为主题
       
     
       
@@ -1049,7 +1469,7 @@ var loadCSS = function( href, before, media, attributes ){
   
   
   
-  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/atom-one-light.css", window.volantis.loadcss);
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -1164,12 +1584,12 @@ var loadCSS = function( href, before, media, attributes ){
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
       <li class="option">
-        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand('copy')"><i class="fa fa-copy fa-fw"></i>Copy Text</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand('copy')"><i class="fa fa-copy fa-fw"></i>复制文本</a>
         <hr id="hr-text">
-        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>Copy Link</a>
-        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>Open Link in New Tab</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>复制链接</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>在新标签页打开</a>
         <hr id="hr-href">
-        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>Copy Image Link</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>复制图片地址</a>
         <hr id="hr-src">
       </li>
       
@@ -1259,7 +1679,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default ">
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
         <i class="fa fa-moon fa-fw"></i> 暗黑模式
       </a>
     </li>
@@ -1667,7 +2087,7 @@ function setSearchService() {
 
   
 
-<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/lib/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
 
 <script>hljs.initHighlightingOnLoad();</script>
 
@@ -2067,6 +2487,11 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 </script>
 
 <!-- more -->
+
+  
+  <script></script>
+
+
 
  
 	   

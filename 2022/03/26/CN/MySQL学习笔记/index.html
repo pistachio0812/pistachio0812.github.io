@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans,en,default">
+<html lang="zh-CN,en,zh-TW,default">
   <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
@@ -36,11 +36,27 @@
 
   <!-- import meta -->
   
+    
+      <meta name="msapplication-TileColor" content="#ffffff">
+    
+      <meta name="msapplication-config" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/browserconfig.xml">
+    
+      <meta name="theme-color" content="#ffffff">
+    
+  
 
   <!-- link -->
   
 
   <!-- import link -->
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/site.webmanifest">
+  <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon.ico">
   
 
   
@@ -104,6 +120,8 @@
       
         
         <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png">
           
           
           
@@ -417,13 +435,13 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>6.1k words</p>
+      <p>字数：6.1k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>24 min</p>
+      <p>时长：25分钟</p>
     </a>
   </div>
 
@@ -464,20 +482,34 @@
 <h3 id="RDBMS相关概念"><a href="#RDBMS相关概念" class="headerlink" title="RDBMS相关概念"></a>RDBMS相关概念</h3><p>·</p>
 <h3 id="MySQL创建数据表"><a href="#MySQL创建数据表" class="headerlink" title="MySQL创建数据表"></a>MySQL创建数据表</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p><code>CREATE TABLE table_name (column_name column_type)</code></p>
 <p>举例：在W3CSCHOOL数据库中创建数据表w3cschool_tbl:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS tutorials_tbl(</span><br><span class="line">	tutorial_id INT NOT NULL AUTO_INCREMENT,</span><br><span class="line">	tutorial_title VARCHAR(100) NOT NULL,</span><br><span class="line">	tutorial_author VARCHAR(40) NOT NULL,</span><br><span class="line">	submission_date DATE,</span><br><span class="line">	PRIMARY KEY (tutorial_id)</span><br><span class="line">	);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">CREATE TABLE IF NOT EXISTS tutorials_tbl(
+    tutorial_id INT NOT NULL AUTO_INCREMENT,
+    tutorial_title VARCHAR(100) NOT NULL,
+    tutorial_author VARCHAR(40) NOT NULL,
+    submission_date DATE,
+    PRIMARY KEY (tutorial_id)
+    );
+</code></pre>
 <p>注：</p>
 <p>·如果你不想字段为NULL可以设置字段的属性为NOT NULL,在操作数据库如果输入该字段的数据为NULL,则会报错。</p>
 <p>·AUTO_INCREMENT定义列为自增的属性，一般用于主键，数值会自动加1。</p>
 <p>·PRIMARY KEY关键字用于定义列为主键。你可以使用多列来定义主键，列间以逗号分隔。</p>
 <h3 id="MySQL删除数据表"><a href="#MySQL删除数据表" class="headerlink" title="MySQL删除数据表"></a>MySQL删除数据表</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><p><code>DROP TABLE table_name</code></p>
-<h3 id="MySQL插入数据"><a href="#MySQL插入数据" class="headerlink" title="MySQL插入数据"></a>MySQL插入数据</h3><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO table_name(field1, field2, ...fieldN)</span><br><span class="line">					  VALUES</span><br><span class="line">					  (value1, value2, ...valueN);</span><br></pre></td></tr></table></figure>
-
+<h3 id="MySQL插入数据"><a href="#MySQL插入数据" class="headerlink" title="MySQL插入数据"></a>MySQL插入数据</h3><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><pre><code class="mysql">INSERT INTO table_name(field1, field2, ...fieldN)
+                      VALUES
+                      (value1, value2, ...valueN);
+</code></pre>
 <p>举例：使用SQL INSERT INTO语句向MySQL数据表w3cschool_tbl插入数据：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO w3cschool_tbl</span><br><span class="line">(w3cschool_title, w3cschool_author, submission_date)</span><br><span class="line">VALUES</span><br><span class="line">(&quot;Learn PHP&quot;, &quot;John Poul&quot;, NOW());</span><br></pre></td></tr></table></figure>
-
-<h3 id="MySQL查询数据"><a href="#MySQL查询数据" class="headerlink" title="MySQL查询数据"></a>MySQL查询数据</h3><h4 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT column_name, column_name</span><br><span class="line">FROM table_name</span><br><span class="line">[WHERE Clause]</span><br><span class="line">[OFFSET M][LIMIT N]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">INSERT INTO w3cschool_tbl
+(w3cschool_title, w3cschool_author, submission_date)
+VALUES
+(&quot;Learn PHP&quot;, &quot;John Poul&quot;, NOW());
+</code></pre>
+<h3 id="MySQL查询数据"><a href="#MySQL查询数据" class="headerlink" title="MySQL查询数据"></a>MySQL查询数据</h3><h4 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h4><pre><code class="mysql">SELECT column_name, column_name
+FROM table_name
+[WHERE Clause]
+[OFFSET M][LIMIT N]
+</code></pre>
 <p>注：</p>
 <p>·查询语句中你可以使用一个或者多个表，表之间使用逗号(,)分隔，并使用WHERE语句来设定查询条件。</p>
 <p>·SELECT命令可以读取一条或者多条记录。</p>
@@ -487,8 +519,10 @@
 <p>·你可以使用LIMIT属性来设定返回的记录数。</p>
 <p>举例：通过SQL SELECT命令来获取MySQL数据表w3cschool_tbl的数据：</p>
 <p><code>SELECT * from w3cschool_tbl;</code></p>
-<h3 id="MySQL-where子句"><a href="#MySQL-where子句" class="headerlink" title="MySQL where子句"></a>MySQL where子句</h3><h4 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT field1, field2, ...fieldN</span><br><span class="line">FROM table_name1, table_name2...</span><br><span class="line">[WHERE condition1 [[AND][OR]] condition2...]</span><br></pre></td></tr></table></figure>
-
+<h3 id="MySQL-where子句"><a href="#MySQL-where子句" class="headerlink" title="MySQL where子句"></a>MySQL where子句</h3><h4 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h4><pre><code class="mysql">SELECT field1, field2, ...fieldN
+FROM table_name1, table_name2...
+[WHERE condition1 [[AND][OR]] condition2...]
+</code></pre>
 <p>注：</p>
 <p>·查询语句中你可以使用一个或者多个表，表之间使用逗号(,)分隔，并使用WHERE语句来设定查询条件。</p>
 <p>·你可以在WHERE子句中指定任何条件。</p>
@@ -539,16 +573,20 @@
 <p><code>SELECT * from w3cschool_tbl WHERE w3cschool_author=&#39;Sanjay&#39;;</code></p>
 <p>除非你使用LIKE来比较字符串，否则MySQL的WHERE子句的字符串比较是不区分大小写的。你可以使用BINARY关键字来设定WHERE子句的紫福春是区分大小写的。</p>
 <p><code>SELECT * from w3cschool_tbl WHERE BINARY w3cschool_author=&#39;sanjay&#39;;</code></p>
-<h3 id="MySQL-UPDATE查询"><a href="#MySQL-UPDATE查询" class="headerlink" title="MySQL UPDATE查询"></a>MySQL UPDATE查询</h3><h4 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE table_name SET field1=new-value1, field2=new-value2</span><br><span class="line"></span><br><span class="line">[WHERE Clause]</span><br></pre></td></tr></table></figure>
+<h3 id="MySQL-UPDATE查询"><a href="#MySQL-UPDATE查询" class="headerlink" title="MySQL UPDATE查询"></a>MySQL UPDATE查询</h3><h4 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h4><pre><code class="mysql">UPDATE table_name SET field1=new-value1, field2=new-value2
 
+[WHERE Clause]
+</code></pre>
 <p>注：</p>
 <p>·你可以同时更新一个或多个字段</p>
 <p>·你可以在WHERE字句中指定任何条件</p>
 <p>·你可以在一个单独表中同时更新数据</p>
 <p>当你需要更新表中指定行的数据时，WHERE子句是非常有用的。</p>
 <p>举例：更新数据表中w3cschool_id为3的w3cschool_title字段值：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE w3cschool_tbl</span><br><span class="line">SET w3cschool_title=&#x27;Learning JAVA&#x27;</span><br><span class="line">WHERE w3cschool_id=3;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">UPDATE w3cschool_tbl
+SET w3cschool_title=&#39;Learning JAVA&#39;
+WHERE w3cschool_id=3;
+</code></pre>
 <h3 id="MySQL-DELETE语句"><a href="#MySQL-DELETE语句" class="headerlink" title="MySQL DELETE语句"></a>MySQL DELETE语句</h3><h4 id="语法-6"><a href="#语法-6" class="headerlink" title="语法"></a>语法</h4><p><code>DELETE FROM table_name [WHERE Clause]</code></p>
 <p>注：</p>
 <p>·如果没有指定WHERE子句，MySQL表中的所有记录将被删除</p>
@@ -556,11 +594,13 @@
 <p>·你可以在单个表中一次性删除记录</p>
 <p>当你想删除数据表中的指定记录时，WHERE子句是非常有用的</p>
 <p>举例：删除w3cschool_tbl表中w3cschool_id为3的记录：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM w3cschool_tbl WHERE w3cschool_id=3;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">DELETE FROM w3cschool_tbl WHERE w3cschool_id=3;
+</code></pre>
 <h3 id="MySQL-LIKE子句"><a href="#MySQL-LIKE子句" class="headerlink" title="MySQL LIKE子句"></a>MySQL LIKE子句</h3><p>SQL LIKE子句中使用百分号（%）字符来表示任意字符，类似于UNIX或者正则表达式中的星号（*）。</p>
-<h4 id="语法-7"><a href="#语法-7" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT field1, field2, ...fieldN</span><br><span class="line">FROM table_name1, table_name2...</span><br><span class="line">WHERE field1 LIKE condition [[AND][OR]] field2=&#x27;somevalue&#x27;</span><br></pre></td></tr></table></figure>
-
+<h4 id="语法-7"><a href="#语法-7" class="headerlink" title="语法"></a>语法</h4><pre><code class="mysql">SELECT field1, field2, ...fieldN
+FROM table_name1, table_name2...
+WHERE field1 LIKE condition [[AND][OR]] field2=&#39;somevalue&#39;
+</code></pre>
 <p>注：</p>
 <p>·你可以在WHERE子句中指定任何条件</p>
 <p>·你可以在WHERE字句中使用LIKE子句</p>
@@ -569,10 +609,12 @@
 <p>·你可以使用AND或OR指定一个或多个条件</p>
 <p>·你可以在DELETE或UPDATE命令中使用WHERE…LIKE子句来指定条件</p>
 <p>举例：查询w3cschool_tbl表中的w3cschool_author字段中以’jay’为结尾的所有记录：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * from w3cschool_tbl</span><br><span class="line">WHERE w3cschool_author LIKE &#x27;%jay&#x27;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="MySQL排序"><a href="#MySQL排序" class="headerlink" title="MySQL排序"></a>MySQL排序</h3><h4 id="语法-8"><a href="#语法-8" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT field1, field2,...fieldN FROM table_name1, table_name2...</span><br><span class="line">ORDER BY field1, [field2...] [ASC[DESC]]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">SELECT * from w3cschool_tbl
+WHERE w3cschool_author LIKE &#39;%jay&#39;;
+</code></pre>
+<h3 id="MySQL排序"><a href="#MySQL排序" class="headerlink" title="MySQL排序"></a>MySQL排序</h3><h4 id="语法-8"><a href="#语法-8" class="headerlink" title="语法"></a>语法</h4><pre><code class="mysql">SELECT field1, field2,...fieldN FROM table_name1, table_name2...
+ORDER BY field1, [field2...] [ASC[DESC]]
+</code></pre>
 <p>注：</p>
 <p>·你可以使用任何字段来作为排序的条件，从而返回排序后的查询结果</p>
 <p>·你可以设定多个字段来排序</p>
@@ -582,8 +624,11 @@
 <p><code>SELECT * from w3cschool_tbl ORDER BY w3cschool_author ASC;</code></p>
 <p><code>SELECT * from w3cschool_tbl ORDER BY w3cschool_author DESC;</code></p>
 <h3 id="MySQL-分组"><a href="#MySQL-分组" class="headerlink" title="MySQL 分组"></a>MySQL 分组</h3><p>GROUP BY语句根据一个或者多个列对结果集进行分组，在分组的列上我们可以使用COUNT,SUM,AVG等函数。</p>
-<h4 id="语法-9"><a href="#语法-9" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT column_name, function(column_name)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE column_name operator value</span><br><span class="line">GROUP BY column_name;</span><br></pre></td></tr></table></figure>
-
+<h4 id="语法-9"><a href="#语法-9" class="headerlink" title="语法"></a>语法</h4><pre><code class="mysql">SELECT column_name, function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUP BY column_name;
+</code></pre>
 <p>employee_tbl表格信息如下：</p>
 <table>
 <thead>
@@ -635,8 +680,10 @@
 <p><code>SELECT name, COUNT(*) FROM employ_tbl GROUP BY name;</code></p>
 <h3 id="使用WITH-ROLLUP"><a href="#使用WITH-ROLLUP" class="headerlink" title="使用WITH ROLLUP"></a>使用WITH ROLLUP</h3><p>WITH ROLLUP可以实现在分组统计数据基础上再进行相同的统计（SUM.AVG,COUNT).</p>
 <p>举例：将以上的数据表按名字进行分组，再统计每个人登录的次数：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT name, SUM(singin) as singin_count</span><br><span class="line">FROM employee_tbl</span><br><span class="line">GROUP BY name WITH ROLLUP;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">SELECT name, SUM(singin) as singin_count
+FROM employee_tbl
+GROUP BY name WITH ROLLUP;
+</code></pre>
 <p>其中结果如下：</p>
 <table>
 <thead>
@@ -666,8 +713,10 @@
 <h4 id="语法-10"><a href="#语法-10" class="headerlink" title="语法"></a>语法</h4><p><code>select coalesce(a, b, c);</code></p>
 <p>参数说明：如果a&#x3D;&#x3D;null,则选择b;如果b&#x3D;&#x3D;null,则选择c;如果a!&#x3D;null,则选择a;如果abc都为null,则返回null(没意义)。</p>
 <p>举例：如果名字为空，使用总数代替：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT coalesce(name, &#x27;总数&#x27;), SUM(singin) as singin_out</span><br><span class="line">FROM employee_tbl</span><br><span class="line">GROUP BY name WITH ROLLUP;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">SELECT coalesce(name, &#39;总数&#39;), SUM(singin) as singin_out
+FROM employee_tbl
+GROUP BY name WITH ROLLUP;
+</code></pre>
 <h3 id="MySQL连接的使用"><a href="#MySQL连接的使用" class="headerlink" title="MySQL连接的使用"></a>MySQL连接的使用</h3><p>JOIN按照功能大致分为如下三类：</p>
 <p>·INNER JOIN(内连接，或等值连接)：获取两个表中字段匹配关系的记录</p>
 <p>·LEFT JOIN（左连接）：获取左表所有记录，即使右表没有对应匹配的记录</p>
@@ -737,17 +786,25 @@
 </tr>
 </tbody></table>
 <p>举例：使用INNER JOIN来连接以上两张表来读取w3cschool_tbl表中所有w3cschool_author字段在tcount_tbl表中对应的w3cschool_count字段值。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT a.w3cschool_id, a.w3cschool_author, b.w3cschool_count</span><br><span class="line">FROM w3cschool_tbl a INNER JOIN tcount_tbl b</span><br><span class="line">ON a.w3cschool_author = b.w3cschool_author</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">SELECT a.w3cschool_id, a.w3cschool_author, b.w3cschool_count
+FROM w3cschool_tbl a INNER JOIN tcount_tbl b
+ON a.w3cschool_author = b.w3cschool_author
+</code></pre>
 <p>等价于：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT a.w3cschool_id, a_w3cschool_author, b.w3cschool_count</span><br><span class="line">FROM w3cschool_tbl a, tcount_tbl b</span><br><span class="line">WHERE a.w3cschool_author = b.w3cschool_author;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">SELECT a.w3cschool_id, a_w3cschool_author, b.w3cschool_count
+FROM w3cschool_tbl a, tcount_tbl b
+WHERE a.w3cschool_author = b.w3cschool_author;
+</code></pre>
 <p>举例：以w3cschool_tbl为左表， t_count_tbl为右表，理解MySQL LEFT JOIN的应用：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT a.w3cschool_id, a.w3cschool_author, b.w3cschool_count</span><br><span class="line">FROM w3cschool_tbl a LEFT JOIN tcount_tbl b</span><br><span class="line">ON a.w3cschool_author = b.w3cschool_author;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">SELECT a.w3cschool_id, a.w3cschool_author, b.w3cschool_count
+FROM w3cschool_tbl a LEFT JOIN tcount_tbl b
+ON a.w3cschool_author = b.w3cschool_author;
+</code></pre>
 <p>举例：以tcount_tbl为左表， w3cschool_tbl为右表，理解MySQL RIGHT JOIN的应用：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT b.w3cschool_id, b.w3cschool_author, a.w3cschool_count</span><br><span class="line">FROM tcount_tbl a RIGHT JOIN w3cschool_tbl b</span><br><span class="line">ON a.w3cschool_author = b.w3cschool_author;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">SELECT b.w3cschool_id, b.w3cschool_author, a.w3cschool_count
+FROM tcount_tbl a RIGHT JOIN w3cschool_tbl b
+ON a.w3cschool_author = b.w3cschool_author;
+</code></pre>
 <h3 id="MySQL-NULL值处理"><a href="#MySQL-NULL值处理" class="headerlink" title="MySQL NULL值处理"></a>MySQL NULL值处理</h3><p>查询条件字段为NULL时，该命令可能无法正常工作，为了处理这种情况，MySQL提供了三大运算符：</p>
 <p>·IS NULL:当列的值为NULL,此运算符返回True</p>
 <p>·IS NOT NULL:当列的值不为NULL,运算符返回True</p>
@@ -780,10 +837,12 @@
 </tr>
 </tbody></table>
 <p>查询数据表中w3cschool_count列是否为NULL,必须使用IS NULL和IS NOT NULL,如下实例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM tcount_tbl</span><br><span class="line">WHERE w3cschool_count IS NULL;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM tcount_tbl</span><br><span class="line">WHERE w3cschool_count IS NOT NULL;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">SELECT * FROM tcount_tbl
+WHERE w3cschool_count IS NULL;
+</code></pre>
+<pre><code class="mysql">SELECT * FROM tcount_tbl
+WHERE w3cschool_count IS NOT NULL;
+</code></pre>
 <h3 id="MySQL正则表达式"><a href="#MySQL正则表达式" class="headerlink" title="MySQL正则表达式"></a>MySQL正则表达式</h3><p>下表中的正则模式可应用于REGEXP操作符中。</p>
 <table>
 <thead>
@@ -831,17 +890,17 @@
 </tbody></table>
 <p>举例：</p>
 <p>1.查找name字段中以’st’为开头的所有数据：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT name FROM person_tbl WHERE name REGEXP &#x27;^st&#x27;;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">SELECT name FROM person_tbl WHERE name REGEXP &#39;^st&#39;;
+</code></pre>
 <p>2.查找name字段中以’ok’为结尾的所有数据：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT name FROM person_tbl WHERE name REGEXP &#x27;ok$&#x27;;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">SELECT name FROM person_tbl WHERE name REGEXP &#39;ok$&#39;;
+</code></pre>
 <p>3.查找name字段中包含’mar’字符串的所有数据：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT name FROM person_tbl WHERE name REGEXP &#x27;mar&#x27;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">SELECT name FROM person_tbl WHERE name REGEXP &#39;mar&#39;
+</code></pre>
 <p>4.查找name字段中以元音字符开头或以’ok’字符串结尾的所有数据：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT name FROM person_tbl WHERE name REGEXP &#x27;^[aeiou]|ok$&#x27;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">SELECT name FROM person_tbl WHERE name REGEXP &#39;^[aeiou]|ok$&#39;
+</code></pre>
 <h3 id="MySQL事务"><a href="#MySQL事务" class="headerlink" title="MySQL事务"></a>MySQL事务</h3><p>MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你即需要删除人员的基本资料，也要删除和该人员相关的信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个事务！</p>
 <ul>
 <li>在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。</li>
@@ -868,8 +927,8 @@
 <p>6.将事务滚回标记点：</p>
 <p><code>rollback to 标记点</code></p>
 <p>7.设置事务的隔离级别。InnoDB 存储引擎提供事务的隔离级别有READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ 和 SERIALIZABLE。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set transaction</span><br></pre></td></tr></table></figure>
-
+<pre><code>set transaction
+</code></pre>
 <h4 id="事务处理方法"><a href="#事务处理方法" class="headerlink" title="事务处理方法"></a>事务处理方法</h4><p>1.用 begin ， rollback ， commit 来实现事务处理。</p>
 <p>2.用 set 来改变 MySQL 的自动提交模式。</p>
 <ul>
@@ -878,8 +937,12 @@
 </ul>
 <h3 id="MySQL-ALTER命令"><a href="#MySQL-ALTER命令" class="headerlink" title="MySQL ALTER命令"></a>MySQL ALTER命令</h3><p>当我们需要修改数据表名或者修改数据表字段时，就需要使用到MySQL ALTER命令。</p>
 <p>开始本章教程前让我们先创建一张表，表名为：testalter_tbl。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create table testalter_tbl(</span><br><span class="line">	i INT,</span><br><span class="line">	c CHAR(1)</span><br><span class="line">	);</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">create table testalter_tbl(
+    i INT,
+    c CHAR(1)
+    );
+ 
+</code></pre>
 <p><code>SHOW COLUMNS FROM testalter_tbl;</code></p>
 <table>
 <thead>
@@ -962,12 +1025,30 @@
 <p> <code>+-------+---------+------+-----+---------+-------+ </code></p>
 <p> <code>2 rows in set (0.00 sec) Changing a Table Type: </code></p>
 <p>修改数据表类型，可以使用 ALTER 命令及 TYPE 子句来完成。尝试以下实例，我们将表 testalter_tbl 的类型修改为 MYISAM ：<strong>注意：</strong>查看数据表类型可以使用 SHOW TABLE STATUS 语句。*</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl TYPE = MYISAM;</span><br><span class="line">mysql&gt;  SHOW TABLE STATUS LIKE &#x27;testalter_tbl&#x27;\G</span><br><span class="line"> 1. row **</span><br><span class="line">           Name: testalter_tbl</span><br><span class="line">           Type: MyISAM</span><br><span class="line">     Row_format: Fixed</span><br><span class="line">           Rows: 0</span><br><span class="line"> Avg_row_length: 0</span><br><span class="line">    Data_length: 0</span><br><span class="line">Max_data_length: 25769803775</span><br><span class="line">   Index_length: 1024</span><br><span class="line">      Data_free: 0</span><br><span class="line"> Auto_increment: NULL</span><br><span class="line">    Create_time: 2007-06-03 08:04:36</span><br><span class="line">    Update_time: 2007-06-03 08:04:36</span><br><span class="line">     Check_time: NULL</span><br><span class="line"> Create_options:</span><br><span class="line">        Comment:</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-
+<pre><code>mysql&gt; ALTER TABLE testalter_tbl TYPE = MYISAM;
+mysql&gt;  SHOW TABLE STATUS LIKE &#39;testalter_tbl&#39;\G
+ 1. row **
+           Name: testalter_tbl
+           Type: MyISAM
+     Row_format: Fixed
+           Rows: 0
+ Avg_row_length: 0
+    Data_length: 0
+Max_data_length: 25769803775
+   Index_length: 1024
+      Data_free: 0
+ Auto_increment: NULL
+    Create_time: 2007-06-03 08:04:36
+    Update_time: 2007-06-03 08:04:36
+     Check_time: NULL
+ Create_options:
+        Comment:
+1 row in set (0.00 sec)
+</code></pre>
 <h4 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h4><p>如果需要修改数据表的名称，可以在 ALTER TABLE 语句中使用 RENAME 子句来实现。</p>
 <p>尝试以下实例将数据表 testalter_tbl 重命名为 alter_tbl：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl RENAME TO alter_tbl;</span><br></pre></td></tr></table></figure>
-
+<pre><code>mysql&gt; ALTER TABLE testalter_tbl RENAME TO alter_tbl;
+</code></pre>
 <h3 id="MySQL索引"><a href="#MySQL索引" class="headerlink" title="MySQL索引"></a>MySQL索引</h3><p>MySQL索引的建立对于MySQL的高效运行是很重要的，索引可以大大提高MySQL的检索速度。</p>
 <p>打个比方，如果合理的设计且使用索引的MySQL是一辆兰博基尼的话，那么没有设计和使用索引的MySQL就是一个人力三轮车。</p>
 <p>拿汉语字典的目录页（索引）打比方，我们可以按拼音、笔画、偏旁部首等排序的目录（索引）快速查找到需要的字。</p>
@@ -978,28 +1059,44 @@
 <p>建立索引会占用磁盘空间的索引文件。</p>
 <h4 id="普通索引"><a href="#普通索引" class="headerlink" title="普通索引"></a>普通索引</h4><p>创建索引</p>
 <p>这是最基本的索引，它没有任何限制。它有以下几种创建方式：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE INDEX indexName ON mytable(username(length)); </span><br></pre></td></tr></table></figure>
-
+<pre><code>CREATE INDEX indexName ON mytable(username(length)); 
+</code></pre>
 <p>如果是CHAR，VARCHAR类型，length可以小于字段实际长度；如果是BLOB和TEXT类型，必须指定 length。</p>
 <p>修改表结构(添加索引)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER table tableName ADD INDEX indexName(columnName)</span><br></pre></td></tr></table></figure>
-
+<pre><code>ALTER table tableName ADD INDEX indexName(columnName)
+</code></pre>
 <p>创建表的时候直接指定</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE mytable(  </span><br><span class="line"> </span><br><span class="line">ID INT NOT NULL,   </span><br><span class="line"> </span><br><span class="line">username VARCHAR(16) NOT NULL,  </span><br><span class="line"> </span><br><span class="line">INDEX [indexName] (username(length))  </span><br><span class="line"> </span><br><span class="line">);  </span><br></pre></td></tr></table></figure>
-
+<pre><code>CREATE TABLE mytable(  
+ 
+ID INT NOT NULL,   
+ 
+username VARCHAR(16) NOT NULL,  
+ 
+INDEX [indexName] (username(length))  
+ 
+);  
+</code></pre>
 <p>删除索引的语法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP INDEX [indexName] ON mytable; </span><br></pre></td></tr></table></figure>
-
+<pre><code>DROP INDEX [indexName] ON mytable; 
+</code></pre>
 <h4 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h4><p>它与前面的普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。它有以下几种创建方式：</p>
 <p>创建索引</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE UNIQUE INDEX indexName ON mytable(username(length)) </span><br></pre></td></tr></table></figure>
-
+<pre><code>CREATE UNIQUE INDEX indexName ON mytable(username(length)) 
+</code></pre>
 <p>修改表结构</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER table mytable ADD UNIQUE [indexName] (username(length))</span><br></pre></td></tr></table></figure>
-
+<pre><code>ALTER table mytable ADD UNIQUE [indexName] (username(length))
+</code></pre>
 <p>创建表的时候直接指定</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE mytable(  </span><br><span class="line"> </span><br><span class="line">ID INT NOT NULL,   </span><br><span class="line"> </span><br><span class="line">username VARCHAR(16) NOT NULL,  </span><br><span class="line"> </span><br><span class="line">UNIQUE [indexName] (username(length))  </span><br><span class="line"> </span><br><span class="line">);  </span><br></pre></td></tr></table></figure>
-
+<pre><code>CREATE TABLE mytable(  
+ 
+ID INT NOT NULL,   
+ 
+username VARCHAR(16) NOT NULL,  
+ 
+UNIQUE [indexName] (username(length))  
+ 
+);  
+</code></pre>
 <p>使用ALTER 命令添加和删除索引</p>
 <p>有四种方式来添加数据表的索引：</p>
 <ul>
@@ -1009,38 +1106,83 @@
 <li>ALTER TABLE tbl_name ADD FULLTEXT index_name (column_list):该语句指定了索引为 FULLTEXT ，用于全文索引。</li>
 </ul>
 <p>以下实例为在表中添加索引。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl ADD INDEX (c);</span><br></pre></td></tr></table></figure>
-
+<pre><code>mysql&gt; ALTER TABLE testalter_tbl ADD INDEX (c);
+</code></pre>
 <p>你还可以在 ALTER 命令中使用 DROP 子句来删除索引。尝试以下实例删除索引:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl DROP INDEX c;</span><br></pre></td></tr></table></figure>
-
+<pre><code>mysql&gt; ALTER TABLE testalter_tbl DROP INDEX c;
+</code></pre>
 <p>使用 ALTER 命令添加和删除主键</p>
 <p>主键只能作用于一个列上，添加主键索引时，你需要确保该主键默认不为空（NOT NULL）。实例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl MODIFY i INT NOT NULL;</span><br><span class="line">mysql&gt; ALTER TABLE testalter_tbl ADD PRIMARY KEY (i);</span><br></pre></td></tr></table></figure>
-
+<pre><code>mysql&gt; ALTER TABLE testalter_tbl MODIFY i INT NOT NULL;
+mysql&gt; ALTER TABLE testalter_tbl ADD PRIMARY KEY (i);
+</code></pre>
 <p>你也可以使用 ALTER 命令删除主键：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl DROP PRIMARY KEY;</span><br></pre></td></tr></table></figure>
-
+<pre><code>mysql&gt; ALTER TABLE testalter_tbl DROP PRIMARY KEY;
+</code></pre>
 <p>删除主键时只需指定PRIMARY KEY，但在删除索引时，你必须知道索引名。</p>
 <p>显示索引信息</p>
 <p>你可以使用 SHOW INDEX 命令来列出表中的相关的索引信息。可以通过添加 \G 来格式化输出信息。</p>
 <p>尝试以下实例:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW INDEX FROM table_name; \G</span><br><span class="line">........</span><br></pre></td></tr></table></figure>
-
+<pre><code>mysql&gt; SHOW INDEX FROM table_name; \G
+........
+</code></pre>
 <h3 id="MySQL临时表"><a href="#MySQL临时表" class="headerlink" title="MySQL临时表"></a>MySQL临时表</h3><p>MySQL 临时表在我们需要保存一些临时数据时是非常有用的。临时表只在当前连接可见，当关闭连接时，MySQL会自动删除表并释放所有空间。</p>
 <p>临时表在MySQL 3.23版本中添加，如果你的MySQL版本低于 3.23版本就无法使用MySQL的临时表。不过现在一般很少有再使用这么低版本的MySQL数据库服务了。</p>
 <p>MySQL临时表只在当前连接可见，如果你使用PHP脚本来创建MySQL临时表，那每当PHP脚本执行完成后，该临时表也会自动销毁。</p>
 <p>如果你使用了其他MySQL客户端程序连接MySQL数据库服务器来创建临时表，那么只有在关闭客户端程序时才会销毁临时表，当然你也可以手动销毁。</p>
 <p>实例</p>
 <p>以下展示了使用MySQL 临时表的简单实例，以下的SQL代码可以适用于PHP脚本的mysql_query()函数。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TEMPORARY TABLE SalesSummary (</span><br><span class="line">    -&gt; product_name VARCHAR(50) NOT NULL</span><br><span class="line">    -&gt; , total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00</span><br><span class="line">    -&gt; , avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00</span><br><span class="line">    -&gt; , total_units_sold INT UNSIGNED NOT NULL DEFAULT 0</span><br><span class="line">);</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; INSERT INTO SalesSummary</span><br><span class="line">    -&gt; (product_name, total_sales, avg_unit_price, total_units_sold)</span><br><span class="line">    -&gt; VALUES</span><br><span class="line">    -&gt; (&#x27;cucumber&#x27;, 100.25, 90, 2);</span><br><span class="line"></span><br><span class="line">mysql&gt; SELECT * FROM SalesSummary;</span><br><span class="line">+--------------+-------------+----------------+------------------+</span><br><span class="line">| product_name | total_sales | avg_unit_price | total_units_sold |</span><br><span class="line">+--------------+-------------+----------------+------------------+</span><br><span class="line">| cucumber     |      100.25 |          90.00 |                2 |</span><br><span class="line">+--------------+-------------+----------------+------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<pre><code class="mysql">mysql&gt; CREATE TEMPORARY TABLE SalesSummary (
+    -&gt; product_name VARCHAR(50) NOT NULL
+    -&gt; , total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00
+    -&gt; , avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00
+    -&gt; , total_units_sold INT UNSIGNED NOT NULL DEFAULT 0
+);
+Query OK, 0 rows affected (0.00 sec)
 
+mysql&gt; INSERT INTO SalesSummary
+    -&gt; (product_name, total_sales, avg_unit_price, total_units_sold)
+    -&gt; VALUES
+    -&gt; (&#39;cucumber&#39;, 100.25, 90, 2);
+
+mysql&gt; SELECT * FROM SalesSummary;
++--------------+-------------+----------------+------------------+
+| product_name | total_sales | avg_unit_price | total_units_sold |
++--------------+-------------+----------------+------------------+
+| cucumber     |      100.25 |          90.00 |                2 |
++--------------+-------------+----------------+------------------+
+1 row in set (0.00 sec)
+</code></pre>
 <p>当你使用 <strong>SHOW TABLES</strong>命令显示数据表列表时，你将无法看到 SalesSummary表。</p>
 <p>如果你退出当前MySQL会话，再使用 <strong>SELECT</strong>命令来读取原先创建的临时表数据，那你会发现数据库中没有该表的存在，因为在你退出时该临时表已经被销毁了。</p>
 <p>删除MySQL 临时表</p>
 <p>默认情况下，当你断开与数据库的连接后，临时表就会自动被销毁。当然你也可以在当前MySQL会话使用 <strong>DROP TABLE</strong> 命令来手动删除临时表。</p>
 <p>以下是手动删除临时表的实例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TEMPORARY TABLE SalesSummary (</span><br><span class="line">    -&gt; product_name VARCHAR(50) NOT NULL</span><br><span class="line">    -&gt; , total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00</span><br><span class="line">    -&gt; , avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00</span><br><span class="line">    -&gt; , total_units_sold INT UNSIGNED NOT NULL DEFAULT 0</span><br><span class="line">);</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; INSERT INTO SalesSummary</span><br><span class="line">    -&gt; (product_name, total_sales, avg_unit_price, total_units_sold)</span><br><span class="line">    -&gt; VALUES</span><br><span class="line">    -&gt; (&#x27;cucumber&#x27;, 100.25, 90, 2);</span><br><span class="line"></span><br><span class="line">mysql&gt; SELECT * FROM SalesSummary;</span><br><span class="line">+--------------+-------------+----------------+------------------+</span><br><span class="line">| product_name | total_sales | avg_unit_price | total_units_sold |</span><br><span class="line">+--------------+-------------+----------------+------------------+</span><br><span class="line">| cucumber     |      100.25 |          90.00 |                2 |</span><br><span class="line">+--------------+-------------+----------------+------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line">mysql&gt; DROP TABLE SalesSummary;</span><br><span class="line">mysql&gt;  SELECT * FROM SalesSummary;</span><br><span class="line">ERROR 1146: Table &#x27;W3CSCHOOL.SalesSummary&#x27; doesn&#x27;t exist</span><br></pre></td></tr></table></figure>
+<pre><code class="mysql">mysql&gt; CREATE TEMPORARY TABLE SalesSummary (
+    -&gt; product_name VARCHAR(50) NOT NULL
+    -&gt; , total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00
+    -&gt; , avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00
+    -&gt; , total_units_sold INT UNSIGNED NOT NULL DEFAULT 0
+);
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; INSERT INTO SalesSummary
+    -&gt; (product_name, total_sales, avg_unit_price, total_units_sold)
+    -&gt; VALUES
+    -&gt; (&#39;cucumber&#39;, 100.25, 90, 2);
+
+mysql&gt; SELECT * FROM SalesSummary;
++--------------+-------------+----------------+------------------+
+| product_name | total_sales | avg_unit_price | total_units_sold |
++--------------+-------------+----------------+------------------+
+| cucumber     |      100.25 |          90.00 |                2 |
++--------------+-------------+----------------+------------------+
+1 row in set (0.00 sec)
+mysql&gt; DROP TABLE SalesSummary;
+mysql&gt;  SELECT * FROM SalesSummary;
+ERROR 1146: Table &#39;W3CSCHOOL.SalesSummary&#39; doesn&#39;t exist
+</code></pre>
+
   
   
     
@@ -1074,7 +1216,7 @@
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-07T08:32:13+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-07T15:00:42+08:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Apr 7, 2022</p>
@@ -1273,7 +1415,7 @@
       
     
       
-        <div><p>Blog content follows the <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
@@ -1285,9 +1427,9 @@
       
     
       
-        Use
+        本站使用
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
-        as theme
+        作为主题
       
     
       
@@ -1423,7 +1565,7 @@ var loadCSS = function( href, before, media, attributes ){
   
   
   
-  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/atom-one-light.css", window.volantis.loadcss);
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -1538,12 +1680,12 @@ var loadCSS = function( href, before, media, attributes ){
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
       <li class="option">
-        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand('copy')"><i class="fa fa-copy fa-fw"></i>Copy Text</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand('copy')"><i class="fa fa-copy fa-fw"></i>复制文本</a>
         <hr id="hr-text">
-        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>Copy Link</a>
-        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>Open Link in New Tab</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>复制链接</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>在新标签页打开</a>
         <hr id="hr-href">
-        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>Copy Image Link</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>复制图片地址</a>
         <hr id="hr-src">
       </li>
       
@@ -1633,7 +1775,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default ">
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
         <i class="fa fa-moon fa-fw"></i> 暗黑模式
       </a>
     </li>
@@ -2041,7 +2183,7 @@ function setSearchService() {
 
   
 
-<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/lib/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
 
 <script>hljs.initHighlightingOnLoad();</script>
 
@@ -2441,6 +2583,11 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 </script>
 
 <!-- more -->
+
+  
+  <script></script>
+
+
 
  
 	   
