@@ -1,0 +1,1988 @@
+<!DOCTYPE html>
+<html lang="zh-Hans,en,default">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>数据处理 - 相思似海深旧事如天远</title>
+  
+    <meta name="keywords" content="数据处理">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="相思似海深旧事如天远" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <link rel="stylesheet" type="text/css" href="/css/matery.css">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br>
+        <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+	<script src="https://cdn.jsdelivr.net/gh/dearxuanres/res/js/playerListener.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/sakura.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/mouse_slide.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/clicksocialist.js"></script>
+    
+
+<header id="l_header" class="l_header auto shadow show" style="opacity: 0">
+  <div class="container">
+  <div id="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+          
+				</li></ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h m-phone">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+            
+          </li></ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="full" class="cover-wrapper post search" style="display: none;">
+          
+            <div id="cover-backstretch"></div>
+          
+          <div class="cover-body">
+  <div class="top">
+    
+      <img no-lazy class="logo" src="https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/images/volantis_log.png">
+    
+    
+      <p class="title">相思似海深旧事如天远</p>
+    
+    
+  </div>
+  <div class="bottom">
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="这里有你想要的一切">
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class="menu navigation">
+      <div class="list-h">
+        
+          
+            <a href="/v4/getting-started/" id="v4getting-started">
+              <p>文档</p>
+            </a>
+          
+            <a href="/faqs/" id="faqs">
+              <p>帮助</p>
+            </a>
+          
+            <a href="/examples/" id="examples">
+              <p>示例</p>
+            </a>
+          
+            <a href="/contributors/" id="contributors">
+              <p>社区</p>
+            </a>
+          
+            <a href="/archives/" id="archives">
+              <p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis">
+              <p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class="l_main">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        数据处理
+      </h1>
+      <div class="new-meta-box">
+        
+          
+            
+<div class="new-meta-item author">
+  <a class="author" href="/" rel="nofollow">
+    <img no-lazy src>
+    <p>相思似海深旧事如天远</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item category">
+    <a class="notlink">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/pytorch/">pytorch</a><span class="sep"></span><a class="category-link" href="/categories/pytorch/data-processing/">data processing</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Apr 14, 2022</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>3.6k words</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>16 min</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class="notlink">
+      
+      <div id="lc-pv" data-title="数据处理" data-path="/2022/04/14/en/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <h2 id="单进程"><a href="#单进程" class="headerlink" title="单进程"></a>单进程</h2><p>​        在单进程模式下，DataLoader 初始化的进程和取数据的进程是一样的 。因此，数据加载可能会阻止计算。但是，当用于在进程之间共享数据的资源（例如共享内存，文件描述符）有限时，或者当整个数据集很小并且可以完全加载到内存中时，此模式可能是我们首选。此外，单进程加载通常可以显示更多可读的错误跟踪，这<strong>对于我们调试代码很有用</strong>。</p>
+<h2 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h2><p>·多进程处理</p>
+<p>​        为了避免在加载数据时阻塞计算，PyTorch 提供了一个简单的开关，只需将参数设置 num_workers 为正整数即可执行多进程数据加载，而设置为 0 时执行单线程数据加载。</p>
+<p>​        在设置多进程模式时，每次 DataLoader 创建 iterator 时（例如，当调用 enumerate(dataloader) 时），都会创建 num_workers 个工作进程。此时dataset, collate_fn, worker_init_fn 都会被传到每个worker中，而每个 worker 都用独立的进程。</p>
+<p>​        对于 map-style 数据，主线程会用 Sampler 产生 indices，并将它们送到 worker 里。因此，shuffle 是在主线程做的。</p>
+<p>​        而对于 iterable-style 数据，因为每个 worker 都有相同的 data 复制样本，并在各个进程里进行不同的操作，以防止每个进程输出的数据是重复的，所以一般会使用 torch.utils.data.get_worker_info() 来进行辅助处理。这里，torch.utils.data.get_worker_info() 会返回 worker 进程的一些信息(如id, dataset, num_workers, seed)，如果在主线程的话返回 None。</p>
+<p>​        <strong>注意</strong>，通常不建议在多进程加载中返回 CUDA 张量，因为在使用 CUDA 和在多处理中共享 CUDA 张量时存在许多微妙之处（文档中提出：只要接收过程保留张量的副本，就需要发送过程来保留原始张量）。建议采用 pin_memory&#x3D;True ，以将数据快速传输到支持 CUDA 的 GPU。简而言之，<strong>不建议在使用多线程的情况下返回 CUDA 的 Tensor</strong>。</p>
+<h2 id="锁页内存"><a href="#锁页内存" class="headerlink" title="锁页内存"></a>锁页内存</h2><p>​        首先我们先了解一下锁页内存的概念。</p>
+<p>​        主机中的内存，有两种存在方式，一是锁页，二是不锁页。锁页内存存放的内容在任何情况下都不会与主机的虚拟内存进行交换（注：虚拟内存就是硬盘），而不锁页内存在主机内存不足时，数据会存放在虚拟内存中。主机到 GPU 副本源自固定（页面锁定）内存时，速度要快得多。CPU 张量和存储暴露了一种 pin_memory() 方法，该方法返回对象的副本，并将数据放在固定的区域中。</p>
+<p>​        <strong>而显卡中的显存全部是锁页内存！当计算机的内存充足的时候，可以设置 pin_memory&#x3D;True</strong>。设置 pin_memory&#x3D;True，则意味着生成的 Tensor 数据最开始是属于内存中的锁页内存，这样将内存的 Tensor 转义到 GPU 的显存就会更快一些。同时，由于 pin_memory 的作用是将张量返回之前将其复制到 CUDA 固定的内存中，所以只有在 CUDA 环境支持下才有用。</p>
+<p>​        PyTorch 原生的 pin_memory 方法如下，其支持大部分 python 数据类型的处理：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">pin_memory</span>(<span class="params">data</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(data, torch.Tensor):</span><br><span class="line">        <span class="keyword">return</span> data.pin_memory()</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(data, string_classes):</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(data, container_abcs.Mapping):</span><br><span class="line">        <span class="keyword">return</span> &#123;k: pin_memory(sample) <span class="keyword">for</span> k, sample <span class="keyword">in</span> data.items()&#125;</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(data, <span class="built_in">tuple</span>) <span class="keyword">and</span> <span class="built_in">hasattr</span>(data, <span class="string">&#x27;_fields&#x27;</span>):  <span class="comment"># namedtuple</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">type</span>(data)(*(pin_memory(sample) <span class="keyword">for</span> sample <span class="keyword">in</span> data))</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(data, container_abcs.<span class="type">Sequence</span>):</span><br><span class="line">        <span class="keyword">return</span> [pin_memory(sample) <span class="keyword">for</span> sample <span class="keyword">in</span> data]</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">hasattr</span>(data, <span class="string">&quot;pin_memory&quot;</span>):</span><br><span class="line">        <span class="keyword">return</span> data.pin_memory()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+
+<p>​        默认情况下，如果固定逻辑对于一个属于自定义类型（custom type）的 batch（如果有一个 collate_fn 返回自定义批处理类型的批处理，则会发生），或者如果该批处理的每个元素都是 custom type，则该固定逻辑将无法识别它们，它会返回该批处理（或那些元素）而无需固定内存。而要为自定义批处理或数据类型启用内存固定，我们需使用 pin_memory() 在自定义类型上自定义一个方法。如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleCustomBatch</span>:</span><br><span class="line">    <span class="comment"># 自定义一个类，该类不能被PyTorch原生的pin_memory方法所支持</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        transposed_data = <span class="built_in">list</span>(<span class="built_in">zip</span>(*data))</span><br><span class="line">        self.inp = torch.stack(transposed_data[<span class="number">0</span>], <span class="number">0</span>)</span><br><span class="line">        self.tgt = torch.stack(transposed_data[<span class="number">1</span>], <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># custom memory pinning method on custom type</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pin_memory</span>(<span class="params">self</span>):</span><br><span class="line">        self.inp = self.inp.pin_memory()</span><br><span class="line">        self.tgt = self.tgt.pin_memory()</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">collate_wrapper</span>(<span class="params">batch</span>):</span><br><span class="line">    <span class="keyword">return</span> SimpleCustomBatch(batch)</span><br><span class="line"></span><br><span class="line">inps = torch.arange(<span class="number">10</span> * <span class="number">5</span>, dtype=torch.float32).view(<span class="number">10</span>, <span class="number">5</span>)</span><br><span class="line">tgts = torch.arange(<span class="number">10</span> * <span class="number">5</span>, dtype=torch.float32).view(<span class="number">10</span>, <span class="number">5</span>)</span><br><span class="line">dataset = TensorDataset(inps, tgts)</span><br><span class="line"></span><br><span class="line">loader = DataLoader(dataset, batch_size=<span class="number">2</span>, collate_fn=collate_wrapper,</span><br><span class="line">                    pin_memory=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> batch_ndx, sample <span class="keyword">in</span> <span class="built_in">enumerate</span>(loader):</span><br><span class="line">    <span class="built_in">print</span>(sample.inp.is_pinned())  <span class="comment"># True</span></span><br><span class="line">    <span class="built_in">print</span>(sample.tgt.is_pinned())  <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="预取"><a href="#预取" class="headerlink" title="预取"></a>预取</h2><p>DataLoader 通过指定 prefetch_factor （默认为 2）来进行数据的预取。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">_MultiProcessingDataLoaderIter</span>(<span class="title class_ inherited__">_BaseDataLoaderIter</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, loader</span>):</span><br><span class="line">        ...</span><br><span class="line">        self._reset(loader, first_iter=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_reset</span>(<span class="params">self, loader, first_iter=<span class="literal">False</span></span>):</span><br><span class="line">        ...</span><br><span class="line">        <span class="comment"># prime the prefetch loop</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self._prefetch_factor * self._num_workers):</span><br><span class="line">            self._try_put_index()</span><br></pre></td></tr></table></figure>
+
+<p>通过源码可以看到，prefetch 功能仅适用于多进程加载中（下面也会有多进程 dataloader 的部分代码分析）。</p>
+<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><p>那么现在让我们来看看具体的代码调用流程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> data, label <span class="keyword">in</span> train_loader:</span><br><span class="line">    ......</span><br></pre></td></tr></table></figure>
+
+<p>for 循环会调用 dataloader 的 <strong><strong>iter</strong>(self)</strong> 方法，以此获得迭代器来遍历 dataset。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DataLoader</span>(<span class="type">Generic</span>[T_co]):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>) -&gt; <span class="string">&#x27;_BaseDataLoaderIter&#x27;</span>:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> self.persistent_workers <span class="keyword">and</span> self.num_workers &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> self._iterator <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                self._iterator = self._get_iterator()</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                self._iterator._reset(self)</span><br><span class="line">            <span class="keyword">return</span> self._iterator</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self._get_iterator()</span><br></pre></td></tr></table></figure>
+
+<p>在 <strong><strong>iter</strong>(self)</strong> 方法中，dataloader 调用了 self._get_iterator() 方法，根据 num_workers 获得迭代器，并指示是进行单进程还是多进程处理。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DataLoader</span>(<span class="type">Generic</span>[T_co]):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_get_iterator</span>(<span class="params">self</span>) -&gt; <span class="string">&#x27;_BaseDataLoaderIter&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> self.num_workers == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> _SingleProcessDataLoaderIter(self)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.check_worker_number_rationality()</span><br><span class="line">            <span class="keyword">return</span> _MultiProcessingDataLoaderIter(self)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>为了描述更加清晰，我们只考虑单进程的代码。下面是 class _SingleProcessDataLoaderIter(_BaseDataLoaderIter) ，以及其父类 class _BaseDataLoaderIter(object): 的重点代码片段：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_BaseDataLoaderIter</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, loader: DataLoader</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="comment"># 初始化赋值一些 DataLoader 参数，</span></span><br><span class="line">        <span class="comment"># 以及用户输入合法性进行校验</span></span><br><span class="line">        self._dataset = loader.dataset</span><br><span class="line">        self._dataset_kind = loader._dataset_kind</span><br><span class="line">        self._index_sampler = loader._index_sampler</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>) -&gt; <span class="string">&#x27;_BaseDataLoaderIter&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_reset</span>(<span class="params">self, loader, first_iter=<span class="literal">False</span></span>):</span><br><span class="line">        self._sampler_iter = <span class="built_in">iter</span>(self._index_sampler)</span><br><span class="line">        self._num_yielded = <span class="number">0</span></span><br><span class="line">        self._IterableDataset_len_called = loader._IterableDataset_len_called</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_next_index</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">next</span>(self._sampler_iter)  <span class="comment"># may raise StopIteration</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_next_data</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__next__</span>(<span class="params">self</span>) -&gt; <span class="type">Any</span>:</span><br><span class="line">        <span class="keyword">with</span> torch.autograd.profiler.record_function(self._profile_name):</span><br><span class="line">            <span class="keyword">if</span> self._sampler_iter <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                self._reset()</span><br><span class="line">            data = self._next_data() <span class="comment"># 重点代码行，通过此获取数据</span></span><br><span class="line">            self._num_yielded += <span class="number">1</span></span><br><span class="line">            ...</span><br><span class="line">            <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">    <span class="built_in">next</span> = __next__  <span class="comment"># Python 2 compatibility</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self._index_sampler) <span class="comment"># len(_BaseDataLoaderIter) == len(self._index_sampler)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getstate__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError(<span class="string">&quot;&#123;&#125; cannot be pickled&quot;</span>, self.__class__.__name__)</span><br></pre></td></tr></table></figure>
+
+<p>_BaseDataLoaderIter 是所有 DataLoaderIter 的父类。dataloader获得了迭代器之后，for 循环需要调用 <strong><strong>next</strong>()</strong> 来获得下一个对象，从而实现遍历。通过 <strong><strong>next</strong>()</strong> 方法调用 _next_data() 获取数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">_SingleProcessDataLoaderIter</span>(<span class="title class_ inherited__">_BaseDataLoaderIter</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, loader</span>):</span><br><span class="line">        <span class="built_in">super</span>(_SingleProcessDataLoaderIter, self).__init__(loader)</span><br><span class="line">        <span class="keyword">assert</span> self._timeout == <span class="number">0</span></span><br><span class="line">        <span class="keyword">assert</span> self._num_workers == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        self._dataset_fetcher = _DatasetKind.create_fetcher(</span><br><span class="line">            self._dataset_kind, self._dataset, self._auto_collation, self._collate_fn, self._drop_last)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_next_data</span>(<span class="params">self</span>):</span><br><span class="line">        index = self._next_index()  <span class="comment"># may raise StopIteration</span></span><br><span class="line">        data = self._dataset_fetcher.fetch(index)  <span class="comment"># may raise StopIteration</span></span><br><span class="line">        <span class="keyword">if</span> self._pin_memory:</span><br><span class="line">            data = _utils.pin_memory.pin_memory(data)</span><br><span class="line">        <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+
+<p>从 _SingleProcessDataLoaderIter 的初始化参数可以看到，其在父类 _BaseDataLoaderIter 的基础上定义了 _dataset_fetcher，并传入 _dataset，_auto_collation，_collate_fn 等参数，用于定义获取数据的方式。其具体实现会在稍后解释。</p>
+<p>在 _next_data() 被调用后，其需要 _next_index() 获取 index，并通过获得的 index 传入 _dataset_fetcher 中获取对应样本。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DataLoader</span>(<span class="type">Generic</span>[T_co]):</span><br><span class="line">    ...</span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_auto_collation</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.batch_sampler <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_index_sampler</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self._auto_collation:</span><br><span class="line">            <span class="keyword">return</span> self.batch_sampler</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.sampler</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_BaseDataLoaderIter</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_reset</span>(<span class="params">self, loader, first_iter=<span class="literal">False</span></span>):</span><br><span class="line">        self._sampler_iter = <span class="built_in">iter</span>(self._index_sampler)</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_next_index</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># sampler_iter 来自于 index_sampler</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">next</span>(self._sampler_iter)  <span class="comment"># may raise StopIteration</span></span><br></pre></td></tr></table></figure>
+
+<p>从这里看出，dataloader 提供了 sampler（可以是batch_sampler 或者是其他 sampler 子类），然后 _SingleProcessDataLoaderIter 迭代 sampler 获得索引。</p>
+<p>下面我们来看看 fetcher，fetcher 需要 index 来获取元素，并同时支持 Map-style dataset（对应 _MapDatasetFetcher）和 Iterable-style dataset（对应 _IterableDatasetFetcher），使其在 Dataloader 内能使用相同的接口 fetch，代码更加简洁。</p>
+<p>· 对于 Map-style：直接输入索引 index，作为 map 的 key，获得对应的样本（即 value）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">_MapDatasetFetcher</span>(<span class="title class_ inherited__">_BaseDatasetFetcher</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, dataset, auto_collation, collate_fn, drop_last</span>):</span><br><span class="line">        <span class="built_in">super</span>(_MapDatasetFetcher, self).__init__(dataset, auto_collation, collate_fn, drop_last)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fetch</span>(<span class="params">self, possibly_batched_index</span>):</span><br><span class="line">        <span class="keyword">if</span> self.auto_collation:</span><br><span class="line">            <span class="comment"># 有batch_sampler，_auto_collation就为True，</span></span><br><span class="line">            <span class="comment"># 就优先使用batch_sampler，对应在fetcher中传入的就是一个batch的索引</span></span><br><span class="line">            data = [self.dataset[idx] <span class="keyword">for</span> idx <span class="keyword">in</span> possibly_batched_index]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            data = self.dataset[possibly_batched_index]</span><br><span class="line">        <span class="keyword">return</span> self.collate_fn(data)</span><br></pre></td></tr></table></figure>
+
+<p>· 对于 Iterable-style: <strong><strong>init</strong></strong> 方法内设置了 dataset 初始的迭代器，fetch 方法内获取元素，此时 index 其实已经没有多大作用了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">_IterableDatasetFetcher</span>(<span class="title class_ inherited__">_BaseDatasetFetcher</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, dataset, auto_collation, collate_fn, drop_last</span>):</span><br><span class="line">        <span class="built_in">super</span>(_IterableDatasetFetcher, self).__init__(dataset, auto_collation, collate_fn, drop_last)</span><br><span class="line">        self.dataset_iter = <span class="built_in">iter</span>(dataset)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fetch</span>(<span class="params">self, possibly_batched_index</span>):</span><br><span class="line">        <span class="keyword">if</span> self.auto_collation:</span><br><span class="line">            <span class="comment"># 对于batch_sampler（即auto_collation==True）</span></span><br><span class="line">            <span class="comment"># 直接使用往后遍历并提取len(possibly_batched_index)个样本（即1个batch的样本）</span></span><br><span class="line">            data = []</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> possibly_batched_index:</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    data.append(<span class="built_in">next</span>(self.dataset_iter))</span><br><span class="line">                <span class="keyword">except</span> StopIteration:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(data) == <span class="number">0</span> <span class="keyword">or</span> (self.drop_last <span class="keyword">and</span> <span class="built_in">len</span>(data) &lt; <span class="built_in">len</span>(possibly_batched_index)):</span><br><span class="line">                <span class="keyword">raise</span> StopIteration</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 对于sampler，直接往后遍历并提取1个样本</span></span><br><span class="line">            data = <span class="built_in">next</span>(self.dataset_iter)</span><br><span class="line">        <span class="keyword">return</span> self.collate_fn(data)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>最后，我们通过索引传入 fetcher，fetch 得到想要的样本。因此，整个过程调用关系总结如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loader.iter --&gt; self._get_iterator() --&gt; class _SingleProcessDataLoaderIter --&gt; class _BaseDataLoaderIter --&gt; __next__() --&gt; self._next_data() --&gt; self._next_index() --&gt;next(self._sampler_iter) 即 next(iter(self._index_sampler)) --&gt; 获得 index --&gt; self._dataset_fetcher.fetch(index) --&gt; 获得 data</span><br></pre></td></tr></table></figure>
+
+<p>而对于多进程而言，借用 PyTorch 内源码的注释，其运行流程解释如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Our data model looks like this (queues are indicated with curly brackets):</span><br><span class="line">#</span><br><span class="line">#                main process                              ||</span><br><span class="line">#                     |                                    ||</span><br><span class="line">#               &#123;index_queue&#125;                              ||</span><br><span class="line">#                     |                                    ||</span><br><span class="line">#              worker processes                            ||     DATA</span><br><span class="line">#                     |                                    ||</span><br><span class="line">#            &#123;worker_result_queue&#125;                         ||     FLOW</span><br><span class="line">#                     |                                    ||</span><br><span class="line">#      pin_memory_thread of main process                   ||   DIRECTION</span><br><span class="line">#                     |                                    ||</span><br><span class="line">#               &#123;data_queue&#125;                               ||</span><br><span class="line">#                     |                                    ||</span><br><span class="line">#                data output                               \/</span><br><span class="line">#</span><br><span class="line"># P.S. `worker_result_queue` and `pin_memory_thread` part may be omitted if</span><br><span class="line">#      `pin_memory=False`.</span><br></pre></td></tr></table></figure>
+
+<p>首先 dataloader 基于 multiprocessing 产生多进程，每个子进程的输入输出通过两个主要的队列（multiprocessing.Queue() 类）产生，分别为：</p>
+<p>· index_queue：每个子进程的队列中需要处理的任务的下标</p>
+<p>· _worker_result_queue：返回时处理完任务的下标</p>
+<p>· data_queue：表明经过 pin_memory 处理后的数据队列</p>
+<p>并且有以下这些比较重要的 flag 参数来协调各个 worker 之间的工作：</p>
+<p>· _send_idx: 发送索引，用来记录这次要放 index_queue 中 batch 的 idx</p>
+<p>· _rcvd_idx: 接受索引，记录要从 data_queue 中取出的 batch 的 idx</p>
+<p>· _task_info: 存储将要产生的 data 信息的 dict，key为 task idx（由 0 开始的整形索引），value 为 (worker_id,) 或 (worker_id, data)，分别对应数据未取和已取的情况</p>
+<p>· _tasks_outstanding: 整形，代表已经准备好的 task&#x2F;batch 的数量（可能有些正在准备中）</p>
+<p>每个 worker 一次产生一个 batch 的数据，返回 batch 数据前放入下一个批次要处理的数据下标，对应构造函数子进程初始化如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_MultiProcessingDataLoaderIter</span>(<span class="title class_ inherited__">_BaseDataLoaderIter</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, loader</span>):</span><br><span class="line">        <span class="built_in">super</span>(_MultiProcessingDataLoaderIter, self).__init__(loader)</span><br><span class="line">        ...</span><br><span class="line">        self._worker_result_queue = multiprocessing_context.Queue()  <span class="comment"># 把该worker取出的数放入该队列，用于进程间通信</span></span><br><span class="line">        ...</span><br><span class="line">        self._workers_done_event = multiprocessing_context.Event()</span><br><span class="line">        self._index_queues = []</span><br><span class="line">        self._workers = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self._num_workers):</span><br><span class="line">            index_queue = multiprocessing_context.Queue()  <span class="comment"># 索引队列，每个子进程一个队列放要处理的下标</span></span><br><span class="line">            index_queue.cancel_join_thread()</span><br><span class="line">            <span class="comment"># _worker_loop 的作用是：从index_queue中取索引，然后通过collate_fn处理数据，</span></span><br><span class="line">            <span class="comment"># 然后再将处理好的 batch 数据放到 data_queue 中。（发送到队列中的idx是self.send_idx）</span></span><br><span class="line">            w = multiprocessing_context.Process(</span><br><span class="line">                target=_utils.worker._worker_loop,  <span class="comment"># 每个worker子进程循环执行的函数，主要将数据以(idx, data)的方式传入_worker_result_queue中</span></span><br><span class="line">                args=(self._dataset_kind, self._dataset, index_queue, </span><br><span class="line">                      self._worker_result_queue, self._workers_done_event,</span><br><span class="line">                      self._auto_collation, self._collate_fn, self._drop_last,</span><br><span class="line">                      self._base_seed + i, self._worker_init_fn, i, self._num_workers,</span><br><span class="line">                      self._persistent_workers))</span><br><span class="line">            w.daemon = <span class="literal">True</span></span><br><span class="line">            w.start()</span><br><span class="line">            self._index_queues.append(index_queue)</span><br><span class="line">            self._workers.append(w)</span><br><span class="line">        <span class="keyword">if</span> self._pin_memory:</span><br><span class="line">            self._pin_memory_thread_done_event = threading.Event()</span><br><span class="line">            self._data_queue = queue.Queue()  <span class="comment"># 用于存取出的数据进行 pin_memory 操作后的结果</span></span><br><span class="line">            pin_memory_thread = threading.Thread(</span><br><span class="line">                target=_utils.pin_memory._pin_memory_loop,</span><br><span class="line">                args=(self._worker_result_queue, self._data_queue,</span><br><span class="line">                      torch.cuda.current_device(),</span><br><span class="line">                      self._pin_memory_thread_done_event))</span><br><span class="line">            pin_memory_thread.daemon = <span class="literal">True</span></span><br><span class="line">            pin_memory_thread.start()</span><br><span class="line">            <span class="comment"># Similar to workers (see comment above), we only register</span></span><br><span class="line">            <span class="comment"># pin_memory_thread once it is started.</span></span><br><span class="line">            self._pin_memory_thread = pin_memory_thread</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self._data_queue = self._worker_result_queue</span><br><span class="line">        ...</span><br><span class="line">        self._reset(loader, first_iter=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_reset</span>(<span class="params">self, loader, first_iter=<span class="literal">False</span></span>):</span><br><span class="line">        <span class="built_in">super</span>()._reset(loader, first_iter)</span><br><span class="line">        self._send_idx = <span class="number">0</span>  <span class="comment"># idx of the next task to be sent to workers，发送索引，用来记录这次要放 index_queue 中 batch 的 idx</span></span><br><span class="line">        self._rcvd_idx = <span class="number">0</span>  <span class="comment"># idx of the next task to be returned in __next__，接受索引，记录要从 data_queue 中取出的 batch 的 idx</span></span><br><span class="line">        <span class="comment"># information about data not yet yielded, i.e., tasks w/ indices in range [rcvd_idx, send_idx).</span></span><br><span class="line">        <span class="comment"># map: task idx =&gt; - (worker_id,)        if data isn&#x27;t fetched (outstanding)</span></span><br><span class="line">        <span class="comment">#                  \ (worker_id, data)   if data is already fetched (out-of-order)</span></span><br><span class="line">        self._task_info = &#123;&#125;</span><br><span class="line">        <span class="comment"># _tasks_outstanding 指示当前已经准备好的 task/batch 的数量（可能有些正在准备中）</span></span><br><span class="line">        <span class="comment"># 初始值为 0, 在 self._try_put_index() 中 +1,在 self._next_data 中-1</span></span><br><span class="line">        self._tasks_outstanding = <span class="number">0</span>  <span class="comment"># always equal to count(v for v in task_info.values() if len(v) == 1)</span></span><br><span class="line">        <span class="comment"># this indicates status that a worker still has work to do *for this epoch*.</span></span><br><span class="line">        self._workers_status = [<span class="literal">True</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self._num_workers)] </span><br><span class="line">        <span class="comment"># We resume the prefetching in case it was enabled</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> first_iter:</span><br><span class="line">            <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(self._num_workers):</span><br><span class="line">                self._index_queues[idx].put(_utils.worker._ResumeIteration())</span><br><span class="line">            resume_iteration_cnt = self._num_workers</span><br><span class="line">            <span class="keyword">while</span> resume_iteration_cnt &gt; <span class="number">0</span>:</span><br><span class="line">                data = self._get_data()</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">isinstance</span>(data, _utils.worker._ResumeIteration):</span><br><span class="line">                    resume_iteration_cnt -= <span class="number">1</span></span><br><span class="line">        ...</span><br><span class="line">        <span class="comment"># 初始化的时候，就将 2*num_workers 个 (batch_idx, sampler_indices) 放到 index_queue 中</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self._prefetch_factor * self._num_workers):</span><br><span class="line">            self._try_put_index() <span class="comment"># 进行预取</span></span><br></pre></td></tr></table></figure>
+
+<p>dataloader 初始化的时候，每个 worker 的 index_queue 默认会放入<strong>两个</strong> batch 的 index，从 index_queue 中取出要处理的下标。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_try_put_index</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># self._prefetch_factor 默认为 2</span></span><br><span class="line">        <span class="keyword">assert</span> self._tasks_outstanding &lt; self._prefetch_factor * self._num_workers</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            index = self._next_index()</span><br><span class="line">        <span class="keyword">except</span> StopIteration:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self._num_workers):  <span class="comment"># find the next active worker, if any</span></span><br><span class="line">            worker_queue_idx = <span class="built_in">next</span>(self._worker_queue_idx_cycle)</span><br><span class="line">            <span class="keyword">if</span> self._workers_status[worker_queue_idx]:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># not found (i.e., didn&#x27;t break)</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self._index_queues[worker_queue_idx].put((self._send_idx, index)) <span class="comment"># 放入 任务下标 和 数据下标</span></span><br><span class="line">        self._task_info[self._send_idx] = (worker_queue_idx,)</span><br><span class="line">        <span class="comment"># _tasks_outstanding + 1，表明预备好的batch个数+1</span></span><br><span class="line">        self._tasks_outstanding += <span class="number">1</span></span><br><span class="line">        <span class="comment"># send_idx 发送索引, 记录从sample_iter中发送索引到index_queue的次数</span></span><br><span class="line">        self._send_idx += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>调用 _next_data(self) 方法进行数据读取，其中 _process_data(self, data) 用于返回数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_next_data</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> self._rcvd_idx &lt; self._send_idx: <span class="comment"># 确保待处理的任务(待取的batch)下标 &gt; 处理完毕要返回的任务(已经取完的batch)下标</span></span><br><span class="line">                info = self._task_info[self._rcvd_idx]</span><br><span class="line">                worker_id = info[<span class="number">0</span>]</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">len</span>(info) == <span class="number">2</span> <span class="keyword">or</span> self._workers_status[worker_id]:  <span class="comment"># has data or is still active</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">del</span> self._task_info[self._rcvd_idx]</span><br><span class="line">                self._rcvd_idx += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># no valid `self._rcvd_idx` is found (i.e., didn&#x27;t break)</span></span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> self._persistent_workers:</span><br><span class="line">                    self._shutdown_workers()</span><br><span class="line">                <span class="keyword">raise</span> StopIteration</span><br><span class="line"></span><br><span class="line">            <span class="comment"># Now `self._rcvd_idx` is the batch index we want to fetch</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># Check if the next sample has already been generated</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(self._task_info[self._rcvd_idx]) == <span class="number">2</span>:</span><br><span class="line">                data = self._task_info.pop(self._rcvd_idx)[<span class="number">1</span>]</span><br><span class="line">                <span class="keyword">return</span> self._process_data(data)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">assert</span> <span class="keyword">not</span> self._shutdown <span class="keyword">and</span> self._tasks_outstanding &gt; <span class="number">0</span></span><br><span class="line">            idx, data = self._get_data() <span class="comment"># 调用 self._try_get_data() 从 self._data_queue 中取数</span></span><br><span class="line">            self._tasks_outstanding -= <span class="number">1</span>  <span class="comment"># 表明预备好的batch个数需要减1</span></span><br><span class="line">            <span class="keyword">if</span> self._dataset_kind == _DatasetKind.Iterable:</span><br><span class="line">                <span class="comment"># Check for _IterableDatasetStopIteration</span></span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">isinstance</span>(data, _utils.worker._IterableDatasetStopIteration):</span><br><span class="line">                    <span class="keyword">if</span> self._persistent_workers:</span><br><span class="line">                        self._workers_status[data.worker_id] = <span class="literal">False</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        self._mark_worker_as_unavailable(data.worker_id)</span><br><span class="line">                    self._try_put_index()</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> idx != self._rcvd_idx:</span><br><span class="line">                <span class="comment"># store out-of-order samples</span></span><br><span class="line">                self._task_info[idx] += (data,)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">del</span> self._task_info[idx]</span><br><span class="line">                <span class="keyword">return</span> self._process_data(data) <span class="comment"># 返回数据</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_process_data</span>(<span class="params">self, data</span>):</span><br><span class="line">        self._rcvd_idx += <span class="number">1</span></span><br><span class="line">        self._try_put_index() <span class="comment"># 同上，主要放入队列索引 以及 更新flag</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">isinstance</span>(data, ExceptionWrapper):</span><br><span class="line">            data.reraise()</span><br><span class="line">        <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+
+<p>这样，多进程模式的 dataloader 就能通过多个 worker 的协作来共同完成数据的加载。</p>
+
+  
+  
+    
+    <div class="footer">
+      
+      
+      
+        <div class="copyright">
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href="http://pistachio0812.github.io/2022/04/14/en/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">http://pistachio0812.github.io/2022/04/14/en/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-14T10:26:54+08:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 14, 2022</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>数据处理</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/2022/04/14/en/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/&title=数据处理 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/2022/04/14/en/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/&title=数据处理 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/2022/04/14/en/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/&title=数据处理 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class="next" href="/2022/04/08/en/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/">
+          <p class="title">文献阅读笔记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">1.DetNet
+2.SNIP
+</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class="fas fa-comments"></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E8%BF%9B%E7%A8%8B"><span class="toc-text">单进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BF%9B%E7%A8%8B"><span class="toc-text">多进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%81%E9%A1%B5%E5%86%85%E5%AD%98"><span class="toc-text">锁页内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E5%8F%96"><span class="toc-text">预取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3"><span class="toc-text">代码详解</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="数据处理";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="random" fixed="false" list-max-height="320px" server="netease" type="playlist" id="3175833810" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="https://github.com/pistachio0812" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        Use
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        as theme
+      
+    
+      
+        <div class="copyright">
+        <p><a href="/">Copyright © 2017-2022 相思似海深旧事如天远</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css", window.volantis.loadcss);
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
+    </script>
+  
+
+
+
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class="option">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand('copy')"><i class="fa fa-copy fa-fw"></i>Copy Text</a>
+        <hr id="hr-text">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>Copy Link</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>Open Link in New Tab</a>
+        <hr id="hr-href">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>Copy Image Link</a>
+        <hr id="hr-src">
+      </li>
+      
+        <li class="navigation">
+          <a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="fa fa-arrow-left fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="fa fa-arrow-right fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="fa fa-redo fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" href="/"><i class="fa fa-home fa-fw"></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://volantis.js.org/faqs/" id="https:volantisjsorgfaqs" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-question fa-fw"></i> 常见问题
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://volantis.js.org/examples/" id="https:volantisjsorgexamples" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-rss fa-fw"></i> 示例博客
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://volantis.js.org/contributors/" id="https:volantisjsorgcontributors" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-fan fa-spin fa-fw"></i> 加入社区
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://github.com/volantis-x/volantis-docs/" id="https:githubcomvolantis-xvolantis-docs" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-code-branch fa-fw"></i> 本站源码
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-code-branch fa-fw"></i> 主题源码
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
+        <i class="fa fa-print fa-fw"></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
+        <i class="fas fa-moon fa-fw"></i> 暗黑模式
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class="music name">
+            <p class="nav music-title fix-cursor-default"></p>
+          </li>
+          <li class="music ctrl">
+            <a class="nav icon-only backward fix-cursor-default" onclick="aplayerBackward()"><i class="fa fa-step-backward fa-fw"></i></a>
+            <a class="nav icon-only toggle fix-cursor-default" onclick="aplayerToggle()"><i class="fa fa-play fa-fw"></i></a>
+            <a class="nav icon-only forward fix-cursor-default" onclick="aplayerForward()"><i class="fa fa-step-forward fa-fw"></i></a>
+          </li>
+          <li class="music volume">
+            <a class="nav volume">
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class="left fa fa-volume-off fa-fw"></i>
+                  <i class="right fa fa-volume-up fa-fw"></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
+        // 如果有aplayer，初始化一下
+        checkAPlayer();
+      }
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '3175833810';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
+    clearInterval(checkAPlayer)
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
+	  }
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
+
+  
+    loadScript("/js/aplayer.js")
+  
+
+</script>
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"js":"https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js","path":null,"placeholder":"快来评论吧~","appId":"n4TbjIfAh9hf9cM13OtQoUYY-gzGzoHsz","appKey":"EMwCQOaLj6D1bU3BPToHICOU","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":10,"lang":["zh-cn","en","zh-TW"],"highlight":true,"mathJax":false}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://pistachio0812.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://pistachio0812.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://pistachio0812.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
