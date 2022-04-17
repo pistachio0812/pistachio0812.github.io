@@ -478,7 +478,7 @@
 <h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><h3 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h3><h4 id="主干网络Darknet53"><a href="#主干网络Darknet53" class="headerlink" title="主干网络Darknet53"></a>主干网络Darknet53</h4><img src="/2022/04/16/CN/YOLOV3/image-20220416194945035.png" class="lazyload" data-srcset="/2022/04/16/CN/YOLOV3/image-20220416194945035.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>YoloV3所使用的主干特征提取网络为Darknet53，它具有两个重要特点：<br>1、Darknet53具有一个重要特点是使用了残差网络Residual，Darknet53中的残差卷积就是首先进行一次卷积核大小为3X3、步长为2的卷积，该卷积会压缩输入进来的特征层的宽和高，此时我们可以获得一个特征层，我们将该特征层命名为layer。之后我们再对该特征层进行一次1X1的卷积和一次3X3的卷积，并把这个结果加上layer，此时我们便构成了残差结构。通过不断的1X1卷积和3X3卷积以及残差边的叠加，我们便大幅度的加深了网络。残差网络的特点是容易优化，并且能够通过增加相当的深度来提高准确率。其内部的残差块使用了跳跃连接，缓解了在深度神经网络中增加深度带来的梯度消失问题。</p>
-<p>2、Darknet53的每一个卷积部分使用了特有的DarknetConv2D结构，每一次卷积的时候进行l2正则化，完成卷积后进行BatchNormalization标准化与LeakyReLU。普通的ReLU是将所有的负值都设为零，Leaky ReLU则是给所有负值赋予一个非零斜率。以数学的方式我们可以表示为：<br>$$<br>y_i&#x3D;\left{ \begin{array}{c}<br>    x_i,if\ x_i\ge 0\<br>    x_i&#x2F;a_i,others\<br>\end{array} \right.<br>$$<br>实现代码：</p>
+<p>2、Darknet53的每一个卷积部分使用了特有的DarknetConv2D结构，每一次卷积的时候进行l2正则化，完成卷积后进行BatchNormalization标准化与LeakyReLU。普通的ReLU是将所有的负值都设为零，Leaky ReLU则是给所有负值赋予一个非零斜率。以数学的方式我们可以表示为：<br>$$<br>LeakyRELU\left( x \right) &#x3D;{\begin{matrix}<br>    x,&amp;        if\ x\ge 0\<br>    negative\times x,&amp;        others\<br>\end{matrix}<br>$$<br>实现代码：</p>
 <pre><code class="python"># 详情见nets/darknet.py
 #---------------------------------------------------------------------#
 #   残差结构
@@ -1288,10 +1288,10 @@ class YOLOLoss(nn.Module):
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-16T20:59:14+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-17T15:10:10+08:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Apr 16, 2022</p>
+    <p>更新于：Apr 17, 2022</p>
   </a>
 </div>
 
