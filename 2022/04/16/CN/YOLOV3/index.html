@@ -1355,6 +1355,12 @@ class YOLOLoss(nn.Module):
   
     <div class="prev-next">
       
+        <a class="prev" href="/2022/04/16/CN/Faster-rcnn/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>Faster-RCNN解读</p>
+          <p class="content">论文地址：Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks (neurips.cc)
+...</p>
+        </a>
+      
       
         <a class="next" href="/2022/04/16/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/">
           <p class="title">扁平时代的写作·节选<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
@@ -1443,6 +1449,19 @@ class YOLOLoss(nn.Module):
   
   <footer class="footer clearfix">
     <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#96e6a1" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="2185397204" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
     
       
         <br>
@@ -1824,7 +1843,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default ">
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
         <i class="fa fa-print fa-fw"></i> 打印页面
       </a>
     </li>
@@ -2125,11 +2144,11 @@ var loadCSS = function( href, before, media, attributes ){
 
   <script>
   let APlayerController = new Object();
-  APlayerController.id = '3175833810';  // 设定全局音乐播放ID
+  APlayerController.id = '2185397204';  // 设定全局音乐播放ID
   APlayerController.volume = '0.7';
   loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
   // APlayer 需要在  MetingJS 之前加载
-  loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js")
   window.volantis.APlayerLoaded=0 // APlayer加载完成状态
   var checkAPlayer = setInterval(function () {
     if (!window.APlayer) return // APlayer加载完成？
@@ -2137,7 +2156,7 @@ var loadCSS = function( href, before, media, attributes ){
     clearInterval(checkAPlayer)
 	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
       window.volantis.APlayerLoaded=1 // APlayer加载完成
-      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js") // 加载 MetingJS
 	  }
   }, 2500) // 按照网速调节差分2.5s
   // rightmenu see: layout/_partial/rightmenu.ejs

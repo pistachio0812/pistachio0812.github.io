@@ -5223,4 +5223,19 @@ class YOLOLoss(nn.Module):
         <tag>论文解读</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Faster-RCNN解读</title>
+    <url>/2022/04/16/CN/Faster-rcnn/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://proceedings.neurips.cc/paper/2015/file/14bfa6bb14875e45bba028a21ed38046-Paper.pdf">Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks (neurips.cc)</a></p>
+<p>源码地址：<a href="https://github.com/ShaoqingRen/faster_rcnn">ShaoqingRen&#x2F;faster_rcnn: Faster R-CNN (github.com)</a></p>
+<p>文章引用源码：</p>
+<p>文章出处：</p>
+]]></content>
+      <categories>
+        <category>cv</category>
+      </categories>
+      <tags>
+        <tag>论文解读</tag>
+      </tags>
+  </entry>
 </search>

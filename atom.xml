@@ -6,10 +6,35 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-04-16T12:59:14.681Z</updated>
+  <updated>2022-04-16T14:16:56.719Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Faster-RCNN解读</title>
+    <link href="http://pistachio0812.github.io/2022/04/16/CN/Faster-rcnn/"/>
+    <id>http://pistachio0812.github.io/2022/04/16/CN/Faster-rcnn/</id>
+    <published>2022-04-16T13:50:10.247Z</published>
+    <updated>2022-04-16T14:16:56.719Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+    <category term="论文解读" scheme="http://pistachio0812.github.io/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>yolov3解读</title>

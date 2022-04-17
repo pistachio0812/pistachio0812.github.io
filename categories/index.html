@@ -389,7 +389,7 @@
           <h2>categories</h2>
           <div class="all-tags">
             
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Attention/" rel="tag">Attention</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Liunx-system/" rel="tag">Liunx system</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" rel="tag">使用指南</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" rel="tag">学习网站</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" rel="tag">数据处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%A3/" rel="tag">文档</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/" rel="tag">论文解读</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Attention/" rel="tag">Attention</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Liunx-system/" rel="tag">Liunx system</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" rel="tag">使用指南</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" rel="tag">学习网站</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" rel="tag">数据处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%A3/" rel="tag">文档</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/" rel="tag">论文解读</a><span class="tag-list-count">2</span></li></ul>
           </div>
           <br>
           
@@ -443,6 +443,19 @@
   
   <footer class="footer clearfix">
     <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#96e6a1" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="2185397204" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
     
       
         <br>
@@ -824,7 +837,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default ">
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
         <i class="fa fa-print fa-fw"></i> 打印页面
       </a>
     </li>
@@ -1125,11 +1138,11 @@ var loadCSS = function( href, before, media, attributes ){
 
   <script>
   let APlayerController = new Object();
-  APlayerController.id = '3175833810';  // 设定全局音乐播放ID
+  APlayerController.id = '2185397204';  // 设定全局音乐播放ID
   APlayerController.volume = '0.7';
   loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
   // APlayer 需要在  MetingJS 之前加载
-  loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js")
   window.volantis.APlayerLoaded=0 // APlayer加载完成状态
   var checkAPlayer = setInterval(function () {
     if (!window.APlayer) return // APlayer加载完成？
@@ -1137,7 +1150,7 @@ var loadCSS = function( href, before, media, attributes ){
     clearInterval(checkAPlayer)
 	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
       window.volantis.APlayerLoaded=1 // APlayer加载完成
-      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js") // 加载 MetingJS
 	  }
   }, 2500) // 按照网速调节差分2.5s
   // rightmenu see: layout/_partial/rightmenu.ejs
