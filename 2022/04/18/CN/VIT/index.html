@@ -471,7 +471,7 @@
   
   <p>论文地址：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2010.11929.pdf">https://arxiv.org/pdf/2010.11929.pdf</a></p>
 <p>源码地址：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/google-research/vision_transformer">google-research&#x2F;vision_transformer (github.com)</a></p>
-<p>文章引用源码：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/bubbliiiing/classification-[pytorch](https://so.csdn.net/so/search?q=pytorch&amp;spm=1001.2101.3001.7020)">https://github.com/bubbliiiing/classification-[pytorch](https://so.csdn.net/so/search?q=pytorch&amp;spm=1001.2101.3001.7020)</a></p>
+<p>文章引用源码：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/bubbliiiing/classification-pytorch">https://github.com/bubbliiiing/classification-pytorch</a></p>
 <p>文章出处：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/weixin_44791964/article/details/122637701">https://blog.csdn.net/weixin_44791964/article/details/122637701</a></p>
 <h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>Vision Transformer是Transformer的视觉版本，Transformer基本上已经成为了自然语言处理的标配，但是在视觉中的运用还受到限制。</p>
 <p>Vision Transformer打破了这种NLP与CV的隔离，将Transformer应用于图像图块（patch）序列上，进一步完成图像分类任务。简单来理解，Vision Transformer就是将输入进来的图片，每隔一定的区域大小划分图片块。然后将划分后的图片块组合成序列，将组合后的结果传入Transformer特有的Multi-head Self-attention进行特征提取。最后利用Cls Token进行分类。</p>
@@ -800,7 +800,7 @@ class Block(nn.Module):
             except:
                 module.requires_grad = True
 </code></pre>
-<h3 id="分类部分"><a href="#分类部分" class="headerlink" title="分类部分"></a>分类部分</h3><img src="/2022/04/18/CN/VIT/image-20220418105537648.png" class="lazyload" data-srcset="/2022/04/18/CN/VIT/image-20220418105537648.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+<h4 id="分类部分"><a href="#分类部分" class="headerlink" title="分类部分"></a>分类部分</h4><img src="/2022/04/18/CN/VIT/image-20220418105537648.png" class="lazyload" data-srcset="/2022/04/18/CN/VIT/image-20220418105537648.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
 
 <p>在分类部分，VIT所做的工作是利用提取到的特征进行分类。</p>
 <p>在进行特征提取的时候，我们会在图片序列中添加上Cls Token，该Token会作为一个单位的序列信息一起进行特征提取，提取的过程中，该Cls Token会与其它的特征进行特征交互，融合其它图片序列的特征。</p>
@@ -1167,7 +1167,7 @@ def vit(input_shape=[224, 224], pretrained=False, num_classes=1000):
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-18T10:59:36+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-18T11:11:04+08:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Apr 18, 2022</p>
@@ -1278,7 +1278,7 @@ def vit(input_shape=[224, 224], pretrained=False, num_classes=1000):
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-text">实现思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-text">整体架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E8%AF%A6%E8%A7%A3"><span class="toc-text">网络结构详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%E9%83%A8%E5%88%86"><span class="toc-text">特征提取部分</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E9%83%A8%E5%88%86"><span class="toc-text">分类部分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VIT%E6%9E%84%E5%BB%BA%E4%BB%A3%E7%A0%81"><span class="toc-text">VIT构建代码</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-text">实现思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-text">整体架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E8%AF%A6%E8%A7%A3"><span class="toc-text">网络结构详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%E9%83%A8%E5%88%86"><span class="toc-text">特征提取部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E9%83%A8%E5%88%86"><span class="toc-text">分类部分</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VIT%E6%9E%84%E5%BB%BA%E4%BB%A3%E7%A0%81"><span class="toc-text">VIT构建代码</span></a></li></ol>
     </div>
   </section>
 
