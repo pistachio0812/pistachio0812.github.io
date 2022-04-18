@@ -3568,6 +3568,29 @@ resize_image:900x900,INTER_CUBIC  :1.920ms
 OpenCV推荐：如果要缩小图像，通常推荐使用#INTER_AREA插值效果最好，而要放大图像，通常使用INTER_CUBIC(速度较慢，但效果最好)，或者使用INTER_LINEAR(速度较快，效果还可以)。至于最近邻插值INTER_NEAREST，一般不推荐使用
 </code></pre>
 <p>更多详情参考：<a href="https://docs.opencv.org/3.2.0/da/d54/group__imgproc__transform.html#ga47a974309e9102f5f08231edc7e7529d">OpenCV: Geometric Image Transformations</a></p>
+<h3 id="torch-nn-Identity"><a href="#torch-nn-Identity" class="headerlink" title="torch.nn.Identity()"></a>torch.nn.Identity()</h3><p>dentity模块如果不改变输入，直接返回输入</p>
+<p>一种编码技巧吧，比如我们要加深网络，有些层是不改变输入数据的维度的，</p>
+<p>在增减网络的过程中我们就可以用identity占个位置，这样网络整体层数永远不变，</p>
+<p>应用：</p>
+<p>例如此时：如果此时我们使用了se_layer，那么就SELayer(dim)，否则就输入什么就输出什么（什么都不做）</p>
+<pre><code class="python"># 定义操作
+self.attn_drop = nn.Dropout(attn_drop)
+self.proj = nn.Linear(dim, dim)
+self.se_layer = SELayer(dim) if se_layer else nn.Identity()
+self.proj_drop = nn.Dropout(proj_drop)
+# dropout
+attn = self.attn_drop(attn)
+# 与矩阵V相乘
+x = (attn @ v).transpose(1, 2).reshape(B_, N, C)
+# 经过一层全连接层
+x = self.proj(x)
+# nn.Identity():建立一个输入模块，什么都不做
+x = self.se_layer(x)
+# dropout
+x = self.proj_drop(x)
+return x
+</code></pre>
+<p>更多详情参考<a href="https://pytorch.org/docs/stable/generated/torch.nn.Identity.html?highlight=identity#torch.nn.Identity">Identity — PyTorch 1.11.0 documentation</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -5226,11 +5249,11 @@ class YOLOLoss(nn.Module):
   <entry>
     <title>Faster-RCNN解读</title>
     <url>/2022/04/16/CN/Faster-rcnn/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://proceedings.neurips.cc/paper/2015/file/14bfa6bb14875e45bba028a21ed38046-Paper.pdf">Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks (neurips.cc)</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://proceedings.neurips.cc/paper/2015/file/14bfa6bb14875e45bba028a21ed38046-Paper.pdf">Faster R-CNN</a></p>
 <p>源码地址：<a href="https://github.com/ShaoqingRen/faster_rcnn">ShaoqingRen&#x2F;faster_rcnn: Faster R-CNN (github.com)</a></p>
-<p>文章引用源码：</p>
-<p>文章出处：</p>
-]]></content>
+<p>文章引用源码：<a href="https://github.com/bubbliiiing/faster-rcnn-pytorch">https://github.com/bubbliiiing/faster-rcnn-pytorch</a></p>
+<p>文章出处：<a href="https://blog.csdn.net/weixin_44791964/article/details/105739918">https://blog.csdn.net/weixin_44791964/article/details/105739918</a></p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><h3 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h3><h4 id="主干网络"><a href="#主干网络" class="headerlink" title="主干网络"></a>主干网络</h4><img src="/2022/04/16/CN/Faster-rcnn/image-20220417152429746.png" class="lazyload" data-srcset="/2022/04/16/CN/Faster-rcnn/image-20220417152429746.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">]]></content>
       <categories>
         <category>cv</category>
       </categories>
@@ -5241,7 +5264,46 @@ class YOLOLoss(nn.Module):
   <entry>
     <title>烟之外</title>
     <url>/2022/04/17/CN/%E7%83%9F%E4%B9%8B%E5%A4%96/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在涛声中唤你的名字，而你的名字<br>已在千帆之外<br>潮来潮去<br>左边的鞋印才下午<br>右边的鞋印已黄昏了<br>六月原是一本很感伤的书<br>结局如此之凄美<br>——落日西沉</p>
+<p>你依然凝视<br>那人眼中展示的一片纯白<br>他跪向你，向昨日那朵美了整个<br>下午的云<br>海哟，为何在众灯之中<br>独点亮那一盏茫然<br>还能抓住什么呢？<br>你那曾被称为云的眸子<br>现有人叫作<br>烟</p>
+]]></content>
+      <categories>
+        <category>今日故事</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>马裤先生</title>
+    <url>/2022/04/18/CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>火车在北平东站还没开，同屋那位睡上铺的穿马裤，戴平光的眼镜，青缎子洋服上身，胸袋插着小楷羊毫，足登青绒快靴的先生发了问：「你也是从北平上车？」很和气的。</p>
+<p>火车还没动呢，不从北平上车，由哪儿呢？我只好反攻了：「你从哪儿上车？」</p>
+<p>他没言语。看了看铺位，用尽全身的力气喊了声，「茶房！」</p>
+<p>茶房跑来了。</p>
+<p>「拿毯子！」马裤先生喊。</p>
+<p>「请少待一会儿，先生。」茶房很和气的说，</p>
+<p>「拿枕头！」</p>
+<p>「先生，您等我忙过这会儿去，毯子和枕头就一齐全到。」茶房说的很快，可依然是很和气。</p>
+<p>马裤先生没任何的表示。茶房故意地笑了笑，表示歉意。然后搭讪着慢慢地转身，腿刚预备好要走，背后打了个霹雳：「茶房！<br>」</p>
+<p>茶房不是假装没听见，便是耳朵已经震聋，竟自没回头，一直地快步走开。</p>
+<p>「茶房！茶房！茶房！」马裤先生连喊，一声比一声高：站台上送客的跑过一群来，以为车上失了火，要不然便是出了人命。茶<br>房始终没回头。马裤先生又挖了鼻孔一下，坐在我的床上。</p>
+<p>茶房从门前走过。</p>
+<p>「茶房！拿手巾把！」</p>
+<p>「等等。」茶房似乎下了抵抗的决心。</p>
+<p>马裤先生把领带解开，摘下领子来，分别挂在铁钩上：所有的钩子都被占了，他的帽子，大衣，已占了两个。车开了，他爬上了<br>上铺，在我的头上脱靴子，并且击打靴底上的土。枕着个手提箱，车还没到永定门，他睡着了。我心中安坦了许多。</p>
+<p>到了丰台，车还没站住，上面出了声：「茶房！」</p>
+<p>没等茶房答应，他又睡着了；大概这次是梦话。</p>
+<p>过了丰台，大概还没到廊房，上面又打了雷：「茶房！」</p>
+<p>茶房来了，眉毛拧得好像要把谁吃了才痛快。</p>
+<p>「干吗？先——生——」</p>
+<p>「拿茶！」</p>
+<p>「好吧！」茶房的眉毛拧得直往下落毛。</p>
+<p>马裤先生又入了梦乡，呼声只比「茶房」小一点。有时呼声稍低一点，用咬牙来补上。</p>
+<p>到了天津。又上来些旅客。车好容易又从天津开走。刚一开车，茶房给马裤先生拿来头一份毯子枕头和手巾把。马裤先生用手巾<br>把耳鼻孔全钻得到家，这一把手巾擦了至少有一刻钟，最后用手巾擦了擦手提箱上的土。我给他数着，从老站到总站的十来分钟之间，他又喊了四五十声茶房。茶房只来了一次，他的问题是火车向哪面走呢？茶房的回答是不知道；于是又引起他的建议，车<br>上总该有人知道，茶房应当负责去问。茶房说，连驶车的也不晓得东西南北。于是他几乎变了颜色，万一车走迷了路？！</p>
+<p>茶房没再回答，可是又掉了几根眉毛。</p>
+<p>他又睡了，这次是在头上摔了摔袜子，可是一口痰并没往下唾，而是照顾了车顶。</p>
+<p>我的目的地是德州，天将亮就到了。谢天谢地！</p>
+<p>我雇好车，进了城，还清清楚楚地听见「茶房！」</p>
+<p>一个多礼拜了，我还惦记着茶房的眉毛呢。</p>
+]]></content>
       <categories>
         <category>今日故事</category>
       </categories>

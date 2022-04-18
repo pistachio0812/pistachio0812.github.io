@@ -24,7 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>分类：MySQL - 相思似海深旧事如天远</title>
+  <title>归档：2022 - 相思似海深旧事如天远</title>
   
 
   
@@ -104,7 +104,7 @@
 	<script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/clicksocialist.js"></script>
     
 
-<header id="l_header" class="l_header auto shadow show" style="opacity: 0">
+<header id="l_header" class="l_header auto shadow " style="opacity: 0">
   <div class="container">
   <div id="wrapper">
     <div class="nav-sub">
@@ -315,7 +315,7 @@
       <div id="l_cover">
   
     
-        <div id="full" class="cover-wrapper  search" style="display: none;">
+        <div id="half" class="cover-wrapper  search" style="display: ;">
           
             <div id="cover-backstretch"></div>
           
@@ -382,18 +382,10 @@
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class="l_main">
-  
-    
-      
+	
+		
   <section class="post-list">
-    
-      
-        
-          
-        
-      
     
     
       
@@ -406,24 +398,16 @@
   
     
     <h2 class="article-title">
-      <a href="/2022/03/26/CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        MySQL学习笔记
+      <a href="/2022/03/11/CN/hello-world/">
+        Hello World
       </a>
     </h2>
   
   <div class="md">
     
       
-        MySQL入门教程什么是数据库数据库是按照数据结构来组织、存储和管理数据的仓库
-关系型数据库：建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据
-RDBMS即关系数据库管理系统的特点：
-1.数据以表格的形式出现
-2.每行为各种记录名称
-3.每列为记录名称所对应的数据域
-4.许多行和列组成一张表单
-5.若干的表单组成数据库
-RDBMS相关概念·
-MySQL创建数据...
+        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Qu...
       
     
   </div>
@@ -431,15 +415,15 @@ MySQL创建数据...
     <div class="meta-v3" line_style="solid">
       <div>
         
-        <time>2022-03-26</time>
+        <time>2022-03-11</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/MySQL/">MySQL</a>
+          <a class="category-link" href="/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">Hexo博客搭建</a>
         
       </div>
       
         <div>
-          <a class="readmore" href="/2022/03/26/CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+          <a class="readmore" href="/2022/03/11/CN/hello-world/">
             阅读全文
           </a>
         </div>
@@ -456,11 +440,25 @@ MySQL创建数据...
   </section>
   
     
-  
-
-
+      <br>
+      <div class="prev-next">
+        
+          <a class="prev" rel="prev" href="/archives/2022/page/2/">
+            <section class="post prev white-box shadow">
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
+            </section>
+          </a>
+        
+        <p class="current">
+          3 / 3
+        </p>
+        
+      </div>
     
   
+
+
+	
 </div>
 <aside class="l_side">
   
@@ -623,7 +621,7 @@ MySQL创建数据...
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Mon Apr 18 2022 08:46:41 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Mon Apr 18 2022 08:46:40 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2022-04-18 日</div>
           
         </div>
@@ -702,14 +700,14 @@ MySQL创建数据...
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.add("show");
+  l_header.classList.remove("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="none";
-    cover_wrapper.style.display="none";
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
     
   
 </script>

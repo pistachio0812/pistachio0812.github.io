@@ -426,13 +426,13 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：6.3k字</p>
+      <p>字数：6.5k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：29分钟</p>
+      <p>时长：30分钟</p>
     </a>
   </div>
 
@@ -1088,6 +1088,29 @@ resize_image:900x900,INTER_CUBIC  :1.920ms
 OpenCV推荐：如果要缩小图像，通常推荐使用#INTER_AREA插值效果最好，而要放大图像，通常使用INTER_CUBIC(速度较慢，但效果最好)，或者使用INTER_LINEAR(速度较快，效果还可以)。至于最近邻插值INTER_NEAREST，一般不推荐使用
 </code></pre>
 <p>更多详情参考：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.opencv.org/3.2.0/da/d54/group__imgproc__transform.html#ga47a974309e9102f5f08231edc7e7529d">OpenCV: Geometric Image Transformations</a></p>
+<h3 id="torch-nn-Identity"><a href="#torch-nn-Identity" class="headerlink" title="torch.nn.Identity()"></a>torch.nn.Identity()</h3><p>dentity模块如果不改变输入，直接返回输入</p>
+<p>一种编码技巧吧，比如我们要加深网络，有些层是不改变输入数据的维度的，</p>
+<p>在增减网络的过程中我们就可以用identity占个位置，这样网络整体层数永远不变，</p>
+<p>应用：</p>
+<p>例如此时：如果此时我们使用了se_layer，那么就SELayer(dim)，否则就输入什么就输出什么（什么都不做）</p>
+<pre><code class="python"># 定义操作
+self.attn_drop = nn.Dropout(attn_drop)
+self.proj = nn.Linear(dim, dim)
+self.se_layer = SELayer(dim) if se_layer else nn.Identity()
+self.proj_drop = nn.Dropout(proj_drop)
+# dropout
+attn = self.attn_drop(attn)
+# 与矩阵V相乘
+x = (attn @ v).transpose(1, 2).reshape(B_, N, C)
+# 经过一层全连接层
+x = self.proj(x)
+# nn.Identity():建立一个输入模块，什么都不做
+x = self.se_layer(x)
+# dropout
+x = self.proj_drop(x)
+return x
+</code></pre>
+<p>更多详情参考<a target="_blank" rel="external nofollow noopener noreferrer" href="https://pytorch.org/docs/stable/generated/torch.nn.Identity.html?highlight=identity#torch.nn.Identity">Identity — PyTorch 1.11.0 documentation</a></p>
 
   
   
@@ -1122,10 +1145,10 @@ OpenCV推荐：如果要缩小图像，通常推荐使用#INTER_AREA插值效果
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-07T10:28:02+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-17T22:29:58+08:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Apr 7, 2022</p>
+    <p>更新于：Apr 17, 2022</p>
   </a>
 </div>
 
@@ -1240,7 +1263,7 @@ RDBMS即关系数...</p>
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%B1%E5%9C%B0%E6%93%8D%E4%BD%9C"><span class="toc-text">就地操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#torch-max%E4%B8%ADkeepdim%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">torch.max中keepdim的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ConstantPad2d%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-text">ConstantPad2d的用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#enumerate-%E5%87%BD%E6%95%B0"><span class="toc-text">enumerate()函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0"><span class="toc-text">描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">返回值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#torch-clamp"><span class="toc-text">torch.clamp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FPPI"><span class="toc-text">FPPI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#torchvision-ops-box-iou"><span class="toc-text">torchvision.ops.box_iou</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-1"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E"><span class="toc-text">返回</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B"><span class="toc-text">返回类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#torch-argmax%EF%BC%88%EF%BC%89%E5%87%BD%E6%95%B0"><span class="toc-text">torch.argmax（）函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-2"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-3"><span class="toc-text">参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python-call-%E6%96%B9%E6%B3%95"><span class="toc-text">python _call_()方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8-call-%E5%BC%A5%E8%A1%A5-hasattr-%E5%87%BD%E6%95%B0%E7%9A%84%E7%9F%AD%E6%9D%BF"><span class="toc-text">用 call() 弥补 hasattr() 函数的短板</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#argparse-%E5%87%BD%E6%95%B0"><span class="toc-text">argparse()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Distuils"><span class="toc-text">Distuils</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E7%BC%A9%E6%94%BE%E6%96%B9%E5%BC%8F"><span class="toc-text">图片缩放方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E7%BC%A9%E6%94%BE"><span class="toc-text">直接缩放</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%8F%98%E5%BD%A2%E7%BC%A9%E6%94%BE%EF%BC%8C%E4%B8%A4%E7%AB%AF%E5%A1%AB%E5%85%85%E7%81%B0%E8%BE%B9"><span class="toc-text">不变形缩放，两端填充灰边</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%8F%98%E5%BD%A2%E7%BC%A9%E6%94%BE%EF%BC%8C%E4%B8%80%E7%AB%AF%E5%A1%AB%E5%85%85%E7%81%B0%E8%BE%B9"><span class="toc-text">不变形缩放，一端填充灰边</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8Fresize%E6%8F%92%E5%80%BC%E6%96%B9%E5%BC%8F%E6%AF%94%E8%BE%83"><span class="toc-text">图像resize插值方式比较</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%B1%E5%9C%B0%E6%93%8D%E4%BD%9C"><span class="toc-text">就地操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#torch-max%E4%B8%ADkeepdim%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">torch.max中keepdim的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ConstantPad2d%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-text">ConstantPad2d的用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#enumerate-%E5%87%BD%E6%95%B0"><span class="toc-text">enumerate()函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0"><span class="toc-text">描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">返回值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#torch-clamp"><span class="toc-text">torch.clamp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FPPI"><span class="toc-text">FPPI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#torchvision-ops-box-iou"><span class="toc-text">torchvision.ops.box_iou</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-1"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E"><span class="toc-text">返回</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B"><span class="toc-text">返回类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#torch-argmax%EF%BC%88%EF%BC%89%E5%87%BD%E6%95%B0"><span class="toc-text">torch.argmax（）函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-2"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-3"><span class="toc-text">参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python-call-%E6%96%B9%E6%B3%95"><span class="toc-text">python _call_()方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8-call-%E5%BC%A5%E8%A1%A5-hasattr-%E5%87%BD%E6%95%B0%E7%9A%84%E7%9F%AD%E6%9D%BF"><span class="toc-text">用 call() 弥补 hasattr() 函数的短板</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#argparse-%E5%87%BD%E6%95%B0"><span class="toc-text">argparse()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Distuils"><span class="toc-text">Distuils</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E7%BC%A9%E6%94%BE%E6%96%B9%E5%BC%8F"><span class="toc-text">图片缩放方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E7%BC%A9%E6%94%BE"><span class="toc-text">直接缩放</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%8F%98%E5%BD%A2%E7%BC%A9%E6%94%BE%EF%BC%8C%E4%B8%A4%E7%AB%AF%E5%A1%AB%E5%85%85%E7%81%B0%E8%BE%B9"><span class="toc-text">不变形缩放，两端填充灰边</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%8F%98%E5%BD%A2%E7%BC%A9%E6%94%BE%EF%BC%8C%E4%B8%80%E7%AB%AF%E5%A1%AB%E5%85%85%E7%81%B0%E8%BE%B9"><span class="toc-text">不变形缩放，一端填充灰边</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8Fresize%E6%8F%92%E5%80%BC%E6%96%B9%E5%BC%8F%E6%AF%94%E8%BE%83"><span class="toc-text">图像resize插值方式比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#torch-nn-Identity"><span class="toc-text">torch.nn.Identity()</span></a></li></ol>
     </div>
   </section>
 
