@@ -9,6 +9,38 @@
 
 
     <url>
+        <loc>http://pistachio0812.github.io/2022/04/16/CN/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/</loc>
+        <lastmod>2022-04-19T02:39:23.628Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/2022/04/18/CN/RetinaNet/</loc>
+        <lastmod>2022-04-19T02:38:01.953Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/2022/04/16/CN/YOLOV3/</loc>
+        <lastmod>2022-04-19T02:24:33.339Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/2022/04/18/CN/centernet/</loc>
+        <lastmod>2022-04-18T12:28:24.023Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://pistachio0812.github.io/2022/04/18/CN/VIT/</loc>
         <lastmod>2022-04-18T08:28:51.963Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -49,14 +81,6 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/YOLOV3/</loc>
-        <lastmod>2022-04-17T07:10:10.864Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://pistachio0812.github.io/2022/04/16/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/</loc>
         <lastmod>2022-04-16T13:21:19.258Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -75,14 +99,6 @@
     <url>
         <loc>http://pistachio0812.github.io/2022/03/12/CN/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%8D%95%E8%AF%8D%E8%A1%A8/</loc>
         <lastmod>2022-04-09T14:21:45.562Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/</loc>
-        <lastmod>2022-04-08T01:50:30.981Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
