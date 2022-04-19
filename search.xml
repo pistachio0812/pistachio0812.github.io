@@ -2590,11 +2590,10 @@ class YoloBody(nn.Module):
       </tags>
   </entry>
   <entry>
-    <title>计算机视觉单词</title>
+    <title></title>
     <url>/2022/03/12/CN/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%8D%95%E8%AF%8D%E8%A1%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><pre><code>                                       计算机视觉单词表
-</code></pre>
-<p>artificial neural network,ANN        人工神经网络</p>
+</code></pre><p>artificial neural network,ANN        人工神经网络</p>
 <p>perceptron        感知机，人工神经元</p>
 <p>activation function        激活函数</p>
 <p>rectified linear unit,RELU        修正线性单元</p>
@@ -2788,7 +2787,7 @@ class YoloBody(nn.Module):
 <p>nontrivial    重要的，显著的</p>
 <p>obstacle    阻碍，障碍</p>
 <p>notorious    臭名昭著的，声名狼藉的</p>
-<p>vanishing&#x2F;exploding gradients    梯度消失&#x2F;梯度爆炸</p>
+<p>vanishing/exploding gradients    梯度消失/梯度爆炸</p>
 <p>hamper    妨碍，束缚</p>
 <p>degradation    退化，降级，堕落</p>
 <p>thoroughly    完全地，彻底地</p>
@@ -2937,6 +2936,22 @@ class YoloBody(nn.Module):
 <p>diversity    多样性</p>
 <p>discard    丢弃</p>
 <p>adequately    充分地，足够地</p>
+<p>flaw    缺陷，缺点</p>
+<p>susceptible    易得病的，易受影响的；（人）易受感动的，易动感情的</p>
+<p>caret    脱字符号，插入符号</p>
+<p>teardown    拆卸</p>
+<p>untangle    理清，整顿，解开……纠结</p>
+<p>duration    持续时间</p>
+<p>optical    光学的；（装置）光电的</p>
+<p>decent    像样的，尚好的，得体的</p>
+<p>inevitable    必然发生的，不可避免的</p>
+<p>leverage    n.影响力，杠杆作用adj.充分利用</p>
+<p>overwhelm    压倒，压垮</p>
+<p>degenerate    恶化，堕落，退化</p>
+<p>elaborate    详细说明，复杂的</p>
+<p>mitigate    减轻</p>
+<p>severe    严重的，艰巨的</p>
+<p>hamper    阻碍</p>
 ]]></content>
   </entry>
   <entry>
@@ -4429,10 +4444,20 @@ def _next_data(self):
       </tags>
   </entry>
   <entry>
-    <title>文献阅读笔记</title>
+    <title>CV必备文献</title>
     <url>/2022/04/16/CN/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>1.DetNet</p>
-<p>2.SNIP</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>1.RFBNet</p>
+<p>论文标题：Receptive Field Block Net for Accurate and Fast Object Detection</p>
+<p>论文地址：<a href="https://openaccess.thecvf.com/content_ECCV_2018/papers/Songtao_Liu_Receptive_Field_Block_ECCV_2018_paper.pdf">Receptive Field Block Net </a></p>
+<p>源码地址：<a href="https://github.com/ruinmessi/RFBNet">https://github.com/ruinmessi/RFBNet</a></p>
+<p>2.Fast R-CNN</p>
+<p>3.Faster R-CNN</p>
+<p>4.ResNet</p>
+<p>5.Inception</p>
+<p>6.Mask R-CNN</p>
+<p>7.YOLOv1</p>
+<p>8.SSD</p>
+<p>9.DSSD</p>
 ]]></content>
       <categories>
         <category>cv</category>
@@ -6868,6 +6893,49 @@ def encode_bbox(assigned_annotations, positive_indices, anchor_widths, anchor_he
       </categories>
       <tags>
         <tag>论文详解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据集介绍</title>
+    <url>/2022/04/19/CN/%E6%95%B0%E6%8D%AE%E9%9B%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h3><p>1.<a href="https://blog.csdn.net/qq_45616304/article/details/117912347">针对 VOC2007和VOC2012 的具体用法</a></p>
+<p>2.<a href="https://blog.csdn.net/a_piece_of_ppx/article/details/118701340">Pascal Voc（07+12）联合训练并在07上测试</a></p>
+<h3 id="VOC2007和VOC2012用法"><a href="#VOC2007和VOC2012用法" class="headerlink" title="VOC2007和VOC2012用法"></a>VOC2007和VOC2012用法</h3><p>目前广大研究者们普遍使用的是 VOC2007和VOC2012数据集，因为二者是互斥的，不相容的。</p>
+<p>论文中针对 VOC2007和VOC2012 的具体用法有以下几种：</p>
+<p>1.只用VOC2007的trainval 训练，使用VOC2007的test测试。<br>2.只用VOC2012的trainval 训练，使用VOC2012的test测试，这种用法很少使用，因为大家都会结合VOC2007使用。<br>3.（推荐）使用 VOC2007 的 train+val 和 VOC2012的 train+val 训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12 ，研究者可以自己测试在VOC2007上的结果，因为VOC2007的test是公开的。<br>4.使用 VOC2007 的 train+val+test 和 VOC2012的 train+val训练，然后使用 VOC2012的test测试，这个用法是论文中经常看到的 07++12 ，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。<br>5.先在 MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val、 VOC2012的 train+val 微调训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12+COCO 。<br>6.先在 MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val+test 、 VOC2012的 train+val 微调训练，然后使用 VOC2012的test测试 ，这个用法是论文中经常看到的 07++12+COCO，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。</p>
+<h3 id="VOC07-12联合训练并在07上测试"><a href="#VOC07-12联合训练并在07上测试" class="headerlink" title="VOC07+12联合训练并在07上测试"></a>VOC07+12联合训练并在07上测试</h3><h4 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h4><p>对于分类/检测任务而言，完成07 + 12数据集合并后，共得到如下数据：</p>
+<pre><code># 5011+11540=16551, 12608+27450=40058
+训练数据：16551张图像，共40058个目标
+# 全部来自voc07_test
+测试数据：4952张图像，共12032个目标
+</code></pre><p>组成如下所示：</p>
+<p>训练数据：</p>
+<p>1.VOC2007的训练集提供了：</p>
+<pre><code>训练数据：2501张图像，共6301个目标
+验证数据：2510张图像，共6307个目标
+训练+验证数据：5011张图像，共12608个目标
+</code></pre><p>2.VOC2012的训练集提供了：</p>
+<pre><code>训练数据：5717张图像，共13609个目标
+验证数据：5823张图像，共13841个目标
+训练+验证数据：11540张图像，共27450个目标
+</code></pre><p>测试数据：</p>
+<p>1.VOC2007的测试集提供了：</p>
+<pre><code>测试数据：4952张图像，共12032个目标
+</code></pre><h3 id="各种数据集介绍"><a href="#各种数据集介绍" class="headerlink" title="各种数据集介绍"></a>各种数据集介绍</h3><h4 id="Pascal-VOC"><a href="#Pascal-VOC" class="headerlink" title="Pascal VOC"></a>Pascal VOC</h4><p>官网地址：<a href="https://pjreddie.com/projects/pascal-voc-dataset-mirror/">Pascal VOC Dataset Mirror (pjreddie.com)</a></p>
+<h4 id="MS-COCO"><a href="#MS-COCO" class="headerlink" title="MS COCO"></a>MS COCO</h4><h4 id="ILSVRC"><a href="#ILSVRC" class="headerlink" title="ILSVRC"></a>ILSVRC</h4>]]></content>
+      <categories>
+        <category>cv</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>目标检测知识大集合</title>
+    <url>/2022/04/19/CN/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      <categories>
+        <category>cv</category>
+      </categories>
+      <tags>
+        <tag>目标检测</tag>
       </tags>
   </entry>
 </search>
