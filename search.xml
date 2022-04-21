@@ -2951,6 +2951,9 @@ class YoloBody(nn.Module):
 <p>mitigate    减轻</p>
 <p>severe    严重的，艰巨的</p>
 <p>hamper    阻碍</p>
+<p>induce    诱导，引诱</p>
+<p>deteriorate    恶化，变坏</p>
+<p>atomic    原子的，核能的</p>
 ]]></content>
       <categories>
         <category>cv</category>
@@ -4469,6 +4472,20 @@ def _next_data(self):
 <p>13.AlexNet</p>
 <p>14.SIFT</p>
 <p>15.HOG</p>
+<p>16.FPN</p>
+<p>论文标题：Feature Pyramid Networks for Object Detection</p>
+<p>论文地址：<a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Lin_Feature_Pyramid_Networks_CVPR_2017_paper.pdf">Feature Pyramid Networks for Object Detection (thecvf.com)</a></p>
+<p>源码地址：<a href="https://github.com/unsky/FPN">FPN: Feature Pyramid Networks for Object Detection </a></p>
+<p>17.RefineDet</p>
+<p>18.M2Det</p>
+<p>19.RSSD</p>
+<p>论文标题：Enhancement of SSD by concatenating feature maps for object detection</p>
+<p>论文地址：</p>
+<p>源码地址：</p>
+<p>20.MDSSD</p>
+<p>论文标题：Mdssd: Multi-scale deconvolutional single shot detector for small objects</p>
+<p>论文地址：</p>
+<p>论文源码：</p>
 ]]></content>
       <categories>
         <category>cv</category>
@@ -6989,6 +7006,585 @@ sudo apt-get install texlive-latex-extra
       </categories>
       <tags>
         <tag>可视化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CNN参数计算</title>
+    <url>/2022/04/21/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在CNN的前向传播过程中，我们通常需要参数量，那么参数量的计算又当如何计算呢，不急，听我慢慢道来。</p>
+<p>实例：</p>
+<p>1.定义一个简单网络</p>
+<pre><code class="lang-python"># 该文件为test.py
+import torch
+import torch.nn as nn
+import math
+
+
+def conv_out_size_same(size, stride):
+    return int(math.ceil(float(size) / float(stride)))
+
+
+class discriminator(nn.Module):
+    def __init__(self, d=128, input_shape=[64, 64]):
+        super(discriminator, self).__init__()
+        s_h, s_w = input_shape[0], input_shape[1]
+        s_h2, s_w2 = conv_out_size_same(s_h, 2), conv_out_size_same(s_w, 2)
+        s_h4, s_w4 = conv_out_size_same(s_h2, 2), conv_out_size_same(s_w2, 2)
+        s_h8, s_w8 = conv_out_size_same(s_h4, 2), conv_out_size_same(s_w4, 2)
+        self.s_h16, self.s_w16 = conv_out_size_same(
+            s_h8, 2), conv_out_size_same(s_w8, 2)
+
+        # 64,64,3 -&gt; 32,32,128
+        self.conv1 = nn.Conv2d(3, d, 4, 2, 1)
+
+        # 32,32,128 -&gt; 16,16,256
+        self.conv2 = nn.Conv2d(d, d * 2, 4, 2, 1)
+        self.conv2_bn = nn.BatchNorm2d(d * 2)
+
+        # 16,16,256 -&gt; 8,8,512
+        self.conv3 = nn.Conv2d(d * 2, d * 4, 4, 2, 1)
+        self.conv3_bn = nn.BatchNorm2d(d * 4)
+
+        # 8,8,512 -&gt; 4,4,1024
+        self.conv4 = nn.Conv2d(d * 4, d * 8, 4, 2, 1)
+        self.conv4_bn = nn.BatchNorm2d(d * 8)
+
+        # 4,4,1024 -&gt; 1
+        self.linear = nn.Linear(self.s_h16 * self.s_w16 * d * 8, 1)
+
+        self.leaky_relu = nn.LeakyReLU(negative_slope=0.2)
+        self.sigmoid = nn.Sigmoid()
+
+    def weight_init(self):
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                m.weight.data.normal_(0.0, 0.02)
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.normal_(0.1, 0.02)
+                m.bias.data.fill_(0)
+            elif isinstance(m, nn.Linear):
+                m.weight.data.normal_(0.0, 0.02)
+                m.bias.data.fill_(0)
+
+    def forward(self, x):
+        bs, _, _, _ = x.size()
+        # (3, 64, 64)-&gt;(128, 32, 32)
+        x = self.leaky_relu(self.conv1(x))
+        # (128, 32, 32)-&gt;(256, 16, 16)
+        x = self.leaky_relu(self.conv2_bn(self.conv2(x)))
+        # (256, 16, 16)-&gt;(512, 8, 8)
+        x = self.leaky_relu(self.conv3_bn(self.conv3(x)))
+        # (512, 8, 8)-&gt;(1024, 4, 4)
+        x = self.leaky_relu(self.conv4_bn(self.conv4(x)))
+        # (1024, 4, 4)-&gt;(bs, 16*1024)
+        x = x.view([bs, -1])
+        # (bs, 16*1024)-&gt;(bs, 1)
+        x = self.sigmoid(self.linear(x))
+
+        return x.squeeze()
+</code></pre>
+<p>2.调用summary()函数计算参数以及输出</p>
+<pre><code class="lang-python">from test import discriminator
+from torchsummary import summary
+import torch
+if __name__ == &#39;__main__&#39;:
+    device = torch.device(&#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;)
+    m = discriminator(d=128, input_shape=[64, 64]).to(device)
+    summary(m, input_size=(3, 64, 64))
+</code></pre>
+<p>结果如下：</p>
+<pre><code class="lang-markdown">----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1          [-1, 128, 32, 32]           6,272
+         LeakyReLU-2          [-1, 128, 32, 32]               0
+            Conv2d-3          [-1, 256, 16, 16]         524,544
+       BatchNorm2d-4          [-1, 256, 16, 16]             512
+         LeakyReLU-5          [-1, 256, 16, 16]               0
+            Conv2d-6            [-1, 512, 8, 8]       2,097,664
+       BatchNorm2d-7            [-1, 512, 8, 8]           1,024
+         LeakyReLU-8            [-1, 512, 8, 8]               0
+            Conv2d-9           [-1, 1024, 4, 4]       8,389,632
+      BatchNorm2d-10           [-1, 1024, 4, 4]           2,048
+        LeakyReLU-11           [-1, 1024, 4, 4]               0
+           Linear-12                    [-1, 1]          16,385
+          Sigmoid-13                    [-1, 1]               0
+================================================================
+Total params: 11,038,081
+Trainable params: 11,038,081
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.05
+Forward/backward pass size (MB): 4.63
+Params size (MB): 42.11
+Estimated Total Size (MB): 46.78
+----------------------------------------------------------------
+
+Process finished with exit code 0
+</code></pre>
+<p>1.卷积（Conv)</p>
+<p>以Conv2d-1为例：</p>
+<p>变化：（3, 64, 64)-&gt;(128, 32, 32)</p>
+<p>计算方法：</p>
+<p><img src="/2022/04/21/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/image-20220421212236498.png" class="lazyload" data-srcset="/2022/04/21/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/image-20220421212236498.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>其中bias等于输出通道数</p>
+<p>因此：params=128×(4×4×3)+128=6272</p>
+<p>2.激活函数（Activation)</p>
+<p>不产生参数</p>
+<p>3.正则化（BN)</p>
+<p>以BatchNorm2d-4为例：</p>
+<p>（256，16， 16)-&gt;(256， 16， 16 )</p>
+<p>计算方法：</p>
+<p><img src="/2022/04/21/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/image-20220421212929933.png" class="lazyload" data-srcset="/2022/04/21/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/image-20220421212929933.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>因此：params=256×2=512</p>
+<p>4.全连接（FC)</p>
+<p>以Linear-12为例：</p>
+<p>（1024， 4， 4）-&gt;(1)</p>
+<p>计算方法：</p>
+<p><img src="/2022/04/21/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/image-20220421213603964.png" class="lazyload" data-srcset="/2022/04/21/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/image-20220421213603964.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>其中：bias等于输出通道数</p>
+<p>因此：params=1024×4×4×1+1=16385</p>
+<p>5.池化层（pooling)</p>
+<p>不产生参数</p>
+]]></content>
+      <categories>
+        <category>cv</category>
+      </categories>
+      <tags>
+        <tag>参数计算</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言基础学习</title>
+    <url>/2022/04/21/CN/C%E8%AF%AD%E8%A8%80/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p>1.<a href="https://www.runoob.com/cprogramming">菜鸟教程C语言教程</a></p>
+<h2 id="编译-执行C程序"><a href="#编译-执行C程序" class="headerlink" title="编译/执行C程序"></a>编译/执行C程序</h2><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code class="lang-c">#include &lt;stdio.h&gt;
+
+int main()
+&#123;
+    /* 我的第一个 C 程序 */
+    printf(&quot;Hello, World! \n&quot;);
+
+    return 0;
+&#125;
+</code></pre>
+<p>实例解析：</p>
+<ul>
+<li>所有的 C 语言程序都需要包含 <strong>main()</strong> 函数。 代码从 <strong>main()</strong> 函数开始执行。</li>
+<li><strong>/* … */</strong> 用于注释说明。</li>
+<li><strong>printf()</strong> 用于格式化输出到屏幕。<strong>printf()</strong> 函数在 <strong>“stdio.h”</strong> 头文件中声明。</li>
+<li><strong>stdio.h</strong> 是一个头文件 (标准输入输出头文件) , <strong>#include</strong> 是一个预处理命令，用来引入头文件。 当编译器遇到 <strong>printf()</strong> 函数时，如果没有找到 <strong>stdio.h</strong> 头文件，会发生编译错误。</li>
+<li><strong>return 0;</strong> 语句用于表示退出程序。</li>
+</ul>
+<h2 id="C简介"><a href="#C简介" class="headerlink" title="C简介"></a>C简介</h2><p>C 语言是一种通用的高级语言，最初是由丹尼斯·里奇在贝尔实验室为开发 UNIX 操作系统而设计的。C 语言最开始是于 1972 年在 DEC PDP-11 计算机上被首次实现。</p>
+<p>在 1978 年，布莱恩·柯林汉（Brian Kernighan）和丹尼斯·里奇（Dennis Ritchie）制作了 C 的第一个公开可用的描述，现在被称为 K&amp;R 标准。</p>
+<p>UNIX 操作系统，C编译器，和几乎所有的 UNIX 应用程序都是用 C 语言编写的。由于各种原因，C 语言现在已经成为一种广泛使用的专业语言。</p>
+<ul>
+<li>易于学习。</li>
+<li>结构化语言。</li>
+<li>它产生高效率的程序。</li>
+<li>它可以处理底层的活动。</li>
+</ul>
+<h3 id="关于C"><a href="#关于C" class="headerlink" title="关于C"></a>关于C</h3><ul>
+<li><p>C 语言是为了编写 UNIX 操作系统而被发明的。</p>
+</li>
+<li><p>C 语言是以 B 语言为基础的，B 语言大概是在 1970 年被引进的。</p>
+</li>
+<li><p>C 语言标准是于 1988 年由美国国家标准协会（ANSI，全称 American National Standard Institute）制定的。</p>
+</li>
+<li><p>截至 1973 年，UNIX 操作系统完全使用 C 语言编写。</p>
+</li>
+<li><p>目前，C 语言是最广泛使用的系统程序设计语言。</p>
+</li>
+<li><p>大多数先进的软件都是使用 C 语言实现的。</p>
+</li>
+<li><p>当今最流行的 Linux 操作系统和 RDBMS（Relational Database Management System：关系数据库管理系统） MySQL 都是使用 C 语言编写的。</p>
+</li>
+</ul>
+<h3 id="为什么要使用C"><a href="#为什么要使用C" class="headerlink" title="为什么要使用C"></a>为什么要使用C</h3><p>  C 语言最初是用于系统开发工作，特别是组成操作系统的程序。由于 C 语言所产生的代码运行速度与汇编语言编写的代码运行速度几乎一样，所以采用 C 语言作为系统开发语言。下面列举几个使用 C 的实例：操作系统、语言编译器、汇编器、文本编辑器、打印机、网络驱动器、现代程序、数据库、语言解释器、实体工具。</p>
+<h3 id="C程序"><a href="#C程序" class="headerlink" title="C程序"></a>C程序</h3><p>一个 C 语言程序，可以是 3 行，也可以是数百万行，它可以写在一个或多个扩展名为 <strong>“.c”</strong> 的文本文件中，例如，<em>hello.c</em>。您可以使用 <strong>“vi”</strong>、<strong>“vim”</strong> 或任何其他文本编辑器来编写您的 C 语言程序。</p>
+<p>本教程假定您已经知道如何编辑一个文本文件，以及如何在程序文件中编写源代码。</p>
+<h3 id="C11"><a href="#C11" class="headerlink" title="C11"></a>C11</h3><p>C11（也被称为C1X）指ISO标准ISO/IEC 9899:2011，是当前最新的C语言标准。在它之前的C语言标准为C99。</p>
+<h3 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h3><ul>
+<li>对齐处理（Alignment）的标准化（包括_Alignas标志符，alignof运算符，aligned_alloc函数以及<stdalign.h>头文件）。</stdalign.h></li>
+<li><em>Noreturn 函数标记，类似于 gcc 的 <em>_attribute</em></em>((noreturn))。</li>
+<li>_Generic 关键字。</li>
+<li>多线程（Multithreading）支持，包括：<br>_Thread_local存储类型标识符，<threads.h>头文件，里面包含了线程的创建和管理函数。<br>_Atomic类型修饰符和<stdatomic.h>头文件。</stdatomic.h></threads.h></li>
+<li>增强的Unicode的支持。基于C Unicode技术报告ISO/IEC TR 19769:2004，增强了对Unicode的支持。包括为UTF-16/UTF-32编码增加了char16_t和char32_t数据类型，提供了包含unicode字符串转换函数的头文件<uchar.h>。</uchar.h></li>
+<li>删除了 gets() 函数，使用一个新的更安全的函数gets_s()替代。</li>
+<li>增加了边界检查函数接口，定义了新的安全的函数，例如 fopen_s()，strcat_s() 等等。</li>
+<li>增加了更多浮点处理宏(宏)。</li>
+<li>匿名结构体/联合体支持。这个在gcc早已存在，C11将其引入标准。</li>
+<li>静态断言（Static assertions），_Static_assert()，在解释 #if 和 #error 之后被处理。</li>
+<li>新的 fopen() 模式，(“…x”)。类似 POSIX 中的 O_CREAT|O_EXCL，在文件锁中比较常用。</li>
+<li>新增 quick_exit() 函数作为第三种终止程序的方式。当 exit()失败时可以做最少的清理工作。</li>
+</ul>
+<h2 id="C环境设置"><a href="#C环境设置" class="headerlink" title="C环境设置"></a>C环境设置</h2><h2 id><a href="#" class="headerlink" title="#"></a>#</h2>]]></content>
+      <categories>
+        <category>programming</category>
+      </categories>
+      <tags>
+        <tag>C</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DCGAN详解</title>
+    <url>/2022/04/21/CN/DCGAN/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://blog.csdn.net/weixin_44791964/article/details/110475425">pytorch搭建DCGAN</a></p>
+<p>论文地址：<a href="https://arxiv.53yu.com/pdf/1511.06434.pdf">https://arxiv.53yu.com/pdf/1511.06434.pdf</a></p>
+<p>论文源码：略</p>
+<p>文章引用源码：<a href="https://github.com/bubbliiiing/dcgan-pytorch">https://github.com/bubbliiiing/dcgan-pytorch</a></p>
+<h2 id="网络构建"><a href="#网络构建" class="headerlink" title="网络构建"></a>网络构建</h2><h3 id="DCGAN"><a href="#DCGAN" class="headerlink" title="DCGAN"></a>DCGAN</h3><p>DCGAN的全称是Deep Convolutional Generative Adversarial Networks，即深度卷积对抗生成网络。</p>
+<p>它是由Alec Radford在论文Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks中提出的。</p>
+<p>实际上它就是在GAN的基础上增加深度卷积网络结构。</p>
+<p>论文中给出的DCGAN结构如图所示。其使用反卷积将特征层的高宽不断扩大，整体结构看起来像普通神经网络的逆过程。<br><img src="/2022/04/21/CN/DCGAN/image-20220421201415525.png" class="lazyload" data-srcset="/2022/04/21/CN/DCGAN/image-20220421201415525.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h3 id="生成网络的构建"><a href="#生成网络的构建" class="headerlink" title="生成网络的构建"></a>生成网络的构建</h3><p>对于生成网络来讲，它的目的是生成假图片，它的输入是正态分布随机数。输出是假图片。</p>
+<p>在GAN当中，我们将这个正态分布随机数长度定义为100，在经过处理后，我们会得到一个(64,64,3)的假图片。</p>
+<p>在处理过程中，我们会使用到反卷积，反卷积的概念是相对于正常卷积的，在正常卷积下，我们的特征层的高宽会不断被压缩；在反卷积下，我们的特征层的高宽会不断变大。<br><img src="/2022/04/21/CN/DCGAN/20201202124131662.png" class="lazyload" data-srcset="/2022/04/21/CN/DCGAN/20201202124131662.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>在DCGAN的生成网络中，我们首先利用一个全连接，将输入长条全连接到16,384（4x4x1024）这样一个长度上，这样我们才可以对这个全连接的结果进行reshape，使它变成(4,4,1024)的特征层。</p>
+<p>在获得这个特征层之后，我们就可以利用反卷积进行上采样了。</p>
+<p>在每次反卷积后，特征层的高和宽会变为原来的两倍，在四次反卷积后，我们特征层的shape变化是这样的：( 4 , 4 , 1024 ) − &gt; ( 8 , 8 , 512 ) − &gt; ( 16 , 16 , 256 ) − &gt; ( 32 , 32 , 128 ) − &gt; ( 64 , 64 , 3 )</p>
+<p>此时我们再进行一次tanh激活函数，我们就可以获得一张假图片了。<br>实现代码：</p>
+<pre><code class="lang-python">import math
+import torch
+import torch.nn as nn
+
+# 如果stride=2,就是宽高减半，下采样操作
+def conv_out_size_same(size, stride):
+    return int(math.ceil(float(size) / float(stride)))
+
+
+# 反卷积公式：H_out=(H_in −1)×stride[0]−2×padding[0]+dilation[0]×(kernel_size[0]−1)+output_padding[0]+1
+class generator(nn.Module):
+    def __init__(self, d=128, input_shape=[64, 64]):
+        super(generator, self).__init__()
+        # 64, 64
+        s_h, s_w = input_shape[0], input_shape[1]
+        # 32, 32
+        s_h2, s_w2 = conv_out_size_same(s_h, 2), conv_out_size_same(s_w, 2)
+        # 16, 16
+        s_h4, s_w4 = conv_out_size_same(s_h2, 2), conv_out_size_same(s_w2, 2)
+        # 8, 8
+        s_h8, s_w8 = conv_out_size_same(s_h4, 2), conv_out_size_same(s_w4, 2)
+        # 4, 4
+        self.s_h16, self.s_w16 = conv_out_size_same(s_h8, 2), conv_out_size_same(s_w8, 2)
+        # (bs, 100)-&gt; (bs, 4*4*128*8)
+        self.linear = nn.Linear(100, self.s_h16 * self.s_w16 * d * 8)
+        self.linear_bn = nn.BatchNorm2d(d * 8)
+
+        # (bs, 1024, 4, 4)-&gt;(bs, 512, 8, 8)
+        self.deconv1 = nn.ConvTranspose2d(d * 8, d * 4, 4, 2, 1)
+        self.deconv1_bn = nn.BatchNorm2d(d * 4)
+
+        # (bs, 512, 8, 8)-&gt;(bs, 256, 16, 16)
+        self.deconv2 = nn.ConvTranspose2d(d * 4, d * 2, 4, 2, 1)
+        self.deconv2_bn = nn.BatchNorm2d(d * 2)
+
+        # (bs, 256, 16, 16)-&gt;(bs, 128, 32, 32)
+        self.deconv3 = nn.ConvTranspose2d(d * 2, d, 4, 2, 1)
+        self.deconv3_bn = nn.BatchNorm2d(d)
+
+        # (bs, 128, 8, 8)-&gt;(bs, 3, 64, 64)
+        self.deconv4 = nn.ConvTranspose2d(d, 3, 4, 2, 1)
+
+        self.relu = nn.ReLU()
+
+    def weight_init(self):
+        for m in self.modules():
+            if isinstance(m, nn.ConvTranspose2d):
+                m.weight.data.normal_(0.0, 0.02)
+                m.bias.data.fill_(0)
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.normal_(0.1, 0.02)
+                m.bias.data.fill_(0)
+            elif isinstance(m, nn.Linear):
+                m.weight.data.normal_(0.0, 0.02)
+                m.bias.data.fill_(0)
+
+    def forward(self, x):
+        # (bs, 100)
+        bs, _ = x.size()
+        # (bs, 16*1024)
+        x = self.linear(x)
+        # (bs, 1024, 4, 4)
+        x = x.view([bs, -1, self.s_h16, self.s_w16])
+        x = self.relu(self.linear_bn(x))
+        # (bs, 1024, 4, 4)-&gt;(bs, 512, 8, 8)
+        x = self.relu(self.deconv1_bn(self.deconv1(x)))
+        # (bs, 512, 8, 8)-&gt;(bs, 256, 16, 16)
+        x = self.relu(self.deconv2_bn(self.deconv2(x)))
+        # (bs, 256, 16, 16)-&gt;(bs, 128, 32, 32)
+        x = self.relu(self.deconv3_bn(self.deconv3(x)))
+        # (bs, 128, 32, 32)-&gt;(bs, 3, 64, 64)
+        x = torch.tanh(self.deconv4(x))
+        return x
+</code></pre>
+<h3 id="判别网络的构建"><a href="#判别网络的构建" class="headerlink" title="判别网络的构建"></a>判别网络的构建</h3><p>对于生成网络来讲，它的目的是生成假图片，它的输入是正态分布随机数。输出是假图片。</p>
+<p>对于判别网络来讲，它的目的是判断输入图片的真假，它的输入是图片，输出是判断结果。</p>
+<p>判断结果处于0-1之间，利用接近1代表判断为真图片，接近0代表判断为假图片。</p>
+<p>判别网络的构建和普通卷积网络差距不大，都是不断的卷积对图片进行下采用，在多次卷积后，最终接一次全连接判断结果。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-python">import torch
+import torch.nn as nn
+import math
+
+
+def conv_out_size_same(size, stride):
+    return int(math.ceil(float(size) / float(stride)))
+
+
+class discriminator(nn.Module):
+    def __init__(self, d=128, input_shape=[64, 64]):
+        super(discriminator, self).__init__()
+        s_h, s_w = input_shape[0], input_shape[1]
+        s_h2, s_w2 = conv_out_size_same(s_h, 2), conv_out_size_same(s_w, 2)
+        s_h4, s_w4 = conv_out_size_same(s_h2, 2), conv_out_size_same(s_w2, 2)
+        s_h8, s_w8 = conv_out_size_same(s_h4, 2), conv_out_size_same(s_w4, 2)
+        self.s_h16, self.s_w16 = conv_out_size_same(
+            s_h8, 2), conv_out_size_same(s_w8, 2)
+
+        # 64,64,3 -&gt; 32,32,128
+        self.conv1 = nn.Conv2d(3, d, 4, 2, 1)
+
+        # 32,32,128 -&gt; 16,16,256
+        self.conv2 = nn.Conv2d(d, d * 2, 4, 2, 1)
+        self.conv2_bn = nn.BatchNorm2d(d * 2)
+
+        # 16,16,256 -&gt; 8,8,512
+        self.conv3 = nn.Conv2d(d * 2, d * 4, 4, 2, 1)
+        self.conv3_bn = nn.BatchNorm2d(d * 4)
+
+        # 8,8,512 -&gt; 4,4,1024
+        self.conv4 = nn.Conv2d(d * 4, d * 8, 4, 2, 1)
+        self.conv4_bn = nn.BatchNorm2d(d * 8)
+
+        # 4,4,1024 -&gt; 1
+        self.linear = nn.Linear(self.s_h16 * self.s_w16 * d * 8, 1)
+
+        self.leaky_relu = nn.LeakyReLU(negative_slope=0.2)
+        self.sigmoid = nn.Sigmoid()
+
+    def weight_init(self):
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                m.weight.data.normal_(0.0, 0.02)
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.normal_(0.1, 0.02)
+                m.bias.data.fill_(0)
+            elif isinstance(m, nn.Linear):
+                m.weight.data.normal_(0.0, 0.02)
+                m.bias.data.fill_(0)
+
+    def forward(self, x):
+        bs, _, _, _ = x.size()
+        # (3, 64, 64)-&gt;(128, 32, 32)
+        x = self.leaky_relu(self.conv1(x))
+        # (128, 32, 32)-&gt;(256, 16, 16)
+        x = self.leaky_relu(self.conv2_bn(self.conv2(x)))
+        # (256, 16, 16)-&gt;(512, 8, 8)
+        x = self.leaky_relu(self.conv3_bn(self.conv3(x)))
+        # (512, 8, 8)-&gt;(1024, 4, 4)
+        x = self.leaky_relu(self.conv4_bn(self.conv4(x)))
+        # (1024, 4, 4)-&gt;(bs, 16*1024)
+        x = x.view([bs, -1])
+        # (bs, 16*1024)-&gt;(bs, 1)
+        x = self.sigmoid(self.linear(x))
+
+        return x.squeeze()
+</code></pre>
+<h2 id="训练思路"><a href="#训练思路" class="headerlink" title="训练思路"></a>训练思路</h2><p>DCGAN的训练可以分为生成器训练和判别器训练，每一个step中一般先训练判别器，然后训练生成器</p>
+<h3 id="判别器的训练"><a href="#判别器的训练" class="headerlink" title="判别器的训练"></a>判别器的训练</h3><p>在训练判别器的时候我们希望判别器可以判断输入图片的真伪，因此我们的输入就是真图片、假图片和它们对应的标签。</p>
+<p>因此判别器的训练步骤如下：</p>
+<p>1、随机选取batch_size个真实的图片。<br>2、随机生成batch_size个N维向量，传入到Generator中生成batch_size个虚假图片。<br>3、真实图片的label为1，虚假图片的label为0，将真实图片和虚假图片当作训练集传入到Discriminator中进行训练。<br><img src="/2022/04/21/CN/DCGAN/20201203114355820.png" class="lazyload" data-srcset="/2022/04/21/CN/DCGAN/20201203114355820.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom: 25%;"></p>
+<h3 id="生成器训练"><a href="#生成器训练" class="headerlink" title="生成器训练"></a>生成器训练</h3><p>在训练生成器的时候我们希望生成器可以生成极为真实的假图片。因此我们在训练生成器需要知道判别器认为什么图片是真图片。</p>
+<p>因此生成器的训练步骤如下：</p>
+<p>1、随机生成batch_size个N维向量，传入到Generator中生成batch_size个虚假图片。<br>2、将虚假图片的Discriminator预测结果与1的对比作为loss对Generator进行训练（与1对比的意思是，让生成器根据判别器判别的结果进行训练）<br><img src="/2022/04/21/CN/DCGAN/20201203114415814.png" class="lazyload" data-srcset="/2022/04/21/CN/DCGAN/20201203114415814.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom: 50%;"></p>
+<h2 id="利用DCGAN生成图片"><a href="#利用DCGAN生成图片" class="headerlink" title="利用DCGAN生成图片"></a>利用DCGAN生成图片</h2><p>详情见源码和参考博文</p>
+]]></content>
+      <categories>
+        <category>cv</category>
+      </categories>
+      <tags>
+        <tag>GAN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>激活函数</title>
+    <url>/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://blog.csdn.net/weixin_44791964/article/details/117338865">激活函数介绍</a></p>
+<p>2.<a href="[torch.nn.functional — PyTorch 1.11.0 documentation](https://pytorch.org/docs/stable/nn.functional.html">pytorch激活函数官方文档</a>)</p>
+<h2 id="什么是激活函数"><a href="#什么是激活函数" class="headerlink" title="什么是激活函数"></a>什么是激活函数</h2><p>活函数（Activation functions）对于神经网络模型学习与理解复杂和非线性的函数来说具有十分重要的作用。它们将非线性特性引入到我们的网络中。</p>
+<p>如果网络中不使用激活函数，网络每一层的输出都是上层输入的线性组合，无论神经网络有多少层，输出都是输入的线性组合。</p>
+<p>如果使用的话，激活函数给神经元引入了非线性因素，使得神经网络可以任意逼近任何非线性函数，此时神经网络就可以应用到各类非线性场景当中了。</p>
+<p>常见的激活函数如sigmoid、tanh、relu等，它们的输入输出映射均为非线性，这样才可以给网络赋予非线性逼近能力。</p>
+<h2 id="常用的激活函数"><a href="#常用的激活函数" class="headerlink" title="常用的激活函数"></a>常用的激活函数</h2><h3 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h3><p>Sigmoid函数是一个在生物学中常见的S型函数，它能够把输入的连续实值变换为0和1之间的输出，如果输入是特别小的负数，则输出为0，如果输入是特别大的正数，则输出为1。即将输入量映射到0到1之间。</p>
+<p><img src="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20210528102716672.png" class="lazyload" data-srcset="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20210528102716672.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom:50%;"></p>
+<p>Sigmoid可以作为非线性激活函数赋予网络非线性区分能力，也可以用来做二分类。其计算公式为：</p>
+<p><img src="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20190719210645402.png" class="lazyload" data-srcset="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20190719210645402.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>优点：</p>
+<p>1.曲线过渡平滑，处处可导；<br>缺点：</p>
+<p>1.幂函数运算较慢，激活函数计算量大；<br>2.求取反向梯度时，Sigmoid的梯度在饱和区域非常平缓，很容易造称梯度消失的问题，减缓收敛速度。</p>
+<h3 id="Tanh"><a href="#Tanh" class="headerlink" title="Tanh"></a>Tanh</h3><p>Tanh是一个奇函数，它能够把输入的连续实值变换为-1和1之间的输出<strong>，</strong>如果输入是特别小的负数，则输出为-1，如果输入是特别大的正数，则输出为1<strong>；</strong>解决了Sigmoid函数的不是0均值的问题。</p>
+<p><img src="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20210528102737126.png" class="lazyload" data-srcset="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20210528102737126.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>Tanh可以作为非线性激活函数赋予网络非线性区分能力。其计算公式为：</p>
+<p><img src="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20190719210849124.png" class="lazyload" data-srcset="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20190719210849124.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>优点：</p>
+<p>1.曲线过渡平滑，处处可导；<br>2.具有良好的对称性，网络是0均值的。<br>缺点：</p>
+<p>1.与Sigmoid类似，幂函数运算较慢，激活函数计算量大；<br>2.与Sigmoid类似，求取反向梯度时，Tanh的梯度在饱和区域非常平缓，很容易造称梯度消失的问题，减缓收敛速度。</p>
+<h3 id="Relu"><a href="#Relu" class="headerlink" title="Relu"></a>Relu</h3><p>线性整流函数（Rectified Linear Unit, ReLU），是一种深度神经网络中常用的激活函数，整个函数可以分为两部分，<strong>在小于0的部分，激活函数的输出为0；在大于0的部分，激活函数的输出为输入</strong>。</p>
+<p><img src="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20210528102747835.png" class="lazyload" data-srcset="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20210528102747835.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>计算公式为：</p>
+<p><img src="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20190719211201399.png" class="lazyload" data-srcset="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20190719211201399.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>优点：</p>
+<p>1.收敛速度快，不存在饱和区间，在大于0的部分梯度固定为1，有效解决了Sigmoid中存在的梯度消失的问题；<br>2.计算速度快，ReLU只需要一个阈值就可以得到激活值，而不用去算一大堆复杂的指数运算，具有类生物性质。<br>缺点：</p>
+<p>1.它在训练时可能会“死掉”。如果一个非常大的梯度经过一个ReLU神经元，更新过参数之后，这个神经元的的值都小于0，此时ReLU再也不会对任何数据有激活现象了。如果这种情况发生，那么从此所有流过这个神经元的梯度将都变成 0。合理设置学习率，会降低这种情况的发生概率。</p>
+<h3 id="Swish"><a href="#Swish" class="headerlink" title="Swish"></a>Swish</h3><p>Swish是Sigmoid和ReLU的改进版，类似于ReLU和Sigmoid的结合，β是个常数或可训练的参数。Swish 具备无上界有下界、平滑、非单调的特性。Swish 在深层模型上的效果优于 ReLU。</p>
+<p><img src="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20210528102949435.png" class="lazyload" data-srcset="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20210528102949435.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>计算公式为：</p>
+<p><img src="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/image-20220421221448860.png" class="lazyload" data-srcset="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/image-20220421221448860.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220421221448860"></p>
+<p>优点：</p>
+<ul>
+<li>Swish具有一定ReLU函数的优点；</li>
+<li>Swish具有一定Sigmoid函数的优点；</li>
+<li>Swish函数可以看做是介于线性函数与ReLU函数之间的平滑函数。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>运算复杂，速度较慢。</li>
+</ul>
+<h3 id="Mish"><a href="#Mish" class="headerlink" title="Mish"></a>Mish</h3><p>Mish与Swish激活函数类似，Mish具备无上界有下界、平滑、非单调的特性。Mish在深层模型上的效果优于 ReLU。无上边界可以避免由于激活值过大而导致的函数饱和。</p>
+<p><img src="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20210528103004303.png" class="lazyload" data-srcset="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20210528103004303.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>计算公式：</p>
+<p><img src="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/image-20220421222005130.png" class="lazyload" data-srcset="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/image-20220421222005130.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220421222005130"></p>
+<p>优点：</p>
+<ul>
+<li><strong>Mish具有一定ReLU函数的优点，收敛快速</strong>；</li>
+<li><strong>Mish具有一定Sigmoid函数的优点，函数平滑</strong>；</li>
+<li><strong>Mish函数可以看做是介于线性函数与ReLU函数之间的平滑函数</strong>。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li><strong>运算复杂，速度较慢</strong>。</li>
+</ul>
+<h3 id="Swish和Mish的梯度对比"><a href="#Swish和Mish的梯度对比" class="headerlink" title="Swish和Mish的梯度对比"></a>Swish和Mish的梯度对比</h3><p><img src="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20210528105245598.png" class="lazyload" data-srcset="/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/20210528105245598.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<h2 id="绘制代码"><a href="#绘制代码" class="headerlink" title="绘制代码"></a>绘制代码</h2><p>pytorch官方文档中的激活函数基本都在这里</p>
+<pre><code class="lang-python">import matplotlib.pyplot as plt
+import numpy as np
+
+def Sigmoid(x):
+    y = np.exp(x) / (np.exp(x) + 1)
+    return y
+
+def Tanh(x):
+    y = (np.exp(x)-np.exp(-x))/(np.exp(x)+np.exp(-x))
+    # y = np.tanh(x)
+    return y
+
+def ReLU(x):
+    y = np.where(x &lt; 0, 0, x)
+    return y
+
+def LeakyReLU(x, a):  
+    # LeakyReLU的a参数不可训练，人为指定。
+    y = np.where(x &lt; 0, a * x, x)
+    return y
+
+def PReLU(x, a):  
+    # PReLU的a参数可训练
+    y = np.where(x &lt; 0, a * x, x)
+    return y
+
+def ReLU6(x):
+    y = np.minimum(np.maximum(x, 0), 6)
+    return y
+
+def Swish(x, b):
+    y = x * (np.exp(b*x) / (np.exp(b*x) + 1))
+    return y
+
+def Mish(x):
+    # 这里的Mish已经经过e和ln的约运算
+    temp = 1 + np.exp(x)
+    y = x * ((temp*temp-1) / (temp*temp+1))
+    return y
+
+def Grad_Swish(x, b):
+    y_grad = np.exp(b*x)/(1+np.exp(b*x)) + x * (b*np.exp(b*x) / ((1+np.exp(b*x))*(1+np.exp(b*x))))
+    return y_grad
+
+def Grad_Mish(x):
+    temp = 1 + np.exp(x)
+    y_grad = (temp*temp-1) / (temp*temp+1) + x*(4*temp*(temp-1)) / ((temp*temp+1)*(temp*temp+1))
+    return y_grad
+
+# 这里增加的是原博主没有介绍的，但官网有的
+def Hardtanh(x):
+    if x &gt;1:
+        y=1
+    elif x&lt;-1:
+        y=-1
+    else:
+        y=x
+    return y
+
+if __name__ == &#39;__main__&#39;:
+    x = np.arange(-10, 10, 0.01)
+
+    plt.plot(x, Sigmoid(x))
+    plt.title(&quot;Sigmoid&quot;)
+    plt.grid()
+    plt.show()
+
+    plt.plot(x, Tanh(x))
+    plt.title(&quot;Tanh&quot;)
+    plt.grid()
+    plt.show()
+
+    plt.plot(x, ReLU(x))
+    plt.title(&quot;ReLU&quot;)
+    plt.grid()
+    plt.show()
+
+    plt.plot(x, LeakyReLU(x, 0.1))
+    plt.title(&quot;LeakyReLU&quot;)
+    plt.grid()
+    plt.show()
+
+    plt.plot(x, PReLU(x, 0.25))
+    plt.title(&quot;PReLU&quot;)
+    plt.grid()
+    plt.show()
+
+    plt.plot(x, ReLU6(x))
+    plt.title(&quot;ReLU6&quot;)
+    plt.grid()
+    plt.show()
+
+    plt.plot(x, Swish(x, 1))
+    plt.title(&quot;Swish&quot;)
+    plt.grid()
+    plt.show()
+
+    plt.plot(x, Mish(x))
+    plt.title(&quot;Mish&quot;)
+    plt.grid()
+    plt.show()
+
+    plt.plot(x, Grad_Mish(x))
+    plt.plot(x, Grad_Swish(x, 1))
+    plt.title(&quot;Gradient of Mish and Swish&quot;)
+    plt.legend([&#39;Mish&#39;, &#39;Swish&#39;])
+    plt.grid()
+    plt.show()
+</code></pre>
+]]></content>
+      <categories>
+        <category>cv</category>
+      </categories>
+      <tags>
+        <tag>激活函数</tag>
       </tags>
   </entry>
 </search>
