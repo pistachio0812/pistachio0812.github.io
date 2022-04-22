@@ -7519,15 +7519,6 @@ def Grad_Mish(x):
     y_grad = (temp*temp-1) / (temp*temp+1) + x*(4*temp*(temp-1)) / ((temp*temp+1)*(temp*temp+1))
     return y_grad
 
-# 这里增加的是原博主没有介绍的，但官网有的
-def Hardtanh(x):
-    if x &gt;1:
-        y=1
-    elif x&lt;-1:
-        y=-1
-    else:
-        y=x
-    return y
 
 if __name__ == &#39;__main__&#39;:
     x = np.arange(-10, 10, 0.01)
@@ -7585,6 +7576,357 @@ if __name__ == &#39;__main__&#39;:
       </categories>
       <tags>
         <tag>激活函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>未婚妻</title>
+    <url>/2022/04/22/CN/%E6%9C%AA%E5%A9%9A%E5%A6%BB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>度过了几天假期之后，我要回巴黎了。</p>
+<p>当我走进车站，火车已挤满了旅客。大多数的车门前，都站着一个男人或一个妇女，好像是在拦阻后来的旅客。</p>
+<p>尽管如此，我还是踮起脚尖向每一个车厢内部观看，希望能找到一个座位。我发现靠近车门坐着的旅客旁边，有一个空座位，但<br>上面放着两个大篮子，里面的鸡子和鸭子把头伸在篮子外面。</p>
+<p>我犹豫了好一会之后，决定走进车厢。我说很对不起了，让我来把篮子移开。可是一位穿着工作服的农民对我说：「小姐，请等一等，我就来把它们从这里拿开。」</p>
+<p>当我把放在农民膝上的水果篮子提在手中时，他轻轻地把两篮家禽塞在凳子下面。</p>
+<p>我们都听到鸭子叫喊，表示不高兴。母鸡却低下头，像是受委屈的样子。农民的妻子一面喊着鸭子鸡子的名字，一面对它们说着<br>话。</p>
+<p>我坐下以后，鸭子也安静下来了。这时，坐在我对面的旅客问农民是否他把家禽带到市场上去卖。</p>
+<p>农民回答说：「先生，不是送上市场的。后天，我的儿子就要结婚，我把鸡鸭带来送给儿子。」</p>
+<p>他脸上显出幸福愉快的神情。他看了看周围的人，仿佛要向所有的人们都表达他自己的快乐。另外的旅客都留心倾听，他们似乎<br>听了之后感到很高兴。只有一个老媪是例外，她占了两人的座位，枕着三个枕头，正在叱骂拥塞在车厢中的农民。</p>
+<p>火车开动了。刚才说话的旅客开始阅读报纸，这时农民对他说：「我的儿子在巴黎，他是一家商店的职员，将和一位小姐结婚，<br>她也是一家商店的职员。」</p>
+<p>这个旅客把已经打开的报纸放在他膝上，同时移动身子坐在凳的边沿。他问道：「未婚妻美丽吗？」</p>
+<p>农民说：「我不知道，我还没有见过她。」</p>
+<p>这个旅客有些惊讶，又说：「真的吗？假如她长得丑，使你不喜欢，将怎样办？」</p>
+<p>农民回答：「这种事情可能发生，但我相信，她会使我们喜欢，因为我们的儿子很爱我们，他不会娶一个难看的妻子。」</p>
+<p>农民的妻子又补上一句：「再说，既然她使我们的儿子腓利普喜欢，她也会使我们喜欢的。」</p>
+<p>农民的妻子转过身来向着我，我看到她一双柔和的眼睛肿充满着微笑。她的面容娇小玲珑，非常可爱，我不能相信她就是一个已<br>达结婚年龄的儿子的母亲。</p>
+<p>她想知道我是否也去巴黎，当我回答说也是去巴黎时，这个旅客就开玩笑了。他说：「我打赌：这位小姐就是未婚妻，她是来迎<br>接她的公公婆婆而没有介绍自己使他们认识。」</p>
+<p>所有的眼睛都向我注视，我羞得面红耳赤，这时农民夫妇同声说：「嗳！真是这样的话，我们将非常高兴。」</p>
+<p>我向他们说明这完全是误会。可是这个旅客提醒他们，说我曾沿着火车走过两次，好像我是尽力找认什么人；又说我在登上车厢<br>前是多么犹豫迟疑。</p>
+<p>所有的人都笑起来，我在困窘中解释说，这个座位是我能够找到的惟一的座位。</p>
+<p>农民的妻子说：「这没有什么关系，你非常使我喜欢。假使我们的媳妇能像你那样，我将多么高兴。」</p>
+<p>农民接着说：「是啊，我们的媳妇最好能像你。」</p>
+<p>这个旅客对于他自己的这番笑话感到很得意，他带着开玩笑的样子看了我一眼后，对农民夫妇说：「你们相信我没有弄错。当你们到达巴黎时，你们的儿子会对你们说：『这位就是我的未婚妻。』」</p>
+<p>他说完后，放声大笑一阵，便往凳子里边一坐，开始专心读他的报纸了。</p>
+<p>一会儿以后，农民的妻子完全转身向着我；她在她带来的篮子底层找寻一会儿，便拿出一块煎饼。她一面把煎饼请我吃，一面对<br>我说，这煎饼是她今天早晨亲手做的。</p>
+<p>我不知怎样辞谢才好，只得采用夸大的方法，把伤风说成发烧，她才把这块煎饼放在篮子的底层。</p>
+<p>接着，她又请我吃一串葡萄，我不得不接受了。</p>
+<p>当火车在一个站停下时，我很难阻止农民下车为我购买一杯热的饮料。</p>
+<p>我看到这一对好心人一心只想爱他们儿子选中的未婚妻时，自己因不是他们的媳妇而感到遗憾。他们的爱情使自己觉得多么温暖<br>。我是孤女，从未见过父母的慈容；而和我一起生活的人，谁都对我漠不关心。</p>
+<p>我惊异地看到他们的眼光时时注视在我身上，好像他们是在爱抚我那样。</p>
+<p>到达巴黎时，我帮助他们把篮子从车上搬下来，并领他们向出口处走去。</p>
+<p>当我看到一个身材高高的青年向他们扑过来，用双臂抱着他们时，我就稍稍离开他们远一些。他热情地吻着他父亲，又吻着他母<br>亲。</p>
+<p>父母只管笑眯眯地接受儿子的亲吻，连服务员推着的行李车快要撞他们时所发出的警铃声，他们都听不到；急于赶路的旅客把臂肘撞在他们身上，他们好像也没有感觉到。</p>
+<p>他们在前面走着，我在后面跟着。儿子的一只手臂挽着鸭篮子，另一只手臂抱着他妈妈的肩膀，他微微弯着身躯靠向妈妈，笑嘻<br>嘻地倾听母亲说话。</p>
+<p>他像他父亲，一双眼睛鲜明快乐，笑声爽快而响亮。</p>
+<p>外面，天几乎全黑了。我撑起大衣的领子。我落在他们后面，稍离开他们几步路。这时，他们的儿子去雇一辆车子。</p>
+<p>农民爱抚着一只染有各种颜色、很美丽的花母鸡的头时，对他妻<br>子说：「假如我早知道她不是我们媳妇，那么我早就把这只花母鸡送给她了。」</p>
+<p>「是啊！假如我早知道……」</p>
+<p>农民的妻子向着已经走出车站的长长人群做手势，眼睛望着远处说：「她已随着人群走了。」</p>
+<p>正在这时，他们的儿子已雇到一辆车子回来了。他尽可能好地把他的父母安顿在车上，他自己却在赶车人的旁边坐下，而且侧转身子，以免遮了他父母的视线。</p>
+<p>他看起来长得身强力壮，性情温和，我想他的未婚妻一定是很幸福的。</p>
+<p>他们的车子消失在黑暗中了，于是我沿着每一条街道慢吞吞地走去。孤零零的我不由自主地回到了自己的房间。</p>
+<p>我已二十岁了，还没有一个人来向我谈过爱情。</p>
+]]></content>
+      <categories>
+        <category>今日故事</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>InceptionV3详解</title>
+    <url>/2022/04/22/CN/InceptionV3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://arxiv.org/pdf/1512.00567.pdf">Inceptionv3 </a></p>
+<p>源码地址：<a href="https://github.com/MasazI/InceptionV3_TensorFlow">InceptionV3_TensorFlow: Inception v3 </a></p>
+<p>文章引用出处1：<a href="https://blog.csdn.net/weixin_44791964/article/details/102802866">https://blog.csdn.net/weixin_44791964/article/details/102802866</a></p>
+<p>文章引用出处2：<a href="https://cloud.tencent.com/developer/article/1006032">InceptionV3 网络模型</a></p>
+<h2 id="InceptionV3模型"><a href="#InceptionV3模型" class="headerlink" title="InceptionV3模型"></a>InceptionV3模型</h2><p>InceptionV3模型是谷歌Inception系列里面的第三代模型，其模型结构与InceptionV2模型放在了同一篇论文里，其实二者模型结构差距不大，相比于其它神经网络模型，Inception网络最大的特点在于将神经网络层与层之间的卷积运算进行了拓展。<br>如VGG，AlexNet网络，它就是一直卷积下来的，一层接着一层；<br>ResNet则是创新性的引入了残差网络的概念，使得靠前若干层的某一层数据输出直接跳过多层引入到后面数据层的输入部分，后面的特征层的内容会有一部分由其前面的某一层线性贡献。<br>而Inception网络则是采用不同大小的卷积核，使得存在不同大小的感受野，最后实现拼接达到不同尺度特征的融合。<br>对于InceptionV3而言，其网络中存在着如下的结构。<br>这个结构使用不同大小的卷积核对输入进行卷积（这个结构主要在代码中的block1使用）。<br><img src="/2022/04/22/CN/InceptionV3/2019111309515588.png" class="lazyload" data-srcset="/2022/04/22/CN/InceptionV3/2019111309515588.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Inceptionv3_block1"></p>
+<p>还存在着这样的结构，利用1x7的卷积和7x1的卷积代替7x7的卷积，这样可以只使用约（1x7 + 7x1) / (7x7) = 28.6%的计算开销；利用1x3的卷积和3x1的卷积代替3x3的卷积，这样可以只使用约（1x3 + 3x1) / (3x3) = 67%的计算开销。<br>下图利用1x7的卷积和7x1的卷积代替7x7的卷积（这个结构主要在代码中的block2使用）。</p>
+<p><img src="/2022/04/22/CN/InceptionV3/20191113095610269.png" class="lazyload" data-srcset="/2022/04/22/CN/InceptionV3/20191113095610269.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Inceptionv3_block2"></p>
+<p>下图利用1x3的卷积和3x1的卷积代替3x3的卷积（这个结构主要在代码中的block3使用）。</p>
+<p><img src="/2022/04/22/CN/InceptionV3/2019111309572648.png" class="lazyload" data-srcset="/2022/04/22/CN/InceptionV3/2019111309572648.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="inceptionv3_block3"></p>
+<h2 id="网络部分实现代码"><a href="#网络部分实现代码" class="headerlink" title="网络部分实现代码"></a>网络部分实现代码</h2><p>一共将InceptionV3划分为3个block，对应着35x35、17x17，8x8维度大小的图像。每个block中间有许多的part，对应着不同的特征层深度，用于特征提取。</p>
+<pre><code class="lang-python">#-------------------------------------------------------------#
+#   InceptionV3的网络部分
+#-------------------------------------------------------------#
+from __future__ import print_function
+from __future__ import absolute_import
+
+import warnings
+import numpy as np
+
+from keras.models import Model
+from keras import layers
+from keras.layers import Activation,Dense,Input,BatchNormalization,Conv2D,MaxPooling2D,AveragePooling2D
+from keras.layers import GlobalAveragePooling2D,GlobalMaxPooling2D
+from keras.engine.topology import get_source_inputs
+from keras.utils.layer_utils import convert_all_kernels_in_model
+from keras.utils.data_utils import get_file
+from keras import backend as K
+from keras.applications.imagenet_utils import decode_predictions
+from keras.preprocessing import image
+
+
+def conv2d_bn(x,
+              filters,
+              num_row,
+              num_col,
+              padding=&#39;same&#39;,
+              strides=(1, 1),
+              name=None):
+    if name is not None:
+        bn_name = name + &#39;_bn&#39;
+        conv_name = name + &#39;_conv&#39;
+    else:
+        bn_name = None
+        conv_name = None
+    x = Conv2D(
+        filters, (num_row, num_col),
+        strides=strides,
+        padding=padding,
+        use_bias=False,
+        name=conv_name)(x)
+    x = BatchNormalization(scale=False, name=bn_name)(x)
+    x = Activation(&#39;relu&#39;, name=name)(x)
+    return x
+
+
+def InceptionV3(input_shape=[299,299,3],
+                classes=1000):
+
+
+    img_input = Input(shape=input_shape)
+
+    x = conv2d_bn(img_input, 32, 3, 3, strides=(2, 2), padding=&#39;valid&#39;)
+    x = conv2d_bn(x, 32, 3, 3, padding=&#39;valid&#39;)
+    x = conv2d_bn(x, 64, 3, 3)
+    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
+
+    x = conv2d_bn(x, 80, 1, 1, padding=&#39;valid&#39;)
+    x = conv2d_bn(x, 192, 3, 3, padding=&#39;valid&#39;)
+    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
+
+    #--------------------------------#
+    #   Block1 35x35
+    #--------------------------------#
+    # Block1 part1
+    # 35 x 35 x 192 -&gt; 35 x 35 x 256
+    branch1x1 = conv2d_bn(x, 64, 1, 1)
+
+    branch5x5 = conv2d_bn(x, 48, 1, 1)
+    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+    branch_pool = conv2d_bn(branch_pool, 32, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
+        axis=3,
+        name=&#39;mixed0&#39;)
+
+    # Block1 part2
+    # 35 x 35 x 256 -&gt; 35 x 35 x 288
+    branch1x1 = conv2d_bn(x, 64, 1, 1)
+
+    branch5x5 = conv2d_bn(x, 48, 1, 1)
+    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
+        axis=3,
+        name=&#39;mixed1&#39;)
+
+    # Block1 part3
+    # 35 x 35 x 288 -&gt; 35 x 35 x 288
+    branch1x1 = conv2d_bn(x, 64, 1, 1)
+
+    branch5x5 = conv2d_bn(x, 48, 1, 1)
+    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
+        axis=3,
+        name=&#39;mixed2&#39;)
+
+    #--------------------------------#
+    #   Block2 17x17
+    #--------------------------------#
+    # Block2 part1
+    # 35 x 35 x 288 -&gt; 17 x 17 x 768
+    branch3x3 = conv2d_bn(x, 384, 3, 3, strides=(2, 2), padding=&#39;valid&#39;)
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(
+        branch3x3dbl, 96, 3, 3, strides=(2, 2), padding=&#39;valid&#39;)
+
+    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
+    x = layers.concatenate(
+        [branch3x3, branch3x3dbl, branch_pool], axis=3, name=&#39;mixed3&#39;)
+
+    # Block2 part2
+    # 17 x 17 x 768 -&gt; 17 x 17 x 768
+    branch1x1 = conv2d_bn(x, 192, 1, 1)
+
+    branch7x7 = conv2d_bn(x, 128, 1, 1)
+    branch7x7 = conv2d_bn(branch7x7, 128, 1, 7)
+    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
+
+    branch7x7dbl = conv2d_bn(x, 128, 1, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 1, 7)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
+        axis=3,
+        name=&#39;mixed4&#39;)
+
+    # Block2 part3 and part4
+    # 17 x 17 x 768 -&gt; 17 x 17 x 768 -&gt; 17 x 17 x 768
+    for i in range(2):
+        branch1x1 = conv2d_bn(x, 192, 1, 1)
+
+        branch7x7 = conv2d_bn(x, 160, 1, 1)
+        branch7x7 = conv2d_bn(branch7x7, 160, 1, 7)
+        branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
+
+        branch7x7dbl = conv2d_bn(x, 160, 1, 1)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 1, 7)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+
+        branch_pool = AveragePooling2D(
+            (3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+        x = layers.concatenate(
+            [branch1x1, branch7x7, branch7x7dbl, branch_pool],
+            axis=3,
+            name=&#39;mixed&#39; + str(5 + i))
+
+    # Block2 part5
+    # 17 x 17 x 768 -&gt; 17 x 17 x 768
+    branch1x1 = conv2d_bn(x, 192, 1, 1)
+
+    branch7x7 = conv2d_bn(x, 192, 1, 1)
+    branch7x7 = conv2d_bn(branch7x7, 192, 1, 7)
+    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
+
+    branch7x7dbl = conv2d_bn(x, 192, 1, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
+        axis=3,
+        name=&#39;mixed7&#39;)
+
+    #--------------------------------#
+    #   Block3 8x8
+    #--------------------------------#
+    # Block3 part1
+    # 17 x 17 x 768 -&gt; 8 x 8 x 1280
+    branch3x3 = conv2d_bn(x, 192, 1, 1)
+    branch3x3 = conv2d_bn(branch3x3, 320, 3, 3,
+                          strides=(2, 2), padding=&#39;valid&#39;)
+
+    branch7x7x3 = conv2d_bn(x, 192, 1, 1)
+    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 1, 7)
+    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 7, 1)
+    branch7x7x3 = conv2d_bn(
+        branch7x7x3, 192, 3, 3, strides=(2, 2), padding=&#39;valid&#39;)
+
+    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
+    x = layers.concatenate(
+        [branch3x3, branch7x7x3, branch_pool], axis=3, name=&#39;mixed8&#39;)
+
+    # Block3 part2 part3
+    # 8 x 8 x 1280 -&gt; 8 x 8 x 2048 -&gt; 8 x 8 x 2048
+    for i in range(2):
+        branch1x1 = conv2d_bn(x, 320, 1, 1)
+
+        branch3x3 = conv2d_bn(x, 384, 1, 1)
+        branch3x3_1 = conv2d_bn(branch3x3, 384, 1, 3)
+        branch3x3_2 = conv2d_bn(branch3x3, 384, 3, 1)
+        branch3x3 = layers.concatenate(
+            [branch3x3_1, branch3x3_2], axis=3, name=&#39;mixed9_&#39; + str(i))
+
+        branch3x3dbl = conv2d_bn(x, 448, 1, 1)
+        branch3x3dbl = conv2d_bn(branch3x3dbl, 384, 3, 3)
+        branch3x3dbl_1 = conv2d_bn(branch3x3dbl, 384, 1, 3)
+        branch3x3dbl_2 = conv2d_bn(branch3x3dbl, 384, 3, 1)
+        branch3x3dbl = layers.concatenate(
+            [branch3x3dbl_1, branch3x3dbl_2], axis=3)
+
+        branch_pool = AveragePooling2D(
+            (3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+        x = layers.concatenate(
+            [branch1x1, branch3x3, branch3x3dbl, branch_pool],
+            axis=3,
+            name=&#39;mixed&#39; + str(9 + i))
+    # 平均池化后全连接。
+    x = GlobalAveragePooling2D(name=&#39;avg_pool&#39;)(x)
+    x = Dense(classes, activation=&#39;softmax&#39;, name=&#39;predictions&#39;)(x)
+
+
+    inputs = img_input
+
+    model = Model(inputs, x, name=&#39;inception_v3&#39;)
+
+    return model
+</code></pre>
+<h2 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h2><p>建立网络后就可以进行预测了，实现代码如下：</p>
+<pre><code class="lang-python">def preprocess_input(x):
+    x /= 255.
+    x -= 0.5
+    x *= 2.
+    return x
+
+
+if __name__ == &#39;__main__&#39;:
+    model = InceptionV3()
+
+    model.load_weights(&quot;inception_v3_weights_tf_dim_ordering_tf_kernels.h5&quot;)
+
+    img_path = &#39;elephant.jpg&#39;
+    img = image.load_img(img_path, target_size=(299, 299))
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+
+    x = preprocess_input(x)
+
+    preds = model.predict(x)
+    print(&#39;Predicted:&#39;, decode_predictions(preds))
+</code></pre>
+<p>预测所需的已经训练好的InceptionV3模型可以在<a href="https://github.com/fchollet/deep-learning-models/releases下载。非常方便。">https://github.com/fchollet/deep-learning-models/releases下载。非常方便。</a><br>预测结果为：</p>
+<pre><code class="lang-markdown">Predicted: [[(&#39;n02504458&#39;, &#39;African_elephant&#39;, 0.50874853), (&#39;n01871265&#39;, &#39;tusker&#39;, 0.19524273), (&#39;n02504013&#39;, &#39;Indian_elephant&#39;, 0.1566972), (&#39;n01917289&#39;, &#39;brain_coral&#39;, 0.0008956835), (&#39;n01695060&#39;, &#39;Komodo_dragon&#39;, 0.0008260256)]]
+</code></pre>
+]]></content>
+      <categories>
+        <category>cv</category>
+      </categories>
+      <tags>
+        <tag>论文详解</tag>
       </tags>
   </entry>
 </search>
