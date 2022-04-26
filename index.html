@@ -810,9 +810,31 @@ int main()
   <div class="md">
     
       
-        常见概念正确率正确率是我们最常见的评价指标，就是被分对的样本数除以所有的样本数，通常来说，正确率越高，分类器越好；
+        常见概念TP、TN、FP和FN概念
 
-acc = (TP+TN) / (P+N)
+
+
+
+P(分类器认为是正样本)
+N(分类器认为是负样本)
+
+
+
+
+T(正确分类)
+TP
+TN
+
+
+F(错误分类)
+FP
+FN
+
+
+
+
+注：
+TP（True Positives）意思就是被分为了正样本，而且分对了。（样本是正样本）TN（True Negatives）意思就是被分为了负样本，而且分对了。(样本是负样本)FP（False Positives）意...
       
     
   </div>
@@ -1149,7 +1171,7 @@ VOC2007和VOC2012用法目前广大研究者们普遍使用的是 VOC2007和VOC2
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>74.3k 字</div>
+          <div>74.6k 字</div>
         </div>
       
 
@@ -1175,8 +1197,8 @@ VOC2007和VOC2012用法目前广大研究者们普遍使用的是 VOC2007和VOC2
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sun Apr 24 2022 22:22:11 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2022-04-24 日</div>
+            <div id="last-update" style="display: none;">Tue Apr 26 2022 09:55:52 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2022-04-26 日</div>
           
         </div>
         
@@ -1226,7 +1248,7 @@ VOC2007和VOC2012用法目前广大研究者们普遍使用的是 VOC2007和VOC2
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2022-04-24 日';
+            document.getElementById('last-update-show').innerHTML = '2022-04-26 日';
           }
         </script>
         
