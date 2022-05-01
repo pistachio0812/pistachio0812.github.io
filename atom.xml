@@ -6,7 +6,7 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-05-01T08:17:22.485Z</updated>
+  <updated>2022-05-01T08:27:06.560Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>未婚妻</title>
+    <link href="http://pistachio0812.github.io/en/%E6%9C%AA%E5%A9%9A%E5%A6%BB/"/>
+    <id>http://pistachio0812.github.io/en/%E6%9C%AA%E5%A9%9A%E5%A6%BB/</id>
+    <published>2022-05-01T08:22:31.120Z</published>
+    <updated>2022-05-01T08:27:06.560Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="今日故事" scheme="http://pistachio0812.github.io/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Sanderson the Man 1</title>
@@ -476,29 +499,6 @@
     
     
     <category term="论文解读" scheme="http://pistachio0812.github.io/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>扁平时代的写作·节选</title>
-    <link href="http://pistachio0812.github.io/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/"/>
-    <id>http://pistachio0812.github.io/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/</id>
-    <published>2022-04-16T07:28:40.697Z</published>
-    <updated>2022-04-16T13:21:19.258Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="今日故事" scheme="http://pistachio0812.github.io/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/"/>
-    
     
   </entry>
   
