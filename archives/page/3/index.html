@@ -400,9 +400,10 @@
     
 
     let option = {
+		
         title: {
             top: 0,
-            text: 'Post Calendar',
+            text: '写作记录',
             left: 'center',
             textStyle: {
                 color: '#3C4858'
@@ -425,7 +426,7 @@
             calculable: true,
             inRange: {
                 symbol: 'rect',
-                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
+                color: ['#96fbc4', '#fbc2eb', '#f5576c', '#00f2fe', '#196127']
             },
             itemWidth: 12,
             itemHeight: 12,
@@ -434,6 +435,7 @@
             bottom: 0
         },
         calendar: [{
+			width: 776px;
             left: 'center',
             range: ["2021-05-01", "2022-05-01"],
             cellSize: [13, 13],
@@ -449,12 +451,12 @@
                 show: false
             },
             monthLabel: {
-                nameMap: 'en',
+                nameMap: 'cn',
                 fontSize: 11
             },
             dayLabel: {
                 formatter: '{start}  1st',
-                nameMap: 'en',
+                nameMap: 'cn',
                 fontSize: 11
             }
         }],
@@ -1199,7 +1201,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sun May 01 2022 11:06:26 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Sun May 01 2022 11:30:09 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2022-05-01 日</div>
           
         </div>
