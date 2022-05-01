@@ -9,7 +9,15 @@
 
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/27/CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/</loc>
+        <loc>http://pistachio0812.github.io/en/The_story_of_a_great_schoolmaster/</loc>
+        <lastmod>2022-05-01T08:17:22.485Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/</loc>
         <lastmod>2022-04-27T14:12:33.437Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -17,7 +25,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/</loc>
         <lastmod>2022-04-27T14:04:43.363Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -25,7 +33,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/20/CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
         <lastmod>2022-04-25T14:17:57.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -33,7 +41,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/22/CN/InceptionV3/</loc>
+        <loc>http://pistachio0812.github.io/CN/InceptionV3/</loc>
         <lastmod>2022-04-22T02:02:39.800Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -41,7 +49,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/22/CN/%E6%9C%AA%E5%A9%9A%E5%A6%BB/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E6%9C%AA%E5%A9%9A%E5%A6%BB/</loc>
         <lastmod>2022-04-22T01:13:58.665Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -49,7 +57,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/</loc>
         <lastmod>2022-04-22T01:04:18.216Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -57,7 +65,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/21/CN/DCGAN/</loc>
+        <loc>http://pistachio0812.github.io/CN/DCGAN/</loc>
         <lastmod>2022-04-21T13:52:43.173Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -65,7 +73,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/21/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/</loc>
+        <loc>http://pistachio0812.github.io/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/</loc>
         <lastmod>2022-04-21T13:39:27.614Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -73,7 +81,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/21/CN/C%E8%AF%AD%E8%A8%80/</loc>
+        <loc>http://pistachio0812.github.io/CN/C%E8%AF%AD%E8%A8%80/</loc>
         <lastmod>2022-04-21T07:45:12.631Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -81,7 +89,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/03/12/CN/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%8D%95%E8%AF%8D%E8%A1%A8/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%8D%95%E8%AF%8D%E8%A1%A8/</loc>
         <lastmod>2022-04-21T07:38:40.282Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -89,7 +97,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/</loc>
         <lastmod>2022-04-21T02:49:06.180Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -97,7 +105,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/20/CN/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/</loc>
         <lastmod>2022-04-20T14:23:41.837Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -105,7 +113,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/</loc>
         <lastmod>2022-04-20T13:30:22.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -113,7 +121,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/19/CN/%E6%95%B0%E6%8D%AE%E9%9B%86/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E6%95%B0%E6%8D%AE%E9%9B%86/</loc>
         <lastmod>2022-04-19T14:05:51.108Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -121,7 +129,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/19/CN/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</loc>
         <lastmod>2022-04-19T14:05:37.214Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -129,7 +137,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/18/CN/RetinaNet/</loc>
+        <loc>http://pistachio0812.github.io/CN/RetinaNet/</loc>
         <lastmod>2022-04-19T02:38:01.953Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -137,7 +145,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/YOLOV3/</loc>
+        <loc>http://pistachio0812.github.io/CN/YOLOV3/</loc>
         <lastmod>2022-04-19T02:24:33.339Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -145,7 +153,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/18/CN/centernet/</loc>
+        <loc>http://pistachio0812.github.io/CN/centernet/</loc>
         <lastmod>2022-04-18T12:28:24.023Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -153,7 +161,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/18/CN/VIT/</loc>
+        <loc>http://pistachio0812.github.io/CN/VIT/</loc>
         <lastmod>2022-04-18T08:28:51.963Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -161,7 +169,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/18/CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/</loc>
         <lastmod>2022-04-18T00:51:52.838Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -169,7 +177,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/17/CN/%E7%83%9F%E4%B9%8B%E5%A4%96/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E7%83%9F%E4%B9%8B%E5%A4%96/</loc>
         <lastmod>2022-04-18T00:45:36.630Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -177,7 +185,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/03/17/CN/%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
         <lastmod>2022-04-17T14:29:58.032Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -185,7 +193,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/Faster-rcnn/</loc>
+        <loc>http://pistachio0812.github.io/CN/Faster-rcnn/</loc>
         <lastmod>2022-04-17T09:11:56.312Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -193,7 +201,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/</loc>
         <lastmod>2022-04-16T13:21:19.258Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -201,7 +209,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</loc>
         <lastmod>2022-04-16T07:29:04.231Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -209,7 +217,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/03/26/CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+        <loc>http://pistachio0812.github.io/CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
         <lastmod>2022-04-07T07:00:42.952Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -217,7 +225,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+        <loc>http://pistachio0812.github.io/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
         <lastmod>2022-04-07T02:16:54.501Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -225,7 +233,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/%E6%95%99%E4%BD%A0%E5%AD%A6%E4%BC%9A%E8%89%B2%E5%BD%A9%E6%90%AD%E9%85%8D/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E6%95%99%E4%BD%A0%E5%AD%A6%E4%BC%9A%E8%89%B2%E5%BD%A9%E6%90%AD%E9%85%8D/</loc>
         <lastmod>2022-04-02T11:11:55.683Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -233,7 +241,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/pip%E6%8D%A2%E6%BA%90/</loc>
+        <loc>http://pistachio0812.github.io/CN/pip%E6%8D%A2%E6%BA%90/</loc>
         <lastmod>2022-04-01T11:57:04.204Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -241,7 +249,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/Linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+        <loc>http://pistachio0812.github.io/CN/Linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
         <lastmod>2022-03-31T12:26:32.299Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -249,7 +257,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/03/15/CN/%E5%AD%A6%E6%9C%AF%E6%90%9C%E7%B4%A2%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E5%AD%A6%E6%9C%AF%E6%90%9C%E7%B4%A2%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/</loc>
         <lastmod>2022-03-26T01:55:30.522Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -257,7 +265,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/pytorch%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/</loc>
+        <loc>http://pistachio0812.github.io/CN/pytorch%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/</loc>
         <lastmod>2022-03-25T15:20:56.859Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -265,7 +273,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
+        <loc>http://pistachio0812.github.io/CN/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
         <lastmod>2022-03-25T12:50:05.222Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -273,7 +281,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/04/16/CN/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+        <loc>http://pistachio0812.github.io/CN/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
         <lastmod>2022-03-24T03:05:35.837Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -281,7 +289,7 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/2022/03/11/CN/hello-world/</loc>
+        <loc>http://pistachio0812.github.io/CN/hello-world/</loc>
         <lastmod>2022-03-14T04:42:29.621Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

@@ -6,15 +6,43 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-04-27T14:12:33.437Z</updated>
+  <updated>2022-05-01T08:17:22.485Z</updated>
   <id>http://pistachio0812.github.io/</id>
+  
+  <author>
+    <name>pistachio</name>
+    
+  </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Sanderson the Man 1</title>
+    <link href="http://pistachio0812.github.io/en/The_story_of_a_great_schoolmaster/"/>
+    <id>http://pistachio0812.github.io/en/The_story_of_a_great_schoolmaster/</id>
+    <published>2022-05-01T08:13:09.288Z</published>
+    <updated>2022-05-01T08:17:22.485Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="novel" scheme="http://pistachio0812.github.io/categories/novel/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>感受野的计算</title>
-    <link href="http://pistachio0812.github.io/2022/04/27/CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/"/>
-    <id>http://pistachio0812.github.io/2022/04/27/CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/</id>
+    <link href="http://pistachio0812.github.io/CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/"/>
+    <id>http://pistachio0812.github.io/CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/</id>
     <published>2022-04-27T13:24:03.069Z</published>
     <updated>2022-04-27T14:12:33.437Z</updated>
     
@@ -38,8 +66,8 @@
   
   <entry>
     <title>InceptionV3详解</title>
-    <link href="http://pistachio0812.github.io/2022/04/22/CN/InceptionV3/"/>
-    <id>http://pistachio0812.github.io/2022/04/22/CN/InceptionV3/</id>
+    <link href="http://pistachio0812.github.io/CN/InceptionV3/"/>
+    <id>http://pistachio0812.github.io/CN/InceptionV3/</id>
     <published>2022-04-22T01:38:19.564Z</published>
     <updated>2022-04-22T02:02:39.800Z</updated>
     
@@ -63,8 +91,8 @@
   
   <entry>
     <title>未婚妻</title>
-    <link href="http://pistachio0812.github.io/2022/04/22/CN/%E6%9C%AA%E5%A9%9A%E5%A6%BB/"/>
-    <id>http://pistachio0812.github.io/2022/04/22/CN/%E6%9C%AA%E5%A9%9A%E5%A6%BB/</id>
+    <link href="http://pistachio0812.github.io/CN/%E6%9C%AA%E5%A9%9A%E5%A6%BB/"/>
+    <id>http://pistachio0812.github.io/CN/%E6%9C%AA%E5%A9%9A%E5%A6%BB/</id>
     <published>2022-04-22T01:06:39.876Z</published>
     <updated>2022-04-22T01:13:58.665Z</updated>
     
@@ -86,8 +114,8 @@
   
   <entry>
     <title>激活函数</title>
-    <link href="http://pistachio0812.github.io/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/"/>
-    <id>http://pistachio0812.github.io/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/</id>
+    <link href="http://pistachio0812.github.io/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/"/>
+    <id>http://pistachio0812.github.io/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/</id>
     <published>2022-04-21T13:58:33.980Z</published>
     <updated>2022-04-22T01:04:18.216Z</updated>
     
@@ -111,8 +139,8 @@
   
   <entry>
     <title>CNN参数计算</title>
-    <link href="http://pistachio0812.github.io/2022/04/21/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/"/>
-    <id>http://pistachio0812.github.io/2022/04/21/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/</id>
+    <link href="http://pistachio0812.github.io/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/"/>
+    <id>http://pistachio0812.github.io/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/</id>
     <published>2022-04-21T13:07:28.008Z</published>
     <updated>2022-04-21T13:39:27.614Z</updated>
     
@@ -136,8 +164,8 @@
   
   <entry>
     <title>DCGAN详解</title>
-    <link href="http://pistachio0812.github.io/2022/04/21/CN/DCGAN/"/>
-    <id>http://pistachio0812.github.io/2022/04/21/CN/DCGAN/</id>
+    <link href="http://pistachio0812.github.io/CN/DCGAN/"/>
+    <id>http://pistachio0812.github.io/CN/DCGAN/</id>
     <published>2022-04-21T12:01:50.891Z</published>
     <updated>2022-04-21T13:52:43.173Z</updated>
     
@@ -161,8 +189,8 @@
   
   <entry>
     <title>C语言基础学习</title>
-    <link href="http://pistachio0812.github.io/2022/04/21/CN/C%E8%AF%AD%E8%A8%80/"/>
-    <id>http://pistachio0812.github.io/2022/04/21/CN/C%E8%AF%AD%E8%A8%80/</id>
+    <link href="http://pistachio0812.github.io/CN/C%E8%AF%AD%E8%A8%80/"/>
+    <id>http://pistachio0812.github.io/CN/C%E8%AF%AD%E8%A8%80/</id>
     <published>2022-04-21T03:18:26.880Z</published>
     <updated>2022-04-21T07:45:12.631Z</updated>
     
@@ -186,8 +214,8 @@
   
   <entry>
     <title>机器学习</title>
-    <link href="http://pistachio0812.github.io/2022/04/20/CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://pistachio0812.github.io/2022/04/20/CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</id>
+    <link href="http://pistachio0812.github.io/CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://pistachio0812.github.io/CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</id>
     <published>2022-04-20T13:58:07.370Z</published>
     <updated>2022-04-25T14:17:57.253Z</updated>
     
@@ -211,8 +239,8 @@
   
   <entry>
     <title>可视化技术</title>
-    <link href="http://pistachio0812.github.io/2022/04/20/CN/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/"/>
-    <id>http://pistachio0812.github.io/2022/04/20/CN/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/</id>
+    <link href="http://pistachio0812.github.io/CN/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/"/>
+    <id>http://pistachio0812.github.io/CN/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/</id>
     <published>2022-04-20T02:13:47.463Z</published>
     <updated>2022-04-20T14:23:41.837Z</updated>
     
@@ -236,8 +264,8 @@
   
   <entry>
     <title>数据集介绍</title>
-    <link href="http://pistachio0812.github.io/2022/04/19/CN/%E6%95%B0%E6%8D%AE%E9%9B%86/"/>
-    <id>http://pistachio0812.github.io/2022/04/19/CN/%E6%95%B0%E6%8D%AE%E9%9B%86/</id>
+    <link href="http://pistachio0812.github.io/CN/%E6%95%B0%E6%8D%AE%E9%9B%86/"/>
+    <id>http://pistachio0812.github.io/CN/%E6%95%B0%E6%8D%AE%E9%9B%86/</id>
     <published>2022-04-19T03:12:24.034Z</published>
     <updated>2022-04-19T14:05:51.108Z</updated>
     
@@ -259,8 +287,8 @@
   
   <entry>
     <title>目标检测知识大集合</title>
-    <link href="http://pistachio0812.github.io/2022/04/19/CN/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
-    <id>http://pistachio0812.github.io/2022/04/19/CN/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</id>
+    <link href="http://pistachio0812.github.io/CN/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    <id>http://pistachio0812.github.io/CN/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</id>
     <published>2022-04-19T02:59:25.424Z</published>
     <updated>2022-04-19T14:05:37.214Z</updated>
     
@@ -284,8 +312,8 @@
   
   <entry>
     <title>RetinaNet详解</title>
-    <link href="http://pistachio0812.github.io/2022/04/18/CN/RetinaNet/"/>
-    <id>http://pistachio0812.github.io/2022/04/18/CN/RetinaNet/</id>
+    <link href="http://pistachio0812.github.io/CN/RetinaNet/"/>
+    <id>http://pistachio0812.github.io/CN/RetinaNet/</id>
     <published>2022-04-18T12:41:22.906Z</published>
     <updated>2022-04-19T02:38:01.953Z</updated>
     
@@ -309,8 +337,8 @@
   
   <entry>
     <title>CenterNet详解</title>
-    <link href="http://pistachio0812.github.io/2022/04/18/CN/centernet/"/>
-    <id>http://pistachio0812.github.io/2022/04/18/CN/centernet/</id>
+    <link href="http://pistachio0812.github.io/CN/centernet/"/>
+    <id>http://pistachio0812.github.io/CN/centernet/</id>
     <published>2022-04-18T12:14:53.445Z</published>
     <updated>2022-04-18T12:28:24.023Z</updated>
     
@@ -334,8 +362,8 @@
   
   <entry>
     <title>vision transformer详解</title>
-    <link href="http://pistachio0812.github.io/2022/04/18/CN/VIT/"/>
-    <id>http://pistachio0812.github.io/2022/04/18/CN/VIT/</id>
+    <link href="http://pistachio0812.github.io/CN/VIT/"/>
+    <id>http://pistachio0812.github.io/CN/VIT/</id>
     <published>2022-04-18T01:03:00.568Z</published>
     <updated>2022-04-18T08:28:51.963Z</updated>
     
@@ -357,8 +385,8 @@
   
   <entry>
     <title>马裤先生</title>
-    <link href="http://pistachio0812.github.io/2022/04/18/CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/"/>
-    <id>http://pistachio0812.github.io/2022/04/18/CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/</id>
+    <link href="http://pistachio0812.github.io/CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/"/>
+    <id>http://pistachio0812.github.io/CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/</id>
     <published>2022-04-18T00:36:02.708Z</published>
     <updated>2022-04-18T00:51:52.838Z</updated>
     
@@ -380,8 +408,8 @@
   
   <entry>
     <title>烟之外</title>
-    <link href="http://pistachio0812.github.io/2022/04/17/CN/%E7%83%9F%E4%B9%8B%E5%A4%96/"/>
-    <id>http://pistachio0812.github.io/2022/04/17/CN/%E7%83%9F%E4%B9%8B%E5%A4%96/</id>
+    <link href="http://pistachio0812.github.io/CN/%E7%83%9F%E4%B9%8B%E5%A4%96/"/>
+    <id>http://pistachio0812.github.io/CN/%E7%83%9F%E4%B9%8B%E5%A4%96/</id>
     <published>2022-04-17T02:29:57.291Z</published>
     <updated>2022-04-18T00:45:36.630Z</updated>
     
@@ -403,8 +431,8 @@
   
   <entry>
     <title>Faster-RCNN解读</title>
-    <link href="http://pistachio0812.github.io/2022/04/16/CN/Faster-rcnn/"/>
-    <id>http://pistachio0812.github.io/2022/04/16/CN/Faster-rcnn/</id>
+    <link href="http://pistachio0812.github.io/CN/Faster-rcnn/"/>
+    <id>http://pistachio0812.github.io/CN/Faster-rcnn/</id>
     <published>2022-04-16T13:50:10.247Z</published>
     <updated>2022-04-17T09:11:56.312Z</updated>
     
@@ -428,8 +456,8 @@
   
   <entry>
     <title>yolov3解读</title>
-    <link href="http://pistachio0812.github.io/2022/04/16/CN/YOLOV3/"/>
-    <id>http://pistachio0812.github.io/2022/04/16/CN/YOLOV3/</id>
+    <link href="http://pistachio0812.github.io/CN/YOLOV3/"/>
+    <id>http://pistachio0812.github.io/CN/YOLOV3/</id>
     <published>2022-04-16T07:40:57.513Z</published>
     <updated>2022-04-19T02:24:33.339Z</updated>
     
@@ -453,8 +481,8 @@
   
   <entry>
     <title>扁平时代的写作·节选</title>
-    <link href="http://pistachio0812.github.io/2022/04/16/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/"/>
-    <id>http://pistachio0812.github.io/2022/04/16/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/</id>
+    <link href="http://pistachio0812.github.io/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/"/>
+    <id>http://pistachio0812.github.io/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/</id>
     <published>2022-04-16T07:28:40.697Z</published>
     <updated>2022-04-16T13:21:19.258Z</updated>
     
@@ -471,31 +499,6 @@
     
     <category term="今日故事" scheme="http://pistachio0812.github.io/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>学习网站集合</title>
-    <link href="http://pistachio0812.github.io/2022/04/16/CN/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/"/>
-    <id>http://pistachio0812.github.io/2022/04/16/CN/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/</id>
-    <published>2022-04-16T07:26:49.125Z</published>
-    <updated>2022-04-20T13:30:22.094Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="学习网站" scheme="http://pistachio0812.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/"/>
-    
-    
-    <category term="学习网站" scheme="http://pistachio0812.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/"/>
     
   </entry>
   

@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Matplotlib学习笔记</title>
-    <url>/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <url>/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Matplotlib 是 Python 的绘图库，它能让使用者很轻松地将数据图形化，并且提供多样化的输出格式。可以用来绘制各种静态，动态，交互式的图表。是一个非常强大的 Python 画图工具，我们可以使用该工具将很多数据通过图表的形式更直观的呈现出来。可以绘制线图、散点图、等高线图、条形图、柱状图、3D 图形、甚至是图形动画等等。</p>
 <h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>Matplotlib 通常与 NumPy 和 SciPy（Scientific Python）一起使用， 这种组合广泛用于替代 MatLab，是一个强大的科学计算环境，有助于我们通过 Python 学习数据科学或者机器学习。</p>
 <p>SciPy 是一个开源的 Python 算法库和数学工具包。</p>
@@ -1658,7 +1658,7 @@ plt.show()
   </entry>
   <entry>
     <title>MySQL学习笔记</title>
-    <url>/2022/03/26/CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <url>/CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="MySQL入门教程"><a href="#MySQL入门教程" class="headerlink" title="MySQL入门教程"></a>MySQL入门教程</h2><h3 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h3><p>数据库是按照数据结构来组织、存储和管理数据的仓库</p>
 <p>关系型数据库：建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据</p>
 <p>RDBMS即关系数据库管理系统的特点：</p>
@@ -2380,7 +2380,7 @@ ERROR 1146: Table &#39;W3CSCHOOL.SalesSummary&#39; doesn&#39;t exist
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2022/03/11/CN/hello-world/</url>
+    <url>/CN/hello-world/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
 </code></pre>
@@ -2405,7 +2405,7 @@ ERROR 1146: Table &#39;W3CSCHOOL.SalesSummary&#39; doesn&#39;t exist
   </entry>
   <entry>
     <title>学术搜索网站集合</title>
-    <url>/2022/03/15/CN/%E5%AD%A6%E6%9C%AF%E6%90%9C%E7%B4%A2%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/</url>
+    <url>/CN/%E5%AD%A6%E6%9C%AF%E6%90%9C%E7%B4%A2%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>搞学术研究的必不可少的就是论文，而且是大量的论文。因此，在这里我特意把我平时用到的积累到的论文搜索网站集中到了这里，后续遇到了其他的还会继续补充。</p>
 <h2 id="谷歌学术"><a href="#谷歌学术" class="headerlink" title="谷歌学术"></a>谷歌学术</h2><p><a href="https://xs.scqylaw.com/">谷歌学术</a>是一个可以免费搜索学术文章的Google网络应用。2004年11月，Google第一次发布了Google学术搜索的试用版。该项索引包括了世界上绝大部分出版的学术期刊， 可广泛搜索学术文献的简便方法。您可以从一个位置搜索众多学科和资料来源：来自学术著作出版商、专业性社团、预印本、各大学及其他学术组织的经同行评论的文章、论文、图书、摘要和文章。Google 学术搜索可帮助您在整个学术领域中确定相关性最强的研究。</p>
 <p>相关页面如下：</p>
@@ -2423,7 +2423,7 @@ ERROR 1146: Table &#39;W3CSCHOOL.SalesSummary&#39; doesn&#39;t exist
   </entry>
   <entry>
     <title>详解注意力机制</title>
-    <url>/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/</url>
+    <url>/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h3><p>注意力机制就是让网络关注到它更需要关注的地方，是一种网络自适应注意的方式。注意力机制可以分为通道注意力，空间注意力以及二者的结合。</p>
 <h3 id="相关论文"><a href="#相关论文" class="headerlink" title="相关论文"></a>相关论文</h3><h4 id="SENet"><a href="#SENet" class="headerlink" title="SENet"></a><a href="https://openaccess.thecvf.com/content_cvpr_2018/papers/Hu_Squeeze-and-Excitation_Networks_CVPR_2018_paper.pdf">SENet</a></h4><p>2017年提出的SENet是最后一届ImageNet竞赛的冠军，其实现示意图如下所示，对于输入进来的特征层，我们关注其每一个通道的权重，对于SENet而言，其重点是获得输入进来的特征层，每一个通道的权值。利用SENet，我们可以让网络关注它最需要关注的通道。</p>
 <p>其具体实现方式就是：<br>1、对输入进来的特征层进行全局平均池化。<br>2、然后进行两次全连接，第一次全连接神经元个数较少，第二次全连接神经元个数和输入特征层相同。<br>3、在完成两次全连接后，我们再取一次Sigmoid将值固定到0-1之间，此时我们获得了输入特征层每一个通道的权值（0-1之间）。<br>4、在获得这个权值后，我们将这个权值乘上原输入特征层即可。<br><img src="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331191026838.png" class="lazyload" data-srcset="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331191026838.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
@@ -2639,7 +2639,7 @@ class YoloBody(nn.Module):
   </entry>
   <entry>
     <title>计算机视觉单词表</title>
-    <url>/2022/03/12/CN/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%8D%95%E8%AF%8D%E8%A1%A8/</url>
+    <url>/CN/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%8D%95%E8%AF%8D%E8%A1%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>artificial neural network,ANN        人工神经网络</p>
 <p>perceptron        感知机，人工神经元</p>
 <p>activation function        激活函数</p>
@@ -3009,7 +3009,7 @@ class YoloBody(nn.Module):
   </entry>
   <entry>
     <title>Q &amp; A</title>
-    <url>/2022/03/17/CN/%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <url>/CN/%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="就地操作"><a href="#就地操作" class="headerlink" title="就地操作"></a>就地操作</h3><p>问题来源：看代码发现<code>self.relu=nn.ReLU(inplace=True)</code>不明白<code>inplace=True</code>什么意思。</p>
 <p>解答：查看pytorch官网关于ReLU定义，<a href="https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html#torch.nn.ReLU">ReLU</a>其中inplace参数表示可以选择就地执行操作，默认为False,就地执行操作是指图像处理函数的输入图像和输出图像是同一对象，即同一张图像，常规的图像处理函数是不支持输入图像和输出图像是同一图像的。</p>
 <p>eg:中值滤波函数</p>
@@ -3663,7 +3663,7 @@ return x
   </entry>
   <entry>
     <title>How to use Linux</title>
-    <url>/2022/04/16/CN/Linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <url>/CN/Linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="Linux简介"><a href="#Linux简介" class="headerlink" title="Linux简介"></a>Linux简介</h3><p>UNIX 是一个交互式系统，用于同时处理多进程和多用户同时在线。为什么要说 UNIX，那是因为 Linux 是由 UNIX 发展而来的，UNIX 是由程序员设计，它的主要服务对象也是程序员。Linux 继承了 UNIX 的设计目标。从智能手机到汽车，超级计算机和家用电器，从家用台式机到企业服务器，Linux 操作系统无处不在。</p>
 <p>大多数程序员都喜欢让系统尽量简单，优雅并具有一致性。举个例子，从最底层的角度来讲，一个文件应该只是一个字节集合。为了实现顺序存取、随机存取、按键存取、远程存取只能是妨碍你的工作。相同的，如果命令</p>
 <p>ls A*<br>意味着只列出以 A 为开头的所有文件，那么命令</p>
@@ -3682,7 +3682,7 @@ return x
   </entry>
   <entry>
     <title>github使用指南</title>
-    <url>/2022/04/16/CN/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
+    <url>/CN/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h4><p>1.安装git OSX版</p>
 <p>下载地址：<a href="http://git-scm.com/download/mac">http://git-scm.com/download/mac</a></p>
 <p>2.安装git Windows版</p>
@@ -3735,7 +3735,7 @@ return x
   </entry>
   <entry>
     <title>pip换源</title>
-    <url>/2022/04/16/CN/pip%E6%8D%A2%E6%BA%90/</url>
+    <url>/CN/pip%E6%8D%A2%E6%BA%90/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>由于使用pip或pip3安装python第三方包时，经常出现read timed out问题，所以需要将pip的官方软件源服务器换成国内的镜像服务器，从而提升python软件包安装效率和成功率，pip 国内的一些镜像：</p>
 <ul>
 <li>阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></li>
@@ -3773,7 +3773,7 @@ trusted-host = pypi.tuna.tsinghua.edu.cn
   </entry>
   <entry>
     <title>pytorch官方文档中文版</title>
-    <url>/2022/04/16/CN/pytorch%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/</url>
+    <url>/CN/pytorch%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="torch-nn"><a href="#torch-nn" class="headerlink" title="torch.nn"></a>torch.nn</h1><h2 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h2><h3 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h3><p>CLASS    <code>torch.nn.Module</code>    <a href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module">SOURCE</a></p>
 <p>它是所有神经网络模型的基类，你的模块应该继承于该类。</p>
 <p>模块还能包含其他模块，允许把它们嵌套在一个树结构中。你可以分配子模块作为常规属性：</p>
@@ -3812,7 +3812,7 @@ class Model(nn.Module):
   </entry>
   <entry>
     <title>学习笔记</title>
-    <url>/2022/04/16/CN/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <url>/CN/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>tf中矩阵量存在形式常用有三种，具体如下：<br>1.tf.Variable()<br>表示神经网络中可变化的量（可以通过trainable&#x3D;False设置成不可变),可在运行中赋值，可以通过constant或者其他方式进行初始化。<br>2.tf.constant()<br>可以通过numpy中的array或者list,还有给定的shape和数值进行赋值<br>3.tf.placeholder()<br>相当于占位符，也是有shape的量，因为训练过程中需要不断赋值和替换值，而整体计算的结构是不变的。<br>代码：<br>&#x2F;&#x2F;导包</p>
 <p><code>import tensorflow as tf    </code>    </p>
 <p>&#x2F;&#x2F;定义变量<br><code>A = tf.Variable(tf.ones([4,4]))    </code></p>
@@ -4058,7 +4058,7 @@ print(&#39;Test score:&#39;, score[0])
   </entry>
   <entry>
     <title>学习网站集合</title>
-    <url>/2022/04/16/CN/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/</url>
+    <url>/CN/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="万门好课"><a href="#万门好课" class="headerlink" title="万门好课"></a>万门好课</h2><p><a href="https://www.wanmen.org/" title="加油吧少年">万门好课</a>是一家提供多品类原创精品课程的在线教育平台 ，课程覆盖IT与互联网类、职业成长类、经济金融类、本科学习类等领域 。 整体课程定位侧重于“用户刚需”类课程，如语言版块的出国英语考试类课程、小语种培训课程，本科学习版块的各学科基础大课，以及特色的万门通识课程包括PS、化妆等。</p>
 <h2 id="网易云课堂"><a href="#网易云课堂" class="headerlink" title="网易云课堂"></a>网易云课堂</h2><p><a href="https://study.163.com/">网易云课堂</a>立足于实用性的要求，网易云课堂与多家教育、培训机构建立合作，课程数量已达4100+，课时总数超50000,涵盖实用软件、IT与互联网、外语学习、生活家居、兴趣爱好、职场技能、金融管理、考试认证、中小学、亲子教育等十余大门类。</p>
 <h2 id="网易公开课"><a href="#网易公开课" class="headerlink" title="网易公开课"></a>网易公开课</h2><p><a href="https://open.163.com">网易公开课</a>首批1200集课程上线，其中有200多集配有中文字幕。用户可以在线免费观看来自于哈佛大学等世界级名校的公开课课程，可汗学院，TED等教育性组织的精彩视频，内容涵盖人文、社会、艺术、科学、金融等领域。 力求为爱学习的网友创造一个公开的免费课程平台，借此向外界公开招聘兼职字幕翻译。</p>
@@ -4074,7 +4074,7 @@ print(&#39;Test score:&#39;, score[0])
   </entry>
   <entry>
     <title>色彩搭配</title>
-    <url>/2022/04/16/CN/%E6%95%99%E4%BD%A0%E5%AD%A6%E4%BC%9A%E8%89%B2%E5%BD%A9%E6%90%AD%E9%85%8D/</url>
+    <url>/CN/%E6%95%99%E4%BD%A0%E5%AD%A6%E4%BC%9A%E8%89%B2%E5%BD%A9%E6%90%AD%E9%85%8D/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="中国色"><a href="#中国色" class="headerlink" title="中国色"></a>中国色</h3><p><a href="http://zhongguose.com/">中国色</a></p>
 <h3 id="COULEUR"><a href="#COULEUR" class="headerlink" title="COULEUR"></a>COULEUR</h3><p><a href="https://www.code-couleur.com/signification/">couleur</a></p>
 <h3 id="color-space"><a href="#color-space" class="headerlink" title="color space"></a>color space</h3><p><a href="https://mycolor.space/">color space</a></p>
@@ -4088,7 +4088,7 @@ print(&#39;Test score:&#39;, score[0])
   </entry>
   <entry>
     <title>数据处理</title>
-    <url>/2022/04/16/CN/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</url>
+    <url>/CN/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="单进程"><a href="#单进程" class="headerlink" title="单进程"></a>单进程</h2><p>​        在单进程模式下，DataLoader 初始化的进程和取数据的进程是一样的 。因此，数据加载可能会阻止计算。但是，当用于在进程之间共享数据的资源（例如共享内存，文件描述符）有限时，或者当整个数据集很小并且可以完全加载到内存中时，此模式可能是我们首选。此外，单进程加载通常可以显示更多可读的错误跟踪，这<strong>对于我们调试代码很有用</strong>。</p>
 <h2 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h2><p>·多进程处理</p>
 <p>​        为了避免在加载数据时阻塞计算，PyTorch 提供了一个简单的开关，只需将参数设置 num_workers 为正整数即可执行多进程数据加载，而设置为 0 时执行单线程数据加载。</p>
@@ -4498,7 +4498,7 @@ def _next_data(self):
   </entry>
   <entry>
     <title>CV必备文献</title>
-    <url>/2022/04/16/CN/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/</url>
+    <url>/CN/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>1.RFBNet</p>
 <p>论文标题：Receptive Field Block Net for Accurate and Fast Object Detection</p>
 <p>论文地址：<a href="https://openaccess.thecvf.com/content_ECCV_2018/papers/Songtao_Liu_Receptive_Field_Block_ECCV_2018_paper.pdf">Receptive Field Block Net </a></p>
@@ -4541,7 +4541,7 @@ def _next_data(self):
   </entry>
   <entry>
     <title>扁平时代的写作·节选</title>
-    <url>/2022/04/16/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/</url>
+    <url>/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​        一个「扁平」的世界里众声喧沸。从原则上说，由编辑、审查、批准一类关卡所组成的文化权力体系几近瓦解，每一个IP地址自由发声，都可能成为强大的文化媒体。英才惨遭埋没的可能，伪学与赝品一手遮天的可能，在传统意义上都会减少。全民批评权的运用，也是一种有益的破坏性检验。不过问题的另一面，是胡说比深思容易，粗品比精品多产，优秀者至少没有数量上的优势。一旦优劣平权成了优劣俱放，文化产量中庸质与恶质的占比肯定大大攀升，低端文化产能不仅无法淘汰，还可能日益滚大和坐大。一些优秀作品即使生产出来，也可能在过量的文化淹没中，在受众们暴饮暴食式的阅读之后，在食欲不振的这些快餐者们那里，出现影响力的严重折扣。一旦肠胃已经吃坏了，再多的良药也都无济于事。</p>
 <p>​        一个「扁平」的世界里多数为王。在一般的情况下，有些潮流可以修复民众良知，是真理的脱颖而出；有些潮流泯灭民众良知，是泡沫和垃圾的霸道横行。但不管是哪种情况，多数人的理解力构成潮流的边界，那么大众型和通俗化的真理尚有机会，而冷门的、偏僻的、艰险的、高难的——又常常是重要的文化探索，则可能缺氧。进一步说，市场总是嗅觉灵敏地跟踪多数，跟踪购买力的所在，以实现利润最大化。它们必然就低不就高，随众不随寡，视高深、高难、高雅为营销毒药，并有足够的本领使舆论、奖项、教育、权力等资源向低端集中，打造出泡沫霸权和垃圾霸权。一种品质趋下的文化诱导机制，在这种情况下几乎难以避免。</p>
 <p>​        一个「扁平」的世界还有易破难立的特点。特别是自18世纪启蒙运动以来，敬畏感随着上帝一同消失。叛逆比服从更流行，权利比责任更动心，无论左右翼都造反成癖，在获得解构主义一番学术装备后更是见立必破打倒一切。这一过程削弱了上帝与王权，清算了教条与伪善，其功绩不可低估；但无政府式的激进狂飚若无解药，其结局必是相对性等同虚无性，民主化等同民粹化，任何共识难以成，真理永远缺位。真理也许还是有的，但在很多时候只剩下每个人那里「我」的真理，即自恋、自闭、自利的各种强辞，甚至是专职扒粪的哄客四起——这不过是社会沦入一片「原子化」散沙的文化表征。圣人、先知、导师一类从此不再，文化成了一地碎片和自由落体。一个个公权政府在这样的逐利时代也更像个总务处，无心也无力充当精神旗帜，无心也无力实施有效的社会调控。避骂自保的公关活动已够他们忙的了，讨好票源和收买民意已够他们累的了，他们哪还有建构民族与人类精神的远大抱负和坚定行动？</p>
@@ -4558,7 +4558,7 @@ def _next_data(self):
   </entry>
   <entry>
     <title>yolov3解读</title>
-    <url>/2022/04/16/CN/YOLOV3/</url>
+    <url>/CN/YOLOV3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://arxiv.org/pdf/1804.02767.pdf">https://arxiv.org/pdf/1804.02767.pdf</a></p>
 <p>源码地址：<a href="https://github.com/ultralytics/yolov3">ultralytics/yolov3</a></p>
 <p>文章引用源码：<a href="https://github.com/bubbliiiing/yolo3-pytorch">https://github.com/bubbliiiing/yolo3-pytorch</a></p>
@@ -5352,7 +5352,7 @@ class YOLOLoss(nn.Module):
   </entry>
   <entry>
     <title>Faster-RCNN解读</title>
-    <url>/2022/04/16/CN/Faster-rcnn/</url>
+    <url>/CN/Faster-rcnn/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://proceedings.neurips.cc/paper/2015/file/14bfa6bb14875e45bba028a21ed38046-Paper.pdf">Faster R-CNN</a></p>
 <p>源码地址：<a href="https://github.com/ShaoqingRen/faster_rcnn">ShaoqingRen&#x2F;faster_rcnn: Faster R-CNN (github.com)</a></p>
 <p>文章引用源码：<a href="https://github.com/bubbliiiing/faster-rcnn-pytorch">https://github.com/bubbliiiing/faster-rcnn-pytorch</a></p>
@@ -5367,7 +5367,7 @@ class YOLOLoss(nn.Module):
   </entry>
   <entry>
     <title>烟之外</title>
-    <url>/2022/04/17/CN/%E7%83%9F%E4%B9%8B%E5%A4%96/</url>
+    <url>/CN/%E7%83%9F%E4%B9%8B%E5%A4%96/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在涛声中唤你的名字，而你的名字<br>已在千帆之外<br>潮来潮去<br>左边的鞋印才下午<br>右边的鞋印已黄昏了<br>六月原是一本很感伤的书<br>结局如此之凄美<br>——落日西沉</p>
 <p>你依然凝视<br>那人眼中展示的一片纯白<br>他跪向你，向昨日那朵美了整个<br>下午的云<br>海哟，为何在众灯之中<br>独点亮那一盏茫然<br>还能抓住什么呢？<br>你那曾被称为云的眸子<br>现有人叫作<br>烟</p>
 ]]></content>
@@ -5377,7 +5377,7 @@ class YOLOLoss(nn.Module):
   </entry>
   <entry>
     <title>马裤先生</title>
-    <url>/2022/04/18/CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/</url>
+    <url>/CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>火车在北平东站还没开，同屋那位睡上铺的穿马裤，戴平光的眼镜，青缎子洋服上身，胸袋插着小楷羊毫，足登青绒快靴的先生发了问：「你也是从北平上车？」很和气的。</p>
 <p>火车还没动呢，不从北平上车，由哪儿呢？我只好反攻了：「你从哪儿上车？」</p>
 <p>他没言语。看了看铺位，用尽全身的力气喊了声，「茶房！」</p>
@@ -5414,7 +5414,7 @@ class YOLOLoss(nn.Module):
   </entry>
   <entry>
     <title>vision transformer详解</title>
-    <url>/2022/04/18/CN/VIT/</url>
+    <url>/CN/VIT/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://arxiv.org/pdf/2010.11929.pdf">https://arxiv.org/pdf/2010.11929.pdf</a></p>
 <p>源码地址：<a href="https://github.com/google-research/vision_transformer">google-research&#x2F;vision_transformer (github.com)</a></p>
 <p>文章引用源码：<a href="https://github.com/bubbliiiing/classification-pytorch">https://github.com/bubbliiiing/classification-pytorch</a></p>
@@ -6105,7 +6105,7 @@ def vit(input_shape=[224, 224], pretrained=False, num_classes=1000):
   </entry>
   <entry>
     <title>RetinaNet详解</title>
-    <url>/2022/04/18/CN/RetinaNet/</url>
+    <url>/CN/RetinaNet/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://arxiv.org/pdf/1708.02002.pdf">Focal loss for dense object detection</a></p>
 <p>源码地址：<a href="https://github.com/facebookresearch/Detectron">RetinaNet</a></p>
 <p>文章引用代码地址：<a href="https://github.com/bubbliiiing/retinanet-pytorch">https://github.com/bubbliiiing/retinanet-pytorch</a></p>
@@ -6958,7 +6958,7 @@ def encode_bbox(assigned_annotations, positive_indices, anchor_widths, anchor_he
   </entry>
   <entry>
     <title>CenterNet详解</title>
-    <url>/2022/04/18/CN/centernet/</url>
+    <url>/CN/centernet/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Duan_CenterNet_Keypoint_Triplets_for_Object_Detection_ICCV_2019_paper.pdf">CenterNet: Keypoint Triplets for Object Detection (thecvf.com)</a></p>
 <p>源码地址： <a href="https://github.com/Duankaiwen/CenterNet">CenterNet: Keypoint Triplets for Object Detection</a></p>
 <p>文章引用代码地址：</p>
@@ -6973,7 +6973,7 @@ def encode_bbox(assigned_annotations, positive_indices, anchor_widths, anchor_he
   </entry>
   <entry>
     <title>数据集介绍</title>
-    <url>/2022/04/19/CN/%E6%95%B0%E6%8D%AE%E9%9B%86/</url>
+    <url>/CN/%E6%95%B0%E6%8D%AE%E9%9B%86/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h3><p>1.<a href="https://blog.csdn.net/qq_45616304/article/details/117912347">针对 VOC2007和VOC2012 的具体用法</a></p>
 <p>2.<a href="https://blog.csdn.net/a_piece_of_ppx/article/details/118701340">Pascal Voc（07+12）联合训练并在07上测试</a></p>
 <h3 id="VOC2007和VOC2012用法"><a href="#VOC2007和VOC2012用法" class="headerlink" title="VOC2007和VOC2012用法"></a>VOC2007和VOC2012用法</h3><p>目前广大研究者们普遍使用的是 VOC2007和VOC2012数据集，因为二者是互斥的，不相容的。</p>
@@ -7005,7 +7005,7 @@ def encode_bbox(assigned_annotations, positive_indices, anchor_widths, anchor_he
   </entry>
   <entry>
     <title>目标检测知识大集合</title>
-    <url>/2022/04/19/CN/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</url>
+    <url>/CN/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       <categories>
         <category>cv</category>
@@ -7016,7 +7016,7 @@ def encode_bbox(assigned_annotations, positive_indices, anchor_widths, anchor_he
   </entry>
   <entry>
     <title>机器学习</title>
-    <url>/2022/04/20/CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
+    <url>/CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="常见概念"><a href="#常见概念" class="headerlink" title="常见概念"></a>常见概念</h3><h4 id="TP、TN、FP和FN概念"><a href="#TP、TN、FP和FN概念" class="headerlink" title="TP、TN、FP和FN概念"></a>TP、TN、FP和FN概念</h4><div class="table-container">
 <table>
 <thead>
@@ -7056,7 +7056,7 @@ def encode_bbox(assigned_annotations, positive_indices, anchor_widths, anchor_he
   </entry>
   <entry>
     <title>可视化技术</title>
-    <url>/2022/04/20/CN/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/</url>
+    <url>/CN/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
 <p>1.<a href="https://www.toutiao.com/article/6725276071358366215">CNN模型的可视化</a></p>
 <h2 id="CNNVis"><a href="#CNNVis" class="headerlink" title="CNNVis"></a><a href="http://shixialiu.com/publications/cnnvis/demo/">CNNVis</a></h2><p>清华大学视觉分析组做的一个网站，目的是为了更好地分析深度卷积神经网络。大家可以在训练的时候采取不同的卷积核尺寸和个数对照来看训练的中间过程。</p>
@@ -7085,7 +7085,7 @@ sudo apt-get install texlive-latex-extra
   </entry>
   <entry>
     <title>CNN参数计算</title>
-    <url>/2022/04/21/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/</url>
+    <url>/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在CNN的前向传播过程中，我们通常需要参数量，那么参数量的计算又当如何计算呢，不急，听我慢慢道来。</p>
 <p>实例：</p>
 <p>1.定义一个简单网络</p>
@@ -7231,7 +7231,7 @@ Process finished with exit code 0
   </entry>
   <entry>
     <title>C语言基础学习</title>
-    <url>/2022/04/21/CN/C%E8%AF%AD%E8%A8%80/</url>
+    <url>/CN/C%E8%AF%AD%E8%A8%80/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p>1.<a href="https://www.runoob.com/cprogramming">菜鸟教程C语言教程</a></p>
 <h2 id="编译-执行C程序"><a href="#编译-执行C程序" class="headerlink" title="编译/执行C程序"></a>编译/执行C程序</h2><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code class="lang-c">#include &lt;stdio.h&gt;
 
@@ -7304,7 +7304,7 @@ int main()
   </entry>
   <entry>
     <title>DCGAN详解</title>
-    <url>/2022/04/21/CN/DCGAN/</url>
+    <url>/CN/DCGAN/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
 <p>1.<a href="https://blog.csdn.net/weixin_44791964/article/details/110475425">pytorch搭建DCGAN</a></p>
 <p>论文地址：<a href="https://arxiv.53yu.com/pdf/1511.06434.pdf">https://arxiv.53yu.com/pdf/1511.06434.pdf</a></p>
@@ -7486,7 +7486,7 @@ class discriminator(nn.Module):
   </entry>
   <entry>
     <title>激活函数</title>
-    <url>/2022/04/21/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/</url>
+    <url>/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
 <p>1.<a href="https://blog.csdn.net/weixin_44791964/article/details/117338865">激活函数介绍</a></p>
 <p>2.<a href="[torch.nn.functional — PyTorch 1.11.0 documentation](https://pytorch.org/docs/stable/nn.functional.html">pytorch激活函数官方文档</a>)</p>
@@ -7655,7 +7655,7 @@ if __name__ == &#39;__main__&#39;:
   </entry>
   <entry>
     <title>未婚妻</title>
-    <url>/2022/04/22/CN/%E6%9C%AA%E5%A9%9A%E5%A6%BB/</url>
+    <url>/CN/%E6%9C%AA%E5%A9%9A%E5%A6%BB/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>度过了几天假期之后，我要回巴黎了。</p>
 <p>当我走进车站，火车已挤满了旅客。大多数的车门前，都站着一个男人或一个妇女，好像是在拦阻后来的旅客。</p>
 <p>尽管如此，我还是踮起脚尖向每一个车厢内部观看，希望能找到一个座位。我发现靠近车门坐着的旅客旁边，有一个空座位，但<br>上面放着两个大篮子，里面的鸡子和鸭子把头伸在篮子外面。</p>
@@ -7706,7 +7706,7 @@ if __name__ == &#39;__main__&#39;:
   </entry>
   <entry>
     <title>InceptionV3详解</title>
-    <url>/2022/04/22/CN/InceptionV3/</url>
+    <url>/CN/InceptionV3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://arxiv.org/pdf/1512.00567.pdf">Inceptionv3 </a></p>
 <p>源码地址：<a href="https://github.com/MasazI/InceptionV3_TensorFlow">InceptionV3_TensorFlow: Inception v3 </a></p>
 <p>文章引用出处1：<a href="https://blog.csdn.net/weixin_44791964/article/details/102802866">https://blog.csdn.net/weixin_44791964/article/details/102802866</a></p>
@@ -8006,7 +8006,7 @@ if __name__ == &#39;__main__&#39;:
   </entry>
   <entry>
     <title>感受野的计算</title>
-    <url>/2022/04/27/CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/</url>
+    <url>/CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
 <p>1.<a href="https://www.likecs.com/show-204875434.html">感受野的计算</a></p>
 <p>2.<a href="https://www.jiqizhixin.com/graph/technologies/4821b1eb-34c3-4532-9dca-a97411441f23">感受野 | 机器之心 </a></p>
@@ -8023,5 +8023,14 @@ if __name__ == &#39;__main__&#39;:
       <tags>
         <tag>感受野</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Sanderson the Man 1</title>
+    <url>/en/The_story_of_a_great_schoolmaster/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Of all the men I have met—and I have now had a fairly long and active life and have met a very great variety of interesting people—one only has stirred me to a biographical effort. This one exception is F. W. Sanderson, for many years the headmaster of Oundle School. I think him beyond question the greatest man I have ever known with any degree of <a href="http://dict.qsbdc.com/intimacy"><strong>intimacy</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_1">1</a>, and it is in the hope of conveying to others something of my sense not merely of his importance, but of his <a href="http://dict.qsbdc.com/peculiar"><strong>peculiar</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_2">2</a> genius and the rich humanity of his character, that I am setting out to write this book. He was in himself a very delightful[Pg 2] mixture of <a href="http://dict.qsbdc.com/subtlety"><strong>subtlety</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_3">3</a> and <a href="http://dict.qsbdc.com/simplicity"><strong>simplicity</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_4">4</a>, <a href="http://dict.qsbdc.com/generosity"><strong>generosity</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_5">5</a>, <a href="http://dict.qsbdc.com/adventurousness"><strong>adventurousness</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_6">6</a>, imagination and <a href="http://dict.qsbdc.com/steadfast"><strong>steadfast</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_7">7</a> purpose, and he approached the general life of our time at such an angle as to reflect the most curious and profitable lights upon it. To tell his story is to reflect upon all the main educational ideas of the last half-century, and to revise our conception of the process and purpose of the modern community in relation to education. For Sanderson had a mind like an <a href="http://dict.qsbdc.com/octopus"><strong>octopus</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_8">8</a>, it seemed always to have a <a href="http://dict.qsbdc.com/tentacle"><strong>tentacle</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_9">9</a> free to reach out beyond what was already held, and his <a href="http://dict.qsbdc.com/tentacles"><strong>tentacles</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_10">10</a> grew and radiated farther and farther. Before his end he had come to a vision of the school as a centre for the complete reorganisation of civilised life.</p>
+]]></content>
+      <categories>
+        <category>novel</category>
+      </categories>
   </entry>
 </search>

@@ -1,0 +1,3612 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,zh-TW,default">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>Matplotlib学习笔记 - 相思似海深旧事如天远</title>
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="相思似海深旧事如天远" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name="msapplication-TileColor" content="#ffffff">
+    
+      <meta name="msapplication-config" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/browserconfig.xml">
+    
+      <meta name="theme-color" content="#ffffff">
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" type="text/css" href="/css/matery.css">
+  
+
+  <!-- import link -->
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/site.webmanifest">
+  <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon.ico">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <link rel="stylesheet" type="text/css" href="/css/matery.css">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br>
+        <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+	<script src="https://cdn.jsdelivr.net/gh/dearxuanres/res/js/playerListener.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/sakura.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/mouse_slide.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/clicksocialist.js"></script>
+    
+
+<header id="l_header" class="l_header auto shadow show" style="opacity: 0">
+  <div class="container">
+  <div id="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>留言板
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+          
+				</li></ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h m-phone">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>留言板
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+            
+          </li></ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="full" class="cover-wrapper post search" style="display: none;">
+          
+            <div id="cover-backstretch"></div>
+          
+          <div class="cover-body">
+  <div class="top">
+    
+      <img no-lazy class="logo" src="https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/images/volantis_log.png">
+    
+    
+      <p class="title">相思似海深旧事如天远</p>
+    
+    
+  </div>
+  <div class="bottom">
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="这里有你想要的一切">
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class="menu navigation">
+      <div class="list-h">
+        
+          
+            <a href="/v4/getting-started/" id="v4getting-started">
+              <p>文档</p>
+            </a>
+          
+            <a href="/faqs/" id="faqs">
+              <p>帮助</p>
+            </a>
+          
+            <a href="/examples/" id="examples">
+              <p>示例</p>
+            </a>
+          
+            <a href="/contributors/" id="contributors">
+              <p>社区</p>
+            </a>
+          
+            <a href="/archives/" id="archives">
+              <p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis">
+              <p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class="l_main">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        Matplotlib学习笔记
+      </h1>
+      <div class="new-meta-box">
+        
+          
+            
+<div class="new-meta-item author">
+  <a class="author" target="_blank" href="https://github.com/pistachio0812" rel="external nofollow noopener noreferrer">
+    <img no-lazy src="https://img2.baidu.com/it/u=3926975947,4222146085&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=625">
+    <p>情深深雨濛濛</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Apr 3, 2022</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：7.6k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：35分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class="notlink">
+      
+      <div id="lc-pv" data-title="Matplotlib学习笔记" data-path="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Matplotlib 是 Python 的绘图库，它能让使用者很轻松地将数据图形化，并且提供多样化的输出格式。可以用来绘制各种静态，动态，交互式的图表。是一个非常强大的 Python 画图工具，我们可以使用该工具将很多数据通过图表的形式更直观的呈现出来。可以绘制线图、散点图、等高线图、条形图、柱状图、3D 图形、甚至是图形动画等等。</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>Matplotlib 通常与 NumPy 和 SciPy（Scientific Python）一起使用， 这种组合广泛用于替代 MatLab，是一个强大的科学计算环境，有助于我们通过 Python 学习数据科学或者机器学习。</p>
+<p>SciPy 是一个开源的 Python 算法库和数学工具包。</p>
+<p>SciPy 包含的模块有最优化、线性代数、积分、插值、特殊函数、快速傅里叶变换、信号处理和图像处理、常微分方程求解和其他科学与工程中常用的计算。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>本章节，我们使用 pip 工具来安装 <code>Matplotlib</code> 库，如果还未安装该工具，可以参考 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/w3cnote/python-pip-install-usage.html">Python pip 安装与使用</a>。</p>
+<p>升级 pip：</p>
+<pre><code class="python">python3 -m pip install -U pip
+</code></pre>
+<p>安装 <code>matplotlib</code> 库：</p>
+<pre><code class="python">python3 -m pip install -U matplotlib
+</code></pre>
+<p>安装完成后，我们就可以通过 import 来导入<code> matplotlib</code> 库：</p>
+<p><code>import matplotlib</code></p>
+<p>以下实例，我们通过导入 <code>matplotlib</code> 库，然后查看 <code>matplotlib </code>库的版本号：</p>
+<p>实例1:</p>
+<p><code>import matplotlib</code></p>
+<p><code>print(matplotlib.__version__)</code></p>
+<p>执行以上代码，输出结果如下：</p>
+<pre><code>3.4.2
+</code></pre>
+<h2 id="Matplotlib-Pyplot"><a href="#Matplotlib-Pyplot" class="headerlink" title="Matplotlib Pyplot"></a>Matplotlib Pyplot</h2><p>Pyplot 是 Matplotlib 的子库，提供了和 MATLAB 类似的绘图 API。</p>
+<p>Pyplot 是常用的绘图模块，能很方便让用户绘制 2D 图表。</p>
+<p>Pyplot 包含一系列绘图函数的相关函数，每个函数会对当前的图像进行一些修改，例如：给图像加上标记，生新的图像，在图像中产生新的绘图区域等等。</p>
+<p>使用的时候，我们可以使用 import 导入 pyplot 库，并设置一个别名<code> plt</code>：</p>
+<p><code>import matplotlib.pyplot as plt</code></p>
+<p>这样我们就可以使用 <strong>plt</strong> 来引用 Pyplot 包的方法。</p>
+<p>以下实例，我们通过两个坐标 <strong>(0,0)</strong> 到 <strong>(6,100)</strong> 来绘制一条线:</p>
+<p>实例1:</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+xpoints = np.array([0, 6])
+ypoints = np.array([0, 100])
+
+plt.plot(xpoints, ypoints)
+plt.show()
+</code></pre>
+<p>输出结果如下：</p>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403204022943.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403204022943.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>以上实例中我们使用了 Pyplot 的<code> plot()</code> 函数， <strong>plot()</strong> 函数是绘制二维图形的最基本函数。</p>
+<p><strong>plot()</strong> 用于画图它可以绘制点和线，语法格式如下：</p>
+<pre><code class="python"># 画单条线
+plot([x], y, [fmt], *, data=None, **kwargs)
+# 画多条线
+plot([x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs)
+</code></pre>
+<p>参数说明：</p>
+<ul>
+<li><strong>x, y：</strong>点或线的节点，x 为 x 轴数据，y 为 y 轴数据，数据可以列表或数组。</li>
+<li><strong>fmt：</strong>可选，定义基本格式（如颜色、标记和线条样式）。</li>
+<li>*<strong>*kwargs：</strong>可选，用在二维平面图上，设置指定属性，如标签，线的宽度等。</li>
+</ul>
+<pre><code class="python">&gt;&gt;&gt; plot(x, y)        # 创建 y 中数据与 x 中对应值的二维线图，使用默认样式
+&gt;&gt;&gt; plot(x, y, &#39;bo&#39;)  # 创建 y 中数据与 x 中对应值的二维线图，使用蓝色实心圈绘制
+&gt;&gt;&gt; plot(y)           # x 的值为 0..N-1
+&gt;&gt;&gt; plot(y, &#39;r+&#39;)     # 使用红色 + 号
+</code></pre>
+<p><strong>颜色字符：</strong>‘b’ 蓝色，’m’ 洋红色，’g’ 绿色，’y’ 黄色，’r’ 红色，’k’ 黑色，’w’ 白色，’c’ 青绿色，’#008000’ RGB 颜色符串。多条曲线不指定颜色时，会自动选择不同颜色。</p>
+<p><strong>线型参数：</strong>‘‐’ 实线，’‐‐’ 破折线，’‐.’ 点划线，’:’ 虚线。</p>
+<p><strong>标记字符：</strong>‘.’ 点标记，’,’ 像素标记(极小点)，’o’ 实心圈标记，’v’ 倒三角标记，’^’ 上三角标记，’&gt;’ 右三角标记，’&lt;’ 左三角标记…等等。</p>
+<p>如果我们只想绘制两个坐标点，而不是一条线，可以使用 <strong>o</strong> 参数，表示一个实心圈的标记。</p>
+<p>实例2：绘制坐标 (1, 3) 和 (8, 10) 的两个点</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+xpoints = np.array([1, 8])
+ypoints = np.array([3, 10])
+
+plt.plot(xpoints, ypoints, &#39;o&#39;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205635489.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205635489.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>我们也可以绘制任意数量的点，只需确保两个轴上的点数相同即可。</p>
+<p>实例3：绘制一条不规则线，坐标为 (1, 3) 、 (2, 8) 、(6, 1) 、(8, 10)，对应的两个数组为：[1, 2, 6, 8] 与 [3, 8, 1, 10]。</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+xpoints = np.array([1, 2, 6, 8])
+ypoints = np.array([3, 8, 1, 10])
+
+plt.plot(xpoints, ypoints)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205827906.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205827906.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例4：如果我们不指定 x 轴上的点，y只限定范围。</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([3, 10])
+
+plt.plot(ypoints)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210031623.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210031623.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>从上图可以看出 x 的值默认设置为 **[0, 1]**。</p>
+<p>实例5：如果我们不指定 x 轴上的点，y表明具体的点，则 x 会根据 y 的值来设置为 <strong>0, 1, 2, 3..N-1</strong></p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([3, 8, 1, 10, 5, 7])
+
+plt.plot(ypoints)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210331668.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210331668.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例6：以下实例我们绘制一个正弦和余弦图，在 plt.plot() 参数中包含两对 <strong>x,y</strong> 值，第一对是 <strong>x,y</strong>，这对应于正弦函数，第二对是 <strong>x,z</strong>，这对应于余弦函数。</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.arange(0,4*np.pi,0.1)   # start,stop,step
+y = np.sin(x)
+z = np.cos(x)
+plt.plot(x,y,x,z)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210514868.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210514868.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h2 id="Matplotlib-绘图标记"><a href="#Matplotlib-绘图标记" class="headerlink" title="Matplotlib 绘图标记"></a>Matplotlib 绘图标记</h2><p>绘图过程如果我们想要给坐标自定义一些不一样的标记，就可以使用 <strong>plot()</strong> 方法的 <code>marker </code>参数来定义。</p>
+<p>实例1:定义实心圆标记</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([1,3,4,5,8,9,6,1,3,4,5,2,4])
+
+plt.plot(ypoints, marker = &#39;o&#39;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212010830.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212010830.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>marker可以定义的符号如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">标记</th>
+<th align="left">符号</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">“.”</td>
+<td align="left"><img src="https://www.runoob.com/images/m00.png" class="lazyload" data-srcset="https://www.runoob.com/images/m00.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m00"></td>
+<td align="left">点</td>
+</tr>
+<tr>
+<td align="left">“,”</td>
+<td align="left"><img src="https://www.runoob.com/images/m01.png" class="lazyload" data-srcset="https://www.runoob.com/images/m01.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m01"></td>
+<td align="left">像素点</td>
+</tr>
+<tr>
+<td align="left">“o”</td>
+<td align="left"><img src="https://www.runoob.com/images/m02.png" class="lazyload" data-srcset="https://www.runoob.com/images/m02.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m02"></td>
+<td align="left">实心圆</td>
+</tr>
+<tr>
+<td align="left">“v”</td>
+<td align="left"><img src="https://www.runoob.com/images/m03.png" class="lazyload" data-srcset="https://www.runoob.com/images/m03.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m03"></td>
+<td align="left">下三角</td>
+</tr>
+<tr>
+<td align="left">“^”</td>
+<td align="left"><img src="https://www.runoob.com/images/m04.png" class="lazyload" data-srcset="https://www.runoob.com/images/m04.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m04"></td>
+<td align="left">上三角</td>
+</tr>
+<tr>
+<td align="left">“&lt;”</td>
+<td align="left"><img src="https://www.runoob.com/images/m05.png" class="lazyload" data-srcset="https://www.runoob.com/images/m05.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m05"></td>
+<td align="left">左三角</td>
+</tr>
+<tr>
+<td align="left">“&gt;”</td>
+<td align="left"><img src="https://www.runoob.com/images/m06.png" class="lazyload" data-srcset="https://www.runoob.com/images/m06.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m06"></td>
+<td align="left">右三角</td>
+</tr>
+<tr>
+<td align="left">“1”</td>
+<td align="left"><img src="https://www.runoob.com/images/m07.png" class="lazyload" data-srcset="https://www.runoob.com/images/m07.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m07"></td>
+<td align="left">下三叉</td>
+</tr>
+<tr>
+<td align="left">“2”</td>
+<td align="left"><img src="https://www.runoob.com/images/m08.png" class="lazyload" data-srcset="https://www.runoob.com/images/m08.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m08"></td>
+<td align="left">上三叉</td>
+</tr>
+<tr>
+<td align="left">“3”</td>
+<td align="left"><img src="https://www.runoob.com/images/m09.png" class="lazyload" data-srcset="https://www.runoob.com/images/m09.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m09"></td>
+<td align="left">左三叉</td>
+</tr>
+<tr>
+<td align="left">“4”</td>
+<td align="left"><img src="https://www.runoob.com/images/m10.png" class="lazyload" data-srcset="https://www.runoob.com/images/m10.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m10"></td>
+<td align="left">右三叉</td>
+</tr>
+<tr>
+<td align="left">“8”</td>
+<td align="left"><img src="https://www.runoob.com/images/m11.png" class="lazyload" data-srcset="https://www.runoob.com/images/m11.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m11"></td>
+<td align="left">八角形</td>
+</tr>
+<tr>
+<td align="left">“s”</td>
+<td align="left"><img src="https://www.runoob.com/images/m12.png" class="lazyload" data-srcset="https://www.runoob.com/images/m12.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m12"></td>
+<td align="left">正方形</td>
+</tr>
+<tr>
+<td align="left">“p”</td>
+<td align="left"><img src="https://www.runoob.com/images/m13.png" class="lazyload" data-srcset="https://www.runoob.com/images/m13.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m13"></td>
+<td align="left">五边形</td>
+</tr>
+<tr>
+<td align="left">“P”</td>
+<td align="left"><img src="https://www.runoob.com/images/m23.png" class="lazyload" data-srcset="https://www.runoob.com/images/m23.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m23"></td>
+<td align="left">加号（填充）</td>
+</tr>
+<tr>
+<td align="left">“*”</td>
+<td align="left"><img src="https://www.runoob.com/images/m14.png" class="lazyload" data-srcset="https://www.runoob.com/images/m14.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m14"></td>
+<td align="left">星号</td>
+</tr>
+<tr>
+<td align="left">“h”</td>
+<td align="left"><img src="https://www.runoob.com/images/m15.png" class="lazyload" data-srcset="https://www.runoob.com/images/m15.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m15"></td>
+<td align="left">六边形 1</td>
+</tr>
+<tr>
+<td align="left">“H”</td>
+<td align="left"><img src="https://www.runoob.com/images/m16.png" class="lazyload" data-srcset="https://www.runoob.com/images/m16.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m16"></td>
+<td align="left">六边形 2</td>
+</tr>
+<tr>
+<td align="left">“+”</td>
+<td align="left"><img src="https://www.runoob.com/images/m17.png" class="lazyload" data-srcset="https://www.runoob.com/images/m17.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m17"></td>
+<td align="left">加号</td>
+</tr>
+<tr>
+<td align="left">“x”</td>
+<td align="left"><img src="https://www.runoob.com/images/m18.png" class="lazyload" data-srcset="https://www.runoob.com/images/m18.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m18"></td>
+<td align="left">乘号 x</td>
+</tr>
+<tr>
+<td align="left">“X”</td>
+<td align="left"><img src="https://www.runoob.com/images/m24.png" class="lazyload" data-srcset="https://www.runoob.com/images/m24.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m24"></td>
+<td align="left">乘号 x (填充)</td>
+</tr>
+<tr>
+<td align="left">“D”</td>
+<td align="left"><img src="https://www.runoob.com/images/m19.png" class="lazyload" data-srcset="https://www.runoob.com/images/m19.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m19"></td>
+<td align="left">菱形</td>
+</tr>
+<tr>
+<td align="left">“d”</td>
+<td align="left"><img src="https://www.runoob.com/images/m20.png" class="lazyload" data-srcset="https://www.runoob.com/images/m20.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m20"></td>
+<td align="left">瘦菱形</td>
+</tr>
+<tr>
+<td align="left">“|”</td>
+<td align="left"><img src="https://www.runoob.com/images/m21.png" class="lazyload" data-srcset="https://www.runoob.com/images/m21.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m21"></td>
+<td align="left">竖线</td>
+</tr>
+<tr>
+<td align="left">“_”</td>
+<td align="left"><img src="https://www.runoob.com/images/m22.png" class="lazyload" data-srcset="https://www.runoob.com/images/m22.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m22"></td>
+<td align="left">横线</td>
+</tr>
+<tr>
+<td align="left">0 (TICKLEFT)</td>
+<td align="left"><img src="https://www.runoob.com/images/m25.png" class="lazyload" data-srcset="https://www.runoob.com/images/m25.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m25"></td>
+<td align="left">左横线</td>
+</tr>
+<tr>
+<td align="left">1 (TICKRIGHT)</td>
+<td align="left"><img src="https://www.runoob.com/images/m26.png" class="lazyload" data-srcset="https://www.runoob.com/images/m26.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m26"></td>
+<td align="left">右横线</td>
+</tr>
+<tr>
+<td align="left">2 (TICKUP)</td>
+<td align="left"><img src="https://www.runoob.com/images/m27.png" class="lazyload" data-srcset="https://www.runoob.com/images/m27.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m27"></td>
+<td align="left">上竖线</td>
+</tr>
+<tr>
+<td align="left">3 (TICKDOWN)</td>
+<td align="left"><img src="https://www.runoob.com/images/m28.png" class="lazyload" data-srcset="https://www.runoob.com/images/m28.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m28"></td>
+<td align="left">下竖线</td>
+</tr>
+<tr>
+<td align="left">4 (CARETLEFT)</td>
+<td align="left"><img src="https://www.runoob.com/images/m29.png" class="lazyload" data-srcset="https://www.runoob.com/images/m29.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m29"></td>
+<td align="left">左箭头</td>
+</tr>
+<tr>
+<td align="left">5 (CARETRIGHT)</td>
+<td align="left"><img src="https://www.runoob.com/images/m30.png" class="lazyload" data-srcset="https://www.runoob.com/images/m30.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m30"></td>
+<td align="left">右箭头</td>
+</tr>
+<tr>
+<td align="left">6 (CARETUP)</td>
+<td align="left"><img src="https://www.runoob.com/images/m31.png" class="lazyload" data-srcset="https://www.runoob.com/images/m31.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m31"></td>
+<td align="left">上箭头</td>
+</tr>
+<tr>
+<td align="left">7 (CARETDOWN)</td>
+<td align="left"><img src="https://www.runoob.com/images/m32.png" class="lazyload" data-srcset="https://www.runoob.com/images/m32.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m32"></td>
+<td align="left">下箭头</td>
+</tr>
+<tr>
+<td align="left">8 (CARETLEFTBASE)</td>
+<td align="left"><img src="https://www.runoob.com/images/m33.png" class="lazyload" data-srcset="https://www.runoob.com/images/m33.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m33"></td>
+<td align="left">左箭头 (中间点为基准)</td>
+</tr>
+<tr>
+<td align="left">9 (CARETRIGHTBASE)</td>
+<td align="left"><img src="https://www.runoob.com/images/m34.png" class="lazyload" data-srcset="https://www.runoob.com/images/m34.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m34"></td>
+<td align="left">右箭头 (中间点为基准)</td>
+</tr>
+<tr>
+<td align="left">10 (CARETUPBASE)</td>
+<td align="left"><img src="https://www.runoob.com/images/m35.png" class="lazyload" data-srcset="https://www.runoob.com/images/m35.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m35"></td>
+<td align="left">上箭头 (中间点为基准)</td>
+</tr>
+<tr>
+<td align="left">11 (CARETDOWNBASE)</td>
+<td align="left"><img src="https://www.runoob.com/images/m36.png" class="lazyload" data-srcset="https://www.runoob.com/images/m36.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m36"></td>
+<td align="left">下箭头 (中间点为基准)</td>
+</tr>
+<tr>
+<td align="left">“None”, “ “ or “”</td>
+<td align="left"></td>
+<td align="left">没有任何标记</td>
+</tr>
+<tr>
+<td align="left">‘$…$’</td>
+<td align="left"><img src="https://www.runoob.com/images/m37.png" class="lazyload" data-srcset="https://www.runoob.com/images/m37.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m37"></td>
+<td align="left">渲染指定的字符。例如 “$f$” 以字母 f 为标记。</td>
+</tr>
+</tbody></table>
+<p>实例2:定义了 ***** 标记</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([1,3,4,5,8,9,6,1,3,4,5,2,4])
+
+plt.plot(ypoints, marker = &#39;*&#39;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212950411.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212950411.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例3:定义下箭头</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import matplotlib.markers
+
+plt.plot([1, 2, 3], marker=matplotlib.markers.CARETDOWNBASE)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213418027.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213418027.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h3 id="fmt-参数"><a href="#fmt-参数" class="headerlink" title="fmt 参数"></a>fmt 参数</h3><p>fmt 参数定义了基本格式，如标记、线条样式和颜色。</p>
+<pre><code class="python">fmt = &#39;[marker][line][color]&#39;
+</code></pre>
+<p>例如 <strong>o:r</strong>，<strong>o</strong> 表示实心圆标记，**:** 表示虚线，<strong>r</strong> 表示颜色为红色。</p>
+<p>实例4：</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, &#39;o:r&#39;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213911622.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213911622.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>线类型：</p>
+<table>
+<thead>
+<tr>
+<th align="left">线类型标记</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">‘-‘</td>
+<td align="left">实线</td>
+</tr>
+<tr>
+<td align="left">‘:’</td>
+<td align="left">虚线</td>
+</tr>
+<tr>
+<td align="left">‘–’</td>
+<td align="left">破折线</td>
+</tr>
+<tr>
+<td align="left">‘-.’</td>
+<td align="left">点划线</td>
+</tr>
+</tbody></table>
+<p>颜色类型：</p>
+<table>
+<thead>
+<tr>
+<th align="left">颜色标记</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">‘r’</td>
+<td align="left">红色</td>
+</tr>
+<tr>
+<td align="left">‘g’</td>
+<td align="left">绿色</td>
+</tr>
+<tr>
+<td align="left">‘b’</td>
+<td align="left">蓝色</td>
+</tr>
+<tr>
+<td align="left">‘c’</td>
+<td align="left">青色</td>
+</tr>
+<tr>
+<td align="left">‘m’</td>
+<td align="left">品红</td>
+</tr>
+<tr>
+<td align="left">‘y’</td>
+<td align="left">黄色</td>
+</tr>
+<tr>
+<td align="left">‘k’</td>
+<td align="left">黑色</td>
+</tr>
+<tr>
+<td align="left">‘w’</td>
+<td align="left">白色</td>
+</tr>
+</tbody></table>
+<h3 id="标记大小和颜色"><a href="#标记大小和颜色" class="headerlink" title="标记大小和颜色"></a>标记大小和颜色</h3><p>我们可以自定义标记的大小与颜色，使用的参数分别是：</p>
+<ul>
+<li>markersize，简写为 <strong>ms</strong>：定义标记的大小。</li>
+<li>markerfacecolor，简写为 <strong>mfc</strong>：定义标记内部的颜色。</li>
+<li>markeredgecolor，简写为 <strong>mec</strong>：定义标记边框的颜色。</li>
+</ul>
+<p>实例5：设置标记大小</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, marker = &#39;o&#39;, ms = 20)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215102017.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215102017.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例6：设置标记外边框颜色</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mec = &#39;r&#39;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215856505.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215856505.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例7：设置标记内部颜色</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mfc = &#39;r&#39;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220017186.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220017186.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例8：自定义标记内部与边框的颜色</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([6, 2, 13, 10])
+plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mec = &#39;#4CAF50&#39;, mfc = &#39;#4CAF50&#39;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220233003.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220233003.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h2 id="Matplotlib-绘图线"><a href="#Matplotlib-绘图线" class="headerlink" title="Matplotlib 绘图线"></a>Matplotlib 绘图线</h2><p>绘图过程如果我们自定义线的样式，包括线的类型、颜色和大小等。</p>
+<h3 id="线的类型"><a href="#线的类型" class="headerlink" title="线的类型"></a>线的类型</h3><p>线的类型可以使用 <strong>linestyle</strong> 参数来定义，简写为 <strong>ls</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">简写</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">‘solid’ (默认)</td>
+<td align="left">‘-‘</td>
+<td align="left">实线</td>
+</tr>
+<tr>
+<td align="left">‘dotted’</td>
+<td align="left">‘:’</td>
+<td align="left">点虚线</td>
+</tr>
+<tr>
+<td align="left">‘dashed’</td>
+<td align="left">‘–’</td>
+<td align="left">破折线</td>
+</tr>
+<tr>
+<td align="left">‘dashdot’</td>
+<td align="left">‘-.’</td>
+<td align="left">点划线</td>
+</tr>
+<tr>
+<td align="left">‘None’</td>
+<td align="left">‘’ 或 ‘ ‘</td>
+<td align="left">不画线</td>
+</tr>
+</tbody></table>
+<p>实例1：</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, linestyle = &#39;dotted&#39;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221432174.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221432174.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例2：使用简写</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, ls = &#39;-.&#39;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221604494.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221604494.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h3 id="线的颜色"><a href="#线的颜色" class="headerlink" title="线的颜色"></a>线的颜色</h3><p>线的颜色可以使用 <strong>color</strong> 参数来定义，简写为 <strong>c</strong>。</p>
+<p>颜色类型：</p>
+<table>
+<thead>
+<tr>
+<th align="left">颜色标记</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">‘r’</td>
+<td align="left">红色</td>
+</tr>
+<tr>
+<td align="left">‘g’</td>
+<td align="left">绿色</td>
+</tr>
+<tr>
+<td align="left">‘b’</td>
+<td align="left">蓝色</td>
+</tr>
+<tr>
+<td align="left">‘c’</td>
+<td align="left">青色</td>
+</tr>
+<tr>
+<td align="left">‘m’</td>
+<td align="left">品红</td>
+</tr>
+<tr>
+<td align="left">‘y’</td>
+<td align="left">黄色</td>
+</tr>
+<tr>
+<td align="left">‘k’</td>
+<td align="left">黑色</td>
+</tr>
+<tr>
+<td align="left">‘w’</td>
+<td align="left">白色</td>
+</tr>
+</tbody></table>
+<p>当然也可以自定义颜色类型，例如：<strong>SeaGreen、#8FBC8F</strong> 等，完整样式可以参考 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/html/html-colorvalues.html">HTML 颜色值</a>。</p>
+<p>实例3：</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, color = &#39;r&#39;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221822295.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221822295.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例4：</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, c = &#39;#8FBC8F&#39;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222000966.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222000966.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例5：</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, c = &#39;SeaGreen&#39;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222117925.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222117925.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h3 id="线的宽度"><a href="#线的宽度" class="headerlink" title="线的宽度"></a>线的宽度</h3><p>线的宽度可以使用 <strong>linewidth</strong> 参数来定义，简写为 <strong>lw</strong>，值可以是浮点数，如：<strong>1</strong>、<strong>2.0</strong>、<strong>5.67</strong> 等</p>
+<p>实例6：</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+ypoints = np.array([6, 2, 13, 10])
+
+plt.plot(ypoints, linewidth = &#39;12.5&#39;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222318825.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222318825.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h3 id="多条线"><a href="#多条线" class="headerlink" title="多条线"></a>多条线</h3><p>plot() 方法中可以包含多对 x,y 值来绘制多条线。</p>
+<p>实例7：</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+y1 = np.array([3, 7, 5, 9])
+y2 = np.array([6, 2, 13, 10])
+
+plt.plot(y1)
+plt.plot(y2)
+
+plt.show()
+</code></pre>
+<p>从上图可以看出 <strong>x</strong> 的值默认设置为 **[0, 1, 2, 3]**。</p>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222526935.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222526935.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例8：</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x1 = np.array([0, 1, 2, 3])
+y1 = np.array([3, 7, 5, 9])
+x2 = np.array([0, 1, 2, 3])
+y2 = np.array([6, 2, 13, 10])
+
+plt.plot(x1, y1, x2, y2)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222628227.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222628227.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h2 id="Matplotlib-轴标签和标题"><a href="#Matplotlib-轴标签和标题" class="headerlink" title="Matplotlib 轴标签和标题"></a>Matplotlib 轴标签和标题</h2><p>我们可以使用 <strong>xlabel()</strong> 和 <strong>ylabel()</strong> 方法来设置 x 轴和 y 轴的标签。</p>
+<p>实例1：</p>
+<pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+plt.plot(x, y)
+
+plt.xlabel(&quot;x - label&quot;)
+plt.ylabel(&quot;y - label&quot;)
+
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404095612577.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404095612577.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>实例2：使用 <strong>title()</strong> 方法来设置标题:</p>
+<pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+plt.plot(x, y)
+
+plt.title(&quot;line chart&quot;)
+plt.xlabel(&quot;x - label&quot;)
+plt.ylabel(&quot;y - label&quot;)
+
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404100123540.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404100123540.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h3 id="图像中文显示"><a href="#图像中文显示" class="headerlink" title="图像中文显示"></a>图像中文显示</h3><p>Matplotlib 默认情况不支持中文，我们可以使用以下简单的方法来解决。</p>
+<p>这里我们使用思源黑体，思源黑体是 Adobe 与 Google 推出的一款开源字体。</p>
+<p>官网：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://source.typekit.com/source-han-serif/cn/">https://source.typekit.com/source-han-serif/cn/</a></p>
+<p>GitHub 地址：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/adobe-fonts/source-han-sans/tree/release/OTF/SimplifiedChinese">https://github.com/adobe-fonts/source-han-sans/tree/release/OTF/SimplifiedChinese</a></p>
+<p>打开链接后，在里面选一个就好了：</p>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104121709.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104121709.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>你也可以在网盘下载: <a target="_blank" rel="external nofollow noopener noreferrer" href="https://pan.baidu.com/s/10-w1JbXZSnx3Tm6uGpPGOw%EF%BC%8C%E6%8F%90%E5%8F%96%E7%A0%81%EF%BC%9A**yxqu**%E3%80%82">https://pan.baidu.com/s/10-w1JbXZSnx3Tm6uGpPGOw，提取码：**yxqu**。</a></p>
+<p>可以下载个 OTF 字体，比如 SourceHanSansSC-Bold.otf，将该文件文件放在当前执行的代码文件中：</p>
+<p><code>SourceHanSansSC-Bold.otf</code> 文件放在当前执行的代码文件中。</p>
+<p>实例3：</p>
+<pre><code class="python">import numpy as np 
+from matplotlib import pyplot as plt 
+import matplotlib
+ 
+# fname 为 你下载的字体库路径，注意 SourceHanSansSC-Bold.otf 字体的路径
+zhfont1 = matplotlib.font_manager.FontProperties(fname=&quot;SourceHanSansSC-Bold.otf&quot;) 
+ 
+x = np.arange(1,11) 
+y =  2  * x +  5 
+plt.title(&quot;测试&quot;, fontproperties=zhfont1) 
+ 
+# fontproperties 设置中文显示，fontsize 设置字体大小
+plt.xlabel(&quot;x标签&quot;, fontproperties=zhfont1)
+plt.ylabel(&quot;y标签&quot;, fontproperties=zhfont1)
+plt.plot(x,y) 
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104616081.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104616081.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p><em>此外，我们还可以使用系统的字体：</em></p>
+<pre><code class="python">from matplotlib import pyplot as plt
+import matplotlib
+a=sorted([f.name for f in matplotlib.font_manager.fontManager.ttflist])
+
+for i in a:
+    print(i)
+</code></pre>
+<p><em>打印出你的 font_manager 的 ttflist 中所有注册的名字，找一个看中文字体例如：STFangsong(仿宋）,然后添加以下代码即可：</em></p>
+<pre><code class="python">plt.rcParams[&#39;font.family&#39;]=[&#39;STFangsong&#39;]
+</code></pre>
+<p>实例4：:自定义字体的样式</p>
+<pre><code class="python">import numpy as np
+from matplotlib import pyplot as plt
+import matplotlib
+ 
+# fname 为 你下载的字体库路径，注意 SourceHanSansSC-Bold.otf 字体的路径，size 参数设置字体大小
+zhfont1 = matplotlib.font_manager.FontProperties(fname=&quot;SourceHanSansSC-Bold.otf&quot;, size=18)
+font1 = &#123;&#39;color&#39;:&#39;blue&#39;,&#39;size&#39;:20&#125;
+font2 = &#123;&#39;color&#39;:&#39;darkred&#39;,&#39;size&#39;:15&#125;
+x = np.arange(1,11)
+y =  2  * x +  5
+
+# fontdict 可以使用 css 来设置字体样式
+plt.title(&quot;菜鸟教程 - 测试&quot;, fontproperties=zhfont1, fontdict = font1)
+ 
+# fontproperties 设置中文显示，fontsize 设置字体大小
+plt.xlabel(&quot;x 轴&quot;, fontproperties=zhfont1)
+plt.ylabel(&quot;y 轴&quot;, fontproperties=zhfont1)
+plt.plot(x,y)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104841496.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104841496.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h3 id="标题与标签的定位"><a href="#标题与标签的定位" class="headerlink" title="标题与标签的定位"></a>标题与标签的定位</h3><p><strong>title()</strong> 方法提供了 <strong>loc</strong> 参数来设置标题显示的位置，可以设置为: **’left’, ‘right’, 和 ‘center’， 默认值为 ‘center’**。</p>
+<p><strong>xlabel()</strong> 方法提供了 <strong>loc</strong> 参数来设置 x 轴显示的位置，可以设置为: **’left’, ‘right’, 和 ‘center’， 默认值为 ‘center’**。</p>
+<p><strong>ylabel()</strong> 方法提供了 <strong>loc</strong> 参数来设置 y 轴显示的位置，可以设置为: **’bottom’, ‘top’, 和 ‘center’， 默认值为 ‘center’**。</p>
+<p>实例5：</p>
+<pre><code class="python">import numpy as np
+from matplotlib import pyplot as plt
+import matplotlib
+ 
+# fname 为 你下载的字体库路径，注意 SourceHanSansSC-Bold.otf 字体的路径，size 参数设置字体大小
+zhfont1 = matplotlib.font_manager.FontProperties(fname=&quot;SourceHanSansSC-Bold.otf&quot;, size=18)
+font1 = &#123;&#39;color&#39;:&#39;blue&#39;,&#39;size&#39;:20&#125;
+font2 = &#123;&#39;color&#39;:&#39;darkred&#39;,&#39;size&#39;:15&#125;
+x = np.arange(1,11)
+y =  2  * x +  5
+
+# fontdict 可以使用 css 来设置字体样式
+plt.title(&quot;菜鸟教程 - 测试&quot;, fontproperties=zhfont1, fontdict = font1, loc=&quot;left&quot;)
+ 
+# fontproperties 设置中文显示，fontsize 设置字体大小
+plt.xlabel(&quot;x 轴&quot;, fontproperties=zhfont1, loc=&quot;left&quot;)
+plt.ylabel(&quot;y 轴&quot;, fontproperties=zhfont1, loc=&quot;top&quot;)
+plt.plot(x,y)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104916266.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104916266.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h2 id="Matplotlib-网格线"><a href="#Matplotlib-网格线" class="headerlink" title="Matplotlib 网格线"></a>Matplotlib 网格线</h2><p>我们可以使用 pyplot 中的 grid() 方法来设置图表中的网格线。</p>
+<p>grid() 方法语法格式如下：</p>
+<pre><code>matplotlib.pyplot.grid(b=None, which=&#39;major&#39;, axis=&#39;both&#39;, )
+</code></pre>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><p><strong>b</strong>：可选，默认为 None，可以设置布尔值，true 为显示网格线，false 为不显示，如果设置 **kwargs 参数，则值为 true。</p>
+</li>
+<li><p><strong>which</strong>：可选，可选值有 ‘major’、’minor’ 和 ‘both’，默认为 ‘major’，表示应用更改的网格线。</p>
+</li>
+<li><p><strong>axis</strong>：可选，设置显示哪个方向的网格线，可以是取 ‘both’（默认），’x’ 或 ‘y’，分别表示两个方向，x 轴方向或 y 轴方向。</p>
+</li>
+<li><p>*<strong>*kwargs</strong>：可选，设置网格样式，可以是 color&#x3D;’r’, linestyle&#x3D;’-‘ 和 linewidth&#x3D;2，分别表示网格线的颜色，样式和宽度。</p>
+</li>
+</ul>
+<p>实例1：添加一个简单的网格线，参数使用默认值</p>
+<pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+
+
+plt.title(&quot;RUNOOB grid() Test&quot;)
+plt.xlabel(&quot;x - label&quot;)
+plt.ylabel(&quot;y - label&quot;)
+
+plt.plot(x, y)
+
+plt.grid()
+
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152016310.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152016310.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例2:添加一个简单的网格线，axis 参数使用 x，设置 x 轴方向显示网格线</p>
+<pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+
+
+plt.title(&quot;RUNOOB grid() Test&quot;)
+plt.xlabel(&quot;x - label&quot;)
+plt.ylabel(&quot;y - label&quot;)
+
+plt.plot(x, y)
+
+plt.grid(axis=&#39;x&#39;) # 设置 y 就在轴方向显示网格线
+
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152129680.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152129680.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>以下实例添加一个简单的网格线，并设置网格线的样式，格式如下：</p>
+<pre><code>grid(color = &#39;color&#39;, linestyle = &#39;linestyle&#39;, linewidth = number)
+</code></pre>
+<p><strong>参数说明：</strong></p>
+<p><strong>color：</strong>‘b’ 蓝色，’m’ 洋红色，’g’ 绿色，’y’ 黄色，’r’ 红色，’k’ 黑色，’w’ 白色，’c’ 青绿色，’#008000’ RGB 颜色符串。</p>
+<p><strong>linestyle：</strong>‘‐’ 实线，’‐‐’ 破折线，’‐.’ 点划线，’:’ 虚线。</p>
+<p><strong>linewidth</strong>：设置线的宽度，可以设置一个数字。</p>
+<p>实例3：</p>
+<pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+
+
+plt.title(&quot;RUNOOB grid() Test&quot;)
+plt.xlabel(&quot;x - label&quot;)
+plt.ylabel(&quot;y - label&quot;)
+
+plt.plot(x, y)
+
+plt.grid(color = &#39;r&#39;, linestyle = &#39;--&#39;, linewidth = 0.5)
+
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152316633.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152316633.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h2 id="Matplotlib绘制多图"><a href="#Matplotlib绘制多图" class="headerlink" title="Matplotlib绘制多图"></a>Matplotlib绘制多图</h2><p>我们可以使用 pyplot 中的 <strong>subplot()</strong> 和 <strong>subplots()</strong> 方法来绘制多个子图。</p>
+<p><strong>subplot()</strong> 方法在绘图时需要指定位置，<strong>subplots()</strong> 方法可以一次生成多个，在调用时只需要调用生成对象的 ax 即可。</p>
+<h3 id="subplot"><a href="#subplot" class="headerlink" title="subplot"></a>subplot</h3><pre><code class="python">subplot(nrows, ncols, index, **kwargs)
+subplot(pos, **kwargs)
+subplot(**kwargs)
+subplot(ax)
+</code></pre>
+<p>以上函数将整个绘图区域分成 nrows 行和 ncols 列，然后从左到右，从上到下的顺序对每个子区域进行编号 <strong>1…N</strong> ，左上的子区域的编号为 1、右下的区域编号为 N，编号可以通过参数 <strong>index</strong> 来设置。</p>
+<p>设置 numRows ＝ 1，numCols ＝ 2，就是将图表绘制成 1x2 的图片区域, 对应的坐标为：</p>
+<pre><code>(1, 1), (1, 2)
+</code></pre>
+<p><strong>plotNum ＝ 1</strong>, 表示的坐标为(1, 1), 即第一行第一列的子图。</p>
+<p><strong>plotNum ＝ 2</strong>, 表示的坐标为(1, 2), 即第一行第二列的子图。</p>
+<p>实例1：</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+#plot 1:
+xpoints = np.array([0, 6])
+ypoints = np.array([0, 100])
+
+plt.subplot(1, 2, 1)
+plt.plot(xpoints,ypoints)
+plt.title(&quot;plot 1&quot;)
+
+#plot 2:
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+
+plt.subplot(1, 2, 2)
+plt.plot(x,y)
+plt.title(&quot;plot 2&quot;)
+
+plt.suptitle(&quot;RUNOOB subplot Test&quot;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152756053.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152756053.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>设置 numRows ＝ 2，numCols ＝ 2，就是将图表绘制成 2x2 的图片区域, 对应的坐标为：</p>
+<pre><code>(1, 1), (1, 2)
+(2, 1), (2, 2)
+</code></pre>
+<p><strong>plotNum ＝ 1</strong>, 表示的坐标为(1, 1), 即第一行第一列的子图。</p>
+<p><strong>plotNum ＝ 2</strong>, 表示的坐标为(1, 2), 即第一行第二列的子图。</p>
+<p><strong>plotNum ＝ 3</strong>, 表示的坐标为(2, 1), 即第二行第一列的子图。</p>
+<p><strong>plotNum ＝ 4</strong>, 表示的坐标为(2, 2), 即第二行第二列的子图。</p>
+<p>实例2：</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+#plot 1:
+x = np.array([0, 6])
+y = np.array([0, 100])
+
+plt.subplot(2, 2, 1)
+plt.plot(x,y)
+plt.title(&quot;plot 1&quot;)
+
+#plot 2:
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+
+plt.subplot(2, 2, 2)
+plt.plot(x,y)
+plt.title(&quot;plot 2&quot;)
+
+#plot 3:
+x = np.array([1, 2, 3, 4])
+y = np.array([3, 5, 7, 9])
+
+plt.subplot(2, 2, 3)
+plt.plot(x,y)
+plt.title(&quot;plot 3&quot;)
+
+#plot 4:
+x = np.array([1, 2, 3, 4])
+y = np.array([4, 5, 6, 7])
+
+plt.subplot(2, 2, 4)
+plt.plot(x,y)
+plt.title(&quot;plot 4&quot;)
+
+plt.suptitle(&quot;RUNOOB subplot Test&quot;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152958366.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152958366.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h3 id="subplots"><a href="#subplots" class="headerlink" title="subplots()"></a>subplots()</h3><p>subplots() 方法语法格式如下：</p>
+<pre><code class="python">matplotlib.pyplot.subplots(nrows=1, ncols=1, *, sharex=False, sharey=False, squeeze=True, subplot_kw=None, gridspec_kw=None, **fig_kw)
+</code></pre>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><strong>nrows</strong>：默认为 1，设置图表的行数。</li>
+<li><strong>ncols</strong>：默认为 1，设置图表的列数。</li>
+<li><strong>sharex、sharey</strong>：设置 x、y 轴是否共享属性，默认为 false，可设置为 ‘none’、’all’、’row’ 或 ‘col’。 False 或 none 每个子图的 x 轴或 y 轴都是独立的，True 或 ‘all’：所有子图共享 x 轴或 y 轴，’row’ 设置每个子图行共享一个 x 轴或 y 轴，’col’：设置每个子图列共享一个 x 轴或 y 轴。</li>
+<li><strong>squeeze</strong>：布尔值，默认为 True，表示额外的维度从返回的 Axes(轴)对象中挤出，对于 N<em>1 或 1</em>N 个子图，返回一个 1 维数组，对于 N*M，N&gt;1 和 M&gt;1 返回一个 2 维数组。如果设置为 False，则不进行挤压操作，返回一个元素为 Axes 实例的2维数组，即使它最终是1x1。</li>
+<li><strong>subplot_kw</strong>：可选，字典类型。把字典的关键字传递给 add_subplot() 来创建每个子图。</li>
+<li><strong>gridspec_kw</strong>：可选，字典类型。把字典的关键字传递给 GridSpec 构造函数创建子图放在网格里(grid)。</li>
+<li>*<strong>*fig_kw</strong>：把详细的关键字参数传给 figure() 函数。</li>
+</ul>
+<p>实例3：</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+# 创建一些测试数据 -- 图1
+x = np.linspace(0, 2*np.pi, 400)
+y = np.sin(x**2)
+
+# 创建一个画像和子图 -- 图2
+fig, ax = plt.subplots()
+ax.plot(x, y)
+ax.set_title(&#39;Simple plot&#39;)
+
+# 创建两个子图 -- 图3
+f, (ax1, ax2) = plt.subplots(1, 2, sharey=True)
+ax1.plot(x, y)
+ax1.set_title(&#39;Sharing Y axis&#39;)
+ax2.scatter(x, y)
+
+# 创建四个子图 -- 图4
+fig, axs = plt.subplots(2, 2, subplot_kw=dict(projection=&quot;polar&quot;))
+axs[0, 0].plot(x, y)
+axs[1, 1].scatter(x, y)
+
+# 共享 x 轴
+plt.subplots(2, 2, sharex=&#39;col&#39;)
+
+# 共享 y 轴
+plt.subplots(2, 2, sharey=&#39;row&#39;)
+
+# 共享 x 轴和 y 轴
+plt.subplots(2, 2, sharex=&#39;all&#39;, sharey=&#39;all&#39;)
+
+# 这个也是共享 x 轴和 y 轴
+plt.subplots(2, 2, sharex=True, sharey=True)
+
+# 创建10 张图，已经存在的则删除
+fig, ax = plt.subplots(num=10, clear=True)
+
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153408476.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153408476.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153431942.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153431942.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153453565.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153453565.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153511622.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153511622.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h2 id="Matplotlib散点图"><a href="#Matplotlib散点图" class="headerlink" title="Matplotlib散点图"></a>Matplotlib散点图</h2><p>我们可以使用 pyplot 中的 scatter() 方法来绘制散点图。</p>
+<p>scatter() 方法语法格式如下：</p>
+<pre><code class="python">matplotlib.pyplot.scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, *, edgecolors=None, plotnonfinite=False, data=None, **kwargs)
+</code></pre>
+<p><strong>参数说明：</strong></p>
+<p><strong>x，y</strong>：长度相同的数组，也就是我们即将绘制散点图的数据点，输入数据。</p>
+<p><strong>s</strong>：点的大小，默认 20，也可以是个数组，数组每个参数为对应点的大小。</p>
+<p><strong>c</strong>：点的颜色，默认蓝色 ‘b’，也可以是个 RGB 或 RGBA 二维行数组。</p>
+<p><strong>marker</strong>：点的样式，默认小圆圈 ‘o’。</p>
+<p><strong>cmap</strong>：Colormap，默认 None，标量或者是一个 colormap 的名字，只有 c 是一个浮点数数组的时才使用。如果没有申明就是 image.cmap。</p>
+<p><strong>norm</strong>：Normalize，默认 None，数据亮度在 0-1 之间，只有 c 是一个浮点数的数组的时才使用。</p>
+<p><strong>vmin，vmax：</strong>：亮度设置，在 norm 参数存在时会忽略。</p>
+<p><strong>alpha：</strong>：透明度设置，0-1 之间，默认 None，即不透明。</p>
+<p><strong>linewidths：</strong>：标记点的长度。</p>
+<p><strong>edgecolors：</strong>：颜色或颜色序列，默认为 ‘face’，可选值有 ‘face’, ‘none’, None。</p>
+<p><strong>plotnonfinite：</strong>：布尔值，设置是否使用非限定的 c ( inf, -inf 或 nan) 绘制点。</p>
+<p>*<strong>*kwargs：</strong>：其他参数。</p>
+<p>以下实例 scatter() 函数接收长度相同的数组参数，一个用于 x 轴的值，另一个用于 y 轴上的值：</p>
+<p>实例1：</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+y = np.array([1, 4, 9, 16, 7, 11, 23, 18])
+
+plt.scatter(x, y)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155337371.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155337371.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例2：设置图标大小</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+y = np.array([1, 4, 9, 16, 7, 11, 23, 18])
+sizes = np.array([20,50,100,200,500,1000,60,90])
+plt.scatter(x, y, s=sizes)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155550197.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155550197.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例3：自定义点的颜色</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+y = np.array([1, 4, 9, 16, 7, 11, 23, 18])
+colors = np.array([&quot;red&quot;,&quot;green&quot;,&quot;black&quot;,&quot;orange&quot;,&quot;purple&quot;,&quot;beige&quot;,&quot;cyan&quot;,&quot;magenta&quot;])
+
+plt.scatter(x, y, c=colors)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155740263.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155740263.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例4：设置两组散点图</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
+y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])
+plt.scatter(x, y, color = &#39;hotpink&#39;)
+
+x = np.array([2,2,8,1,15,8,12,9,7,3,11,4,7,14,12])
+y = np.array([100,105,84,105,90,99,90,95,94,100,79,112,91,80,85])
+plt.scatter(x, y, color = &#39;#88c999&#39;)
+
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155923033.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155923033.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例5：使用随机数来设置散点图</p>
+<pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
+
+# 随机数生成器的种子
+np.random.seed(19680801)
+
+
+N = 50
+x = np.random.rand(N)
+y = np.random.rand(N)
+colors = np.random.rand(N)
+area = (30 * np.random.rand(N))**2  # 0 to 15 point radii
+
+plt.scatter(x, y, s=area, c=colors, alpha=0.5) # 设置颜色及透明度
+
+plt.title(&quot;RUNOOB Scatter Test&quot;) # 设置标题
+
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160218777.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160218777.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h3 id="颜色条Colormap"><a href="#颜色条Colormap" class="headerlink" title="颜色条Colormap"></a>颜色条Colormap</h3><p>Matplotlib 模块提供了很多可用的颜色条。</p>
+<p>颜色条就像一个颜色列表，其中每种颜色都有一个范围从 0 到 100 的值。</p>
+<p>下面是一个颜色条的例子：</p>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160411035.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160411035.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例6：设置颜色条需要使用 cmap 参数，默认值为 ‘viridis’，之后颜色值设置为 0 到 100 的数组</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
+y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])
+colors = np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])
+
+plt.scatter(x, y, c=colors, cmap=&#39;viridis&#39;)
+
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160555429.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160555429.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例7：如果要显示颜色条，需要使用 <strong>plt.colorbar()</strong> 方法</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
+y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])
+colors = np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])
+
+plt.scatter(x, y, c=colors, cmap=&#39;viridis&#39;)
+
+plt.colorbar()
+
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160751739.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160751739.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例8：换个颜色条参数， cmap 设置为 <strong>afmhot_r</strong></p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
+y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])
+colors = np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])
+
+plt.scatter(x, y, c=colors, cmap=&#39;afmhot_r&#39;)
+plt.colorbar()
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160958004.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160958004.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>颜色条参数值可以是以下值：</p>
+<table>
+<thead>
+<tr>
+<th align="left">颜色名称</th>
+<th align="left">保留关键字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Accent</td>
+<td align="left">Accent_r</td>
+</tr>
+<tr>
+<td align="left">Blues</td>
+<td align="left">Blues_r</td>
+</tr>
+<tr>
+<td align="left">BrBG</td>
+<td align="left">BrBG_r</td>
+</tr>
+<tr>
+<td align="left">BuGn</td>
+<td align="left">BuGn_r</td>
+</tr>
+<tr>
+<td align="left">BuPu</td>
+<td align="left">BuPu_r</td>
+</tr>
+<tr>
+<td align="left">CMRmap</td>
+<td align="left">CMRmap_r</td>
+</tr>
+<tr>
+<td align="left">Dark2</td>
+<td align="left">Dark2_r</td>
+</tr>
+<tr>
+<td align="left">GnBu</td>
+<td align="left">GnBu_r</td>
+</tr>
+<tr>
+<td align="left">Greens</td>
+<td align="left">Greens_r</td>
+</tr>
+<tr>
+<td align="left">Greys</td>
+<td align="left">Greys_r</td>
+</tr>
+<tr>
+<td align="left">OrRd</td>
+<td align="left">OrRd_r</td>
+</tr>
+<tr>
+<td align="left">Oranges</td>
+<td align="left">Oranges_r</td>
+</tr>
+<tr>
+<td align="left">PRGn</td>
+<td align="left">PRGn_r</td>
+</tr>
+<tr>
+<td align="left">Paired</td>
+<td align="left">Paired_r</td>
+</tr>
+<tr>
+<td align="left">Pastel1</td>
+<td align="left">Pastel1_r</td>
+</tr>
+<tr>
+<td align="left">Pastel2</td>
+<td align="left">Pastel2_r</td>
+</tr>
+<tr>
+<td align="left">PiYG</td>
+<td align="left">PiYG_r</td>
+</tr>
+<tr>
+<td align="left">PuBu</td>
+<td align="left">PuBu_r</td>
+</tr>
+<tr>
+<td align="left">PuBuGn</td>
+<td align="left">PuBuGn_r</td>
+</tr>
+<tr>
+<td align="left">PuOr</td>
+<td align="left">PuOr_r</td>
+</tr>
+<tr>
+<td align="left">PuRd</td>
+<td align="left">PuRd_r</td>
+</tr>
+<tr>
+<td align="left">Purples</td>
+<td align="left">Purples_r</td>
+</tr>
+<tr>
+<td align="left">RdBu</td>
+<td align="left">RdBu_r</td>
+</tr>
+<tr>
+<td align="left">RdGy</td>
+<td align="left">RdGy_r</td>
+</tr>
+<tr>
+<td align="left">RdPu</td>
+<td align="left">RdPu_r</td>
+</tr>
+<tr>
+<td align="left">RdYlBu</td>
+<td align="left">RdYlBu_r</td>
+</tr>
+<tr>
+<td align="left">RdYlGn</td>
+<td align="left">RdYlGn_r</td>
+</tr>
+<tr>
+<td align="left">Reds</td>
+<td align="left">Reds_r</td>
+</tr>
+<tr>
+<td align="left">Set1</td>
+<td align="left">Set1_r</td>
+</tr>
+<tr>
+<td align="left">Set2</td>
+<td align="left">Set2_r</td>
+</tr>
+<tr>
+<td align="left">Set3</td>
+<td align="left">Set3_r</td>
+</tr>
+<tr>
+<td align="left">Spectral</td>
+<td align="left">Spectral_r</td>
+</tr>
+<tr>
+<td align="left">Wistia</td>
+<td align="left">Wistia_r</td>
+</tr>
+<tr>
+<td align="left">YlGn</td>
+<td align="left">YlGn_r</td>
+</tr>
+<tr>
+<td align="left">YlGnBu</td>
+<td align="left">YlGnBu_r</td>
+</tr>
+<tr>
+<td align="left">YlOrBr</td>
+<td align="left">YlOrBr_r</td>
+</tr>
+<tr>
+<td align="left">YlOrRd</td>
+<td align="left">YlOrRd_r</td>
+</tr>
+<tr>
+<td align="left">afmhot</td>
+<td align="left">afmhot_r</td>
+</tr>
+<tr>
+<td align="left">autumn</td>
+<td align="left">autumn_r</td>
+</tr>
+<tr>
+<td align="left">binary</td>
+<td align="left">binary_r</td>
+</tr>
+<tr>
+<td align="left">bone</td>
+<td align="left">bone_r</td>
+</tr>
+<tr>
+<td align="left">brg</td>
+<td align="left">brg_r</td>
+</tr>
+<tr>
+<td align="left">bwr</td>
+<td align="left">bwr_r</td>
+</tr>
+<tr>
+<td align="left">cividis</td>
+<td align="left">cividis_r</td>
+</tr>
+<tr>
+<td align="left">cool</td>
+<td align="left">cool_r</td>
+</tr>
+<tr>
+<td align="left">coolwarm</td>
+<td align="left">coolwarm_r</td>
+</tr>
+<tr>
+<td align="left">copper</td>
+<td align="left">copper_r</td>
+</tr>
+<tr>
+<td align="left">cubehelix</td>
+<td align="left">cubehelix_r</td>
+</tr>
+<tr>
+<td align="left">flag</td>
+<td align="left">flag_r</td>
+</tr>
+<tr>
+<td align="left">gist_earth</td>
+<td align="left">gist_earth_r</td>
+</tr>
+<tr>
+<td align="left">gist_gray</td>
+<td align="left">gist_gray_r</td>
+</tr>
+<tr>
+<td align="left">gist_heat</td>
+<td align="left">gist_heat_r</td>
+</tr>
+<tr>
+<td align="left">gist_ncar</td>
+<td align="left">gist_ncar_r</td>
+</tr>
+<tr>
+<td align="left">gist_rainbow</td>
+<td align="left">gist_rainbow_r</td>
+</tr>
+<tr>
+<td align="left">gist_stern</td>
+<td align="left">gist_stern_r</td>
+</tr>
+<tr>
+<td align="left">gist_yarg</td>
+<td align="left">gist_yarg_r</td>
+</tr>
+<tr>
+<td align="left">gnuplot</td>
+<td align="left">gnuplot_r</td>
+</tr>
+<tr>
+<td align="left">gnuplot2</td>
+<td align="left">gnuplot2_r</td>
+</tr>
+<tr>
+<td align="left">gray</td>
+<td align="left">gray_r</td>
+</tr>
+<tr>
+<td align="left">hot</td>
+<td align="left">hot_r</td>
+</tr>
+<tr>
+<td align="left">hsv</td>
+<td align="left">hsv_r</td>
+</tr>
+<tr>
+<td align="left">inferno</td>
+<td align="left">inferno_r</td>
+</tr>
+<tr>
+<td align="left">jet</td>
+<td align="left">jet_r</td>
+</tr>
+<tr>
+<td align="left">magma</td>
+<td align="left">magma_r</td>
+</tr>
+<tr>
+<td align="left">nipy_spectral</td>
+<td align="left">nipy_spectral_r</td>
+</tr>
+<tr>
+<td align="left">ocean</td>
+<td align="left">ocean_r</td>
+</tr>
+<tr>
+<td align="left">pink</td>
+<td align="left">pink_r</td>
+</tr>
+<tr>
+<td align="left">plasma</td>
+<td align="left">plasma_r</td>
+</tr>
+<tr>
+<td align="left">prism</td>
+<td align="left">prism_r</td>
+</tr>
+<tr>
+<td align="left">rainbow</td>
+<td align="left">rainbow_r</td>
+</tr>
+<tr>
+<td align="left">seismic</td>
+<td align="left">seismic_r</td>
+</tr>
+<tr>
+<td align="left">spring</td>
+<td align="left">spring_r</td>
+</tr>
+<tr>
+<td align="left">summer</td>
+<td align="left">summer_r</td>
+</tr>
+<tr>
+<td align="left">tab10</td>
+<td align="left">tab10_r</td>
+</tr>
+<tr>
+<td align="left">tab20</td>
+<td align="left">tab20_r</td>
+</tr>
+<tr>
+<td align="left">tab20b</td>
+<td align="left">tab20b_r</td>
+</tr>
+<tr>
+<td align="left">tab20c</td>
+<td align="left">tab20c_r</td>
+</tr>
+<tr>
+<td align="left">terrain</td>
+<td align="left">terrain_r</td>
+</tr>
+<tr>
+<td align="left">twilight</td>
+<td align="left">twilight_r</td>
+</tr>
+<tr>
+<td align="left">twilight_shifted</td>
+<td align="left">twilight_shifted_r</td>
+</tr>
+<tr>
+<td align="left">viridis</td>
+<td align="left">viridis_r</td>
+</tr>
+<tr>
+<td align="left">winter</td>
+<td align="left">winter_r</td>
+</tr>
+</tbody></table>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161117677.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161117677.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161139138.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161139138.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161157754.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161157754.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h2 id="Matplotlib柱形图"><a href="#Matplotlib柱形图" class="headerlink" title="Matplotlib柱形图"></a>Matplotlib柱形图</h2><p>我们可以使用 pyplot 中的 bar() 方法来绘制柱形图。</p>
+<p>bar() 方法语法格式如下：</p>
+<pre><code class="python">matplotlib.pyplot.bar(x, height, width=0.8, bottom=None, *, align=&#39;center&#39;, data=None, **kwargs)
+</code></pre>
+<p><strong>参数说明：</strong></p>
+<p><strong>x</strong>：浮点型数组，柱形图的 x 轴数据。</p>
+<p><strong>height</strong>：浮点型数组，柱形图的高度。</p>
+<p><strong>width</strong>：浮点型数组，柱形图的宽度。</p>
+<p><strong>bottom</strong>：浮点型数组，底座的 y 坐标，默认 0。</p>
+<p><strong>align</strong>：柱形图与 x 坐标的对齐方式，’center’ 以 x 位置为中心，这是默认值。 ‘edge’：将柱形图的左边缘与 x 位置对齐。要对齐右边缘的条形，可以传递负数的宽度值及 align&#x3D;’edge’。</p>
+<p>*<strong>*kwargs：</strong>：其他参数。</p>
+<p>实例1：简单实用 bar() 来创建一个柱形图</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
+y = np.array([12, 22, 6, 18])
+
+plt.bar(x,y)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162147295.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162147295.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例2：垂直方向的柱形图可以使用 <strong>barh()</strong> 方法来设置</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
+y = np.array([12, 22, 6, 18])
+
+plt.barh(x,y)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162341451.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162341451.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例3：设置柱形图颜色</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
+y = np.array([12, 22, 6, 18])
+
+plt.bar(x, y, color = &quot;#4CAF50&quot;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162449487.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162449487.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例4：自定义各个柱形的颜色</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
+y = np.array([12, 22, 6, 18])
+
+plt.bar(x, y,  color = [&quot;#4CAF50&quot;,&quot;red&quot;,&quot;hotpink&quot;,&quot;#556B2F&quot;])
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162554129.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162554129.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例5：设置柱形图宽度，<strong>bar()</strong> 方法使用 <strong>width</strong> 设置</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
+y = np.array([12, 22, 6, 18])
+
+plt.bar(x, y, width = 0.1)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162717588.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162717588.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例6：<strong>barh()</strong> 方法使用 <strong>height</strong> 设置 height</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
+y = np.array([12, 22, 6, 18])
+
+plt.barh(x, y, height = 0.1)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162753714.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162753714.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<h2 id="Matplotlib饼图"><a href="#Matplotlib饼图" class="headerlink" title="Matplotlib饼图"></a>Matplotlib饼图</h2><p>我们可以使用 pyplot 中的 pie() 方法来绘制饼图。</p>
+<p>pie() 方法语法格式如下：</p>
+<pre><code class="python">matplotlib.pyplot.pie(x, explode=None, labels=None, colors=None, autopct=None, pctdistance=0.6, shadow=False, labeldistance=1.1, startangle=0, radius=1, counterclock=True, wedgeprops=None, textprops=None, center=0, 0, frame=False, rotatelabels=False, *, normalize=None, data=None)[source]
+</code></pre>
+<p><strong>参数说明：</strong></p>
+<p><strong>x</strong>：浮点型数组，表示每个扇形的面积。</p>
+<p><strong>explode</strong>：数组，表示各个扇形之间的间隔，默认值为0。</p>
+<p><strong>labels</strong>：列表，各个扇形的标签，默认值为 None。</p>
+<p><strong>colors</strong>：数组，表示各个扇形的颜色，默认值为 None。</p>
+<p><strong>autopct</strong>：设置饼图内各个扇形百分比显示格式，**%d%%** 整数百分比，**%0.1f** 一位小数， <strong>%0.1f%%</strong> 一位小数百分比， <strong>%0.2f%%</strong> 两位小数百分比。</p>
+<p><strong>labeldistance</strong>：标签标记的绘制位置，相对于半径的比例，默认值为 1.1，如 <strong>&lt;1</strong>则绘制在饼图内侧。</p>
+<p><strong>pctdistance：</strong>：类似于 labeldistance，指定 autopct 的位置刻度，默认值为 0.6。</p>
+<p><strong>shadow：</strong>：布尔值 True 或 False，设置饼图的阴影，默认为 False，不设置阴影。</p>
+<p><strong>radius：</strong>：设置饼图的半径，默认为 1。</p>
+<p><strong>startangle：</strong>：起始绘制饼图的角度，默认为从 x 轴正方向逆时针画起，如设定 &#x3D;90 则从 y 轴正方向画起。</p>
+<p><strong>counterclock</strong>：布尔值，设置指针方向，默认为 True，即逆时针，False 为顺时针。</p>
+<p><strong>wedgeprops</strong> ：字典类型，默认值 None。参数字典传递给 wedge 对象用来画一个饼图。例如：wedgeprops&#x3D;{‘linewidth’:5} 设置 wedge 线宽为5。</p>
+<p><strong>textprops</strong> ：字典类型，默认值为：None。传递给 text 对象的字典参数，用于设置标签（labels）和比例文字的格式。</p>
+<p><strong>center</strong> ：浮点类型的列表，默认值：(0,0)。用于设置图标中心位置。</p>
+<p><strong>frame</strong> ：布尔类型，默认值：False。如果是 True，绘制带有表的轴框架。</p>
+<p><strong>rotatelabels</strong> ：布尔类型，默认为 False。如果为 True，旋转每个 label 到指定的角度。</p>
+<p>实例1：简单实用 pie() 来创建一个柱形图</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+y = np.array([35, 25, 25, 15])
+
+plt.pie(y)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165657025.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165657025.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例2：设置饼图各个扇形的标签与颜色</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+y = np.array([35, 25, 25, 15])
+
+plt.pie(y,
+        labels=[&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;], # 设置饼图标签
+        colors=[&quot;#d5695d&quot;, &quot;#5d8ca8&quot;, &quot;#65a479&quot;, &quot;#a564c9&quot;], # 设置饼图颜色
+       )
+plt.title(&quot;RUNOOB Pie Test&quot;) # 设置标题
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165759838.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165759838.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p>实例3：突出显示第二个扇形，并格式化输出百分比</p>
+<pre><code class="python">import matplotlib.pyplot as plt
+import numpy as np
+
+y = np.array([35, 25, 25, 15])
+
+plt.pie(y,
+        labels=[&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;], # 设置饼图标签
+        colors=[&quot;#d5695d&quot;, &quot;#5d8ca8&quot;, &quot;#65a479&quot;, &quot;#a564c9&quot;], # 设置饼图颜色
+        explode=(0, 0.2, 0, 0), # 第二部分突出显示，值越大，距离中心越远
+        autopct=&#39;%.2f%%&#39;, # 格式化输出百分比
+       )
+plt.title(&quot;RUNOOB Pie Test&quot;)
+plt.show()
+</code></pre>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404170000561.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404170000561.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<p><strong>注意：</strong>默认情况下，第一个扇形的绘制是从 x 轴开始并逆时针移动：</p>
+<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/03D59143-B345-4B36-A7CD-53F698AB5284.jpg" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/03D59143-B345-4B36-A7CD-53F698AB5284.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom:50%;">
+  
+  
+    
+    <div class="footer">
+      
+      
+      
+        <div class="copyright">
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href="http://pistachio0812.github.io/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">http://pistachio0812.github.io/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-07T10:16:54+08:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 7, 2022</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=Matplotlib学习笔记 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=Matplotlib学习笔记 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=Matplotlib学习笔记 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class="prev" href="/CN/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>github使用指南</p>
+          <p class="content">git安装1.安装git OSX版
+下载地址：http://git-scm.com/download/mac
+2.安装git Windows版
+下载地址：http://book.git-scm....</p>
+        </a>
+      
+      
+        <a class="next" href="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
+          <p class="title">详解注意力机制<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">注意力机制注意力机制就是让网络关注到它更需要关注的地方，是一种网络自适应注意的方式。注意力机制可以分为通道注意力，空间注意力以及二者的结合。
+相关论文SENet2017年提出的SENet是最后一...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class="fas fa-comments"></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-text">应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matplotlib-Pyplot"><span class="toc-text">Matplotlib Pyplot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matplotlib-%E7%BB%98%E5%9B%BE%E6%A0%87%E8%AE%B0"><span class="toc-text">Matplotlib 绘图标记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fmt-%E5%8F%82%E6%95%B0"><span class="toc-text">fmt 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0%E5%A4%A7%E5%B0%8F%E5%92%8C%E9%A2%9C%E8%89%B2"><span class="toc-text">标记大小和颜色</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matplotlib-%E7%BB%98%E5%9B%BE%E7%BA%BF"><span class="toc-text">Matplotlib 绘图线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">线的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%9A%84%E9%A2%9C%E8%89%B2"><span class="toc-text">线的颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%9A%84%E5%AE%BD%E5%BA%A6"><span class="toc-text">线的宽度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%9D%A1%E7%BA%BF"><span class="toc-text">多条线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matplotlib-%E8%BD%B4%E6%A0%87%E7%AD%BE%E5%92%8C%E6%A0%87%E9%A2%98"><span class="toc-text">Matplotlib 轴标签和标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%98"><span class="toc-text">标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA"><span class="toc-text">图像中文显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%98%E4%B8%8E%E6%A0%87%E7%AD%BE%E7%9A%84%E5%AE%9A%E4%BD%8D"><span class="toc-text">标题与标签的定位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matplotlib-%E7%BD%91%E6%A0%BC%E7%BA%BF"><span class="toc-text">Matplotlib 网格线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matplotlib%E7%BB%98%E5%88%B6%E5%A4%9A%E5%9B%BE"><span class="toc-text">Matplotlib绘制多图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#subplot"><span class="toc-text">subplot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#subplots"><span class="toc-text">subplots()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matplotlib%E6%95%A3%E7%82%B9%E5%9B%BE"><span class="toc-text">Matplotlib散点图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2%E6%9D%A1Colormap"><span class="toc-text">颜色条Colormap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matplotlib%E6%9F%B1%E5%BD%A2%E5%9B%BE"><span class="toc-text">Matplotlib柱形图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matplotlib%E9%A5%BC%E5%9B%BE"><span class="toc-text">Matplotlib饼图</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="Matplotlib学习笔记";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#96e6a1" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="2185397204" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+          
+            
+              <a href="https://github.com/pistachio0812" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382" class="social  flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://img0.baidu.com/it/u=2862534777,914942650&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" class="lazyload" data-srcset="https://img0.baidu.com/it/u=2862534777,914942650&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="border-radius:120px">
+                
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次 <span id="lc-uv">访客数为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></span></p>
+</div>
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class="copyright">
+        <p><a href="/">Copyright © 2020-2022 相思似海深旧事如天远</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css", window.volantis.loadcss);
+  
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+	  function Pjax_backstretch(){
+        
+          $.backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
+    </script>
+  
+
+
+
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class="option">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand('copy')"><i class="fa fa-copy fa-fw"></i>复制文本</a>
+        <hr id="hr-text">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>复制链接</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>在新标签页打开</a>
+        <hr id="hr-href">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>复制图片地址</a>
+        <hr id="hr-src">
+      </li>
+      
+        <li class="navigation">
+          <a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="fa fa-arrow-left fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="fa fa-arrow-right fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="fa fa-redo fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" href="/"><i class="fa fa-home fa-fw"></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://volantis.js.org/faqs/" id="https:volantisjsorgfaqs" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-question fa-fw"></i> 常见问题
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://volantis.js.org/examples/" id="https:volantisjsorgexamples" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-rss fa-fw"></i> 示例博客
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://volantis.js.org/contributors/" id="https:volantisjsorgcontributors" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-fan fa-spin fa-fw"></i> 加入社区
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://github.com/volantis-x/volantis-docs/" id="https:githubcomvolantis-xvolantis-docs" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-code-branch fa-fw"></i> 本站源码
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-code-branch fa-fw"></i> 主题源码
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
+        <i class="fa fa-print fa-fw"></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
+        <i class="fa fa-moon fa-fw"></i> 暗黑模式
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class="music name">
+            <p class="nav music-title fix-cursor-default"></p>
+          </li>
+          <li class="music ctrl">
+            <a class="nav icon-only backward fix-cursor-default" onclick="aplayerBackward()"><i class="fa fa-step-backward fa-fw"></i></a>
+            <a class="nav icon-only toggle fix-cursor-default" onclick="aplayerToggle()"><i class="fa fa-play fa-fw"></i></a>
+            <a class="nav icon-only forward fix-cursor-default" onclick="aplayerForward()"><i class="fa fa-step-forward fa-fw"></i></a>
+          </li>
+          <li class="music volume">
+            <a class="nav volume">
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class="left fa fa-volume-off fa-fw"></i>
+                  <i class="right fa fa-volume-up fa-fw"></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
+        // 如果有aplayer，初始化一下
+        checkAPlayer();
+      }
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '2185397204';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js")
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
+    clearInterval(checkAPlayer)
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js") // 加载 MetingJS
+	  }
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
+
+  
+    loadScript("/js/aplayer.js")
+  
+
+</script>
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"js":"https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js","path":null,"placeholder":"快来评论吧~","appId":"n4TbjIfAh9hf9cM13OtQoUYY-gzGzoHsz","appKey":"EMwCQOaLj6D1bU3BPToHICOU","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":10,"lang":["zh-cn","en","zh-TW"],"highlight":true,"mathJax":true,"kramed":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true}}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
+</script>
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://pistachio0812.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://pistachio0812.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://pistachio0812.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+  
+  <script></script>
+
+
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

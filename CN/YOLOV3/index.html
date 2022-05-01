@@ -1,0 +1,2754 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,zh-TW,default">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>yolov3解读 - 相思似海深旧事如天远</title>
+  
+    <meta name="keywords" content="论文解读">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="相思似海深旧事如天远" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name="msapplication-TileColor" content="#ffffff">
+    
+      <meta name="msapplication-config" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/browserconfig.xml">
+    
+      <meta name="theme-color" content="#ffffff">
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" type="text/css" href="/css/matery.css">
+  
+
+  <!-- import link -->
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/site.webmanifest">
+  <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon.ico">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <link rel="stylesheet" type="text/css" href="/css/matery.css">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br>
+        <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+	<script src="https://cdn.jsdelivr.net/gh/dearxuanres/res/js/playerListener.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/sakura.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/mouse_slide.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/clicksocialist.js"></script>
+    
+
+<header id="l_header" class="l_header auto shadow show" style="opacity: 0">
+  <div class="container">
+  <div id="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>留言板
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+          
+				</li></ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h m-phone">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>留言板
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+            
+          </li></ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="full" class="cover-wrapper post search" style="display: none;">
+          
+            <div id="cover-backstretch"></div>
+          
+          <div class="cover-body">
+  <div class="top">
+    
+      <img no-lazy class="logo" src="https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/images/volantis_log.png">
+    
+    
+      <p class="title">相思似海深旧事如天远</p>
+    
+    
+  </div>
+  <div class="bottom">
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="这里有你想要的一切">
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class="menu navigation">
+      <div class="list-h">
+        
+          
+            <a href="/v4/getting-started/" id="v4getting-started">
+              <p>文档</p>
+            </a>
+          
+            <a href="/faqs/" id="faqs">
+              <p>帮助</p>
+            </a>
+          
+            <a href="/examples/" id="examples">
+              <p>示例</p>
+            </a>
+          
+            <a href="/contributors/" id="contributors">
+              <p>社区</p>
+            </a>
+          
+            <a href="/archives/" id="archives">
+              <p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis">
+              <p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class="l_main">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        yolov3解读
+      </h1>
+      <div class="new-meta-box">
+        
+          
+            
+<div class="new-meta-item author">
+  <a class="author" target="_blank" href="https://www.cnblogs.com/pistachio0812" rel="external nofollow noopener noreferrer">
+    <img no-lazy src="https://img1.baidu.com/it/u=583582599,306470958&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500">
+    <p>追风赶月的少年</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item category">
+    <a class="notlink">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/cv/">cv</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Apr 16, 2022</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：6.5k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：30分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class="notlink">
+      
+      <div id="lc-pv" data-title="yolov3解读" data-path="/CN/YOLOV3/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <p>论文地址：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/1804.02767.pdf">https://arxiv.org/pdf/1804.02767.pdf</a></p>
+<p>源码地址：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/ultralytics/yolov3">ultralytics/yolov3</a></p>
+<p>文章引用源码：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/bubbliiiing/yolo3-pytorch">https://github.com/bubbliiiing/yolo3-pytorch</a></p>
+<p>文章出处：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/weixin_44791964/article/details/105310627">https://blog.csdn.net/weixin_44791964/article/details/105310627</a></p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><h3 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h3><h4 id="主干网络Darknet53"><a href="#主干网络Darknet53" class="headerlink" title="主干网络Darknet53"></a>主干网络Darknet53</h4><p><img src="/2022/04/16/CN/YOLOV3/image-20220416194945035.png" class="lazyload" data-srcset="/2022/04/16/CN/YOLOV3/image-20220416194945035.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>YoloV3所使用的主干特征提取网络为Darknet53，它具有两个重要特点：<br>1、Darknet53具有一个重要特点是使用了残差网络Residual，Darknet53中的残差卷积就是首先进行一次卷积核大小为3X3、步长为2的卷积，该卷积会压缩输入进来的特征层的宽和高，此时我们可以获得一个特征层，我们将该特征层命名为layer。之后我们再对该特征层进行一次1X1的卷积和一次3X3的卷积，并把这个结果加上layer，此时我们便构成了残差结构。通过不断的1X1卷积和3X3卷积以及残差边的叠加，我们便大幅度的加深了网络。残差网络的特点是容易优化，并且能够通过增加相当的深度来提高准确率。其内部的残差块使用了跳跃连接，缓解了在深度神经网络中增加深度带来的梯度消失问题。</p>
+<p>2、Darknet53的每一个卷积部分使用了特有的DarknetConv2D结构，每一次卷积的时候进行l2正则化，完成卷积后进行BatchNormalization标准化与LeakyReLU。普通的ReLU是将所有的负值都设为零，Leaky ReLU则是给所有负值赋予一个非零斜率。以数学的方式我们可以表示为：</p>
+<p><img src="/2022/04/16/CN/YOLOV3/image-20220419102411716.png" class="lazyload" data-srcset="/2022/04/16/CN/YOLOV3/image-20220419102411716.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>实现代码：</p>
+<pre><code>python
+# 详情见nets/darknet.py
+#---------------------------------------------------------------------#
+#   残差结构
+#   利用一个1x1卷积下降通道数，然后利用一个3x3卷积提取特征并且上升通道数
+#   最后接上一个残差边
+#---------------------------------------------------------------------#
+class BasicBlock(nn.Module):
+    def __init__(self, inplanes, planes):
+        super(BasicBlock, self).__init__()
+        self.conv1  = nn.Conv2d(inplanes, planes[0], kernel_size=1, stride=1, padding=0, bias=False)
+        self.bn1    = nn.BatchNorm2d(planes[0])
+        self.relu1  = nn.LeakyReLU(0.1)
+
+        self.conv2  = nn.Conv2d(planes[0], planes[1], kernel_size=3, stride=1, padding=1, bias=False)
+        self.bn2    = nn.BatchNorm2d(planes[1])
+        self.relu2  = nn.LeakyReLU(0.1)
+
+    def forward(self, x):
+        residual = x
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu1(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+        out = self.relu2(out)
+
+        out += residual
+        return out
+
+class DarkNet(nn.Module):
+    def __init__(self, layers):
+        super(DarkNet, self).__init__()
+        self.inplanes = 32
+        # 416,416,3 -&gt; 416,416,32
+        self.conv1  = nn.Conv2d(3, self.inplanes, kernel_size=3, stride=1, padding=1, bias=False)
+        self.bn1    = nn.BatchNorm2d(self.inplanes)
+        self.relu1  = nn.LeakyReLU(0.1)
+
+        # 416,416,32 -&gt; 208,208,64
+        self.layer1 = self._make_layer([32, 64], layers[0])
+        # 208,208,64 -&gt; 104,104,128
+        self.layer2 = self._make_layer([64, 128], layers[1])
+        # 104,104,128 -&gt; 52,52,256
+        self.layer3 = self._make_layer([128, 256], layers[2])
+        # 52,52,256 -&gt; 26,26,512
+        self.layer4 = self._make_layer([256, 512], layers[3])
+        # 26,26,512 -&gt; 13,13,1024
+        self.layer5 = self._make_layer([512, 1024], layers[4])
+
+        self.layers_out_filters = [64, 128, 256, 512, 1024]
+
+        # 进行权值初始化
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+                m.weight.data.normal_(0, math.sqrt(2. / n))
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.fill_(1)
+                m.bias.data.zero_()
+
+    #---------------------------------------------------------------------#
+    #   在每一个layer里面，首先利用一个步长为2的3x3卷积进行下采样
+    #   然后进行残差结构的堆叠
+    #---------------------------------------------------------------------#
+    def _make_layer(self, planes, blocks):
+        layers = []
+        # 下采样，步长为2，卷积核大小为3
+        layers.append((&quot;ds_conv&quot;, nn.Conv2d(self.inplanes, planes[1], kernel_size=3, stride=2, padding=1, bias=False)))
+        layers.append((&quot;ds_bn&quot;, nn.BatchNorm2d(planes[1])))
+        layers.append((&quot;ds_relu&quot;, nn.LeakyReLU(0.1)))
+        # 加入残差结构
+        self.inplanes = planes[1]
+        for i in range(0, blocks):
+            layers.append((&quot;residual_&#123;&#125;&quot;.format(i), BasicBlock(self.inplanes, planes)))
+        return nn.Sequential(OrderedDict(layers))
+
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = self.relu1(x)
+
+        x = self.layer1(x)
+        x = self.layer2(x)
+        out3 = self.layer3(x)
+        out4 = self.layer4(out3)
+        out5 = self.layer5(out4)
+
+        return out3, out4, out5
+
+def darknet53():
+    model = DarkNet([1, 2, 8, 8, 4])
+    return model
+</code></pre><h4 id="从特征层获取预测结果"><a href="#从特征层获取预测结果" class="headerlink" title="从特征层获取预测结果"></a>从特征层获取预测结果</h4><p><img src="/2022/04/16/CN/YOLOV3/image-20220416194945035.png" class="lazyload" data-srcset="/2022/04/16/CN/YOLOV3/image-20220416194945035.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>从特征获取预测结果的过程可以分为两个部分，分别是：</p>
+<p>·构建FPN特征金字塔进行加强特征提取。<br>·利用Yolo Head对三个有效特征层进行预测。<br>a）构建FPN特征金字塔进行加强特征提取<br>在特征利用部分，YoloV3提取多特征层进行目标检测，一共提取三个特征层。三个特征层位于主干部分Darknet53的不同位置，分别位于中间层，中下层，底层，三个特征层的shape分别为(52,52,256)、(26,26,512)、(13,13,1024)。</p>
+<p>在获得三个有效特征层后，我们利用这三个有效特征层进行FPN层的构建，构建方式为：</p>
+<p>·13x13x1024的特征层进行5次卷积处理，处理完后利用YoloHead获得预测结果，一部分用于进行上采样UmSampling2d后与26x26x512特征层进行结合，结合特征层的shape为(26,26,768)。<br>·结合特征层再次进行5次卷积处理，处理完后利用YoloHead获得预测结果，一部分用于进行上采样UmSampling2d后与52x52x256特征层进行结合，结合特征层的shape为(52,52,384)。<br>·结合特征层再次进行5次卷积处理，处理完后利用YoloHead获得预测结果。<br>特征金字塔可以将不同shape的特征层进行特征融合，有利于提取出更好的特征。</p>
+<p>b）利用Yolo Head获得预测结果<br>利用FPN特征金字塔，我们可以获得三个加强特征，这三个加强特征的shape分别为(13,13,512)、(26,26,256)、(52,52,128)，然后我们利用这三个shape的特征层传入Yolo Head获得预测结果。</p>
+<p>Yolo Head本质上是一次3x3卷积加上一次1x1卷积，3x3卷积的作用是特征整合，1x1卷积的作用是调整通道数。</p>
+<p>对三个特征层分别进行处理，假设我们预测是的VOC数据集，我们的输出层的shape分别为(13,13,75)，(26,26,75)，(52,52,75)，最后一个维度为75是因为该图是基于voc数据集的，它的类为20种，YoloV3针对每一个特征层的每一个特征点存在3个先验框，所以预测结果的通道数为3x25；<br>如果使用的是coco训练集，类则为80种，最后的维度应该为255 = 3x85，三个特征层的shape为(13,13,255)，(26,26,255)，(52,52,255)</p>
+<p>其实际情况就是，输入N张416x416的图片，在经过多层的运算后，会输出三个shape分别为(N,13,13,255)，(N,26,26,255)，(N,52,52,255)的数据，对应每个图分为13x13、26x26、52x52的网格上3个先验框的位置。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-python"># 详情见nets/yolo.py
+def conv2d(filter_in, filter_out, kernel_size):
+    pad = (kernel_size - 1) // 2 if kernel_size else 0
+    return nn.Sequential(OrderedDict([
+        (&quot;conv&quot;, nn.Conv2d(filter_in, filter_out, kernel_size=kernel_size, stride=1, padding=pad, bias=False)),
+        (&quot;bn&quot;, nn.BatchNorm2d(filter_out)),
+        (&quot;relu&quot;, nn.LeakyReLU(0.1)),
+    ]))
+
+#------------------------------------------------------------------------#
+#   make_last_layers里面一共有七个卷积，前五个用于提取特征。
+#   后两个用于获得yolo网络的预测结果
+#------------------------------------------------------------------------#
+def make_last_layers(filters_list, in_filters, out_filter):
+    m = nn.Sequential(
+        conv2d(in_filters, filters_list[0], 1),
+        conv2d(filters_list[0], filters_list[1], 3),
+        conv2d(filters_list[1], filters_list[0], 1),
+        conv2d(filters_list[0], filters_list[1], 3),
+        conv2d(filters_list[1], filters_list[0], 1),
+        conv2d(filters_list[0], filters_list[1], 3),
+        nn.Conv2d(filters_list[1], out_filter, kernel_size=1, stride=1, padding=0, bias=True)
+    )
+    return m
+
+class YoloBody(nn.Module):
+    def __init__(self, anchors_mask, num_classes):
+        super(YoloBody, self).__init__()
+        #---------------------------------------------------#   
+        #   生成darknet53的主干模型
+        #   获得三个有效特征层，他们的shape分别是：
+        #   52,52,256
+        #   26,26,512
+        #   13,13,1024
+        #---------------------------------------------------#
+        self.backbone = darknet53()
+
+        #---------------------------------------------------#
+        #   out_filters : [64, 128, 256, 512, 1024]
+        #---------------------------------------------------#
+        out_filters = self.backbone.layers_out_filters
+
+        #------------------------------------------------------------------------#
+        #   计算yolo_head的输出通道数，对于voc数据集而言
+        #   final_out_filter0 = final_out_filter1 = final_out_filter2 = 75
+        #------------------------------------------------------------------------#
+        self.last_layer0            = make_last_layers([512, 1024], out_filters[-1], len(anchors_mask[0]) * (num_classes + 5))
+
+        self.last_layer1_conv       = conv2d(512, 256, 1)
+        self.last_layer1_upsample   = nn.Upsample(scale_factor=2, mode=&#39;nearest&#39;)
+        self.last_layer1            = make_last_layers([256, 512], out_filters[-2] + 256, len(anchors_mask[1]) * (num_classes + 5))
+
+        self.last_layer2_conv       = conv2d(256, 128, 1)
+        self.last_layer2_upsample   = nn.Upsample(scale_factor=2, mode=&#39;nearest&#39;)
+        self.last_layer2            = make_last_layers([128, 256], out_filters[-3] + 128, len(anchors_mask[2]) * (num_classes + 5))
+
+    def forward(self, x):
+        #---------------------------------------------------#   
+        #   获得三个有效特征层，他们的shape分别是：
+        #   52,52,256；26,26,512；13,13,1024
+        #---------------------------------------------------#
+        x2, x1, x0 = self.backbone(x)
+
+        #---------------------------------------------------#
+        #   第一个特征层
+        #   out0 = (batch_size,255,13,13)
+        #---------------------------------------------------#
+        # 13,13,1024 -&gt; 13,13,512 -&gt; 13,13,1024 -&gt; 13,13,512 -&gt; 13,13,1024 -&gt; 13,13,512
+        out0_branch = self.last_layer0[:5](x0)
+        out0        = self.last_layer0[5:](out0_branch)
+
+        # 13,13,512 -&gt; 13,13,256 -&gt; 26,26,256
+        x1_in = self.last_layer1_conv(out0_branch)
+        x1_in = self.last_layer1_upsample(x1_in)
+
+        # 26,26,256 + 26,26,512 -&gt; 26,26,768
+        x1_in = torch.cat([x1_in, x1], 1)
+        #---------------------------------------------------#
+        #   第二个特征层
+        #   out1 = (batch_size,255,26,26)
+        #---------------------------------------------------#
+        # 26,26,768 -&gt; 26,26,256 -&gt; 26,26,512 -&gt; 26,26,256 -&gt; 26,26,512 -&gt; 26,26,256
+        out1_branch = self.last_layer1[:5](x1_in)
+        out1        = self.last_layer1[5:](out1_branch)
+
+        # 26,26,256 -&gt; 26,26,128 -&gt; 52,52,128
+        x2_in = self.last_layer2_conv(out1_branch)
+        x2_in = self.last_layer2_upsample(x2_in)
+
+        # 52,52,128 + 52,52,256 -&gt; 52,52,384
+        x2_in = torch.cat([x2_in, x2], 1)
+        #---------------------------------------------------#
+        #   第一个特征层
+        #   out3 = (batch_size,255,52,52)
+        #---------------------------------------------------#
+        # 52,52,384 -&gt; 52,52,128 -&gt; 52,52,256 -&gt; 52,52,128 -&gt; 52,52,256 -&gt; 52,52,128
+        out2 = self.last_layer2(x2_in)
+        return out0, out1, out2
+</code></pre>
+<h4 id="预测结果的解码"><a href="#预测结果的解码" class="headerlink" title="预测结果的解码"></a>预测结果的解码</h4><p>由第二步我们可以获得三个特征层的预测结果，shape分别为：</p>
+<p>·(N,13,13,255)<br>·(N,26,26,255)<br>·(N,52,52,255)<br>在这里我们简单了解一下每个有效特征层到底做了什么：<br>每一个有效特征层将整个图片分成与其长宽对应的网格，如(N,13,13,255)的特征层就是将整个图像分成13x13个网格；然后从每个网格中心建立多个先验框，这些框是网络预先设定好的框，网络的预测结果会判断这些框内是否包含物体，以及这个物体的种类。</p>
+<p>由于每一个网格点都具有三个先验框，所以上述的预测结果可以reshape为：</p>
+<p>(N,13,13,3,85)<br>(N,26,26,3,85)<br>(N,52,52,3,85)<br>其中的85可以拆分为4+1+80，其中的4代表先验框的调整参数，1代表先验框内是否包含物体，80代表的是这个先验框的种类，由于coco分了80类，所以这里是80。如果YoloV3只检测两类物体，那么这个85就变为了4+1+2 = 7。</p>
+<p>即85包含了4+1+80，分别代表x_offset、y_offset、h和w、置信度、分类结果。</p>
+<p>但是这个预测结果并不对应着最终的预测框在图片上的位置，还需要解码才可以完成。</p>
+<p>YoloV3的解码过程分为两步：</p>
+<p>·先将每个网格点加上它对应的x_offset和y_offset，加完后的结果就是预测框的中心。<br>·然后再利用 先验框和h、w结合 计算出预测框的宽高。这样就能得到整个预测框的位置了。</p>
+<p>得到最终的预测结果后还要进行<strong>得分排序与非极大抑制筛选</strong>。</p>
+<p>这一部分基本上是所有目标检测通用的部分。其对于每一个类进行判别：<br><strong>1、取出每一类得分大于self.obj_threshold的框和得分。<br>2、利用框的位置和得分进行非极大抑制。</strong></p>
+<p>实现代码如下：</p>
+<pre><code class="lang-python"># 详情见utils/utils_bbox.py
+class DecodeBox():
+    def __init__(self, anchors, num_classes, input_shape, anchors_mask = [[6,7,8], [3,4,5], [0,1,2]]):
+        super(DecodeBox, self).__init__()
+        self.anchors        = anchors
+        self.num_classes    = num_classes
+        self.bbox_attrs     = 5 + num_classes
+        self.input_shape    = input_shape
+        #-----------------------------------------------------------#
+        #   13x13的特征层对应的anchor是[116,90],[156,198],[373,326]
+        #   26x26的特征层对应的anchor是[30,61],[62,45],[59,119]
+        #   52x52的特征层对应的anchor是[10,13],[16,30],[33,23]
+        #-----------------------------------------------------------#
+        self.anchors_mask   = anchors_mask
+
+    def decode_box(self, inputs):
+        outputs = []
+        for i, input in enumerate(inputs):
+            #-----------------------------------------------#
+            #   输入的input一共有三个，他们的shape分别是
+            #   batch_size, 255, 13, 13
+            #   batch_size, 255, 26, 26
+            #   batch_size, 255, 52, 52
+            #-----------------------------------------------#
+            batch_size      = input.size(0)
+            input_height    = input.size(2)
+            input_width     = input.size(3)
+
+            #-----------------------------------------------#
+            #   输入为416x416时
+            #   stride_h = stride_w = 32、16、8
+            #-----------------------------------------------#
+            stride_h = self.input_shape[0] / input_height
+            stride_w = self.input_shape[1] / input_width
+            #-------------------------------------------------#
+            #   此时获得的scaled_anchors大小是相对于特征层的
+            #-------------------------------------------------#
+            scaled_anchors = [(anchor_width / stride_w, anchor_height / stride_h) for anchor_width, anchor_height in self.anchors[self.anchors_mask[i]]]
+
+            #-----------------------------------------------#
+            #   输入的input一共有三个，他们的shape分别是
+            #   batch_size, 3, 13, 13, 85
+            #   batch_size, 3, 26, 26, 85
+            #   batch_size, 3, 52, 52, 85
+            #-----------------------------------------------#
+            prediction = input.view(batch_size, len(self.anchors_mask[i]),
+                                    self.bbox_attrs, input_height, input_width).permute(0, 1, 3, 4, 2).contiguous()
+
+            #-----------------------------------------------#
+            #   先验框的中心位置的调整参数
+            #-----------------------------------------------#
+            x = torch.sigmoid(prediction[..., 0])  
+            y = torch.sigmoid(prediction[..., 1])
+            #-----------------------------------------------#
+            #   先验框的宽高调整参数
+            #-----------------------------------------------#
+            w = prediction[..., 2]
+            h = prediction[..., 3]
+            #-----------------------------------------------#
+            #   获得置信度，是否有物体
+            #-----------------------------------------------#
+            conf        = torch.sigmoid(prediction[..., 4])
+            #-----------------------------------------------#
+            #   种类置信度
+            #-----------------------------------------------#
+            pred_cls    = torch.sigmoid(prediction[..., 5:])
+
+            FloatTensor = torch.cuda.FloatTensor if x.is_cuda else torch.FloatTensor
+            LongTensor  = torch.cuda.LongTensor if x.is_cuda else torch.LongTensor
+
+            #----------------------------------------------------------#
+            #   生成网格，先验框中心，网格左上角 
+            #   batch_size,3,13,13
+            #----------------------------------------------------------#
+            grid_x = torch.linspace(0, input_width - 1, input_width).repeat(input_height, 1).repeat(
+                batch_size * len(self.anchors_mask[i]), 1, 1).view(x.shape).type(FloatTensor)
+            grid_y = torch.linspace(0, input_height - 1, input_height).repeat(input_width, 1).t().repeat(
+                batch_size * len(self.anchors_mask[i]), 1, 1).view(y.shape).type(FloatTensor)
+
+            #----------------------------------------------------------#
+            #   按照网格格式生成先验框的宽高
+            #   batch_size,3,13,13
+            #----------------------------------------------------------#
+            anchor_w = FloatTensor(scaled_anchors).index_select(1, LongTensor([0]))
+            anchor_h = FloatTensor(scaled_anchors).index_select(1, LongTensor([1]))
+            anchor_w = anchor_w.repeat(batch_size, 1).repeat(1, 1, input_height * input_width).view(w.shape)
+            anchor_h = anchor_h.repeat(batch_size, 1).repeat(1, 1, input_height * input_width).view(h.shape)
+
+            #----------------------------------------------------------#
+            #   利用预测结果对先验框进行调整
+            #   首先调整先验框的中心，从先验框中心向右下角偏移
+            #   再调整先验框的宽高。
+            #----------------------------------------------------------#
+            pred_boxes          = FloatTensor(prediction[..., :4].shape)
+            pred_boxes[..., 0]  = x.data + grid_x
+            pred_boxes[..., 1]  = y.data + grid_y
+            pred_boxes[..., 2]  = torch.exp(w.data) * anchor_w
+            pred_boxes[..., 3]  = torch.exp(h.data) * anchor_h
+
+            #----------------------------------------------------------#
+            #   将输出结果归一化成小数的形式
+            #----------------------------------------------------------#
+            _scale = torch.Tensor([input_width, input_height, input_width, input_height]).type(FloatTensor)
+            output = torch.cat((pred_boxes.view(batch_size, -1, 4) / _scale,
+                                conf.view(batch_size, -1, 1), pred_cls.view(batch_size, -1, self.num_classes)), -1)
+            outputs.append(output.data)
+        return outputs
+
+    def yolo_correct_boxes(self, box_xy, box_wh, input_shape, image_shape, letterbox_image):
+        #-----------------------------------------------------------------#
+        #   把y轴放前面是因为方便预测框和图像的宽高进行相乘
+        #-----------------------------------------------------------------#
+        box_yx = box_xy[..., ::-1]
+        box_hw = box_wh[..., ::-1]
+        input_shape = np.array(input_shape)
+        image_shape = np.array(image_shape)
+
+        if letterbox_image:
+            #-----------------------------------------------------------------#
+            #   这里求出来的offset是图像有效区域相对于图像左上角的偏移情况
+            #   new_shape指的是宽高缩放情况
+            #-----------------------------------------------------------------#
+            new_shape = np.round(image_shape * np.min(input_shape/image_shape))
+            offset  = (input_shape - new_shape)/2./input_shape
+            scale   = input_shape/new_shape
+
+            box_yx  = (box_yx - offset) * scale
+            box_hw *= scale
+
+        box_mins    = box_yx - (box_hw / 2.)
+        box_maxes   = box_yx + (box_hw / 2.)
+        boxes  = np.concatenate([box_mins[..., 0:1], box_mins[..., 1:2], box_maxes[..., 0:1], box_maxes[..., 1:2]], axis=-1)
+        boxes *= np.concatenate([image_shape, image_shape], axis=-1)
+        return boxes
+
+    def non_max_suppression(self, prediction, num_classes, input_shape, image_shape, letterbox_image, conf_thres=0.5, nms_thres=0.4):
+        #----------------------------------------------------------#
+        #   将预测结果的格式转换成左上角右下角的格式。
+        #   prediction  [batch_size, num_anchors, 85]
+        #----------------------------------------------------------#
+        box_corner          = prediction.new(prediction.shape)
+        box_corner[:, :, 0] = prediction[:, :, 0] - prediction[:, :, 2] / 2
+        box_corner[:, :, 1] = prediction[:, :, 1] - prediction[:, :, 3] / 2
+        box_corner[:, :, 2] = prediction[:, :, 0] + prediction[:, :, 2] / 2
+        box_corner[:, :, 3] = prediction[:, :, 1] + prediction[:, :, 3] / 2
+        prediction[:, :, :4] = box_corner[:, :, :4]
+
+        output = [None for _ in range(len(prediction))]
+        for i, image_pred in enumerate(prediction):
+            #----------------------------------------------------------#
+            #   对种类预测部分取max。
+            #   class_conf  [num_anchors, 1]    种类置信度
+            #   class_pred  [num_anchors, 1]    种类
+            #----------------------------------------------------------#
+            class_conf, class_pred = torch.max(image_pred[:, 5:5 + num_classes], 1, keepdim=True)
+
+            #----------------------------------------------------------#
+            #   利用置信度进行第一轮筛选
+            #----------------------------------------------------------#
+            conf_mask = (image_pred[:, 4] * class_conf[:, 0] &gt;= conf_thres).squeeze()
+
+            #----------------------------------------------------------#
+            #   根据置信度进行预测结果的筛选
+            #----------------------------------------------------------#
+            image_pred = image_pred[conf_mask]
+            class_conf = class_conf[conf_mask]
+            class_pred = class_pred[conf_mask]
+            if not image_pred.size(0):
+                continue
+            #-------------------------------------------------------------------------#
+            #   detections  [num_anchors, 7]
+            #   7的内容为：x1, y1, x2, y2, obj_conf, class_conf, class_pred
+            #-------------------------------------------------------------------------#
+            detections = torch.cat((image_pred[:, :5], class_conf.float(), class_pred.float()), 1)
+
+            #------------------------------------------#
+            #   获得预测结果中包含的所有种类
+            #------------------------------------------#
+            unique_labels = detections[:, -1].cpu().unique()
+
+            if prediction.is_cuda:
+                unique_labels = unique_labels.cuda()
+                detections = detections.cuda()
+
+            for c in unique_labels:
+                #------------------------------------------#
+                #   获得某一类得分筛选后全部的预测结果
+                #------------------------------------------#
+                detections_class = detections[detections[:, -1] == c]
+
+                #------------------------------------------#
+                #   使用官方自带的非极大抑制会速度更快一些！
+                #------------------------------------------#
+                keep = nms(
+                    detections_class[:, :4],
+                    detections_class[:, 4] * detections_class[:, 5],
+                    nms_thres
+                )
+                max_detections = detections_class[keep]
+
+                # # 按照存在物体的置信度排序
+                # _, conf_sort_index = torch.sort(detections_class[:, 4]*detections_class[:, 5], descending=True)
+                # detections_class = detections_class[conf_sort_index]
+                # # 进行非极大抑制
+                # max_detections = []
+                # while detections_class.size(0):
+                #     # 取出这一类置信度最高的，一步一步往下判断，判断重合程度是否大于nms_thres，如果是则去除掉
+                #     max_detections.append(detections_class[0].unsqueeze(0))
+                #     if len(detections_class) == 1:
+                #         break
+                #     ious = bbox_iou(max_detections[-1], detections_class[1:])
+                #     detections_class = detections_class[1:][ious &lt; nms_thres]
+                # # 堆叠
+                # max_detections = torch.cat(max_detections).data
+
+                # Add max detections to outputs
+                output[i] = max_detections if output[i] is None else torch.cat((output[i], max_detections))
+
+            if output[i] is not None:
+                output[i]           = output[i].cpu().numpy()
+                box_xy, box_wh      = (output[i][:, 0:2] + output[i][:, 2:4])/2, output[i][:, 2:4] - output[i][:, 0:2]
+                output[i][:, :4]    = self.yolo_correct_boxes(box_xy, box_wh, input_shape, image_shape, letterbox_image)
+        return output
+</code></pre>
+<h4 id="原图上进行绘制"><a href="#原图上进行绘制" class="headerlink" title="原图上进行绘制"></a>原图上进行绘制</h4><p>通过第三步，我们可以获得预测框在原图上的位置，而且这些预测框都是经过筛选的。这些筛选后的框可以直接绘制在图片上，就可以获得结果了。</p>
+<h3 id="训练部分"><a href="#训练部分" class="headerlink" title="训练部分"></a>训练部分</h3><h4 id="计算loss所需参数"><a href="#计算loss所需参数" class="headerlink" title="计算loss所需参数"></a>计算loss所需参数</h4><p>在计算loss的时候，实际上是pred和target之间的对比：<br>pred就是网络的预测结果。<br>target就是网络的真实框情况。</p>
+<h4 id="pred是什么"><a href="#pred是什么" class="headerlink" title="pred是什么"></a>pred是什么</h4><p>对于yolo3的模型来说，网络最后输出的内容就是三个特征层每个网格点对应的预测框及其种类，即三个特征层分别对应着图片被分为不同size的网格后，每个网格点上三个先验框对应的位置、置信度及其种类。</p>
+<p>输出层的shape分别为(13,13,75)，(26,26,75)，(52,52,75)，最后一个维度为75是因为是基于voc数据集的，它的类为20种，yolo3只有针对每一个特征层存在3个先验框，所以最后维度为3x25；<br>如果使用的是coco训练集，类则为80种，最后的维度应该为255 = 3x85，三个特征层的shape为(13,13,255)，(26,26,255)，(52,52,255)</p>
+<p>现在的y_pre还是没有解码的，解码了之后才是真实图像上的情况。</p>
+<h4 id="target是什么。"><a href="#target是什么。" class="headerlink" title="target是什么。"></a>target是什么。</h4><p>target就是一个真实图像中，真实框的情况。<br>第一个维度是batch_size，第二个维度是每一张图片里面真实框的数量，第三个维度内部是真实框的信息，包括位置以及种类。</p>
+<h4 id="loss的计算过程"><a href="#loss的计算过程" class="headerlink" title="loss的计算过程"></a>loss的计算过程</h4><p>拿到pred和target后，不可以简单的减一下作为对比，需要进行如下步骤。</p>
+<p>判断真实框在图片中的位置，判断其属于哪一个网格点去检测。判断真实框和这个特征点的哪个先验框重合程度最高。计算该网格点应该有怎么样的预测结果才能获得真实框，与真实框重合度最高的先验框被用于作为正样本。<br>根据网络的预测结果获得预测框，计算预测框和所有真实框的重合程度，如果重合程度大于一定门限，则将该预测框对应的先验框忽略。其余作为负样本。<br>最终损失由三个部分组成：a、正样本，编码后的长宽与xy轴偏移量与预测值的差距。b、正样本，预测结果中置信度的值与1对比；负样本，预测结果中置信度的值与0对比。c、实际存在的框，种类预测结果与实际结果的对比。</p>
+<pre><code class="lang-python"># 详情见nets/yolo_training.py
+class YOLOLoss(nn.Module):
+    def __init__(self, anchors, num_classes, input_shape, cuda, anchors_mask = [[6,7,8], [3,4,5], [0,1,2]]):
+        super(YOLOLoss, self).__init__()
+        #-----------------------------------------------------------#
+        #   13x13的特征层对应的anchor是[116,90],[156,198],[373,326]
+        #   26x26的特征层对应的anchor是[30,61],[62,45],[59,119]
+        #   52x52的特征层对应的anchor是[10,13],[16,30],[33,23]
+        #-----------------------------------------------------------#
+        self.anchors        = anchors
+        self.num_classes    = num_classes
+        self.bbox_attrs     = 5 + num_classes
+        self.input_shape    = input_shape
+        self.anchors_mask   = anchors_mask
+
+        self.ignore_threshold = 0.7
+        self.cuda = cuda
+
+    def clip_by_tensor(self, t, t_min, t_max):
+        t = t.float()
+        result = (t &gt;= t_min).float() * t + (t &lt; t_min).float() * t_min
+        result = (result &lt;= t_max).float() * result + (result &gt; t_max).float() * t_max
+        return result
+
+    def MSELoss(self, pred, target):
+        return torch.pow(pred - target, 2)
+
+    def BCELoss(self, pred, target):
+        epsilon = 1e-7
+        pred    = self.clip_by_tensor(pred, epsilon, 1.0 - epsilon)
+        output  = - target * torch.log(pred) - (1.0 - target) * torch.log(1.0 - pred)
+        return output
+
+    def forward(self, l, input, targets=None):
+        #----------------------------------------------------#
+        #   l代表的是，当前输入进来的有效特征层，是第几个有效特征层
+        #   input的shape为  bs, 3*(5+num_classes), 13, 13
+        #                   bs, 3*(5+num_classes), 26, 26
+        #                   bs, 3*(5+num_classes), 52, 52
+        #   targets代表的是真实框。
+        #----------------------------------------------------#
+        #--------------------------------#
+        #   获得图片数量，特征层的高和宽
+        #   13和13
+        #--------------------------------#
+        bs      = input.size(0)
+        in_h    = input.size(2)
+        in_w    = input.size(3)
+        #-----------------------------------------------------------------------#
+        #   计算步长
+        #   每一个特征点对应原来的图片上多少个像素点
+        #   如果特征层为13x13的话，一个特征点就对应原来的图片上的32个像素点
+        #   如果特征层为26x26的话，一个特征点就对应原来的图片上的16个像素点
+        #   如果特征层为52x52的话，一个特征点就对应原来的图片上的8个像素点
+        #   stride_h = stride_w = 32、16、8
+        #   stride_h和stride_w都是32。
+        #-----------------------------------------------------------------------#
+        stride_h = self.input_shape[0] / in_h
+        stride_w = self.input_shape[1] / in_w
+        #-------------------------------------------------#
+        #   此时获得的scaled_anchors大小是相对于特征层的
+        #-------------------------------------------------#
+        scaled_anchors  = [(a_w / stride_w, a_h / stride_h) for a_w, a_h in self.anchors]
+        #-----------------------------------------------#
+        #   输入的input一共有三个，他们的shape分别是
+        #   bs, 3*(5+num_classes), 13, 13 =&gt; batch_size, 3, 13, 13, 5 + num_classes
+        #   batch_size, 3, 26, 26, 5 + num_classes
+        #   batch_size, 3, 52, 52, 5 + num_classes
+        #-----------------------------------------------#
+        prediction = input.view(bs, len(self.anchors_mask[l]), self.bbox_attrs, in_h, in_w).permute(0, 1, 3, 4, 2).contiguous()
+
+        #-----------------------------------------------#
+        #   先验框的中心位置的调整参数
+        #-----------------------------------------------#
+        x = torch.sigmoid(prediction[..., 0])
+        y = torch.sigmoid(prediction[..., 1])
+        #-----------------------------------------------#
+        #   先验框的宽高调整参数
+        #-----------------------------------------------#
+        w = prediction[..., 2]
+        h = prediction[..., 3]
+        #-----------------------------------------------#
+        #   获得置信度，是否有物体
+        #-----------------------------------------------#
+        conf = torch.sigmoid(prediction[..., 4])
+        #-----------------------------------------------#
+        #   种类置信度
+        #-----------------------------------------------#
+        pred_cls = torch.sigmoid(prediction[..., 5:])
+
+        #-----------------------------------------------#
+        #   获得网络应该有的预测结果
+        #-----------------------------------------------#
+        y_true, noobj_mask, box_loss_scale = self.get_target(l, targets, scaled_anchors, in_h, in_w)
+
+        #---------------------------------------------------------------#
+        #   将预测结果进行解码，判断预测结果和真实值的重合程度
+        #   如果重合程度过大则忽略，因为这些特征点属于预测比较准确的特征点
+        #   作为负样本不合适
+        #----------------------------------------------------------------#
+        noobj_mask = self.get_ignore(l, x, y, h, w, targets, scaled_anchors, in_h, in_w, noobj_mask)
+
+        if self.cuda:
+            y_true          = y_true.cuda()
+            noobj_mask      = noobj_mask.cuda()
+            box_loss_scale  = box_loss_scale.cuda()
+        #-----------------------------------------------------------#
+        #   reshape_y_true[...,2:3]和reshape_y_true[...,3:4]
+        #   表示真实框的宽高，二者均在0-1之间
+        #   真实框越大，比重越小，小框的比重更大。
+        #-----------------------------------------------------------#
+        box_loss_scale = 2 - box_loss_scale
+        #-----------------------------------------------------------#
+        #   计算中心偏移情况的loss，使用BCELoss效果好一些
+        #-----------------------------------------------------------#
+        loss_x = torch.sum(self.BCELoss(x, y_true[..., 0]) * box_loss_scale * y_true[..., 4])
+        loss_y = torch.sum(self.BCELoss(y, y_true[..., 1]) * box_loss_scale * y_true[..., 4])
+        #-----------------------------------------------------------#
+        #   计算宽高调整值的loss
+        #-----------------------------------------------------------#
+        loss_w = torch.sum(self.MSELoss(w, y_true[..., 2]) * 0.5 * box_loss_scale * y_true[..., 4])
+        loss_h = torch.sum(self.MSELoss(h, y_true[..., 3]) * 0.5 * box_loss_scale * y_true[..., 4])
+        #-----------------------------------------------------------#
+        #   计算置信度的loss
+        #-----------------------------------------------------------#
+        loss_conf   = torch.sum(self.BCELoss(conf, y_true[..., 4]) * y_true[..., 4]) + \
+                      torch.sum(self.BCELoss(conf, y_true[..., 4]) * noobj_mask)
+
+        loss_cls    = torch.sum(self.BCELoss(pred_cls[y_true[..., 4] == 1], y_true[..., 5:][y_true[..., 4] == 1]))
+
+        loss        = loss_x  + loss_y + loss_w + loss_h + loss_conf + loss_cls
+        num_pos = torch.sum(y_true[..., 4])
+        num_pos = torch.max(num_pos, torch.ones_like(num_pos))
+        return loss, num_pos
+
+    def calculate_iou(self, _box_a, _box_b):
+        #-----------------------------------------------------------#
+        #   计算真实框的左上角和右下角
+        #-----------------------------------------------------------#
+        b1_x1, b1_x2 = _box_a[:, 0] - _box_a[:, 2] / 2, _box_a[:, 0] + _box_a[:, 2] / 2
+        b1_y1, b1_y2 = _box_a[:, 1] - _box_a[:, 3] / 2, _box_a[:, 1] + _box_a[:, 3] / 2
+        #-----------------------------------------------------------#
+        #   计算先验框获得的预测框的左上角和右下角
+        #-----------------------------------------------------------#
+        b2_x1, b2_x2 = _box_b[:, 0] - _box_b[:, 2] / 2, _box_b[:, 0] + _box_b[:, 2] / 2
+        b2_y1, b2_y2 = _box_b[:, 1] - _box_b[:, 3] / 2, _box_b[:, 1] + _box_b[:, 3] / 2
+
+        #-----------------------------------------------------------#
+        #   将真实框和预测框都转化成左上角右下角的形式
+        #-----------------------------------------------------------#
+        box_a = torch.zeros_like(_box_a)
+        box_b = torch.zeros_like(_box_b)
+        box_a[:, 0], box_a[:, 1], box_a[:, 2], box_a[:, 3] = b1_x1, b1_y1, b1_x2, b1_y2
+        box_b[:, 0], box_b[:, 1], box_b[:, 2], box_b[:, 3] = b2_x1, b2_y1, b2_x2, b2_y2
+
+        #-----------------------------------------------------------#
+        #   A为真实框的数量，B为先验框的数量
+        #-----------------------------------------------------------#
+        A = box_a.size(0)
+        B = box_b.size(0)
+
+        #-----------------------------------------------------------#
+        #   计算交的面积
+        #-----------------------------------------------------------#
+        max_xy  = torch.min(box_a[:, 2:].unsqueeze(1).expand(A, B, 2), box_b[:, 2:].unsqueeze(0).expand(A, B, 2))
+        min_xy  = torch.max(box_a[:, :2].unsqueeze(1).expand(A, B, 2), box_b[:, :2].unsqueeze(0).expand(A, B, 2))
+        inter   = torch.clamp((max_xy - min_xy), min=0)
+        inter   = inter[:, :, 0] * inter[:, :, 1]
+        #-----------------------------------------------------------#
+        #   计算预测框和真实框各自的面积
+        #-----------------------------------------------------------#
+        area_a = ((box_a[:, 2]-box_a[:, 0]) * (box_a[:, 3]-box_a[:, 1])).unsqueeze(1).expand_as(inter)  # [A,B]
+        area_b = ((box_b[:, 2]-box_b[:, 0]) * (box_b[:, 3]-box_b[:, 1])).unsqueeze(0).expand_as(inter)  # [A,B]
+        #-----------------------------------------------------------#
+        #   求IOU
+        #-----------------------------------------------------------#
+        union = area_a + area_b - inter
+        return inter / union  # [A,B]
+
+    def get_target(self, l, targets, anchors, in_h, in_w):
+        #-----------------------------------------------------#
+        #   计算一共有多少张图片
+        #-----------------------------------------------------#
+        bs              = len(targets)
+        #-----------------------------------------------------#
+        #   用于选取哪些先验框不包含物体
+        #-----------------------------------------------------#
+        noobj_mask      = torch.ones(bs, len(self.anchors_mask[l]), in_h, in_w, requires_grad = False)
+        #-----------------------------------------------------#
+        #   让网络更加去关注小目标
+        #-----------------------------------------------------#
+        box_loss_scale  = torch.zeros(bs, len(self.anchors_mask[l]), in_h, in_w, requires_grad = False)
+        #-----------------------------------------------------#
+        #   batch_size, 3, 13, 13, 5 + num_classes
+        #-----------------------------------------------------#
+        y_true          = torch.zeros(bs, len(self.anchors_mask[l]), in_h, in_w, self.bbox_attrs, requires_grad = False)
+        for b in range(bs):            
+            if len(targets[b])==0:
+                continue
+            batch_target = torch.zeros_like(targets[b])
+            #-------------------------------------------------------#
+            #   计算出正样本在特征层上的中心点
+            #-------------------------------------------------------#
+            batch_target[:, [0,2]] = targets[b][:, [0,2]] * in_w
+            batch_target[:, [1,3]] = targets[b][:, [1,3]] * in_h
+            batch_target[:, 4] = targets[b][:, 4]
+            batch_target = batch_target.cpu()
+
+            #-------------------------------------------------------#
+            #   将真实框转换一个形式
+            #   num_true_box, 4
+            #-------------------------------------------------------#
+            gt_box          = torch.FloatTensor(torch.cat((torch.zeros((batch_target.size(0), 2)), batch_target[:, 2:4]), 1))
+            #-------------------------------------------------------#
+            #   将先验框转换一个形式
+            #   9, 4
+            #-------------------------------------------------------#
+            anchor_shapes   = torch.FloatTensor(torch.cat((torch.zeros((len(anchors), 2)), torch.FloatTensor(anchors)), 1))
+            #-------------------------------------------------------#
+            #   计算交并比
+            #   self.calculate_iou(gt_box, anchor_shapes) = [num_true_box, 9]每一个真实框和9个先验框的重合情况
+            #   best_ns:
+            #   [每个真实框最大的重合度max_iou, 每一个真实框最重合的先验框的序号]
+            #-------------------------------------------------------#
+            best_ns = torch.argmax(self.calculate_iou(gt_box, anchor_shapes), dim=-1)
+
+            for t, best_n in enumerate(best_ns):
+                if best_n not in self.anchors_mask[l]:
+                    continue
+                #----------------------------------------#
+                #   判断这个先验框是当前特征点的哪一个先验框
+                #----------------------------------------#
+                k = self.anchors_mask[l].index(best_n)
+                #----------------------------------------#
+                #   获得真实框属于哪个网格点
+                #----------------------------------------#
+                i = torch.floor(batch_target[t, 0]).long()
+                j = torch.floor(batch_target[t, 1]).long()
+                #----------------------------------------#
+                #   取出真实框的种类
+                #----------------------------------------#
+                c = batch_target[t, 4].long()
+
+                #----------------------------------------#
+                #   noobj_mask代表无目标的特征点
+                #----------------------------------------#
+                noobj_mask[b, k, j, i] = 0
+                #----------------------------------------#
+                #   tx、ty代表中心调整参数的真实值
+                #----------------------------------------#
+                y_true[b, k, j, i, 0] = batch_target[t, 0] - i.float()
+                y_true[b, k, j, i, 1] = batch_target[t, 1] - j.float()
+                y_true[b, k, j, i, 2] = math.log(batch_target[t, 2] / anchors[best_n][0])
+                y_true[b, k, j, i, 3] = math.log(batch_target[t, 3] / anchors[best_n][1])
+                y_true[b, k, j, i, 4] = 1
+                y_true[b, k, j, i, c + 5] = 1
+                #----------------------------------------#
+                #   用于获得xywh的比例
+                #   大目标loss权重小，小目标loss权重大
+                #----------------------------------------#
+                box_loss_scale[b, k, j, i] = batch_target[t, 2] * batch_target[t, 3] / in_w / in_h
+        return y_true, noobj_mask, box_loss_scale
+
+    def get_ignore(self, l, x, y, h, w, targets, scaled_anchors, in_h, in_w, noobj_mask):
+        #-----------------------------------------------------#
+        #   计算一共有多少张图片
+        #-----------------------------------------------------#
+        bs = len(targets)
+
+        FloatTensor = torch.cuda.FloatTensor if x.is_cuda else torch.FloatTensor
+        LongTensor  = torch.cuda.LongTensor if x.is_cuda else torch.LongTensor
+        #-----------------------------------------------------#
+        #   生成网格，先验框中心，网格左上角
+        #-----------------------------------------------------#
+        grid_x = torch.linspace(0, in_w - 1, in_w).repeat(in_h, 1).repeat(
+            int(bs * len(self.anchors_mask[l])), 1, 1).view(x.shape).type(FloatTensor)
+        grid_y = torch.linspace(0, in_h - 1, in_h).repeat(in_w, 1).t().repeat(
+            int(bs * len(self.anchors_mask[l])), 1, 1).view(y.shape).type(FloatTensor)
+
+        # 生成先验框的宽高
+        scaled_anchors_l = np.array(scaled_anchors)[self.anchors_mask[l]]
+        anchor_w = FloatTensor(scaled_anchors_l).index_select(1, LongTensor([0]))
+        anchor_h = FloatTensor(scaled_anchors_l).index_select(1, LongTensor([1]))
+
+        anchor_w = anchor_w.repeat(bs, 1).repeat(1, 1, in_h * in_w).view(w.shape)
+        anchor_h = anchor_h.repeat(bs, 1).repeat(1, 1, in_h * in_w).view(h.shape)
+        #-------------------------------------------------------#
+        #   计算调整后的先验框中心与宽高
+        #-------------------------------------------------------#
+        pred_boxes_x    = torch.unsqueeze(x.data + grid_x, -1)
+        pred_boxes_y    = torch.unsqueeze(y.data + grid_y, -1)
+        pred_boxes_w    = torch.unsqueeze(torch.exp(w.data) * anchor_w, -1)
+        pred_boxes_h    = torch.unsqueeze(torch.exp(h.data) * anchor_h, -1)
+        pred_boxes      = torch.cat([pred_boxes_x, pred_boxes_y, pred_boxes_w, pred_boxes_h], dim = -1)
+
+        for b in range(bs):           
+            #-------------------------------------------------------#
+            #   将预测结果转换一个形式
+            #   pred_boxes_for_ignore      num_anchors, 4
+            #-------------------------------------------------------#
+            pred_boxes_for_ignore = pred_boxes[b].view(-1, 4)
+            #-------------------------------------------------------#
+            #   计算真实框，并把真实框转换成相对于特征层的大小
+            #   gt_box      num_true_box, 4
+            #-------------------------------------------------------#
+            if len(targets[b]) &gt; 0:
+                batch_target = torch.zeros_like(targets[b])
+                #-------------------------------------------------------#
+                #   计算出正样本在特征层上的中心点
+                #-------------------------------------------------------#
+                batch_target[:, [0,2]] = targets[b][:, [0,2]] * in_w
+                batch_target[:, [1,3]] = targets[b][:, [1,3]] * in_h
+                batch_target = batch_target[:, :4]
+                #-------------------------------------------------------#
+                #   计算交并比
+                #   anch_ious       num_true_box, num_anchors
+                #-------------------------------------------------------#
+                anch_ious = self.calculate_iou(batch_target, pred_boxes_for_ignore)
+                #-------------------------------------------------------#
+                #   每个先验框对应真实框的最大重合度
+                #   anch_ious_max   num_anchors
+                #-------------------------------------------------------#
+                anch_ious_max, _    = torch.max(anch_ious, dim = 0)
+                anch_ious_max       = anch_ious_max.view(pred_boxes[b].size()[:3])
+                noobj_mask[b][anch_ious_max &gt; self.ignore_threshold] = 0
+        return noobj_mask
+</code></pre>
+
+  
+  
+    
+    <div class="footer">
+      
+      
+      
+        <div class="copyright">
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href="http://pistachio0812.github.io/CN/YOLOV3/">http://pistachio0812.github.io/CN/YOLOV3/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-19T10:24:33+08:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 19, 2022</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>论文解读</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/CN/YOLOV3/&title=yolov3解读 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/CN/YOLOV3/&title=yolov3解读 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/CN/YOLOV3/&title=yolov3解读 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class="prev" href="/CN/Faster-rcnn/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>Faster-RCNN解读</p>
+          <p class="content">论文地址：Faster R-CNN
+源码地址：ShaoqingRen&#x2F;faster_rcnn: Faster R-CNN (github.com)
+文章引用源码：https://git...</p>
+        </a>
+      
+      
+        <a class="next" href="/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/">
+          <p class="title">扁平时代的写作·节选<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">​        一个「扁平」的世界里众声喧沸。从原则上说，由编辑、审查、批准一类关卡所组成的文化权力体系几近瓦解，每一个IP地址自由发声，都可能成为强大的文化媒体。英才惨遭埋没的可能，伪学与赝...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class="fas fa-comments"></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-text">实现思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E9%83%A8%E5%88%86"><span class="toc-text">预测部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%B9%B2%E7%BD%91%E7%BB%9CDarknet53"><span class="toc-text">主干网络Darknet53</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8E%E7%89%B9%E5%BE%81%E5%B1%82%E8%8E%B7%E5%8F%96%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="toc-text">从特征层获取预测结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C%E7%9A%84%E8%A7%A3%E7%A0%81"><span class="toc-text">预测结果的解码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%9B%BE%E4%B8%8A%E8%BF%9B%E8%A1%8C%E7%BB%98%E5%88%B6"><span class="toc-text">原图上进行绘制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E9%83%A8%E5%88%86"><span class="toc-text">训练部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97loss%E6%89%80%E9%9C%80%E5%8F%82%E6%95%B0"><span class="toc-text">计算loss所需参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pred%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">pred是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#target%E6%98%AF%E4%BB%80%E4%B9%88%E3%80%82"><span class="toc-text">target是什么。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#loss%E7%9A%84%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="toc-text">loss的计算过程</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="yolov3解读";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#96e6a1" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="2185397204" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+          
+            
+              <a href="https://github.com/pistachio0812" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382" class="social  flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://img0.baidu.com/it/u=2862534777,914942650&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" class="lazyload" data-srcset="https://img0.baidu.com/it/u=2862534777,914942650&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="border-radius:120px">
+                
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次 <span id="lc-uv">访客数为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></span></p>
+</div>
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class="copyright">
+        <p><a href="/">Copyright © 2020-2022 相思似海深旧事如天远</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css", window.volantis.loadcss);
+  
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+	  function Pjax_backstretch(){
+        
+          $.backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
+    </script>
+  
+
+
+
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class="option">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand('copy')"><i class="fa fa-copy fa-fw"></i>复制文本</a>
+        <hr id="hr-text">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>复制链接</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>在新标签页打开</a>
+        <hr id="hr-href">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>复制图片地址</a>
+        <hr id="hr-src">
+      </li>
+      
+        <li class="navigation">
+          <a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="fa fa-arrow-left fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="fa fa-arrow-right fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="fa fa-redo fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" href="/"><i class="fa fa-home fa-fw"></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://volantis.js.org/faqs/" id="https:volantisjsorgfaqs" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-question fa-fw"></i> 常见问题
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://volantis.js.org/examples/" id="https:volantisjsorgexamples" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-rss fa-fw"></i> 示例博客
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://volantis.js.org/contributors/" id="https:volantisjsorgcontributors" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-fan fa-spin fa-fw"></i> 加入社区
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://github.com/volantis-x/volantis-docs/" id="https:githubcomvolantis-xvolantis-docs" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-code-branch fa-fw"></i> 本站源码
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-code-branch fa-fw"></i> 主题源码
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
+        <i class="fa fa-print fa-fw"></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
+        <i class="fa fa-moon fa-fw"></i> 暗黑模式
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class="music name">
+            <p class="nav music-title fix-cursor-default"></p>
+          </li>
+          <li class="music ctrl">
+            <a class="nav icon-only backward fix-cursor-default" onclick="aplayerBackward()"><i class="fa fa-step-backward fa-fw"></i></a>
+            <a class="nav icon-only toggle fix-cursor-default" onclick="aplayerToggle()"><i class="fa fa-play fa-fw"></i></a>
+            <a class="nav icon-only forward fix-cursor-default" onclick="aplayerForward()"><i class="fa fa-step-forward fa-fw"></i></a>
+          </li>
+          <li class="music volume">
+            <a class="nav volume">
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class="left fa fa-volume-off fa-fw"></i>
+                  <i class="right fa fa-volume-up fa-fw"></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
+        // 如果有aplayer，初始化一下
+        checkAPlayer();
+      }
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '2185397204';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js")
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
+    clearInterval(checkAPlayer)
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js") // 加载 MetingJS
+	  }
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
+
+  
+    loadScript("/js/aplayer.js")
+  
+
+</script>
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"js":"https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js","path":null,"placeholder":"快来评论吧~","appId":"n4TbjIfAh9hf9cM13OtQoUYY-gzGzoHsz","appKey":"EMwCQOaLj6D1bU3BPToHICOU","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":10,"lang":["zh-cn","en","zh-TW"],"highlight":true,"mathJax":true,"kramed":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true}}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
+</script>
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://pistachio0812.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://pistachio0812.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://pistachio0812.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+  
+  <script></script>
+
+
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
