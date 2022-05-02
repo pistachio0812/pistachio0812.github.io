@@ -41,12 +41,12 @@
   --color-site-body: #f4f4f4;
   --color-site-bg: #f4f4f4;
   --color-site-inner: #fff;
-  --color-site-footer: #666;
+  --color-site-footer: #4a8fa1;
   --color-card: #fff;
   --color-text: #444;
   --color-block: #f6f6f6;
   --color-inlinecode: #c74f00;
-  --color-codeblock: #fff7ea;
+  --color-codeblock: #f4f597;
   --color-h1: #3a3a3a;
   --color-h2: #3a3a3a;
   --color-h3: #333;
@@ -72,8 +72,8 @@ html {
   font-size: 16px;
 }
 html >::-webkit-scrollbar {
-  height: 6px;
-  width: 6px;
+  height: 3px;
+  width: 3px;
 }
 html >::-webkit-scrollbar-track-piece {
   background: transparent;
@@ -868,6 +868,7 @@ th {
   width: 100%;
   height: 64px;
   background: var(--color-card);
+  background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
   box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
 }
 .l_header.auto {
@@ -1749,7 +1750,7 @@ ul.list-v >li>a:hover {
     --color-site-body: #000;
     --color-site-bg: #222;
     --color-site-inner: #eee;
-    --color-site-footer: #aaa;
+    --color-site-footer: #4a8fa1;
     --color-card: #333;
     --color-text: #eee;
     --color-block: #3a3a3a;
@@ -1927,7 +1928,7 @@ ul.list-v >li>a:hover {
   --color-site-body: #000;
   --color-site-bg: #222;
   --color-site-inner: #eee;
-  --color-site-footer: #aaa;
+  --color-site-footer: #4a8fa1;
   --color-card: #333;
   --color-text: #eee;
   --color-block: #3a3a3a;

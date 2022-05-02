@@ -469,29 +469,28 @@
 <p>SciPy 包含的模块有最优化、线性代数、积分、插值、特殊函数、快速傅里叶变换、信号处理和图像处理、常微分方程求解和其他科学与工程中常用的计算。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>本章节，我们使用 pip 工具来安装 <code>Matplotlib</code> 库，如果还未安装该工具，可以参考 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/w3cnote/python-pip-install-usage.html">Python pip 安装与使用</a>。</p>
 <p>升级 pip：</p>
-<pre><code class="python">python3 -m pip install -U pip
+<pre><code class="lang-python">python3 -m pip install -U pip
 </code></pre>
 <p>安装 <code>matplotlib</code> 库：</p>
-<pre><code class="python">python3 -m pip install -U matplotlib
+<pre><code class="lang-python">python3 -m pip install -U matplotlib
 </code></pre>
-<p>安装完成后，我们就可以通过 import 来导入<code> matplotlib</code> 库：</p>
+<p>安装完成后，我们就可以通过 import 来导入<code>matplotlib</code> 库：</p>
 <p><code>import matplotlib</code></p>
-<p>以下实例，我们通过导入 <code>matplotlib</code> 库，然后查看 <code>matplotlib </code>库的版本号：</p>
+<p>以下实例，我们通过导入 <code>matplotlib</code> 库，然后查看 <code>matplotlib</code>库的版本号：</p>
 <p>实例1:</p>
 <p><code>import matplotlib</code></p>
 <p><code>print(matplotlib.__version__)</code></p>
 <p>执行以上代码，输出结果如下：</p>
 <pre><code>3.4.2
-</code></pre>
-<h2 id="Matplotlib-Pyplot"><a href="#Matplotlib-Pyplot" class="headerlink" title="Matplotlib Pyplot"></a>Matplotlib Pyplot</h2><p>Pyplot 是 Matplotlib 的子库，提供了和 MATLAB 类似的绘图 API。</p>
+</code></pre><h2 id="Matplotlib-Pyplot"><a href="#Matplotlib-Pyplot" class="headerlink" title="Matplotlib Pyplot"></a>Matplotlib Pyplot</h2><p>Pyplot 是 Matplotlib 的子库，提供了和 MATLAB 类似的绘图 API。</p>
 <p>Pyplot 是常用的绘图模块，能很方便让用户绘制 2D 图表。</p>
 <p>Pyplot 包含一系列绘图函数的相关函数，每个函数会对当前的图像进行一些修改，例如：给图像加上标记，生新的图像，在图像中产生新的绘图区域等等。</p>
-<p>使用的时候，我们可以使用 import 导入 pyplot 库，并设置一个别名<code> plt</code>：</p>
+<p>使用的时候，我们可以使用 import 导入 pyplot 库，并设置一个别名<code>plt</code>：</p>
 <p><code>import matplotlib.pyplot as plt</code></p>
 <p>这样我们就可以使用 <strong>plt</strong> 来引用 Pyplot 包的方法。</p>
 <p>以下实例，我们通过两个坐标 <strong>(0,0)</strong> 到 <strong>(6,100)</strong> 来绘制一条线:</p>
 <p>实例1:</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 xpoints = np.array([0, 6])
@@ -501,11 +500,10 @@ plt.plot(xpoints, ypoints)
 plt.show()
 </code></pre>
 <p>输出结果如下：</p>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403204022943.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403204022943.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
-<p>以上实例中我们使用了 Pyplot 的<code> plot()</code> 函数， <strong>plot()</strong> 函数是绘制二维图形的最基本函数。</p>
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403204022943.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403204022943.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>以上实例中我们使用了 Pyplot 的<code>plot()</code> 函数， <strong>plot()</strong> 函数是绘制二维图形的最基本函数。</p>
 <p><strong>plot()</strong> 用于画图它可以绘制点和线，语法格式如下：</p>
-<pre><code class="python"># 画单条线
+<pre><code class="lang-python"># 画单条线
 plot([x], y, [fmt], *, data=None, **kwargs)
 # 画多条线
 plot([x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs)
@@ -514,9 +512,9 @@ plot([x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs)
 <ul>
 <li><strong>x, y：</strong>点或线的节点，x 为 x 轴数据，y 为 y 轴数据，数据可以列表或数组。</li>
 <li><strong>fmt：</strong>可选，定义基本格式（如颜色、标记和线条样式）。</li>
-<li>*<strong>*kwargs：</strong>可选，用在二维平面图上，设置指定属性，如标签，线的宽度等。</li>
+<li><strong><em>\</em>kwargs：</strong>可选，用在二维平面图上，设置指定属性，如标签，线的宽度等。</li>
 </ul>
-<pre><code class="python">&gt;&gt;&gt; plot(x, y)        # 创建 y 中数据与 x 中对应值的二维线图，使用默认样式
+<pre><code class="lang-python">&gt;&gt;&gt; plot(x, y)        # 创建 y 中数据与 x 中对应值的二维线图，使用默认样式
 &gt;&gt;&gt; plot(x, y, &#39;bo&#39;)  # 创建 y 中数据与 x 中对应值的二维线图，使用蓝色实心圈绘制
 &gt;&gt;&gt; plot(y)           # x 的值为 0..N-1
 &gt;&gt;&gt; plot(y, &#39;r+&#39;)     # 使用红色 + 号
@@ -526,7 +524,7 @@ plot([x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs)
 <p><strong>标记字符：</strong>‘.’ 点标记，’,’ 像素标记(极小点)，’o’ 实心圈标记，’v’ 倒三角标记，’^’ 上三角标记，’&gt;’ 右三角标记，’&lt;’ 左三角标记…等等。</p>
 <p>如果我们只想绘制两个坐标点，而不是一条线，可以使用 <strong>o</strong> 参数，表示一个实心圈的标记。</p>
 <p>实例2：绘制坐标 (1, 3) 和 (8, 10) 的两个点</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 xpoints = np.array([1, 8])
@@ -535,11 +533,10 @@ ypoints = np.array([3, 10])
 plt.plot(xpoints, ypoints, &#39;o&#39;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205635489.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205635489.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205635489.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205635489.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>我们也可以绘制任意数量的点，只需确保两个轴上的点数相同即可。</p>
 <p>实例3：绘制一条不规则线，坐标为 (1, 3) 、 (2, 8) 、(6, 1) 、(8, 10)，对应的两个数组为：[1, 2, 6, 8] 与 [3, 8, 1, 10]。</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 xpoints = np.array([1, 2, 6, 8])
@@ -548,10 +545,9 @@ ypoints = np.array([3, 8, 1, 10])
 plt.plot(xpoints, ypoints)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205827906.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205827906.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205827906.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205827906.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例4：如果我们不指定 x 轴上的点，y只限定范围。</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([3, 10])
@@ -559,11 +555,10 @@ ypoints = np.array([3, 10])
 plt.plot(ypoints)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210031623.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210031623.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
-<p>从上图可以看出 x 的值默认设置为 **[0, 1]**。</p>
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210031623.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210031623.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>从上图可以看出 x 的值默认设置为 <strong>[0, 1]</strong>。</p>
 <p>实例5：如果我们不指定 x 轴上的点，y表明具体的点，则 x 会根据 y 的值来设置为 <strong>0, 1, 2, 3..N-1</strong></p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([3, 8, 1, 10, 5, 7])
@@ -571,10 +566,9 @@ ypoints = np.array([3, 8, 1, 10, 5, 7])
 plt.plot(ypoints)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210331668.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210331668.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210331668.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210331668.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例6：以下实例我们绘制一个正弦和余弦图，在 plt.plot() 参数中包含两对 <strong>x,y</strong> 值，第一对是 <strong>x,y</strong>，这对应于正弦函数，第二对是 <strong>x,z</strong>，这对应于余弦函数。</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.arange(0,4*np.pi,0.1)   # start,stop,step
@@ -583,11 +577,10 @@ z = np.cos(x)
 plt.plot(x,y,x,z)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210514868.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210514868.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
-<h2 id="Matplotlib-绘图标记"><a href="#Matplotlib-绘图标记" class="headerlink" title="Matplotlib 绘图标记"></a>Matplotlib 绘图标记</h2><p>绘图过程如果我们想要给坐标自定义一些不一样的标记，就可以使用 <strong>plot()</strong> 方法的 <code>marker </code>参数来定义。</p>
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210514868.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210514868.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h2 id="Matplotlib-绘图标记"><a href="#Matplotlib-绘图标记" class="headerlink" title="Matplotlib 绘图标记"></a>Matplotlib 绘图标记</h2><p>绘图过程如果我们想要给坐标自定义一些不一样的标记，就可以使用 <strong>plot()</strong> 方法的 <code>marker</code>参数来定义。</p>
 <p>实例1:定义实心圆标记</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([1,3,4,5,8,9,6,1,3,4,5,2,4])
@@ -595,215 +588,219 @@ ypoints = np.array([1,3,4,5,8,9,6,1,3,4,5,2,4])
 plt.plot(ypoints, marker = &#39;o&#39;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212010830.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212010830.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212010830.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212010830.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>marker可以定义的符号如下：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">标记</th>
-<th align="left">符号</th>
-<th align="left">描述</th>
+<th style="text-align:left">标记</th>
+<th style="text-align:left">符号</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">“.”</td>
-<td align="left"><img src="https://www.runoob.com/images/m00.png" class="lazyload" data-srcset="https://www.runoob.com/images/m00.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m00"></td>
-<td align="left">点</td>
+<tbody>
+<tr>
+<td style="text-align:left">“.”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m00.png" class="lazyload" data-srcset="https://www.runoob.com/images/m00.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m00"></td>
+<td style="text-align:left">点</td>
 </tr>
 <tr>
-<td align="left">“,”</td>
-<td align="left"><img src="https://www.runoob.com/images/m01.png" class="lazyload" data-srcset="https://www.runoob.com/images/m01.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m01"></td>
-<td align="left">像素点</td>
+<td style="text-align:left">“,”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m01.png" class="lazyload" data-srcset="https://www.runoob.com/images/m01.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m01"></td>
+<td style="text-align:left">像素点</td>
 </tr>
 <tr>
-<td align="left">“o”</td>
-<td align="left"><img src="https://www.runoob.com/images/m02.png" class="lazyload" data-srcset="https://www.runoob.com/images/m02.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m02"></td>
-<td align="left">实心圆</td>
+<td style="text-align:left">“o”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m02.png" class="lazyload" data-srcset="https://www.runoob.com/images/m02.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m02"></td>
+<td style="text-align:left">实心圆</td>
 </tr>
 <tr>
-<td align="left">“v”</td>
-<td align="left"><img src="https://www.runoob.com/images/m03.png" class="lazyload" data-srcset="https://www.runoob.com/images/m03.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m03"></td>
-<td align="left">下三角</td>
+<td style="text-align:left">“v”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m03.png" class="lazyload" data-srcset="https://www.runoob.com/images/m03.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m03"></td>
+<td style="text-align:left">下三角</td>
 </tr>
 <tr>
-<td align="left">“^”</td>
-<td align="left"><img src="https://www.runoob.com/images/m04.png" class="lazyload" data-srcset="https://www.runoob.com/images/m04.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m04"></td>
-<td align="left">上三角</td>
+<td style="text-align:left">“^”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m04.png" class="lazyload" data-srcset="https://www.runoob.com/images/m04.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m04"></td>
+<td style="text-align:left">上三角</td>
 </tr>
 <tr>
-<td align="left">“&lt;”</td>
-<td align="left"><img src="https://www.runoob.com/images/m05.png" class="lazyload" data-srcset="https://www.runoob.com/images/m05.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m05"></td>
-<td align="left">左三角</td>
+<td style="text-align:left">“&lt;”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m05.png" class="lazyload" data-srcset="https://www.runoob.com/images/m05.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m05"></td>
+<td style="text-align:left">左三角</td>
 </tr>
 <tr>
-<td align="left">“&gt;”</td>
-<td align="left"><img src="https://www.runoob.com/images/m06.png" class="lazyload" data-srcset="https://www.runoob.com/images/m06.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m06"></td>
-<td align="left">右三角</td>
+<td style="text-align:left">“&gt;”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m06.png" class="lazyload" data-srcset="https://www.runoob.com/images/m06.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m06"></td>
+<td style="text-align:left">右三角</td>
 </tr>
 <tr>
-<td align="left">“1”</td>
-<td align="left"><img src="https://www.runoob.com/images/m07.png" class="lazyload" data-srcset="https://www.runoob.com/images/m07.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m07"></td>
-<td align="left">下三叉</td>
+<td style="text-align:left">“1”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m07.png" class="lazyload" data-srcset="https://www.runoob.com/images/m07.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m07"></td>
+<td style="text-align:left">下三叉</td>
 </tr>
 <tr>
-<td align="left">“2”</td>
-<td align="left"><img src="https://www.runoob.com/images/m08.png" class="lazyload" data-srcset="https://www.runoob.com/images/m08.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m08"></td>
-<td align="left">上三叉</td>
+<td style="text-align:left">“2”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m08.png" class="lazyload" data-srcset="https://www.runoob.com/images/m08.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m08"></td>
+<td style="text-align:left">上三叉</td>
 </tr>
 <tr>
-<td align="left">“3”</td>
-<td align="left"><img src="https://www.runoob.com/images/m09.png" class="lazyload" data-srcset="https://www.runoob.com/images/m09.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m09"></td>
-<td align="left">左三叉</td>
+<td style="text-align:left">“3”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m09.png" class="lazyload" data-srcset="https://www.runoob.com/images/m09.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m09"></td>
+<td style="text-align:left">左三叉</td>
 </tr>
 <tr>
-<td align="left">“4”</td>
-<td align="left"><img src="https://www.runoob.com/images/m10.png" class="lazyload" data-srcset="https://www.runoob.com/images/m10.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m10"></td>
-<td align="left">右三叉</td>
+<td style="text-align:left">“4”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m10.png" class="lazyload" data-srcset="https://www.runoob.com/images/m10.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m10"></td>
+<td style="text-align:left">右三叉</td>
 </tr>
 <tr>
-<td align="left">“8”</td>
-<td align="left"><img src="https://www.runoob.com/images/m11.png" class="lazyload" data-srcset="https://www.runoob.com/images/m11.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m11"></td>
-<td align="left">八角形</td>
+<td style="text-align:left">“8”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m11.png" class="lazyload" data-srcset="https://www.runoob.com/images/m11.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m11"></td>
+<td style="text-align:left">八角形</td>
 </tr>
 <tr>
-<td align="left">“s”</td>
-<td align="left"><img src="https://www.runoob.com/images/m12.png" class="lazyload" data-srcset="https://www.runoob.com/images/m12.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m12"></td>
-<td align="left">正方形</td>
+<td style="text-align:left">“s”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m12.png" class="lazyload" data-srcset="https://www.runoob.com/images/m12.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m12"></td>
+<td style="text-align:left">正方形</td>
 </tr>
 <tr>
-<td align="left">“p”</td>
-<td align="left"><img src="https://www.runoob.com/images/m13.png" class="lazyload" data-srcset="https://www.runoob.com/images/m13.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m13"></td>
-<td align="left">五边形</td>
+<td style="text-align:left">“p”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m13.png" class="lazyload" data-srcset="https://www.runoob.com/images/m13.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m13"></td>
+<td style="text-align:left">五边形</td>
 </tr>
 <tr>
-<td align="left">“P”</td>
-<td align="left"><img src="https://www.runoob.com/images/m23.png" class="lazyload" data-srcset="https://www.runoob.com/images/m23.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m23"></td>
-<td align="left">加号（填充）</td>
+<td style="text-align:left">“P”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m23.png" class="lazyload" data-srcset="https://www.runoob.com/images/m23.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m23"></td>
+<td style="text-align:left">加号（填充）</td>
 </tr>
 <tr>
-<td align="left">“*”</td>
-<td align="left"><img src="https://www.runoob.com/images/m14.png" class="lazyload" data-srcset="https://www.runoob.com/images/m14.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m14"></td>
-<td align="left">星号</td>
+<td style="text-align:left">“*”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m14.png" class="lazyload" data-srcset="https://www.runoob.com/images/m14.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m14"></td>
+<td style="text-align:left">星号</td>
 </tr>
 <tr>
-<td align="left">“h”</td>
-<td align="left"><img src="https://www.runoob.com/images/m15.png" class="lazyload" data-srcset="https://www.runoob.com/images/m15.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m15"></td>
-<td align="left">六边形 1</td>
+<td style="text-align:left">“h”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m15.png" class="lazyload" data-srcset="https://www.runoob.com/images/m15.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m15"></td>
+<td style="text-align:left">六边形 1</td>
 </tr>
 <tr>
-<td align="left">“H”</td>
-<td align="left"><img src="https://www.runoob.com/images/m16.png" class="lazyload" data-srcset="https://www.runoob.com/images/m16.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m16"></td>
-<td align="left">六边形 2</td>
+<td style="text-align:left">“H”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m16.png" class="lazyload" data-srcset="https://www.runoob.com/images/m16.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m16"></td>
+<td style="text-align:left">六边形 2</td>
 </tr>
 <tr>
-<td align="left">“+”</td>
-<td align="left"><img src="https://www.runoob.com/images/m17.png" class="lazyload" data-srcset="https://www.runoob.com/images/m17.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m17"></td>
-<td align="left">加号</td>
+<td style="text-align:left">“+”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m17.png" class="lazyload" data-srcset="https://www.runoob.com/images/m17.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m17"></td>
+<td style="text-align:left">加号</td>
 </tr>
 <tr>
-<td align="left">“x”</td>
-<td align="left"><img src="https://www.runoob.com/images/m18.png" class="lazyload" data-srcset="https://www.runoob.com/images/m18.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m18"></td>
-<td align="left">乘号 x</td>
+<td style="text-align:left">“x”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m18.png" class="lazyload" data-srcset="https://www.runoob.com/images/m18.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m18"></td>
+<td style="text-align:left">乘号 x</td>
 </tr>
 <tr>
-<td align="left">“X”</td>
-<td align="left"><img src="https://www.runoob.com/images/m24.png" class="lazyload" data-srcset="https://www.runoob.com/images/m24.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m24"></td>
-<td align="left">乘号 x (填充)</td>
+<td style="text-align:left">“X”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m24.png" class="lazyload" data-srcset="https://www.runoob.com/images/m24.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m24"></td>
+<td style="text-align:left">乘号 x (填充)</td>
 </tr>
 <tr>
-<td align="left">“D”</td>
-<td align="left"><img src="https://www.runoob.com/images/m19.png" class="lazyload" data-srcset="https://www.runoob.com/images/m19.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m19"></td>
-<td align="left">菱形</td>
+<td style="text-align:left">“D”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m19.png" class="lazyload" data-srcset="https://www.runoob.com/images/m19.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m19"></td>
+<td style="text-align:left">菱形</td>
 </tr>
 <tr>
-<td align="left">“d”</td>
-<td align="left"><img src="https://www.runoob.com/images/m20.png" class="lazyload" data-srcset="https://www.runoob.com/images/m20.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m20"></td>
-<td align="left">瘦菱形</td>
+<td style="text-align:left">“d”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m20.png" class="lazyload" data-srcset="https://www.runoob.com/images/m20.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m20"></td>
+<td style="text-align:left">瘦菱形</td>
 </tr>
 <tr>
-<td align="left">“|”</td>
-<td align="left"><img src="https://www.runoob.com/images/m21.png" class="lazyload" data-srcset="https://www.runoob.com/images/m21.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m21"></td>
-<td align="left">竖线</td>
+<td style="text-align:left">“\</td>
+<td style="text-align:left">“</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m21.png" class="lazyload" data-srcset="https://www.runoob.com/images/m21.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m21"></td>
+<td>竖线</td>
 </tr>
 <tr>
-<td align="left">“_”</td>
-<td align="left"><img src="https://www.runoob.com/images/m22.png" class="lazyload" data-srcset="https://www.runoob.com/images/m22.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m22"></td>
-<td align="left">横线</td>
+<td style="text-align:left">“_”</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m22.png" class="lazyload" data-srcset="https://www.runoob.com/images/m22.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m22"></td>
+<td style="text-align:left">横线</td>
 </tr>
 <tr>
-<td align="left">0 (TICKLEFT)</td>
-<td align="left"><img src="https://www.runoob.com/images/m25.png" class="lazyload" data-srcset="https://www.runoob.com/images/m25.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m25"></td>
-<td align="left">左横线</td>
+<td style="text-align:left">0 (TICKLEFT)</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m25.png" class="lazyload" data-srcset="https://www.runoob.com/images/m25.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m25"></td>
+<td style="text-align:left">左横线</td>
 </tr>
 <tr>
-<td align="left">1 (TICKRIGHT)</td>
-<td align="left"><img src="https://www.runoob.com/images/m26.png" class="lazyload" data-srcset="https://www.runoob.com/images/m26.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m26"></td>
-<td align="left">右横线</td>
+<td style="text-align:left">1 (TICKRIGHT)</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m26.png" class="lazyload" data-srcset="https://www.runoob.com/images/m26.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m26"></td>
+<td style="text-align:left">右横线</td>
 </tr>
 <tr>
-<td align="left">2 (TICKUP)</td>
-<td align="left"><img src="https://www.runoob.com/images/m27.png" class="lazyload" data-srcset="https://www.runoob.com/images/m27.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m27"></td>
-<td align="left">上竖线</td>
+<td style="text-align:left">2 (TICKUP)</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m27.png" class="lazyload" data-srcset="https://www.runoob.com/images/m27.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m27"></td>
+<td style="text-align:left">上竖线</td>
 </tr>
 <tr>
-<td align="left">3 (TICKDOWN)</td>
-<td align="left"><img src="https://www.runoob.com/images/m28.png" class="lazyload" data-srcset="https://www.runoob.com/images/m28.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m28"></td>
-<td align="left">下竖线</td>
+<td style="text-align:left">3 (TICKDOWN)</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m28.png" class="lazyload" data-srcset="https://www.runoob.com/images/m28.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m28"></td>
+<td style="text-align:left">下竖线</td>
 </tr>
 <tr>
-<td align="left">4 (CARETLEFT)</td>
-<td align="left"><img src="https://www.runoob.com/images/m29.png" class="lazyload" data-srcset="https://www.runoob.com/images/m29.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m29"></td>
-<td align="left">左箭头</td>
+<td style="text-align:left">4 (CARETLEFT)</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m29.png" class="lazyload" data-srcset="https://www.runoob.com/images/m29.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m29"></td>
+<td style="text-align:left">左箭头</td>
 </tr>
 <tr>
-<td align="left">5 (CARETRIGHT)</td>
-<td align="left"><img src="https://www.runoob.com/images/m30.png" class="lazyload" data-srcset="https://www.runoob.com/images/m30.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m30"></td>
-<td align="left">右箭头</td>
+<td style="text-align:left">5 (CARETRIGHT)</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m30.png" class="lazyload" data-srcset="https://www.runoob.com/images/m30.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m30"></td>
+<td style="text-align:left">右箭头</td>
 </tr>
 <tr>
-<td align="left">6 (CARETUP)</td>
-<td align="left"><img src="https://www.runoob.com/images/m31.png" class="lazyload" data-srcset="https://www.runoob.com/images/m31.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m31"></td>
-<td align="left">上箭头</td>
+<td style="text-align:left">6 (CARETUP)</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m31.png" class="lazyload" data-srcset="https://www.runoob.com/images/m31.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m31"></td>
+<td style="text-align:left">上箭头</td>
 </tr>
 <tr>
-<td align="left">7 (CARETDOWN)</td>
-<td align="left"><img src="https://www.runoob.com/images/m32.png" class="lazyload" data-srcset="https://www.runoob.com/images/m32.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m32"></td>
-<td align="left">下箭头</td>
+<td style="text-align:left">7 (CARETDOWN)</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m32.png" class="lazyload" data-srcset="https://www.runoob.com/images/m32.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m32"></td>
+<td style="text-align:left">下箭头</td>
 </tr>
 <tr>
-<td align="left">8 (CARETLEFTBASE)</td>
-<td align="left"><img src="https://www.runoob.com/images/m33.png" class="lazyload" data-srcset="https://www.runoob.com/images/m33.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m33"></td>
-<td align="left">左箭头 (中间点为基准)</td>
+<td style="text-align:left">8 (CARETLEFTBASE)</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m33.png" class="lazyload" data-srcset="https://www.runoob.com/images/m33.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m33"></td>
+<td style="text-align:left">左箭头 (中间点为基准)</td>
 </tr>
 <tr>
-<td align="left">9 (CARETRIGHTBASE)</td>
-<td align="left"><img src="https://www.runoob.com/images/m34.png" class="lazyload" data-srcset="https://www.runoob.com/images/m34.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m34"></td>
-<td align="left">右箭头 (中间点为基准)</td>
+<td style="text-align:left">9 (CARETRIGHTBASE)</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m34.png" class="lazyload" data-srcset="https://www.runoob.com/images/m34.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m34"></td>
+<td style="text-align:left">右箭头 (中间点为基准)</td>
 </tr>
 <tr>
-<td align="left">10 (CARETUPBASE)</td>
-<td align="left"><img src="https://www.runoob.com/images/m35.png" class="lazyload" data-srcset="https://www.runoob.com/images/m35.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m35"></td>
-<td align="left">上箭头 (中间点为基准)</td>
+<td style="text-align:left">10 (CARETUPBASE)</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m35.png" class="lazyload" data-srcset="https://www.runoob.com/images/m35.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m35"></td>
+<td style="text-align:left">上箭头 (中间点为基准)</td>
 </tr>
 <tr>
-<td align="left">11 (CARETDOWNBASE)</td>
-<td align="left"><img src="https://www.runoob.com/images/m36.png" class="lazyload" data-srcset="https://www.runoob.com/images/m36.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m36"></td>
-<td align="left">下箭头 (中间点为基准)</td>
+<td style="text-align:left">11 (CARETDOWNBASE)</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m36.png" class="lazyload" data-srcset="https://www.runoob.com/images/m36.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m36"></td>
+<td style="text-align:left">下箭头 (中间点为基准)</td>
 </tr>
 <tr>
-<td align="left">“None”, “ “ or “”</td>
-<td align="left"></td>
-<td align="left">没有任何标记</td>
+<td style="text-align:left">“None”, “ “ or “”</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">没有任何标记</td>
 </tr>
 <tr>
-<td align="left">‘$…$’</td>
-<td align="left"><img src="https://www.runoob.com/images/m37.png" class="lazyload" data-srcset="https://www.runoob.com/images/m37.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m37"></td>
-<td align="left">渲染指定的字符。例如 “$f$” 以字母 f 为标记。</td>
+<td style="text-align:left">‘$…$’</td>
+<td style="text-align:left"><img src="https://www.runoob.com/images/m37.png" class="lazyload" data-srcset="https://www.runoob.com/images/m37.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="m37"></td>
+<td style="text-align:left">渲染指定的字符。例如 “$f$” 以字母 f 为标记。</td>
 </tr>
-</tbody></table>
-<p>实例2:定义了 ***** 标记</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+</tbody>
+</table>
+</div>
+<p>实例2:定义了 <strong>*</strong> 标记</p>
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([1,3,4,5,8,9,6,1,3,4,5,2,4])
@@ -811,23 +808,21 @@ ypoints = np.array([1,3,4,5,8,9,6,1,3,4,5,2,4])
 plt.plot(ypoints, marker = &#39;*&#39;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212950411.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212950411.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212950411.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212950411.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例3:定义下箭头</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import matplotlib.markers
 
 plt.plot([1, 2, 3], marker=matplotlib.markers.CARETDOWNBASE)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213418027.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213418027.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213418027.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213418027.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h3 id="fmt-参数"><a href="#fmt-参数" class="headerlink" title="fmt 参数"></a>fmt 参数</h3><p>fmt 参数定义了基本格式，如标记、线条样式和颜色。</p>
-<pre><code class="python">fmt = &#39;[marker][line][color]&#39;
+<pre><code class="lang-python">fmt = &#39;[marker][line][color]&#39;
 </code></pre>
-<p>例如 <strong>o:r</strong>，<strong>o</strong> 表示实心圆标记，**:** 表示虚线，<strong>r</strong> 表示颜色为红色。</p>
+<p>例如 <strong>o:r</strong>，<strong>o</strong> 表示实心圆标记，<strong>:</strong> 表示虚线，<strong>r</strong> 表示颜色为红色。</p>
 <p>实例4：</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([6, 2, 13, 10])
@@ -835,74 +830,81 @@ ypoints = np.array([6, 2, 13, 10])
 plt.plot(ypoints, &#39;o:r&#39;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213911622.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213911622.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213911622.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213911622.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>线类型：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">线类型标记</th>
-<th align="left">描述</th>
+<th style="text-align:left">线类型标记</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">‘-‘</td>
-<td align="left">实线</td>
+<tbody>
+<tr>
+<td style="text-align:left">‘-‘</td>
+<td style="text-align:left">实线</td>
 </tr>
 <tr>
-<td align="left">‘:’</td>
-<td align="left">虚线</td>
+<td style="text-align:left">‘:’</td>
+<td style="text-align:left">虚线</td>
 </tr>
 <tr>
-<td align="left">‘–’</td>
-<td align="left">破折线</td>
+<td style="text-align:left">‘—‘</td>
+<td style="text-align:left">破折线</td>
 </tr>
 <tr>
-<td align="left">‘-.’</td>
-<td align="left">点划线</td>
+<td style="text-align:left">‘-.’</td>
+<td style="text-align:left">点划线</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>颜色类型：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">颜色标记</th>
-<th align="left">描述</th>
+<th style="text-align:left">颜色标记</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">‘r’</td>
-<td align="left">红色</td>
+<tbody>
+<tr>
+<td style="text-align:left">‘r’</td>
+<td style="text-align:left">红色</td>
 </tr>
 <tr>
-<td align="left">‘g’</td>
-<td align="left">绿色</td>
+<td style="text-align:left">‘g’</td>
+<td style="text-align:left">绿色</td>
 </tr>
 <tr>
-<td align="left">‘b’</td>
-<td align="left">蓝色</td>
+<td style="text-align:left">‘b’</td>
+<td style="text-align:left">蓝色</td>
 </tr>
 <tr>
-<td align="left">‘c’</td>
-<td align="left">青色</td>
+<td style="text-align:left">‘c’</td>
+<td style="text-align:left">青色</td>
 </tr>
 <tr>
-<td align="left">‘m’</td>
-<td align="left">品红</td>
+<td style="text-align:left">‘m’</td>
+<td style="text-align:left">品红</td>
 </tr>
 <tr>
-<td align="left">‘y’</td>
-<td align="left">黄色</td>
+<td style="text-align:left">‘y’</td>
+<td style="text-align:left">黄色</td>
 </tr>
 <tr>
-<td align="left">‘k’</td>
-<td align="left">黑色</td>
+<td style="text-align:left">‘k’</td>
+<td style="text-align:left">黑色</td>
 </tr>
 <tr>
-<td align="left">‘w’</td>
-<td align="left">白色</td>
+<td style="text-align:left">‘w’</td>
+<td style="text-align:left">白色</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="标记大小和颜色"><a href="#标记大小和颜色" class="headerlink" title="标记大小和颜色"></a>标记大小和颜色</h3><p>我们可以自定义标记的大小与颜色，使用的参数分别是：</p>
 <ul>
 <li>markersize，简写为 <strong>ms</strong>：定义标记的大小。</li>
@@ -910,7 +912,7 @@ plt.show()
 <li>markeredgecolor，简写为 <strong>mec</strong>：定义标记边框的颜色。</li>
 </ul>
 <p>实例5：设置标记大小</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([6, 2, 13, 10])
@@ -918,10 +920,9 @@ ypoints = np.array([6, 2, 13, 10])
 plt.plot(ypoints, marker = &#39;o&#39;, ms = 20)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215102017.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215102017.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215102017.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215102017.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例6：设置标记外边框颜色</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([6, 2, 13, 10])
@@ -929,10 +930,9 @@ ypoints = np.array([6, 2, 13, 10])
 plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mec = &#39;r&#39;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215856505.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215856505.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215856505.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215856505.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例7：设置标记内部颜色</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([6, 2, 13, 10])
@@ -940,56 +940,58 @@ ypoints = np.array([6, 2, 13, 10])
 plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mfc = &#39;r&#39;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220017186.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220017186.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220017186.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220017186.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例8：自定义标记内部与边框的颜色</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([6, 2, 13, 10])
 plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mec = &#39;#4CAF50&#39;, mfc = &#39;#4CAF50&#39;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220233003.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220233003.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220233003.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220233003.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h2 id="Matplotlib-绘图线"><a href="#Matplotlib-绘图线" class="headerlink" title="Matplotlib 绘图线"></a>Matplotlib 绘图线</h2><p>绘图过程如果我们自定义线的样式，包括线的类型、颜色和大小等。</p>
 <h3 id="线的类型"><a href="#线的类型" class="headerlink" title="线的类型"></a>线的类型</h3><p>线的类型可以使用 <strong>linestyle</strong> 参数来定义，简写为 <strong>ls</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">类型</th>
-<th align="left">简写</th>
-<th align="left">说明</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">简写</th>
+<th style="text-align:left">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">‘solid’ (默认)</td>
-<td align="left">‘-‘</td>
-<td align="left">实线</td>
+<tbody>
+<tr>
+<td style="text-align:left">‘solid’ (默认)</td>
+<td style="text-align:left">‘-‘</td>
+<td style="text-align:left">实线</td>
 </tr>
 <tr>
-<td align="left">‘dotted’</td>
-<td align="left">‘:’</td>
-<td align="left">点虚线</td>
+<td style="text-align:left">‘dotted’</td>
+<td style="text-align:left">‘:’</td>
+<td style="text-align:left">点虚线</td>
 </tr>
 <tr>
-<td align="left">‘dashed’</td>
-<td align="left">‘–’</td>
-<td align="left">破折线</td>
+<td style="text-align:left">‘dashed’</td>
+<td style="text-align:left">‘—‘</td>
+<td style="text-align:left">破折线</td>
 </tr>
 <tr>
-<td align="left">‘dashdot’</td>
-<td align="left">‘-.’</td>
-<td align="left">点划线</td>
+<td style="text-align:left">‘dashdot’</td>
+<td style="text-align:left">‘-.’</td>
+<td style="text-align:left">点划线</td>
 </tr>
 <tr>
-<td align="left">‘None’</td>
-<td align="left">‘’ 或 ‘ ‘</td>
-<td align="left">不画线</td>
+<td style="text-align:left">‘None’</td>
+<td style="text-align:left">‘’ 或 ‘ ‘</td>
+<td style="text-align:left">不画线</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>实例1：</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([6, 2, 13, 10])
@@ -997,10 +999,9 @@ ypoints = np.array([6, 2, 13, 10])
 plt.plot(ypoints, linestyle = &#39;dotted&#39;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221432174.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221432174.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221432174.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221432174.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例2：使用简写</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([6, 2, 13, 10])
@@ -1008,53 +1009,56 @@ ypoints = np.array([6, 2, 13, 10])
 plt.plot(ypoints, ls = &#39;-.&#39;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221604494.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221604494.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221604494.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221604494.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h3 id="线的颜色"><a href="#线的颜色" class="headerlink" title="线的颜色"></a>线的颜色</h3><p>线的颜色可以使用 <strong>color</strong> 参数来定义，简写为 <strong>c</strong>。</p>
 <p>颜色类型：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">颜色标记</th>
-<th align="left">描述</th>
+<th style="text-align:left">颜色标记</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">‘r’</td>
-<td align="left">红色</td>
+<tbody>
+<tr>
+<td style="text-align:left">‘r’</td>
+<td style="text-align:left">红色</td>
 </tr>
 <tr>
-<td align="left">‘g’</td>
-<td align="left">绿色</td>
+<td style="text-align:left">‘g’</td>
+<td style="text-align:left">绿色</td>
 </tr>
 <tr>
-<td align="left">‘b’</td>
-<td align="left">蓝色</td>
+<td style="text-align:left">‘b’</td>
+<td style="text-align:left">蓝色</td>
 </tr>
 <tr>
-<td align="left">‘c’</td>
-<td align="left">青色</td>
+<td style="text-align:left">‘c’</td>
+<td style="text-align:left">青色</td>
 </tr>
 <tr>
-<td align="left">‘m’</td>
-<td align="left">品红</td>
+<td style="text-align:left">‘m’</td>
+<td style="text-align:left">品红</td>
 </tr>
 <tr>
-<td align="left">‘y’</td>
-<td align="left">黄色</td>
+<td style="text-align:left">‘y’</td>
+<td style="text-align:left">黄色</td>
 </tr>
 <tr>
-<td align="left">‘k’</td>
-<td align="left">黑色</td>
+<td style="text-align:left">‘k’</td>
+<td style="text-align:left">黑色</td>
 </tr>
 <tr>
-<td align="left">‘w’</td>
-<td align="left">白色</td>
+<td style="text-align:left">‘w’</td>
+<td style="text-align:left">白色</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>当然也可以自定义颜色类型，例如：<strong>SeaGreen、#8FBC8F</strong> 等，完整样式可以参考 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/html/html-colorvalues.html">HTML 颜色值</a>。</p>
 <p>实例3：</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([6, 2, 13, 10])
@@ -1062,10 +1066,9 @@ ypoints = np.array([6, 2, 13, 10])
 plt.plot(ypoints, color = &#39;r&#39;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221822295.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221822295.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221822295.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221822295.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例4：</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([6, 2, 13, 10])
@@ -1073,10 +1076,9 @@ ypoints = np.array([6, 2, 13, 10])
 plt.plot(ypoints, c = &#39;#8FBC8F&#39;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222000966.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222000966.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222000966.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222000966.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例5：</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([6, 2, 13, 10])
@@ -1084,11 +1086,10 @@ ypoints = np.array([6, 2, 13, 10])
 plt.plot(ypoints, c = &#39;SeaGreen&#39;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222117925.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222117925.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222117925.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222117925.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h3 id="线的宽度"><a href="#线的宽度" class="headerlink" title="线的宽度"></a>线的宽度</h3><p>线的宽度可以使用 <strong>linewidth</strong> 参数来定义，简写为 <strong>lw</strong>，值可以是浮点数，如：<strong>1</strong>、<strong>2.0</strong>、<strong>5.67</strong> 等</p>
 <p>实例6：</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 ypoints = np.array([6, 2, 13, 10])
@@ -1096,11 +1097,10 @@ ypoints = np.array([6, 2, 13, 10])
 plt.plot(ypoints, linewidth = &#39;12.5&#39;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222318825.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222318825.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222318825.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222318825.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h3 id="多条线"><a href="#多条线" class="headerlink" title="多条线"></a>多条线</h3><p>plot() 方法中可以包含多对 x,y 值来绘制多条线。</p>
 <p>实例7：</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 y1 = np.array([3, 7, 5, 9])
@@ -1111,11 +1111,10 @@ plt.plot(y2)
 
 plt.show()
 </code></pre>
-<p>从上图可以看出 <strong>x</strong> 的值默认设置为 **[0, 1, 2, 3]**。</p>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222526935.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222526935.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p>从上图可以看出 <strong>x</strong> 的值默认设置为 <strong>[0, 1, 2, 3]</strong>。</p>
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222526935.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222526935.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例8：</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x1 = np.array([0, 1, 2, 3])
@@ -1126,11 +1125,10 @@ y2 = np.array([6, 2, 13, 10])
 plt.plot(x1, y1, x2, y2)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222628227.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222628227.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222628227.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222628227.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h2 id="Matplotlib-轴标签和标题"><a href="#Matplotlib-轴标签和标题" class="headerlink" title="Matplotlib 轴标签和标题"></a>Matplotlib 轴标签和标题</h2><p>我们可以使用 <strong>xlabel()</strong> 和 <strong>ylabel()</strong> 方法来设置 x 轴和 y 轴的标签。</p>
 <p>实例1：</p>
-<pre><code class="python">import numpy as np
+<pre><code class="lang-python">import numpy as np
 import matplotlib.pyplot as plt
 
 x = np.array([1, 2, 3, 4])
@@ -1142,10 +1140,9 @@ plt.ylabel(&quot;y - label&quot;)
 
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404095612577.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404095612577.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404095612577.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404095612577.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>实例2：使用 <strong>title()</strong> 方法来设置标题:</p>
-<pre><code class="python">import numpy as np
+<pre><code class="lang-python">import numpy as np
 import matplotlib.pyplot as plt
 
 x = np.array([1, 2, 3, 4])
@@ -1158,40 +1155,37 @@ plt.ylabel(&quot;y - label&quot;)
 
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404100123540.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404100123540.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404100123540.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404100123540.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h3 id="图像中文显示"><a href="#图像中文显示" class="headerlink" title="图像中文显示"></a>图像中文显示</h3><p>Matplotlib 默认情况不支持中文，我们可以使用以下简单的方法来解决。</p>
 <p>这里我们使用思源黑体，思源黑体是 Adobe 与 Google 推出的一款开源字体。</p>
 <p>官网：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://source.typekit.com/source-han-serif/cn/">https://source.typekit.com/source-han-serif/cn/</a></p>
 <p>GitHub 地址：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/adobe-fonts/source-han-sans/tree/release/OTF/SimplifiedChinese">https://github.com/adobe-fonts/source-han-sans/tree/release/OTF/SimplifiedChinese</a></p>
 <p>打开链接后，在里面选一个就好了：</p>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104121709.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104121709.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
-<p>你也可以在网盘下载: <a target="_blank" rel="external nofollow noopener noreferrer" href="https://pan.baidu.com/s/10-w1JbXZSnx3Tm6uGpPGOw%EF%BC%8C%E6%8F%90%E5%8F%96%E7%A0%81%EF%BC%9A**yxqu**%E3%80%82">https://pan.baidu.com/s/10-w1JbXZSnx3Tm6uGpPGOw，提取码：**yxqu**。</a></p>
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104121709.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104121709.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>你也可以在网盘下载: <a target="_blank" rel="external nofollow noopener noreferrer" href="https://pan.baidu.com/s/10-w1JbXZSnx3Tm6uGpPGOw，提取码：**yxqu**。">https://pan.baidu.com/s/10-w1JbXZSnx3Tm6uGpPGOw，提取码：**yxqu**。</a></p>
 <p>可以下载个 OTF 字体，比如 SourceHanSansSC-Bold.otf，将该文件文件放在当前执行的代码文件中：</p>
 <p><code>SourceHanSansSC-Bold.otf</code> 文件放在当前执行的代码文件中。</p>
 <p>实例3：</p>
-<pre><code class="python">import numpy as np 
+<pre><code class="lang-python">import numpy as np 
 from matplotlib import pyplot as plt 
 import matplotlib
- 
+
 # fname 为 你下载的字体库路径，注意 SourceHanSansSC-Bold.otf 字体的路径
 zhfont1 = matplotlib.font_manager.FontProperties(fname=&quot;SourceHanSansSC-Bold.otf&quot;) 
- 
+
 x = np.arange(1,11) 
 y =  2  * x +  5 
 plt.title(&quot;测试&quot;, fontproperties=zhfont1) 
- 
+
 # fontproperties 设置中文显示，fontsize 设置字体大小
 plt.xlabel(&quot;x标签&quot;, fontproperties=zhfont1)
 plt.ylabel(&quot;y标签&quot;, fontproperties=zhfont1)
 plt.plot(x,y) 
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104616081.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104616081.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104616081.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104616081.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p><em>此外，我们还可以使用系统的字体：</em></p>
-<pre><code class="python">from matplotlib import pyplot as plt
+<pre><code class="lang-python">from matplotlib import pyplot as plt
 import matplotlib
 a=sorted([f.name for f in matplotlib.font_manager.fontManager.ttflist])
 
@@ -1199,13 +1193,13 @@ for i in a:
     print(i)
 </code></pre>
 <p><em>打印出你的 font_manager 的 ttflist 中所有注册的名字，找一个看中文字体例如：STFangsong(仿宋）,然后添加以下代码即可：</em></p>
-<pre><code class="python">plt.rcParams[&#39;font.family&#39;]=[&#39;STFangsong&#39;]
+<pre><code class="lang-python">plt.rcParams[&#39;font.family&#39;]=[&#39;STFangsong&#39;]
 </code></pre>
 <p>实例4：:自定义字体的样式</p>
-<pre><code class="python">import numpy as np
+<pre><code class="lang-python">import numpy as np
 from matplotlib import pyplot as plt
 import matplotlib
- 
+
 # fname 为 你下载的字体库路径，注意 SourceHanSansSC-Bold.otf 字体的路径，size 参数设置字体大小
 zhfont1 = matplotlib.font_manager.FontProperties(fname=&quot;SourceHanSansSC-Bold.otf&quot;, size=18)
 font1 = &#123;&#39;color&#39;:&#39;blue&#39;,&#39;size&#39;:20&#125;
@@ -1215,23 +1209,22 @@ y =  2  * x +  5
 
 # fontdict 可以使用 css 来设置字体样式
 plt.title(&quot;菜鸟教程 - 测试&quot;, fontproperties=zhfont1, fontdict = font1)
- 
+
 # fontproperties 设置中文显示，fontsize 设置字体大小
 plt.xlabel(&quot;x 轴&quot;, fontproperties=zhfont1)
 plt.ylabel(&quot;y 轴&quot;, fontproperties=zhfont1)
 plt.plot(x,y)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104841496.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104841496.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
-<h3 id="标题与标签的定位"><a href="#标题与标签的定位" class="headerlink" title="标题与标签的定位"></a>标题与标签的定位</h3><p><strong>title()</strong> 方法提供了 <strong>loc</strong> 参数来设置标题显示的位置，可以设置为: **’left’, ‘right’, 和 ‘center’， 默认值为 ‘center’**。</p>
-<p><strong>xlabel()</strong> 方法提供了 <strong>loc</strong> 参数来设置 x 轴显示的位置，可以设置为: **’left’, ‘right’, 和 ‘center’， 默认值为 ‘center’**。</p>
-<p><strong>ylabel()</strong> 方法提供了 <strong>loc</strong> 参数来设置 y 轴显示的位置，可以设置为: **’bottom’, ‘top’, 和 ‘center’， 默认值为 ‘center’**。</p>
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104841496.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104841496.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h3 id="标题与标签的定位"><a href="#标题与标签的定位" class="headerlink" title="标题与标签的定位"></a>标题与标签的定位</h3><p><strong>title()</strong> 方法提供了 <strong>loc</strong> 参数来设置标题显示的位置，可以设置为: <strong>‘left’, ‘right’, 和 ‘center’， 默认值为 ‘center’</strong>。</p>
+<p><strong>xlabel()</strong> 方法提供了 <strong>loc</strong> 参数来设置 x 轴显示的位置，可以设置为: <strong>‘left’, ‘right’, 和 ‘center’， 默认值为 ‘center’</strong>。</p>
+<p><strong>ylabel()</strong> 方法提供了 <strong>loc</strong> 参数来设置 y 轴显示的位置，可以设置为: <strong>‘bottom’, ‘top’, 和 ‘center’， 默认值为 ‘center’</strong>。</p>
 <p>实例5：</p>
-<pre><code class="python">import numpy as np
+<pre><code class="lang-python">import numpy as np
 from matplotlib import pyplot as plt
 import matplotlib
- 
+
 # fname 为 你下载的字体库路径，注意 SourceHanSansSC-Bold.otf 字体的路径，size 参数设置字体大小
 zhfont1 = matplotlib.font_manager.FontProperties(fname=&quot;SourceHanSansSC-Bold.otf&quot;, size=18)
 font1 = &#123;&#39;color&#39;:&#39;blue&#39;,&#39;size&#39;:20&#125;
@@ -1241,20 +1234,18 @@ y =  2  * x +  5
 
 # fontdict 可以使用 css 来设置字体样式
 plt.title(&quot;菜鸟教程 - 测试&quot;, fontproperties=zhfont1, fontdict = font1, loc=&quot;left&quot;)
- 
+
 # fontproperties 设置中文显示，fontsize 设置字体大小
 plt.xlabel(&quot;x 轴&quot;, fontproperties=zhfont1, loc=&quot;left&quot;)
 plt.ylabel(&quot;y 轴&quot;, fontproperties=zhfont1, loc=&quot;top&quot;)
 plt.plot(x,y)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104916266.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104916266.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104916266.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104916266.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h2 id="Matplotlib-网格线"><a href="#Matplotlib-网格线" class="headerlink" title="Matplotlib 网格线"></a>Matplotlib 网格线</h2><p>我们可以使用 pyplot 中的 grid() 方法来设置图表中的网格线。</p>
 <p>grid() 方法语法格式如下：</p>
 <pre><code>matplotlib.pyplot.grid(b=None, which=&#39;major&#39;, axis=&#39;both&#39;, )
-</code></pre>
-<p><strong>参数说明：</strong></p>
+</code></pre><p><strong>参数说明：</strong></p>
 <ul>
 <li><p><strong>b</strong>：可选，默认为 None，可以设置布尔值，true 为显示网格线，false 为不显示，如果设置 **kwargs 参数，则值为 true。</p>
 </li>
@@ -1262,11 +1253,11 @@ plt.show()
 </li>
 <li><p><strong>axis</strong>：可选，设置显示哪个方向的网格线，可以是取 ‘both’（默认），’x’ 或 ‘y’，分别表示两个方向，x 轴方向或 y 轴方向。</p>
 </li>
-<li><p>*<strong>*kwargs</strong>：可选，设置网格样式，可以是 color&#x3D;’r’, linestyle&#x3D;’-‘ 和 linewidth&#x3D;2，分别表示网格线的颜色，样式和宽度。</p>
+<li><p><strong><em>\</em>kwargs</strong>：可选，设置网格样式，可以是 color=’r’, linestyle=’-‘ 和 linewidth=2，分别表示网格线的颜色，样式和宽度。</p>
 </li>
 </ul>
 <p>实例1：添加一个简单的网格线，参数使用默认值</p>
-<pre><code class="python">import numpy as np
+<pre><code class="lang-python">import numpy as np
 import matplotlib.pyplot as plt
 
 x = np.array([1, 2, 3, 4])
@@ -1283,10 +1274,9 @@ plt.grid()
 
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152016310.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152016310.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152016310.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152016310.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例2:添加一个简单的网格线，axis 参数使用 x，设置 x 轴方向显示网格线</p>
-<pre><code class="python">import numpy as np
+<pre><code class="lang-python">import numpy as np
 import matplotlib.pyplot as plt
 
 x = np.array([1, 2, 3, 4])
@@ -1303,17 +1293,15 @@ plt.grid(axis=&#39;x&#39;) # 设置 y 就在轴方向显示网格线
 
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152129680.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152129680.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152129680.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152129680.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>以下实例添加一个简单的网格线，并设置网格线的样式，格式如下：</p>
 <pre><code>grid(color = &#39;color&#39;, linestyle = &#39;linestyle&#39;, linewidth = number)
-</code></pre>
-<p><strong>参数说明：</strong></p>
+</code></pre><p><strong>参数说明：</strong></p>
 <p><strong>color：</strong>‘b’ 蓝色，’m’ 洋红色，’g’ 绿色，’y’ 黄色，’r’ 红色，’k’ 黑色，’w’ 白色，’c’ 青绿色，’#008000’ RGB 颜色符串。</p>
 <p><strong>linestyle：</strong>‘‐’ 实线，’‐‐’ 破折线，’‐.’ 点划线，’:’ 虚线。</p>
 <p><strong>linewidth</strong>：设置线的宽度，可以设置一个数字。</p>
 <p>实例3：</p>
-<pre><code class="python">import numpy as np
+<pre><code class="lang-python">import numpy as np
 import matplotlib.pyplot as plt
 
 x = np.array([1, 2, 3, 4])
@@ -1330,11 +1318,10 @@ plt.grid(color = &#39;r&#39;, linestyle = &#39;--&#39;, linewidth = 0.5)
 
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152316633.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152316633.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152316633.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152316633.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h2 id="Matplotlib绘制多图"><a href="#Matplotlib绘制多图" class="headerlink" title="Matplotlib绘制多图"></a>Matplotlib绘制多图</h2><p>我们可以使用 pyplot 中的 <strong>subplot()</strong> 和 <strong>subplots()</strong> 方法来绘制多个子图。</p>
 <p><strong>subplot()</strong> 方法在绘图时需要指定位置，<strong>subplots()</strong> 方法可以一次生成多个，在调用时只需要调用生成对象的 ax 即可。</p>
-<h3 id="subplot"><a href="#subplot" class="headerlink" title="subplot"></a>subplot</h3><pre><code class="python">subplot(nrows, ncols, index, **kwargs)
+<h3 id="subplot"><a href="#subplot" class="headerlink" title="subplot"></a>subplot</h3><pre><code class="lang-python">subplot(nrows, ncols, index, **kwargs)
 subplot(pos, **kwargs)
 subplot(**kwargs)
 subplot(ax)
@@ -1342,11 +1329,10 @@ subplot(ax)
 <p>以上函数将整个绘图区域分成 nrows 行和 ncols 列，然后从左到右，从上到下的顺序对每个子区域进行编号 <strong>1…N</strong> ，左上的子区域的编号为 1、右下的区域编号为 N，编号可以通过参数 <strong>index</strong> 来设置。</p>
 <p>设置 numRows ＝ 1，numCols ＝ 2，就是将图表绘制成 1x2 的图片区域, 对应的坐标为：</p>
 <pre><code>(1, 1), (1, 2)
-</code></pre>
-<p><strong>plotNum ＝ 1</strong>, 表示的坐标为(1, 1), 即第一行第一列的子图。</p>
+</code></pre><p><strong>plotNum ＝ 1</strong>, 表示的坐标为(1, 1), 即第一行第一列的子图。</p>
 <p><strong>plotNum ＝ 2</strong>, 表示的坐标为(1, 2), 即第一行第二列的子图。</p>
 <p>实例1：</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 #plot 1:
@@ -1368,18 +1354,16 @@ plt.title(&quot;plot 2&quot;)
 plt.suptitle(&quot;RUNOOB subplot Test&quot;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152756053.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152756053.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152756053.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152756053.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>设置 numRows ＝ 2，numCols ＝ 2，就是将图表绘制成 2x2 的图片区域, 对应的坐标为：</p>
 <pre><code>(1, 1), (1, 2)
 (2, 1), (2, 2)
-</code></pre>
-<p><strong>plotNum ＝ 1</strong>, 表示的坐标为(1, 1), 即第一行第一列的子图。</p>
+</code></pre><p><strong>plotNum ＝ 1</strong>, 表示的坐标为(1, 1), 即第一行第一列的子图。</p>
 <p><strong>plotNum ＝ 2</strong>, 表示的坐标为(1, 2), 即第一行第二列的子图。</p>
 <p><strong>plotNum ＝ 3</strong>, 表示的坐标为(2, 1), 即第二行第一列的子图。</p>
 <p><strong>plotNum ＝ 4</strong>, 表示的坐标为(2, 2), 即第二行第二列的子图。</p>
 <p>实例2：</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 #plot 1:
@@ -1417,10 +1401,9 @@ plt.title(&quot;plot 4&quot;)
 plt.suptitle(&quot;RUNOOB subplot Test&quot;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152958366.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152958366.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152958366.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152958366.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h3 id="subplots"><a href="#subplots" class="headerlink" title="subplots()"></a>subplots()</h3><p>subplots() 方法语法格式如下：</p>
-<pre><code class="python">matplotlib.pyplot.subplots(nrows=1, ncols=1, *, sharex=False, sharey=False, squeeze=True, subplot_kw=None, gridspec_kw=None, **fig_kw)
+<pre><code class="lang-python">matplotlib.pyplot.subplots(nrows=1, ncols=1, *, sharex=False, sharey=False, squeeze=True, subplot_kw=None, gridspec_kw=None, **fig_kw)
 </code></pre>
 <p><strong>参数说明：</strong></p>
 <ul>
@@ -1430,10 +1413,10 @@ plt.show()
 <li><strong>squeeze</strong>：布尔值，默认为 True，表示额外的维度从返回的 Axes(轴)对象中挤出，对于 N<em>1 或 1</em>N 个子图，返回一个 1 维数组，对于 N*M，N&gt;1 和 M&gt;1 返回一个 2 维数组。如果设置为 False，则不进行挤压操作，返回一个元素为 Axes 实例的2维数组，即使它最终是1x1。</li>
 <li><strong>subplot_kw</strong>：可选，字典类型。把字典的关键字传递给 add_subplot() 来创建每个子图。</li>
 <li><strong>gridspec_kw</strong>：可选，字典类型。把字典的关键字传递给 GridSpec 构造函数创建子图放在网格里(grid)。</li>
-<li>*<strong>*fig_kw</strong>：把详细的关键字参数传给 figure() 函数。</li>
+<li><strong><em>\</em>fig_kw</strong>：把详细的关键字参数传给 figure() 函数。</li>
 </ul>
 <p>实例3：</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 # 创建一些测试数据 -- 图1
@@ -1473,17 +1456,13 @@ fig, ax = plt.subplots(num=10, clear=True)
 
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153408476.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153408476.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153431942.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153431942.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153453565.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153453565.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153511622.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153511622.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153408476.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153408476.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153431942.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153431942.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153453565.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153453565.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153511622.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153511622.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h2 id="Matplotlib散点图"><a href="#Matplotlib散点图" class="headerlink" title="Matplotlib散点图"></a>Matplotlib散点图</h2><p>我们可以使用 pyplot 中的 scatter() 方法来绘制散点图。</p>
 <p>scatter() 方法语法格式如下：</p>
-<pre><code class="python">matplotlib.pyplot.scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, *, edgecolors=None, plotnonfinite=False, data=None, **kwargs)
+<pre><code class="lang-python">matplotlib.pyplot.scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, *, edgecolors=None, plotnonfinite=False, data=None, **kwargs)
 </code></pre>
 <p><strong>参数说明：</strong></p>
 <p><strong>x，y</strong>：长度相同的数组，也就是我们即将绘制散点图的数据点，输入数据。</p>
@@ -1497,10 +1476,10 @@ plt.show()
 <p><strong>linewidths：</strong>：标记点的长度。</p>
 <p><strong>edgecolors：</strong>：颜色或颜色序列，默认为 ‘face’，可选值有 ‘face’, ‘none’, None。</p>
 <p><strong>plotnonfinite：</strong>：布尔值，设置是否使用非限定的 c ( inf, -inf 或 nan) 绘制点。</p>
-<p>*<strong>*kwargs：</strong>：其他参数。</p>
+<p><strong><em>\</em>kwargs：</strong>：其他参数。</p>
 <p>以下实例 scatter() 函数接收长度相同的数组参数，一个用于 x 轴的值，另一个用于 y 轴上的值：</p>
 <p>实例1：</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
@@ -1509,10 +1488,9 @@ y = np.array([1, 4, 9, 16, 7, 11, 23, 18])
 plt.scatter(x, y)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155337371.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155337371.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155337371.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155337371.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例2：设置图标大小</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
@@ -1521,10 +1499,9 @@ sizes = np.array([20,50,100,200,500,1000,60,90])
 plt.scatter(x, y, s=sizes)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155550197.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155550197.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155550197.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155550197.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例3：自定义点的颜色</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
@@ -1534,10 +1511,9 @@ colors = np.array([&quot;red&quot;,&quot;green&quot;,&quot;black&quot;,&quot;ora
 plt.scatter(x, y, c=colors)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155740263.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155740263.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155740263.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155740263.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例4：设置两组散点图</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
@@ -1550,10 +1526,9 @@ plt.scatter(x, y, color = &#39;#88c999&#39;)
 
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155923033.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155923033.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155923033.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155923033.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例5：使用随机数来设置散点图</p>
-<pre><code class="python">import numpy as np
+<pre><code class="lang-python">import numpy as np
 import matplotlib.pyplot as plt
 
 # 随机数生成器的种子
@@ -1572,15 +1547,13 @@ plt.title(&quot;RUNOOB Scatter Test&quot;) # 设置标题
 
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160218777.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160218777.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160218777.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160218777.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h3 id="颜色条Colormap"><a href="#颜色条Colormap" class="headerlink" title="颜色条Colormap"></a>颜色条Colormap</h3><p>Matplotlib 模块提供了很多可用的颜色条。</p>
 <p>颜色条就像一个颜色列表，其中每种颜色都有一个范围从 0 到 100 的值。</p>
 <p>下面是一个颜色条的例子：</p>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160411035.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160411035.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160411035.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160411035.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例6：设置颜色条需要使用 cmap 参数，默认值为 ‘viridis’，之后颜色值设置为 0 到 100 的数组</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
@@ -1591,10 +1564,9 @@ plt.scatter(x, y, c=colors, cmap=&#39;viridis&#39;)
 
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160555429.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160555429.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160555429.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160555429.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例7：如果要显示颜色条，需要使用 <strong>plt.colorbar()</strong> 方法</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
@@ -1607,10 +1579,9 @@ plt.colorbar()
 
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160751739.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160751739.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160751739.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160751739.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例8：换个颜色条参数， cmap 设置为 <strong>afmhot_r</strong></p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
@@ -1621,364 +1592,364 @@ plt.scatter(x, y, c=colors, cmap=&#39;afmhot_r&#39;)
 plt.colorbar()
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160958004.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160958004.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160958004.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160958004.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>颜色条参数值可以是以下值：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">颜色名称</th>
-<th align="left">保留关键字</th>
+<th style="text-align:left">颜色名称</th>
+<th style="text-align:left">保留关键字</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">Accent</td>
-<td align="left">Accent_r</td>
+<tbody>
+<tr>
+<td style="text-align:left">Accent</td>
+<td style="text-align:left">Accent_r</td>
 </tr>
 <tr>
-<td align="left">Blues</td>
-<td align="left">Blues_r</td>
+<td style="text-align:left">Blues</td>
+<td style="text-align:left">Blues_r</td>
 </tr>
 <tr>
-<td align="left">BrBG</td>
-<td align="left">BrBG_r</td>
+<td style="text-align:left">BrBG</td>
+<td style="text-align:left">BrBG_r</td>
 </tr>
 <tr>
-<td align="left">BuGn</td>
-<td align="left">BuGn_r</td>
+<td style="text-align:left">BuGn</td>
+<td style="text-align:left">BuGn_r</td>
 </tr>
 <tr>
-<td align="left">BuPu</td>
-<td align="left">BuPu_r</td>
+<td style="text-align:left">BuPu</td>
+<td style="text-align:left">BuPu_r</td>
 </tr>
 <tr>
-<td align="left">CMRmap</td>
-<td align="left">CMRmap_r</td>
+<td style="text-align:left">CMRmap</td>
+<td style="text-align:left">CMRmap_r</td>
 </tr>
 <tr>
-<td align="left">Dark2</td>
-<td align="left">Dark2_r</td>
+<td style="text-align:left">Dark2</td>
+<td style="text-align:left">Dark2_r</td>
 </tr>
 <tr>
-<td align="left">GnBu</td>
-<td align="left">GnBu_r</td>
+<td style="text-align:left">GnBu</td>
+<td style="text-align:left">GnBu_r</td>
 </tr>
 <tr>
-<td align="left">Greens</td>
-<td align="left">Greens_r</td>
+<td style="text-align:left">Greens</td>
+<td style="text-align:left">Greens_r</td>
 </tr>
 <tr>
-<td align="left">Greys</td>
-<td align="left">Greys_r</td>
+<td style="text-align:left">Greys</td>
+<td style="text-align:left">Greys_r</td>
 </tr>
 <tr>
-<td align="left">OrRd</td>
-<td align="left">OrRd_r</td>
+<td style="text-align:left">OrRd</td>
+<td style="text-align:left">OrRd_r</td>
 </tr>
 <tr>
-<td align="left">Oranges</td>
-<td align="left">Oranges_r</td>
+<td style="text-align:left">Oranges</td>
+<td style="text-align:left">Oranges_r</td>
 </tr>
 <tr>
-<td align="left">PRGn</td>
-<td align="left">PRGn_r</td>
+<td style="text-align:left">PRGn</td>
+<td style="text-align:left">PRGn_r</td>
 </tr>
 <tr>
-<td align="left">Paired</td>
-<td align="left">Paired_r</td>
+<td style="text-align:left">Paired</td>
+<td style="text-align:left">Paired_r</td>
 </tr>
 <tr>
-<td align="left">Pastel1</td>
-<td align="left">Pastel1_r</td>
+<td style="text-align:left">Pastel1</td>
+<td style="text-align:left">Pastel1_r</td>
 </tr>
 <tr>
-<td align="left">Pastel2</td>
-<td align="left">Pastel2_r</td>
+<td style="text-align:left">Pastel2</td>
+<td style="text-align:left">Pastel2_r</td>
 </tr>
 <tr>
-<td align="left">PiYG</td>
-<td align="left">PiYG_r</td>
+<td style="text-align:left">PiYG</td>
+<td style="text-align:left">PiYG_r</td>
 </tr>
 <tr>
-<td align="left">PuBu</td>
-<td align="left">PuBu_r</td>
+<td style="text-align:left">PuBu</td>
+<td style="text-align:left">PuBu_r</td>
 </tr>
 <tr>
-<td align="left">PuBuGn</td>
-<td align="left">PuBuGn_r</td>
+<td style="text-align:left">PuBuGn</td>
+<td style="text-align:left">PuBuGn_r</td>
 </tr>
 <tr>
-<td align="left">PuOr</td>
-<td align="left">PuOr_r</td>
+<td style="text-align:left">PuOr</td>
+<td style="text-align:left">PuOr_r</td>
 </tr>
 <tr>
-<td align="left">PuRd</td>
-<td align="left">PuRd_r</td>
+<td style="text-align:left">PuRd</td>
+<td style="text-align:left">PuRd_r</td>
 </tr>
 <tr>
-<td align="left">Purples</td>
-<td align="left">Purples_r</td>
+<td style="text-align:left">Purples</td>
+<td style="text-align:left">Purples_r</td>
 </tr>
 <tr>
-<td align="left">RdBu</td>
-<td align="left">RdBu_r</td>
+<td style="text-align:left">RdBu</td>
+<td style="text-align:left">RdBu_r</td>
 </tr>
 <tr>
-<td align="left">RdGy</td>
-<td align="left">RdGy_r</td>
+<td style="text-align:left">RdGy</td>
+<td style="text-align:left">RdGy_r</td>
 </tr>
 <tr>
-<td align="left">RdPu</td>
-<td align="left">RdPu_r</td>
+<td style="text-align:left">RdPu</td>
+<td style="text-align:left">RdPu_r</td>
 </tr>
 <tr>
-<td align="left">RdYlBu</td>
-<td align="left">RdYlBu_r</td>
+<td style="text-align:left">RdYlBu</td>
+<td style="text-align:left">RdYlBu_r</td>
 </tr>
 <tr>
-<td align="left">RdYlGn</td>
-<td align="left">RdYlGn_r</td>
+<td style="text-align:left">RdYlGn</td>
+<td style="text-align:left">RdYlGn_r</td>
 </tr>
 <tr>
-<td align="left">Reds</td>
-<td align="left">Reds_r</td>
+<td style="text-align:left">Reds</td>
+<td style="text-align:left">Reds_r</td>
 </tr>
 <tr>
-<td align="left">Set1</td>
-<td align="left">Set1_r</td>
+<td style="text-align:left">Set1</td>
+<td style="text-align:left">Set1_r</td>
 </tr>
 <tr>
-<td align="left">Set2</td>
-<td align="left">Set2_r</td>
+<td style="text-align:left">Set2</td>
+<td style="text-align:left">Set2_r</td>
 </tr>
 <tr>
-<td align="left">Set3</td>
-<td align="left">Set3_r</td>
+<td style="text-align:left">Set3</td>
+<td style="text-align:left">Set3_r</td>
 </tr>
 <tr>
-<td align="left">Spectral</td>
-<td align="left">Spectral_r</td>
+<td style="text-align:left">Spectral</td>
+<td style="text-align:left">Spectral_r</td>
 </tr>
 <tr>
-<td align="left">Wistia</td>
-<td align="left">Wistia_r</td>
+<td style="text-align:left">Wistia</td>
+<td style="text-align:left">Wistia_r</td>
 </tr>
 <tr>
-<td align="left">YlGn</td>
-<td align="left">YlGn_r</td>
+<td style="text-align:left">YlGn</td>
+<td style="text-align:left">YlGn_r</td>
 </tr>
 <tr>
-<td align="left">YlGnBu</td>
-<td align="left">YlGnBu_r</td>
+<td style="text-align:left">YlGnBu</td>
+<td style="text-align:left">YlGnBu_r</td>
 </tr>
 <tr>
-<td align="left">YlOrBr</td>
-<td align="left">YlOrBr_r</td>
+<td style="text-align:left">YlOrBr</td>
+<td style="text-align:left">YlOrBr_r</td>
 </tr>
 <tr>
-<td align="left">YlOrRd</td>
-<td align="left">YlOrRd_r</td>
+<td style="text-align:left">YlOrRd</td>
+<td style="text-align:left">YlOrRd_r</td>
 </tr>
 <tr>
-<td align="left">afmhot</td>
-<td align="left">afmhot_r</td>
+<td style="text-align:left">afmhot</td>
+<td style="text-align:left">afmhot_r</td>
 </tr>
 <tr>
-<td align="left">autumn</td>
-<td align="left">autumn_r</td>
+<td style="text-align:left">autumn</td>
+<td style="text-align:left">autumn_r</td>
 </tr>
 <tr>
-<td align="left">binary</td>
-<td align="left">binary_r</td>
+<td style="text-align:left">binary</td>
+<td style="text-align:left">binary_r</td>
 </tr>
 <tr>
-<td align="left">bone</td>
-<td align="left">bone_r</td>
+<td style="text-align:left">bone</td>
+<td style="text-align:left">bone_r</td>
 </tr>
 <tr>
-<td align="left">brg</td>
-<td align="left">brg_r</td>
+<td style="text-align:left">brg</td>
+<td style="text-align:left">brg_r</td>
 </tr>
 <tr>
-<td align="left">bwr</td>
-<td align="left">bwr_r</td>
+<td style="text-align:left">bwr</td>
+<td style="text-align:left">bwr_r</td>
 </tr>
 <tr>
-<td align="left">cividis</td>
-<td align="left">cividis_r</td>
+<td style="text-align:left">cividis</td>
+<td style="text-align:left">cividis_r</td>
 </tr>
 <tr>
-<td align="left">cool</td>
-<td align="left">cool_r</td>
+<td style="text-align:left">cool</td>
+<td style="text-align:left">cool_r</td>
 </tr>
 <tr>
-<td align="left">coolwarm</td>
-<td align="left">coolwarm_r</td>
+<td style="text-align:left">coolwarm</td>
+<td style="text-align:left">coolwarm_r</td>
 </tr>
 <tr>
-<td align="left">copper</td>
-<td align="left">copper_r</td>
+<td style="text-align:left">copper</td>
+<td style="text-align:left">copper_r</td>
 </tr>
 <tr>
-<td align="left">cubehelix</td>
-<td align="left">cubehelix_r</td>
+<td style="text-align:left">cubehelix</td>
+<td style="text-align:left">cubehelix_r</td>
 </tr>
 <tr>
-<td align="left">flag</td>
-<td align="left">flag_r</td>
+<td style="text-align:left">flag</td>
+<td style="text-align:left">flag_r</td>
 </tr>
 <tr>
-<td align="left">gist_earth</td>
-<td align="left">gist_earth_r</td>
+<td style="text-align:left">gist_earth</td>
+<td style="text-align:left">gist_earth_r</td>
 </tr>
 <tr>
-<td align="left">gist_gray</td>
-<td align="left">gist_gray_r</td>
+<td style="text-align:left">gist_gray</td>
+<td style="text-align:left">gist_gray_r</td>
 </tr>
 <tr>
-<td align="left">gist_heat</td>
-<td align="left">gist_heat_r</td>
+<td style="text-align:left">gist_heat</td>
+<td style="text-align:left">gist_heat_r</td>
 </tr>
 <tr>
-<td align="left">gist_ncar</td>
-<td align="left">gist_ncar_r</td>
+<td style="text-align:left">gist_ncar</td>
+<td style="text-align:left">gist_ncar_r</td>
 </tr>
 <tr>
-<td align="left">gist_rainbow</td>
-<td align="left">gist_rainbow_r</td>
+<td style="text-align:left">gist_rainbow</td>
+<td style="text-align:left">gist_rainbow_r</td>
 </tr>
 <tr>
-<td align="left">gist_stern</td>
-<td align="left">gist_stern_r</td>
+<td style="text-align:left">gist_stern</td>
+<td style="text-align:left">gist_stern_r</td>
 </tr>
 <tr>
-<td align="left">gist_yarg</td>
-<td align="left">gist_yarg_r</td>
+<td style="text-align:left">gist_yarg</td>
+<td style="text-align:left">gist_yarg_r</td>
 </tr>
 <tr>
-<td align="left">gnuplot</td>
-<td align="left">gnuplot_r</td>
+<td style="text-align:left">gnuplot</td>
+<td style="text-align:left">gnuplot_r</td>
 </tr>
 <tr>
-<td align="left">gnuplot2</td>
-<td align="left">gnuplot2_r</td>
+<td style="text-align:left">gnuplot2</td>
+<td style="text-align:left">gnuplot2_r</td>
 </tr>
 <tr>
-<td align="left">gray</td>
-<td align="left">gray_r</td>
+<td style="text-align:left">gray</td>
+<td style="text-align:left">gray_r</td>
 </tr>
 <tr>
-<td align="left">hot</td>
-<td align="left">hot_r</td>
+<td style="text-align:left">hot</td>
+<td style="text-align:left">hot_r</td>
 </tr>
 <tr>
-<td align="left">hsv</td>
-<td align="left">hsv_r</td>
+<td style="text-align:left">hsv</td>
+<td style="text-align:left">hsv_r</td>
 </tr>
 <tr>
-<td align="left">inferno</td>
-<td align="left">inferno_r</td>
+<td style="text-align:left">inferno</td>
+<td style="text-align:left">inferno_r</td>
 </tr>
 <tr>
-<td align="left">jet</td>
-<td align="left">jet_r</td>
+<td style="text-align:left">jet</td>
+<td style="text-align:left">jet_r</td>
 </tr>
 <tr>
-<td align="left">magma</td>
-<td align="left">magma_r</td>
+<td style="text-align:left">magma</td>
+<td style="text-align:left">magma_r</td>
 </tr>
 <tr>
-<td align="left">nipy_spectral</td>
-<td align="left">nipy_spectral_r</td>
+<td style="text-align:left">nipy_spectral</td>
+<td style="text-align:left">nipy_spectral_r</td>
 </tr>
 <tr>
-<td align="left">ocean</td>
-<td align="left">ocean_r</td>
+<td style="text-align:left">ocean</td>
+<td style="text-align:left">ocean_r</td>
 </tr>
 <tr>
-<td align="left">pink</td>
-<td align="left">pink_r</td>
+<td style="text-align:left">pink</td>
+<td style="text-align:left">pink_r</td>
 </tr>
 <tr>
-<td align="left">plasma</td>
-<td align="left">plasma_r</td>
+<td style="text-align:left">plasma</td>
+<td style="text-align:left">plasma_r</td>
 </tr>
 <tr>
-<td align="left">prism</td>
-<td align="left">prism_r</td>
+<td style="text-align:left">prism</td>
+<td style="text-align:left">prism_r</td>
 </tr>
 <tr>
-<td align="left">rainbow</td>
-<td align="left">rainbow_r</td>
+<td style="text-align:left">rainbow</td>
+<td style="text-align:left">rainbow_r</td>
 </tr>
 <tr>
-<td align="left">seismic</td>
-<td align="left">seismic_r</td>
+<td style="text-align:left">seismic</td>
+<td style="text-align:left">seismic_r</td>
 </tr>
 <tr>
-<td align="left">spring</td>
-<td align="left">spring_r</td>
+<td style="text-align:left">spring</td>
+<td style="text-align:left">spring_r</td>
 </tr>
 <tr>
-<td align="left">summer</td>
-<td align="left">summer_r</td>
+<td style="text-align:left">summer</td>
+<td style="text-align:left">summer_r</td>
 </tr>
 <tr>
-<td align="left">tab10</td>
-<td align="left">tab10_r</td>
+<td style="text-align:left">tab10</td>
+<td style="text-align:left">tab10_r</td>
 </tr>
 <tr>
-<td align="left">tab20</td>
-<td align="left">tab20_r</td>
+<td style="text-align:left">tab20</td>
+<td style="text-align:left">tab20_r</td>
 </tr>
 <tr>
-<td align="left">tab20b</td>
-<td align="left">tab20b_r</td>
+<td style="text-align:left">tab20b</td>
+<td style="text-align:left">tab20b_r</td>
 </tr>
 <tr>
-<td align="left">tab20c</td>
-<td align="left">tab20c_r</td>
+<td style="text-align:left">tab20c</td>
+<td style="text-align:left">tab20c_r</td>
 </tr>
 <tr>
-<td align="left">terrain</td>
-<td align="left">terrain_r</td>
+<td style="text-align:left">terrain</td>
+<td style="text-align:left">terrain_r</td>
 </tr>
 <tr>
-<td align="left">twilight</td>
-<td align="left">twilight_r</td>
+<td style="text-align:left">twilight</td>
+<td style="text-align:left">twilight_r</td>
 </tr>
 <tr>
-<td align="left">twilight_shifted</td>
-<td align="left">twilight_shifted_r</td>
+<td style="text-align:left">twilight_shifted</td>
+<td style="text-align:left">twilight_shifted_r</td>
 </tr>
 <tr>
-<td align="left">viridis</td>
-<td align="left">viridis_r</td>
+<td style="text-align:left">viridis</td>
+<td style="text-align:left">viridis_r</td>
 </tr>
 <tr>
-<td align="left">winter</td>
-<td align="left">winter_r</td>
+<td style="text-align:left">winter</td>
+<td style="text-align:left">winter_r</td>
 </tr>
-</tbody></table>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161117677.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161117677.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161139138.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161139138.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161157754.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161157754.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+</tbody>
+</table>
+</div>
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161117677.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161117677.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161139138.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161139138.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161157754.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161157754.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h2 id="Matplotlib柱形图"><a href="#Matplotlib柱形图" class="headerlink" title="Matplotlib柱形图"></a>Matplotlib柱形图</h2><p>我们可以使用 pyplot 中的 bar() 方法来绘制柱形图。</p>
 <p>bar() 方法语法格式如下：</p>
-<pre><code class="python">matplotlib.pyplot.bar(x, height, width=0.8, bottom=None, *, align=&#39;center&#39;, data=None, **kwargs)
+<pre><code class="lang-python">matplotlib.pyplot.bar(x, height, width=0.8, bottom=None, *, align=&#39;center&#39;, data=None, **kwargs)
 </code></pre>
 <p><strong>参数说明：</strong></p>
 <p><strong>x</strong>：浮点型数组，柱形图的 x 轴数据。</p>
 <p><strong>height</strong>：浮点型数组，柱形图的高度。</p>
 <p><strong>width</strong>：浮点型数组，柱形图的宽度。</p>
 <p><strong>bottom</strong>：浮点型数组，底座的 y 坐标，默认 0。</p>
-<p><strong>align</strong>：柱形图与 x 坐标的对齐方式，’center’ 以 x 位置为中心，这是默认值。 ‘edge’：将柱形图的左边缘与 x 位置对齐。要对齐右边缘的条形，可以传递负数的宽度值及 align&#x3D;’edge’。</p>
-<p>*<strong>*kwargs：</strong>：其他参数。</p>
+<p><strong>align</strong>：柱形图与 x 坐标的对齐方式，’center’ 以 x 位置为中心，这是默认值。 ‘edge’：将柱形图的左边缘与 x 位置对齐。要对齐右边缘的条形，可以传递负数的宽度值及 align=’edge’。</p>
+<p><strong><em>\</em>kwargs：</strong>：其他参数。</p>
 <p>实例1：简单实用 bar() 来创建一个柱形图</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
@@ -1987,10 +1958,9 @@ y = np.array([12, 22, 6, 18])
 plt.bar(x,y)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162147295.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162147295.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162147295.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162147295.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例2：垂直方向的柱形图可以使用 <strong>barh()</strong> 方法来设置</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
@@ -1999,10 +1969,9 @@ y = np.array([12, 22, 6, 18])
 plt.barh(x,y)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162341451.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162341451.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162341451.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162341451.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例3：设置柱形图颜色</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
@@ -2011,10 +1980,9 @@ y = np.array([12, 22, 6, 18])
 plt.bar(x, y, color = &quot;#4CAF50&quot;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162449487.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162449487.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162449487.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162449487.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例4：自定义各个柱形的颜色</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
@@ -2023,10 +1991,9 @@ y = np.array([12, 22, 6, 18])
 plt.bar(x, y,  color = [&quot;#4CAF50&quot;,&quot;red&quot;,&quot;hotpink&quot;,&quot;#556B2F&quot;])
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162554129.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162554129.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162554129.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162554129.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例5：设置柱形图宽度，<strong>bar()</strong> 方法使用 <strong>width</strong> 设置</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
@@ -2035,10 +2002,9 @@ y = np.array([12, 22, 6, 18])
 plt.bar(x, y, width = 0.1)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162717588.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162717588.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162717588.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162717588.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例6：<strong>barh()</strong> 方法使用 <strong>height</strong> 设置 height</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.array([&quot;Runoob-1&quot;, &quot;Runoob-2&quot;, &quot;Runoob-3&quot;, &quot;C-RUNOOB&quot;])
@@ -2047,31 +2013,30 @@ y = np.array([12, 22, 6, 18])
 plt.barh(x, y, height = 0.1)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162753714.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162753714.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162753714.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162753714.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h2 id="Matplotlib饼图"><a href="#Matplotlib饼图" class="headerlink" title="Matplotlib饼图"></a>Matplotlib饼图</h2><p>我们可以使用 pyplot 中的 pie() 方法来绘制饼图。</p>
 <p>pie() 方法语法格式如下：</p>
-<pre><code class="python">matplotlib.pyplot.pie(x, explode=None, labels=None, colors=None, autopct=None, pctdistance=0.6, shadow=False, labeldistance=1.1, startangle=0, radius=1, counterclock=True, wedgeprops=None, textprops=None, center=0, 0, frame=False, rotatelabels=False, *, normalize=None, data=None)[source]
+<pre><code class="lang-python">matplotlib.pyplot.pie(x, explode=None, labels=None, colors=None, autopct=None, pctdistance=0.6, shadow=False, labeldistance=1.1, startangle=0, radius=1, counterclock=True, wedgeprops=None, textprops=None, center=0, 0, frame=False, rotatelabels=False, *, normalize=None, data=None)[source]
 </code></pre>
 <p><strong>参数说明：</strong></p>
 <p><strong>x</strong>：浮点型数组，表示每个扇形的面积。</p>
 <p><strong>explode</strong>：数组，表示各个扇形之间的间隔，默认值为0。</p>
 <p><strong>labels</strong>：列表，各个扇形的标签，默认值为 None。</p>
 <p><strong>colors</strong>：数组，表示各个扇形的颜色，默认值为 None。</p>
-<p><strong>autopct</strong>：设置饼图内各个扇形百分比显示格式，**%d%%** 整数百分比，**%0.1f** 一位小数， <strong>%0.1f%%</strong> 一位小数百分比， <strong>%0.2f%%</strong> 两位小数百分比。</p>
+<p><strong>autopct</strong>：设置饼图内各个扇形百分比显示格式，<strong>%d%%</strong> 整数百分比，<strong>%0.1f</strong> 一位小数， <strong>%0.1f%%</strong> 一位小数百分比， <strong>%0.2f%%</strong> 两位小数百分比。</p>
 <p><strong>labeldistance</strong>：标签标记的绘制位置，相对于半径的比例，默认值为 1.1，如 <strong>&lt;1</strong>则绘制在饼图内侧。</p>
 <p><strong>pctdistance：</strong>：类似于 labeldistance，指定 autopct 的位置刻度，默认值为 0.6。</p>
 <p><strong>shadow：</strong>：布尔值 True 或 False，设置饼图的阴影，默认为 False，不设置阴影。</p>
 <p><strong>radius：</strong>：设置饼图的半径，默认为 1。</p>
-<p><strong>startangle：</strong>：起始绘制饼图的角度，默认为从 x 轴正方向逆时针画起，如设定 &#x3D;90 则从 y 轴正方向画起。</p>
+<p><strong>startangle：</strong>：起始绘制饼图的角度，默认为从 x 轴正方向逆时针画起，如设定 =90 则从 y 轴正方向画起。</p>
 <p><strong>counterclock</strong>：布尔值，设置指针方向，默认为 True，即逆时针，False 为顺时针。</p>
-<p><strong>wedgeprops</strong> ：字典类型，默认值 None。参数字典传递给 wedge 对象用来画一个饼图。例如：wedgeprops&#x3D;{‘linewidth’:5} 设置 wedge 线宽为5。</p>
+<p><strong>wedgeprops</strong> ：字典类型，默认值 None。参数字典传递给 wedge 对象用来画一个饼图。例如：wedgeprops={‘linewidth’:5} 设置 wedge 线宽为5。</p>
 <p><strong>textprops</strong> ：字典类型，默认值为：None。传递给 text 对象的字典参数，用于设置标签（labels）和比例文字的格式。</p>
 <p><strong>center</strong> ：浮点类型的列表，默认值：(0,0)。用于设置图标中心位置。</p>
 <p><strong>frame</strong> ：布尔类型，默认值：False。如果是 True，绘制带有表的轴框架。</p>
 <p><strong>rotatelabels</strong> ：布尔类型，默认为 False。如果为 True，旋转每个 label 到指定的角度。</p>
 <p>实例1：简单实用 pie() 来创建一个柱形图</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 y = np.array([35, 25, 25, 15])
@@ -2079,10 +2044,9 @@ y = np.array([35, 25, 25, 15])
 plt.pie(y)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165657025.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165657025.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165657025.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165657025.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例2：设置饼图各个扇形的标签与颜色</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 y = np.array([35, 25, 25, 15])
@@ -2094,10 +2058,9 @@ plt.pie(y,
 plt.title(&quot;RUNOOB Pie Test&quot;) # 设置标题
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165759838.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165759838.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165759838.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165759838.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>实例3：突出显示第二个扇形，并格式化输出百分比</p>
-<pre><code class="python">import matplotlib.pyplot as plt
+<pre><code class="lang-python">import matplotlib.pyplot as plt
 import numpy as np
 
 y = np.array([35, 25, 25, 15])
@@ -2111,10 +2074,10 @@ plt.pie(y,
 plt.title(&quot;RUNOOB Pie Test&quot;)
 plt.show()
 </code></pre>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404170000561.png" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404170000561.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404170000561.png" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404170000561.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p><strong>注意：</strong>默认情况下，第一个扇形的绘制是从 x 轴开始并逆时针移动：</p>
-<img src="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/03D59143-B345-4B36-A7CD-53F698AB5284.jpg" class="lazyload" data-srcset="/2022/04/03/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/03D59143-B345-4B36-A7CD-53F698AB5284.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom:50%;">
+<p><img src="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/03D59143-B345-4B36-A7CD-53F698AB5284.jpg" class="lazyload" data-srcset="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/03D59143-B345-4B36-A7CD-53F698AB5284.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom:50%;"></p>
+
   
   
     

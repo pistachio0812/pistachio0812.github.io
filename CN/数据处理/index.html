@@ -478,12 +478,12 @@
 <p>​        在设置多进程模式时，每次 DataLoader 创建 iterator 时（例如，当调用 enumerate(dataloader) 时），都会创建 num_workers 个工作进程。此时dataset, collate_fn, worker_init_fn 都会被传到每个worker中，而每个 worker 都用独立的进程。</p>
 <p>​        对于 map-style 数据，主线程会用 Sampler 产生 indices，并将它们送到 worker 里。因此，shuffle 是在主线程做的。</p>
 <p>​        而对于 iterable-style 数据，因为每个 worker 都有相同的 data 复制样本，并在各个进程里进行不同的操作，以防止每个进程输出的数据是重复的，所以一般会使用 torch.utils.data.get_worker_info() 来进行辅助处理。这里，torch.utils.data.get_worker_info() 会返回 worker 进程的一些信息(如id, dataset, num_workers, seed)，如果在主线程的话返回 None。</p>
-<p>​        <strong>注意</strong>，通常不建议在多进程加载中返回 CUDA 张量，因为在使用 CUDA 和在多处理中共享 CUDA 张量时存在许多微妙之处（文档中提出：只要接收过程保留张量的副本，就需要发送过程来保留原始张量）。建议采用 pin_memory&#x3D;True ，以将数据快速传输到支持 CUDA 的 GPU。简而言之，<strong>不建议在使用多线程的情况下返回 CUDA 的 Tensor</strong>。</p>
+<p>​        <strong>注意</strong>，通常不建议在多进程加载中返回 CUDA 张量，因为在使用 CUDA 和在多处理中共享 CUDA 张量时存在许多微妙之处（文档中提出：只要接收过程保留张量的副本，就需要发送过程来保留原始张量）。建议采用 pin_memory=True ，以将数据快速传输到支持 CUDA 的 GPU。简而言之，<strong>不建议在使用多线程的情况下返回 CUDA 的 Tensor</strong>。</p>
 <h2 id="锁页内存"><a href="#锁页内存" class="headerlink" title="锁页内存"></a>锁页内存</h2><p>​        首先我们先了解一下锁页内存的概念。</p>
 <p>​        主机中的内存，有两种存在方式，一是锁页，二是不锁页。锁页内存存放的内容在任何情况下都不会与主机的虚拟内存进行交换（注：虚拟内存就是硬盘），而不锁页内存在主机内存不足时，数据会存放在虚拟内存中。主机到 GPU 副本源自固定（页面锁定）内存时，速度要快得多。CPU 张量和存储暴露了一种 pin_memory() 方法，该方法返回对象的副本，并将数据放在固定的区域中。</p>
-<p>​        <strong>而显卡中的显存全部是锁页内存！当计算机的内存充足的时候，可以设置 pin_memory&#x3D;True</strong>。设置 pin_memory&#x3D;True，则意味着生成的 Tensor 数据最开始是属于内存中的锁页内存，这样将内存的 Tensor 转义到 GPU 的显存就会更快一些。同时，由于 pin_memory 的作用是将张量返回之前将其复制到 CUDA 固定的内存中，所以只有在 CUDA 环境支持下才有用。</p>
+<p>​        <strong>而显卡中的显存全部是锁页内存！当计算机的内存充足的时候，可以设置 pin_memory=True</strong>。设置 pin_memory=True，则意味着生成的 Tensor 数据最开始是属于内存中的锁页内存，这样将内存的 Tensor 转义到 GPU 的显存就会更快一些。同时，由于 pin_memory 的作用是将张量返回之前将其复制到 CUDA 固定的内存中，所以只有在 CUDA 环境支持下才有用。</p>
 <p>​        PyTorch 原生的 pin_memory 方法如下，其支持大部分 python 数据类型的处理：</p>
-<pre><code class="python">def pin_memory(data):
+<pre><code class="lang-python">def pin_memory(data):
     if isinstance(data, torch.Tensor):
         return data.pin_memory()
     elif isinstance(data, string_classes):
@@ -500,7 +500,7 @@
         return data
 </code></pre>
 <p>​        默认情况下，如果固定逻辑对于一个属于自定义类型（custom type）的 batch（如果有一个 collate_fn 返回自定义批处理类型的批处理，则会发生），或者如果该批处理的每个元素都是 custom type，则该固定逻辑将无法识别它们，它会返回该批处理（或那些元素）而无需固定内存。而要为自定义批处理或数据类型启用内存固定，我们需使用 pin_memory() 在自定义类型上自定义一个方法。如下：</p>
-<pre><code class="python">class SimpleCustomBatch:
+<pre><code class="lang-python">class SimpleCustomBatch:
     # 自定义一个类，该类不能被PyTorch原生的pin_memory方法所支持
 
     def __init__(self, data):
@@ -529,7 +529,7 @@ for batch_ndx, sample in enumerate(loader):
     print(sample.tgt.is_pinned())  # True
 </code></pre>
 <h2 id="预取"><a href="#预取" class="headerlink" title="预取"></a>预取</h2><p>DataLoader 通过指定 prefetch_factor （默认为 2）来进行数据的预取。</p>
-<pre><code class="python">class _MultiProcessingDataLoaderIter(_BaseDataLoaderIter):
+<pre><code class="lang-python">class _MultiProcessingDataLoaderIter(_BaseDataLoaderIter):
     def __init__(self, loader):
         ...
         self._reset(loader, first_iter=True)
@@ -542,11 +542,11 @@ for batch_ndx, sample in enumerate(loader):
 </code></pre>
 <p>通过源码可以看到，prefetch 功能仅适用于多进程加载中（下面也会有多进程 dataloader 的部分代码分析）。</p>
 <h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><p>那么现在让我们来看看具体的代码调用流程：</p>
-<pre><code class="python">for data, label in train_loader:
+<pre><code class="lang-python">for data, label in train_loader:
     ......
 </code></pre>
 <p>for 循环会调用 dataloader 的 <strong><strong>iter</strong>(self)</strong> 方法，以此获得迭代器来遍历 dataset。</p>
-<pre><code class="python">class DataLoader(Generic[T_co]):
+<pre><code class="lang-python">class DataLoader(Generic[T_co]):
     ...
     def __iter__(self) -&gt; &#39;_BaseDataLoaderIter&#39;:
 
@@ -560,7 +560,7 @@ for batch_ndx, sample in enumerate(loader):
             return self._get_iterator()
 </code></pre>
 <p>在 <strong><strong>iter</strong>(self)</strong> 方法中，dataloader 调用了 self._get_iterator() 方法，根据 num_workers 获得迭代器，并指示是进行单进程还是多进程处理。</p>
-<pre><code class="python">class DataLoader(Generic[T_co]):
+<pre><code class="lang-python">class DataLoader(Generic[T_co]):
     ...
     def _get_iterator(self) -&gt; &#39;_BaseDataLoaderIter&#39;:
         if self.num_workers == 0:
@@ -570,7 +570,7 @@ for batch_ndx, sample in enumerate(loader):
             return _MultiProcessingDataLoaderIter(self)
 </code></pre>
 <p>为了描述更加清晰，我们只考虑单进程的代码。下面是 class _SingleProcessDataLoaderIter(_BaseDataLoaderIter) ，以及其父类 class _BaseDataLoaderIter(object): 的重点代码片段：</p>
-<pre><code class="python">
+<pre><code class="lang-python">
 class _BaseDataLoaderIter(object):
     def __init__(self, loader: DataLoader) -&gt; None:
         # 初始化赋值一些 DataLoader 参数，
@@ -611,8 +611,8 @@ class _BaseDataLoaderIter(object):
     def __getstate__(self):
         raise NotImplementedError(&quot;&#123;&#125; cannot be pickled&quot;, self.__class__.__name__)
 </code></pre>
-<p>_BaseDataLoaderIter 是所有 DataLoaderIter 的父类。dataloader获得了迭代器之后，for 循环需要调用 <strong><strong>next</strong>()</strong> 来获得下一个对象，从而实现遍历。通过 <strong><strong>next</strong>()</strong> 方法调用 _next_data() 获取数据。</p>
-<pre><code class="python">class _SingleProcessDataLoaderIter(_BaseDataLoaderIter):
+<p><em>BaseDataLoaderIter 是所有 DataLoaderIter 的父类。dataloader获得了迭代器之后，for 循环需要调用 <strong><strong>next</strong>()</strong> 来获得下一个对象，从而实现遍历。通过 **<em>_next</em></em>()** 方法调用 _next_data() 获取数据。</p>
+<pre><code class="lang-python">class _SingleProcessDataLoaderIter(_BaseDataLoaderIter):
     def __init__(self, loader):
         super(_SingleProcessDataLoaderIter, self).__init__(loader)
         assert self._timeout == 0
@@ -630,7 +630,7 @@ class _BaseDataLoaderIter(object):
 </code></pre>
 <p>从 _SingleProcessDataLoaderIter 的初始化参数可以看到，其在父类 _BaseDataLoaderIter 的基础上定义了 _dataset_fetcher，并传入 _dataset，_auto_collation，_collate_fn 等参数，用于定义获取数据的方式。其具体实现会在稍后解释。</p>
 <p>在 _next_data() 被调用后，其需要 _next_index() 获取 index，并通过获得的 index 传入 _dataset_fetcher 中获取对应样本。</p>
-<pre><code class="python">class DataLoader(Generic[T_co]):
+<pre><code class="lang-python">class DataLoader(Generic[T_co]):
     ...
     @property
     def _auto_collation(self):
@@ -656,7 +656,7 @@ class _BaseDataLoaderIter(object):
 <p>从这里看出，dataloader 提供了 sampler（可以是batch_sampler 或者是其他 sampler 子类），然后 _SingleProcessDataLoaderIter 迭代 sampler 获得索引。</p>
 <p>下面我们来看看 fetcher，fetcher 需要 index 来获取元素，并同时支持 Map-style dataset（对应 _MapDatasetFetcher）和 Iterable-style dataset（对应 _IterableDatasetFetcher），使其在 Dataloader 内能使用相同的接口 fetch，代码更加简洁。</p>
 <p>· 对于 Map-style：直接输入索引 index，作为 map 的 key，获得对应的样本（即 value）。</p>
-<pre><code class="python">class _MapDatasetFetcher(_BaseDatasetFetcher):
+<pre><code class="lang-python">class _MapDatasetFetcher(_BaseDatasetFetcher):
     def __init__(self, dataset, auto_collation, collate_fn, drop_last):
         super(_MapDatasetFetcher, self).__init__(dataset, auto_collation, collate_fn, drop_last)
 
@@ -670,7 +670,7 @@ class _BaseDataLoaderIter(object):
         return self.collate_fn(data)
 </code></pre>
 <p>· 对于 Iterable-style: <strong><strong>init</strong></strong> 方法内设置了 dataset 初始的迭代器，fetch 方法内获取元素，此时 index 其实已经没有多大作用了。</p>
-<pre><code class="python">class _IterableDatasetFetcher(_BaseDatasetFetcher):
+<pre><code class="lang-python">class _IterableDatasetFetcher(_BaseDatasetFetcher):
     def __init__(self, dataset, auto_collation, collate_fn, drop_last):
         super(_IterableDatasetFetcher, self).__init__(dataset, auto_collation, collate_fn, drop_last)
         self.dataset_iter = iter(dataset)
@@ -694,8 +694,7 @@ class _BaseDataLoaderIter(object):
 </code></pre>
 <p>最后，我们通过索引传入 fetcher，fetch 得到想要的样本。因此，整个过程调用关系总结如下：</p>
 <pre><code>loader.iter --&gt; self._get_iterator() --&gt; class _SingleProcessDataLoaderIter --&gt; class _BaseDataLoaderIter --&gt; __next__() --&gt; self._next_data() --&gt; self._next_index() --&gt;next(self._sampler_iter) 即 next(iter(self._index_sampler)) --&gt; 获得 index --&gt; self._dataset_fetcher.fetch(index) --&gt; 获得 data
-</code></pre>
-<p>而对于多进程而言，借用 PyTorch 内源码的注释，其运行流程解释如下：</p>
+</code></pre><p>而对于多进程而言，借用 PyTorch 内源码的注释，其运行流程解释如下：</p>
 <pre><code>
 # Our data model looks like this (queues are indicated with curly brackets):
 #
@@ -715,8 +714,7 @@ class _BaseDataLoaderIter(object):
 #
 # P.S. `worker_result_queue` and `pin_memory_thread` part may be omitted if
 #      `pin_memory=False`.
-</code></pre>
-<p>首先 dataloader 基于 multiprocessing 产生多进程，每个子进程的输入输出通过两个主要的队列（multiprocessing.Queue() 类）产生，分别为：</p>
+</code></pre><p>首先 dataloader 基于 multiprocessing 产生多进程，每个子进程的输入输出通过两个主要的队列（multiprocessing.Queue() 类）产生，分别为：</p>
 <p>· index_queue：每个子进程的队列中需要处理的任务的下标</p>
 <p>· _worker_result_queue：返回时处理完任务的下标</p>
 <p>· data_queue：表明经过 pin_memory 处理后的数据队列</p>
@@ -724,9 +722,9 @@ class _BaseDataLoaderIter(object):
 <p>· _send_idx: 发送索引，用来记录这次要放 index_queue 中 batch 的 idx</p>
 <p>· _rcvd_idx: 接受索引，记录要从 data_queue 中取出的 batch 的 idx</p>
 <p>· _task_info: 存储将要产生的 data 信息的 dict，key为 task idx（由 0 开始的整形索引），value 为 (worker_id,) 或 (worker_id, data)，分别对应数据未取和已取的情况</p>
-<p>· _tasks_outstanding: 整形，代表已经准备好的 task&#x2F;batch 的数量（可能有些正在准备中）</p>
+<p>· _tasks_outstanding: 整形，代表已经准备好的 task/batch 的数量（可能有些正在准备中）</p>
 <p>每个 worker 一次产生一个 batch 的数据，返回 batch 数据前放入下一个批次要处理的数据下标，对应构造函数子进程初始化如下：</p>
-<pre><code class="python">
+<pre><code class="lang-python">
 class _MultiProcessingDataLoaderIter(_BaseDataLoaderIter):
     def __init__(self, loader):
         super(_MultiProcessingDataLoaderIter, self).__init__(loader)
@@ -797,7 +795,7 @@ class _MultiProcessingDataLoaderIter(_BaseDataLoaderIter):
             self._try_put_index() # 进行预取
 </code></pre>
 <p>dataloader 初始化的时候，每个 worker 的 index_queue 默认会放入<strong>两个</strong> batch 的 index，从 index_queue 中取出要处理的下标。</p>
-<pre><code class="python">def _try_put_index(self):
+<pre><code class="lang-python">def _try_put_index(self):
         # self._prefetch_factor 默认为 2
         assert self._tasks_outstanding &lt; self._prefetch_factor * self._num_workers
         try:
@@ -819,7 +817,7 @@ class _MultiProcessingDataLoaderIter(_BaseDataLoaderIter):
         self._send_idx += 1
 </code></pre>
 <p>调用 _next_data(self) 方法进行数据读取，其中 _process_data(self, data) 用于返回数据。</p>
-<pre><code class="python">
+<pre><code class="lang-python">
 def _next_data(self):
         while True:
 
@@ -980,9 +978,14 @@ def _next_data(self):
         </a>
       
       
-        <a class="next" href="/CN/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-          <p class="title">学习笔记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class="content">tf中矩阵量存在形式常用有三种，具体如下：1.tf.Variable()表示神经网络中可变化的量（可以通过trainable&#x3D;False设置成不可变),可在运行中赋值，可以通过cons...</p>
+        <a class="next" href="/CN/%E6%95%99%E4%BD%A0%E5%AD%A6%E4%BC%9A%E8%89%B2%E5%BD%A9%E6%90%AD%E9%85%8D/">
+          <p class="title">色彩搭配<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">中国色中国色
+COULEURcouleur
+color spacecolor space
+hyper colorHypercolor
+colorableColorable
+brandcolors...</p>
         </a>
       
     </div>

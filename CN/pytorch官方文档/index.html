@@ -475,7 +475,7 @@
   <h1 id="torch-nn"><a href="#torch-nn" class="headerlink" title="torch.nn"></a>torch.nn</h1><h2 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h2><h3 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h3><p>CLASS    <code>torch.nn.Module</code>    <a target="_blank" rel="external nofollow noopener noreferrer" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module">SOURCE</a></p>
 <p>它是所有神经网络模型的基类，你的模块应该继承于该类。</p>
 <p>模块还能包含其他模块，允许把它们嵌套在一个树结构中。你可以分配子模块作为常规属性：</p>
-<pre><code class="python">import torch.nn as nn
+<pre><code class="lang-python">import torch.nn as nn
 import torch.nn.functional as F
 
 class Model(nn.Module):

@@ -474,7 +474,7 @@
   
   <h3 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h3><p>注意力机制就是让网络关注到它更需要关注的地方，是一种网络自适应注意的方式。注意力机制可以分为通道注意力，空间注意力以及二者的结合。</p>
 <h3 id="相关论文"><a href="#相关论文" class="headerlink" title="相关论文"></a>相关论文</h3><h4 id="SENet"><a href="#SENet" class="headerlink" title="SENet"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://openaccess.thecvf.com/content_cvpr_2018/papers/Hu_Squeeze-and-Excitation_Networks_CVPR_2018_paper.pdf">SENet</a></h4><p>2017年提出的SENet是最后一届ImageNet竞赛的冠军，其实现示意图如下所示，对于输入进来的特征层，我们关注其每一个通道的权重，对于SENet而言，其重点是获得输入进来的特征层，每一个通道的权值。利用SENet，我们可以让网络关注它最需要关注的通道。</p>
-<p>其具体实现方式就是：<br>1、对输入进来的特征层进行全局平均池化。<br>2、然后进行两次全连接，第一次全连接神经元个数较少，第二次全连接神经元个数和输入特征层相同。<br>3、在完成两次全连接后，我们再取一次Sigmoid将值固定到0-1之间，此时我们获得了输入特征层每一个通道的权值（0-1之间）。<br>4、在获得这个权值后，我们将这个权值乘上原输入特征层即可。<br><img src="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331191026838.png" class="lazyload" data-srcset="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331191026838.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>其具体实现方式就是：<br>1、对输入进来的特征层进行全局平均池化。<br>2、然后进行两次全连接，第一次全连接神经元个数较少，第二次全连接神经元个数和输入特征层相同。<br>3、在完成两次全连接后，我们再取一次Sigmoid将值固定到0-1之间，此时我们获得了输入特征层每一个通道的权值（0-1之间）。<br>4、在获得这个权值后，我们将这个权值乘上原输入特征层即可。<br><img src="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331191026838.png" class="lazyload" data-srcset="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331191026838.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <pre><code class="lang-python">import torch
 import torch.nn as nn
 import math
@@ -497,10 +497,10 @@ class se_block(nn.Module):
         return x * y
 </code></pre>
 <h4 id="CBAM"><a href="#CBAM" class="headerlink" title="CBAM"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://openaccess.thecvf.com/content_ECCV_2018/papers/Sanghyun_Woo_Convolutional_Block_Attention_ECCV_2018_paper.pdf">CBAM</a></h4><p>CBAM将<strong>通道注意力机制和空间注意力机制</strong>进行一个结合，相比于<strong>SENet只关注通道的注意力机制</strong>可以取得更好的效果。其实现示意图如下所示，CBAM会对输入进来的特征层，分别进行<strong>通道注意力机制的处理和空间注意力机制的处理</strong>。</p>
-<p><img src="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331155344988.png" class="lazyload" data-srcset="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331155344988.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331155344988.png" class="lazyload" data-srcset="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331155344988.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>下图是通道注意力机制和空间注意力机制的具体实现方式：<br>图像的上半部分为通道注意力机制，通道注意力机制的实现可以分为两个部分，我们会对输入进来的单个特征层，分别进行全局平均池化和全局最大池化。之后对平均池化和最大池化的结果，利用共享的全连接层进行处理，我们会对处理后的两个结果进行相加，然后取一个sigmoid，此时我们获得了输入特征层每一个通道的权值（0-1之间）。在获得这个权值后，我们将这个权值乘上原输入特征层即可。</p>
 <p>图像的下半部分为空间注意力机制，我们会对输入进来的特征层，在每一个特征点的通道上取最大值和平均值。之后将这两个结果进行一个堆叠，利用一次通道数为1的卷积调整通道数，然后取一个sigmoid，此时我们获得了输入特征层每一个特征点的权值（0-1之间）。在获得这个权值后，我们将这个权值乘上原输入特征层即可。</p>
-<p><img src="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331155451951.png" class="lazyload" data-srcset="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331155451951.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331155451951.png" class="lazyload" data-srcset="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331155451951.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <pre><code class="lang-python">class ChannelAttention(nn.Module):
     def __init__(self, in_planes, ratio=8):
         super(ChannelAttention, self).__init__()
@@ -550,7 +550,7 @@ class cbam_block(nn.Module):
 <h4 id="ECANet"><a href="#ECANet" class="headerlink" title="ECANet"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://sci-hub.mksa.top/10.1109/cvpr42600.2020.01155">ECANet</a></h4><p>ECANet是也是通道注意力机制的一种实现形式。ECANet可以看作是SENet的改进版。<br>ECANet的作者认为SENet对通道注意力机制的预测带来了副作用，捕获所有通道的依赖关系是低效并且是不必要的。<br>在ECANet的论文中，作者认为卷积具有良好的跨通道信息获取能力。</p>
 <p>ECA模块的思想是非常简单的，它去除了原来SE模块中的全连接层，直接在全局平均池化之后的特征上通过一个1D卷积进行学习。</p>
 <p>既然使用到了1D卷积，那么1D卷积的卷积核大小的选择就变得非常重要了，了解过卷积原理的同学很快就可以明白，1D卷积的卷积核大小会影响注意力机制每个权重的计算要考虑的通道数量。用更专业的名词就是跨通道交互的覆盖率。</p>
-<p>如下图所示，左图是常规的SE模块，右图是ECA模块。ECA模块用1D卷积替换两次全连接。<br><img src="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331160018390.png" class="lazyload" data-srcset="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331160018390.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>如下图所示，左图是常规的SE模块，右图是ECA模块。ECA模块用1D卷积替换两次全连接。<br><img src="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331160018390.png" class="lazyload" data-srcset="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331160018390.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <pre><code class="lang-python">class eca_block(nn.Module):
     def __init__(self, channel, b=1, gamma=2):
         super(eca_block, self).__init__()
@@ -570,7 +570,7 @@ class cbam_block(nn.Module):
 <h4 id="CA"><a href="#CA" class="headerlink" title="CA"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2103.02907.pdf">CA</a></h4><p>Mobile Network设计的最新研究成果表明，通道注意力（例如，SE注意力）对于提升模型性能具有显著效果，但它们通常会忽略位置信息，而位置信息对于生成空间选择性attention maps是非常重要。</p>
 <p>coordinate注意力将通道注意力分解为两个1维特征编码过程，分别沿2个空间方向聚合特征。这样，可以沿一个空间方向捕获远程依赖关系，同时可以沿另一空间方向保留精确的位置信息。然后将生成的特征图分别编码为一对方向感知和位置敏感的attention map，可以将其互补地应用于输入特征图，以增强关注对象的表示。</p>
 <p>如下图所示，Coordinate Attention通过精确的位置信息对通道关系和长期依赖性进行编码，具体操作分为Coordinate信息嵌入和Coordinate Attention生成2个步骤。</p>
-<p><img src="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220427215849678.png" class="lazyload" data-srcset="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220427215849678.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220427215849678"></p>
+<p><img src="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220427215849678.png" class="lazyload" data-srcset="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220427215849678.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220427215849678"></p>
 <p>实现代码：</p>
 <pre><code class="lang-python">import torch
 from torch import nn
@@ -622,7 +622,7 @@ if __name__ == &#39;__main__&#39;:
 </code></pre>
 <h3 id="注意力机制的应用"><a href="#注意力机制的应用" class="headerlink" title="注意力机制的应用"></a>注意力机制的应用</h3><p>注意力机制是一个即插即用的模块，理论上可以放在任何一个特征层后面，可以放在主干网络，也可以放在加强特征提取网络。</p>
 <p>由于放置在主干会导致网络的预训练权重无法使用，本文以YoloV4-tiny为例，将注意力机制应用加强特征提取网络上。</p>
-<p>如下图所示，我们在主干网络提取出来的两个有效特征层上增加了注意力机制，同时对上采样后的结果增加了注意力机制。<br><img src="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331160207149.png" class="lazyload" data-srcset="/2022/03/31/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331160207149.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>如下图所示，我们在主干网络提取出来的两个有效特征层上增加了注意力机制，同时对上采样后的结果增加了注意力机制。<br><img src="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331160207149.png" class="lazyload" data-srcset="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20220331160207149.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <pre><code class="lang-python">attention_block = [se_block, cbam_block, eca_block]
 
 #---------------------------------------------------#

@@ -113,8 +113,8 @@
     </url>
 
     <url>
-        <loc>http://pistachio0812.github.io/CN/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/</loc>
-        <lastmod>2022-04-20T14:23:41.837Z</lastmod>
+        <loc>http://pistachio0812.github.io/CN/RetinaNet/</loc>
+        <lastmod>2022-04-21T01:24:04.735Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -122,7 +122,15 @@
 
     <url>
         <loc>http://pistachio0812.github.io/CN/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/</loc>
-        <lastmod>2022-04-20T13:30:22.094Z</lastmod>
+        <lastmod>2022-04-20T14:23:48.312Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/CN/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/</loc>
+        <lastmod>2022-04-20T14:23:41.837Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -139,14 +147,6 @@
     <url>
         <loc>http://pistachio0812.github.io/CN/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</loc>
         <lastmod>2022-04-19T14:05:37.214Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://pistachio0812.github.io/CN/RetinaNet/</loc>
-        <lastmod>2022-04-19T02:38:01.953Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
