@@ -8614,9 +8614,10 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
 </code></pre>
 <p>从上面挑选一款您喜欢的样式颜色吧！！</p>
 <h2 id="hexo添加fork"><a href="#hexo添加fork" class="headerlink" title="hexo添加fork"></a>hexo添加fork</h2><h3 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h3><p>粘贴复制如下的代码到<code>themes\hexo-theme-next\layout\layout.ejs</code>文件中(放在<code>&lt;div id=&quot;l_body&quot;&gt;&lt;/div&gt;</code>的下面 如图)，并把href改为你的csdn主页,换成github同上，记得换上自己的链接。</p>
-<pre><code class="lang-ejs"># 黑色版本
+<pre><code class="lang-js"># 黑色版本
+# 个人认为position属性值改为fixed好一点~
   &lt;!--Follow me on CSDN--&gt;
-  &lt;a href=&quot;https://blog.csdn.net/qq_38452951&quot;&gt;&lt;img loading=&quot;lazy&quot; width=&quot;149&quot; height=&quot;149&quot; style=&quot;position: absolute; top: 0; right: 0; border: 0;&quot; src=&quot;https://img-blog.csdnimg.cn/abe3797b7d77419b81ecc02dd1bf8c34.png&quot; class=&quot;attachment-full size-full&quot; alt=&quot;Fork me on GitHub&quot; data-recalc-dims=&quot;1&quot;&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://blog.csdn.net/qq_38452951&quot;&gt; &lt;img loading=&quot;lazy&quot; width=&quot;149&quot; height=&quot;149&quot; style=&quot;position: absolute; top: 0; right: 0; border: 0;&quot; src=&quot;https://img-blog.csdnimg.cn/abe3797b7d77419b81ecc02dd1bf8c34.png&quot; class=&quot;attachment-full size-full&quot; alt=&quot;Fork me on GitHub&quot; data-recalc-dims=&quot;1&quot;&gt;&lt;/a&gt;
 
 # 白色版本
   &lt;!--Follow me on CSDN--&gt;
