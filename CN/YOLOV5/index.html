@@ -1,0 +1,2926 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,zh-TW,default">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>YOLOV5详解 - 相思似海深旧事如天远</title>
+  
+    <meta name="keywords" content="yolov5">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="相思似海深旧事如天远" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name="msapplication-TileColor" content="#ffffff">
+    
+      <meta name="msapplication-config" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/browserconfig.xml">
+    
+      <meta name="theme-color" content="#ffffff">
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" type="text/css" href="/css/matery.css">
+  
+
+  <!-- import link -->
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/site.webmanifest">
+  <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon.ico">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <link rel="stylesheet" type="text/css" href="/css/matery.css">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br>
+        <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+	<script src="https://cdn.jsdelivr.net/gh/dearxuanres/res/js/playerListener.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/sakura.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/mouse_slide.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/clicksocialist.js"></script>
+	<!--浏览器搞笑标题-->
+	<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+	<!--动态线条背景-->
+	<script type="text/javascript" color="220,220,220" opacity="0.6" zindex="-2" count="300" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+	</script>
+    
+
+<header id="l_header" class="l_header auto shadow show" style="opacity: 0">
+  <div class="container">
+  <div id="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>留言板
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+          
+				</li></ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="有一美人兮，见之不忘">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h m-phone">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>留言板
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+            
+          </li></ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="full" class="cover-wrapper post search" style="display: none;">
+          
+            <div id="cover-backstretch"></div>
+          
+          <div class="cover-body">
+  <div class="top">
+    
+      <img no-lazy class="logo" src="https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/images/volantis_log.png">
+    
+    
+      <p class="title">相思似海深旧事如天远</p>
+    
+    
+  </div>
+  <div class="bottom">
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="这里有你想要的一切">
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class="menu navigation">
+      <div class="list-h">
+        
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/v5/getting-started/" id="https:volantisjsorgv5getting-started">
+              <p>文档</p>
+            </a>
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/faqs/" id="https:volantisjsorgfaqs">
+              <p>帮助</p>
+            </a>
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/examples/" id="https:volantisjsorgexamples">
+              <p>示例</p>
+            </a>
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/contributors/" id="https:volantisjsorgcontributors">
+              <p>社区</p>
+            </a>
+          
+            <a href="/archives/" id="archives">
+              <p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis">
+              <p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <!--Follow me on CSDN-->
+	<a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/qq_38452951"><img loading="lazy" width="149" height="149" style="position: fixed; top: 0; right: 0; border: 0;" src="https://img-blog.csdnimg.cn/1f8e1ef9be9f4f7db01fe3a2d57829de.png" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/1f8e1ef9be9f4f7db01fe3a2d57829de.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" class="attachment-full size-full lazyload" alt="Follow me on CSDN" data-recalc-dims="1"></a>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class="l_main">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        YOLOV5详解
+      </h1>
+      <div class="new-meta-box">
+        
+          
+            
+<div class="new-meta-item author">
+  <a class="author" target="_blank" href="https://www.cnblogs.com/pistachio0812" rel="external nofollow noopener noreferrer">
+    <img no-lazy src="https://img1.baidu.com/it/u=583582599,306470958&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500">
+    <p>追风赶月的少年</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item category">
+    <a class="notlink">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/">论文详解</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：May 5, 2022</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：8.9k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：40分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class="notlink">
+      
+      <div id="lc-pv" data-title="YOLOV5详解" data-path="/CN/YOLOV5/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <p>参考博文：</p>
+<p>1.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/weixin_44791964/article/details/121626848">pytorch搭建yolov5</a></p>
+<p>2.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/bubbliiiing/yolov5-pytorch">yolov5-pytorch</a></p>
+<p>3.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/zhuangyuan7838/article/details/122672465">以YOLOV4为例详解anchor_based目标检测训练过程</a></p>
+<h2 id="整体结构解析"><a href="#整体结构解析" class="headerlink" title="整体结构解析"></a>整体结构解析</h2><p><img src="/CN/YOLOV5/0b33c17fb3ac47cfb2b79a80d5b2fbaa.png" class="lazyload" data-srcset="/CN/YOLOV5/0b33c17fb3ac47cfb2b79a80d5b2fbaa.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:50%;"></p>
+<p>在学习YoloV5之前，我们需要对YoloV5所作的工作有一定的了解，这有助于我们后面去了解网络的细节。</p>
+<p>和之前版本的Yolo类似，整个YoloV5可以依然可以分为三个部分，分别是Backbone，FPN以及Yolo Head。</p>
+<p>Backbone可以被称作YoloV5的主干特征提取网络，根据它的结构以及之前Yolo主干的叫法，我一般叫它CSPDarknet，输入的图片首先会在CSPDarknet里面进行特征提取，提取到的特征可以被称作特征层，是输入图片的特征集合。在主干部分，我们获取了三个特征层进行下一步网络的构建，这三个特征层我称它为有效特征层。</p>
+<p>FPN可以被称作YoloV5的加强特征提取网络，在主干部分获得的三个有效特征层会在这一部分进行特征融合，特征融合的目的是结合不同尺度的特征信息。在FPN部分，已经获得的有效特征层被用于继续提取特征。在YoloV5里依然使用到了Panet的结构，我们不仅会对特征进行上采样实现特征融合，还会对特征再次进行下采样实现特征融合。</p>
+<p>Yolo Head是YoloV5的分类器与回归器，通过CSPDarknet和FPN，我们已经可以获得三个加强过的有效特征层。每一个特征层都有宽、高和通道数，此时我们可以将特征图看作一个又一个特征点的集合，每一个特征点都有通道数个特征。Yolo Head实际上所做的工作就是对特征点进行判断，判断特征点是否有物体与其对应。与以前版本的Yolo一样，YoloV5所用的解耦头是一起的，也就是分类和回归在一个1X1卷积里实现。</p>
+<p>因此，整个YoloV5网络所作的工作就是 特征提取-特征加强-预测特征点对应的物体情况。</p>
+<h2 id="网络结构解析"><a href="#网络结构解析" class="headerlink" title="网络结构解析"></a>网络结构解析</h2><h3 id="主干网络backbone"><a href="#主干网络backbone" class="headerlink" title="主干网络backbone"></a>主干网络backbone</h3><p><img src="/CN/YOLOV5/0b33c17fb3ac47cfb2b79a80d5b2fbaa.png" class="lazyload" data-srcset="/CN/YOLOV5/0b33c17fb3ac47cfb2b79a80d5b2fbaa.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>这部分在nets/CSPdarknet.py文件下，YoloV5所使用的主干特征提取网络为CSPDarknet，接下来就是各个组件实现:</p>
+<h4 id="Conv2D-BN-SiLU"><a href="#Conv2D-BN-SiLU" class="headerlink" title="Conv2D_BN_SiLU"></a>Conv2D_BN_SiLU</h4><p>在代码里把这卷积、正则化和激活进行封装，封装成类Conv</p>
+<pre><code class="lang-python">class SiLU(nn.Module):
+    @staticmethod
+    def forward(x):
+        return x * torch.sigmoid(x)
+
+# 自动填充,padding=1/2*kernel_size,根据计算卷积计算宽高公式自然懂的
+def autopad(k, p=None):
+    if p is None:
+        p = k // 2 if isinstance(k, int) else [x // 2 for x in k] 
+    return p
+
+class Conv(nn.Module):
+    def __init__(self, c1, c2, k=1, s=1, p=None, g=1, act=True):
+        super(Conv, self).__init__()
+        self.conv   = nn.Conv2d(c1, c2, k, s, autopad(k, p), groups=g, bias=False)
+        self.bn     = nn.BatchNorm2d(c2, eps=0.001, momentum=0.03)
+        self.act    = SiLU() if act is True else (act if isinstance(act, nn.Module) else nn.Identity())
+
+    def forward(self, x):
+        return self.act(self.bn(self.conv(x)))
+
+    def fuseforward(self, x):
+        return self.act(self.conv(x))
+</code></pre>
+<h4 id="残差网络"><a href="#残差网络" class="headerlink" title="残差网络"></a>残差网络</h4><p>使用了<strong>残差网络Residual</strong>，CSPDarknet中的残差卷积可以分为两个部分，主干部分是一次1X1的卷积和一次3X3的卷积；残差边部分不做任何处理，直接将主干的输入与输出结合。整个YoloV5的主干部分都由残差卷积构成：</p>
+<p>如下图所示：</p>
+<p><img src="/CN/YOLOV5/d232d9ef19cb4b3bbb7b492aaf6ae097.png" class="lazyload" data-srcset="/CN/YOLOV5/d232d9ef19cb4b3bbb7b492aaf6ae097.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>代码如下：</p>
+<pre><code class="lang-python">class Bottleneck(nn.Module):
+    # Standard bottleneck
+    def __init__(self, c1, c2, shortcut=True, g=1, e=0.5):  # 参数分别代表ch_in, ch_out, shortcut, groups, expansion
+        super(Bottleneck, self).__init__()
+        c_ = int(c2 * e)  # hidden channels
+        self.cv1 = Conv(c1, c_, 1, 1)
+        self.cv2 = Conv(c_, c2, 3, 1, g=g)
+        self.add = shortcut and c1 == c2
+
+    def forward(self, x):
+        return x + self.cv2(self.cv1(x)) if self.add else self.cv2(self.cv1(x))
+</code></pre>
+<p>残差网络的特点是<strong>容易优化</strong>，并且能够通过增加相当的<strong>深度来提高准确率</strong>。其内部的<strong>残差块使用了跳跃连接，缓解了在深度神经网络中增加深度带来的梯度消失问题。</strong></p>
+<h4 id="CSPnet"><a href="#CSPnet" class="headerlink" title="CSPnet"></a>CSPnet</h4><p>使用<strong>CSPnet</strong>网络结构，CSPnet结构并不算复杂，就是将原来的残差块的堆叠进行了一个拆分，拆成左右两部分：<strong>主干部分继续进行原来的残差块的堆叠</strong>；另一部分则像一个残差边一样，经过少量处理直接连接到最后。因此可以认为CSP中存在一个大的残差边。</p>
+<p>如下图所示：</p>
+<p><img src="/CN/YOLOV5/20200509113651540.png" class="lazyload" data-srcset="/CN/YOLOV5/20200509113651540.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="CSPLayer" style="zoom:50%;"></p>
+<p>代码实现：</p>
+<pre><code class="lang-python"># 这里是backbone里CSPLayer的实现
+class C3(nn.Module):
+    # CSP Bottleneck with 3 convolutions
+    def __init__(self, c1, c2, n=1, shortcut=True, g=1, e=0.5):  # ch_in, ch_out, number, shortcut, groups, expansion
+        super(C3, self).__init__()
+        c_ = int(c2 * e)  # hidden channels
+        self.cv1 = Conv(c1, c_, 1, 1)
+        self.cv2 = Conv(c1, c_, 1, 1)
+        self.cv3 = Conv(2 * c_, c2, 1)  # act=FReLU(c2)
+        self.m = nn.Sequential(*[Bottleneck(c_, c_, shortcut, g, e=1.0) for _ in range(n)])
+        # self.m = nn.Sequential(*[CrossConv(c_, c_, 3, 1, g, 1.0, shortcut) for _ in range(n)])
+
+    def forward(self, x):
+        return self.cv3(torch.cat((self.m(self.cv1(x)), self.cv2(x)), dim=1))
+</code></pre>
+<h4 id="Focus网络结构"><a href="#Focus网络结构" class="headerlink" title="Focus网络结构"></a>Focus网络结构</h4><p>使用了Focus网络结构，这个网络结构是在YoloV5里面使用到比较有趣的网络结构，具体操作是在一张图片中每隔一个像素拿到一个值，这个时候获得了四个独立的特征层，然后将四个独立的特征层进行堆叠，此时宽高信息就集中到了通道信息，输入通道扩充了四倍。拼接起来的特征层相对于原先的三通道变成了十二个通道，下图很好的展示了Focus结构，一看就能明白。<br><img src="/CN/YOLOV5/7d1f567fc97140d4b9492b5e28cd0ebc.png" class="lazyload" data-srcset="/CN/YOLOV5/7d1f567fc97140d4b9492b5e28cd0ebc.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述"></p>
+<pre><code class="lang-python">class Focus(nn.Module):
+    def __init__(self, c1, c2, k=1, s=1, p=None, g=1, act=True):  # ch_in, ch_out, kernel, stride, padding, groups
+        super(Focus, self).__init__()
+        self.conv = Conv(c1 * 4, c2, k, s, p, g, act)
+
+    def forward(self, x):
+        return self.conv(torch.cat(
+            [x[..., ::2, ::2], # 1
+            x[..., 1::2, ::2], # 2
+            x[..., ::2, 1::2], # 3
+            x[..., 1::2, 1::2] # 4
+            ], 1))
+</code></pre>
+<h4 id="SiLU函数"><a href="#SiLU函数" class="headerlink" title="SiLU函数"></a>SiLU函数</h4><p>使用了SiLU激活函数，SiLU是Sigmoid和ReLU的改进版。SiLU具备无上界有下界、平滑、非单调的特性。SiLU在深层模型上的效果优于 ReLU。可以看做是平滑的ReLU激活函数。<br><img src="/CN/YOLOV5/image-20220505154442317.png" class="lazyload" data-srcset="/CN/YOLOV5/image-20220505154442317.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220505154442317" style="zoom: 80%;"></p>
+<p><img src="/CN/YOLOV5/e6cb6d3c11db4510a034ca9b1a0ca339.png" class="lazyload" data-srcset="/CN/YOLOV5/e6cb6d3c11db4510a034ca9b1a0ca339.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<pre><code class="lang-python">class SiLU(nn.Module):
+    @staticmethod
+    def forward(x):
+        return x * torch.sigmoid(x)
+</code></pre>
+<h4 id="SPP"><a href="#SPP" class="headerlink" title="SPP"></a>SPP</h4><p>使用了SPP结构，通过不同池化核大小的最大池化进行特征提取，提高网络的感受野。在YoloV4中，SPP是用在FPN里面的，在YoloV5中，SPP模块被用在了主干特征提取网络中。</p>
+<p>如下图所示：</p>
+<p><img src="/CN/YOLOV5/image-20220505154713232.png" class="lazyload" data-srcset="/CN/YOLOV5/image-20220505154713232.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220505154713232" style="zoom:50%;"></p>
+<p>代码如下：</p>
+<pre><code class="lang-python">class SPP(nn.Module):
+    # Spatial pyramid pooling layer used in YOLOv3-SPP
+    def __init__(self, c1, c2, k=(5, 9, 13)):
+        super(SPP, self).__init__()
+        c_ = c1 // 2  # hidden channels
+        self.cv1 = Conv(c1, c_, 1, 1)
+        self.cv2 = Conv(c_ * (len(k) + 1), c2, 1, 1)
+        self.m = nn.ModuleList([nn.MaxPool2d(kernel_size=x, stride=1, padding=x // 2) for x in k])
+
+    def forward(self, x):
+        x = self.cv1(x)
+        return self.cv2(torch.cat([x] + [m(x) for m in self.m], 1))
+</code></pre>
+<h4 id="CSPDarknet"><a href="#CSPDarknet" class="headerlink" title="CSPDarknet"></a>CSPDarknet</h4><p>在完成各个部件后，整个的CSPDarknet实现如下（左边部分）：</p>
+<pre><code class="lang-python">class CSPDarknet(nn.Module):
+    def __init__(self, base_channels, base_depth):
+        super().__init__()
+        #-----------------------------------------------#
+        #   输入图片是640, 640, 3
+        #   初始的基本通道是64
+        #-----------------------------------------------#
+
+        #-----------------------------------------------#
+        #   利用focus网络结构进行特征提取
+        #   640, 640, 3 -&gt; 320, 320, 12 -&gt; 320, 320, 64
+        #-----------------------------------------------#
+        self.stem       = Focus(3, base_channels, k=3)
+        #-----------------------------------------------#
+        #   完成卷积之后，320, 320, 64 -&gt; 160, 160, 128
+        #   完成CSPlayer之后，160, 160, 128 -&gt; 160, 160, 128
+        #-----------------------------------------------#
+        self.dark2 = nn.Sequential(
+            Conv(base_channels, base_channels * 2, 3, 2),
+            C3(base_channels * 2, base_channels * 2, base_depth),
+        )
+        #-----------------------------------------------#
+        #   完成卷积之后，160, 160, 128 -&gt; 80, 80, 256
+        #   完成CSPlayer之后，80, 80, 256 -&gt; 80, 80, 256
+        #-----------------------------------------------#
+        self.dark3 = nn.Sequential(
+            Conv(base_channels * 2, base_channels * 4, 3, 2),
+            C3(base_channels * 4, base_channels * 4, base_depth * 3),
+        )
+
+        #-----------------------------------------------#
+        #   完成卷积之后，80, 80, 256 -&gt; 40, 40, 512
+        #   完成CSPlayer之后，40, 40, 512 -&gt; 40, 40, 512
+        #-----------------------------------------------#
+        self.dark4 = nn.Sequential(
+            Conv(base_channels * 4, base_channels * 8, 3, 2),
+            C3(base_channels * 8, base_channels * 8, base_depth * 3),
+        )
+        #-----------------------------------------------#
+        #   完成卷积之后，40, 40, 512 -&gt; 20, 20, 1024
+        #   完成SPP之后，20, 20, 1024 -&gt; 20, 20, 1024
+        #   完成CSPlayer之后，20, 20, 1024 -&gt; 20, 20, 1024
+        #-----------------------------------------------#
+        self.dark5 = nn.Sequential(
+            Conv(base_channels * 8, base_channels * 16, 3, 2),
+            SPP(base_channels * 16, base_channels * 16),
+            C3(base_channels * 16, base_channels * 16, base_depth, shortcut=False),
+        )
+    # feat1, feat2, feat3是用来目标检测的三个特征层，后续还要进行FPN层的构建，也就是中间那部分
+    def forward(self, x):
+        x = self.stem(x)
+        x = self.dark2(x)
+        #-----------------------------------------------#
+        #   dark3的输出为80, 80, 256，是一个有效特征层
+        #-----------------------------------------------#
+        x = self.dark3(x)
+        feat1 = x
+        #-----------------------------------------------#
+        #   dark4的输出为40, 40, 512，是一个有效特征层
+        #-----------------------------------------------#
+        x = self.dark4(x)
+        feat2 = x
+        #-----------------------------------------------#
+        #   dark5的输出为20, 20, 1024，是一个有效特征层
+        #-----------------------------------------------#
+        x = self.dark5(x)
+        feat3 = x
+        return feat1, feat2, feat3
+</code></pre>
+<p>好了，我们现在已经提取到了构建FPN层的三个特征层，接下来就是构建FPN</p>
+<h3 id="构建FPN加强特征提取"><a href="#构建FPN加强特征提取" class="headerlink" title="构建FPN加强特征提取"></a>构建FPN加强特征提取</h3><p><img src="/CN/YOLOV5/0b33c17fb3ac47cfb2b79a80d5b2fbaa.png" class="lazyload" data-srcset="/CN/YOLOV5/0b33c17fb3ac47cfb2b79a80d5b2fbaa.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>再次回到这幅图，现在我们需要进行中间部分的实现了,这部分在yolo.py文件。</p>
+<p>在特征利用部分，YoloV5提取多特征层进行目标检测，一共提取三个特征层。<br>三个特征层位于主干部分CSPdarknet的不同位置，分别位于中间层，中下层，底层，当输入为(640,640,3)的时候，三个特征层的shape分别为feat1=(80,80,256)、feat2=(40,40,512)、feat3=(20,20,1024)。</p>
+<p>在获得三个有效特征层后，我们利用这三个有效特征层进行FPN层的构建，构建方式为：</p>
+<p>1.feat3=(20,20,1024)的特征层进行1次1X1卷积调整通道后获得P5，P5进行上采样UmSampling2d后与feat2=(40,40,512)特征层进行结合，然后使用CSPLayer进行特征提取获得P5_upsample，此时获得的特征层为(40,40,512)。</p>
+<p>2.P5_upsample=(40,40,512)的特征层进行1次1X1卷积调整通道后获得P4，P4进行上采样UmSampling2d后与feat1=(80,80,256)特征层进行结合，然后使用CSPLayer进行特征提取<strong>P3_out</strong>，此时获得的特征层为(80,80,256)。</p>
+<p>3.P3_out=(80,80,256)的特征层进行一次3x3卷积进行下采样，下采样后与P4堆叠，然后使用CSPLayer进行特征提取<strong>P4_out</strong>，此时获得的特征层为(40,40,512)。</p>
+<p>4.P4_out=(40,40,512)的特征层进行一次3x3卷积进行下采样，下采样后与P5堆叠，然后使用CSPLayer进行特征提取<strong>P5_out</strong>，此时获得的特征层为(20,20,1024)。</p>
+<p>注：p3_out, p4_out,p5_out即为经过FPN输出的三个特征层，用于检测。</p>
+<p>特征金字塔可以将不同shape的特征层进行特征融合，有利于提取出更好的特征。</p>
+<p>代码实现如下：</p>
+<pre><code class="lang-python">import torch
+import torch.nn as nn
+
+from nets.ConvNext import ConvNeXt_Small, ConvNeXt_Tiny
+from nets.CSPdarknet import C3, Conv, CSPDarknet
+from nets.Swin_transformer import Swin_transformer_Tiny
+
+
+#---------------------------------------------------#
+#   yolo_body
+#---------------------------------------------------#
+class YoloBody(nn.Module):
+    def __init__(self, anchors_mask, num_classes, phi, backbone=&#39;cspdarknet&#39;, pretrained=False, input_shape=[640, 640]):
+        super(YoloBody, self).__init__()
+        depth_dict          = &#123;&#39;s&#39; : 0.33, &#39;m&#39; : 0.67, &#39;l&#39; : 1.00, &#39;x&#39; : 1.33,&#125;
+        width_dict          = &#123;&#39;s&#39; : 0.50, &#39;m&#39; : 0.75, &#39;l&#39; : 1.00, &#39;x&#39; : 1.25,&#125;
+        dep_mul, wid_mul    = depth_dict[phi], width_dict[phi]
+
+        base_channels       = int(wid_mul * 64)  # 64
+        base_depth          = max(round(dep_mul * 3), 1)  # 3
+        #-----------------------------------------------#
+        #   输入图片是640, 640, 3
+        #   初始的基本通道是64
+        #-----------------------------------------------#
+        self.backbone_name  = backbone
+        if backbone == &quot;cspdarknet&quot;:
+            #---------------------------------------------------#   
+            #   生成CSPdarknet53的主干模型
+            #   获得三个有效特征层，他们的shape分别是：
+            #   80,80,256
+            #   40,40,512
+            #   20,20,1024
+            #---------------------------------------------------#
+            self.backbone   = CSPDarknet(base_channels, base_depth, phi, pretrained)
+        else:
+            #---------------------------------------------------#   
+            #   如果输入不为cspdarknet，则调整通道数
+            #   使其符合YoloV5的格式
+            #---------------------------------------------------#
+            self.backbone       = &#123;
+                &#39;convnext_tiny&#39;         : ConvNeXt_Tiny,
+                &#39;convnext_small&#39;        : ConvNeXt_Small,
+                &#39;swin_transfomer_tiny&#39;  : Swin_transformer_Tiny,
+            &#125;[backbone](pretrained=pretrained, input_shape=input_shape)
+            in_channels         = &#123;
+                &#39;convnext_tiny&#39;         : [192, 384, 768],
+                &#39;convnext_small&#39;        : [192, 384, 768],
+                &#39;swin_transfomer_tiny&#39;  : [192, 384, 768],
+            &#125;[backbone]
+            feat1_c, feat2_c, feat3_c = in_channels 
+            self.conv_1x1_feat1 = Conv(feat1_c, base_channels * 4, 1, 1)
+            self.conv_1x1_feat2 = Conv(feat2_c, base_channels * 8, 1, 1)
+            self.conv_1x1_feat3 = Conv(feat3_c, base_channels * 16, 1, 1)
+
+        # 上采样操作，采用最近邻插值法
+        self.upsample   = nn.Upsample(scale_factor=2, mode=&quot;nearest&quot;)
+
+        # Conv1×1,获得p5
+        self.conv_for_feat3         = Conv(base_channels * 16, base_channels * 8, 1, 1)
+        # CSPLayer操作，进行特征提取，获得p5_unsample
+        self.conv3_for_upsample1    = C3(base_channels * 16, base_channels * 8, base_depth, shortcut=False)
+
+        self.conv_for_feat2         = Conv(base_channels * 8, base_channels * 4, 1, 1)
+        self.conv3_for_upsample2    = C3(base_channels * 8, base_channels * 4, base_depth, shortcut=False)
+
+        # 下采样操作，采用卷积步长为2的方法，通道不变，宽高压缩一半
+        self.down_sample1           = Conv(base_channels * 4, base_channels * 4, 3, 2)
+        self.conv3_for_downsample1  = C3(base_channels * 8, base_channels * 8, base_depth, shortcut=False)
+
+        self.down_sample2           = Conv(base_channels * 8, base_channels * 8, 3, 2)
+        self.conv3_for_downsample2  = C3(base_channels * 16, base_channels * 16, base_depth, shortcut=False)
+
+        # 80, 80, 256 =&gt; 80, 80, 3 * (5 + num_classes) =&gt; 80, 80, 3 * (4 + 1 + num_classes)
+        self.yolo_head_P3 = nn.Conv2d(base_channels * 4, len(anchors_mask[2]) * (5 + num_classes), 1)
+        # 40, 40, 512 =&gt; 40, 40, 3 * (5 + num_classes) =&gt; 40, 40, 3 * (4 + 1 + num_classes)
+        self.yolo_head_P4 = nn.Conv2d(base_channels * 8, len(anchors_mask[1]) * (5 + num_classes), 1)
+        # 20, 20, 1024 =&gt; 20, 20, 3 * (5 + num_classes) =&gt; 20, 20, 3 * (4 + 1 + num_classes)
+        self.yolo_head_P5 = nn.Conv2d(base_channels * 16, len(anchors_mask[0]) * (5 + num_classes), 1)
+
+    def forward(self, x):
+        #  backbone
+        feat1, feat2, feat3 = self.backbone(x)
+        if self.backbone_name != &quot;cspdarknet&quot;:
+            feat1 = self.conv_1x1_feat1(feat1)
+            feat2 = self.conv_1x1_feat2(feat2)
+            feat3 = self.conv_1x1_feat3(feat3)
+
+        # 20, 20, 1024 -&gt; 20, 20, 512
+        P5          = self.conv_for_feat3(feat3)
+        # 20, 20, 512 -&gt; 40, 40, 512
+        P5_upsample = self.upsample(P5)
+        # 40, 40, 512 -&gt; 40, 40, 1024
+        P4          = torch.cat([P5_upsample, feat2], 1)
+        # 40, 40, 1024 -&gt; 40, 40, 512
+        P4          = self.conv3_for_upsample1(P4)
+
+        # 40, 40, 512 -&gt; 40, 40, 256
+        P4          = self.conv_for_feat2(P4)
+        # 40, 40, 256 -&gt; 80, 80, 256
+        P4_upsample = self.upsample(P4)
+        # 80, 80, 256 cat 80, 80, 256 -&gt; 80, 80, 512
+        P3          = torch.cat([P4_upsample, feat1], 1)
+        # 80, 80, 512 -&gt; 80, 80, 256
+        P3          = self.conv3_for_upsample2(P3)
+
+        # 80, 80, 256 -&gt; 40, 40, 256
+        P3_downsample = self.down_sample1(P3)
+        # 40, 40, 256 cat 40, 40, 256 -&gt; 40, 40, 512
+        P4 = torch.cat([P3_downsample, P4], 1)
+        # 40, 40, 512 -&gt; 40, 40, 512
+        P4 = self.conv3_for_downsample1(P4)
+
+        # 40, 40, 512 -&gt; 20, 20, 512
+        P4_downsample = self.down_sample2(P4)
+        # 20, 20, 512 cat 20, 20, 512 -&gt; 20, 20, 1024
+        P5 = torch.cat([P4_downsample, P5], 1)
+        # 20, 20, 1024 -&gt; 20, 20, 1024
+        P5 = self.conv3_for_downsample2(P5)
+
+        #---------------------------------------------------#
+        #   第三个特征层
+        #   y3=(batch_size,75,80,80)
+        #---------------------------------------------------#
+        out2 = self.yolo_head_P3(P3)
+        #---------------------------------------------------#
+        #   第二个特征层
+        #   y2=(batch_size,75,40,40)
+        #---------------------------------------------------#
+        out1 = self.yolo_head_P4(P4)
+        #---------------------------------------------------#
+        #   第一个特征层
+        #   y1=(batch_size,75,20,20)
+        #---------------------------------------------------#
+        out0 = self.yolo_head_P5(P5)
+        return out0, out1, out2
+</code></pre>
+<p>注：特征金字塔输出来的是p3,p4,p5。代码里输出的是yolohead输出来的结果，即out0,out1,out2</p>
+<h3 id="利用YoloHead获得预测结果"><a href="#利用YoloHead获得预测结果" class="headerlink" title="利用YoloHead获得预测结果"></a>利用YoloHead获得预测结果</h3><p><img src="/CN/YOLOV5/0b33c17fb3ac47cfb2b79a80d5b2fbaa.png" class="lazyload" data-srcset="/CN/YOLOV5/0b33c17fb3ac47cfb2b79a80d5b2fbaa.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>利用FPN特征金字塔，我们可以获得三个加强特征，这三个加强特征的shape分别为(20,20,1024)、(40,40,512)、(80,80,256)，然后我们利用这三个shape的特征层传入Yolo Head获得预测结果。</p>
+<p>对于每一个特征层，我们可以获得利用一个卷积调整通道数，最终的通道数和需要区分的种类个数相关，在YoloV5里，每一个特征层上每一个特征点存在3个先验框。</p>
+<p>如果使用的是voc训练集，类则为20种，最后的维度应该为75 = 3x25，三个特征层的shape为(20,20,75)，(40,40,75)，(80,80,75)。<br>最后的75可以拆分成3个25，对应3个先验框的25个参数，25可以拆分成4+1+20。<br>前4个参数用于判断每一个特征点的回归参数，回归参数调整后可以获得预测框；<br>第5个参数用于判断每一个特征点是否包含物体；<br>最后20个参数用于判断每一个特征点所包含的物体种类。</p>
+<p>如果使用的是coco训练集，类则为80种，最后的维度应该为255 = 3x85，三个特征层的shape为(20,20,255)，(40,40,255)，(80,80,255)<br>最后的255可以拆分成3个85，对应3个先验框的85个参数，85可以拆分成4+1+80。<br>前4个参数用于判断每一个特征点的回归参数，回归参数调整后可以获得预测框；<br>第5个参数用于判断每一个特征点是否包含物体；<br>最后80个参数用于判断每一个特征点所包含的物体种类。</p>
+<p>在上一部分其实已经写到了预测部分的代码，现在我们把它单独拿出来看看,或者直接看上面FPN那里的代码。</p>
+<pre><code class="lang-python">class YoloBody(nn.Module):
+    def __init__(self, anchor_mask, num_classes, phi):
+        super(YoloBody, self).__init__()
+        # 80, 80, 256 =&gt; 80, 80, 3 * (5 + num_classes) =&gt; 80, 80, 3 * (4 + 1 + num_classes)
+        self.yolo_head_P3 = nn.Conv2d(base_channels * 4, len(anchors_mask[2]) * (5 + num_classes), 1)
+        # 40, 40, 512 =&gt; 40, 40, 3 * (5 + num_classes) =&gt; 40, 40, 3 * (4 + 1 + num_classes)
+        self.yolo_head_P4 = nn.Conv2d(base_channels * 8, len(anchors_mask[1]) * (5 + num_classes), 1)
+        # 20, 20, 1024 =&gt; 20, 20, 3 * (5 + num_classes) =&gt; 20, 20, 3 * (4 + 1 + num_classes)
+        self.yolo_head_P5 = nn.Conv2d(base_channels * 16, len(anchors_mask[0]) * (5 + num_classes), 1)
+    def forward(self, x):
+        #---------------------------------------------------#
+        #   第三个特征层
+        #   y3=(batch_size,75,80,80)
+        #---------------------------------------------------#
+        out2 = self.yolo_head_P3(P3)
+        #---------------------------------------------------#
+        #   第二个特征层
+        #   y2=(batch_size,75,40,40)
+        #---------------------------------------------------#
+        out1 = self.yolo_head_P4(P4)
+        #---------------------------------------------------#
+        #   第一个特征层
+        #   y1=(batch_size,75,20,20)
+        #---------------------------------------------------#
+        out0 = self.yolo_head_P5(P5)
+        return out0, out1, out2
+</code></pre>
+<p>注：</p>
+<p><code>anchor_mask=[[6, 7, 8], [3, 4, 5], [0, 1, 2]]</code>, 表示三个特征图的9个先验框，因此每一个特征图上每一个特点上存在3个先验框。</p>
+<h2 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h2><h3 id="获得预测框和得分"><a href="#获得预测框和得分" class="headerlink" title="获得预测框和得分"></a>获得预测框和得分</h3><p>假设我们使用coco数据集进行训练，由第二步我们可以获得三个特征层的预测结果，shape分别为(N,20,20,255)，(N,40,40,255)，(N,80,80,255)的数据。</p>
+<p>但是这个预测结果并不对应着最终的预测框在图片上的位置，还需要解码才可以完成。在YoloV5里，每一个特征层上每一个特征点存在3个先验框。</p>
+<p>每个特征层最后的255可以拆分成3个85，对应3个先验框的85个参数，我们先将其reshape一下，其结果为(N,20,20,3,85)，(N,40.40,3,85)，(N,80,80,3,85)。</p>
+<p>其中的85可以拆分成4+1+80。<br>前4个参数用于判断每一个特征点的回归参数，回归参数调整后可以获得预测框；<br>第5个参数用于判断每一个特征点是否包含物体；<br>最后80个参数用于判断每一个特征点所包含的物体种类。</p>
+<p>以(N,20,20,3,85)这个特征层为例，该特征层相当于将图像划分成20x20个特征点，如果某个特征点落在物体的对应框内，就用于预测该物体。</p>
+<p>如图所示，蓝色的点为20x20的特征点，此时我们对左图黑色点的三个先验框进行解码操作演示：<br>1、进行中心预测点的计算，利用Regression预测结果前两个序号的内容对特征点的三个先验框中心坐标进行偏移，偏移后是右图红色的三个点；<br>2、进行预测框宽高的计算，利用Regression预测结果后两个序号的内容求指数后获得预测框的宽高；<br>3、此时获得的预测框就可以绘制在图片上了。<br><img src="/CN/YOLOV5/93fc40f7a47f46bbb37819115826ec1a.png" class="lazyload" data-srcset="/CN/YOLOV5/93fc40f7a47f46bbb37819115826ec1a.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>除去这样的解码操作，还有非极大抑制的操作需要进行，防止同一种类的框的堆积。</p>
+<p>代码如下：</p>
+<pre><code class="lang-python"># utils/utils_bbox.py
+def decode_box(self, inputs):
+    outputs = []
+    for i, input in enumerate(inputs):
+        #-----------------------------------------------#
+        #   输入的input一共有三个，他们的shape分别是
+        #   batch_size, 255, 20, 20
+        #   batch_size, 255, 40, 40
+        #   batch_size, 255, 80, 80
+        #-----------------------------------------------#
+        batch_size      = input.size(0)
+        input_height    = input.size(2)
+        input_width     = input.size(3)
+
+        #-----------------------------------------------#
+        #   输入为416x416时
+        #   stride_h = stride_w = 32、16、8
+        #-----------------------------------------------#
+        stride_h = self.input_shape[0] / input_height
+        stride_w = self.input_shape[1] / input_width
+        #-------------------------------------------------#
+        #   此时获得的scaled_anchors大小是相对于特征层的
+        #-------------------------------------------------#
+        scaled_anchors = [(anchor_width / stride_w, anchor_height / stride_h) for anchor_width, anchor_height in self.anchors[self.anchors_mask[i]]]
+
+        #-----------------------------------------------#
+        #   输入的input一共有三个，他们的shape分别是
+        #   batch_size, 3, 20, 20, 85
+        #   batch_size, 3, 40, 40, 85
+        #   batch_size, 3, 80, 80, 85
+        #-----------------------------------------------#
+        prediction = input.view(batch_size, len(self.anchors_mask[i]),
+                                self.bbox_attrs, input_height, input_width).permute(0, 1, 3, 4, 2).contiguous()
+
+        #-----------------------------------------------#
+        #   先验框的中心位置的调整参数
+        #-----------------------------------------------#
+        x = torch.sigmoid(prediction[..., 0])  
+        y = torch.sigmoid(prediction[..., 1])
+        #-----------------------------------------------#
+        #   先验框的宽高调整参数
+        #-----------------------------------------------#
+        w = torch.sigmoid(prediction[..., 2]) 
+        h = torch.sigmoid(prediction[..., 3]) 
+        #-----------------------------------------------#
+        #   获得置信度，是否有物体
+        #-----------------------------------------------#
+        conf        = torch.sigmoid(prediction[..., 4])
+        #-----------------------------------------------#
+        #   种类置信度
+        #-----------------------------------------------#
+        pred_cls    = torch.sigmoid(prediction[..., 5:])
+
+        FloatTensor = torch.cuda.FloatTensor if x.is_cuda else torch.FloatTensor
+        LongTensor  = torch.cuda.LongTensor if x.is_cuda else torch.LongTensor
+
+        #----------------------------------------------------------#
+        #   生成网格，先验框中心，网格左上角 
+        #   batch_size,3,20,20
+        #----------------------------------------------------------#
+        grid_x = torch.linspace(0, input_width - 1, input_width).repeat(input_height, 1).repeat(
+            batch_size * len(self.anchors_mask[i]), 1, 1).view(x.shape).type(FloatTensor)
+        grid_y = torch.linspace(0, input_height - 1, input_height).repeat(input_width, 1).t().repeat(
+            batch_size * len(self.anchors_mask[i]), 1, 1).view(y.shape).type(FloatTensor)
+
+        #----------------------------------------------------------#
+        #   按照网格格式生成先验框的宽高
+        #   batch_size,3,20,20
+        #----------------------------------------------------------#
+        anchor_w = FloatTensor(scaled_anchors).index_select(1, LongTensor([0]))
+        anchor_h = FloatTensor(scaled_anchors).index_select(1, LongTensor([1]))
+        anchor_w = anchor_w.repeat(batch_size, 1).repeat(1, 1, input_height * input_width).view(w.shape)
+        anchor_h = anchor_h.repeat(batch_size, 1).repeat(1, 1, input_height * input_width).view(h.shape)
+
+        #----------------------------------------------------------#
+        #   利用预测结果对先验框进行调整
+        #   首先调整先验框的中心，从先验框中心向右下角偏移
+        #   再调整先验框的宽高。
+        #----------------------------------------------------------#
+        pred_boxes          = FloatTensor(prediction[..., :4].shape)
+        pred_boxes[..., 0]  = x.data * 2. - 0.5 + grid_x
+        pred_boxes[..., 1]  = y.data * 2. - 0.5 + grid_y
+        pred_boxes[..., 2]  = (w.data * 2) ** 2 * anchor_w
+        pred_boxes[..., 3]  = (h.data * 2) ** 2 * anchor_h
+
+        #----------------------------------------------------------#
+        #   将输出结果归一化成小数的形式
+        #----------------------------------------------------------#
+        _scale = torch.Tensor([input_width, input_height, input_width, input_height]).type(FloatTensor)
+        output = torch.cat((pred_boxes.view(batch_size, -1, 4) / _scale,
+                            conf.view(batch_size, -1, 1), pred_cls.view(batch_size, -1, self.num_classes)), -1)
+        outputs.append(output.data)
+    return outputs
+</code></pre>
+<h3 id="得分筛选和非极大值抑制"><a href="#得分筛选和非极大值抑制" class="headerlink" title="得分筛选和非极大值抑制"></a>得分筛选和非极大值抑制</h3><p>得到最终的预测结果后还要进行得分排序与非极大抑制筛选。</p>
+<p>得分筛选就是筛选出得分满足confidence置信度的预测框。<br>非极大抑制就是筛选出一定区域内属于同一种类得分最大的框。</p>
+<p>得分筛选与非极大抑制的过程可以概括如下：<br>1、找出该图片中得分大于门限函数的框。在进行重合框筛选前就进行得分的筛选可以大幅度减少框的数量。<br>2、对种类进行循环，非极大抑制的作用是筛选出一定区域内属于同一种类得分最大的框，对种类进行循环可以帮助我们对每一个类分别进行非极大抑制。<br>3、根据得分对该种类进行从大到小排序。<br>4、每次取出得分最大的框，计算其与其它所有预测框的重合程度，重合程度过大的则剔除。</p>
+<p>得分筛选与非极大抑制后的结果就可以用于绘制预测框了。</p>
+<p>下图是经过非极大抑制的：</p>
+<p><img src="/CN/YOLOV5/20200526140617608.png" class="lazyload" data-srcset="/CN/YOLOV5/20200526140617608.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>下图是未经过非极大值抑制的：</p>
+<p><img src="/CN/YOLOV5/20200519211538419.png" class="lazyload" data-srcset="/CN/YOLOV5/20200519211538419.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>实现代码如下：</p>
+<pre><code class="lang-python">def non_max_suppression(self, prediction, num_classes, input_shape, image_shape, letterbox_image, conf_thres=0.5, nms_thres=0.4):
+    #----------------------------------------------------------#
+    #   将预测结果的格式转换成左上角右下角的格式。
+    #   prediction  [batch_size, num_anchors, 85]
+    #----------------------------------------------------------#
+    box_corner          = prediction.new(prediction.shape)
+    box_corner[:, :, 0] = prediction[:, :, 0] - prediction[:, :, 2] / 2
+    box_corner[:, :, 1] = prediction[:, :, 1] - prediction[:, :, 3] / 2
+    box_corner[:, :, 2] = prediction[:, :, 0] + prediction[:, :, 2] / 2
+    box_corner[:, :, 3] = prediction[:, :, 1] + prediction[:, :, 3] / 2
+    prediction[:, :, :4] = box_corner[:, :, :4]
+
+    output = [None for _ in range(len(prediction))]
+    for i, image_pred in enumerate(prediction):
+        #----------------------------------------------------------#
+        #   对种类预测部分取max。
+        #   class_conf  [num_anchors, 1]    种类置信度
+        #   class_pred  [num_anchors, 1]    种类
+        #----------------------------------------------------------#
+        class_conf, class_pred = torch.max(image_pred[:, 5:5 + num_classes], 1, keepdim=True)
+
+        #----------------------------------------------------------#
+        #   利用置信度进行第一轮筛选
+        #----------------------------------------------------------#
+        conf_mask = (image_pred[:, 4] * class_conf[:, 0] &gt;= conf_thres).squeeze()
+
+        #----------------------------------------------------------#
+        #   根据置信度进行预测结果的筛选
+        #----------------------------------------------------------#
+        image_pred = image_pred[conf_mask]
+        class_conf = class_conf[conf_mask]
+        class_pred = class_pred[conf_mask]
+        if not image_pred.size(0):
+            continue
+        #-------------------------------------------------------------------------#
+        #   detections  [num_anchors, 7]
+        #   7的内容为：x1, y1, x2, y2, obj_conf, class_conf, class_pred
+        #-------------------------------------------------------------------------#
+        detections = torch.cat((image_pred[:, :5], class_conf.float(), class_pred.float()), 1)
+
+        #------------------------------------------#
+        #   获得预测结果中包含的所有种类
+        #------------------------------------------#
+        unique_labels = detections[:, -1].cpu().unique()
+
+        if prediction.is_cuda:
+            unique_labels = unique_labels.cuda()
+            detections = detections.cuda()
+
+        for c in unique_labels:
+            #------------------------------------------#
+            #   获得某一类得分筛选后全部的预测结果
+            #------------------------------------------#
+            detections_class = detections[detections[:, -1] == c]
+
+            #------------------------------------------#
+            #   使用官方自带的非极大抑制会速度更快一些！
+            #------------------------------------------#
+            keep = nms(
+                detections_class[:, :4],
+                detections_class[:, 4] * detections_class[:, 5],
+                nms_thres
+            )
+            max_detections = detections_class[keep]
+
+            # # 按照存在物体的置信度排序
+            # _, conf_sort_index = torch.sort(detections_class[:, 4]*detections_class[:, 5], descending=True)
+            # detections_class = detections_class[conf_sort_index]
+            # # 进行非极大抑制
+            # max_detections = []
+            # while detections_class.size(0):
+            #     # 取出这一类置信度最高的，一步一步往下判断，判断重合程度是否大于nms_thres，如果是则去除掉
+            #     max_detections.append(detections_class[0].unsqueeze(0))
+            #     if len(detections_class) == 1:
+            #         break
+            #     ious = bbox_iou(max_detections[-1], detections_class[1:])
+            #     detections_class = detections_class[1:][ious &lt; nms_thres]
+            # # 堆叠
+            # max_detections = torch.cat(max_detections).data
+
+            # Add max detections to outputs
+            output[i] = max_detections if output[i] is None else torch.cat((output[i], max_detections))
+
+        if output[i] is not None:
+            output[i]           = output[i].cpu().numpy()
+            box_xy, box_wh      = (output[i][:, 0:2] + output[i][:, 2:4])/2, output[i][:, 2:4] - output[i][:, 0:2]
+            output[i][:, :4]    = self.yolo_correct_boxes(box_xy, box_wh, input_shape, image_shape, letterbox_image)
+    return output
+</code></pre>
+<h2 id="训练部分"><a href="#训练部分" class="headerlink" title="训练部分"></a>训练部分</h2><h3 id="loss组成"><a href="#loss组成" class="headerlink" title="loss组成"></a>loss组成</h3><p>计算loss实际上是网络的预测结果和网络的真实结果的对比。<br>和网络的预测结果一样，网络的损失也由三个部分组成，分别是Reg部分、Obj部分、Cls部分。Reg部分是特征点的回归参数判断、Obj部分是特征点是否包含物体判断、Cls部分是特征点包含的物体的种类。</p>
+<h3 id="正样本的匹配过程"><a href="#正样本的匹配过程" class="headerlink" title="正样本的匹配过程"></a>正样本的匹配过程</h3><p>在YoloV5中，训练时正样本的匹配过程可以分为两部分。<br>a、匹配先验框。<br>b、匹配特征点。</p>
+<p>所谓<strong>正样本匹配</strong>，就是<strong>寻找哪些先验框被认为有对应的真实框，并且负责这个真实框的预测</strong>。</p>
+<h4 id="匹配先验框"><a href="#匹配先验框" class="headerlink" title="匹配先验框"></a>匹配先验框</h4><p>在YoloV5网络中，一共设计了9个不同大小的先验框。每个输出的特征层对应3个先验框。</p>
+<p>对于任何一个真实框gt，YoloV5不再使用iou进行正样本的匹配，而是直接采用高宽比进行匹配，即使用真实框和9个不同大小的先验框计算宽高比。</p>
+<p>如果真实框与某个先验框的宽高比例大于设定阈值，则说明该真实框和该先验框匹配度不够，将该先验框认为是负样本。</p>
+<p>比如此时有一个真实框，它的宽高为[200, 200]，是一个正方形。YoloV5默认设置的9个先验框为[10,13], [16,30], [33,23], [30,61], [62,45], [59,119], [116,90], [156,198], [373,326]。设定阈值门限为4。</p>
+<p>此时我们需要计算该真实框和9个先验框的宽高比例。比较宽高时存在两个情况，一个是真实框的宽高比先验框大，一个是先验框的宽高比真实框大。因此我们需要同时计算：真实框的宽高/先验框的宽高；先验框的宽高/真实框的宽高。然后在这其中选取最大值。</p>
+<p>下个列表就是比较结果，这是一个shape为[9, 4]的矩阵，9代表9个先验框，4代表真实框的宽高/先验框的宽高；先验框的宽高/真实框的宽高。</p>
+<pre><code class="lang-python">[[20.         15.38461538  0.05        0.065     ]
+ [12.5         6.66666667  0.08        0.15      ]
+ [ 6.06060606  8.69565217  0.165       0.115     ]
+ [ 6.66666667  3.27868852  0.15        0.305     ]
+ [ 3.22580645  4.44444444  0.31        0.225     ]
+ [ 3.38983051  1.68067227  0.295       0.595     ]
+ [ 1.72413793  2.22222222  0.58        0.45      ]
+ [ 1.28205128  1.01010101  0.78        0.99      ]
+ [ 0.53619303  0.61349693  1.865       1.63      ]]
+</code></pre>
+<p>然后对每个先验框的比较结果取最大值。获得下述矩阵：</p>
+<pre><code class="lang-python">[20.         12.5         8.69565217  6.66666667  4.44444444  3.38983051
+   2.22222222  1.28205128  1.865     ]
+</code></pre>
+<p>之后我们判断，哪些先验框的比较结果的值小于门限。可以知道[59,119], [116,90], [156,198], [373,326]四个先验框均满足需求。</p>
+<p>[116,90], [156,198], [373,326]属于20,20的特征层。<br>[59,119]属于40,40的特征层。</p>
+<p>此时我们已经可以判断哪些大小的先验框可用于该真实框的预测。</p>
+<h4 id="匹配特征点"><a href="#匹配特征点" class="headerlink" title="匹配特征点"></a>匹配特征点</h4><p>在过去的Yolo系列中，每个真实框由其中心点所在的网格内的左上角特征点来负责预测。</p>
+<p>对于被选中的特征层，首先计算真实框落在哪个网格内，此时<strong>该网格左上角特征点便是一个负责预测的特征点。</strong></p>
+<p><strong>同时利用四舍五入规则，找出最近的两个网格，将这三个网格</strong>都认为是负责预测该真实框的。</p>
+<p><img src="/CN/YOLOV5/ddf3729aef4240b3aa6e5aa914ffff52.png" class="lazyload" data-srcset="/CN/YOLOV5/ddf3729aef4240b3aa6e5aa914ffff52.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p><strong>红色点表示该真实框的中心</strong>，除了当前所处的网格外，其2个最近的邻域网格也被选中。从这里就可以发现预测框的XY轴偏移部分的取值范围不再是0-1，而是0.5-1.5。</p>
+<p><strong>找到对应特征点后，对应特征点在a中被选中的先验框负责该真实框的预测。</strong></p>
+<h3 id="计算loss"><a href="#计算loss" class="headerlink" title="计算loss"></a>计算loss</h3><p>由第一部分可知，YoloV5的损失由三个部分组成：<br>1、Reg部分，由第2部分可知道每个真实框对应的先验框，获取到每个框对应的先验框后，取出该先验框对应的预测框，利用真实框和预测框计算CIOU损失，作为Reg部分的Loss组成。<br>2、Obj部分，由第2部分可知道每个真实框对应的先验框，所有真实框对应的先验框都是正样本，剩余的先验框均为负样本，根据正负样本和特征点的是否包含物体的预测结果计算交叉熵损失，作为Obj部分的Loss组成。<br>3、Cls部分，由第三部分可知道每个真实框对应的先验框，获取到每个框对应的先验框后，取出该先验框的种类预测结果，根据真实框的种类和先验框的种类预测结果计算交叉熵损失，作为Cls部分的Loss组成。<br>实现代码如下：</p>
+<pre><code class="lang-python">import torch
+import torch.nn as nn
+import math
+import numpy as np
+
+class YOLOLoss(nn.Module):
+    def __init__(self, anchors, num_classes, input_shape, cuda, anchors_mask = [[6,7,8], [3,4,5], [0,1,2]], label_smoothing = 0):
+        super(YOLOLoss, self).__init__()
+        #-----------------------------------------------------------#
+        #   13x13的特征层对应的anchor是[142, 110],[192, 243],[459, 401]
+        #   26x26的特征层对应的anchor是[36, 75],[76, 55],[72, 146]
+        #   52x52的特征层对应的anchor是[12, 16],[19, 36],[40, 28]
+        #-----------------------------------------------------------#
+        self.anchors        = anchors
+        self.num_classes    = num_classes
+        self.bbox_attrs     = 5 + num_classes
+        self.input_shape    = input_shape
+        self.anchors_mask   = anchors_mask
+        self.label_smoothing = label_smoothing
+
+        self.threshold      = 4
+
+        self.balance        = [0.4, 1.0, 4]
+        self.box_ratio      = 5
+        self.cls_ratio      = 0.5
+        self.obj_ratio      = 1
+        self.cuda = cuda
+
+    def clip_by_tensor(self, t, t_min, t_max):
+        t = t.float()
+        result = (t &gt;= t_min).float() * t + (t &lt; t_min).float() * t_min
+        result = (result &lt;= t_max).float() * result + (result &gt; t_max).float() * t_max
+        return result
+
+    def MSELoss(self, pred, target):
+        return torch.pow(pred - target, 2)
+
+    def BCELoss(self, pred, target):
+        epsilon = 1e-7
+        pred    = self.clip_by_tensor(pred, epsilon, 1.0 - epsilon)
+        output  = - target * torch.log(pred) - (1.0 - target) * torch.log(1.0 - pred)
+        return output
+
+    def box_giou(self, b1, b2):
+        &quot;&quot;&quot;
+        输入为：
+        ----------
+        b1: tensor, shape=(batch, feat_w, feat_h, anchor_num, 4), xywh
+        b2: tensor, shape=(batch, feat_w, feat_h, anchor_num, 4), xywh
+
+        返回为：
+        -------
+        giou: tensor, shape=(batch, feat_w, feat_h, anchor_num, 1)
+        &quot;&quot;&quot;
+        #----------------------------------------------------#
+        #   求出预测框左上角右下角
+        #----------------------------------------------------#
+        b1_xy       = b1[..., :2]
+        b1_wh       = b1[..., 2:4]
+        b1_wh_half  = b1_wh/2.
+        b1_mins     = b1_xy - b1_wh_half
+        b1_maxes    = b1_xy + b1_wh_half
+        #----------------------------------------------------#
+        #   求出真实框左上角右下角
+        #----------------------------------------------------#
+        b2_xy       = b2[..., :2]
+        b2_wh       = b2[..., 2:4]
+        b2_wh_half  = b2_wh/2.
+        b2_mins     = b2_xy - b2_wh_half
+        b2_maxes    = b2_xy + b2_wh_half
+
+        #----------------------------------------------------#
+        #   求真实框和预测框所有的iou
+        #----------------------------------------------------#
+        intersect_mins  = torch.max(b1_mins, b2_mins)
+        intersect_maxes = torch.min(b1_maxes, b2_maxes)
+        intersect_wh    = torch.max(intersect_maxes - intersect_mins, torch.zeros_like(intersect_maxes))
+        intersect_area  = intersect_wh[..., 0] * intersect_wh[..., 1]
+        b1_area         = b1_wh[..., 0] * b1_wh[..., 1]
+        b2_area         = b2_wh[..., 0] * b2_wh[..., 1]
+        union_area      = b1_area + b2_area - intersect_area
+        iou             = intersect_area / union_area
+
+        #----------------------------------------------------#
+        #   找到包裹两个框的最小框的左上角和右下角
+        #----------------------------------------------------#
+        enclose_mins    = torch.min(b1_mins, b2_mins)
+        enclose_maxes   = torch.max(b1_maxes, b2_maxes)
+        enclose_wh      = torch.max(enclose_maxes - enclose_mins, torch.zeros_like(intersect_maxes))
+        #----------------------------------------------------#
+        #   计算对角线距离
+        #----------------------------------------------------#
+        enclose_area    = enclose_wh[..., 0] * enclose_wh[..., 1]
+        giou            = iou - (enclose_area - union_area) / enclose_area
+
+        return giou
+
+    #---------------------------------------------------#
+    #   平滑标签
+    #---------------------------------------------------#
+    def smooth_labels(self, y_true, label_smoothing, num_classes):
+        return y_true * (1.0 - label_smoothing) + label_smoothing / num_classes
+
+    def forward(self, l, input, targets=None):
+        #----------------------------------------------------#
+        #   l 代表使用的是第几个有效特征层
+        #   input的shape为  bs, 3*(5+num_classes), 13, 13
+        #                   bs, 3*(5+num_classes), 26, 26
+        #                   bs, 3*(5+num_classes), 52, 52
+        #   targets 真实框的标签情况 [batch_size, num_gt, 5]
+        #----------------------------------------------------#
+        #--------------------------------#
+        #   获得图片数量，特征层的高和宽
+        #--------------------------------#
+        bs      = input.size(0)
+        in_h    = input.size(2)
+        in_w    = input.size(3)
+        #-----------------------------------------------------------------------#
+        #   计算步长
+        #   每一个特征点对应原来的图片上多少个像素点
+        #   
+        #   如果特征层为13x13的话，一个特征点就对应原来的图片上的32个像素点
+        #   如果特征层为26x26的话，一个特征点就对应原来的图片上的16个像素点
+        #   如果特征层为52x52的话，一个特征点就对应原来的图片上的8个像素点
+        #   stride_h = stride_w = 32、16、8
+        #-----------------------------------------------------------------------#
+        stride_h = self.input_shape[0] / in_h
+        stride_w = self.input_shape[1] / in_w
+        #-------------------------------------------------#
+        #   此时获得的scaled_anchors大小是相对于特征层的
+        #-------------------------------------------------#
+        scaled_anchors  = [(a_w / stride_w, a_h / stride_h) for a_w, a_h in self.anchors]
+        #-----------------------------------------------#
+        #   输入的input一共有三个，他们的shape分别是
+        #   bs, 3 * (5+num_classes), 13, 13 =&gt; bs, 3, 5 + num_classes, 13, 13 =&gt; batch_size, 3, 13, 13, 5 + num_classes
+
+        #   batch_size, 3, 13, 13, 5 + num_classes
+        #   batch_size, 3, 26, 26, 5 + num_classes
+        #   batch_size, 3, 52, 52, 5 + num_classes
+        #-----------------------------------------------#
+        prediction = input.view(bs, len(self.anchors_mask[l]), self.bbox_attrs, in_h, in_w).permute(0, 1, 3, 4, 2).contiguous()
+
+        #-----------------------------------------------#
+        #   先验框的中心位置的调整参数
+        #-----------------------------------------------#
+        x = torch.sigmoid(prediction[..., 0])
+        y = torch.sigmoid(prediction[..., 1])
+        #-----------------------------------------------#
+        #   先验框的宽高调整参数
+        #-----------------------------------------------#
+        w = torch.sigmoid(prediction[..., 2]) 
+        h = torch.sigmoid(prediction[..., 3]) 
+        #-----------------------------------------------#
+        #   获得置信度，是否有物体
+        #-----------------------------------------------#
+        conf = torch.sigmoid(prediction[..., 4])
+        #-----------------------------------------------#
+        #   种类置信度
+        #-----------------------------------------------#
+        pred_cls = torch.sigmoid(prediction[..., 5:])
+        #-----------------------------------------------#
+        #   获得网络应该有的预测结果
+        #-----------------------------------------------#
+        y_true, noobj_mask, box_loss_scale = self.get_target(l, targets, scaled_anchors, in_h, in_w)
+
+        #---------------------------------------------------------------#
+        #   将预测结果进行解码，判断预测结果和真实值的重合程度
+        #   如果重合程度过大则忽略，因为这些特征点属于预测比较准确的特征点
+        #   作为负样本不合适
+        #----------------------------------------------------------------#
+        pred_boxes = self.get_pred_boxes(l, x, y, h, w, targets, scaled_anchors, in_h, in_w)
+
+        if self.cuda:
+            y_true          = y_true.cuda()
+            noobj_mask      = noobj_mask.cuda()
+            box_loss_scale  = box_loss_scale.cuda()
+        #-----------------------------------------------------------#
+        #   reshape_y_true[...,2:3]和reshape_y_true[...,3:4]
+        #   表示真实框的宽高，二者均在0-1之间
+        #   真实框越大，比重越小，小框的比重更大。
+        #-----------------------------------------------------------#
+        box_loss_scale = 2 - box_loss_scale
+
+        #---------------------------------------------------------------#
+        #   计算预测结果和真实结果的giou
+        #----------------------------------------------------------------#
+        giou        = self.box_giou(pred_boxes[y_true[..., 4] == 1], y_true[..., :4][y_true[..., 4] == 1])
+
+        loss_loc    = torch.sum((1 - giou) * box_loss_scale[y_true[..., 4] == 1])
+        #-----------------------------------------------------------#
+        #   计算置信度的loss
+        #-----------------------------------------------------------#
+        loss_conf   = torch.sum(self.BCELoss(conf[y_true[..., 4] == 1], giou.detach().clamp(0))) + \
+                      torch.sum(self.BCELoss(conf, y_true[..., 4]) * noobj_mask)
+        loss_cls    = torch.sum(self.BCELoss(pred_cls[y_true[..., 4] == 1], self.smooth_labels(y_true[..., 5:][y_true[..., 4] == 1], self.label_smoothing, self.num_classes)))
+
+        loss        = loss_loc * self.box_ratio + loss_conf * self.balance[l] * self.obj_ratio + loss_cls * self.cls_ratio
+        num_pos = torch.sum(y_true[..., 4])
+        num_pos = torch.max(num_pos, torch.ones_like(num_pos))
+        return loss, num_pos
+
+    def get_near_points(self, x, y, i, j):
+        sub_x = x - i
+        sub_y = y - j
+        if sub_x &gt; 0.5 and sub_y &gt; 0.5:
+            return [[0, 0], [1, 0], [0, 1]]
+        elif sub_x &lt; 0.5 and sub_y &gt; 0.5:
+            return [[0, 0], [-1, 0], [0, 1]]
+        elif sub_x &lt; 0.5 and sub_y &lt; 0.5:
+            return [[0, 0], [-1, 0], [0, -1]]
+        else:
+            return [[0, 0], [1, 0], [0, -1]]
+
+    def get_target(self, l, targets, anchors, in_h, in_w):
+        #-----------------------------------------------------#
+        #   计算一共有多少张图片
+        #-----------------------------------------------------#
+        bs              = len(targets)
+        #-----------------------------------------------------#
+        #   用于选取哪些先验框不包含物体
+        #-----------------------------------------------------#
+        noobj_mask      = torch.ones(bs, len(self.anchors_mask[l]), in_h, in_w, requires_grad = False)
+        #-----------------------------------------------------#
+        #   让网络更加去关注小目标
+        #-----------------------------------------------------#
+        box_loss_scale  = torch.zeros(bs, len(self.anchors_mask[l]), in_h, in_w, requires_grad = False)
+        #-----------------------------------------------------#
+        #   anchors_best_ratio
+        #-----------------------------------------------------#
+        box_best_ratio = torch.zeros(bs, len(self.anchors_mask[l]), in_h, in_w, requires_grad = False)
+        #-----------------------------------------------------#
+        #   batch_size, 3, 13, 13, 5 + num_classes
+        #-----------------------------------------------------#
+        y_true          = torch.zeros(bs, len(self.anchors_mask[l]), in_h, in_w, self.bbox_attrs, requires_grad = False)
+        for b in range(bs):            
+            if len(targets[b])==0:
+                continue
+            batch_target = torch.zeros_like(targets[b])
+            #-------------------------------------------------------#
+            #   计算出正样本在特征层上的中心点
+            #-------------------------------------------------------#
+            batch_target[:, [0,2]] = targets[b][:, [0,2]] * in_w
+            batch_target[:, [1,3]] = targets[b][:, [1,3]] * in_h
+            batch_target[:, 4] = targets[b][:, 4]
+            batch_target = batch_target.cpu()
+
+            #-------------------------------------------------------#
+            #   batch_target            : num_true_box, 4
+            #   anchors                 : 9, 2
+            #
+            #   ratios_of_gt_anchors    : num_true_box, 9, 2
+            #   ratios_of_anchors_gt    : num_true_box, 9, 2
+            #
+            #   ratios                  : num_true_box, 9, 4
+            #   max_ratios              : num_true_box, 9
+            #-------------------------------------------------------#
+            ratios_of_gt_anchors = torch.unsqueeze(batch_target[:, 2:4], 1) / torch.unsqueeze(torch.FloatTensor(anchors), 0)
+            ratios_of_anchors_gt = torch.unsqueeze(torch.FloatTensor(anchors), 0) /  torch.unsqueeze(batch_target[:, 2:4], 1)
+            ratios               = torch.cat([ratios_of_gt_anchors, ratios_of_anchors_gt], dim = -1)
+            max_ratios, _        = torch.max(ratios, dim = -1)
+
+            for t, ratio in enumerate(max_ratios):
+                #-------------------------------------------------------#
+                #   ratio : 9
+                #-------------------------------------------------------#
+                over_threshold = ratio &lt; self.threshold
+                over_threshold[torch.argmin(ratio)] = True
+                for k, mask in enumerate(self.anchors_mask[l]):
+                    if not over_threshold[mask]:
+                        continue
+                    #----------------------------------------#
+                    #   获得真实框属于哪个网格点
+                    #----------------------------------------#
+                    i = torch.floor(batch_target[t, 0]).long()
+                    j = torch.floor(batch_target[t, 1]).long()
+
+                    offsets = self.get_near_points(batch_target[t, 0], batch_target[t, 1], i, j)
+                    for offset in offsets:
+                        local_i = i + offset[0]
+                        local_j = j + offset[1]
+
+                        if local_i &gt;= in_w or local_i &lt; 0 or local_j &gt;= in_h or local_j &lt; 0:
+                            continue
+
+                        if box_best_ratio[b, k, local_j, local_i] != 0:
+                            if box_best_ratio[b, k, local_j, local_i] &gt; ratio[mask]:
+                                y_true[b, k, local_j, local_i, :] = 0
+                            else:
+                                continue
+
+                        #----------------------------------------#
+                        #   取出真实框的种类
+                        #----------------------------------------#
+                        c = batch_target[t, 4].long()
+
+                        #----------------------------------------#
+                        #   noobj_mask代表无目标的特征点
+                        #----------------------------------------#
+                        noobj_mask[b, k, local_j, local_i] = 0
+                        #----------------------------------------#
+                        #   tx、ty代表中心调整参数的真实值
+                        #----------------------------------------#
+                        y_true[b, k, local_j, local_i, 0] = batch_target[t, 0]
+                        y_true[b, k, local_j, local_i, 1] = batch_target[t, 1]
+                        y_true[b, k, local_j, local_i, 2] = batch_target[t, 2]
+                        y_true[b, k, local_j, local_i, 3] = batch_target[t, 3]
+                        y_true[b, k, local_j, local_i, 4] = 1
+                        y_true[b, k, local_j, local_i, c + 5] = 1
+                        #----------------------------------------#
+                        #   用于获得xywh的比例
+                        #   大目标loss权重小，小目标loss权重大
+                        #----------------------------------------#
+                        box_loss_scale[b, k, local_j, local_i] = batch_target[t, 2] * batch_target[t, 3] / in_w / in_h
+                        #----------------------------------------#
+                        #   获得当前先验框最好的比例
+                        #----------------------------------------#
+                        box_best_ratio[b, k, local_j, local_i] = ratio[mask]
+
+        return y_true, noobj_mask, box_loss_scale
+
+    def get_pred_boxes(self, l, x, y, h, w, targets, scaled_anchors, in_h, in_w):
+        #-----------------------------------------------------#
+        #   计算一共有多少张图片
+        #-----------------------------------------------------#
+        bs = len(targets)
+
+        FloatTensor = torch.cuda.FloatTensor if x.is_cuda else torch.FloatTensor
+        LongTensor  = torch.cuda.LongTensor if x.is_cuda else torch.LongTensor
+        #-----------------------------------------------------#
+        #   生成网格，先验框中心，网格左上角
+        #-----------------------------------------------------#
+        grid_x = torch.linspace(0, in_w - 1, in_w).repeat(in_h, 1).repeat(
+            int(bs * len(self.anchors_mask[l])), 1, 1).view(x.shape).type(FloatTensor)
+        grid_y = torch.linspace(0, in_h - 1, in_h).repeat(in_w, 1).t().repeat(
+            int(bs * len(self.anchors_mask[l])), 1, 1).view(y.shape).type(FloatTensor)
+
+        # 生成先验框的宽高
+        scaled_anchors_l = np.array(scaled_anchors)[self.anchors_mask[l]]
+        anchor_w = FloatTensor(scaled_anchors_l).index_select(1, LongTensor([0]))
+        anchor_h = FloatTensor(scaled_anchors_l).index_select(1, LongTensor([1]))
+
+        anchor_w = anchor_w.repeat(bs, 1).repeat(1, 1, in_h * in_w).view(w.shape)
+        anchor_h = anchor_h.repeat(bs, 1).repeat(1, 1, in_h * in_w).view(h.shape)
+        #-------------------------------------------------------#
+        #   计算调整后的先验框中心与宽高
+        #-------------------------------------------------------#
+        pred_boxes_x    = torch.unsqueeze(x * 2. - 0.5 + grid_x, -1)
+        pred_boxes_y    = torch.unsqueeze(y * 2. - 0.5 + grid_y, -1)
+        pred_boxes_w    = torch.unsqueeze((w * 2) ** 2 * anchor_w, -1)
+        pred_boxes_h    = torch.unsqueeze((h * 2) ** 2 * anchor_h, -1)
+        pred_boxes      = torch.cat([pred_boxes_x, pred_boxes_y, pred_boxes_w, pred_boxes_h], dim = -1)
+        return pred_boxes
+</code></pre>
+
+  
+  
+    
+    <div class="footer">
+      
+      
+      
+        <div class="copyright">
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href="http://pistachio0812.github.io/CN/YOLOV5/">http://pistachio0812.github.io/CN/YOLOV5/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-05T22:15:56+08:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：May 5, 2022</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/yolov5/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>yolov5</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/CN/YOLOV5/&title=YOLOV5详解 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/CN/YOLOV5/&title=YOLOV5详解 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/CN/YOLOV5/&title=YOLOV5详解 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class="next" href="/CN/Resnet/">
+          <p class="title">Resnet<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">参考博文：
+1.faster-rcnn-pytorch代码
+2.Deep Residual Learning for Image Recognition (thecvf.com)
+3.ResNe...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class="fas fa-comments"></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84%E8%A7%A3%E6%9E%90"><span class="toc-text">整体结构解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E8%A7%A3%E6%9E%90"><span class="toc-text">网络结构解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E5%B9%B2%E7%BD%91%E7%BB%9Cbackbone"><span class="toc-text">主干网络backbone</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Conv2D-BN-SiLU"><span class="toc-text">Conv2D_BN_SiLU</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9C"><span class="toc-text">残差网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSPnet"><span class="toc-text">CSPnet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Focus%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-text">Focus网络结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SiLU%E5%87%BD%E6%95%B0"><span class="toc-text">SiLU函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SPP"><span class="toc-text">SPP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSPDarknet"><span class="toc-text">CSPDarknet</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BAFPN%E5%8A%A0%E5%BC%BA%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96"><span class="toc-text">构建FPN加强特征提取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8YoloHead%E8%8E%B7%E5%BE%97%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="toc-text">利用YoloHead获得预测结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B"><span class="toc-text">预测</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E9%A2%84%E6%B5%8B%E6%A1%86%E5%92%8C%E5%BE%97%E5%88%86"><span class="toc-text">获得预测框和得分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%97%E5%88%86%E7%AD%9B%E9%80%89%E5%92%8C%E9%9D%9E%E6%9E%81%E5%A4%A7%E5%80%BC%E6%8A%91%E5%88%B6"><span class="toc-text">得分筛选和非极大值抑制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E9%83%A8%E5%88%86"><span class="toc-text">训练部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#loss%E7%BB%84%E6%88%90"><span class="toc-text">loss组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E6%A0%B7%E6%9C%AC%E7%9A%84%E5%8C%B9%E9%85%8D%E8%BF%87%E7%A8%8B"><span class="toc-text">正样本的匹配过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%B9%E9%85%8D%E5%85%88%E9%AA%8C%E6%A1%86"><span class="toc-text">匹配先验框</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%B9%E9%85%8D%E7%89%B9%E5%BE%81%E7%82%B9"><span class="toc-text">匹配特征点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97loss"><span class="toc-text">计算loss</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="YOLOV5详解";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#96e6a1" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="2185397204" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+          
+            
+              <a href="https://github.com/pistachio0812" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382" class="social  flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://img0.baidu.com/it/u=2862534777,914942650&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" class="lazyload" data-srcset="https://img0.baidu.com/it/u=2862534777,914942650&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="border-radius:120px">
+                
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次 <span id="lc-uv">访客数为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></span></p>
+</div>
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class="copyright">
+        <p><a href="/">Copyright © 2020-2022 相思似海深旧事如天远</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css", window.volantis.loadcss);
+  
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+	  function Pjax_backstretch(){
+        
+          $.backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
+    </script>
+  
+
+
+
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class="option">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand('copy')"><i class="fa fa-copy fa-fw"></i>复制文本</a>
+        <hr id="hr-text">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>复制链接</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>在新标签页打开</a>
+        <hr id="hr-href">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>复制图片地址</a>
+        <hr id="hr-src">
+      </li>
+      
+        <li class="navigation">
+          <a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="fa fa-arrow-left fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="fa fa-arrow-right fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="fa fa-redo fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" href="/"><i class="fa fa-home fa-fw"></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://volantis.js.org/faqs/" id="https:volantisjsorgfaqs" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-question fa-fw"></i> 常见问题
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://volantis.js.org/examples/" id="https:volantisjsorgexamples" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-rss fa-fw"></i> 示例博客
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://volantis.js.org/contributors/" id="https:volantisjsorgcontributors" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-fan fa-spin fa-fw"></i> 加入社区
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://github.com/volantis-x/volantis-docs/" id="https:githubcomvolantis-xvolantis-docs" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-code-branch fa-fw"></i> 本站源码
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis" rel="external nofollow noopener noreferrer" target="_blank">
+        <i class="fa fa-code-branch fa-fw"></i> 主题源码
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
+        <i class="fa fa-print fa-fw"></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
+        <i class="fa fa-moon fa-fw"></i> 暗黑模式
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class="music name">
+            <p class="nav music-title fix-cursor-default"></p>
+          </li>
+          <li class="music ctrl">
+            <a class="nav icon-only backward fix-cursor-default" onclick="aplayerBackward()"><i class="fa fa-step-backward fa-fw"></i></a>
+            <a class="nav icon-only toggle fix-cursor-default" onclick="aplayerToggle()"><i class="fa fa-play fa-fw"></i></a>
+            <a class="nav icon-only forward fix-cursor-default" onclick="aplayerForward()"><i class="fa fa-step-forward fa-fw"></i></a>
+          </li>
+          <li class="music volume">
+            <a class="nav volume">
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class="left fa fa-volume-off fa-fw"></i>
+                  <i class="right fa fa-volume-up fa-fw"></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
+        // 如果有aplayer，初始化一下
+        checkAPlayer();
+      }
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '2185397204';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js")
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
+    clearInterval(checkAPlayer)
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js") // 加载 MetingJS
+	  }
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
+
+  
+    loadScript("/js/aplayer.js")
+  
+
+</script>
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"js":"https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js","path":null,"placeholder":"快来评论吧~","appId":"n4TbjIfAh9hf9cM13OtQoUYY-gzGzoHsz","appKey":"EMwCQOaLj6D1bU3BPToHICOU","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":10,"lang":["zh-CN","en","zh-TW"],"highlight":true,"mathJax":true,"kramed":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true}}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
+</script>
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://pistachio0812.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://pistachio0812.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://pistachio0812.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+  
+  <script></script>
+
+
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

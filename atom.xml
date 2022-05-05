@@ -6,7 +6,7 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-05-03T13:21:03.288Z</updated>
+  <updated>2022-05-05T14:15:56.246Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>YOLOV5详解</title>
+    <link href="http://pistachio0812.github.io/CN/YOLOV5/"/>
+    <id>http://pistachio0812.github.io/CN/YOLOV5/</id>
+    <published>2022-05-05T03:00:10.013Z</published>
+    <updated>2022-05-05T14:15:56.246Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="论文详解" scheme="http://pistachio0812.github.io/categories/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/"/>
+    
+    
+    <category term="yolov5" scheme="http://pistachio0812.github.io/tags/yolov5/"/>
+    
+  </entry>
   
   <entry>
     <title>Resnet</title>
@@ -476,31 +501,6 @@
     
     <category term="今日故事" scheme="http://pistachio0812.github.io/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Faster-RCNN解读</title>
-    <link href="http://pistachio0812.github.io/CN/Faster-rcnn/"/>
-    <id>http://pistachio0812.github.io/CN/Faster-rcnn/</id>
-    <published>2022-04-16T13:50:10.247Z</published>
-    <updated>2022-05-01T10:03:21.494Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
-    
-    
-    <category term="论文详解" scheme="http://pistachio0812.github.io/tags/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/"/>
     
   </entry>
   
