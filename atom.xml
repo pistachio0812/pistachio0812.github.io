@@ -6,7 +6,7 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-05-05T14:15:56.246Z</updated>
+  <updated>2022-05-06T14:12:19.648Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SSD损失函数详解</title>
+    <link href="http://pistachio0812.github.io/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"/>
+    <id>http://pistachio0812.github.io/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</id>
+    <published>2022-05-06T11:52:57.287Z</published>
+    <updated>2022-05-06T14:12:19.648Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="目标检测" scheme="http://pistachio0812.github.io/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    
+    <category term="SSD" scheme="http://pistachio0812.github.io/tags/SSD/"/>
+    
+    <category term="损失函数" scheme="http://pistachio0812.github.io/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>YOLOV5详解</title>
@@ -464,29 +491,6 @@
     <id>http://pistachio0812.github.io/CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/</id>
     <published>2022-04-18T00:36:02.708Z</published>
     <updated>2022-04-18T00:51:52.838Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="今日故事" scheme="http://pistachio0812.github.io/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>烟之外</title>
-    <link href="http://pistachio0812.github.io/CN/%E7%83%9F%E4%B9%8B%E5%A4%96/"/>
-    <id>http://pistachio0812.github.io/CN/%E7%83%9F%E4%B9%8B%E5%A4%96/</id>
-    <published>2022-04-17T02:29:57.291Z</published>
-    <updated>2022-04-18T00:45:36.630Z</updated>
     
     
       

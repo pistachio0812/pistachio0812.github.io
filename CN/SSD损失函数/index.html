@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv="x-dns-prefetch-control" content="on">
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2022/4 - 相思似海深旧事如天远</title>
+  <title>SSD损失函数详解 - 相思似海深旧事如天远</title>
+  
+    <meta name="keywords" content="SSD,损失函数">
   
 
   
@@ -110,7 +110,7 @@
 	</script>
     
 
-<header id="l_header" class="l_header auto shadow " style="opacity: 0">
+<header id="l_header" class="l_header auto shadow show" style="opacity: 0">
   <div class="container">
   <div id="wrapper">
     <div class="nav-sub">
@@ -321,7 +321,7 @@
       <div id="l_cover">
   
     
-        <div id="half" class="cover-wrapper  search" style="display: ;">
+        <div id="full" class="cover-wrapper post search" style="display: none;">
           
             <div id="cover-backstretch"></div>
           
@@ -391,474 +391,448 @@
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class="l_main">
-	
-		
-  <section class="post-list">
-    
-    
-      
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        学习笔记
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        tf中矩阵量存在形式常用有三种，具体如下：1.tf.Variable()表示神经网络中可变化的量（可以通过trainable=False设置成不可变),可在运行中赋值，可以通过constant或者其他方式进行初始化。2.tf.constant()可以通过numpy中的array或者list,还有给定的shape和数值进行赋值3.tf.placeholder()相当于占位符，也是有shape的...
-      
-    
-  </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time>2022-04-16</time>
-        
-      </div>
-      
-        <div>
-          <a class="readmore" href="/CN/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
 
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        SSD损失函数详解
+      </h1>
+      <div class="new-meta-box">
+        
+          
+            
+<div class="new-meta-item author">
+  <a class="author" target="_blank" href="https://www.cnblogs.com/pistachio0812" rel="external nofollow noopener noreferrer">
+    <img no-lazy src="https://img1.baidu.com/it/u=583582599,306470958&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500">
+    <p>追风赶月的少年</p>
+  </a>
 </div>
 
-          </div>
+          
         
-      
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/">
-        CV必备文献
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        1.RFBNet
-论文标题：Receptive Field Block Net for Accurate and Fast Object Detection
-论文地址：Receptive Field Block Net 
-源码地址：https://github.com/ruinmessi/RFBNet
-2.Fast R-CNN
-3.Faster R-CNN
-4.ResNet
-5.Incept...
-      
-    
+          
+            
+  <div class="new-meta-item category">
+    <a class="notlink">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/">目标检测</a>
+    </a>
   </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time>2022-04-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/cv/">cv</a>
-        
-      </div>
-      
-        <div>
-          <a class="readmore" href="/CN/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
 
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：May 6, 2022</p>
+  </a>
 </div>
 
-          </div>
+          
         
-      
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">
-        数据处理
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        单进程​        在单进程模式下，DataLoader 初始化的进程和取数据的进程是一样的 。因此，数据加载可能会阻止计算。但是，当用于在进程之间共享数据的资源（例如共享内存，文件描述符）有限时，或者当整个数据集很小并且可以完全加载到内存中时，此模式可能是我们首选。此外，单进程加载通常可以显示更多可读的错误跟踪，这对于我们调试代码很有用。
-多进程·多进程处理
-​        为了避免...
-      
-    
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：1.2k字</p>
+    </a>
   </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：6分钟</p>
+    </a>
+  </div>
+
+
+          
         
-        <time>2022-04-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/pytorch/">pytorch</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class="notlink">
+      
+      <div id="lc-pv" data-title="SSD损失函数详解" data-path="/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
-      
-        <div>
-          <a class="readmore" href="/CN/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/%E6%95%99%E4%BD%A0%E5%AD%A6%E4%BC%9A%E8%89%B2%E5%BD%A9%E6%90%AD%E9%85%8D/">
-        色彩搭配
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        中国色中国色
-COULEURcouleur
-color spacecolor space
-hyper colorHypercolor
-colorableColorable
-brandcolorsBrandColors
-九月ppt九月PPT
-huemintHuemint - AI color palette generator
-Adobe Color色輪、調色盤產生器 | Adobe Color
-
-      
     
   </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time>2022-04-16</time>
-        
-      </div>
-      
-        <div>
-          <a class="readmore" href="/CN/%E6%95%99%E4%BD%A0%E5%AD%A6%E4%BC%9A%E8%89%B2%E5%BD%A9%E6%90%AD%E9%85%8D/">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
 
-</div>
 
-          </div>
-        
-      
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
   
   
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/pytorch%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
-        pytorch官方文档中文版
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        torch.nnContainerModuleCLASS    torch.nn.Module    SOURCE
-它是所有神经网络模型的基类，你的模块应该继承于该类。
-模块还能包含其他模块，允许把它们嵌套在一个树结构中。你可以分配子模块作为常规属性：
+  <p>参考博文：</p>
+<p>1.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.freesion.com/article/9127332548/">目标识别：SSD pytorch代码学习笔记</a></p>
+<p>2.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://linkspringer.53yu.com/content/pdf/10.1007/978-3-319-46448-0_2.pdf">SSD论文</a></p>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>SSD损失函数包括两部分：位置损失函数<script type="math/tex">L_{loc}</script>和置信度损失函数<script type="math/tex">L_{conf}</script></p>
+<p>整个损失函数为：</p>
+<p><img src="/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/image-20220506200608617.png" class="lazyload" data-srcset="/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/image-20220506200608617.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220506200608617" style="zoom:80%;"></p>
+<p>说明：</p>
+<p>·N是先验框的正样本数量</p>
+<p>·c是类别置信度预测值</p>
+<p>·l为先验框所对应边界框的位置预测值</p>
+<p>·g为ground truth的位置参数</p>
+<h4 id="位置损失函数"><a href="#位置损失函数" class="headerlink" title="位置损失函数"></a>位置损失函数</h4><p>针对所有正样本，采用Smooth L1损失，位置信息都是编码之后的信息。</p>
+<p><img src="/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/390ed4e1f5fc0a137b65dea937b907a5.png" class="lazyload" data-srcset="/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/390ed4e1f5fc0a137b65dea937b907a5.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>代码如下：</p>
+<pre><code class="lang-python">    def _l1_smooth_loss(self, y_true, y_pred):
+        abs_loss = torch.abs(y_true - y_pred)
+        sq_loss = 0.5 * (y_true - y_pred)**2
+        l1_loss = torch.where(abs_loss &lt; 1.0, sq_loss, abs_loss - 0.5)
+        return torch.sum(l1_loss, -1)
+</code></pre>
+<h4 id="置信度损失函数"><a href="#置信度损失函数" class="headerlink" title="置信度损失函数"></a>置信度损失函数</h4><p>首先需要使用 <strong>hard negative mining</strong> 将正负样本按照 <strong>1:3</strong> 的比例把负样本抽样出来，抽样的方法是：</p>
+<p><strong>思想</strong>： 针对所有batch的confidence，按照置信度误差进行降序排列，取出前<strong>top_k</strong>个负样本。</p>
+<p>编程:</p>
+<p>·reshape所有batch中的conf</p>
+<p><code>batch_conf = conf_data.view(-1, self.num_classes)</code></p>
+<p>·置信度误差越大，实际上就是预测背景的置信度越小</p>
+<p>·把所有置信度进行log_softmax处理（均为负值），预测的置信度越小，则log_softmax越小，取绝对值，则|log_softmax|越大，降序排列后，取前top_k的负样本。</p>
+<p>softmax代码如下：</p>
+<pre><code class="lang-python">    def _softmax_loss(self, y_true, y_pred):
+        y_pred = torch.clamp(y_pred, min=1e-7)
+        softmax_loss = -torch.sum(y_true * torch.log(y_pred),
+                                  axis=-1)
+        return softmax_loss
+</code></pre>
+<h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h4><pre><code class="lang-python">import math
+from functools import partial
+
+import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
-class Model(nn....
-      
-    
-  </div>
+
+class MultiboxLoss(nn.Module):
+    def __init__(self, num_classes, alpha=1.0, neg_pos_ratio=3.0,
+                 background_label_id=0, negatives_for_hard=100.0):
+        self.num_classes = num_classes
+        self.alpha = alpha
+        self.neg_pos_ratio = neg_pos_ratio
+        if background_label_id != 0:
+            raise Exception(&#39;Only 0 as background label id is supported&#39;)
+        self.background_label_id = background_label_id
+        self.negatives_for_hard = torch.FloatTensor([negatives_for_hard])[0]
+
+    def _l1_smooth_loss(self, y_true, y_pred):
+        abs_loss = torch.abs(y_true - y_pred)
+        sq_loss = 0.5 * (y_true - y_pred)**2
+        l1_loss = torch.where(abs_loss &lt; 1.0, sq_loss, abs_loss - 0.5)
+        return torch.sum(l1_loss, -1)
+
+    def _softmax_loss(self, y_true, y_pred):
+        y_pred = torch.clamp(y_pred, min=1e-7)
+        softmax_loss = -torch.sum(y_true * torch.log(y_pred),
+                                  axis=-1)
+        return softmax_loss
+
+    def forward(self, y_true, y_pred):
+        # --------------------------------------------- #
+        #   y_true batch_size, 8732, 4 + self.num_classes + 1
+        #   y_pred batch_size, 8732, 4 + self.num_classes
+        # --------------------------------------------- #
+        num_boxes = y_true.size()[1]
+        y_pred = torch.cat([y_pred[0], nn.Softmax(-1)(y_pred[1])], dim=-1)
+
+        # --------------------------------------------- #
+        #   分类的loss
+        #   batch_size,8732,21 -&gt; batch_size,8732
+        # --------------------------------------------- #
+        conf_loss = self._softmax_loss(y_true[:, :, 4:-1], y_pred[:, :, 4:])
+
+        # --------------------------------------------- #
+        #   框的位置的loss
+        #   batch_size,8732,4 -&gt; batch_size,8732
+        # --------------------------------------------- #
+        loc_loss = self._l1_smooth_loss(y_true[:, :, :4],
+                                        y_pred[:, :, :4])
+
+        # --------------------------------------------- #
+        #   获取所有的正标签的loss
+        # --------------------------------------------- #
+        pos_loc_loss = torch.sum(loc_loss * y_true[:, :, -1],
+                                 axis=1)
+        pos_conf_loss = torch.sum(conf_loss * y_true[:, :, -1],
+                                  axis=1)
+
+        # --------------------------------------------- #
+        #   每一张图的正样本的个数
+        #   num_pos     [batch_size,]
+        # --------------------------------------------- #
+        num_pos = torch.sum(y_true[:, :, -1], axis=-1)
+
+        # --------------------------------------------- #
+        #   每一张图的负样本的个数
+        #   num_neg     [batch_size,]
+        # --------------------------------------------- #
+        num_neg = torch.min(self.neg_pos_ratio * num_pos, num_boxes - num_pos)
+        # 找到了哪些值是大于0的
+        pos_num_neg_mask = num_neg &gt; 0
+        # --------------------------------------------- #
+        #   如果所有的图，正样本的数量均为0
+        #   那么则默认选取100个先验框作为负样本
+        # --------------------------------------------- #
+        has_min = torch.sum(pos_num_neg_mask)
+
+        # --------------------------------------------- #
+        #   从这里往后，与视频中看到的代码有些许不同。
+        #   由于以前的负样本选取方式存在一些问题，
+        #   我对该部分代码进行重构。
+        #   求整个batch应该的负样本数量总和
+        # --------------------------------------------- #
+        num_neg_batch = torch.sum(
+            num_neg) if has_min &gt; 0 else self.negatives_for_hard
+
+        # --------------------------------------------- #
+        #   对预测结果进行判断，如果该先验框没有包含物体
+        #   那么它的不属于背景的预测概率过大的话
+        #   就是难分类样本
+        # --------------------------------------------- #
+        confs_start = 4 + self.background_label_id + 1
+        confs_end = confs_start + self.num_classes - 1
+
+        # --------------------------------------------- #
+        #   batch_size,8732
+        #   把不是背景的概率求和，求和后的概率越大
+        #   代表越难分类。
+        # --------------------------------------------- #
+        max_confs = torch.sum(y_pred[:, :, confs_start:confs_end], dim=2)
+
+        # --------------------------------------------------- #
+        #   只有没有包含物体的先验框才得到保留
+        #   我们在整个batch里面选取最难分类的num_neg_batch个
+        #   先验框作为负样本。
+        # --------------------------------------------------- #
+        max_confs = (max_confs * (1 - y_true[:, :, -1])).view([-1])
+
+        _, indices = torch.topk(max_confs, k=int(
+            num_neg_batch.cpu().numpy().tolist()))
+
+        neg_conf_loss = torch.gather(conf_loss.view([-1]), 0, indices)
+
+        # 进行归一化
+        num_pos = torch.where(num_pos != 0, num_pos, torch.ones_like(num_pos))
+        total_loss = torch.sum(
+            pos_conf_loss) + torch.sum(neg_conf_loss) + torch.sum(self.alpha * pos_loc_loss)
+        total_loss = total_loss / torch.sum(num_pos)
+        return total_loss
+
+
+def weights_init(net, init_type=&#39;normal&#39;, init_gain=0.02):
+    def init_func(m):
+        classname = m.__class__.__name__
+        if hasattr(m, &#39;weight&#39;) and classname.find(&#39;Conv&#39;) != -1:
+            if init_type == &#39;normal&#39;:
+                torch.nn.init.normal_(m.weight.data, 0.0, init_gain)
+            elif init_type == &#39;xavier&#39;:
+                torch.nn.init.xavier_normal_(m.weight.data, gain=init_gain)
+            elif init_type == &#39;kaiming&#39;:
+                torch.nn.init.kaiming_normal_(
+                    m.weight.data, a=0, mode=&#39;fan_in&#39;)
+            elif init_type == &#39;orthogonal&#39;:
+                torch.nn.init.orthogonal_(m.weight.data, gain=init_gain)
+            else:
+                raise NotImplementedError(
+                    &#39;initialization method [%s] is not implemented&#39; % init_type)
+        elif classname.find(&#39;BatchNorm2d&#39;) != -1:
+            torch.nn.init.normal_(m.weight.data, 1.0, 0.02)
+            torch.nn.init.constant_(m.bias.data, 0.0)
+    print(&#39;initialize network with %s type&#39; % init_type)
+    net.apply(init_func)
+
+
+def get_lr_scheduler(lr_decay_type, lr, min_lr, total_iters, warmup_iters_ratio=0.1, warmup_lr_ratio=0.1, no_aug_iter_ratio=0.3, step_num=10):
+    def yolox_warm_cos_lr(lr, min_lr, total_iters, warmup_total_iters, warmup_lr_start, no_aug_iter, iters):
+        if iters &lt;= warmup_total_iters:
+            # lr = (lr - warmup_lr_start) * iters / float(warmup_total_iters) + warmup_lr_start
+            lr = (lr - warmup_lr_start) * pow(iters /
+                                              float(warmup_total_iters), 2) + warmup_lr_start
+        elif iters &gt;= total_iters - no_aug_iter:
+            lr = min_lr
+        else:
+            lr = min_lr + 0.5 * (lr - min_lr) * (
+                1.0 + math.cos(math.pi * (iters - warmup_total_iters) /
+                               (total_iters - warmup_total_iters - no_aug_iter))
+            )
+        return lr
+
+    def step_lr(lr, decay_rate, step_size, iters):
+        if step_size &lt; 1:
+            raise ValueError(&quot;step_size must above 1.&quot;)
+        n = iters // step_size
+        out_lr = lr * decay_rate ** n
+        return out_lr
+
+    if lr_decay_type == &quot;cos&quot;:
+        warmup_total_iters = min(max(warmup_iters_ratio * total_iters, 1), 3)
+        warmup_lr_start = max(warmup_lr_ratio * lr, 1e-6)
+        no_aug_iter = min(max(no_aug_iter_ratio * total_iters, 1), 15)
+        func = partial(yolox_warm_cos_lr, lr, min_lr, total_iters,
+                       warmup_total_iters, warmup_lr_start, no_aug_iter)
+    else:
+        decay_rate = (min_lr / lr) ** (1 / (step_num - 1))
+        step_size = total_iters / step_num
+        func = partial(step_lr, lr, decay_rate, step_size)
+
+    return func
+
+
+def set_optimizer_lr(optimizer, lr_scheduler_func, epoch):
+    lr = lr_scheduler_func(epoch)
+    for param_group in optimizer.param_groups:
+        param_group[&#39;lr&#39;] = lr
+</code></pre>
+
   
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time>2022-04-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/pytorch/">pytorch</a>
-        
-      </div>
+  
+    
+    <div class="footer">
       
-        <div>
-          <a class="readmore" href="/CN/pytorch%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
-            阅读全文
-          </a>
+      
+      
+        <div class="copyright">
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href="http://pistachio0812.github.io/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/">http://pistachio0812.github.io/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-06T22:12:19+08:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：May 6, 2022</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/pip%E6%8D%A2%E6%BA%90/">
-        pip换源
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        由于使用pip或pip3安装python第三方包时，经常出现read timed out问题，所以需要将pip的官方软件源服务器换成国内的镜像服务器，从而提升python软件包安装效率和成功率，pip 国内的一些镜像：
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SSD/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>SSD</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>损失函数</p></a></div>
 
-阿里云 http://mirrors.aliyun.com/pypi/simple/
-中国科技大学 https://pypi.mirrors.ustc.edu.cn/sim...
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/&title=SSD损失函数详解 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/&title=SSD损失函数详解 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/&title=SSD损失函数详解 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time>2022-04-16</time>
-        
-      </div>
-      
-        <div>
-          <a class="readmore" href="/CN/pip%E6%8D%A2%E6%BA%90/">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
 </div>
 
-          </div>
+
+
         
       
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/Linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        How to use Linux
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        Linux简介UNIX 是一个交互式系统，用于同时处理多进程和多用户同时在线。为什么要说 UNIX，那是因为 Linux 是由 UNIX 发展而来的，UNIX 是由程序员设计，它的主要服务对象也是程序员。Linux 继承了 UNIX 的设计目标。从智能手机到汽车，超级计算机和家用电器，从家用台式机到企业服务器，Linux 操作系统无处不在。
-大多数程序员都喜欢让系统尽量简单，优雅并具有一致性...
-      
-    
+    </div>
   </div>
+
+
   
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time>2022-04-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Linux/">Linux</a>
-        
-      </div>
+  
+
+  
+    <div class="prev-next">
       
-        <div>
-          <a class="readmore" href="/CN/Linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-            阅读全文
-          </a>
-        </div>
+      
+        <a class="next" href="/CN/YOLOV5/">
+          <p class="title">YOLOV5详解<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">参考博文：
+1.pytorch搭建yolov5
+2.yolov5-pytorch
+3.以YOLOV4为例详解anchor_based目标检测训练过程
+整体结构解析
+在学习YoloV5之前，我们需...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class="fas fa-comments"></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
-        github使用指南
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        git安装1.安装git OSX版
-下载地址：http://git-scm.com/download/mac
-2.安装git Windows版
-下载地址：http://book.git-scm.com/download/win
-3.安装git Linux版
-下载地址：http://book.git-scm.com/download/linux
-创建新仓库创建新文件夹，打开，然后执行git i...
-      
-    
-  </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time>2022-04-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/github/">github</a>
-        
-      </div>
-      
-        <div>
-          <a class="readmore" href="/CN/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        Matplotlib学习笔记
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        介绍Matplotlib 是 Python 的绘图库，它能让使用者很轻松地将数据图形化，并且提供多样化的输出格式。可以用来绘制各种静态，动态，交互式的图表。是一个非常强大的 Python 画图工具，我们可以使用该工具将很多数据通过图表的形式更直观的呈现出来。可以绘制线图、散点图、等高线图、条形图、柱状图、3D 图形、甚至是图形动画等等。
-应用Matplotlib 通常与 NumPy 和 Sc...
-      
-    
-  </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time>2022-04-03</time>
-        
-      </div>
-      
-        <div>
-          <a class="readmore" href="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/archives/2022/04/page/2/">
-            <section class="post prev white-box shadow">
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          3 / 3
-        </p>
-        
-      </div>
-    
-  
+  </article>
 
 
-	
+
+
+
+
 </div>
 <aside class="l_side">
   
@@ -866,232 +840,28 @@ class Model(nn....
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class="content">
-    
-      
-        <a class="avatar flat-box rectangle" href="/about/">
-          <img no-lazy src="https://img1.baidu.com/it/u=4126676216,761179531&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500">
-        </a>
-      
-    
-    
-      <div class="text">
-        
-        
-        
-          <p><span id="jinrishici-sentence">南有乔木，不可休思。</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div">
     
   <header>
     
-      <a href="/blog/categories/"><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class="name">文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
     
   </header>
 
 
     <div class="content">
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box" title="/categories/CV/" href="/categories/CV/" id="categoriesCV"><div class="name">CV</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" href="/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" id="categoriesHexoE58D9AE5AEA2E690ADE5BBBA"><div class="name">Hexo博客搭建</div><div class="badge">(2)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/Linux/" href="/categories/Linux/" id="categoriesLinux"><div class="name">Linux</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/MySQL/" href="/categories/MySQL/" id="categoriesMySQL"><div class="name">MySQL</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/cv/" href="/categories/cv/" id="categoriescv"><div class="name">cv</div><div class="badge">(16)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/github/" href="/categories/github/" id="categoriesgithub"><div class="name">github</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/novel/" href="/categories/novel/" id="categoriesnovel"><div class="name">novel</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/programming/" href="/categories/programming/" id="categoriesprogramming"><div class="name">programming</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/pytorch/" href="/categories/pytorch/" id="categoriespytorch"><div class="name">pytorch</div><div class="badge">(2)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/" href="/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/" id="categoriesE4BB8AE697A5E69585E4BA8B"><div class="name">今日故事</div><div class="badge">(4)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" id="categoriesE5ADA6E4B9A0E7BD91E7AB99"><div class="name">学习网站</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" id="categoriesE79BAEE6A087E6A380E6B58B"><div class="name">目标检测</div><div class="badge">(2)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/" href="/categories/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/" id="categoriesE8AEBAE69687E8AFA6E8A7A3"><div class="name">论文详解</div><div class="badge">(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-text">损失函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-text">位置损失函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%AE%E4%BF%A1%E5%BA%A6%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-text">置信度损失函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-text">源代码</span></a></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile ">
-    
-  <header>
-    
-      <a href="/blog/tags/"><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class="name">热门标签</span></a>
-    
-  </header>
-
-
-    <div class="content">
-      <a href="/tags/Attention/" style="font-size: 14px; color: #43e97b">Attention</a> <a href="/tags/C/" style="font-size: 14px; color: #43e97b">C</a> <a href="/tags/GAN/" style="font-size: 14px; color: #43e97b">GAN</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #43e97b">Hexo</a> <a href="/tags/Liunx-system/" style="font-size: 14px; color: #43e97b">Liunx system</a> <a href="/tags/Note/" style="font-size: 14px; color: #43e97b">Note</a> <a href="/tags/SSD/" style="font-size: 14px; color: #43e97b">SSD</a> <a href="/tags/github/" style="font-size: 14px; color: #43e97b">github</a> <a href="/tags/yolov5/" style="font-size: 14px; color: #43e97b">yolov5</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/" style="font-size: 14px; color: #43e97b">代码复现</a> <a href="/tags/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" style="font-size: 14px; color: #43e97b">使用指南</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 14px; color: #3ef1a9">博客搭建</a> <a href="/tags/%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97/" style="font-size: 14px; color: #43e97b">参数计算</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px; color: #43e97b">可视化</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" style="font-size: 14px; color: #43e97b">学习网站</a> <a href="/tags/%E6%84%9F%E5%8F%97%E9%87%8E/" style="font-size: 14px; color: #43e97b">感受野</a> <a href="/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" style="font-size: 14px; color: #43e97b">损失函数</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" style="font-size: 14px; color: #43e97b">数据处理</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 14px; color: #43e97b">文档</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #43e97b">机器学习</a> <a href="/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" style="font-size: 14px; color: #43e97b">激活函数</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" style="font-size: 14px; color: #43e97b">目标检测</a> <a href="/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/" style="font-size: 14px; color: #3ef1a9">论文解读</a> <a href="/tags/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/" style="font-size: 14px; color: #38f9d7">论文详解</a>
-    </div>
-  </section>
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class="name">站点信息</span>
-    
-  </header>
-
-
-  <div class="content">
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>40 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2022/03/11'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>81.9k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Fri May 06 2022 22:13:24 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2022-05-06 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2022-05-06 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
 
   
 
 
 </aside>
+
 
 
 		  
@@ -1100,21 +870,21 @@ class Model(nn....
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="SSD损失函数详解";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>
