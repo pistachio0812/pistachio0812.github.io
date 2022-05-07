@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://pistachio0812.github.io/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/</loc>
+        <lastmod>2022-05-07T13:22:27.079Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/CN/%E6%8F%90%E9%86%92%E5%B9%B8%E7%A6%8F/</loc>
+        <lastmod>2022-05-07T00:52:34.489Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://pistachio0812.github.io/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</loc>
         <lastmod>2022-05-06T14:12:19.648Z</lastmod>
         <changefreq>weekly</changefreq>

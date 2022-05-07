@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv="x-dns-prefetch-control" content="on">
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：博客搭建 - 相思似海深旧事如天远</title>
+  <title>hexo标签插件测试 - 相思似海深旧事如天远</title>
+  
+    <meta name="keywords" content="Hexo">
   
 
   
@@ -321,7 +321,7 @@
       <div id="l_cover">
   
     
-        <div id="full" class="cover-wrapper  search" style="display: none;">
+        <div id="full" class="cover-wrapper post search" style="display: none;">
           
             <div id="cover-backstretch"></div>
           
@@ -391,502 +391,852 @@
         <div class="body-wrapper" id="pjax-container">
           
 
+<div class="l_main">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
 
 
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        hexo标签插件测试
+      </h1>
+      <div class="new-meta-box">
+        
+          
+            
+<div class="new-meta-item author">
+  <a class="author" target="_blank" href="https://www.cnblogs.com/pistachio0812" rel="external nofollow noopener noreferrer">
+    <img no-lazy src="https://img1.baidu.com/it/u=583582599,306470958&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500">
+    <p>追风赶月的少年</p>
+  </a>
+</div>
 
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;postTagTitle
+          
+        
+          
+            
+  <div class="new-meta-item category">
+    <a class="notlink">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">Hexo博客搭建</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：May 7, 2022</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：3.3k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：14分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class="notlink">
+      
+      <div id="lc-pv" data-title="hexo标签插件测试" data-path="/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文语法参考<a target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/v4/tag-plugins/">volantis4.0</a>,博客正在使用的版本为4.3.1</p>
+<p>问题总结如下：</p>
+<p>1.在复选框checkbox下，选中状态比不选中状态框提前，对不齐。</p>
+<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p>带 <u>下划线</u> 的文本；带 <emp>着重号</emp> 的文本；带 <wavy>波浪线</wavy> 的文本；带 <del>删除线</del> 的文本</p>
+<p>键盘样式的文本：<kbd>⌘</kbd> + <kbd>D</kbd></p>
+<p>密码样式的文本：<psw>这里没有验证码</psw></p>
+<p>源码：</p>
+<pre><code class="lang-markdown">带 &#123;% u 下划线 %&#125; 的文本；带 &#123;% emp 着重号 %&#125; 的文本；带 &#123;% wavy 波浪线 %&#125; 的文本；带 &#123;% del 删除线 %&#125; 的文本
+
+键盘样式的文本：&#123;% kbd ⌘ %&#125; + &#123;% kbd D %&#125;
+
+密码样式的文本：&#123;% psw 这里没有验证码 %&#125;
+</code></pre>
+<h3 id="span"><a href="#span" class="headerlink" title="span"></a>span</h3><p>语法：</p>
+<pre><code class="lang-markdown">&#123;% span 样式参数, 文本内容 %&#125;
+</code></pre>
+<p>效果：</p>
+<h4 id="彩色文字"><a href="#彩色文字" class="headerlink" title="彩色文字"></a>彩色文字</h4><p>在一段话中方便插入各种颜色的标签，包括：<span class="p red">红色</span>、<span class="p yellow">黄色</span>、<span class="p green">绿色</span>、<span class="p cyan">青色</span>、<span class="p blue">蓝色</span>、<span class="p gray">灰色</span>。</p>
+<h4 id="超大号文字"><a href="#超大号文字" class="headerlink" title="超大号文字"></a>超大号文字</h4><p>文档「开始」页面中的标题部分就是超大号文字。</p>
+<span class="p center logo large">Volantis</span>
+<span class="p center small">A Wonderful Theme for Hexo</span>
+<p>源码:</p>
+<pre><code class="lang-markdown">#### 彩色文字
+
+在一段话中方便插入各种颜色的标签，包括：&#123;% span red, 红色 %&#125;、&#123;% span yellow, 黄色 %&#125;、&#123;% span green, 绿色 %&#125;、&#123;% span cyan, 青色 %&#125;、&#123;% span blue, 蓝色 %&#125;、&#123;% span gray, 灰色 %&#125;。
+
+#### 超大号文字
+
+文档「开始」页面中的标题部分就是超大号文字。
+
+&#123;% span center logo large, Volantis %&#125;
+&#123;% span center small, A Wonderful Theme for Hexo %&#125;
+</code></pre>
+<p>参数：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>可选值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字体</td>
+<td><code>logo</code>, <code>code</code></td>
+</tr>
+<tr>
+<td>颜色</td>
+<td><code>red</code>, <code>yellow</code>, <code>green</code>, <code>cyan</code>, <code>blue</code>, <code>gray</code></td>
+</tr>
+<tr>
+<td>大小</td>
+<td><code>small</code>, <code>h4</code>, <code>h3</code>, <code>h2</code>, <code>h1</code>, <code>large</code>, <code>huge</code>, <code>ultra</code></td>
+</tr>
+<tr>
+<td>对齐方向</td>
+<td><code>left</code>, <code>center</code>, <code>right</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="p"><a href="#p" class="headerlink" title="p"></a>p</h3><p>语法：</p>
+<pre><code class="lang-markdown">&#123;% p 样式参数, 文本内容 %&#125;
+</code></pre>
+<p>效果：</p>
+<h4 id="彩色文字-1"><a href="#彩色文字-1" class="headerlink" title="彩色文字"></a>彩色文字</h4><p>在一段话中方便插入各种颜色的标签，包括：</p><p class="p red">红色</p><p class="p yellow">黄色</p><p class="p green">绿色</p><p class="p cyan">青色</p><p class="p blue">蓝色</p><p class="p gray">灰色</p><p></p>
+<h4 id="超大号文字-1"><a href="#超大号文字-1" class="headerlink" title="超大号文字"></a>超大号文字</h4><p>文档「开始」页面中的标题部分就是超大号文字。</p>
+<p class="p center logo large">Volantis</p>
+<p class="p center small">A Wonderful Theme for Hexo</p>
+<p>源码：</p>
+<pre><code class="lang-markdown">#### 彩色文字
+
+在一段话中方便插入各种颜色的标签，包括：&#123;% p red, 红色 %&#125;&#123;% p yellow, 黄色 %&#125;&#123;% p green, 绿色 %&#125;&#123;% p cyan, 青色 %&#125;&#123;% p blue, 蓝色 %&#125;&#123;% p gray, 灰色 %&#125;
+
+#### 超大号文字
+
+文档「开始」页面中的标题部分就是超大号文字。
+
+&#123;% p center logo large, Volantis %&#125;
+&#123;% p center small, A Wonderful Theme for Hexo %&#125;
+</code></pre>
+<p>参数：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>可选值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字体</td>
+<td><code>logo</code>, <code>code</code></td>
+</tr>
+<tr>
+<td>颜色</td>
+<td><code>red</code>, <code>yellow</code>, <code>green</code>, <code>cyan</code>, <code>blue</code>, <code>gray</code></td>
+</tr>
+<tr>
+<td>大小</td>
+<td><code>small</code>, <code>h4</code>, <code>h3</code>, <code>h2</code>, <code>h1</code>, <code>large</code>, <code>huge</code>, <code>ultra</code></td>
+</tr>
+<tr>
+<td>对齐方向</td>
+<td><code>left</code>, <code>center</code>, <code>right</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="note"><a href="#note" class="headerlink" title="note"></a>note</h3><p>NoteBlock 是 Blockquote 的增强版，在左边显示图标，并且可以自定颜色。而 Note 是 NoteBlock 的简便写法。</p>
+<p>语法：</p>
+<pre><code class="lang-markdown">&#123;% note 样式参数, 文本内容 %&#125;
+```
+
+效果：
+
+#### 经典用法
+
+&#123;% note, 可以在配置文件中设置默认样式，为简单的一句话提供最的简便写法。 %&#125;
+&#123;% note quote, note quote 适合引用一段话 %&#125;
+&#123;% note info, note info 默认主题色，适合中性的信息 %&#125;
+&#123;% note warning, note warning 默认黄色，适合警告性的信息 %&#125;
+&#123;% note danger, note error/danger 默认红色，适合危险性的信息 %&#125;
+&#123;% note success, note done/success 默认绿色，适合正确操作的信息 %&#125;
+
+#### 更多图标
+
+这些都是默认样式，可以手动加上颜色：
+
+&#123;% note radiation, note radiation 默认样式 %&#125;
+&#123;% note radiation yellow, note radiation yellow 可以加上颜色 %&#125;
+&#123;% note bug red, note bug red 说明还存在的一些故障 %&#125;
+&#123;% note link green, note link green 可以放置一些链接 %&#125;
+&#123;% note paperclip blue, note paperclip blue 放置一些附件链接 %&#125;
+&#123;% note todo, note todo 待办事项 %&#125;
+&#123;% note guide clear, note guide clear 可以加上一段向导 %&#125;
+&#123;% note download, note download 可以放置下载链接 %&#125;
+&#123;% note message gray, note message gray 一段消息 %&#125;
+&#123;% note up, note up 可以说明如何进行更新 %&#125;
+&#123;% note undo light, note undo light 可以说明如何撤销或者回退 %&#125;
+
+源码：
+
+```markdown
+#### 经典用法
+
+&#123;% note, 可以在配置文件中设置默认样式，为简单的一句话提供最的简便写法。 %&#125;
+&#123;% note quote, note quote 适合引用一段话 %&#125;
+&#123;% note info, note info 默认主题色，适合中性的信息 %&#125;
+&#123;% note warning, note warning 默认黄色，适合警告性的信息 %&#125;
+&#123;% note danger, note error/danger 默认红色，适合危险性的信息 %&#125;
+&#123;% note success, note done/success 默认绿色，适合正确操作的信息 %&#125;
+
+#### 更多图标
+
+这些都是默认样式，可以手动加上颜色：
+
+&#123;% note radiation, note radiation 默认样式 %&#125;
+&#123;% note radiation yellow, note radiation yellow 可以加上颜色 %&#125;
+&#123;% note bug red, note bug red 说明还存在的一些故障 %&#125;
+&#123;% note link green, note link green 可以放置一些链接 %&#125;
+&#123;% note paperclip blue, note paperclip blue 放置一些附件链接 %&#125;
+&#123;% note todo, note todo 待办事项 %&#125;
+&#123;% note guide clear, note guide clear 可以加上一段向导 %&#125;
+&#123;% note download, note download 可以放置下载链接 %&#125;
+&#123;% note message gray, note message gray 一段消息 %&#125;
+&#123;% note up, note up 可以说明如何进行更新 %&#125;
+&#123;% note undo light, note undo light 可以说明如何撤销或者回退 %&#125;
+```
+
+参数:
+
+| 属性 | 可选值                                                       |
+| ---- | :----------------------------------------------------------- |
+| 图标 | # 彩色的      quote, info, warning, done/success, error/danger                                                                                                                                                                                                 # 灰色的，也可以指定颜色      radiation, bug, idea, link, paperclip, todo, message, guide, download, up, undo |
+| 颜色 | clear, light, gray, red, yellow, green, cyan, blue           |
+
+### noteblock
+
+NoteBlock 是 Blockquote 的增强版，在左边显示图标，并且可以自定颜色。而 Note 是 NoteBlock 的简便写法。
+
+语法：
+
+```markdown
+&#123;% noteblock 样式参数（可选）, 标题（可选） %&#125;
+文本段落
+&#123;% endnoteblock %&#125;
+</code></pre>
+<p>演示效果：</p>
+<div class="note "><p><strong>标题（可选）</strong></p><p></p><p>Windows 10不是為所有人設計,而是為每個人設計</p><p></p><p><div class="note done"><p>嵌套测试： 请坐和放宽，我正在帮你搞定一切…</p></div></p><details yellow><summary> Folding 测试： 点击查看更多 </summary>              <div class="content">              <div class="note warning"><p>不要说我们没有警告过你</p></div><div class="note bug red"><p>我们都有不顺利的时候</p></div>              </div>            </details></div>
+<p>源码：</p>
+<pre><code class="lang-markdown">&#123;% noteblock, 标题（可选） %&#125;
+
+Windows 10不是為所有人設計,而是為每個人設計
+
+&#123;% noteblock done %&#125;
+嵌套测试： 请坐和放宽，我正在帮你搞定一切...
+&#123;% endnoteblock %&#125;
+
+&#123;% folding yellow, Folding 测试： 点击查看更多 %&#125;
+
+&#123;% note warning, 不要说我们没有警告过你 %&#125;
+&#123;% noteblock bug red %&#125;
+我们都有不顺利的时候
+&#123;% endnoteblock %&#125;
+
+&#123;% endfolding %&#125;
+&#123;% endnoteblock %&#125;
+</code></pre>
+<p>参数：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">可选值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图标</td>
+<td style="text-align:left"># 彩色的      quote, info, warning, done/success, error/danger                                                                                                                                                                                                 # 灰色的，也可以指定颜色      radiation, bug, idea, link, paperclip, todo, message, guide, download, up, undo</td>
+</tr>
+<tr>
+<td>颜色</td>
+<td style="text-align:left">clear, light, gray, red, yellow, green, cyan, blue</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h3><p>语法：</p>
+<pre><code class="lang-markdown">&#123;% checkbox 样式参数（可选）, 文本（支持简单md） %&#125;
+</code></pre>
+<p>演示效果：</p>
+<div class="checkbox"><input type="checkbox">
+            <p>纯文本测试</p>
             </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/C/" title="C: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="C" style="background-color: #F9EBEA;">C
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97/" title="参数计算: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="参数计算" style="background-color: #F5EEF8;">参数计算
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="博客搭建: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active " data-tagname="博客搭建" style="background-color: #D5F5E3;">博客搭建
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/" title="论文详解: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="论文详解" style="background-color: #E8F8F5;">论文详解
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Liunx-system/" title="Liunx system: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Liunx system" style="background-color: #FEF9E7;">Liunx system
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/" title="代码复现: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="代码复现" style="background-color: #F8F9F9;">代码复现
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Note/" title="Note: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Note" style="background-color: #82E0AA;">Note
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/GAN/" title="GAN: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="GAN" style="background-color: #D7BDE2;">GAN
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/" title="论文解读: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="论文解读" style="background-color: #A3E4D7;">论文解读
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/yolov5/" title="yolov5: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="yolov5" style="background-color: #85C1E9;">yolov5
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Hexo/" title="Hexo: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Hexo" style="background-color: #F8C471;">Hexo
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="使用指南: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="使用指南" style="background-color: #F9E79F;">使用指南
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/github/" title="github: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="github" style="background-color: #F5EEF8;">github
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%96%87%E6%A1%A3/" title="文档: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="文档" style="background-color: #D5F5E3;">文档
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" title="可视化: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="可视化" style="background-color: #85C1E9;">可视化
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" title="学习网站: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="学习网站" style="background-color: #FEF9E7;">学习网站
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%84%9F%E5%8F%97%E9%87%8E/" title="感受野: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="感受野" style="background-color: #85C1E9;">感受野
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" title="数据处理: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="数据处理" style="background-color: #85C1E9;">数据处理
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="机器学习: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="机器学习" style="background-color: #E8F8F5;">机器学习
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Attention/" title="Attention: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="Attention" style="background-color: #FFF;">Attention
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" title="目标检测: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="目标检测" style="background-color: #D7BDE2;">目标检测
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" title="激活函数: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="激活函数" style="background-color: #D5F5E3;">激活函数
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/SSD/" title="SSD: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="SSD" style="background-color: #F8C471;">SSD
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" title="损失函数: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="损失函数" style="background-color: #A3E4D7;">损失函数
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
+<div class="checkbox checked"><input type="checkbox" checked="checked">
+            <p>支持简单的 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://guides.github.com/features/mastering-markdown/">markdown</a> 语法</p>
             </div>
+<div class="checkbox red"><input type="checkbox">
+            <p>支持自定义颜色</p>
+            </div>
+<div class="checkbox green checked"><input type="checkbox" checked="checked">
+            <p>绿色 + 默认选中</p>
+            </div>
+<div class="checkbox yellow checked"><input type="checkbox" checked="checked">
+            <p>黄色 + 默认选中</p>
+            </div>
+<div class="checkbox cyan checked"><input type="checkbox" checked="checked">
+            <p>青色 + 默认选中</p>
+            </div>
+<div class="checkbox blue checked"><input type="checkbox" checked="checked">
+            <p>蓝色 + 默认选中</p>
+            </div>
+<div class="checkbox plus green checked"><input type="checkbox" checked="checked">
+            <p>增加</p>
+            </div>
+<div class="checkbox minus yellow checked"><input type="checkbox" checked="checked">
+            <p>减少</p>
+            </div>
+<div class="checkbox times red checked"><input type="checkbox" checked="checked">
+            <p>叉</p>
+            </div>
+<p>源码：</p>
+<pre><code class="lang-markdown"># 复选框
+&#123;% checkbox 纯文本测试 %&#125;
+&#123;% checkbox checked, 支持简单的 [markdown](https://guides.github.com/features/mastering-markdown/) 语法 %&#125;
+&#123;% checkbox red, 支持自定义颜色 %&#125;
+&#123;% checkbox green checked, 绿色 + 默认选中 %&#125;
+&#123;% checkbox yellow checked, 黄色 + 默认选中 %&#125;
+&#123;% checkbox cyan checked, 青色 + 默认选中 %&#125;
+&#123;% checkbox blue checked, 蓝色 + 默认选中 %&#125;
+&#123;% checkbox plus green checked, 增加 %&#125;
+&#123;% checkbox minus yellow checked, 减少 %&#125;
+&#123;% checkbox times red checked, 叉 %&#125;
+</code></pre>
+<p>参数：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>可选值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>颜色</td>
+<td>red, yellow, green, cyan, blue</td>
+</tr>
+<tr>
+<td>样式</td>
+<td>plus, minus, times</td>
+</tr>
+<tr>
+<td>选中状态</td>
+<td>checked</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h3><p>语法：</p>
+<pre><code class="lang-markdown"># 单选框
+&#123;% radio 样式参数（可选）, 文本（支持简单md） %&#125;
+</code></pre>
+<p>演示效果：</p>
+<div class="checkbox"><input type="radio">
+            <p>纯文本测试</p>
+            </div>
+<div class="checkbox checked"><input type="radio" checked="checked">
+            <p>支持简单的 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://guides.github.com/features/mastering-markdown/">markdown</a> 语法</p>
+            </div>
+<div class="checkbox red"><input type="radio">
+            <p>支持自定义颜色</p>
+            </div>
+<div class="checkbox green"><input type="radio">
+            <p>绿色</p>
+            </div>
+<div class="checkbox yellow"><input type="radio">
+            <p>黄色</p>
+            </div>
+<div class="checkbox cyan"><input type="radio">
+            <p>青色</p>
+            </div>
+<div class="checkbox blue"><input type="radio">
+            <p>蓝色</p>
+            </div>
+<p>源码：</p>
+<pre><code class="lang-markdown">&#123;% radio 纯文本测试 %&#125;
+&#123;% radio checked, 支持简单的 [markdown](https://guides.github.com/features/mastering-markdown/) 语法 %&#125;
+&#123;% radio red, 支持自定义颜色 %&#125;
+&#123;% radio green, 绿色 %&#125;
+&#123;% radio yellow, 黄色 %&#125;
+&#123;% radio cyan, 青色 %&#125;
+&#123;% radio blue, 蓝色 %&#125;
+</code></pre>
+<p>参数：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>可选值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>颜色</td>
+<td>red, yellow, green, cyan, blue</td>
+</tr>
+<tr>
+<td>选中状态</td>
+<td>checked</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="timeline"><a href="#timeline" class="headerlink" title="timeline"></a>timeline</h3><p>语法：</p>
+<pre><code class="lang-markdown">&#123;% timeline 时间线标题（可选） %&#125;
+
+&#123;% timenode 时间节点（标题） %&#125;
+
+正文内容
+
+&#123;% endtimenode %&#125;
+
+&#123;% timenode 时间节点（标题） %&#125;
+
+正文内容
+
+&#123;% endtimenode %&#125;
+
+&#123;% endtimeline %&#125;
+</code></pre>
+<p>效果：</p>
+<div class="timeline">
+<div class="timenode"><div class="meta"><p></p><p>2020-07-24 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/releases">2.6.6 -&gt; 3.0</a></p>
+<p></p></div><div class="body"><ol><li>如果有 <code>hexo-lazyload-image</code> 插件，需要删除并重新安装最新版本，设置 <code>lazyload.isSPA: true</code>。</li><li>2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 <code>use_cdn: true</code> 则需要删除。</li><li>2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。</li><li>2.x 版本的置顶 <code>top: true</code> 改为了 <code>pin: true</code>，并且同样适用于 <code>layout: page</code> 的页面。</li><li>如果使用了 <code>hexo-offline</code> 插件，建议卸载，3.0 版本默认开启了 pjax 服务。</li></ol></div></div>
+
+<div class="timenode"><div class="meta"><p></p><p>2020-05-15 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/2.6.6">2.6.3 -&gt; 2.6.6</a></p>
+<p></p></div><div class="body"><p>不需要额外处理。</p></div></div>
+
+<div class="timenode"><div class="meta"><p></p><p>2020-04-20 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/2.6.3">2.6.2 -&gt; 2.6.3</a></p>
+<p></p></div><div class="body"><ol><li>全局搜索 <code>seotitle</code> 并替换为 <code>seo_title</code>。</li><li>group 组件的索引规则有变，使用 group 组件的文章内，<code>group: group_name</code> 对应的组件名必须是 <code>group_name</code>。</li><li>group 组件的列表名优先显示文章的 <code>short_title</code> 其次是 <code>title</code>。</li></ol></div></div>
+</div>
+<p>源码：</p>
+<pre><code class="lang-markdown">&#123;% timeline %&#125;
+
+&#123;% timenode 2020-07-24 [2.6.6 -> 3.0](https://github.com/volantis-x/hexo-theme-volantis/releases) %&#125;
+
+1. 如果有 `hexo-lazyload-image` 插件，需要删除并重新安装最新版本，设置 `lazyload.isSPA: true`。
+2. 2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 `use_cdn: true` 则需要删除。
+3. 2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。
+4. 2.x 版本的置顶 `top: true` 改为了 `pin: true`，并且同样适用于 `layout: page` 的页面。
+5. 如果使用了 `hexo-offline` 插件，建议卸载，3.0 版本默认开启了 pjax 服务。
+
+&#123;% endtimenode %&#125;
+
+&#123;% timenode 2020-05-15 [2.6.3 -> 2.6.6](https://github.com/volantis-x/hexo-theme-volantis/releases/tag/2.6.6) %&#125;
+
+不需要额外处理。
+
+&#123;% endtimenode %&#125;
+
+&#123;% timenode 2020-04-20 [2.6.2 -> 2.6.3](https://github.com/volantis-x/hexo-theme-volantis/releases/tag/2.6.3) %&#125;
+
+1. 全局搜索 `seotitle` 并替换为 `seo_title`。
+2. group 组件的索引规则有变，使用 group 组件的文章内，`group: group_name` 对应的组件名必须是 `group_name`。
+2. group 组件的列表名优先显示文章的 `short_title` 其次是 `title`。
+
+&#123;% endtimenode %&#125;
+
+&#123;% endtimeline %&#125;
+</code></pre>
+<h3 id="link"><a href="#link" class="headerlink" title="link"></a>link</h3><p>语法：</p>
+<pre><code>&#123;% link 标题, 链接, 图片链接（可选） %&#125;
+</code></pre><p>演示效果：</p>
+<div class="tag link"><a class="link-card" title="如何参与项目" target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/contributors/"><div class="left"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></div><div class="right"><p class="text">如何参与项目</p><p class="url">https://volantis.js.org/contributors/</p></div></a></div>
+<p>源码：</p>
+<pre><code class="lang-markdown">&#123;% link 如何参与项目, https://volantis.js.org/contributors/, https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png %&#125;
+</code></pre>
+<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><h4 id="基础按钮"><a href="#基础按钮" class="headerlink" title="基础按钮"></a>基础按钮</h4><p>语法：</p>
+<pre><code class="lang-markdown">&#123;% btn 样式参数（可选）, 标题, 链接, 图标（可选） %&#125;
+```
+
+参数：
+
+样式参数：
+
+```markdown
+regular, large, center
+```
+
+图标：
+
+第1个或者第2个参数包含 `fa-` 的那个被识别为图标。
+
+效果：
+
+不设置任何参数的 &#123;% btn 按钮, / %&#125; 适合融入段落中。
+
+regular 按钮适合独立于段落之外：
+
+&#123;% btn regular, 示例博客, https://xaoxuu.com, fas fa-play-circle %&#125;
+
+large 按钮更具有强调作用，建议搭配 center 使用：
+
+&#123;% btn center large, 开始使用, https://volantis.js.org/v3/getting-started/, fas fa-download %&#125;
+
+源码：
+
+```markdown
+不设置任何参数的 &#123;% btn 按钮, / %&#125; 适合融入段落中。
+
+regular 按钮适合独立于段落之外：
+
+&#123;% btn regular, 示例博客, https://xaoxuu.com, fas fa-play-circle %&#125;
+
+large 按钮更具有强调作用，建议搭配 center 使用：
+
+&#123;% btn center large, 开始使用, https://volantis.js.org/v3/getting-started/, fas fa-download %&#125;
+```
+
+#### 富文本按钮
+
+语法：
+
+```markdown
+&#123;% btns 样式参数 %&#125;
+&#123;% cell 标题, 链接, 图片或者图标 %&#125;
+&#123;% cell 标题, 链接, 图片或者图标 %&#125;
+&#123;% endbtns %&#125;
+</code></pre>
+<p>参数列表：</p>
+<p>样式参数位置可以写图片样式、布局方式，多个样式参数用空格隔开。</p>
+<p>圆角样式：</p>
+<pre><code class="lang-markdown"># 默认为方形
+rounded, circle
+</code></pre>
+<p>布局方式：</p>
+<p>默认为自动宽度，适合视野内只有一两个的情况。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wide</td>
+<td>宽一点的按钮</td>
+</tr>
+<tr>
+<td>fill</td>
+<td>填充布局，自动铺满至少一行，多了会换行。</td>
+</tr>
+<tr>
+<td>center</td>
+<td>居中，按钮之间是固定间距。</td>
+</tr>
+<tr>
+<td>around</td>
+<td>居中分散</td>
+</tr>
+<tr>
+<td>grid2</td>
+<td>等宽最多2列，屏幕变窄会适当减少列数。</td>
+</tr>
+<tr>
+<td>grid3</td>
+<td>等宽最多3列，屏幕变窄会适当减少列数。</td>
+</tr>
+<tr>
+<td>grid4</td>
+<td>等宽最多4列，屏幕变窄会适当减少列数。</td>
+</tr>
+<tr>
+<td>grid5</td>
+<td>等宽最多5列，屏幕变窄会适当减少列数。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>增加文字样式：</p>
+<p>可以在容器内增加 <code>&lt;b&gt;标题&lt;/b&gt;</code> 和 <code>&lt;p&gt;描述文字&lt;/p&gt;</code></p>
+<p>效果：</p>
+<p>如果需要显示类似「团队成员」之类的一组含有头像的链接：</p>
+<div class="btns circle grid5">
+            <a class="button" target="_blank" rel="external nofollow noopener noreferrer" href="https://xaoxuu.com" title="xaoxuu"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">xaoxuu</a>
+<a class="button" target="_blank" rel="external nofollow noopener noreferrer" href="https://xaoxuu.com" title="xaoxuu"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">xaoxuu</a>
+<a class="button" target="_blank" rel="external nofollow noopener noreferrer" href="https://xaoxuu.com" title="xaoxuu"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">xaoxuu</a>
+<a class="button" target="_blank" rel="external nofollow noopener noreferrer" href="https://xaoxuu.com" title="xaoxuu"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">xaoxuu</a>
+<a class="button" target="_blank" rel="external nofollow noopener noreferrer" href="https://xaoxuu.com" title="xaoxuu"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">xaoxuu</a>
+          </div>
+<p>或者含有图标的按钮：</p>
+<div class="btns rounded grid5">
+            <a class="button" href="/" title="下载源码"><i class="fas fa-download"></i>下载源码</a>
+<a class="button" href="/" title="查看文档"><i class="fas fa-book-open"></i>查看文档</a>
+          </div>
+<p>圆形图标 + 标题 + 描述 + 图片 + 网格5列 + 居中</p>
+<div class="btns circle center grid5">
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://apps.apple.com/cn/app/heart-mate-pro-hrm-utility/id1463348922?ls=1">
+  <i class="fab fa-apple"></i>
+  <b>心率管家</b>
+  <p class="p red">专业版</p>
+  <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/heartmate_pro.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/heartmate_pro.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+</a>
+<a target="_blank" rel="external nofollow noopener noreferrer" href="https://apps.apple.com/cn/app/heart-mate-lite-hrm-utility/id1475747930?ls=1">
+  <i class="fab fa-apple"></i>
+  <b>心率管家</b>
+  <p class="p green">免费版</p>
+  <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/heartmate_lite.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/heartmate_lite.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+</a>
+          </div>
+<p>源码：</p>
+<pre><code class="lang-markdown"># 如果需要显示类似「团队成员」之类的一组含有头像的链接：
+&#123;% btns circle grid5 %&#125;
+&#123;% cell xaoxuu, https://xaoxuu.com, https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %&#125;
+&#123;% cell xaoxuu, https://xaoxuu.com, https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %&#125;
+&#123;% cell xaoxuu, https://xaoxuu.com, https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %&#125;
+&#123;% cell xaoxuu, https://xaoxuu.com, https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %&#125;
+&#123;% cell xaoxuu, https://xaoxuu.com, https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %&#125;
+&#123;% endbtns %&#125;
+# 或者含有图标的按钮：
+&#123;% btns rounded grid5 %&#125;
+&#123;% cell 下载源码, /, fas fa-download %&#125;
+&#123;% cell 查看文档, /, fas fa-book-open %&#125;
+&#123;% endbtns %&#125;
+# 圆形图标 + 标题 + 描述 + 图片 + 网格5列 + 居中
+&#123;% btns circle center grid5 %&#125;
+<a target="_blank" rel="external nofollow noopener noreferrer" href="https://apps.apple.com/cn/app/heart-mate-pro-hrm-utility/id1463348922?ls=1">
+  <i class="fab fa-apple"></i>
+  <b>心率管家</b>
+  &#123;% p red, 专业版 %&#125;
+  <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/heartmate_pro.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/heartmate_pro.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+</a>
+<a target="_blank" rel="external nofollow noopener noreferrer" href="https://apps.apple.com/cn/app/heart-mate-lite-hrm-utility/id1475747930?ls=1">
+  <i class="fab fa-apple"></i>
+  <b>心率管家</b>
+  &#123;% p green, 免费版 %&#125;
+  <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/heartmate_lite.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/heartmate_lite.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+</a>
+&#123;% endbtns %&#125;
+</code></pre>
+
+  
+  
+    
+    <div class="footer">
+      
+      
+      
+        <div class="copyright">
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href="http://pistachio0812.github.io/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/">http://pistachio0812.github.io/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
+      
     </div>
-</div>
-
-
-<style type="text/css">
-    #category-radar {
-        width: 100%;
-        height: 360px;
-    }
-</style>
-
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="category-radar" class="card-content"></div>
-    </div>
-</div>
-
-<script type="text/javascript" src="/js/echarts.min.js"></script>
-<script type="text/javascript">
-    let radarChart = echarts.init(document.getElementById('category-radar'));
-
+  
+  
     
 
-    let option = {
-        title: {
-            left: 'center',
-            text: '文章分类雷达图',
-            textStyle: {
-                fontWeight: 500,
-                fontSize: 22
-            }
-        },
-        tooltip: {},
-        radar: {
-            name: {
-                textStyle: {
-                    color: '#66a6ff'
-                }
-            },
-            indicator: [{"name":"novel","max":17},{"name":"programming","max":17},{"name":"cv","max":17},{"name":"Hexo博客搭建","max":17},{"name":"Linux","max":17},{"name":"目标检测","max":17},{"name":"MySQL","max":17},{"name":"论文详解","max":17},{"name":"github","max":17},{"name":"pytorch","max":17},{"name":"学习网站","max":17},{"name":"今日故事","max":17},{"name":"CV","max":17}],
-            nameGap: 5,
-            center: ['50%','55%'],
-            radius: '66%'
-        },
-        series: [{
-            type: 'radar',
-            color: '#0ba360',
-            itemStyle: {normal: {areaStyle: {type: 'default'}}},
-            data : [
-                {
-                    value : [1,1,16,3,1,2,1,1,1,2,1,5,1],
-                    name : ' '
-                }
-            ]
-        }]
-    };
 
-    radarChart.setOption(option);
-</script>
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-07T21:22:27+08:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：May 7, 2022</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Hexo/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Hexo</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/&title=hexo标签插件测试 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/&title=hexo标签插件测试 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/&title=hexo标签插件测试 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class="prev" href="/CN/%E6%8F%90%E9%86%92%E5%B9%B8%E7%A6%8F/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>提醒幸福</p>
+          <p class="content">我们从小就习惯了在提醒中过日子。天气刚有一丝风吹草动，妈妈就说，别忘了多穿衣服。才相识了一个朋友，爸爸就说，小心他是个骗子。你取得了一点成功，还没容得乐出声来，所有关切着你的人一起说，别骄傲！你...</p>
+        </a>
+      
+      
+        <a class="next" href="/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/">
+          <p class="title">SSD损失函数详解<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">参考博文：
+1.目标识别：SSD pytorch代码学习笔记
+2.SSD论文
+损失函数SSD损失函数包括两部分：位置损失函数L_{loc}和置信度损失函数L_{conf}
+整个损失函数为：
+
+说...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class="fas fa-comments"></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
 <aside class="l_side">
   
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class="content">
-    
-      
-        <a class="avatar flat-box rectangle" href="/about/">
-          <img no-lazy src="https://img1.baidu.com/it/u=4126676216,761179531&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500">
-        </a>
-      
-    
-    
-      <div class="text">
-        
-        
-        
-          <p><span id="jinrishici-sentence">南有乔木，不可休思。</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div">
     
   <header>
     
-      <a href="/blog/categories/"><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class="name">文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
     
   </header>
 
 
     <div class="content">
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box" title="/categories/CV/" href="/categories/CV/" id="categoriesCV"><div class="name">CV</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" href="/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" id="categoriesHexoE58D9AE5AEA2E690ADE5BBBA"><div class="name">Hexo博客搭建</div><div class="badge">(3)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/Linux/" href="/categories/Linux/" id="categoriesLinux"><div class="name">Linux</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/MySQL/" href="/categories/MySQL/" id="categoriesMySQL"><div class="name">MySQL</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/cv/" href="/categories/cv/" id="categoriescv"><div class="name">cv</div><div class="badge">(16)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/github/" href="/categories/github/" id="categoriesgithub"><div class="name">github</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/novel/" href="/categories/novel/" id="categoriesnovel"><div class="name">novel</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/programming/" href="/categories/programming/" id="categoriesprogramming"><div class="name">programming</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/pytorch/" href="/categories/pytorch/" id="categoriespytorch"><div class="name">pytorch</div><div class="badge">(2)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/" href="/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/" id="categoriesE4BB8AE697A5E69585E4BA8B"><div class="name">今日故事</div><div class="badge">(5)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" id="categoriesE5ADA6E4B9A0E7BD91E7AB99"><div class="name">学习网站</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" id="categoriesE79BAEE6A087E6A380E6B58B"><div class="name">目标检测</div><div class="badge">(2)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/" href="/categories/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/" id="categoriesE8AEBAE69687E8AFA6E8A7A3"><div class="name">论文详解</div><div class="badge">(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#text"><span class="toc-text">text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#span"><span class="toc-text">span</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%A9%E8%89%B2%E6%96%87%E5%AD%97"><span class="toc-text">彩色文字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B6%85%E5%A4%A7%E5%8F%B7%E6%96%87%E5%AD%97"><span class="toc-text">超大号文字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p"><span class="toc-text">p</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%A9%E8%89%B2%E6%96%87%E5%AD%97-1"><span class="toc-text">彩色文字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B6%85%E5%A4%A7%E5%8F%B7%E6%96%87%E5%AD%97-1"><span class="toc-text">超大号文字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#note"><span class="toc-text">note</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#checkbox"><span class="toc-text">checkbox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#radio"><span class="toc-text">radio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#timeline"><span class="toc-text">timeline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#link"><span class="toc-text">link</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#button"><span class="toc-text">button</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%8C%89%E9%92%AE"><span class="toc-text">基础按钮</span></a></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile ">
-    
-  <header>
-    
-      <a href="/blog/tags/"><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class="name">热门标签</span></a>
-    
-  </header>
-
-
-    <div class="content">
-      <a href="/tags/Attention/" style="font-size: 14px; color: #43e97b">Attention</a> <a href="/tags/C/" style="font-size: 14px; color: #43e97b">C</a> <a href="/tags/GAN/" style="font-size: 14px; color: #43e97b">GAN</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #3ef1a9">Hexo</a> <a href="/tags/Liunx-system/" style="font-size: 14px; color: #43e97b">Liunx system</a> <a href="/tags/Note/" style="font-size: 14px; color: #43e97b">Note</a> <a href="/tags/SSD/" style="font-size: 14px; color: #43e97b">SSD</a> <a href="/tags/github/" style="font-size: 14px; color: #43e97b">github</a> <a href="/tags/yolov5/" style="font-size: 14px; color: #43e97b">yolov5</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/" style="font-size: 14px; color: #43e97b">代码复现</a> <a href="/tags/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" style="font-size: 14px; color: #43e97b">使用指南</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 14px; color: #3ef1a9">博客搭建</a> <a href="/tags/%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97/" style="font-size: 14px; color: #43e97b">参数计算</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px; color: #43e97b">可视化</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" style="font-size: 14px; color: #43e97b">学习网站</a> <a href="/tags/%E6%84%9F%E5%8F%97%E9%87%8E/" style="font-size: 14px; color: #43e97b">感受野</a> <a href="/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" style="font-size: 14px; color: #43e97b">损失函数</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" style="font-size: 14px; color: #43e97b">数据处理</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 14px; color: #43e97b">文档</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #43e97b">机器学习</a> <a href="/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" style="font-size: 14px; color: #43e97b">激活函数</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" style="font-size: 14px; color: #43e97b">目标检测</a> <a href="/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/" style="font-size: 14px; color: #3ef1a9">论文解读</a> <a href="/tags/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/" style="font-size: 14px; color: #38f9d7">论文详解</a>
-    </div>
-  </section>
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class="name">站点信息</span>
-    
-  </header>
-
-
-  <div class="content">
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>42 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2022/03/11'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>87.1k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Sat May 07 2022 21:22:42 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2022-05-07 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2022-05-07 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
 
   
 
 
 </aside>
+
 
 
 		  
@@ -895,8 +1245,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="hexo标签插件测试";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
