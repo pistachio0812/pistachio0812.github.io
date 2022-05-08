@@ -444,13 +444,13 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：3.3k字</p>
+      <p>字数：4k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：14分钟</p>
+      <p>时长：17分钟</p>
     </a>
   </div>
 
@@ -483,6 +483,7 @@
   <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文语法参考<a target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/v4/tag-plugins/">volantis4.0</a>,博客正在使用的版本为4.3.1</p>
 <p>问题总结如下：</p>
 <p>1.在复选框checkbox下，选中状态比不选中状态框提前，对不齐。</p>
+<p>2.button基础按钮那里本文写的参考有点问题，不知道哪里出了问题，但源码没错。</p>
 <h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p>带 <u>下划线</u> 的文本；带 <emp>着重号</emp> 的文本；带 <wavy>波浪线</wavy> 的文本；带 <del>删除线</del> 的文本</p>
 <p>键盘样式的文本：<kbd>⌘</kbd> + <kbd>D</kbd></p>
 <p>密码样式的文本：<psw>这里没有验证码</psw></p>
@@ -904,17 +905,13 @@ Windows 10不是為所有人設計,而是為每個人設計
 <p>源码：</p>
 <pre><code class="lang-markdown">&#123;% link 如何参与项目, https://volantis.js.org/contributors/, https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png %&#125;
 </code></pre>
-<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><h4 id="基础按钮"><a href="#基础按钮" class="headerlink" title="基础按钮"></a>基础按钮</h4><p>语法：</p>
-<pre><code class="lang-markdown">&#123;% btn 样式参数（可选）, 标题, 链接, 图标（可选） %&#125;
-```
+<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><h4 id="基础按钮"><a href="#基础按钮" class="headerlink" title="基础按钮"></a>基础按钮</h4><p>语法：`<span class="btn 样式参数（可选）"><a class="button" href="链接" title="标题"><i class="图标（可选）"></i>标题</a></span>`
 
-参数：
+参数如下：
 
 样式参数：
 
-```markdown
-regular, large, center
-```
+`regular, large, center`
 
 图标：
 
@@ -922,28 +919,28 @@ regular, large, center
 
 效果：
 
-不设置任何参数的 &#123;% btn 按钮, / %&#125; 适合融入段落中。
+不设置任何参数的 <span class="btn"><a class="button" href="/" title="按钮">按钮</a></span> 适合融入段落中。
 
 regular 按钮适合独立于段落之外：
 
-&#123;% btn regular, 示例博客, https://xaoxuu.com, fas fa-play-circle %&#125;
+<span class="btn regular"><a class="button" target="_blank" rel="external nofollow noopener noreferrer" href="https://xaoxuu.com" title="示例博客"><i class="fas fa-play-circle"></i>示例博客</a></span>
 
 large 按钮更具有强调作用，建议搭配 center 使用：
 
-&#123;% btn center large, 开始使用, https://volantis.js.org/v3/getting-started/, fas fa-download %&#125;
+<span class="btn center large"><a class="button" target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/v3/getting-started/" title="开始使用"><i class="fas fa-download"></i>开始使用</a></span>
 
 源码：
 
 ```markdown
-不设置任何参数的 &#123;% btn 按钮, / %&#125; 适合融入段落中。
+不设置任何参数的 <span class="btn"><a class="button" href="/" title="按钮">按钮</a></span> 适合融入段落中。
 
 regular 按钮适合独立于段落之外：
 
-&#123;% btn regular, 示例博客, https://xaoxuu.com, fas fa-play-circle %&#125;
+<span class="btn regular"><a class="button" target="_blank" rel="external nofollow noopener noreferrer" href="https://xaoxuu.com" title="示例博客"><i class="fas fa-play-circle"></i>示例博客</a></span>
 
 large 按钮更具有强调作用，建议搭配 center 使用：
 
-&#123;% btn center large, 开始使用, https://volantis.js.org/v3/getting-started/, fas fa-download %&#125;
+<span class="btn center large"><a class="button" target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/v3/getting-started/" title="开始使用"><i class="fas fa-download"></i>开始使用</a></span>
 ```
 
 #### 富文本按钮
@@ -951,18 +948,21 @@ large 按钮更具有强调作用，建议搭配 center 使用：
 语法：
 
 ```markdown
-&#123;% btns 样式参数 %&#125;
-&#123;% cell 标题, 链接, 图片或者图标 %&#125;
-&#123;% cell 标题, 链接, 图片或者图标 %&#125;
-&#123;% endbtns %&#125;
-</code></pre>
-<p>参数列表：</p>
-<p>样式参数位置可以写图片样式、布局方式，多个样式参数用空格隔开。</p>
-<p>圆角样式：</p>
-<pre><code class="lang-markdown"># 默认为方形
+<div class="btns 样式参数">
+            <a class="button" href="链接" title="标题"><img src="/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/图片或者图标" class="lazyload" data-srcset="/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/图片或者图标" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">标题</a>
+<a class="button" href="链接" title="标题"><img src="/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/图片或者图标" class="lazyload" data-srcset="/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/图片或者图标" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">标题</a>
+          </div></p>
+<pre><code>
+参数列表：
+
+样式参数位置可以写图片样式、布局方式，多个样式参数用空格隔开。
+
+圆角样式：
+
+```markdown
+# 默认为方形
 rounded, circle
-</code></pre>
-<p>布局方式：</p>
+</code></pre><p>布局方式：</p>
 <p>默认为自动宽度，适合视野内只有一两个的情况。</p>
 <div class="table-container">
 <table>
@@ -1069,6 +1069,281 @@ rounded, circle
 </a>
 &#123;% endbtns %&#125;
 </code></pre>
+<h3 id="ghcard"><a href="#ghcard" class="headerlink" title="ghcard"></a>ghcard</h3><p>样式：</p>
+<pre><code class="lang-markdown">&#123;% ghcard 用户名, 其它参数（可选） %&#125;
+&#123;% ghcard 用户名/仓库, 其它参数（可选） %&#125;
+</code></pre>
+<p>效果示例：</p>
+<p>如下所示，其实就是一个4×2的表格，只不过每个格子里放的是用户信息卡片</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/pistachio0812"><img src="https://github-readme-stats.vercel.app/api/?username=pistachio0812&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/?username=pistachio0812&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></th>
+<th><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/pistacho0812"><img src="https://github-readme-stats.vercel.app/api/?username=pistacho0812&theme=vue&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/?username=pistacho0812&theme=vue&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/pistachio0812"><img src="https://github-readme-stats.vercel.app/api/?username=pistachio0812&theme=buefy&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/?username=pistachio0812&theme=buefy&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></td>
+<td><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/pistachio0812"><img src="https://github-readme-stats.vercel.app/api/?username=pistachio0812&theme=solarized-light&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/?username=pistachio0812&theme=solarized-light&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></td>
+</tr>
+<tr>
+<td><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/pistachio0812"><img src="https://github-readme-stats.vercel.app/api/?username=pistachio0812&theme=onedark&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/?username=pistachio0812&theme=onedark&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></td>
+<td><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/pistachio0812"><img src="https://github-readme-stats.vercel.app/api/?username=pistachio0812&theme=solarized-dark&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/?username=pistachio0812&theme=solarized-dark&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></td>
+</tr>
+<tr>
+<td><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/pistachio0812"><img src="https://github-readme-stats.vercel.app/api/?username=pistachio0812&theme=algolia&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/?username=pistachio0812&theme=algolia&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></td>
+<td><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/pistachio0812"><img src="https://github-readme-stats.vercel.app/api/?username=pistachio0812&theme=calm&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/?username=pistachio0812&theme=calm&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>源码：</p>
+<pre><code class="lang-markdown"># 用户信息卡片
+| &#123;% ghcard pistachio0812 %&#125; | &#123;% ghcard pistacho0812, theme=vue %&#125; |
+| -- | -- |
+| &#123;% ghcard pistachio0812, theme=buefy %&#125; | &#123;% ghcard pistachio0812, theme=solarized-light %&#125; |
+| &#123;% ghcard pistachio0812, theme=onedark %&#125; | &#123;% ghcard pistachio0812, theme=solarized-dark %&#125; |
+| &#123;% ghcard pistachio0812, theme=algolia %&#125; | &#123;% ghcard pistachio0812, theme=calm %&#125; |
+</code></pre>
+<p>效果示例：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/volantis-x/hexo-theme-volantis"><img src="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></th>
+<th><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/volantis-x/hexo-theme-volantis"><img src="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=vue&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=vue&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/volantis-x/hexo-theme-volantis"><img src="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=buefy&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=buefy&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></td>
+<td><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/volantis-x/hexo-theme-volantis"><img src="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=solarized-light&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=solarized-light&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></td>
+</tr>
+<tr>
+<td><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/volantis-x/hexo-theme-volantis"><img src="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=onedark&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=onedark&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></td>
+<td><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/volantis-x/hexo-theme-volantis"><img src="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=solarized-dark&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=solarized-dark&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></td>
+</tr>
+<tr>
+<td><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/volantis-x/hexo-theme-volantis"><img src="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=algolia&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=algolia&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></td>
+<td><a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/volantis-x/hexo-theme-volantis"><img src="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=calm&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=volantis-x&repo=hexo-theme-volantis&theme=calm&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>源码：</p>
+<pre><code class="lang-markdown"># 仓库信息卡片
+| &#123;% ghcard volantis-x/hexo-theme-volantis %&#125; | &#123;% ghcard volantis-x/hexo-theme-volantis, theme=vue %&#125; |
+| -- | -- |
+| &#123;% ghcard volantis-x/hexo-theme-volantis, theme=buefy %&#125; | &#123;% ghcard volantis-x/hexo-theme-volantis, theme=solarized-light %&#125; |
+| &#123;% ghcard volantis-x/hexo-theme-volantis, theme=onedark %&#125; | &#123;% ghcard volantis-x/hexo-theme-volantis, theme=solarized-dark %&#125; |
+| &#123;% ghcard volantis-x/hexo-theme-volantis, theme=algolia %&#125; | &#123;% ghcard volantis-x/hexo-theme-volantis, theme=calm %&#125; |
+</code></pre>
+<p>更多参数选择：</p>
+<pre><code>
+
+</code></pre><div class="tag link"><a class="link-card" title="GitHub卡片API参数" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/anuraghazra/github-readme-stats"><div class="left"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></div><div class="right"><p class="text">GitHub卡片API参数</p><p class="url">https://github.com/anuraghazra/github-readme-stats</p></div></a></div>
+<h3 id="site"><a href="#site" class="headerlink" title="site"></a>site</h3><p>网站卡片可以显示网站截图、logo、标题、描述，使用方法和友链标签一模一样，唯一的区别是数据文件名称为 <code>sites.yml</code>，可以和友链数据混用，通过分组过滤实现不一样的效果。</p>
+<p>样式：</p>
+<pre><code class="lang-markdown">&#123;% sites only:community_team %&#125;
+</code></pre>
+<h3 id="dropmenu"><a href="#dropmenu" class="headerlink" title="dropmenu"></a>dropmenu</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>容器：</p>
+<pre><code class="lang-markdown">&#123;% menu 前缀（可省略）, 标题, 后缀（可省略） %&#125;
+菜单内容
+&#123;% endmenu %&#125;
+</code></pre>
+<p>菜单内容：</p>
+<p>1.菜单项</p>
+<pre><code class="lang-markdown">&#123;% menuitem 文本, 链接, 图标 %&#125;
+</code></pre>
+<p>2.分割线</p>
+<pre><code class="lang-markdown">&#123;% menuitem hr %&#125;
+</code></pre>
+<p>3.子菜单</p>
+<pre><code class="lang-markdown">&#123;% submenu 嵌套菜单, 图标 %&#125;
+菜单内容
+&#123;% endsubmenu %&#125;
+</code></pre>
+<h4 id="示例效果"><a href="#示例效果" class="headerlink" title="示例效果"></a>示例效果</h4><p>示例1</p>
+<div class="dropmenu-wrapper">
+              <div class="dropmenu">
+                <a>下拉菜单</a>
+                <ul class="list-v">
+                  <li>
+                <a class="menuitem" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" title="主题源码">
+                  <i class="fas fa-file-code fa-fw"></i>
+                  主题源码
+                </a>
+              </li>
+<li>
+                <a class="menuitem" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" title="更新日志">
+                  <i class="fas fa-clipboard-list fa-fw"></i>
+                  更新日志
+                </a>
+              </li>
+<hr>
+<li>
+              <a class="menuitem">
+                <i class=" fas fa-question-circle fa-fw"></i>
+                有疑问？
+              </a>
+              <ul class="list-v">
+                <li>
+                <a class="menuitem" href="/faqs/" title="看 FAQ">
+                  看 FAQ
+                </a>
+              </li>
+<li>
+                <a class="menuitem" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/volantis-docs/" title="看 本站源码">
+                  看 本站源码
+                </a>
+              </li>
+<li>
+                <a class="menuitem" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/issues/" title="提 Issue">
+                  提 Issue
+                </a>
+              </li>
+              </ul>
+            </li>
+                </ul>
+              </div>
+            </div>
+<p>示例2</p>
+<div class="dropmenu-wrapper">
+              <span>这个是</span>
+              <div class="dropmenu">
+                <a>下拉菜单</a>
+                <ul class="list-v">
+                  <li>
+                <a class="menuitem" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" title="主题源码">
+                  <i class="fas fa-file-code fa-fw"></i>
+                  主题源码
+                </a>
+              </li>
+<li>
+                <a class="menuitem" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" title="更新日志">
+                  <i class="fas fa-clipboard-list fa-fw"></i>
+                  更新日志
+                </a>
+              </li>
+<hr>
+<li>
+              <a class="menuitem">
+                <i class=" fas fa-question-circle fa-fw"></i>
+                有疑问？
+              </a>
+              <ul class="list-v">
+                <li>
+                <a class="menuitem" href="/faqs/" title="看 FAQ">
+                  看 FAQ
+                </a>
+              </li>
+<li>
+                <a class="menuitem" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/volantis-docs/" title="看 本站源码">
+                  看 本站源码
+                </a>
+              </li>
+
+              </ul>
+            </li>
+
+                </ul>
+              </div>
+            </div>
+<p>示例3</p>
+<div class="dropmenu-wrapper">
+              <span>这个是</span>
+              <div class="dropmenu">
+                <a>下拉菜单</a>
+                <ul class="list-v">
+                  <li>
+                <a class="menuitem" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" title="主题源码">
+                  <i class="fas fa-file-code fa-fw"></i>
+                  主题源码
+                </a>
+              </li>
+<li>
+                <a class="menuitem" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" title="更新日志">
+                  <i class="fas fa-clipboard-list fa-fw"></i>
+                  更新日志
+                </a>
+              </li>
+<hr>
+<li>
+              <a class="menuitem">
+                <i class=" fas fa-question-circle fa-fw"></i>
+                有疑问？
+              </a>
+              <ul class="list-v">
+                <li>
+                <a class="menuitem" href="/faqs/" title="看 FAQ">
+                  看 FAQ
+                </a>
+              </li>
+<li>
+                <a class="menuitem" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/volantis-docs/" title="看 本站源码">
+                  看 本站源码
+                </a>
+              </li>
+
+              </ul>
+            </li>
+
+                </ul>
+              </div>
+              <span>的示例效果。</span>
+            </div>
+<h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><pre><code class="lang-markdown">示例1
+&#123;% menu 下拉菜单 %&#125;
+&#123;% menuitem 主题源码, https://github.com/volantis-x/hexo-theme-volantis/, fas fa-file-code %&#125;
+&#123;% menuitem 更新日志, https://github.com/volantis-x/hexo-theme-volantis/releases/, fas fa-clipboard-list %&#125;
+&#123;% menuitem hr %&#125;
+&#123;% submenu 有疑问？, fas fa-question-circle %&#125;
+&#123;% menuitem 看 FAQ, /faqs/ %&#125;
+&#123;% menuitem 看 本站源码, https://github.com/volantis-x/volantis-docs/ %&#125;
+&#123;% menuitem 提 Issue, https://github.com/volantis-x/hexo-theme-volantis/issues/ %&#125;
+&#123;% endsubmenu %&#125;
+&#123;% endmenu %&#125;
+示例2
+&#123;% menu 这个是, 下拉菜单 %&#125;
+（同上）
+&#123;% endmenu %&#125;
+示例3
+&#123;% menu 这个是, 下拉菜单, 的示例效果。 %&#125;
+（同上）
+&#123;% endmenu %&#125;
+</code></pre>
+<h3 id="tab"><a href="#tab" class="headerlink" title="tab"></a>tab</h3><p>此插件移植自Next</p>
+<p>语法：</p>
+<pre><code class="lang-markdown">&#123;% tabs 页面内不重复的ID %&#125;
+<!-- tab 栏目1 -->
+内容
+<!-- endtab -->
+<!-- tab 栏目2 -->
+内容
+<!-- endtab -->
+&#123;% endtabs %&#125;
+</code></pre>
+<p>演示效果：</p>
+<div class="tabs" id="tab-id"><ul class="nav-tabs"><li class="tab active"><a class="#tab-id-1">栏目1</a></li><li class="tab"><a class="#tab-id-2">栏目2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-id-1"><p>这是栏目1</p></div><div class="tab-pane" id="tab-id-2"><p>这是栏目2</p></div></div></div>
+<p>源码：</p>
+<pre><code class="lang-markdown">&#123;% tabs tab-id %&#125;
+
+<!-- tab 栏目1 -->
+
+这是栏目1
+
+<!-- endtab -->
+
+<!-- tab 栏目2 -->
+
+这是栏目2
+
+<!-- endtab -->
+
+&#123;% endtabs %&#125;
+</code></pre>
 
   
   
@@ -1103,10 +1378,10 @@ rounded, circle
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-07T21:22:27+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-08T22:08:25+08:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：May 7, 2022</p>
+    <p>更新于：May 8, 2022</p>
   </a>
 </div>
 
@@ -1227,7 +1502,7 @@ rounded, circle
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#text"><span class="toc-text">text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#span"><span class="toc-text">span</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%A9%E8%89%B2%E6%96%87%E5%AD%97"><span class="toc-text">彩色文字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B6%85%E5%A4%A7%E5%8F%B7%E6%96%87%E5%AD%97"><span class="toc-text">超大号文字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p"><span class="toc-text">p</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%A9%E8%89%B2%E6%96%87%E5%AD%97-1"><span class="toc-text">彩色文字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B6%85%E5%A4%A7%E5%8F%B7%E6%96%87%E5%AD%97-1"><span class="toc-text">超大号文字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#note"><span class="toc-text">note</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#checkbox"><span class="toc-text">checkbox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#radio"><span class="toc-text">radio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#timeline"><span class="toc-text">timeline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#link"><span class="toc-text">link</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#button"><span class="toc-text">button</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%8C%89%E9%92%AE"><span class="toc-text">基础按钮</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#text"><span class="toc-text">text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#span"><span class="toc-text">span</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%A9%E8%89%B2%E6%96%87%E5%AD%97"><span class="toc-text">彩色文字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B6%85%E5%A4%A7%E5%8F%B7%E6%96%87%E5%AD%97"><span class="toc-text">超大号文字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p"><span class="toc-text">p</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%A9%E8%89%B2%E6%96%87%E5%AD%97-1"><span class="toc-text">彩色文字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B6%85%E5%A4%A7%E5%8F%B7%E6%96%87%E5%AD%97-1"><span class="toc-text">超大号文字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#note"><span class="toc-text">note</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#checkbox"><span class="toc-text">checkbox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#radio"><span class="toc-text">radio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#timeline"><span class="toc-text">timeline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#link"><span class="toc-text">link</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#button"><span class="toc-text">button</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%8C%89%E9%92%AE"><span class="toc-text">基础按钮</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ghcard"><span class="toc-text">ghcard</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#site"><span class="toc-text">site</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dropmenu"><span class="toc-text">dropmenu</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E6%95%88%E6%9E%9C"><span class="toc-text">示例效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%90%E7%A0%81"><span class="toc-text">源码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tab"><span class="toc-text">tab</span></a></li></ol>
     </div>
   </section>
 

@@ -6,7 +6,7 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-05-07T00:52:34.489Z</updated>
+  <updated>2022-05-08T12:16:01.854Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Concat和add的区别</title>
+    <link href="http://pistachio0812.github.io/CN/concat_add/"/>
+    <id>http://pistachio0812.github.io/CN/concat_add/</id>
+    <published>2022-05-08T09:05:28.481Z</published>
+    <updated>2022-05-08T12:16:01.854Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>提醒幸福</title>
@@ -44,7 +67,7 @@
     <link href="http://pistachio0812.github.io/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/"/>
     <id>http://pistachio0812.github.io/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/</id>
     <published>2022-05-07T00:35:11.011Z</published>
-    <updated>2022-05-07T13:22:27.079Z</updated>
+    <updated>2022-05-08T14:08:25.467Z</updated>
     
     
       
@@ -482,31 +505,6 @@
     
     
     <category term="论文解读" scheme="http://pistachio0812.github.io/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CenterNet详解</title>
-    <link href="http://pistachio0812.github.io/CN/centernet/"/>
-    <id>http://pistachio0812.github.io/CN/centernet/</id>
-    <published>2022-04-18T12:14:53.445Z</published>
-    <updated>2022-04-18T12:28:24.023Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
-    
-    
-    <category term="论文详解" scheme="http://pistachio0812.github.io/tags/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/"/>
     
   </entry>
   
