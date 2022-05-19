@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv="x-dns-prefetch-control" content="on">
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>分类：今日故事 - 相思似海深旧事如天远</title>
+  <title>FPS计算 - 相思似海深旧事如天远</title>
+  
+    <meta name="keywords" content="FPS">
   
 
   
@@ -321,7 +321,7 @@
       <div id="l_cover">
   
     
-        <div id="full" class="cover-wrapper  search" style="display: none;">
+        <div id="full" class="cover-wrapper post search" style="display: none;">
           
             <div id="cover-backstretch"></div>
           
@@ -391,282 +391,370 @@
         <div class="body-wrapper" id="pjax-container">
           
 
-
-
 <div class="l_main">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        FPS计算
+      </h1>
+      <div class="new-meta-box">
         
+          
+            
+<div class="new-meta-item author">
+  <a class="author" target="_blank" href="https://blog.csdn.net/qq_38452951" rel="external nofollow noopener noreferrer">
+    <img no-lazy src="https://img0.baidu.com/it/u=178892670,2966992691&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=400">
+    <p>阿月浑子</p>
+  </a>
+</div>
+
           
         
           
-        
+            
+  <div class="new-meta-item category">
+    <a class="notlink">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/CV/">CV</a>
+    </a>
+  </div>
+
+
           
         
           
-        
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：May 19, 2022</p>
+  </a>
+</div>
+
           
         
-      
-    
-    
-      
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/%E6%8F%90%E9%86%92%E5%B9%B8%E7%A6%8F/">
-        提醒幸福
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        我们从小就习惯了在提醒中过日子。天气刚有一丝风吹草动，妈妈就说，别忘了多穿衣服。才相识了一个朋友，爸爸就说，小心他是个骗子。你取得了一点成功，还没容得乐出声来，所有关切着你的人一起说，别骄傲！你沉浸在欢快中的时候，自己不停地对自己说：「千万不可太高兴，苦难也许马上就要降临……」我们已经习惯了在提醒中过日子。看得见的恐惧和看不见的恐惧始终像乌鸦盘旋在头顶。
-在皓月当空的良宵，提醒会走出来对你说...
-      
-    
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：1.2k字</p>
+    </a>
   </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：5分钟</p>
+    </a>
+  </div>
+
+
+          
         
-        <time>2022-05-07</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/">今日故事</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class="notlink">
+      
+      <div id="lc-pv" data-title="FPS计算" data-path="/CN/FPS/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <p>参考博文：</p>
+<p>1.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://baijiahao.baidu.com/s?id=1714660168795599325&amp;wfr=spider&amp;for=pc">帧率(FPS)计算的几种方法总结 (baidu.com)</a></p>
+<p>帧率(FPS， frame per second)计算是游戏编程中常见的一个话题，因为表现在画面刷新与视觉感官上，所以相对而言，帧率非常影响用户体验。这也是很多大型3D游戏所要提升的重要点，意味着你要不断优化渲染速度与性能，不断提升画面质量。以下是几种计算帧率fps的方法。</p>
+<h3 id="固定时间帧数法"><a href="#固定时间帧数法" class="headerlink" title="固定时间帧数法"></a>固定时间帧数法</h3><p><strong>其实这个方法的核心是1s内刷新了多少帧，完全不考虑其他设备，相对参照来计算帧率，最准的方法也可以叫做dps，即data per second.</strong></p>
+<p>帧率计算公式：</p>
+<pre><code class="lang-python">fps = frame / elapsedTime
+</code></pre>
+<p>如果记录固定时间内的帧数，就可以计算出同步率。此种方法用得较多。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-c">int fps()
+&#123;
+    static int fps = 0;
+    static int startTime = getTime(); //ms
+    static int frameCount = 0;
+
+    ++frameCount;
+
+    int curTime = getTime();
+    if(curTime - startTime &gt; 1000)//取固定时间为1s
+    &#123;
+        fps = frameCount;
+        frameCount = 0;
+        startTime = curTime;
+    &#125;
+    return fps;
+&#125;
+</code></pre>
+<p>这个固定时间为1s，其实本文的获取方法是精度比较低，也就是没有采用高精度获取时间戳的方法，在一些要求数据比较高的方法中，最好采用高精度获取时间的方法。</p>
+<p>另一种实现方式如下：</p>
+<pre><code class="lang-c">int fps(int deltatime)
+&#123;
+    static int fps = 0;
+    static int timeLeft = 1000; //取固定时间间隔为1s
+    static int frameCount = 0;
+
+    ++frameCount;
+    timeLeft -= deltaTime;
+    if(timeLeft &lt; 0)
+    &#123;
+        fps = frameCount;
+        frameCount = 0; //重新计算
+        timeLeft = 1000;
+    &#125;
+    return fps;
+&#125;
+</code></pre>
+<h3 id="固定帧数时间法"><a href="#固定帧数时间法" class="headerlink" title="固定帧数时间法"></a>固定帧数时间法</h3><p>帧率计算公式为：</p>
+<pre><code class="lang-python">fps = frameNum / elapsedTime
+</code></pre>
+<p>如果每隔固定的帧数，计算帧数使用的时间，也可求出帧率。此种方法使用得较少。这个方法其实已经不能成为实时刷新的，因为帧率最好能够再1s内，如果说固定的帧数计算帧数使用的时间，那么我1s的帧率可能得等到10s后才能采集数据完毕计算出来结果。但是不可置否，这个帧率会比较稳定，变化跳动可能不会那么大。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-c">int fps()
+&#123;
+    static int fps = 0;
+    static int frameCount = 0;
+    static int startTime = getTime();//ms
+
+    ++frameCount;
+
+    if(frameCount &gt;= 100)//取固定帧数为100帧
+    &#123;
+        int curTime = getTime();
+        fps = frameCount / (curTime - startTime) * 1000;
+        startTime = curTime;
+        frameCount = 0;
+    &#125;
+    return fps;
+&#125;
+</code></pre>
+<h3 id="实时计算法"><a href="#实时计算法" class="headerlink" title="实时计算法"></a>实时计算法</h3><p>实时计算法直接使用上一帧的时间间隔进行计算，结果具有实时性，但平滑性不好。这是刷新最快的，但是很明显这个帧率极其不稳定的，因为帧与帧之间的间隔总是不会那么稳定。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-c">int fps(int deltaTime)//ms
+&#123;
+    int fps = static_cast&lt;int&gt;(1.f / deltaTime * 1000);
+    //别忘了先转换为浮点数，否则会有精度损失
+    return fps;
+&#125;
+</code></pre>
+<h3 id="总平均法"><a href="#总平均法" class="headerlink" title="总平均法"></a>总平均法</h3><p>总平均法使用全局帧数除以全局时间，以求出帧率。这个刷新就更慢了，这个方法的使用可能是放在一些对帧率这个参数要求没那么高的场景中。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-c">int startTime = getTime();
+
+int fps()
+&#123;
+    static int frameCount = 0;
+
+    ++frameCount;
+
+    int deltaTime = getTime() - startTime();
+    int fps = static_cast&lt;int&gt;(frameCount * 1.f / deltaTime * 1000);
+    //别忘了先转换为浮点数，否则会有精度损失
+    return fps;
+&#125;
+</code></pre>
+<h3 id="精确采样法"><a href="#精确采样法" class="headerlink" title="精确采样法"></a>精确采样法</h3><p>精确采样法采样前N个帧，然后计算平均值。此种方法需要额外的内存空间，所以不常用。一般而言，大都数实验场景中不会用如此复杂的方法。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-c">int fps(int deltaTime)//ms
+&#123;
+    static std::queue&lt;int&gt; q;
+    static int sumDuration = 0; //ms
+
+    int fps = 0;
+    if(q.size() &lt; 100)//设置样本数为100
+    &#123;
+        sumDuration += deltaTime;
+        q.push(deltaTime);
+        fps = statci_cast&lt;int&gt;(q.size() * 1.f / sumDuration * 1000.f);
+        //别忘了先转换为浮点数，否则会有精度损失
+    &#125;
+    else
+    &#123;
+        sumDuration -= q.front();
+        sumDuration += deltaTime;
+        sumDuration.pop();
+        sumDuration.push(deltaTime);
+        fps = static_cast&lt;int&gt;(100.f / sumDuration * 1000.f);
+        //别忘了先转换为浮点数，否则会有精度损失
+    &#125;
+    return fps;
+&#125;
+</code></pre>
+<h3 id="平均采样法"><a href="#平均采样法" class="headerlink" title="平均采样法"></a>平均采样法</h3><p>平均采样法利用上次的统计结果，克服了精确采样法需要使用额外空间的缺点。此种方法较常用。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-c">int fps(int deltaTime)//ms
+&#123;
+    static float avgDuration = 0.f;
+    static alpha = 1.f / 100.f;//采样数设置为100
+    static int frameCount = 0;
+
+    ++frameCount;
+
+    int fps = 0;
+    if(1 == frameCount)
+    &#123;
+        avgDuration = static_cast&lt;float&gt;(deltaTime);
+    &#125;
+    else
+    &#123;
+        avgDuration = avgDuration * (1 - alpha) + deltaTime * alpha;
+    &#125;
+    fps = static_cast&lt;int&gt;(1.f / avgDuration * 1000);
+    return fps;
+&#125;
+</code></pre>
+<p>帧率的计算应该来说不能影响线程，进程中的性能，不要把这部分代码放在你的业务逻辑中，这样子其实又包含了你业务逻辑执行完毕后的运行时间，显得有点臃肿，并且代码不是那么优雅。最好是创建一个线程去计算帧率，这样会显得比较优雅。</p>
+
+  
+  
+    
+    <div class="footer">
       
-        <div>
-          <a class="readmore" href="/CN/%E6%8F%90%E9%86%92%E5%B9%B8%E7%A6%8F/">
-            阅读全文
-          </a>
+      
+      
+        <div class="copyright">
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href="http://pistachio0812.github.io/CN/FPS/">http://pistachio0812.github.io/CN/FPS/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-19T08:55:57+08:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：May 19, 2022</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/%E6%9C%AA%E5%A9%9A%E5%A6%BB/">
-        未婚妻
-      </a>
-    </h2>
-  
-  <div class="md">
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/FPS/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>FPS</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        度过了几天假期之后，我要回巴黎了。
-当我走进车站，火车已挤满了旅客。大多数的车门前，都站着一个男人或一个妇女，好像是在拦阻后来的旅客。
-尽管如此，我还是踮起脚尖向每一个车厢内部观看，希望能找到一个座位。我发现靠近车门坐着的旅客旁边，有一个空座位，但上面放着两个大篮子，里面的鸡子和鸭子把头伸在篮子外面。
-我犹豫了好一会之后，决定走进车厢。我说很对不起了，让我来把篮子移开。可是一位穿着工作服的农...
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/CN/FPS/&title=FPS计算 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/CN/FPS/&title=FPS计算 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/CN/FPS/&title=FPS计算 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time>2022-04-22</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/">今日故事</a>
-        
-      </div>
-      
-        <div>
-          <a class="readmore" href="/CN/%E6%9C%AA%E5%A9%9A%E5%A6%BB/">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
 </div>
 
-          </div>
+
+
         
       
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/">
-        马裤先生
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        火车在北平东站还没开，同屋那位睡上铺的穿马裤，戴平光的眼镜，青缎子洋服上身，胸袋插着小楷羊毫，足登青绒快靴的先生发了问：「你也是从北平上车？」很和气的。
-火车还没动呢，不从北平上车，由哪儿呢？我只好反攻了：「你从哪儿上车？」
-他没言语。看了看铺位，用尽全身的力气喊了声，「茶房！」
-茶房跑来了。
-「拿毯子！」马裤先生喊。
-「请少待一会儿，先生。」茶房很和气的说，
-「拿枕头！」
-「先生，您等我忙...
-      
-    
+    </div>
   </div>
+
+
   
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time>2022-04-18</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/">今日故事</a>
-        
-      </div>
+  
+
+  
+    <div class="prev-next">
       
-        <div>
-          <a class="readmore" href="/CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/">
-            阅读全文
-          </a>
-        </div>
+      
+        <a class="next" href="/en/%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/">
+          <p class="title">用两个栈实现队列<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">1.用两个栈实现队列
+题目：剑指 Offer 09. 用两个栈实现队列 - 力扣（LeetCode）
+题解：面试题09. 用两个栈实现队列（清晰图解） - 用两个栈实现队列 - 力扣（LeetC...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class="fas fa-comments"></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/%E7%83%9F%E4%B9%8B%E5%A4%96/">
-        烟之外
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        在涛声中唤你的名字，而你的名字已在千帆之外潮来潮去左边的鞋印才下午右边的鞋印已黄昏了六月原是一本很感伤的书结局如此之凄美——落日西沉
-你依然凝视那人眼中展示的一片纯白他跪向你，向昨日那朵美了整个下午的云海哟，为何在众灯之中独点亮那一盏茫然还能抓住什么呢？你那曾被称为云的眸子现有人叫作烟
-
-      
-    
-  </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time>2022-04-17</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/">今日故事</a>
-        
-      </div>
-      
-        <div>
-          <a class="readmore" href="/CN/%E7%83%9F%E4%B9%8B%E5%A4%96/">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/">
-        扁平时代的写作·节选
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        ​        一个「扁平」的世界里众声喧沸。从原则上说，由编辑、审查、批准一类关卡所组成的文化权力体系几近瓦解，每一个IP地址自由发声，都可能成为强大的文化媒体。英才惨遭埋没的可能，伪学与赝品一手遮天的可能，在传统意义上都会减少。全民批评权的运用，也是一种有益的破坏性检验。不过问题的另一面，是胡说比深思容易，粗品比精品多产，优秀者至少没有数量上的优势。一旦优劣平权成了优劣俱放，文化产量中...
-      
-    
-  </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time>2022-04-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/">今日故事</a>
-        
-      </div>
-      
-        <div>
-          <a class="readmore" href="/CN/%E6%89%81%E5%B9%B3%E6%97%B6%E4%BB%A3%E7%9A%84%E5%86%99%E4%BD%9C/">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
 
 
-    
-  
+
+
+
+
 </div>
 <aside class="l_side">
   
@@ -674,234 +762,28 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class="content">
-    
-      
-        <a class="avatar flat-box rectangle" href="/about/">
-          <img no-lazy src="https://img1.baidu.com/it/u=4126676216,761179531&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500">
-        </a>
-      
-    
-    
-      <div class="text">
-        
-        
-        
-          <p><span id="jinrishici-sentence">南有乔木，不可休思。</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div">
     
   <header>
     
-      <a href="/blog/categories/"><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class="name">文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
     
   </header>
 
 
     <div class="content">
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box" title="/categories/CV/" href="/categories/CV/" id="categoriesCV"><div class="name">CV</div><div class="badge">(2)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" href="/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" id="categoriesHexoE58D9AE5AEA2E690ADE5BBBA"><div class="name">Hexo博客搭建</div><div class="badge">(3)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/Linux/" href="/categories/Linux/" id="categoriesLinux"><div class="name">Linux</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/MySQL/" href="/categories/MySQL/" id="categoriesMySQL"><div class="name">MySQL</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/cv/" href="/categories/cv/" id="categoriescv"><div class="name">cv</div><div class="badge">(17)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/github/" href="/categories/github/" id="categoriesgithub"><div class="name">github</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/novel/" href="/categories/novel/" id="categoriesnovel"><div class="name">novel</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/programming/" href="/categories/programming/" id="categoriesprogramming"><div class="name">programming</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/pytorch/" href="/categories/pytorch/" id="categoriespytorch"><div class="name">pytorch</div><div class="badge">(2)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/" href="/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/" id="categoriesE4BB8AE697A5E69585E4BA8B"><div class="name">今日故事</div><div class="badge">(5)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" id="categoriesE5ADA6E4B9A0E7BD91E7AB99"><div class="name">学习网站</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" id="categoriesE79BAEE6A087E6A380E6B58B"><div class="name">目标检测</div><div class="badge">(2)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" href="/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" id="categoriesE7AE97E6B395E7BB83E4B9A0"><div class="name">算法练习</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/" href="/categories/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/" id="categoriesE8AEBAE69687E8AFA6E8A7A3"><div class="name">论文详解</div><div class="badge">(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E6%97%B6%E9%97%B4%E5%B8%A7%E6%95%B0%E6%B3%95"><span class="toc-text">固定时间帧数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%B8%A7%E6%95%B0%E6%97%B6%E9%97%B4%E6%B3%95"><span class="toc-text">固定帧数时间法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97%E6%B3%95"><span class="toc-text">实时计算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E5%B9%B3%E5%9D%87%E6%B3%95"><span class="toc-text">总平均法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B2%BE%E7%A1%AE%E9%87%87%E6%A0%B7%E6%B3%95"><span class="toc-text">精确采样法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E9%87%87%E6%A0%B7%E6%B3%95"><span class="toc-text">平均采样法</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile ">
-    
-  <header>
-    
-      <a href="/blog/tags/"><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class="name">热门标签</span></a>
-    
-  </header>
-
-
-    <div class="content">
-      <a href="/tags/Attention/" style="font-size: 14px; color: #43e97b">Attention</a> <a href="/tags/C/" style="font-size: 14px; color: #43e97b">C</a> <a href="/tags/FPS/" style="font-size: 14px; color: #43e97b">FPS</a> <a href="/tags/GAN/" style="font-size: 14px; color: #43e97b">GAN</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #3ef1a9">Hexo</a> <a href="/tags/Liunx-system/" style="font-size: 14px; color: #43e97b">Liunx system</a> <a href="/tags/Note/" style="font-size: 14px; color: #43e97b">Note</a> <a href="/tags/SSD/" style="font-size: 14px; color: #43e97b">SSD</a> <a href="/tags/github/" style="font-size: 14px; color: #43e97b">github</a> <a href="/tags/yolov5/" style="font-size: 14px; color: #43e97b">yolov5</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/" style="font-size: 14px; color: #43e97b">代码复现</a> <a href="/tags/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" style="font-size: 14px; color: #43e97b">使用指南</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 14px; color: #3ef1a9">博客搭建</a> <a href="/tags/%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97/" style="font-size: 14px; color: #43e97b">参数计算</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px; color: #43e97b">可视化</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" style="font-size: 14px; color: #43e97b">学习网站</a> <a href="/tags/%E6%84%9F%E5%8F%97%E9%87%8E/" style="font-size: 14px; color: #43e97b">感受野</a> <a href="/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" style="font-size: 14px; color: #43e97b">损失函数</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" style="font-size: 14px; color: #43e97b">数据处理</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 14px; color: #43e97b">文档</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #43e97b">机器学习</a> <a href="/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" style="font-size: 14px; color: #43e97b">激活函数</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" style="font-size: 14px; color: #43e97b">目标检测</a> <a href="/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/" style="font-size: 14px; color: #3ef1a9">论文解读</a> <a href="/tags/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/" style="font-size: 14px; color: #38f9d7">论文详解</a>
-    </div>
-  </section>
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class="name">站点信息</span>
-    
-  </header>
-
-
-  <div class="content">
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>45 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2022/03/11'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>89.2k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Thu May 19 2022 11:08:21 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2022-05-19 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2022-05-19 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
 
   
 
 
 </aside>
+
 
 
 		  
@@ -910,8 +792,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="FPS计算";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

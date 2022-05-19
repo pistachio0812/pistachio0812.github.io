@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://pistachio0812.github.io/CN/FPS/</loc>
+        <lastmod>2022-05-19T00:55:57.292Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/en/%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</loc>
+        <lastmod>2022-05-18T01:25:05.277Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://pistachio0812.github.io/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/</loc>
         <lastmod>2022-05-08T14:08:25.467Z</lastmod>
         <changefreq>weekly</changefreq>
