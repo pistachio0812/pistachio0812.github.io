@@ -6,7 +6,7 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-05-19T00:55:57.292Z</updated>
+  <updated>2022-05-19T12:56:11.882Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Darknet53</title>
+    <link href="http://pistachio0812.github.io/CN/Darknet53/"/>
+    <id>http://pistachio0812.github.io/CN/Darknet53/</id>
+    <published>2022-05-19T12:28:51.228Z</published>
+    <updated>2022-05-19T12:56:11.882Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CV" scheme="http://pistachio0812.github.io/categories/CV/"/>
+    
+    
+    <category term="darknet" scheme="http://pistachio0812.github.io/tags/darknet/"/>
+    
+  </entry>
   
   <entry>
     <title>FPS计算</title>
@@ -480,29 +505,6 @@
     
     
     <category term="可视化" scheme="http://pistachio0812.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据集介绍</title>
-    <link href="http://pistachio0812.github.io/CN/%E6%95%B0%E6%8D%AE%E9%9B%86/"/>
-    <id>http://pistachio0812.github.io/CN/%E6%95%B0%E6%8D%AE%E9%9B%86/</id>
-    <published>2022-04-19T03:12:24.034Z</published>
-    <updated>2022-04-19T14:05:51.108Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
-    
     
   </entry>
   
