@@ -9,6 +9,30 @@
 
 
     <url>
+        <loc>http://pistachio0812.github.io/CN/np_cumsum/</loc>
+        <lastmod>2022-06-12T09:34:38.778Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/CN/contiguous/</loc>
+        <lastmod>2022-06-12T07:45:21.297Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/CN/RFBNet/</loc>
+        <lastmod>2022-06-01T02:12:32.163Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://pistachio0812.github.io/CN/Darknet53/</loc>
         <lastmod>2022-05-19T12:56:11.882Z</lastmod>
         <changefreq>weekly</changefreq>
