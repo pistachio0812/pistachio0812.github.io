@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv="x-dns-prefetch-control" content="on">
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>分类：论文详解 - 相思似海深旧事如天远</title>
+  <title>nn.relu和F.relu的区别 - 相思似海深旧事如天远</title>
+  
+    <meta name="keywords" content="relu">
   
 
   
@@ -321,7 +321,7 @@
       <div id="l_cover">
   
     
-        <div id="full" class="cover-wrapper  search" style="display: none;">
+        <div id="full" class="cover-wrapper post search" style="display: none;">
           
             <div id="cover-backstretch"></div>
           
@@ -391,84 +391,259 @@
         <div class="body-wrapper" id="pjax-container">
           
 
-
-
 <div class="l_main">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        nn.relu和F.relu的区别
+      </h1>
+      <div class="new-meta-box">
         
           
+            
+<div class="new-meta-item author">
+  <a class="author" target="_blank" href="https://blog.csdn.net/qq_38452951" rel="external nofollow noopener noreferrer">
+    <img no-lazy src="https://img0.baidu.com/it/u=178892670,2966992691&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=400">
+    <p>阿月浑子</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title">
-      <a href="/CN/YOLOV5/">
-        YOLOV5详解
-      </a>
-    </h2>
-  
-  <div class="md">
-    
-      
-        参考博文：
-1.pytorch搭建yolov5
-2.yolov5-pytorch
-3.以YOLOV4为例详解anchor_based目标检测训练过程
-整体结构解析
-在学习YoloV5之前，我们需要对YoloV5所作的工作有一定的了解，这有助于我们后面去了解网络的细节。
-和之前版本的Yolo类似，整个YoloV5可以依然可以分为三个部分，分别是Backbone，FPN以及Yolo Head。
-...
-      
-    
+          
+            
+  <div class="new-meta-item category">
+    <a class="notlink">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/pytorch/">pytorch</a>
+    </a>
   </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
+
+
+          
         
-        <time>2022-05-05</time>
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jun 20, 2022</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/">论文详解</a>
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：355字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：1分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class="notlink">
+      
+      <div id="lc-pv" data-title="nn.relu和F.relu的区别" data-path="/CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <p>参考博文：</p>
+<p>1.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/u011501388/article/details/86602275">PyTorch之nn.ReLU与F.ReLU的区别</a></p>
+<p>示例代码：</p>
+<pre><code class="lang-python">import torch.nn as nn
+import torch.nn.functional as F
+import torch.nn as nn
+
+class AlexNet_1(nn.Module):
+
+    def __init__(self, num_classes=n):
+        super(AlexNet, self).__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=True),
+         )
+
+    def forward(self, x):
+        x = self.features(x)
+
+class AlexNet_2(nn.Module):
+
+    def __init__(self, num_classes=n):
+        super(AlexNet, self).__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1),
+            nn.BatchNorm2d(64),
+         )
+
+    def forward(self, x):
+        x = self.features(x)
+        x = F.ReLU(x)
+</code></pre>
+<p>在如上网络中，AlexNet_1与AlexNet_2实现的结果是一致的，但是可以看到将ReLU层添加到网络有两种不同的实现，即nn.ReLU和F.ReLU两种实现方法。<br>其中nn.ReLU作为一个层结构，必须添加到nn.Module容器中才能使用，而F.ReLU则作为一个函数调用，看上去作为一个函数调用更方便更简洁。具体使用哪种方式，取决于编程风格。在PyTorch中,nn.X都有对应的函数版本F.X，但是并不是所有的F.X均可以用于forward或其它代码段中，因为当网络模型训练完毕时，在存储model时，在forward中的F.X函数中的参数是无法保存的。也就是说，在forward中，使用的F.X函数一般均没有状态参数，比如F.ReLU，F.avg_pool2d等，均没有参数，它们可以用在任何代码片段中。</p>
+
+  
+  
+    
+    <div class="footer">
       
-        <div>
-          <a class="readmore" href="/CN/YOLOV5/">
-            阅读全文
-          </a>
+      
+      
+        <div class="copyright">
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href="http://pistachio0812.github.io/CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/">http://pistachio0812.github.io/CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-06-20T11:40:38+08:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jun 20, 2022</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/relu/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>relu</p></a></div>
 
 
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/&title=nn.relu和F.relu的区别 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/&title=nn.relu和F.relu的区别 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/&title=nn.relu和F.relu的区别 - 相思似海深旧事如天远&summary=">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class="next" href="/CN/np_cumsum/">
+          <p class="title">np.cumsum()函数<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">参考博文：
+1.numpy cumsum()函数简介 - zhengcixi - 博客园 (cnblogs.com)
+2.numpy.cumsum — NumPy v1.10 Manual (s...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class="fas fa-comments"></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class="l_side">
   
@@ -476,236 +651,14 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class="content">
-    
-      
-        <a class="avatar flat-box rectangle" href="/about/">
-          <img no-lazy src="https://img1.baidu.com/it/u=4126676216,761179531&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500">
-        </a>
-      
-    
-    
-      <div class="text">
-        
-        
-        
-          <p><span id="jinrishici-sentence">南有乔木，不可休思。</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
-    
-  <header>
-    
-      <a href="/blog/categories/"><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class="name">文章分类</span></a>
-    
-  </header>
 
 
-    <div class="content">
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box" title="/categories/CV/" href="/categories/CV/" id="categoriesCV"><div class="name">CV</div><div class="badge">(4)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" href="/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" id="categoriesHexoE58D9AE5AEA2E690ADE5BBBA"><div class="name">Hexo博客搭建</div><div class="badge">(3)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/Linux/" href="/categories/Linux/" id="categoriesLinux"><div class="name">Linux</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/MySQL/" href="/categories/MySQL/" id="categoriesMySQL"><div class="name">MySQL</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/cv/" href="/categories/cv/" id="categoriescv"><div class="name">cv</div><div class="badge">(18)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/github/" href="/categories/github/" id="categoriesgithub"><div class="name">github</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/novel/" href="/categories/novel/" id="categoriesnovel"><div class="name">novel</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/programming/" href="/categories/programming/" id="categoriesprogramming"><div class="name">programming</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/python/" href="/categories/python/" id="categoriespython"><div class="name">python</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/pytorch/" href="/categories/pytorch/" id="categoriespytorch"><div class="name">pytorch</div><div class="badge">(3)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/" href="/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/" id="categoriesE4BB8AE697A5E69585E4BA8B"><div class="name">今日故事</div><div class="badge">(5)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" id="categoriesE5ADA6E4B9A0E7BD91E7AB99"><div class="name">学习网站</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" id="categoriesE79BAEE6A087E6A380E6B58B"><div class="name">目标检测</div><div class="badge">(2)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" href="/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" id="categoriesE7AE97E6B395E7BB83E4B9A0"><div class="name">算法练习</div><div class="badge">(1)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/" href="/categories/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/" id="categoriesE8AEBAE69687E8AFA6E8A7A3"><div class="name">论文详解</div><div class="badge">(1)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile ">
-    
-  <header>
-    
-      <a href="/blog/tags/"><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class="name">热门标签</span></a>
-    
-  </header>
-
-
-    <div class="content">
-      <a href="/tags/Attention/" style="font-size: 14px; color: #43e97b">Attention</a> <a href="/tags/C/" style="font-size: 14px; color: #43e97b">C</a> <a href="/tags/FPS/" style="font-size: 14px; color: #43e97b">FPS</a> <a href="/tags/GAN/" style="font-size: 14px; color: #43e97b">GAN</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #3ef1a9">Hexo</a> <a href="/tags/Liunx-system/" style="font-size: 14px; color: #43e97b">Liunx system</a> <a href="/tags/Note/" style="font-size: 14px; color: #43e97b">Note</a> <a href="/tags/RFBNet/" style="font-size: 14px; color: #43e97b">RFBNet</a> <a href="/tags/SSD/" style="font-size: 14px; color: #43e97b">SSD</a> <a href="/tags/contiguous/" style="font-size: 14px; color: #43e97b">contiguous</a> <a href="/tags/cumsum/" style="font-size: 14px; color: #43e97b">cumsum</a> <a href="/tags/darknet/" style="font-size: 14px; color: #43e97b">darknet</a> <a href="/tags/github/" style="font-size: 14px; color: #43e97b">github</a> <a href="/tags/relu/" style="font-size: 14px; color: #43e97b">relu</a> <a href="/tags/yolov5/" style="font-size: 14px; color: #43e97b">yolov5</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/" style="font-size: 14px; color: #43e97b">代码复现</a> <a href="/tags/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" style="font-size: 14px; color: #43e97b">使用指南</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 14px; color: #3ef1a9">博客搭建</a> <a href="/tags/%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97/" style="font-size: 14px; color: #43e97b">参数计算</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px; color: #43e97b">可视化</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99/" style="font-size: 14px; color: #43e97b">学习网站</a> <a href="/tags/%E6%84%9F%E5%8F%97%E9%87%8E/" style="font-size: 14px; color: #43e97b">感受野</a> <a href="/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" style="font-size: 14px; color: #43e97b">损失函数</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" style="font-size: 14px; color: #43e97b">数据处理</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 14px; color: #43e97b">文档</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #43e97b">机器学习</a> <a href="/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" style="font-size: 14px; color: #43e97b">激活函数</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" style="font-size: 14px; color: #43e97b">目标检测</a> <a href="/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/" style="font-size: 14px; color: #3ef1a9">论文解读</a> <a href="/tags/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/" style="font-size: 14px; color: #38f9d7">论文详解</a>
-    </div>
-  </section>
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class="name">站点信息</span>
-    
-  </header>
-
-
-  <div class="content">
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>50 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2022/03/11'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>91.2k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Mon Jun 20 2022 11:41:51 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2022-06-20 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2022-06-20 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
 
   
 
 
 </aside>
+
 
 
 		  
@@ -714,8 +667,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="nn.relu和F.relu的区别";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

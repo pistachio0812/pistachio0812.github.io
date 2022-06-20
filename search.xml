@@ -11320,4 +11320,49 @@ x.transpose(0, 1).contiguous().is_contiguous() # True
         <tag>cumsum</tag>
       </tags>
   </entry>
+  <entry>
+    <title>nn.relu和F.relu的区别</title>
+    <url>/CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://blog.csdn.net/u011501388/article/details/86602275">PyTorch之nn.ReLU与F.ReLU的区别</a></p>
+<p>示例代码：</p>
+<pre><code class="lang-python">import torch.nn as nn
+import torch.nn.functional as F
+import torch.nn as nn
+
+class AlexNet_1(nn.Module):
+
+    def __init__(self, num_classes=n):
+        super(AlexNet, self).__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=True),
+         )
+
+    def forward(self, x):
+        x = self.features(x)
+
+class AlexNet_2(nn.Module):
+
+    def __init__(self, num_classes=n):
+        super(AlexNet, self).__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1),
+            nn.BatchNorm2d(64),
+         )
+
+    def forward(self, x):
+        x = self.features(x)
+        x = F.ReLU(x)
+</code></pre>
+<p>在如上网络中，AlexNet_1与AlexNet_2实现的结果是一致的，但是可以看到将ReLU层添加到网络有两种不同的实现，即nn.ReLU和F.ReLU两种实现方法。<br>其中nn.ReLU作为一个层结构，必须添加到nn.Module容器中才能使用，而F.ReLU则作为一个函数调用，看上去作为一个函数调用更方便更简洁。具体使用哪种方式，取决于编程风格。在PyTorch中,nn.X都有对应的函数版本F.X，但是并不是所有的F.X均可以用于forward或其它代码段中，因为当网络模型训练完毕时，在存储model时，在forward中的F.X函数中的参数是无法保存的。也就是说，在forward中，使用的F.X函数一般均没有状态参数，比如F.ReLU，F.avg_pool2d等，均没有参数，它们可以用在任何代码片段中。</p>
+]]></content>
+      <categories>
+        <category>pytorch</category>
+      </categories>
+      <tags>
+        <tag>relu</tag>
+      </tags>
+  </entry>
 </search>
