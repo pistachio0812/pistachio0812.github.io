@@ -4705,8 +4705,9 @@ def encode_bbox(assigned_annotations, positive_indices, anchor_widths, anchor_he
     <url>/CN/centernet/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Duan_CenterNet_Keypoint_Triplets_for_Object_Detection_ICCV_2019_paper.pdf">CenterNet: Keypoint Triplets for Object Detection (thecvf.com)</a></p>
 <p>源码地址： <a href="https://github.com/Duankaiwen/CenterNet">CenterNet: Keypoint Triplets for Object Detection</a></p>
-<p>文章引用代码地址：</p>
-<p>文章出处：</p>
+<p>文章引用代码地址：<a href="https://github.com/bubbliiiing/centernet-pytorch">https://github.com/bubbliiiing/centernet-pytorch</a></p>
+<p>文章出处：<a href="https://blog.csdn.net/weixin_44791964/article/details/107748542?spm=1001.2014.3001.5502">Pytorch搭建自己的Centernet目标检测平台</a></p>
+<h3 id="主干网络"><a href="#主干网络" class="headerlink" title="主干网络"></a>主干网络</h3><p>主干网络选用resnet,ResNet50有两个基本的块，<strong>分别名为Conv Block和Identity Block，其中Conv Block输入和输出的维度是不一样的，所以不能连续串联，它的作用是改变网络的维度；Identity Block输入维度和输出维度相同，可以串联，用于加深网络的。</strong></p>
 ]]></content>
       <categories>
         <category>cv</category>
@@ -11363,6 +11364,127 @@ class AlexNet_2(nn.Module):
       </categories>
       <tags>
         <tag>relu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Remove Element</title>
+    <url>/CN/leetcode01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原文链接：<a href="https://siddontang.gitbooks.io/leetcode-solution/content/array/remove_element.html">Remove Element · LeetCode题解 </a></p>
+<p>题目：Given an array and a value, remove all instances of that &gt; value in place and return the new length.</p>
+<p>The order of elements can be changed. It doesn’t matter what you leave beyond the new length.</p>
+<p>作为开胃菜，我当然选取了最容易的一道题目，在一个数组里面移除指定value，并且返回新的数组长度。这题唯一需要注意的地方在于<code>in place</code>，不能新建另一个数组。</p>
+<p>方法很简单，使用两个游标i，j，遍历数组，如果碰到了value，使用j记录位置，同时递增i，直到下一个非value出现，将此时i对应的值复制到j的位置上，增加j，重复上述过程直到遍历结束。这时候j就是新的数组长度。</p>
+<p>题解：</p>
+<pre><code class="lang-c++">class Solution&#123;
+public:
+    int removeElement(int A[], int n, int elem)&#123;
+        int i=0;
+        int j=0;
+        for(i=0;i&lt;n;i++)&#123;
+            if(A[i]==elem)&#123;
+                continue;
+            &#125;
+            A[j]=A[i];
+            j++;
+        &#125;
+        return j;
+    &#125;
+
+&#125;;
+</code></pre>
+<p>举一个最简单的例子，譬如数组为1，2，2，3，2，4，我们需要删除2，首先初始化i和j为0，指向第一个位置，因为第一个元素为1，所以A[0] = A[0]，i和j都加1，而第二个元素为2，我们递增i，直到碰到3，此时A[1] = A[3]，也就是3，递增i和j，这时候下一个元素又是2，递增i，直到碰到4，此时A[2] = A[5]，也就是4，再次递增i和j，这时候数组已经遍历完毕，结束。这时候j的值为3，刚好就是新的数组的长度。</p>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python知识补充</title>
+    <url>/CN/python%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>1.为源文件指定不同的字符编码</p>
+<pre><code class="lang-markdown"># 语法，python源文件默认使用UTF-8编码,特殊的编码注释必须在文件的第一行或者第二行定义
+# -*- coding: encoding -*-
+eg:
+# 使用windows-1252编码
+# -*- coding: cp-1252 -*-
+</code></pre>
+<p>2.交互模式中，最近一个表达式的值赋给变量<strong>_</strong>。我们可以把它当做一个桌面计算器，方便的用于连续计算。</p>
+<pre><code class="lang-python">&gt;&gt;&gt; tax = 12.5 /100
+&gt;&gt;&gt; price = 100.5
+&gt;&gt;&gt; price * tax
+12.5625
+&gt;&gt;&gt; price + _
+113.0625
+&gt;&gt;&gt; round(_, 2)
+113.06
+</code></pre>
+<p>3.在交互式解释器中，输出的字符串会用引号引起来，特殊字符会用反斜杠转义，如果前面带有\的字符被当做特殊字符，可以使用原始字符串，方法是在第一个引号前面加上一个r</p>
+<pre><code class="lang-python">&gt;&gt;&gt; print(&#39;c:\user\test&#39;)
+c:\user
+test
+&gt;&gt;&gt; print(r&#39;c:\user\test&#39;)
+c:\user\test
+</code></pre>
+<p>4.python能够优雅的处理那些没有意义的切片：一个过大的索引值（即下标值大于字符串实际长度）将被字符串实际长度所代替，当上边界比下边界大时（即切片左值大于右值）就返回空字符串</p>
+<pre><code class="lang-python"># word = &#39;superman&#39;
+&gt;&gt;&gt; word[4:42]
+&#39;rman&#39;
+&gt;&gt;&gt; word[42:]
+&#39;&#39;
+</code></pre>
+<p>5.序列的切片，一定要左边的数字小于右边的数字，否则返回空</p>
+<pre><code class="lang-python">&gt;&gt;&gt; lang
+&#39;python&#39;
+&gt;&gt;&gt; lst
+[&#39;python&#39;, &#39;java&#39;, &#39;c++&#39;]
+&gt;&gt;&gt; lang[-1:-3]
+&#39;&#39;
+&gt;&gt;&gt; lang[-3:-1]
+&#39;ho&#39;
+&gt;&gt;&gt; lst[-3:-1]
+[&#39;python&#39;, &#39;java&#39;]
+</code></pre>
+<p>6.反转</p>
+<pre><code class="lang-python">&gt;&gt;&gt; alst = [1, 2, 3, 4]
+&gt;&gt;&gt; alst[::-1]
+[4, 3, 2, 1]
+&gt;&gt;&gt; list(reversed(alst))
+[4, 3, 2, 1]
+</code></pre>
+<p>7.append()和extend()是原地修改，没有返回值</p>
+<pre><code class="lang-python">&gt;&gt;&gt; one = [&#39;good&#39;, &#39;good&#39;, &#39;study&#39;]
+&gt;&gt;&gt; another = one.extend([&#39;day&#39;, &#39;day&#39;, &#39;up&#39;])
+&gt;&gt;&gt; another #没有返回值
+&gt;&gt;&gt; one
+[&#39;good&#39;, &#39;good&#39;, &#39;study&#39;, &#39;day&#39;, &#39;day&#39;, &#39;up&#39;]
+</code></pre>
+<p>8.extend()和append()区别</p>
+<pre><code class="lang-python">&gt;&gt;&gt; lst = [1, 2, 3]
+&gt;&gt;&gt; lst.append([&#39;quit&#39;, &#39;final&#39;])
+&gt;&gt;&gt; lst
+[1, 2, 3, [&#39;quit&#39;, &#39;final&#39;]]
+&gt;&gt;&gt; lst.extend([&#39;test&#39;, &#39;different&#39;])
+&gt;&gt;&gt; lst
+[1, 2, 3, [&#39;quit&#39;, &#39;final&#39;], &#39;test&#39;, &#39;different&#39;]
+</code></pre>
+<p>9.如果元组只有一个元素时，应该在该元素后面加一个半角的英文逗号</p>
+<pre><code class="lang-python">&gt;&gt;&gt; a = (3)
+&gt;&gt;&gt; type(a)
+&lt;type &#39;int&#39;&gt;
+&gt;&gt;&gt; b = (3, )
+&gt;&gt;&gt; type(b)
+&lt;type &#39;tuple&#39;&gt;
+</code></pre>
+<p>10.</p>
+]]></content>
+      <categories>
+        <category>cv</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
 </search>

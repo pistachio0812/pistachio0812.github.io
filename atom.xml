@@ -6,7 +6,7 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-06-20T03:40:38.148Z</updated>
+  <updated>2022-09-06T02:27:28.196Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Remove Element</title>
+    <link href="http://pistachio0812.github.io/CN/leetcode01/"/>
+    <id>http://pistachio0812.github.io/CN/leetcode01/</id>
+    <published>2022-09-06T02:16:09.023Z</published>
+    <updated>2022-09-06T02:27:28.196Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Leetcode" scheme="http://pistachio0812.github.io/categories/Leetcode/"/>
+    
+    
+    <category term="题解" scheme="http://pistachio0812.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python知识补充</title>
+    <link href="http://pistachio0812.github.io/CN/python%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/"/>
+    <id>http://pistachio0812.github.io/CN/python%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/</id>
+    <published>2022-07-02T02:11:12.000Z</published>
+    <updated>2022-07-02T02:11:13.500Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+    <category term="python" scheme="http://pistachio0812.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>nn.relu和F.relu的区别</title>
@@ -455,56 +505,6 @@
     
     <category term="今日故事" scheme="http://pistachio0812.github.io/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>激活函数</title>
-    <link href="http://pistachio0812.github.io/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/"/>
-    <id>http://pistachio0812.github.io/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/</id>
-    <published>2022-04-21T13:58:33.980Z</published>
-    <updated>2022-04-22T01:04:18.216Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
-    
-    
-    <category term="激活函数" scheme="http://pistachio0812.github.io/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CNN参数计算</title>
-    <link href="http://pistachio0812.github.io/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/"/>
-    <id>http://pistachio0812.github.io/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/</id>
-    <published>2022-04-21T13:07:28.008Z</published>
-    <updated>2022-04-21T13:39:27.614Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
-    
-    
-    <category term="参数计算" scheme="http://pistachio0812.github.io/tags/%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97/"/>
     
   </entry>
   

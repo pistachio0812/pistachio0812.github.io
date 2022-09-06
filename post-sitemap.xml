@@ -9,6 +9,30 @@
 
 
     <url>
+        <loc>http://pistachio0812.github.io/CN/leetcode01/</loc>
+        <lastmod>2022-09-06T02:27:28.196Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/CN/python%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/</loc>
+        <lastmod>2022-07-02T02:11:13.500Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/CN/centernet/</loc>
+        <lastmod>2022-06-24T02:01:14.843Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://pistachio0812.github.io/CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
         <lastmod>2022-06-20T03:40:38.148Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -267,14 +291,6 @@
     <url>
         <loc>http://pistachio0812.github.io/CN/YOLOV3/</loc>
         <lastmod>2022-04-19T02:24:33.339Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://pistachio0812.github.io/CN/centernet/</loc>
-        <lastmod>2022-04-18T12:28:24.023Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
