@@ -24,7 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>分类：CV - 相思似海深旧事如天远</title>
+  <title>分类：cv - 相思似海深旧事如天远</title>
   
 
   
@@ -407,6 +407,18 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
     
     
@@ -420,18 +432,23 @@
   
     
     <h2 class="article-title">
-      <a href="/CN/RFBNet/">
-        RFBNet
+      <a href="/CN/python%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/">
+        python知识补充
       </a>
     </h2>
   
   <div class="md">
     
       
-        论文地址：Receptive Field Block Net for Accurate and Fast Object Detection (thecvf.com)
-代码地址：https://github.com/ruinmessi/RFBNet
-Q1RFB模块是怎么考虑感受野尺寸和离心率之间的关系的？
+        1.为源文件指定不同的字符编码
+# 语法，python源文件默认使用UTF-8编码,特殊的编码注释必须在文件的第一行或者第二行定义
+# -*- coding: encoding -*-
+eg:
+# 使用windows-1252编码
+# -*- coding: cp-1252 -*-
 
+2.交互模式中，最近一个表达式的值赋给变量_。我们可以把它当做一个桌面计算器，方便的用于连续计算。
+&gt;...
       
     
   </div>
@@ -439,15 +456,15 @@ Q1RFB模块是怎么考虑感受野尺寸和离心率之间的关系的？
     <div class="meta-v3" line_style="solid">
       <div>
         
-        <time>2022-06-01</time>
+        <time>2022-07-02</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/CV/">CV</a>
+          <a class="category-link" href="/categories/cv/">cv</a>
         
       </div>
       
         <div>
-          <a class="readmore" href="/CN/RFBNet/">
+          <a class="readmore" href="/CN/python%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/">
             阅读全文
           </a>
         </div>
@@ -469,8 +486,8 @@ Q1RFB模块是怎么考虑感受野尺寸和离心率之间的关系的？
   
     
     <h2 class="article-title">
-      <a href="/CN/Darknet53/">
-        Darknet53
+      <a href="/CN/contiguous/">
+        pytorch中contiguous函数的用法
       </a>
     </h2>
   
@@ -478,11 +495,9 @@ Q1RFB模块是怎么考虑感受野尺寸和离心率之间的关系的？
     
       
         参考博文：
-1.睿智的目标检测26——Pytorch搭建yolo3目标检测平台Bubbliiiing的博客-CSDN博客睿智的目标检测26
-2.Darknet53网络各层参数详解 - 简书 (jianshu.com)
-3.Darknet53网络结构及代码实现_Tc.小浩的博客-CSDN博客_darknet53
-4.Yolov3算法详解 - 奥辰 - 博客园 (cnblogs.com)
-Dar...
+Pytorch之contiguous的用法 函数会使tensor变量在内存中的存储变得连续。 contiguous,()：view只能用在contiguous的variable上。如果在view之前用了transpose%2C permute等，需要用contiguous ()来返回一个contiguous copy。)
+contiguous
+tensor变量调用contiguo...
       
     
   </div>
@@ -490,15 +505,15 @@ Dar...
     <div class="meta-v3" line_style="solid">
       <div>
         
-        <time>2022-05-19</time>
+        <time>2022-06-12</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/CV/">CV</a>
+          <a class="category-link" href="/categories/cv/">cv</a>
         
       </div>
       
         <div>
-          <a class="readmore" href="/CN/Darknet53/">
+          <a class="readmore" href="/CN/contiguous/">
             阅读全文
           </a>
         </div>
@@ -520,8 +535,8 @@ Dar...
   
     
     <h2 class="article-title">
-      <a href="/CN/FPS/">
-        FPS计算
+      <a href="/CN/concat_add/">
+        Concat和add的区别
       </a>
     </h2>
   
@@ -529,9 +544,10 @@ Dar...
     
       
         参考博文：
-1.帧率(FPS)计算的几种方法总结 (baidu.com)
-帧率(FPS， frame per second)计算是游戏编程中常见的一个话题，因为表现在画面刷新与视觉感官上，所以相对而言，帧率非常影响用户体验。这也是很多大型3D游戏所要提升的重要点，意味着你要不断优化渲染速度与性能，不断提升画面质量。以下是几种计算帧率fps的方法。
-固定时间帧数法其实这个方法的核心是1s内刷新...
+1.https://openreview.net/pdf?id=q2ZaVU6bEsT
+今天偶然看到了这篇论文，论文里有一部分讲到了concat,add还有自适应的关系，很感兴趣，记录下来。
+
+方法（a）和（c）分别是加权融合和连接操作。即在空间和通道维度上直接添加特征图。方法（b）是一种自适应融合方法。具体来说，假设输入的大小可以表示为（bs，C，H，W），我们可以通过卷积运算...
       
     
   </div>
@@ -539,15 +555,15 @@ Dar...
     <div class="meta-v3" line_style="solid">
       <div>
         
-        <time>2022-05-19</time>
+        <time>2022-05-08</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/CV/">CV</a>
+          <a class="category-link" href="/categories/cv/">cv</a>
         
       </div>
       
         <div>
-          <a class="readmore" href="/CN/FPS/">
+          <a class="readmore" href="/CN/concat_add/">
             阅读全文
           </a>
         </div>
@@ -569,16 +585,21 @@ Dar...
   
     
     <h2 class="article-title">
-      <a href="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
-        详解注意力机制
+      <a href="/CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/">
+        感受野的计算
       </a>
     </h2>
   
   <div class="md">
     
       
-        注意力机制注意力机制就是让网络关注到它更需要关注的地方，是一种网络自适应注意的方式。注意力机制可以分为通道注意力，空间注意力以及二者的结合。
-相关论文SENet2017年提出的SENet是最后一届ImageNet竞赛的冠军，其实现示意图如下所示，对于输入进来的特征层，我们关注其每一个通道的权重，对于SENet而言，其重点是获得输入进来的特征层，每一个通道的权值。利用SENet，我们可以让网络...
+        参考博文：
+1.感受野的计算
+2.感受野 | 机器之心 
+计算机视觉中常常出现感受野的概念，我是在修改SSD网络中的过程中，发现增强感受野是非常有必要的。SSD的主干网络是VGG16,其中有个结论：低层特征图的感受野较小，高层特征图的感受野较大。
+感受野定义神经网络中每一层输出特征图上的像素点在输入图片上的映射的区域大小，也就是特征图上的每一个点对应的输入图片的区域。
+计算公式
+示例在VGG...
       
     
   </div>
@@ -586,15 +607,345 @@ Dar...
     <div class="meta-v3" line_style="solid">
       <div>
         
-        <time>2022-03-31</time>
+        <time>2022-04-27</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/CV/">CV</a>
+          <a class="category-link" href="/categories/cv/">cv</a>
         
       </div>
       
         <div>
-          <a class="readmore" href="/CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
+          <a class="readmore" href="/CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title">
+      <a href="/CN/InceptionV3/">
+        InceptionV3详解
+      </a>
+    </h2>
+  
+  <div class="md">
+    
+      
+        论文地址：Inceptionv3 
+源码地址：InceptionV3_TensorFlow: Inception v3 
+文章引用出处1：https://blog.csdn.net/weixin_44791964/article/details/102802866
+文章引用出处2：InceptionV3 网络模型
+InceptionV3模型InceptionV3模型是谷歌Inception系...
+      
+    
+  </div>
+  
+    <div class="meta-v3" line_style="solid">
+      <div>
+        
+        <time>2022-04-22</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/cv/">cv</a>
+        
+      </div>
+      
+        <div>
+          <a class="readmore" href="/CN/InceptionV3/">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title">
+      <a href="/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/">
+        激活函数
+      </a>
+    </h2>
+  
+  <div class="md">
+    
+      
+        参考博文：
+1.激活函数介绍
+2.pytorch激活函数官方文档)
+什么是激活函数活函数（Activation functions）对于神经网络模型学习与理解复杂和非线性的函数来说具有十分重要的作用。它们将非线性特性引入到我们的网络中。
+如果网络中不使用激活函数，网络每一层的输出都是上层输入的线性组合，无论神经网络有多少层，输出都是输入的线性组合。
+如果使用的话，激活函数给神经元引入了非线性...
+      
+    
+  </div>
+  
+    <div class="meta-v3" line_style="solid">
+      <div>
+        
+        <time>2022-04-21</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/cv/">cv</a>
+        
+      </div>
+      
+        <div>
+          <a class="readmore" href="/CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title">
+      <a href="/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/">
+        CNN参数计算
+      </a>
+    </h2>
+  
+  <div class="md">
+    
+      
+        在CNN的前向传播过程中，我们通常需要参数量，那么参数量的计算又当如何计算呢，不急，听我慢慢道来。
+实例：
+1.定义一个简单网络
+# 该文件为test.py
+import torch
+import torch.nn as nn
+import math
+
+
+def conv_out_size_same(size, stride):
+    return int(math.ceil(float(...
+      
+    
+  </div>
+  
+    <div class="meta-v3" line_style="solid">
+      <div>
+        
+        <time>2022-04-21</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/cv/">cv</a>
+        
+      </div>
+      
+        <div>
+          <a class="readmore" href="/CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title">
+      <a href="/CN/DCGAN/">
+        DCGAN详解
+      </a>
+    </h2>
+  
+  <div class="md">
+    
+      
+        参考博文：
+1.pytorch搭建DCGAN
+论文地址：https://arxiv.53yu.com/pdf/1511.06434.pdf
+论文源码：略
+文章引用源码：https://github.com/bubbliiiing/dcgan-pytorch
+网络构建DCGANDCGAN的全称是Deep Convolutional Generative Adversarial Networks...
+      
+    
+  </div>
+  
+    <div class="meta-v3" line_style="solid">
+      <div>
+        
+        <time>2022-04-21</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/cv/">cv</a>
+        
+      </div>
+      
+        <div>
+          <a class="readmore" href="/CN/DCGAN/">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title">
+      <a href="/CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+        机器学习
+      </a>
+    </h2>
+  
+  <div class="md">
+    
+      
+        常见概念TP、TN、FP和FN概念
+
+
+
+
+P(分类器认为是正样本)
+N(分类器认为是负样本)
+
+
+
+
+T(正确分类)
+TP
+TN
+
+
+F(错误分类)
+FP
+FN
+
+
+
+
+注：
+TP（True Positives）意思就是被分为了正样本，而且分对了。（样本是正样本）TN（True Negatives）意思就是被分为了负样本，而且分对了。(样本是负样本)FP（False Positives）意...
+      
+    
+  </div>
+  
+    <div class="meta-v3" line_style="solid">
+      <div>
+        
+        <time>2022-04-20</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/cv/">cv</a>
+        
+      </div>
+      
+        <div>
+          <a class="readmore" href="/CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title">
+      <a href="/CN/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/">
+        可视化技术
+      </a>
+    </h2>
+  
+  <div class="md">
+    
+      
+        参考博文：
+1.CNN模型的可视化
+CNNVis清华大学视觉分析组做的一个网站，目的是为了更好地分析深度卷积神经网络。大家可以在训练的时候采取不同的卷积核尺寸和个数对照来看训练的中间过程。
+PlotNeuralNet1.安装texlive
+ubuntu
+(1)下载texlive镜像 
+https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texl...
+      
+    
+  </div>
+  
+    <div class="meta-v3" line_style="solid">
+      <div>
+        
+        <time>2022-04-20</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/cv/">cv</a>
+        
+      </div>
+      
+        <div>
+          <a class="readmore" href="/CN/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/">
             阅读全文
           </a>
         </div>
@@ -610,6 +961,21 @@ Dar...
     
   </section>
   
+    
+      <br>
+      <div class="prev-next">
+        
+        <p class="current">
+          1 / 2
+        </p>
+        
+          <a class="next" rel="next" href="/categories/cv/page/2/">
+            <section class="post next white-box shadow">
+              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </section>
+          </a>
+        
+      </div>
     
   
 
@@ -791,7 +1157,7 @@ Dar...
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue Sep 06 2022 15:24:29 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Tue Sep 06 2022 15:27:16 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2022-09-06 日</div>
           
         </div>
@@ -2188,263 +2554,3 @@ document.addEventListener("pjax:success", listennSidebarTOC);
     </div>
   <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
-ame = "data-user-color-scheme";
-
-const setLS = (k, v) => {
-    localStorage.setItem(k, v);
-};
-
-const removeLS = (k) => {
-    localStorage.removeItem(k);
-};
-
-const getLS = (k) => {
-    return localStorage.getItem(k);
-};
-
-const getModeFromCSSMediaQuery = () => {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-};
-
-const resetRootDarkModeAttributeAndLS = () => {
-  rootElement.removeAttribute(rootElementDarkModeAttributeName);
-  removeLS(darkModeStorageKey);
-};
-
-const validColorModeKeys = {
-  dark: true,
-  light: true,
-};
-
-const applyCustomDarkModeSettings = (mode) => {
-  const currentSetting = mode || getLS(darkModeStorageKey);
-
-  if (currentSetting === getModeFromCSSMediaQuery()) {
-    resetRootDarkModeAttributeAndLS();
-  } else if (validColorModeKeys[currentSetting]) {
-    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
-  } else {
-    resetRootDarkModeAttributeAndLS();
-  }
-};
-
-const invertDarkModeObj = {
-  dark: "light",
-  light: "dark",
-};
-
-/**
- * get target mode
- */
-const toggleCustomDarkMode = () => {
-  let currentSetting = getLS(darkModeStorageKey);
-
-  if (validColorModeKeys[currentSetting]) {
-    currentSetting = invertDarkModeObj[currentSetting];
-  } else if (currentSetting === null) {
-    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
-  } else {
-    return;
-  }
-  setLS(darkModeStorageKey, currentSetting);
-  return currentSetting;
-};
-
-/**
- * bind click event for toggle button
- */
-var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
-function bindToggleButton() {
-    btn.on('click',(e) => {
-      const mode = toggleCustomDarkMode();
-      applyCustomDarkModeSettings(mode);
-    });
-}
-
-applyCustomDarkModeSettings();
-document.addEventListener("DOMContentLoaded", bindToggleButton);
-volantis.pjax.push(bindToggleButton);
-volantis.pjax.send(()=>{
-	btn.unbind('click');
-},'toggle-mode-btn-unbind');
-</script>
-
-
-
-
-
-
-
-
-<script>
-function listennSidebarTOC() {
-  const navItems = document.querySelectorAll(".toc li");
-  if (!navItems.length) return;
-  const sections = [...navItems].map((element) => {
-    const link = element.querySelector(".toc-link");
-    const target = document.getElementById(
-      decodeURI(link.getAttribute("href")).replace("#", "")
-    );
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      window.scrollTo({
-		top: target.offsetTop + 100,
-		
-		behavior: "smooth"
-		
-	  });
-    });
-    return target;
-  });
-
-  function activateNavByIndex(target) {
-    if (target.classList.contains("active-current")) return;
-
-    document.querySelectorAll(".toc .active").forEach((element) => {
-      element.classList.remove("active", "active-current");
-    });
-    target.classList.add("active", "active-current");
-    let parent = target.parentNode;
-    while (!parent.matches(".toc")) {
-      if (parent.matches("li")) parent.classList.add("active");
-      parent = parent.parentNode;
-    }
-  }
-
-  function findIndex(entries) {
-    let index = 0;
-    let entry = entries[index];
-    if (entry.boundingClientRect.top > 0) {
-      index = sections.indexOf(entry.target);
-      return index === 0 ? 0 : index - 1;
-    }
-    for (; index < entries.length; index++) {
-      if (entries[index].boundingClientRect.top <= 0) {
-        entry = entries[index];
-      } else {
-        return sections.indexOf(entry.target);
-      }
-    }
-    return sections.indexOf(entry.target);
-  }
-
-  function createIntersectionObserver(marginTop) {
-    marginTop = Math.floor(marginTop + 10000);
-    let intersectionObserver = new IntersectionObserver(
-      (entries, observe) => {
-        let scrollHeight = document.documentElement.scrollHeight + 100;
-        if (scrollHeight > marginTop) {
-          observe.disconnect();
-          createIntersectionObserver(scrollHeight);
-          return;
-        }
-        let index = findIndex(entries);
-        activateNavByIndex(navItems[index]);
-      },
-      {
-        rootMargin: marginTop + "px 0px -100% 0px",
-        threshold: 0,
-      }
-    );
-    sections.forEach((element) => {
-      element && intersectionObserver.observe(element);
-    });
-  }
-  createIntersectionObserver(document.documentElement.scrollHeight);
-}
-
-document.addEventListener("DOMContentLoaded", listennSidebarTOC);
-document.addEventListener("pjax:success", listennSidebarTOC);
-</script>
-
-<!-- more -->
-
-  
-  <script></script>
-
-
-
- 
-	   
-	    
-
-
-<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
-
-
-<script>
-    var pjax;
-    document.addEventListener('DOMContentLoaded', function () {
-      pjax = new Pjax({
-        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
-        selectors: [
-          "title",
-          
-          "#pjax-container",
-          "#pjax-header-nav-list"
-        ],
-        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
-        timeout: 5000
-      });
-    });
-
-    document.addEventListener('pjax:send', function (e) {
-      //window.stop(); // 相当于点击了浏览器的停止按钮
-
-      try {
-        var currentUrl = window.location.pathname;
-        var targetUrl = e.triggerElement.href;
-        var banUrl = [""];
-        if (banUrl[0] != "") {
-          banUrl.forEach(item => {
-            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
-              window.location.href = targetUrl;
-            }
-          });
-        }
-      } catch (error) {}
-
-      window.subData = null; // 移除标题（用于一二级导航栏切换处）
-
-      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
-      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
-
-      // 解绑事件 避免重复监听
-      volantis.$topBtn.unbind('click');
-      $('.menu a').unbind('click');
-      $(window).unbind('resize');
-      $(window).unbind('scroll');
-      $(document).unbind('scroll');
-      $(document).unbind('click');
-      $('body').unbind('click');
-	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
-	  volantis.pjax.method.send.start();
-    });
-
-    document.addEventListener('pjax:complete', function () {
-      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
-      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
-      $('script[data-pjax], .pjax-reload script').each(function () {
-        $(this).parent().append($(this).remove());
-      });
-      try{
-		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
-		volantis.pjax.method.complete.start();
-      } catch (e) {
-        console.log(e);
-      }
-    });
-
-    document.addEventListener('pjax:error', function (e) {
-	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
-	  volantis.pjax.method.error.start();
-      window.location.href = e.triggerElement.href;
-    });
-</script>
- 
-	  
-    </div>
-  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
