@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://pistachio0812.github.io/CN/np_newaxis/</loc>
+        <lastmod>2022-09-07T09:25:23.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/</loc>
+        <lastmod>2022-09-06T09:24:10.853Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://pistachio0812.github.io/CN/leetcode01/</loc>
         <lastmod>2022-09-06T02:27:28.196Z</lastmod>
         <changefreq>weekly</changefreq>

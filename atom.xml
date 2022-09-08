@@ -6,7 +6,7 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-09-06T02:27:28.196Z</updated>
+  <updated>2022-09-07T09:25:23.310Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>np.newaxis详解</title>
+    <link href="http://pistachio0812.github.io/CN/np_newaxis/"/>
+    <id>http://pistachio0812.github.io/CN/np_newaxis/</id>
+    <published>2022-09-07T09:21:34.917Z</published>
+    <updated>2022-09-07T09:25:23.310Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="http://pistachio0812.github.io/categories/python/"/>
+    
+    
+    <category term="function" scheme="http://pistachio0812.github.io/tags/function/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CNN输入与输出的关系</title>
+    <link href="http://pistachio0812.github.io/CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://pistachio0812.github.io/CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/</id>
+    <published>2022-09-06T09:01:53.315Z</published>
+    <updated>2022-09-06T09:24:10.853Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+    <category term="目标检测" scheme="http://pistachio0812.github.io/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Remove Element</title>
@@ -457,54 +507,6 @@
     
     
     <category term="感受野" scheme="http://pistachio0812.github.io/tags/%E6%84%9F%E5%8F%97%E9%87%8E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>InceptionV3详解</title>
-    <link href="http://pistachio0812.github.io/CN/InceptionV3/"/>
-    <id>http://pistachio0812.github.io/CN/InceptionV3/</id>
-    <published>2022-04-22T01:38:19.564Z</published>
-    <updated>2022-04-22T02:02:39.800Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
-    
-    
-    <category term="论文详解" scheme="http://pistachio0812.github.io/tags/%E8%AE%BA%E6%96%87%E8%AF%A6%E8%A7%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>未婚妻</title>
-    <link href="http://pistachio0812.github.io/CN/%E6%9C%AA%E5%A9%9A%E5%A6%BB/"/>
-    <id>http://pistachio0812.github.io/CN/%E6%9C%AA%E5%A9%9A%E5%A6%BB/</id>
-    <published>2022-04-22T01:06:39.876Z</published>
-    <updated>2022-04-22T01:13:58.665Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="今日故事" scheme="http://pistachio0812.github.io/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/"/>
-    
     
   </entry>
   
