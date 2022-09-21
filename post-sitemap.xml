@@ -9,6 +9,46 @@
 
 
     <url>
+        <loc>http://pistachio0812.github.io/en/visdom%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
+        <lastmod>2022-09-20T13:50:32.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/en/zetane%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+        <lastmod>2022-09-20T09:11:12.304Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/en/use_agg/</loc>
+        <lastmod>2022-09-17T13:38:04.242Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/CN/wandb/</loc>
+        <lastmod>2022-09-16T11:42:50.581Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/CN/pyperclip/</loc>
+        <lastmod>2022-09-08T03:25:43.110Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://pistachio0812.github.io/CN/np_newaxis/</loc>
         <lastmod>2022-09-07T09:25:23.310Z</lastmod>
         <changefreq>weekly</changefreq>

@@ -1,10 +1,10 @@
+http://pistachio0812.github.io/en/visdom%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
+http://pistachio0812.github.io/en/zetane%E7%9A%84%E4%BD%BF%E7%94%A8/
+http://pistachio0812.github.io/en/use_agg/
+http://pistachio0812.github.io/CN/wandb/
+http://pistachio0812.github.io/CN/pyperclip/
 http://pistachio0812.github.io/CN/np_newaxis/
 http://pistachio0812.github.io/CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/
 http://pistachio0812.github.io/CN/leetcode01/
 http://pistachio0812.github.io/CN/python%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/
 http://pistachio0812.github.io/CN/centernet/
-http://pistachio0812.github.io/CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/
-http://pistachio0812.github.io/CN/np_cumsum/
-http://pistachio0812.github.io/CN/contiguous/
-http://pistachio0812.github.io/CN/RFBNet/
-http://pistachio0812.github.io/CN/Darknet53/
