@@ -1,3 +1,4 @@
+http://pistachio0812.github.io/CN/%E6%8F%90%E9%86%92%E5%B9%B8%E7%A6%8F/
 http://pistachio0812.github.io/en/visdom%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
 http://pistachio0812.github.io/en/zetane%E7%9A%84%E4%BD%BF%E7%94%A8/
 http://pistachio0812.github.io/en/use_agg/
@@ -7,4 +8,3 @@ http://pistachio0812.github.io/CN/np_newaxis/
 http://pistachio0812.github.io/CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/
 http://pistachio0812.github.io/CN/leetcode01/
 http://pistachio0812.github.io/CN/python%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/
-http://pistachio0812.github.io/CN/centernet/
