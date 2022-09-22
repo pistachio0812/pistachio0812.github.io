@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://pistachio0812.github.io/CN/warning_unsample/</loc>
+        <lastmod>2022-09-22T14:23:33.281Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/CN/grad-cam/</loc>
+        <lastmod>2022-09-22T14:23:27.371Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://pistachio0812.github.io/CN/%E6%8F%90%E9%86%92%E5%B9%B8%E7%A6%8F/</loc>
         <lastmod>2022-09-22T00:16:56.902Z</lastmod>
         <changefreq>weekly</changefreq>

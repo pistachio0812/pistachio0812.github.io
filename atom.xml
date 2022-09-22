@@ -6,7 +6,7 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-09-20T13:50:32.807Z</updated>
+  <updated>2022-09-22T14:23:33.281Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Warnings_unsample</title>
+    <link href="http://pistachio0812.github.io/CN/warning_unsample/"/>
+    <id>http://pistachio0812.github.io/CN/warning_unsample/</id>
+    <published>2022-09-22T13:20:43.936Z</published>
+    <updated>2022-09-22T14:23:33.281Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+    <category term="warnings" scheme="http://pistachio0812.github.io/tags/warnings/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Grad-cam详解</title>
+    <link href="http://pistachio0812.github.io/CN/grad-cam/"/>
+    <id>http://pistachio0812.github.io/CN/grad-cam/</id>
+    <published>2022-09-22T11:37:18.237Z</published>
+    <updated>2022-09-22T14:23:27.371Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+    <category term="grad-cam" scheme="http://pistachio0812.github.io/tags/grad-cam/"/>
+    
+  </entry>
   
   <entry>
     <title>visdom使用教程</title>
@@ -457,58 +507,6 @@
     
     <category term="今日故事" scheme="http://pistachio0812.github.io/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>hexo标签插件测试</title>
-    <link href="http://pistachio0812.github.io/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/"/>
-    <id>http://pistachio0812.github.io/CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/</id>
-    <published>2022-05-07T00:35:11.011Z</published>
-    <updated>2022-05-08T14:08:25.467Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Hexo博客搭建" scheme="http://pistachio0812.github.io/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="Hexo" scheme="http://pistachio0812.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SSD损失函数详解</title>
-    <link href="http://pistachio0812.github.io/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"/>
-    <id>http://pistachio0812.github.io/CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</id>
-    <published>2022-05-06T11:52:57.287Z</published>
-    <updated>2022-05-06T14:12:19.648Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="目标检测" scheme="http://pistachio0812.github.io/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
-    
-    
-    <category term="SSD" scheme="http://pistachio0812.github.io/tags/SSD/"/>
-    
-    <category term="损失函数" scheme="http://pistachio0812.github.io/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
