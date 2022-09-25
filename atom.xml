@@ -6,7 +6,7 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-09-22T14:23:33.281Z</updated>
+  <updated>2022-09-25T02:32:53.525Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CABNet论文解读</title>
+    <link href="http://pistachio0812.github.io/en/CABNet/"/>
+    <id>http://pistachio0812.github.io/en/CABNet/</id>
+    <published>2022-09-25T02:28:30.021Z</published>
+    <updated>2022-09-25T02:32:53.525Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+    <category term="论文解读" scheme="http://pistachio0812.github.io/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>Warnings_unsample</title>
@@ -483,29 +508,6 @@
     
     
     <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>提醒幸福</title>
-    <link href="http://pistachio0812.github.io/CN/%E6%8F%90%E9%86%92%E5%B9%B8%E7%A6%8F/"/>
-    <id>http://pistachio0812.github.io/CN/%E6%8F%90%E9%86%92%E5%B9%B8%E7%A6%8F/</id>
-    <published>2022-05-07T00:44:11.860Z</published>
-    <updated>2022-09-22T00:16:56.902Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="今日故事" scheme="http://pistachio0812.github.io/categories/%E4%BB%8A%E6%97%A5%E6%95%85%E4%BA%8B/"/>
     
     
   </entry>

@@ -11936,4 +11936,15 @@ if __name__ == &#39;__main__&#39;:
         <tag>warnings</tag>
       </tags>
   </entry>
+  <entry>
+    <title>CABNet论文解读</title>
+    <url>/en/CABNet/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      <categories>
+        <category>cv</category>
+      </categories>
+      <tags>
+        <tag>论文解读</tag>
+      </tags>
+  </entry>
 </search>

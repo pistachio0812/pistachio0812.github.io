@@ -1,3 +1,4 @@
+http://pistachio0812.github.io/en/CABNet/
 http://pistachio0812.github.io/CN/warning_unsample/
 http://pistachio0812.github.io/CN/grad-cam/
 http://pistachio0812.github.io/CN/%E6%8F%90%E9%86%92%E5%B9%B8%E7%A6%8F/
@@ -7,4 +8,3 @@ http://pistachio0812.github.io/en/use_agg/
 http://pistachio0812.github.io/CN/wandb/
 http://pistachio0812.github.io/CN/pyperclip/
 http://pistachio0812.github.io/CN/np_newaxis/
-http://pistachio0812.github.io/CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/
