@@ -1,3 +1,4 @@
+http://pistachio0812.github.io/en/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/
 http://pistachio0812.github.io/en/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/
 http://pistachio0812.github.io/en/CABNet/
 http://pistachio0812.github.io/CN/warning_unsample/
@@ -7,4 +8,3 @@ http://pistachio0812.github.io/en/visdom%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
 http://pistachio0812.github.io/en/zetane%E7%9A%84%E4%BD%BF%E7%94%A8/
 http://pistachio0812.github.io/en/use_agg/
 http://pistachio0812.github.io/CN/wandb/
-http://pistachio0812.github.io/CN/pyperclip/

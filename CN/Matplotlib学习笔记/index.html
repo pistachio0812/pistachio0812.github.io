@@ -38,17 +38,113 @@
   <meta desc name="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测 - pistachio - 相思似海深旧事如天远">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="Matplotlib学习笔记">
-<meta property="og:url" content="http://pistachio0812.github.io/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="page.title">
+<meta property="og:url" content="url">
 <meta property="og:site_name" content="相思似海深旧事如天远">
 <meta property="og:description" content="介绍Matplotlib 是 Python 的绘图库，它能让使用者很轻松地将数据图形化，并且提供多样化的输出格式。可以用来绘制各种静态，动态，交互式的图表。是一个非常强大的 Python 画图工具，我们可以使用该工具将很多数据通过图表的形式更直观的呈现出来。可以绘制线图、散点图、等高线图、条形图、柱状图、3D 图形、甚至是图形动画等等。 应用Matplotlib 通常与 NumPy 和 SciPy">
 <meta property="og:locale">
-<meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403204022943.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205635489.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403205827906.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210031623.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210331668.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403210514868.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212010830.png">
+<meta property="og:image" content="https://www.runoob.com/images/m00.png">
+<meta property="og:image" content="https://www.runoob.com/images/m01.png">
+<meta property="og:image" content="https://www.runoob.com/images/m02.png">
+<meta property="og:image" content="https://www.runoob.com/images/m03.png">
+<meta property="og:image" content="https://www.runoob.com/images/m04.png">
+<meta property="og:image" content="https://www.runoob.com/images/m05.png">
+<meta property="og:image" content="https://www.runoob.com/images/m06.png">
+<meta property="og:image" content="https://www.runoob.com/images/m07.png">
+<meta property="og:image" content="https://www.runoob.com/images/m08.png">
+<meta property="og:image" content="https://www.runoob.com/images/m09.png">
+<meta property="og:image" content="https://www.runoob.com/images/m10.png">
+<meta property="og:image" content="https://www.runoob.com/images/m11.png">
+<meta property="og:image" content="https://www.runoob.com/images/m12.png">
+<meta property="og:image" content="https://www.runoob.com/images/m13.png">
+<meta property="og:image" content="https://www.runoob.com/images/m23.png">
+<meta property="og:image" content="https://www.runoob.com/images/m14.png">
+<meta property="og:image" content="https://www.runoob.com/images/m15.png">
+<meta property="og:image" content="https://www.runoob.com/images/m16.png">
+<meta property="og:image" content="https://www.runoob.com/images/m17.png">
+<meta property="og:image" content="https://www.runoob.com/images/m18.png">
+<meta property="og:image" content="https://www.runoob.com/images/m24.png">
+<meta property="og:image" content="https://www.runoob.com/images/m19.png">
+<meta property="og:image" content="https://www.runoob.com/images/m20.png">
+<meta property="og:image" content="https://www.runoob.com/images/m21.png">
+<meta property="og:image" content="https://www.runoob.com/images/m22.png">
+<meta property="og:image" content="https://www.runoob.com/images/m25.png">
+<meta property="og:image" content="https://www.runoob.com/images/m26.png">
+<meta property="og:image" content="https://www.runoob.com/images/m27.png">
+<meta property="og:image" content="https://www.runoob.com/images/m28.png">
+<meta property="og:image" content="https://www.runoob.com/images/m29.png">
+<meta property="og:image" content="https://www.runoob.com/images/m30.png">
+<meta property="og:image" content="https://www.runoob.com/images/m31.png">
+<meta property="og:image" content="https://www.runoob.com/images/m32.png">
+<meta property="og:image" content="https://www.runoob.com/images/m33.png">
+<meta property="og:image" content="https://www.runoob.com/images/m34.png">
+<meta property="og:image" content="https://www.runoob.com/images/m35.png">
+<meta property="og:image" content="https://www.runoob.com/images/m36.png">
+<meta property="og:image" content="https://www.runoob.com/images/m37.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403212950411.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213418027.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403213911622.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215102017.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403215856505.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220017186.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403220233003.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221432174.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221604494.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403221822295.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222000966.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222117925.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222318825.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222526935.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403222628227.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404095612577.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404100123540.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104121709.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104616081.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104841496.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404104916266.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152016310.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152129680.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152316633.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152756053.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404152958366.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153408476.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153431942.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153453565.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404153511622.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155337371.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155550197.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155740263.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404155923033.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160218777.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160411035.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160555429.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160751739.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404160958004.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161117677.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161139138.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404161157754.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162147295.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162341451.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162449487.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162554129.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162717588.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404162753714.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165657025.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404165759838.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220404170000561.png">
+<meta property="og:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/03D59143-B345-4B36-A7CD-53F698AB5284.jpg">
 <meta property="article:published_time" content="2022-04-03T12:25:29.304Z">
 <meta property="article:modified_time" content="2022-04-07T02:16:54.501Z">
-<meta property="article:author" content="pistachio">
+<meta property="article:author" content="config.author">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta name="twitter:image" content="/CN/Matplotlib%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220403204022943.png">
   <style>
     /* 首屏样式 */
     #safearea {
@@ -3714,7 +3810,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1664191770326),
+    lastupdate: new Date(1664200048200),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -7711,7 +7807,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp"];
   let index = 0;
   let IntervalParallax = null;
 

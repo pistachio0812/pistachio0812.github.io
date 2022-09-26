@@ -127,12 +127,6 @@ def darknet53():
 <p>Darknet53中的53说的是卷积和全连接层数之和，53 =  1 + （1+2+8+8+4）*2 +5+1</p>
 <p>看结构图就能明白，最后那个1表示全连接，图中没有画出来，得去看原论文，因为这里的代码是利用其做主干得到特征再进行改进，因此没有全连接。我更愿意说它是Darknet52,但根据习惯，还是叫它Darknet53。</p>
 ]]></content>
-      <categories>
-        <category>CV</category>
-      </categories>
-      <tags>
-        <tag>darknet</tag>
-      </tags>
   </entry>
   <entry>
     <title>DCGAN详解</title>
@@ -309,12 +303,6 @@ class discriminator(nn.Module):
 <p>1、随机生成batch_size个N维向量，传入到Generator中生成batch_size个虚假图片。<br>2、将虚假图片的Discriminator预测结果与1的对比作为loss对Generator进行训练（与1对比的意思是，让生成器根据判别器判别的结果进行训练）<br><img src="/CN/DCGAN/20201203114415814.png" class="lazyload" data-srcset="/CN/DCGAN/20201203114415814.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom: 50%;"></p>
 <h2 id="利用DCGAN生成图片"><a href="#利用DCGAN生成图片" class="headerlink" title="利用DCGAN生成图片"></a>利用DCGAN生成图片</h2><p>详情见源码和参考博文</p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>GAN</tag>
-      </tags>
   </entry>
   <entry>
     <title>C语言基础学习</title>
@@ -382,12 +370,6 @@ int main()
 <li>新增 quick_exit() 函数作为第三种终止程序的方式。当 exit()失败时可以做最少的清理工作。</li>
 </ul>
 <h2 id="C环境设置"><a href="#C环境设置" class="headerlink" title="C环境设置"></a>C环境设置</h2><h2 id><a href="#" class="headerlink" title="#"></a>#</h2>]]></content>
-      <categories>
-        <category>programming</category>
-      </categories>
-      <tags>
-        <tag>C</tag>
-      </tags>
   </entry>
   <entry>
     <title>CNN参数计算</title>
@@ -528,12 +510,6 @@ Process finished with exit code 0
 <p>5.池化层（pooling)</p>
 <p>不产生参数</p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>参数计算</tag>
-      </tags>
   </entry>
   <entry>
     <title>FPS计算</title>
@@ -684,12 +660,6 @@ int fps()
 </code></pre>
 <p>帧率的计算应该来说不能影响线程，进程中的性能，不要把这部分代码放在你的业务逻辑中，这样子其实又包含了你业务逻辑执行完毕后的运行时间，显得有点臃肿，并且代码不是那么优雅。最好是创建一个线程去计算帧率，这样会显得比较优雅。</p>
 ]]></content>
-      <categories>
-        <category>CV</category>
-      </categories>
-      <tags>
-        <tag>FPS</tag>
-      </tags>
   </entry>
   <entry>
     <title>fork me on github</title>
@@ -737,12 +707,6 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
 <p>1.<a href="https://www.cnblogs.com/pistachio0812/">追风赶月的少年 - 博客园 (cnblogs.com)</a></p>
 <p>2.<a href="https://pistachio0812.github.io/">相思似海深旧事如天远 (pistachio0812.github.io)</a></p>
 ]]></content>
-      <categories>
-        <category>Hexo博客搭建</category>
-      </categories>
-      <tags>
-        <tag>博客搭建</tag>
-      </tags>
   </entry>
   <entry>
     <title>Faster-RCNN解读</title>
@@ -753,12 +717,6 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
 <p>文章出处：<a href="https://blog.csdn.net/weixin_44791964/article/details/105739918">https://blog.csdn.net/weixin_44791964/article/details/105739918</a></p>
 <h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><h3 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h3><h4 id="主干网络"><a href="#主干网络" class="headerlink" title="主干网络"></a>主干网络</h4><p><img src="/CN/Faster-rcnn/image-20220417152429746.png" class="lazyload" data-srcset="/CN/Faster-rcnn/image-20220417152429746.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>论文详解</tag>
-      </tags>
   </entry>
   <entry>
     <title>How to use Linux</title>
@@ -772,12 +730,6 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
 <p>很多人都不喜欢冗余，为什么在 cp 就能描述清楚你想干什么时候还使用 copy？这完全是在浪费宝贵的 hacking time。为了从文件中提取所有包含字符串 ard 的行，Linux 程序员应该输入</p>
 <p>grep ard f</p>
 ]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Liunx system</tag>
-      </tags>
   </entry>
   <entry>
     <title>RFBNet</title>
@@ -786,12 +738,6 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
 <p>代码地址：<a href="https://github.com/ruinmessi/RFBNet">https://github.com/ruinmessi/RFBNet</a></p>
 <h4 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h4><p>RFB模块是怎么考虑感受野尺寸和离心率之间的关系的？</p>
 ]]></content>
-      <categories>
-        <category>CV</category>
-      </categories>
-      <tags>
-        <tag>RFBNet</tag>
-      </tags>
   </entry>
   <entry>
     <title>MySQL学习笔记</title>
@@ -1527,12 +1473,6 @@ mysql&gt;  SELECT * FROM SalesSummary;
 ERROR 1146: Table &#39;W3CSCHOOL.SalesSummary&#39; doesn&#39;t exist
 </code></pre>
 ]]></content>
-      <categories>
-        <category>MySQL</category>
-      </categories>
-      <tags>
-        <tag>Note</tag>
-      </tags>
   </entry>
   <entry>
     <title>Matplotlib学习笔记</title>
@@ -3999,12 +3939,6 @@ def encode_bbox(assigned_annotations, positive_indices, anchor_widths, anchor_he
         return loss, c_loss, r_loss
 </code></pre>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>论文解读</tag>
-      </tags>
   </entry>
   <entry>
     <title>InceptionV3详解</title>
@@ -4299,12 +4233,6 @@ if __name__ == &#39;__main__&#39;:
 <pre><code class="lang-markdown">Predicted: [[(&#39;n02504458&#39;, &#39;African_elephant&#39;, 0.50874853), (&#39;n01871265&#39;, &#39;tusker&#39;, 0.19524273), (&#39;n02504013&#39;, &#39;Indian_elephant&#39;, 0.1566972), (&#39;n01917289&#39;, &#39;brain_coral&#39;, 0.0008956835), (&#39;n01695060&#39;, &#39;Komodo_dragon&#39;, 0.0008260256)]]
 </code></pre>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>论文详解</tag>
-      </tags>
   </entry>
   <entry>
     <title>yolov3解读</title>
@@ -5093,12 +5021,6 @@ class YOLOLoss(nn.Module):
         return noobj_mask
 </code></pre>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>论文解读</tag>
-      </tags>
   </entry>
   <entry>
     <title>Resnet</title>
@@ -5269,12 +5191,6 @@ def resnet50(pretrained = False):
     return features, classifier
 </code></pre>
 ]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>代码复现</tag>
-      </tags>
   </entry>
   <entry>
     <title>vision transformer详解</title>
@@ -5949,9 +5865,6 @@ def vit(input_shape=[224, 224], pretrained=False, num_classes=1000):
     return model
 </code></pre>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
   </entry>
   <entry>
     <title>YOLOV5详解</title>
@@ -6909,12 +6822,6 @@ class YOLOLoss(nn.Module):
         return pred_boxes
 </code></pre>
 ]]></content>
-      <categories>
-        <category>论文详解</category>
-      </categories>
-      <tags>
-        <tag>yolov5</tag>
-      </tags>
   </entry>
   <entry>
     <title>Concat和add的区别</title>
@@ -6925,9 +6832,6 @@ class YOLOLoss(nn.Module):
 <p><img src="/CN/concat_add/image-20220508171742020.png" class="lazyload" data-srcset="/CN/concat_add/image-20220508171742020.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220508171742020" style="zoom:50%;"></p>
 <p>方法（a）和（c）分别是加权融合和连接操作。即在空间和通道维度上直接添加特征图。方法（b）是一种自适应融合方法。具体来说，假设输入的大小可以表示为（bs，C，H，W），我们可以通过卷积运算得到（bs，3，H，W）的空间自适应权重，连接和 Softmax。三个通道与三个输入一一对应，通过计算加权和可以将上下文信息聚合到输出。</p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
   </entry>
   <entry>
     <title>pytorch中contiguous函数的用法</title>
@@ -6948,12 +6852,6 @@ x.transpose(0, 1).is_contiguous() # False
 x.transpose(0, 1).contiguous().is_contiguous() # True
 </code></pre><p>在pytorch的最新版本0.4版本中，增加了torch.reshape(), 这与 numpy.reshape 的功能类似。它大致相当于 tensor.contiguous().view()</p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>contiguous</tag>
-      </tags>
   </entry>
   <entry>
     <title>hexo标签插件测试</title>
@@ -7823,12 +7721,6 @@ rounded, circle
 &#123;% endtabs %&#125;
 </code></pre>
 ]]></content>
-      <categories>
-        <category>Hexo博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
   </entry>
   <entry>
     <title>github使用指南</title>
@@ -7875,13 +7767,6 @@ rounded, circle
 <h4 id="实用小贴士"><a href="#实用小贴士" class="headerlink" title="实用小贴士"></a>实用小贴士</h4><p>内建的图形化 git：<br><code>gitk</code><br>彩色的 git 输出：<br><code>git config color.ui true</code><br>显示历史记录时，每个提交的信息只显示一行：<br><code>git config format.pretty oneline</code><br>交互式添加文件到暂存区：<br><code>git add -i</code></p>
 <p>更多内容请参考：<a href="http://rogerdudler.github.io/git-guide/index.zh.html">git - 简明指南</a></p>
 ]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>使用指南</tag>
-        <tag>github</tag>
-      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
@@ -7900,13 +7785,6 @@ rounded, circle
 </code></pre>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>Hexo博客搭建</category>
-      </categories>
-      <tags>
-        <tag>博客搭建</tag>
-        <tag>Hexo</tag>
-      </tags>
   </entry>
   <entry>
     <title>CenterNet详解</title>
@@ -7917,12 +7795,6 @@ rounded, circle
 <p>文章出处：<a href="https://blog.csdn.net/weixin_44791964/article/details/107748542?spm=1001.2014.3001.5502">Pytorch搭建自己的Centernet目标检测平台</a></p>
 <h3 id="主干网络"><a href="#主干网络" class="headerlink" title="主干网络"></a>主干网络</h3><p>主干网络选用resnet,ResNet50有两个基本的块，<strong>分别名为Conv Block和Identity Block，其中Conv Block输入和输出的维度是不一样的，所以不能连续串联，它的作用是改变网络的维度；Identity Block输入维度和输出维度相同，可以串联，用于加深网络的。</strong></p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>论文详解</tag>
-      </tags>
   </entry>
   <entry>
     <title>Remove Element</title>
@@ -7952,12 +7824,6 @@ public:
 </code></pre>
 <p>举一个最简单的例子，譬如数组为1，2，2，3，2，4，我们需要删除2，首先初始化i和j为0，指向第一个位置，因为第一个元素为1，所以A[0] = A[0]，i和j都加1，而第二个元素为2，我们递增i，直到碰到3，此时A[1] = A[3]，也就是3，递增i和j，这时候下一个元素又是2，递增i，直到碰到4，此时A[2] = A[5]，也就是4，再次递增i和j，这时候数组已经遍历完毕，结束。这时候j的值为3，刚好就是新的数组的长度。</p>
 ]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
   </entry>
   <entry>
     <title>nn.relu和F.relu的区别</title>
@@ -7997,12 +7863,6 @@ class AlexNet_2(nn.Module):
 </code></pre>
 <p>在如上网络中，AlexNet_1与AlexNet_2实现的结果是一致的，但是可以看到将ReLU层添加到网络有两种不同的实现，即nn.ReLU和F.ReLU两种实现方法。<br>其中nn.ReLU作为一个层结构，必须添加到nn.Module容器中才能使用，而F.ReLU则作为一个函数调用，看上去作为一个函数调用更方便更简洁。具体使用哪种方式，取决于编程风格。在PyTorch中,nn.X都有对应的函数版本F.X，但是并不是所有的F.X均可以用于forward或其它代码段中，因为当网络模型训练完毕时，在存储model时，在forward中的F.X函数中的参数是无法保存的。也就是说，在forward中，使用的F.X函数一般均没有状态参数，比如F.ReLU，F.avg_pool2d等，均没有参数，它们可以用在任何代码片段中。</p>
 ]]></content>
-      <categories>
-        <category>pytorch</category>
-      </categories>
-      <tags>
-        <tag>relu</tag>
-      </tags>
   </entry>
   <entry>
     <title>np.cumsum()函数</title>
@@ -8046,12 +7906,6 @@ class AlexNet_2(nn.Module):
 </code></pre><p>可以看出，上述代码是按照轴1进行累计求和的。</p>
 <p>关于更高维的数组的运算就不测试了，暂时也用不上。 </p>
 ]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>cumsum</tag>
-      </tags>
   </entry>
   <entry>
     <title>pip换源</title>
@@ -8121,12 +7975,6 @@ class Model(nn.Module):
 <p>​                        ·name(string)-子模块的名字，这个子模块可以用给定的名称作为属性访问。</p>
 <p>​                        ·module(Module)-子模块添加到模块上</p>
 ]]></content>
-      <categories>
-        <category>pytorch</category>
-      </categories>
-      <tags>
-        <tag>文档</tag>
-      </tags>
   </entry>
   <entry>
     <title>学习笔记</title>
@@ -9026,12 +8874,6 @@ c:\user\test
 </code></pre>
 <p>10.</p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
   </entry>
   <entry>
     <title>可视化技术</title>
@@ -9055,12 +8897,6 @@ sudo apt-get install texlive-latex-extra
 <pre><code>(1)下载并安装[MikTex](https://miktex.org/download)
 (2)下载并安装bash, 详情见 Git bash(https://git-scm.com/download/win)or Cygwin(https://www.cygwin.com/)
 </code></pre>]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>可视化</tag>
-      </tags>
   </entry>
   <entry>
     <title>学习网站集合</title>
@@ -9071,12 +8907,6 @@ sudo apt-get install texlive-latex-extra
 <h2 id="爱课程网"><a href="#爱课程网" class="headerlink" title="爱课程网"></a>爱课程网</h2><p><a href="https://www.icourses.cn/home">爱课程网</a>利用现代信息技术和网络技术， 面向高校师生和社会大众。提供优质教育资源共享和个性化教学资源服务，具有资源浏览、搜索、重组、评价、课程包的导入导出、发布、互动参与和“教”“学”兼备等功能。</p>
 <h2 id="粉笔网"><a href="#粉笔网" class="headerlink" title="粉笔网"></a>粉笔网</h2><p><a href="https://www.fenbi.com">粉笔网</a>是一个互联网教育平台，业务包含：公务员考试，考研、教师资格、事业单位、英语、建造、财会等技能培训；利用技术手段实现智能批改功能，并提供免费题库，供用户查阅学习，利用网络直播，进行线上授课，同时提供实物图书、试卷以及客户服务。</p>
 <h2 id="魔方英语"><a href="#魔方英语" class="headerlink" title="魔方英语"></a><a href="http://www.mofunenglish.com/">魔方英语</a></h2><h2 id="声同小语种论坛"><a href="#声同小语种论坛" class="headerlink" title="声同小语种论坛"></a><a href="http://www.somdom.com/">声同小语种论坛</a></h2>]]></content>
-      <categories>
-        <category>学习网站</category>
-      </categories>
-      <tags>
-        <tag>学习网站</tag>
-      </tags>
   </entry>
   <entry>
     <title>学术搜索网站集合</title>
@@ -9320,13 +9150,6 @@ def set_optimizer_lr(optimizer, lr_scheduler_func, epoch):
         param_group[&#39;lr&#39;] = lr
 </code></pre>
 ]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>SSD</tag>
-        <tag>损失函数</tag>
-      </tags>
   </entry>
   <entry>
     <title>扁平时代的写作·节选</title>
@@ -9341,9 +9164,6 @@ def set_optimizer_lr(optimizer, lr_scheduler_func, epoch):
 <p>​        一个重建精神价值的方向。</p>
 <p>​        这需要很多人的共同努力，重建一种非权力化和非利益化的文化核心、级差以及组织，即文明教化的正常体系。是的，在这里我愿意重新使用「教化」这样一个词，在人类几百年来钟情于「自由」一词以后，在有效教化与宽幅自由互为条件的奇诡历史之中。</p>
 ]]></content>
-      <categories>
-        <category>今日故事</category>
-      </categories>
   </entry>
   <entry>
     <title>数据处理</title>
@@ -9746,12 +9566,6 @@ def _next_data(self):
 </code></pre>
 <p>这样，多进程模式的 dataloader 就能通过多个 worker 的协作来共同完成数据的加载。</p>
 ]]></content>
-      <categories>
-        <category>pytorch</category>
-      </categories>
-      <tags>
-        <tag>数据处理</tag>
-      </tags>
   </entry>
   <entry>
     <title>提醒幸福</title>
@@ -9784,9 +9598,6 @@ def _next_data(self):
 <p>所以，当我们一无所有的时候，我们也能够说：我很幸福。因为我们还有健康的身体。当我们不再享有健康的时候，那些最勇敢<br>的人可以依然微笑着说：我很幸福。因为我还有一颗健康的心。甚至当我们连心也不再存在的时候，那些人类最优秀的分子仍旧可以对宇宙大声说：我很幸福。因为我曾经生活过。</p>
 <p>常常提醒自己注意幸福，就像在寒冷的日子里经常看看太阳，心就不知不觉暖洋洋亮光光。</p>
 ]]></content>
-      <categories>
-        <category>今日故事</category>
-      </categories>
   </entry>
   <entry>
     <title>色彩搭配</title>
@@ -9841,9 +9652,6 @@ def _next_data(self):
 <p>论文地址：</p>
 <p>论文源码：</p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
   </entry>
   <entry>
     <title>数据集介绍</title>
@@ -9873,9 +9681,6 @@ def _next_data(self):
 <pre><code>测试数据：4952张图像，共12032个目标
 </code></pre><h3 id="各种数据集介绍"><a href="#各种数据集介绍" class="headerlink" title="各种数据集介绍"></a>各种数据集介绍</h3><h4 id="Pascal-VOC"><a href="#Pascal-VOC" class="headerlink" title="Pascal VOC"></a>Pascal VOC</h4><p>官网地址：<a href="https://pjreddie.com/projects/pascal-voc-dataset-mirror/">Pascal VOC Dataset Mirror (pjreddie.com)</a></p>
 <h4 id="MS-COCO"><a href="#MS-COCO" class="headerlink" title="MS COCO"></a>MS COCO</h4><h4 id="ILSVRC"><a href="#ILSVRC" class="headerlink" title="ILSVRC"></a>ILSVRC</h4>]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
   </entry>
   <entry>
     <title>感受野的计算</title>
@@ -9890,12 +9695,6 @@ def _next_data(self):
 <p>结果如下图所示：</p>
 <p><img src="/CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/image-20220427214256808.png" class="lazyload" data-srcset="/CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/image-20220427214256808.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220427214256808"></p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>感受野</tag>
-      </tags>
   </entry>
   <entry>
     <title>未婚妻</title>
@@ -9944,9 +9743,6 @@ def _next_data(self):
 <p>他们的车子消失在黑暗中了，于是我沿着每一条街道慢吞吞地走去。孤零零的我不由自主地回到了自己的房间。</p>
 <p>我已二十岁了，还没有一个人来向我谈过爱情。</p>
 ]]></content>
-      <categories>
-        <category>今日故事</category>
-      </categories>
   </entry>
   <entry>
     <title>烟之外</title>
@@ -9954,9 +9750,6 @@ def _next_data(self):
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在涛声中唤你的名字，而你的名字<br>已在千帆之外<br>潮来潮去<br>左边的鞋印才下午<br>右边的鞋印已黄昏了<br>六月原是一本很感伤的书<br>结局如此之凄美<br>——落日西沉</p>
 <p>你依然凝视<br>那人眼中展示的一片纯白<br>他跪向你，向昨日那朵美了整个<br>下午的云<br>海哟，为何在众灯之中<br>独点亮那一盏茫然<br>还能抓住什么呢？<br>你那曾被称为云的眸子<br>现有人叫作<br>烟</p>
 ]]></content>
-      <categories>
-        <category>今日故事</category>
-      </categories>
   </entry>
   <entry>
     <title>机器学习</title>
@@ -9991,23 +9784,11 @@ def _next_data(self):
 <h4 id="召回率"><a href="#召回率" class="headerlink" title="召回率"></a>召回率</h4><p>TP是分类器认为是正样本而且确实是正样本的样本数，FN是分类器认为是负样本但实际上不是负样本的样本数，Recall就是“分类器认为是正类并且确实是正类的部分占所有确实是正类的比例”。</p>
 <p><img src="/CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20220425221025699.png" class="lazyload" data-srcset="/CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20220425221025699.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220425221025699" style="zoom:50%;"></p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
   </entry>
   <entry>
     <title>目标检测知识大集合</title>
     <url>/CN/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>目标检测</tag>
-      </tags>
   </entry>
   <entry>
     <title>详解注意力机制</title>
@@ -10218,12 +9999,6 @@ class YoloBody(nn.Module):
 原文链接：https://blog.csdn.net/weixin_44791964/article/details/121371986
 </code></pre>
 ]]></content>
-      <categories>
-        <category>CV</category>
-      </categories>
-      <tags>
-        <tag>Attention</tag>
-      </tags>
   </entry>
   <entry>
     <title>计算机视觉单词表</title>
@@ -10591,9 +10366,6 @@ class YoloBody(nn.Module):
 <p>deteriorate    恶化，变坏</p>
 <p>atomic    原子的，核能的</p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
   </entry>
   <entry>
     <title>Q &amp; A</title>
@@ -11293,9 +11065,6 @@ return x
 <p>我雇好车，进了城，还清清楚楚地听见「茶房！」</p>
 <p>一个多礼拜了，我还惦记着茶房的眉毛呢。</p>
 ]]></content>
-      <categories>
-        <category>今日故事</category>
-      </categories>
   </entry>
   <entry>
     <title>激活函数</title>
@@ -11459,12 +11228,6 @@ if __name__ == &#39;__main__&#39;:
     plt.show()
 </code></pre>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>激活函数</tag>
-      </tags>
   </entry>
   <entry>
     <title>用两个栈实现队列</title>
@@ -11474,18 +11237,12 @@ if __name__ == &#39;__main__&#39;:
 <p>题解：<a href="https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/solution/mian-shi-ti-09-yong-liang-ge-zhan-shi-xian-dui-l-2/">面试题09. 用两个栈实现队列（清晰图解） - 用两个栈实现队列 - 力扣（LeetCode）</a></p>
 <p>2</p>
 ]]></content>
-      <categories>
-        <category>算法练习</category>
-      </categories>
   </entry>
   <entry>
     <title>Sanderson the Man 1</title>
     <url>/en/The_story_of_a_great_schoolmaster/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Of all the men I have met—and I have now had a fairly long and active life and have met a very great variety of interesting people—one only has stirred me to a biographical effort. This one exception is F. W. Sanderson, for many years the headmaster of Oundle School. I think him beyond question the greatest man I have ever known with any degree of <a href="http://dict.qsbdc.com/intimacy"><strong>intimacy</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_1">1</a>, and it is in the hope of conveying to others something of my sense not merely of his importance, but of his <a href="http://dict.qsbdc.com/peculiar"><strong>peculiar</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_2">2</a> genius and the rich humanity of his character, that I am setting out to write this book. He was in himself a very delightful[Pg 2] mixture of <a href="http://dict.qsbdc.com/subtlety"><strong>subtlety</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_3">3</a> and <a href="http://dict.qsbdc.com/simplicity"><strong>simplicity</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_4">4</a>, <a href="http://dict.qsbdc.com/generosity"><strong>generosity</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_5">5</a>, <a href="http://dict.qsbdc.com/adventurousness"><strong>adventurousness</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_6">6</a>, imagination and <a href="http://dict.qsbdc.com/steadfast"><strong>steadfast</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_7">7</a> purpose, and he approached the general life of our time at such an angle as to reflect the most curious and profitable lights upon it. To tell his story is to reflect upon all the main educational ideas of the last half-century, and to revise our conception of the process and purpose of the modern community in relation to education. For Sanderson had a mind like an <a href="http://dict.qsbdc.com/octopus"><strong>octopus</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_8">8</a>, it seemed always to have a <a href="http://dict.qsbdc.com/tentacle"><strong>tentacle</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_9">9</a> free to reach out beyond what was already held, and his <a href="http://dict.qsbdc.com/tentacles"><strong>tentacles</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_10">10</a> grew and radiated farther and farther. Before his end he had come to a vision of the school as a centre for the complete reorganisation of civilised life.</p>
 ]]></content>
-      <categories>
-        <category>novel</category>
-      </categories>
   </entry>
   <entry>
     <title>np.newaxis详解</title>
@@ -11506,12 +11263,6 @@ x1_new = x1[np.newaxis,:]
 # array([[1, 2, 3, 4, 5]])
 </code></pre>
 ]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>function</tag>
-      </tags>
   </entry>
   <entry>
     <title>CNN输入与输出的关系</title>
@@ -11549,23 +11300,11 @@ x1_new = x1[np.newaxis,:]
 <p>3.SPPNet在卷积层和全连接层之间设置中间层，将全连接层前的输入设置为满足要求，因此输入可以任何尺寸</p>
 <p>4.论文中较为常见的是第一种</p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>目标检测</tag>
-      </tags>
   </entry>
   <entry>
     <title>wandb</title>
     <url>/CN/wandb/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>可视化</tag>
-      </tags>
   </entry>
   <entry>
     <title>matplotlib.use(&#39;agg&#39;)的作用机理</title>
@@ -11600,12 +11339,6 @@ Qt5Agg
 <p>也就是说，Pycharm运行的时候，默认的后端是<code>Qt5Agg</code>。</p>
 <p>实际上，<code>Agg</code> 渲染器是非交互式的后端，没有GUI界面，所以不显示图片，它是用来生成图像文件。<code>Qt5Agg</code> 是意思是Agg渲染器输出到Qt5绘图面板，它是交互式的后端，拥有在屏幕上展示的能力</p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>matplotlib</tag>
-      </tags>
   </entry>
   <entry>
     <title>pyperclip模块</title>
@@ -11621,12 +11354,6 @@ Qt5Agg
 <p>当然，如果你的程序之外的某个程序改变了剪贴板的内容，paste()函数就会返回它。</p>
 <p>总结：这个模块在写程序时可以用来读取外面剪贴板的内容，或者读取你需要读取已经写入的某个内容，方便快捷</p>
 ]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>module</tag>
-      </tags>
   </entry>
   <entry>
     <title>visdom使用教程</title>
@@ -11703,23 +11430,11 @@ vis2.line(X=x,Y=y,win=&#39;polynomial&#39;,name = &#39;this is new trace&#39;,up
 <p>记得选择环境test2</p>
 <p>未完待续。。。。。。。。</p>
 ]]></content>
-      <categories>
-        <category>pytorch</category>
-      </categories>
-      <tags>
-        <tag>可视化</tag>
-      </tags>
   </entry>
   <entry>
     <title>zetane的使用说明</title>
     <url>/en/zetane%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>可视化</tag>
-      </tags>
   </entry>
   <entry>
     <title>Grad-cam详解</title>
@@ -11903,12 +11618,6 @@ if __name__ == &#39;__main__&#39;:
 <p><img src="/CN/grad-cam/image-20220922210044972.png" class="lazyload" data-srcset="/CN/grad-cam/image-20220922210044972.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220922210044972" style="zoom:25%;"></p>
 <p>可以看出文件命名方式为类激活方法+预处理方法，有兴趣的可以去看看预处理方法，代码里有写</p>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>grad-cam</tag>
-      </tags>
   </entry>
   <entry>
     <title>Warnings_unsample</title>
@@ -11929,23 +11638,11 @@ if __name__ == &#39;__main__&#39;:
 <pre><code class="lang-python">feat1 = F.interpolate(self.fusion_layers[1](feat1), size=(38, 38), mode=&#39;bilinear&#39;, align_corners=True)
 </code></pre>
 ]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>warnings</tag>
-      </tags>
   </entry>
   <entry>
     <title>CABNet论文解读</title>
     <url>/en/CABNet/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      <categories>
-        <category>cv</category>
-      </categories>
-      <tags>
-        <tag>论文解读</tag>
-      </tags>
   </entry>
   <entry>
     <title>ubuntu软件安装的问题总结</title>
@@ -11979,11 +11676,41 @@ ID   Status  Spawn                     Ready                     Summary
 </code></pre><p>3.重新去软件商店安装</p>
 <p>其实，还有另外一种办法，就是重新去软件更新器安装，继续完成更新，没有必要去软件商店更新，希望对你有所启发</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>开放图谱协议</title>
+    <url>/en/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://zhuanlan.zhihu.com/p/36072541">什么是 Open Graph 标签？不懂你还做什么社交营销优化？</a></p>
+<p>2.<a href="https://smo.knowem.com/">https://smo.knowem.com/</a></p>
+<p>3.<a href="https://hexo.io/zh-cn/docs/helpers#open-graph">辅助函数（Helpers） | Hexo</a></p>
+<p>今天在继续配置我的博客时，发现有一个open_graph不懂，结果一查才知道这是facebook推的一个开放图谱协议，用于分享网站的时候用，于是抱着学习的目的，继续深挖下去</p>
+<p>按照第一个链接的方法，我查到了我网站的开放协议配置情况</p>
+<p><img src="/en/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/image-20220926204719850.png" class="lazyload" data-srcset="/en/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/image-20220926204719850.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>和配置情况对比一下，是一样的</p>
+<p>open graph protocol和_config.yml是一致的，twitter card info和主题volantis配置文件是一致的</p>
+<pre><code class="lang-xml"># _config.volantis.yml文件
+open_graph:
+  image: volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png
+  twitter_card: summary # summary_large_image , summary
+</code></pre>
+<p>如果想配置里面的内容，打开第三个链接</p>
+<p><img src="/en/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/image-20220926205301882.png" class="lazyload" data-srcset="/en/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/image-20220926205301882.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220926205301882" style="zoom:50%;"></p>
+<p>原来的配置实在太简陋了，分享了网站估计也没人看，那就开始配置吧</p>
+<pre><code class="lang-xml">open_graph:
+  title: page.title
+  url: url
+  author: config.author
+  image:  # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png
+  twitter_card: summary # summary_large_image , summary
+</code></pre>
+<p>结束了，以后如果还有改进再来补充</p>
+]]></content>
       <categories>
-        <category>ubuntu</category>
+        <category>hexo</category>
       </categories>
       <tags>
-        <tag>软件安装</tag>
+        <tag>open_graph</tag>
       </tags>
   </entry>
 </search>
