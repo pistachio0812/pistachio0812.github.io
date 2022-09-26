@@ -11947,4 +11947,43 @@ if __name__ == &#39;__main__&#39;:
         <tag>论文解读</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ubuntu软件安装的问题总结</title>
+    <url>/en/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考链接：</p>
+<p>1.<a href="https://blog.csdn.net/zeye5731/article/details/124478766">ubuntu安装软件时，status-code=409报错解决方案</a></p>
+<p>2.<a href="https://blog.csdn.net/qq_37006829/article/details/112428179?spm=1001.2101.3001.6661.1&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-112428179-blog-124478766.pc_relevant_multi_platform_whitelistv4&amp;utm_relevant_index=1"> 解决ubuntu软件商店无法安装软件提示snap问题</a></p>
+<p>今天一大早上想去虚拟机上（Linux）看看昨天晚上没安装的软件，给重新安装一下，打开软件商店，结果遇到两个问题，昨天晚上我是用软件更新器安装了一会就退出关闭了</p>
+<p>issue1:</p>
+<p>安装火狐浏览器时，显示<code>无法安装更新，status-code=409</code></p>
+<p>解决方案：</p>
+<pre><code class="lang-commonlisp">(base) z@E580:~$ snap changes
+ID   Status  Spawn                     Ready                     Summary
+6    Done    6 days ago, at 16:03 CST  6 days ago, at 16:04 CST  自动刷新 snap &quot;snapd&quot;
+7    Doing   today at 16:40 CST        -                         Install &quot;xmind&quot; snap from &quot;latest/stable&quot; channel
+</code></pre>
+<p>找到正在安装的软件，将其强行关闭</p>
+<pre><code class="lang-commonlisp">(base) z@E580:~$ snap abort 7
+</code></pre>
+<p>重新安装</p>
+<p>issue2:</p>
+<p><img src="/en/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/c89ffdc107df9a4e9185e7d51d5a8a21.png" class="lazyload" data-srcset="/en/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/c89ffdc107df9a4e9185e7d51d5a8a21.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>原因是我们之前安装软件的时候没有安装完成就推出软件商店了，他已经安装了，只是没有安装完成而以，</p>
+<p>解决办法：</p>
+<p>1.查看安装详情：</p>
+<pre><code>snap changes
+</code></pre><p><img src="/en/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/d9085116a96c5c63859c5259fa0230bb.png" class="lazyload" data-srcset="/en/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/d9085116a96c5c63859c5259fa0230bb.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>ID7的进程是我之前安装失败的</p>
+<p>2.清除当前安装，然后再重新安装，命令如下：</p>
+<pre><code>snap abort 7
+</code></pre><p>3.重新去软件商店安装</p>
+<p>其实，还有另外一种办法，就是重新去软件更新器安装，继续完成更新，没有必要去软件商店更新，希望对你有所启发</p>
+]]></content>
+      <categories>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>软件安装</tag>
+      </tags>
+  </entry>
 </search>
