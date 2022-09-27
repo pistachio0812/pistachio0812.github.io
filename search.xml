@@ -11640,9 +11640,18 @@ if __name__ == &#39;__main__&#39;:
 ]]></content>
   </entry>
   <entry>
-    <title>CABNet论文解读</title>
+    <title>CABNet论文笔记</title>
     <url>/en/CABNet/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://sci-hub.et-fine.com/10.1109/tcyb.2020.3004636">Sci-Hub | Context-Aware Block Net for Small Object Detection | 10.1109/TCYB.2020.3004636 (et-fine.com)</a></p>
+<p>今天看的这篇论文是吕培教授发表在IEEE TRANS上的<code>Context-Aware Block Net for Small Object Detection</code>,ok,开始进入正文</p>
+]]></content>
+      <categories>
+        <category>cv</category>
+      </categories>
+      <tags>
+        <tag>论文解读</tag>
+      </tags>
   </entry>
   <entry>
     <title>ubuntu软件安装的问题总结</title>
@@ -11711,6 +11720,37 @@ open_graph:
       </categories>
       <tags>
         <tag>open_graph</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>epoch和iteration的区别</title>
+    <url>/en/epoch%E5%92%8Citeration%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://blog.csdn.net/u011731135/article/details/81481868">epoch和iteration的区别</a></p>
+<p>（1）batchsize：批大小。在深度学习中，一般采用SGD训练，即每次训练在训练集中取batchsize个样本训练；<br>（2）iteration：1个iteration等于使用batchsize个样本训练一次；一个迭代 = 一个正向通过+一个反向通过<br>（3）epoch：1个epoch等于使用训练集中的全部样本训练一次；一个epoch = 所有训练样本的一个正向传递和一个反向传递</p>
+<p>举个例子，训练集有1000个样本，batchsize=10，那么：<br>训练完整个样本集需要：<br>100次iteration，1次epoch。</p>
+<p>但是也有人说在有些文章中epoch和iteration是一个概念。</p>
+<p>还有就是随机取batchsize，那么并不能保证所有的样本都被抽到，那么epoch的概念不明确。</p>
+]]></content>
+      <categories>
+        <category>cv</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>typora数学公式教程</title>
+    <url>/en/typora%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://www.cnblogs.com/Xuxiaokang/p/15654336.html">Typora数学公式输入指导手册 </a></p>
+<p>上面这个链接教程非常详细，有时间我会一个一个测试，有啥补充的可以私信我</p>
+]]></content>
+      <categories>
+        <category>typora</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
       </tags>
   </entry>
 </search>
