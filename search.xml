@@ -11767,4 +11767,26 @@ open_graph:
         <tag>教程</tag>
       </tags>
   </entry>
+  <entry>
+    <title>journal</title>
+    <url>/tw/shuoshuo_test/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>jfsjrjfkljfjjjjjdkslllllllllfljf;eofrerijglfdkvmklfjkcfverjgdifer</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Pytorch API之torch</title>
+    <url>/tw/torch_/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>今天开始，开始一个全新的系列，就是pytorch的API解读，当然初期，我只会自己去读API,然后不懂的记录实验，把相关经验记录下来，懂的我不会写下来，如果你有不懂的，可以私信我，谢谢。</p>
+<p>一个讲的是torch库</p>
+<p>参考链接：</p>
+<p>1.<a href="https://pytorch.org/docs/stable/torch.html#tensors">torch — PyTorch 1.12 documentation</a></p>
+<h4 id="is-nonzero"><a href="#is-nonzero" class="headerlink" title="is_nonzero"></a>is_nonzero</h4><h4 id="numel"><a href="#numel" class="headerlink" title="numel"></a>numel</h4>]]></content>
+      <categories>
+        <category>pytorch</category>
+      </categories>
+      <tags>
+        <tag>API</tag>
+        <tag>torch</tag>
+      </tags>
+  </entry>
 </search>

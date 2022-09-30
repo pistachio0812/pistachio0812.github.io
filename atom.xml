@@ -6,7 +6,7 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-09-27T03:19:37.445Z</updated>
+  <updated>2022-09-29T00:11:52.948Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>journal</title>
+    <link href="http://pistachio0812.github.io/tw/shuoshuo_test/"/>
+    <id>http://pistachio0812.github.io/tw/shuoshuo_test/</id>
+    <published>2022-09-29T00:09:29.512Z</published>
+    <updated>2022-09-29T00:11:52.948Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Pytorch API之torch</title>
+    <link href="http://pistachio0812.github.io/tw/torch_/"/>
+    <id>http://pistachio0812.github.io/tw/torch_/</id>
+    <published>2022-09-28T07:19:34.857Z</published>
+    <updated>2022-09-28T07:54:39.803Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="pytorch" scheme="http://pistachio0812.github.io/categories/pytorch/"/>
+    
+    
+    <category term="API" scheme="http://pistachio0812.github.io/tags/API/"/>
+    
+    <category term="torch" scheme="http://pistachio0812.github.io/tags/torch/"/>
+    
+  </entry>
   
   <entry>
     <title>typora数学公式教程</title>
@@ -395,48 +443,6 @@
     <id>http://pistachio0812.github.io/CN/np_cumsum/</id>
     <published>2022-06-12T09:29:40.260Z</published>
     <updated>2022-06-12T09:34:38.778Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>pytorch中contiguous函数的用法</title>
-    <link href="http://pistachio0812.github.io/CN/contiguous/"/>
-    <id>http://pistachio0812.github.io/CN/contiguous/</id>
-    <published>2022-06-12T07:41:31.468Z</published>
-    <updated>2022-06-12T07:45:21.297Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>RFBNet</title>
-    <link href="http://pistachio0812.github.io/CN/RFBNet/"/>
-    <id>http://pistachio0812.github.io/CN/RFBNet/</id>
-    <published>2022-06-01T02:05:57.530Z</published>
-    <updated>2022-06-01T02:12:32.163Z</updated>
     
     
       

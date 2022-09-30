@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://pistachio0812.github.io/tw/shuoshuo_test/</loc>
+        <lastmod>2022-09-29T00:11:52.948Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pistachio0812.github.io/tw/torch_/</loc>
+        <lastmod>2022-09-28T07:54:39.803Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://pistachio0812.github.io/en/CABNet/</loc>
         <lastmod>2022-09-27T08:50:07.726Z</lastmod>
         <changefreq>weekly</changefreq>

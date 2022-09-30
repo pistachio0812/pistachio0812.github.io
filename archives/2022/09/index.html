@@ -27,7 +27,7 @@
   
   <!-- Custom Files headBegin end-->
   <link rel="preload" href="/css/style.css" as="style">
-  <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="https://gcore.jsdelivr.net/gh/inkss/common@1/fonts/canva/MaShanZheng.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- feed -->
@@ -416,7 +416,7 @@ button {
   margin-top: 32px;
 }
 .cover-wrapper .cover-body .title {
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, "MaShanZheng", Helvetica, monospace;
   font-size: 3.125rem;
   line-height: 1.2;
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
@@ -1086,7 +1086,7 @@ button {
   margin-top: 32px;
 }
 .cover-wrapper .cover-body .title {
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, "MaShanZheng", Helvetica, monospace;
   font-size: 3.125rem;
   line-height: 1.2;
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
@@ -1442,158 +1442,6 @@ button {
   -moz-opacity: 1;
   background: var(--color-card);
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-mode: 'dark';
-  }
-  :root:not([color-scheme]) {
-    --color-site-body: #121212;
-    --color-read-bkg: #1f1f1f;
-    --color-read-post: #262626;
-    --color-site-bg: #1f1f1f;
-    --color-site-inner: rgba(238,238,238,0.871);
-    --color-site-footer: rgba(170,170,170,0.871);
-    --color-card: #262626;
-    --color-text: rgba(238,238,238,0.871);
-    --color-block: #434343;
-    --color-codeblock: #1f1f1f;
-    --color-inlinecode: #d56d28;
-    --color-h1: rgba(255,255,255,0.871);
-    --color-h2: rgba(255,255,255,0.871);
-    --color-h3: rgba(255,255,255,0.6);
-    --color-h4: rgba(255,255,255,0.6);
-    --color-h5: rgba(255,255,255,0.6);
-    --color-h6: rgba(255,255,255,0.6);
-    --color-p: rgba(217,217,217,0.871);
-    --color-list: rgba(217,217,217,0.871);
-    --color-list-hl: #63e0c4;
-    --color-meta: rgba(191,191,191,0.871);
-    --color-link: rgba(191,191,191,0.871);
-    --color-copyright-bkg: #21252b;
-  }
-  :root:not([color-scheme]) img {
-    filter: brightness(70%) !important;
-  }
-  :root:not([color-scheme]) .blur {
-    background: rgba(31,31,31,0.9) !important;
-  }
-  :root:not([color-scheme]) .white-box.blur {
-    background: rgba(38,38,38,0.9) !important;
-  }
-  :root:not([color-scheme]) .nav-main .u-search-input {
-    background: var(--color-card) !important;
-  }
-  :root:not([color-scheme]) #l_main .article .prev-next>a {
-    background: var(--color-block) !important;
-  }
-  :root:not([color-scheme]) #l_main .article .prev-next>a:hover {
-    background: var(--color-site-bg) !important;
-  }
-  :root:not([color-scheme]) .article blockquote {
-    background: var(--color-block) !important;
-  }
-  :root:not([color-scheme]) .article-title a {
-    color: var(--color-h1) !important;
-  }
-  :root:not([color-scheme]) details>summary {
-    color: var(--color-p) !important;
-    background: var(--color-site-bg) !important;
-  }
-  :root:not([color-scheme]) details {
-    border: 1px solid var(--color-site-bg) !important;
-    background: var(--color-site-bg) !important;
-  }
-  :root:not([color-scheme]) #u-search .modal,
-  :root:not([color-scheme]) #u-search .modal-header,
-  :root:not([color-scheme]) #u-search .modal-body {
-    background: var(--color-card) !important;
-  }
-  :root:not([color-scheme]) #u-search .modal-body .modal-results .result:hover {
-    background: var(--color-block) !important;
-  }
-  :root:not([color-scheme]) .u-search-input:hover {
-    background: var(--color-block) !important;
-  }
-  :root:not([color-scheme]) .u-search-input:focus {
-    background: var(--color-site-body) !important;
-  }
-}
-[color-scheme='dark'] {
-  --color-site-body: #121212;
-  --color-read-bkg: #1f1f1f;
-  --color-read-post: #262626;
-  --color-site-bg: #1f1f1f;
-  --color-site-inner: rgba(238,238,238,0.871);
-  --color-site-footer: rgba(170,170,170,0.871);
-  --color-card: #262626;
-  --color-text: rgba(238,238,238,0.871);
-  --color-block: #434343;
-  --color-codeblock: #1f1f1f;
-  --color-inlinecode: #d56d28;
-  --color-h1: rgba(255,255,255,0.871);
-  --color-h2: rgba(255,255,255,0.871);
-  --color-h3: rgba(255,255,255,0.6);
-  --color-h4: rgba(255,255,255,0.6);
-  --color-h5: rgba(255,255,255,0.6);
-  --color-h6: rgba(255,255,255,0.6);
-  --color-p: rgba(217,217,217,0.871);
-  --color-list: rgba(217,217,217,0.871);
-  --color-list-hl: #63e0c4;
-  --color-meta: rgba(191,191,191,0.871);
-  --color-link: rgba(191,191,191,0.871);
-  --color-copyright-bkg: #21252b;
-}
-[color-scheme='dark'] img {
-  filter: brightness(70%) !important;
-}
-[color-scheme='dark'] .blur {
-  background: rgba(31,31,31,0.9) !important;
-}
-[color-scheme='dark'] .white-box.blur {
-  background: rgba(38,38,38,0.9) !important;
-}
-[color-scheme='dark'] .nav-main .u-search-input {
-  background: var(--color-card) !important;
-}
-[color-scheme='dark'] #l_main .article .prev-next>a {
-  background: var(--color-block) !important;
-}
-[color-scheme='dark'] #l_main .article .prev-next>a:hover {
-  background: var(--color-site-bg) !important;
-}
-[color-scheme='dark'] .article blockquote {
-  background: var(--color-block) !important;
-}
-[color-scheme='dark'] .article-title a {
-  color: var(--color-h1) !important;
-}
-[color-scheme='dark'] details>summary {
-  color: var(--color-p) !important;
-  background: var(--color-site-bg) !important;
-}
-[color-scheme='dark'] details {
-  border: 1px solid var(--color-site-bg) !important;
-  background: var(--color-site-bg) !important;
-}
-[color-scheme='dark'] #u-search .modal,
-[color-scheme='dark'] #u-search .modal-header,
-[color-scheme='dark'] #u-search .modal-body {
-  background: var(--color-card) !important;
-}
-[color-scheme='dark'] #u-search .modal-body .modal-results .result:hover {
-  background: var(--color-block) !important;
-}
-[color-scheme='dark'] .u-search-input:hover {
-  background: var(--color-block) !important;
-}
-[color-scheme='dark'] .u-search-input:focus {
-  background: var(--color-site-body) !important;
-}
-@media screen and (max-width: 500px) {
-  [color-scheme='dark'] .l_header .m_search {
-    background: var(--color-site-bg) !important;
-  }
-}
 @font-face {
   font-family: 'UbuntuMono';
   src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
@@ -1602,8 +1450,8 @@ button {
   font-display: swap;
 }
 @font-face {
-  font-family: 'Varela Round';
-  src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf");
+  font-family: 'MaShanZheng';
+  src: url("https://gcore.jsdelivr.net/gh/inkss/common@1/fonts/canva/MaShanZheng.woff2");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
@@ -1726,7 +1574,7 @@ button {
   line-height: 64px;
   padding: 0 24px;
   font-size: 1.25rem;
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, "MaShanZheng", Helvetica, monospace;
 }
 .l_header #wrapper .nav-main .title img {
   height: 64px;
@@ -2527,7 +2375,7 @@ ul.list-v >li>a:hover {
   line-height: 64px;
   padding: 0 24px;
   font-size: 1.25rem;
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, "MaShanZheng", Helvetica, monospace;
 }
 .l_header #wrapper .nav-main .title img {
   height: 64px;
@@ -3622,21 +3470,10 @@ ul.list-v >li>a:hover {
   background: rgba(0,0,0,0.7);
   z-index: 1;
 }
-@media screen and (prefers-color-scheme: dark) and (max-width: 500px) {
-  .l_header .m_search {
-    background: var(--color-site-bg) !important;
-  }
-}
 
   </style>
   <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
   <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
-    <script>
-      let userColorScheme=localStorage.getItem("color-scheme")
-      if(userColorScheme){
-        document.documentElement.setAttribute("color-scheme", userColorScheme);
-      }
-    </script>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -3710,7 +3547,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1664333601932),
+    lastupdate: new Date(1664546607881),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -4378,6 +4215,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- import body_begin end-->
     <!-- Custom Files bodyBegin begin-->
     
+    <!-- 浏览器搞笑标题-->
+    <script type="text/javascript" src="/js/FunnyTitle.js"></script>
     <!-- Custom Files bodyBegin end-->
     <!--樱花特效-->
     <script src="https://gcore.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/sakura.js"></script>
@@ -4386,8 +4225,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!--鼠标点击特效-->
     <script src="https://gcore.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/mouse_click.js"></script>
     <!--动态线条背景-->
-    <script type="text/javascript" color="220, 220, 220" opacity="0.6" zindex="-2" count="100" src="/cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow " style="opacity: 0">
+    <!--<script type="text/javascript" color="220, 220, 220" opacity="0.6" zIndex="-2" count="100" src="/cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script> -->
+    <!--飘动的彩带-->
+    <script src="https://g.joyinshare.com/hc/piao.js" type="text/javascript"></script>
+    <!-- 人体时钟背景白-->
+    <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honenoneclock/honehone_clock_wh.js"></script>
+    <script src="https://unpkg.com/hls.js@latest"></script>
+<header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow " style="opacity: 0">
   <div class="container">
   <div id="wrapper">
     <div class="nav-sub">
@@ -4936,6 +4780,129 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class="post-wrapper">
             <div class="post post-v3 white-box reveal shadow" itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://pistachio0812.github.io/tw/shuoshuo_test/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="相思似海深旧事如天远">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="相思似海深旧事如天远">
+    <meta itemprop="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title" itemprop="name headline">
+      <a href="/tw/shuoshuo_test/" itemprop="url">
+        journal
+      </a>
+    </h2>
+  
+  <div class="md article-desc" itemprop="articleBody">
+    
+      
+        jfsjrjfkljfjjjjjdkslllllllllfljf;eofrerijglfdkvmklfjkcfverjgdifer
+
+      
+    
+  </div>
+  
+    <div class="meta-v3" line_style="solid">
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-09-29T08:09:29+08:00">2022-09-29</time>
+        
+      </div>
+      
+        <div>
+          <a class="readmore" href="/tw/shuoshuo_test/" itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <div class="post post-v3 white-box reveal shadow" itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://pistachio0812.github.io/tw/torch_/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="相思似海深旧事如天远">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="相思似海深旧事如天远">
+    <meta itemprop="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title" itemprop="name headline">
+      <a href="/tw/torch_/" itemprop="url">
+        Pytorch API之torch
+      </a>
+    </h2>
+  
+  <div class="md article-desc" itemprop="articleBody">
+    
+      
+        今天开始，开始一个全新的系列，就是pytorch的API解读，当然初期，我只会自己去读API,然后不懂的记录实验，把相关经验记录下来，懂的我不会写下来，如果你有不懂的，可以私信我，谢谢。
+一个讲的是torch库
+参考链接：
+1.torch — PyTorch 1.12 documentation
+is_nonzeronumel
+      
+    
+  </div>
+  
+    <div class="meta-v3" line_style="solid">
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-09-28T15:19:34+08:00">2022-09-28</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/pytorch/">pytorch</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/pytorch/" itemprop="url"><span itemprop="name">pytorch</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class="readmore" href="/tw/torch_/" itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <div class="post post-v3 white-box reveal shadow" itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://pistachio0812.github.io/en/typora数学公式教程/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="相思似海深旧事如天远">
@@ -5433,123 +5400,6 @@ UserWarning: nn.functional.upsamp...
           </div>
         
       
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow" itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://pistachio0812.github.io/en/zetane的使用/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="相思似海深旧事如天远">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="相思似海深旧事如天远">
-    <meta itemprop="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title" itemprop="name headline">
-      <a href="/en/zetane%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url">
-        zetane的使用说明
-      </a>
-    </h2>
-  
-  <div class="md article-desc" itemprop="articleBody">
-    
-      
-        
-      
-    
-  </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-09-20T17:09:50+08:00">2022-09-20</time>
-        
-      </div>
-      
-        <div>
-          <a class="readmore" href="/en/zetane%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class="post-wrapper">
-            <div class="post post-v3 white-box reveal shadow" itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://pistachio0812.github.io/en/use_agg/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="相思似海深旧事如天远">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="相思似海深旧事如天远">
-    <meta itemprop="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title" itemprop="name headline">
-      <a href="/en/use_agg/" itemprop="url">
-        matplotlib.use('agg')的作用机理
-      </a>
-    </h2>
-  
-  <div class="md article-desc" itemprop="articleBody">
-    
-      
-        博文链接：
-matplotlib.use(‘agg‘)“语句的作用机理
-matplotlib中什么是后端 
-问题：在检查SSD代码时，在callback.py文件中发现出现了matplotlib.use(&#39;agg&#39;)的语句。PyCharm中不显示绘图。
-相关示例：
-import numpy as np
-import matplotlib
-matplotlib.use(&#39...
-      
-    
-  </div>
-  
-    <div class="meta-v3" line_style="solid">
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-09-17T21:26:58+08:00">2022-09-17</time>
-        
-      </div>
-      
-        <div>
-          <a class="readmore" href="/en/use_agg/" itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -5581,7 +5431,7 @@ matplotlib.use(&#39...
     
     
       
-<section class="widget blogger desktop pjax">
+<section class="widget blogger desktop mobile pjax">
   <div class="content">
     
       
@@ -5656,6 +5506,8 @@ matplotlib.use(&#39...
         
           <li><a class="flat-box" title="/categories/hexo/" href="/categories/hexo/" active-action="action-categorieshexo"><div class="name">hexo</div><div class="badge">(1)</div></a></li>
         
+          <li><a class="flat-box" title="/categories/pytorch/" href="/categories/pytorch/" active-action="action-categoriespytorch"><div class="name">pytorch</div><div class="badge">(1)</div></a></li>
+        
           <li><a class="flat-box" title="/categories/typora/" href="/categories/typora/" active-action="action-categoriestypora"><div class="name">typora</div><div class="badge">(1)</div></a></li>
         
       </ul>
@@ -5671,7 +5523,7 @@ matplotlib.use(&#39...
     
       
   
-  <section class="widget tagcloud desktop pjax">
+  <section class="widget tagcloud desktop mobile pjax">
     
   <header>
     
@@ -5681,7 +5533,7 @@ matplotlib.use(&#39...
 
 
     <div class="content">
-      <a href="/tags/open-graph/" style="font-size: 14px; color: #999">open_graph</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px; color: #999">教程</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">深度学习</a> <a href="/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/" style="font-size: 14px; color: #999">论文解读</a>
+      <a href="/tags/API/" style="font-size: 14px; color: #999">API</a> <a href="/tags/open-graph/" style="font-size: 14px; color: #999">open_graph</a> <a href="/tags/torch/" style="font-size: 14px; color: #999">torch</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px; color: #999">教程</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">深度学习</a> <a href="/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/" style="font-size: 14px; color: #999">论文解读</a>
     </div>
   </section>
 
@@ -5802,7 +5654,7 @@ matplotlib.use(&#39...
     
       
         
-          <div><p><span>本站总访问量为 <span id="busuanzi_value_site_pv"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次&lt;/span&gt; <span>访客数为 <span id="busuanzi_value_site_uv"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人&lt;/span&gt;</span></span></p>
+          <div><p><span id="lc-sv">本站总访问量为 <span id="number"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次&lt;/span&gt; <span id="lc-uv">访客数为 <span id="number"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人&lt;/span&gt;</span></span></p>
 </div>
         
       
@@ -5815,7 +5667,7 @@ matplotlib.use(&#39...
     
       
         <div class="copyright">
-        <p><a href="/">Copyright ©2020-2023江西理工大学</a></p>
+        <p><a href="/">Copyright ©2020-2023江西理工大学.All Rights Reserved</a></p>
 
         </div>
       
@@ -6220,122 +6072,6 @@ matplotlib.use(&#39...
 
 
 <!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
-
-  <script>
-const rootElement = document.documentElement;
-const darkModeStorageKey = "color-scheme";
-const rootElementDarkModeAttributeName = "color-scheme";
-const setLS = (k, v) => {
-    localStorage.setItem(k, v);
-};
-const removeLS = (k) => {
-    localStorage.removeItem(k);
-};
-const getLS = (k) => {
-    return localStorage.getItem(k);
-};
-const getModeFromCSSMediaQuery = () => {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-};
-const resetRootDarkModeAttributeAndLS = () => {
-  rootElement.removeAttribute(rootElementDarkModeAttributeName);
-  removeLS(darkModeStorageKey);
-};
-const validColorModeKeys = {
-  dark: true,
-  light: true,
-};
-const applyCustomDarkModeSettings = (mode) => {
-  const currentSetting = mode || getLS(darkModeStorageKey);
-  getCustomDarkMode();
-  if (currentSetting === getModeFromCSSMediaQuery()) {
-    resetRootDarkModeAttributeAndLS();
-  } else if (validColorModeKeys[currentSetting]) {
-    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
-  } else {
-    resetRootDarkModeAttributeAndLS();
-  }
-};
-const invertDarkModeObj = {
-  dark: "light",
-  light: "dark",
-};
-/**
- * get target mode
- */
- const getCustomDarkMode = () => {
-  let currentSetting = getLS(darkModeStorageKey);
-  if (validColorModeKeys[currentSetting]) {
-    currentSetting = invertDarkModeObj[currentSetting];
-  } else if (currentSetting === null) {
-    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
-  } else {
-    return;
-  }
-  if(currentSetting=="dark"){
-    volantis.dark.mode="light";
-  }else{
-    volantis.dark.mode="dark";
-  }
-  // console.log(volantis.dark.mode)
-};
-const toggleCustomDarkMode = () => {
-  let currentSetting = getLS(darkModeStorageKey);
-  if (validColorModeKeys[currentSetting]) {
-    currentSetting = invertDarkModeObj[currentSetting];
-  } else if (currentSetting === null) {
-    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
-  } else {
-    return;
-  }
-  setLS(darkModeStorageKey, currentSetting);
-  return currentSetting;
-};
-/**
- * 暗黑模式触发器
- */
-volantis.dark.toggle=()=>{
-  const mode = toggleCustomDarkMode();
-  applyCustomDarkModeSettings(mode);
-  // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
-  volantis.dark.method.toggle.start();
-}
-/**
- * bind event for toggle button
- */
-
-function bindToggleButton() {
-  var btn= document.querySelectorAll("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn")
-  btn.forEach(function (e) {
-    volantis.dom.$(e).on('click',volantis.dark.toggle);
-  })
-}
-applyCustomDarkModeSettings();
-document.addEventListener("DOMContentLoaded", ()=>{
-  volantis.requestAnimationFrame(bindToggleButton)
-});
-volantis.pjax.push(bindToggleButton);
-
-const darkModelListeners={
-  dark:(mediaQueryList )=>{
-    if(mediaQueryList.matches){
-      volantis.dark.mode = "dark";
-    }
-    volantis.dark.method.toggle.start();
-  },
-  light:(mediaQueryList)=>{
-    if(mediaQueryList.matches){
-      volantis.dark.mode = "light";
-    }
-    volantis.dark.method.toggle.start();
-  }
-}
-window.matchMedia('(prefers-color-scheme: dark)').addListener(darkModelListeners.dark)
-window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListeners.light)
-</script>
-
 
 
 
@@ -6866,7 +6602,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp"];
   let index = 0;
   let IntervalParallax = null;
 
