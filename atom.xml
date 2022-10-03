@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>相思似海深旧事如天远</title>
+  <title>阿月浑子-Hexo博客</title>
   
   <subtitle>where there is a will there is a way</subtitle>
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
@@ -157,6 +157,10 @@
     
     
     
+    <category term="ubuntu" scheme="http://pistachio0812.github.io/categories/ubuntu/"/>
+    
+    
+    <category term="软件安装" scheme="http://pistachio0812.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
@@ -203,6 +207,10 @@
     
     
     
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+    <category term="warnings" scheme="http://pistachio0812.github.io/tags/warnings/"/>
     
   </entry>
   
@@ -224,6 +232,10 @@
     
     
     
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+    <category term="grad-cam" scheme="http://pistachio0812.github.io/tags/grad-cam/"/>
     
   </entry>
   
@@ -245,6 +257,10 @@
     
     
     
+    <category term="pytorch" scheme="http://pistachio0812.github.io/categories/pytorch/"/>
+    
+    
+    <category term="可视化" scheme="http://pistachio0812.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
@@ -266,6 +282,10 @@
     
     
     
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+    <category term="可视化" scheme="http://pistachio0812.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
@@ -287,6 +307,10 @@
     
     
     
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+    <category term="matplotlib" scheme="http://pistachio0812.github.io/tags/matplotlib/"/>
     
   </entry>
   
@@ -308,6 +332,10 @@
     
     
     
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+    <category term="可视化" scheme="http://pistachio0812.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
@@ -329,6 +357,10 @@
     
     
     
+    <category term="python" scheme="http://pistachio0812.github.io/categories/python/"/>
+    
+    
+    <category term="module" scheme="http://pistachio0812.github.io/tags/module/"/>
     
   </entry>
   
@@ -350,6 +382,10 @@
     
     
     
+    <category term="python" scheme="http://pistachio0812.github.io/categories/python/"/>
+    
+    
+    <category term="function" scheme="http://pistachio0812.github.io/tags/function/"/>
     
   </entry>
   
@@ -371,6 +407,10 @@
     
     
     
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+    <category term="目标检测" scheme="http://pistachio0812.github.io/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
     
   </entry>
   
@@ -392,6 +432,10 @@
     
     
     
+    <category term="Leetcode" scheme="http://pistachio0812.github.io/categories/Leetcode/"/>
+    
+    
+    <category term="题解" scheme="http://pistachio0812.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
@@ -413,6 +457,10 @@
     
     
     
+    <category term="cv" scheme="http://pistachio0812.github.io/categories/cv/"/>
+    
+    
+    <category term="python" scheme="http://pistachio0812.github.io/tags/python/"/>
     
   </entry>
   
@@ -434,6 +482,10 @@
     
     
     
+    <category term="pytorch" scheme="http://pistachio0812.github.io/categories/pytorch/"/>
+    
+    
+    <category term="relu" scheme="http://pistachio0812.github.io/tags/relu/"/>
     
   </entry>
   
@@ -455,6 +507,10 @@
     
     
     
+    <category term="python" scheme="http://pistachio0812.github.io/categories/python/"/>
+    
+    
+    <category term="cumsum" scheme="http://pistachio0812.github.io/tags/cumsum/"/>
     
   </entry>
   
