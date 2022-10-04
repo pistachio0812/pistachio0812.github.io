@@ -6,7 +6,7 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-09-29T00:11:52.948Z</updated>
+  <updated>2022-10-04T08:39:30.990Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <author>
@@ -17,9 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>繁体字测试</title>
+    <link href="http://pistachio0812.github.io/zh-TW/%E7%B9%81%E4%BD%93%E5%AD%97%E6%B5%8B%E8%AF%95/"/>
+    <id>http://pistachio0812.github.io/zh-TW/%E7%B9%81%E4%BD%93%E5%AD%97%E6%B5%8B%E8%AF%95/</id>
+    <published>2022-10-04T08:37:22.470Z</published>
+    <updated>2022-10-04T08:39:30.990Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>journal</title>
-    <link href="http://pistachio0812.github.io/tw/shuoshuo_test/"/>
-    <id>http://pistachio0812.github.io/tw/shuoshuo_test/</id>
+    <link href="http://pistachio0812.github.io/zh-TW/shuoshuo_test/"/>
+    <id>http://pistachio0812.github.io/zh-TW/shuoshuo_test/</id>
     <published>2022-09-29T00:09:29.512Z</published>
     <updated>2022-09-29T00:11:52.948Z</updated>
     
@@ -39,8 +60,8 @@
   
   <entry>
     <title>Pytorch API之torch</title>
-    <link href="http://pistachio0812.github.io/tw/torch_/"/>
-    <id>http://pistachio0812.github.io/tw/torch_/</id>
+    <link href="http://pistachio0812.github.io/zh-TW/torch_/"/>
+    <id>http://pistachio0812.github.io/zh-TW/torch_/</id>
     <published>2022-09-28T07:19:34.857Z</published>
     <updated>2022-09-28T07:54:39.803Z</updated>
     
@@ -191,8 +212,8 @@
   
   <entry>
     <title>Warnings_unsample</title>
-    <link href="http://pistachio0812.github.io/CN/warning_unsample/"/>
-    <id>http://pistachio0812.github.io/CN/warning_unsample/</id>
+    <link href="http://pistachio0812.github.io/zh-CN/warning_unsample/"/>
+    <id>http://pistachio0812.github.io/zh-CN/warning_unsample/</id>
     <published>2022-09-22T13:20:43.936Z</published>
     <updated>2022-09-22T14:23:33.281Z</updated>
     
@@ -216,8 +237,8 @@
   
   <entry>
     <title>Grad-cam详解</title>
-    <link href="http://pistachio0812.github.io/CN/grad-cam/"/>
-    <id>http://pistachio0812.github.io/CN/grad-cam/</id>
+    <link href="http://pistachio0812.github.io/zh-CN/grad-cam/"/>
+    <id>http://pistachio0812.github.io/zh-CN/grad-cam/</id>
     <published>2022-09-22T11:37:18.237Z</published>
     <updated>2022-09-22T14:23:27.371Z</updated>
     
@@ -316,8 +337,8 @@
   
   <entry>
     <title>wandb</title>
-    <link href="http://pistachio0812.github.io/CN/wandb/"/>
-    <id>http://pistachio0812.github.io/CN/wandb/</id>
+    <link href="http://pistachio0812.github.io/zh-CN/wandb/"/>
+    <id>http://pistachio0812.github.io/zh-CN/wandb/</id>
     <published>2022-09-16T11:41:25.886Z</published>
     <updated>2022-09-16T11:42:50.581Z</updated>
     
@@ -341,8 +362,8 @@
   
   <entry>
     <title>pyperclip模块</title>
-    <link href="http://pistachio0812.github.io/CN/pyperclip/"/>
-    <id>http://pistachio0812.github.io/CN/pyperclip/</id>
+    <link href="http://pistachio0812.github.io/zh-CN/pyperclip/"/>
+    <id>http://pistachio0812.github.io/zh-CN/pyperclip/</id>
     <published>2022-09-08T03:17:47.989Z</published>
     <updated>2022-09-08T03:25:43.110Z</updated>
     
@@ -366,8 +387,8 @@
   
   <entry>
     <title>np.newaxis详解</title>
-    <link href="http://pistachio0812.github.io/CN/np_newaxis/"/>
-    <id>http://pistachio0812.github.io/CN/np_newaxis/</id>
+    <link href="http://pistachio0812.github.io/zh-CN/np_newaxis/"/>
+    <id>http://pistachio0812.github.io/zh-CN/np_newaxis/</id>
     <published>2022-09-07T09:21:34.917Z</published>
     <updated>2022-09-07T09:25:23.310Z</updated>
     
@@ -391,8 +412,8 @@
   
   <entry>
     <title>CNN输入与输出的关系</title>
-    <link href="http://pistachio0812.github.io/CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://pistachio0812.github.io/CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/</id>
+    <link href="http://pistachio0812.github.io/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://pistachio0812.github.io/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/</id>
     <published>2022-09-06T09:01:53.315Z</published>
     <updated>2022-09-06T09:24:10.853Z</updated>
     
@@ -416,8 +437,8 @@
   
   <entry>
     <title>Remove Element</title>
-    <link href="http://pistachio0812.github.io/CN/leetcode01/"/>
-    <id>http://pistachio0812.github.io/CN/leetcode01/</id>
+    <link href="http://pistachio0812.github.io/zh-CN/leetcode01/"/>
+    <id>http://pistachio0812.github.io/zh-CN/leetcode01/</id>
     <published>2022-09-06T02:16:09.023Z</published>
     <updated>2022-09-06T02:27:28.196Z</updated>
     
@@ -441,8 +462,8 @@
   
   <entry>
     <title>python知识补充</title>
-    <link href="http://pistachio0812.github.io/CN/python%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/"/>
-    <id>http://pistachio0812.github.io/CN/python%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/</id>
+    <link href="http://pistachio0812.github.io/zh-CN/python%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/"/>
+    <id>http://pistachio0812.github.io/zh-CN/python%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/</id>
     <published>2022-07-02T02:11:12.000Z</published>
     <updated>2022-07-02T02:11:13.500Z</updated>
     
@@ -466,8 +487,8 @@
   
   <entry>
     <title>nn.relu和F.relu的区别</title>
-    <link href="http://pistachio0812.github.io/CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>http://pistachio0812.github.io/CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <link href="http://pistachio0812.github.io/zh-CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://pistachio0812.github.io/zh-CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
     <published>2022-06-20T03:35:58.048Z</published>
     <updated>2022-06-20T03:40:38.148Z</updated>
     
@@ -486,31 +507,6 @@
     
     
     <category term="relu" scheme="http://pistachio0812.github.io/tags/relu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>np.cumsum()函数</title>
-    <link href="http://pistachio0812.github.io/CN/np_cumsum/"/>
-    <id>http://pistachio0812.github.io/CN/np_cumsum/</id>
-    <published>2022-06-12T09:29:40.260Z</published>
-    <updated>2022-06-12T09:34:38.778Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="python" scheme="http://pistachio0812.github.io/categories/python/"/>
-    
-    
-    <category term="cumsum" scheme="http://pistachio0812.github.io/tags/cumsum/"/>
     
   </entry>
   
