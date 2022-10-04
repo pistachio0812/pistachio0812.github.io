@@ -48,7 +48,7 @@
       <link rel="alternate" href="/atom.xml" title="阿月浑子-Hexo博客" type="application/atom+xml">
   <!-- 页面元数据 -->
   <title>pytorch中contiguous函数的用法 - 阿月浑子-Hexo博客</title>
-  <meta name="keywords" content="contiguous,null">
+  <meta name="keywords" content="函数库,contiguous,null">
   <meta desc name="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测 - pistachio - 阿月浑子-Hexo博客">
   
 <meta property="og:type" content="article">
@@ -58,8 +58,9 @@
 <meta property="og:description" content="参考博文： Pytorch之contiguous的用法 函数会使tensor变量在内存中的存储变得连续。 contiguous,()：view只能用在contiguous的variable上。如果在view之前用了transpose%2C permute等，需要用contiguous ()来返回一个contiguous copy。) contiguous tensor变量调用contiguous(">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-12T07:41:31.468Z">
-<meta property="article:modified_time" content="2022-06-12T07:45:21.297Z">
+<meta property="article:modified_time" content="2022-10-04T13:02:49.361Z">
 <meta property="article:author" content="config.author">
+<meta property="article:tag" content="函数库">
 <meta property="article:tag" content="contiguous">
 <meta name="twitter:card" content="summary">
   <style>
@@ -3727,7 +3728,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1664873146315),
+    lastupdate: new Date(1664891965548),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -4964,10 +4965,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
   <div class="new-meta-item category">
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/cv/">cv</a>
+    <a class="category-link" href="/categories/pytorch/">pytorch</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/cv/" itemprop="url"><span itemprop="name">cv</span></a>
+        <a href="/categories/pytorch/" itemprop="url"><span itemprop="name">pytorch</span></a>
       </span>
     
   </div>
@@ -5052,10 +5053,10 @@ x.transpose(0, 1).contiguous().is_contiguous() # True
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-12T15:45:21+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-04T21:02:49+08:00">
   <a class="notlink">
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年6月12日</p>
+    <p>更新于：2022年10月4日</p>
   </a>
 </div>
 
@@ -5064,8 +5065,8 @@ x.transpose(0, 1).contiguous().is_contiguous() # True
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/contiguous/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>contiguous</p></a></div>
-  <span hidden itemprop="keywords">contiguous</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%87%BD%E6%95%B0%E5%BA%93/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>函数库</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/contiguous/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>contiguous</p></a></div>
+  <span hidden itemprop="keywords">函数库 contiguous</span>
 
 
         
@@ -5132,7 +5133,7 @@ x.transpose(0, 1).contiguous().is_contiguous() # True
       
       
         <a class="next" href="/zh-CN/RFBNet/">
-          <p class="title">RFBNet<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="title">RFBNet论文笔记<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class="content">论文地址：Receptive Field Block Net for Accurate and Fast Object Detection (thecvf.com)
 代码地址：https://g...</p>
         </a>
@@ -6214,7 +6215,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -6441,7 +6442,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/cv/","name":"cv"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/contiguous/","name":"pytorch中contiguous函数的用法"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"pytorch中contiguous函数的用法","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/contiguous/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/contiguous/","wordCount":0,"datePublished":"2022-06-12T07:41:31.468Z","dateModified":"2022-06-12T07:45:21.297Z","articleSection":"cv","keywords":"contiguous","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/pytorch/","name":"pytorch"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/contiguous/","name":"pytorch中contiguous函数的用法"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"pytorch中contiguous函数的用法","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/contiguous/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/contiguous/","wordCount":0,"datePublished":"2022-06-12T07:41:31.468Z","dateModified":"2022-10-04T13:02:49.361Z","articleSection":"pytorch","keywords":"函数库,contiguous","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
@@ -6550,4 +6551,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 'prevNext', false) 
 </script> 
     <!-- Custom Files bodyEnd end-->
-  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
