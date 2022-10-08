@@ -3735,7 +3735,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665157331018),
+    lastupdate: new Date(1665209991219),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -5000,13 +5000,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：996 字</p>
+      <p>字数：934 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：4 分钟</p>
+      <p>时长：3 分钟</p>
     </a>
   </div>
 
@@ -5045,10 +5045,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p> 具体到深度学习训练时，我们可以在<a target="_blank" rel="external nofollow noopener noreferrer" href="https://so.csdn.net/so/search?q=torch&amp;spm=1001.2101.3001.7020">torch</a>训练代码下插入visdom的可视化模块：</p>
 <pre><code class="lang-python">if args.steps_plot &gt; 0 and step % args.steps_plot == 0:
     image = inputs[0].cpu().data
-    vis.image(image,f&#39;input (epoch: &#123;epoch&#125;, step: &#123;step&#125;)&#39;)
-    vis.image(outputs[0].cpu().max(0)[1].data, f&#39;output (epoch: &#123;epoch&#125;, step: &#123;step&#125;)&#39;)
-    vis.image(targets[0].cpu().data, f&#39;target (epoch: &#123;epoch&#125;, step: &#123;step&#125;)&#39;)
-    vis.image(loss, f&#39;loss (epoch: &#123;epoch&#125;, step: &#123;step&#125;)&#39;)
+    vis.image(image,f'input (epoch: {epoch}, step: {step})')
+    vis.image(outputs[0].cpu().max(0)[1].data, f'output (epoch: {epoch}, step: {step})')
+    vis.image(targets[0].cpu().data, f'target (epoch: {epoch}, step: {step})')
+    vis.image(loss, f'loss (epoch: {epoch}, step: {step})')
 </code></pre>
 <p>  将上述模块插入到VOC 2012语义分割训练中，效果如下：</p>
 <p><img src="/zh-CN/visdom%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy80bE4xWE9ac2hmZEpydjhOVllHNzZBRlM3NDJpYnhXMEpTM29aSDBKQjh1SkUzRlNYRGlhejRKaERRS2lhcDFRM01naldiY0RyZk1kRXB5Sno4b1Rvb0hNdy82NDA" class="lazyload" data-srcset="/zh-CN/visdom%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy80bE4xWE9ac2hmZEpydjhOVllHNzZBRlM3NDJpYnhXMEpTM29aSDBKQjh1SkUzRlNYRGlhejRKaERRS2lhcDFRM01naldiY0RyZk1kRXB5Sno4b1Rvb0hNdy82NDA" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
@@ -5056,39 +5056,39 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><img src="/zh-CN/visdom%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X2dpZi80bE4xWE9ac2hmZEpydjhOVllHNzZBRlM3NDJpYnhXMEppYmJCdXo5TUdnZlQ5VnpiaFgyN1JhcmtKWUw2RzR3OEQ1Mk41ZGtpY05rUmpJc1o0Q2poaGQ5dy82NDA" class="lazyload" data-srcset="/zh-CN/visdom%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X2dpZi80bE4xWE9ac2hmZEpydjhOVllHNzZBRlM3NDJpYnhXMEppYmJCdXo5TUdnZlQ5VnpiaFgyN1JhcmtKWUw2RzR3OEQ1Mk41ZGtpY05rUmpJc1o0Q2poaGQ5dy82NDA" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <h3 id="问题集合"><a href="#问题集合" class="headerlink" title="问题集合"></a>问题集合</h3><p>1.第一次安装后想运行试试看，结果出现了以下问题：</p>
 <pre><code class="lang-python">Traceback (most recent call last):
-  File &quot;E:/code_set/ssd-v5/frs.py&quot;, line 3, in &lt;module&gt;
-    vis = visdom.Vidom(env=&#39;model_1&#39;)
-AttributeError: module &#39;visdom&#39; has no attribute &#39;Vidom&#39;
+  File "E:/code_set/ssd-v5/frs.py", line 3, in &lt;module&gt;
+    vis = visdom.Vidom(env='model_1')
+AttributeError: module 'visdom' has no attribute 'Vidom'
 </code></pre>
 <p>通过查阅相关资料，发现是自己导包导错了，写的时候并没有报错，很不容易发现</p>
 <p>错误代码：</p>
 <pre><code class="lang-python">import visdom
 import torch
-vis = visdom.Vidom(env=&#39;model_1&#39;)
-vis.text(&#39;Hello World&#39;, win=&#39;text1&#39;)
+vis = visdom.Vidom(env='model_1')
+vis.text('Hello World', win='text1')
 </code></pre>
 <p>正确代码：</p>
 <pre><code class="lang-python">import visdom
 import torch
-vis = visdom.Visdom(env=&#39;model_1&#39;)
-vis.text(&#39;Hello World&#39;, win=&#39;text1&#39;)
+vis = visdom.Visdom(env='model_1')
+vis.text('Hello World', win='text1')
 </code></pre>
 <p>还可能是因为将文件命名成了visdom.py,导致代码内调包时引用了同级目录内的文件，具体参考：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/llp858759099/article/details/104743482">使用visdom时遇到问题 AttributeError: module ‘visdom’ has no attribute ‘Visdom’</a></p>
 <p>第一次成功应用visdom模块跑线性图</p>
 <p>代码如下：</p>
 <pre><code class="lang-python">import visdom
 import torch
-vis = visdom.Vidom(env=&#39;model_1&#39;)
-vis.text(&#39;Hello World&#39;, win=&#39;text1&#39;)
-vis2 = visdom.Visdom(env=&#39;test2&#39;)
+vis = visdom.Vidom(env='model_1')
+vis.text('Hello World', win='text1')
+vis2 = visdom.Visdom(env='test2')
 for ii in range(0,10):
     x = torch.Tensor([ii])
     y = x
 
-    vis2.line(X=x,Y=y,win=&#39;polynomial&#39;,update=&#39;append&#39; if ii&gt;0 else None)
+    vis2.line(X=x,Y=y,win='polynomial',update='append' if ii&gt;0 else None)
 x = torch.arange(0,9,0.1)
 y = (x ** 2)/9
-vis2.line(X=x,Y=y,win=&#39;polynomial&#39;,name = &#39;this is new trace&#39;,update=&#39;append&#39;)
+vis2.line(X=x,Y=y,win='polynomial',name = 'this is new trace',update='append')
 </code></pre>
 <p>结果：</p>
 <p><img src="/zh-CN/visdom%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220920214849080.png" class="lazyload" data-srcset="/zh-CN/visdom%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20220920214849080.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
@@ -6290,7 +6290,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp"];
   let index = 0;
   let IntervalParallax = null;
 

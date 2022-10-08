@@ -3727,7 +3727,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665157331018),
+    lastupdate: new Date(1665209991219),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -5032,12 +5032,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     elif isinstance(data, string_classes):
         return data
     elif isinstance(data, container_abcs.Mapping):
-        return &#123;k: pin_memory(sample) for k, sample in data.items()&#125;
-    elif isinstance(data, tuple) and hasattr(data, &#39;_fields&#39;):  # namedtuple
+        return {k: pin_memory(sample) for k, sample in data.items()}
+    elif isinstance(data, tuple) and hasattr(data, '_fields'):  # namedtuple
         return type(data)(*(pin_memory(sample) for sample in data))
     elif isinstance(data, container_abcs.Sequence):
         return [pin_memory(sample) for sample in data]
-    elif hasattr(data, &quot;pin_memory&quot;):
+    elif hasattr(data, "pin_memory"):
         return data.pin_memory()
     else:
         return data
@@ -5091,7 +5091,7 @@ for batch_ndx, sample in enumerate(loader):
 <p>for 循环会调用 dataloader 的 <strong><strong>iter</strong>(self)</strong> 方法，以此获得迭代器来遍历 dataset。</p>
 <pre><code class="lang-python">class DataLoader(Generic[T_co]):
     ...
-    def __iter__(self) -&gt; &#39;_BaseDataLoaderIter&#39;:
+    def __iter__(self) -&gt; '_BaseDataLoaderIter':
 
         if self.persistent_workers and self.num_workers &gt; 0:
             if self._iterator is None:
@@ -5105,7 +5105,7 @@ for batch_ndx, sample in enumerate(loader):
 <p>在 <strong><strong>iter</strong>(self)</strong> 方法中，dataloader 调用了 self._get_iterator() 方法，根据 num_workers 获得迭代器，并指示是进行单进程还是多进程处理。</p>
 <pre><code class="lang-python">class DataLoader(Generic[T_co]):
     ...
-    def _get_iterator(self) -&gt; &#39;_BaseDataLoaderIter&#39;:
+    def _get_iterator(self) -&gt; '_BaseDataLoaderIter':
         if self.num_workers == 0:
             return _SingleProcessDataLoaderIter(self)
         else:
@@ -5123,7 +5123,7 @@ class _BaseDataLoaderIter(object):
         self._index_sampler = loader._index_sampler
         ...
 
-    def __iter__(self) -&gt; &#39;_BaseDataLoaderIter&#39;:
+    def __iter__(self) -&gt; '_BaseDataLoaderIter':
         return self
 
     def _reset(self, loader, first_iter=False):
@@ -5152,7 +5152,7 @@ class _BaseDataLoaderIter(object):
         return len(self._index_sampler) # len(_BaseDataLoaderIter) == len(self._index_sampler)
 
     def __getstate__(self):
-        raise NotImplementedError(&quot;&#123;&#125; cannot be pickled&quot;, self.__class__.__name__)
+        raise NotImplementedError("{} cannot be pickled", self.__class__.__name__)
 </code></pre>
 <p><em>BaseDataLoaderIter 是所有 DataLoaderIter 的父类。dataloader获得了迭代器之后，for 循环需要调用 <strong><strong>next</strong>()</strong> 来获得下一个对象，从而实现遍历。通过 **<em>_next</em></em>()** 方法调用 _next_data() 获取数据。</p>
 <pre><code class="lang-python">class _SingleProcessDataLoaderIter(_BaseDataLoaderIter):
@@ -5243,15 +5243,15 @@ class _BaseDataLoaderIter(object):
 #
 #                main process                              ||
 #                     |                                    ||
-#               &#123;index_queue&#125;                              ||
+#               {index_queue}                              ||
 #                     |                                    ||
 #              worker processes                            ||     DATA
 #                     |                                    ||
-#            &#123;worker_result_queue&#125;                         ||     FLOW
+#            {worker_result_queue}                         ||     FLOW
 #                     |                                    ||
 #      pin_memory_thread of main process                   ||   DIRECTION
 #                     |                                    ||
-#               &#123;data_queue&#125;                               ||
+#               {data_queue}                               ||
 #                     |                                    ||
 #                data output                               \/
 #
@@ -5315,9 +5315,9 @@ class _MultiProcessingDataLoaderIter(_BaseDataLoaderIter):
         self._send_idx = 0  # idx of the next task to be sent to workers，发送索引，用来记录这次要放 index_queue 中 batch 的 idx
         self._rcvd_idx = 0  # idx of the next task to be returned in __next__，接受索引，记录要从 data_queue 中取出的 batch 的 idx
         # information about data not yet yielded, i.e., tasks w/ indices in range [rcvd_idx, send_idx).
-        # map: task idx =&gt; - (worker_id,)        if data isn&#39;t fetched (outstanding)
+        # map: task idx =&gt; - (worker_id,)        if data isn't fetched (outstanding)
         #                  \ (worker_id, data)   if data is already fetched (out-of-order)
-        self._task_info = &#123;&#125;
+        self._task_info = {}
         # _tasks_outstanding 指示当前已经准备好的 task/batch 的数量（可能有些正在准备中）
         # 初始值为 0, 在 self._try_put_index() 中 +1,在 self._next_data 中-1
         self._tasks_outstanding = 0  # always equal to count(v for v in task_info.values() if len(v) == 1)
@@ -5350,7 +5350,7 @@ class _MultiProcessingDataLoaderIter(_BaseDataLoaderIter):
             if self._workers_status[worker_queue_idx]:
                 break
         else:
-            # not found (i.e., didn&#39;t break)
+            # not found (i.e., didn't break)
             return
         self._index_queues[worker_queue_idx].put((self._send_idx, index)) # 放入 任务下标 和 数据下标
         self._task_info[self._send_idx] = (worker_queue_idx,)
@@ -5372,7 +5372,7 @@ def _next_data(self):
                 del self._task_info[self._rcvd_idx]
                 self._rcvd_idx += 1
             else:
-                # no valid `self._rcvd_idx` is found (i.e., didn&#39;t break)
+                # no valid `self._rcvd_idx` is found (i.e., didn't break)
                 if not self._persistent_workers:
                     self._shutdown_workers()
                 raise StopIteration
@@ -6612,7 +6612,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp"];
   let index = 0;
   let IntervalParallax = null;
 

@@ -3733,7 +3733,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665157331018),
+    lastupdate: new Date(1665209991219),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -4998,13 +4998,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.2k 字</p>
+      <p>字数：1.1k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：6 分钟</p>
+      <p>时长：5 分钟</p>
     </a>
   </div>
 
@@ -5058,59 +5058,59 @@ from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
 # 这里是命令行参数，等下给出运行命令你就一下子明白了，最重要的就是选择method,必须得跟choices里的一样
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument(&#39;--use-cuda&#39;, action=&#39;store_true&#39;, default=False,
-                        help=&#39;Use NVIDIA GPU acceleration&#39;)
+    parser.add_argument('--use-cuda', action='store_true', default=False,
+                        help='Use NVIDIA GPU acceleration')
     parser.add_argument(
-        &#39;--image-path&#39;,
+        '--image-path',
         type=str,
-        default=&#39;./examples/both.png&#39;,
-        help=&#39;Input image path&#39;)
-    parser.add_argument(&#39;--aug_smooth&#39;, action=&#39;store_true&#39;,
-                        help=&#39;Apply test time augmentation to smooth the CAM&#39;)
+        default='./examples/both.png',
+        help='Input image path')
+    parser.add_argument('--aug_smooth', action='store_true',
+                        help='Apply test time augmentation to smooth the CAM')
     parser.add_argument(
-        &#39;--eigen_smooth&#39;,
-        action=&#39;store_true&#39;,
-        help=&#39;Reduce noise by taking the first principle componenet&#39;
-        &#39;of cam_weights*activations&#39;)
-    parser.add_argument(&#39;--method&#39;, type=str, default=&#39;gradcam&#39;,
-                        choices=[&#39;gradcam&#39;, &#39;hirescam&#39;, &#39;gradcam++&#39;,
-                                 &#39;scorecam&#39;, &#39;xgradcam&#39;,
-                                 &#39;ablationcam&#39;, &#39;eigencam&#39;,
-                                 &#39;eigengradcam&#39;, &#39;layercam&#39;, &#39;fullgrad&#39;],
-                        help=&#39;Can be gradcam/gradcam++/scorecam/xgradcam&#39;
-                             &#39;/ablationcam/eigencam/eigengradcam/layercam&#39;)
+        '--eigen_smooth',
+        action='store_true',
+        help='Reduce noise by taking the first principle componenet'
+        'of cam_weights*activations')
+    parser.add_argument('--method', type=str, default='gradcam',
+                        choices=['gradcam', 'hirescam', 'gradcam++',
+                                 'scorecam', 'xgradcam',
+                                 'ablationcam', 'eigencam',
+                                 'eigengradcam', 'layercam', 'fullgrad'],
+                        help='Can be gradcam/gradcam++/scorecam/xgradcam'
+                             '/ablationcam/eigencam/eigengradcam/layercam')
 
     args = parser.parse_args()
     args.use_cuda = args.use_cuda and torch.cuda.is_available()
     if args.use_cuda:
-        print(&#39;Using GPU for acceleration&#39;)
+        print('Using GPU for acceleration')
     else:
-        print(&#39;Using CPU for computation&#39;)
+        print('Using CPU for computation')
 
     return args
 
 
-if __name__ == &#39;__main__&#39;:
-    &quot;&quot;&quot; python cam.py -image-path &lt;path_to_image&gt;
+if __name__ == '__main__':
+    """ python cam.py -image-path &lt;path_to_image&gt;
     Example usage of loading an image, and computing:
         1. CAM
         2. Guided Back Propagation
         3. Combining both
-    &quot;&quot;&quot;
+    """
 
     args = get_args()
     methods = \
-        &#123;&quot;gradcam&quot;: GradCAM,
-         &quot;hirescam&quot;:HiResCAM,
-         &quot;scorecam&quot;: ScoreCAM,
-         &quot;gradcam++&quot;: GradCAMPlusPlus,
-         &quot;ablationcam&quot;: AblationCAM,
-         &quot;xgradcam&quot;: XGradCAM,
-         &quot;eigencam&quot;: EigenCAM,
-         &quot;eigengradcam&quot;: EigenGradCAM,
-         &quot;layercam&quot;: LayerCAM,
-         &quot;fullgrad&quot;: FullGrad,
-         &quot;gradcamelementwise&quot;: GradCAMElementWise&#125;
+        {"gradcam": GradCAM,
+         "hirescam":HiResCAM,
+         "scorecam": ScoreCAM,
+         "gradcam++": GradCAMPlusPlus,
+         "ablationcam": AblationCAM,
+         "xgradcam": XGradCAM,
+         "eigencam": EigenCAM,
+         "eigengradcam": EigenGradCAM,
+         "layercam": LayerCAM,
+         "fullgrad": FullGrad,
+         "gradcamelementwise": GradCAMElementWise}
 
     # 这里就可以替换你的模型了，用之前记得引入自己的模型
     model = models.resnet50(pretrained=True)
@@ -5168,7 +5168,7 @@ if __name__ == &#39;__main__&#39;:
         # 展示图片
         cam_image = show_cam_on_image(rgb_img, grayscale_cam, use_rgb=True)
 
-        # cam_image is RGB encoded whereas &quot;cv2.imwrite&quot; requires BGR encoding.
+        # cam_image is RGB encoded whereas "cv2.imwrite" requires BGR encoding.
         cam_image = cv2.cvtColor(cam_image, cv2.COLOR_RGB2BGR)
 
     gb_model = GuidedBackpropReLUModel(model=model, use_cuda=args.use_cuda)
@@ -5178,9 +5178,9 @@ if __name__ == &#39;__main__&#39;:
     cam_gb = deprocess_image(cam_mask * gb)
     gb = deprocess_image(gb)
 
-    cv2.imwrite(f&#39;&#123;args.method&#125;_cam.jpg&#39;, cam_image)
-    cv2.imwrite(f&#39;&#123;args.method&#125;_gb.jpg&#39;, gb)
-    cv2.imwrite(f&#39;&#123;args.method&#125;_cam_gb.jpg&#39;, cam_gb)
+    cv2.imwrite(f'{args.method}_cam.jpg', cam_image)
+    cv2.imwrite(f'{args.method}_gb.jpg', gb)
+    cv2.imwrite(f'{args.method}_cam_gb.jpg', cam_gb)
 </code></pre>
 <p>这里有很多类都是源码里写了的，可以看源码了解一下，将该代码放在你的模型下，另起一个文件，导入自己的模型即可</p>
 <h3 id="Grad-cam应用"><a href="#Grad-cam应用" class="headerlink" title="Grad-cam应用"></a>Grad-cam应用</h3><p>上述代码放在<code>test.py</code>文件里了</p>
@@ -6395,7 +6395,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp"];
   let index = 0;
   let IntervalParallax = null;
 

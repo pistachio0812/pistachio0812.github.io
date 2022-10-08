@@ -3745,7 +3745,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665157331018),
+    lastupdate: new Date(1665209991219),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -5016,7 +5016,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：28 分钟</p>
+      <p>时长：27 分钟</p>
     </a>
   </div>
 
@@ -5117,7 +5117,7 @@ class VisionTransformer(nn.Module):
         # [1, 196, 768]-&gt;[1, 14, 14, 768]-&gt;[1, 768, 14, 14]
         img_token_pe = img_token_pe.view(1, *self.old_feature_shape, -1).permute(0, 3, 1, 2)
         # 做插值，以防输入图片不是224*224
-        img_token_pe = F.interpolate(img_token_pe, size=self.new_feature_shape, mode=&#39;bicubic&#39;, align_corners=False)
+        img_token_pe = F.interpolate(img_token_pe, size=self.new_feature_shape, mode='bicubic', align_corners=False)
         # [1, 768, 14, 14]-&gt;[1, 14, 14, 768]-&gt;[1, 196, 768]
         img_token_pe = img_token_pe.permute(0, 2, 3, 1).flatten(1, 2)
         # [1, 197, 768]
@@ -5225,8 +5225,8 @@ class Attention(nn.Module):
 <p>block流程见下图：</p>
 <p><img src="/zh-CN/VIT/e3bf360d541c4eb1a243e100f17a48b6.png" class="lazyload" data-srcset="/zh-CN/VIT/e3bf360d541c4eb1a243e100f17a48b6.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img" style="zoom: 80%;"></p>
 <pre><code class="lang-python">class Mlp(nn.Module):
-    &quot;&quot;&quot; MLP as used in Vision Transformer, MLP-Mixer and related networks
-    &quot;&quot;&quot;
+    """ MLP as used in Vision Transformer, MLP-Mixer and related networks
+    """
     def __init__(self, in_features, hidden_features=None, out_features=None, act_layer=GELU, drop=0.):
         super().__init__()
         out_features    = out_features or in_features
@@ -5337,7 +5337,7 @@ class Block(nn.Module):
         img_token_pe = self.pos_embed[:, 1: , :]
 
         img_token_pe = img_token_pe.view(1, *self.old_feature_shape, -1).permute(0, 3, 1, 2)
-        img_token_pe = F.interpolate(img_token_pe, size=self.new_feature_shape, mode=&#39;bicubic&#39;, align_corners=False)
+        img_token_pe = F.interpolate(img_token_pe, size=self.new_feature_shape, mode='bicubic', align_corners=False)
         img_token_pe = img_token_pe.permute(0, 2, 3, 1).flatten(1, 2)
         pos_embed = torch.cat([cls_token_pe, img_token_pe], dim=1)
 
@@ -5440,7 +5440,7 @@ class Block(nn.Module):
         img_token_pe = self.pos_embed[:, 1: , :]
 
         img_token_pe = img_token_pe.view(1, *self.old_feature_shape, -1).permute(0, 3, 1, 2)
-        img_token_pe = F.interpolate(img_token_pe, size=self.new_feature_shape, mode=&#39;bicubic&#39;, align_corners=False)
+        img_token_pe = F.interpolate(img_token_pe, size=self.new_feature_shape, mode='bicubic', align_corners=False)
         img_token_pe = img_token_pe.permute(0, 2, 3, 1).flatten(1, 2)
         pos_embed = torch.cat([cls_token_pe, img_token_pe], dim=1)
 
@@ -5558,8 +5558,8 @@ class Attention(nn.Module):
         return x
 
 class Mlp(nn.Module):
-    &quot;&quot;&quot; MLP as used in Vision Transformer, MLP-Mixer and related networks
-    &quot;&quot;&quot;
+    """ MLP as used in Vision Transformer, MLP-Mixer and related networks
+    """
     def __init__(self, in_features, hidden_features=None, out_features=None, act_layer=GELU, drop=0.):
         super().__init__()
         out_features    = out_features or in_features
@@ -5660,7 +5660,7 @@ class VisionTransformer(nn.Module):
         img_token_pe = self.pos_embed[:, 1: , :]
 
         img_token_pe = img_token_pe.view(1, *self.old_feature_shape, -1).permute(0, 3, 1, 2)
-        img_token_pe = F.interpolate(img_token_pe, size=self.new_feature_shape, mode=&#39;bicubic&#39;, align_corners=False)
+        img_token_pe = F.interpolate(img_token_pe, size=self.new_feature_shape, mode='bicubic', align_corners=False)
         img_token_pe = img_token_pe.permute(0, 2, 3, 1).flatten(1, 2)
         pos_embed = torch.cat([cls_token_pe, img_token_pe], dim=1)
 
@@ -5696,7 +5696,7 @@ class VisionTransformer(nn.Module):
 def vit(input_shape=[224, 224], pretrained=False, num_classes=1000):
     model = VisionTransformer(input_shape)
     if pretrained:
-        model.load_state_dict(torch.load(&quot;model_data/vit-patch_16.pth&quot;))
+        model.load_state_dict(torch.load("model_data/vit-patch_16.pth"))
 
     if num_classes!=1000:
         model.head = nn.Linear(model.num_features, num_classes)
@@ -6897,7 +6897,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp"];
   let index = 0;
   let IntervalParallax = null;
 

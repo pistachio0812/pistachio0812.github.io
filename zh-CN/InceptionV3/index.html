@@ -3732,7 +3732,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665157331018),
+    lastupdate: new Date(1665209991219),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -4997,13 +4997,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.8k 字</p>
+      <p>字数：1.7k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：9 分钟</p>
+      <p>时长：8 分钟</p>
     </a>
   </div>
 
@@ -5056,12 +5056,12 @@ def conv2d_bn(x,
               filters,
               num_row,
               num_col,
-              padding=&#39;same&#39;,
+              padding='same',
               strides=(1, 1),
               name=None):
     if name is not None:
-        bn_name = name + &#39;_bn&#39;
-        conv_name = name + &#39;_conv&#39;
+        bn_name = name + '_bn'
+        conv_name = name + '_conv'
     else:
         bn_name = None
         conv_name = None
@@ -5072,7 +5072,7 @@ def conv2d_bn(x,
         use_bias=False,
         name=conv_name)(x)
     x = BatchNormalization(scale=False, name=bn_name)(x)
-    x = Activation(&#39;relu&#39;, name=name)(x)
+    x = Activation('relu', name=name)(x)
     return x
 
 
@@ -5082,13 +5082,13 @@ def InceptionV3(input_shape=[299,299,3],
 
     img_input = Input(shape=input_shape)
 
-    x = conv2d_bn(img_input, 32, 3, 3, strides=(2, 2), padding=&#39;valid&#39;)
-    x = conv2d_bn(x, 32, 3, 3, padding=&#39;valid&#39;)
+    x = conv2d_bn(img_input, 32, 3, 3, strides=(2, 2), padding='valid')
+    x = conv2d_bn(x, 32, 3, 3, padding='valid')
     x = conv2d_bn(x, 64, 3, 3)
     x = MaxPooling2D((3, 3), strides=(2, 2))(x)
 
-    x = conv2d_bn(x, 80, 1, 1, padding=&#39;valid&#39;)
-    x = conv2d_bn(x, 192, 3, 3, padding=&#39;valid&#39;)
+    x = conv2d_bn(x, 80, 1, 1, padding='valid')
+    x = conv2d_bn(x, 192, 3, 3, padding='valid')
     x = MaxPooling2D((3, 3), strides=(2, 2))(x)
 
     #--------------------------------#
@@ -5105,12 +5105,12 @@ def InceptionV3(input_shape=[299,299,3],
     branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
     branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
 
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
     branch_pool = conv2d_bn(branch_pool, 32, 1, 1)
     x = layers.concatenate(
         [branch1x1, branch5x5, branch3x3dbl, branch_pool],
         axis=3,
-        name=&#39;mixed0&#39;)
+        name='mixed0')
 
     # Block1 part2
     # 35 x 35 x 256 -&gt; 35 x 35 x 288
@@ -5123,12 +5123,12 @@ def InceptionV3(input_shape=[299,299,3],
     branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
     branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
 
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
     branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
     x = layers.concatenate(
         [branch1x1, branch5x5, branch3x3dbl, branch_pool],
         axis=3,
-        name=&#39;mixed1&#39;)
+        name='mixed1')
 
     # Block1 part3
     # 35 x 35 x 288 -&gt; 35 x 35 x 288
@@ -5141,28 +5141,28 @@ def InceptionV3(input_shape=[299,299,3],
     branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
     branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
 
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
     branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
     x = layers.concatenate(
         [branch1x1, branch5x5, branch3x3dbl, branch_pool],
         axis=3,
-        name=&#39;mixed2&#39;)
+        name='mixed2')
 
     #--------------------------------#
     #   Block2 17x17
     #--------------------------------#
     # Block2 part1
     # 35 x 35 x 288 -&gt; 17 x 17 x 768
-    branch3x3 = conv2d_bn(x, 384, 3, 3, strides=(2, 2), padding=&#39;valid&#39;)
+    branch3x3 = conv2d_bn(x, 384, 3, 3, strides=(2, 2), padding='valid')
 
     branch3x3dbl = conv2d_bn(x, 64, 1, 1)
     branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
     branch3x3dbl = conv2d_bn(
-        branch3x3dbl, 96, 3, 3, strides=(2, 2), padding=&#39;valid&#39;)
+        branch3x3dbl, 96, 3, 3, strides=(2, 2), padding='valid')
 
     branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
     x = layers.concatenate(
-        [branch3x3, branch3x3dbl, branch_pool], axis=3, name=&#39;mixed3&#39;)
+        [branch3x3, branch3x3dbl, branch_pool], axis=3, name='mixed3')
 
     # Block2 part2
     # 17 x 17 x 768 -&gt; 17 x 17 x 768
@@ -5178,12 +5178,12 @@ def InceptionV3(input_shape=[299,299,3],
     branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
     branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
 
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
     branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
     x = layers.concatenate(
         [branch1x1, branch7x7, branch7x7dbl, branch_pool],
         axis=3,
-        name=&#39;mixed4&#39;)
+        name='mixed4')
 
     # Block2 part3 and part4
     # 17 x 17 x 768 -&gt; 17 x 17 x 768 -&gt; 17 x 17 x 768
@@ -5201,12 +5201,12 @@ def InceptionV3(input_shape=[299,299,3],
         branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
 
         branch_pool = AveragePooling2D(
-            (3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+            (3, 3), strides=(1, 1), padding='same')(x)
         branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
         x = layers.concatenate(
             [branch1x1, branch7x7, branch7x7dbl, branch_pool],
             axis=3,
-            name=&#39;mixed&#39; + str(5 + i))
+            name='mixed' + str(5 + i))
 
     # Block2 part5
     # 17 x 17 x 768 -&gt; 17 x 17 x 768
@@ -5222,12 +5222,12 @@ def InceptionV3(input_shape=[299,299,3],
     branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
     branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
 
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
     branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
     x = layers.concatenate(
         [branch1x1, branch7x7, branch7x7dbl, branch_pool],
         axis=3,
-        name=&#39;mixed7&#39;)
+        name='mixed7')
 
     #--------------------------------#
     #   Block3 8x8
@@ -5236,17 +5236,17 @@ def InceptionV3(input_shape=[299,299,3],
     # 17 x 17 x 768 -&gt; 8 x 8 x 1280
     branch3x3 = conv2d_bn(x, 192, 1, 1)
     branch3x3 = conv2d_bn(branch3x3, 320, 3, 3,
-                          strides=(2, 2), padding=&#39;valid&#39;)
+                          strides=(2, 2), padding='valid')
 
     branch7x7x3 = conv2d_bn(x, 192, 1, 1)
     branch7x7x3 = conv2d_bn(branch7x7x3, 192, 1, 7)
     branch7x7x3 = conv2d_bn(branch7x7x3, 192, 7, 1)
     branch7x7x3 = conv2d_bn(
-        branch7x7x3, 192, 3, 3, strides=(2, 2), padding=&#39;valid&#39;)
+        branch7x7x3, 192, 3, 3, strides=(2, 2), padding='valid')
 
     branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
     x = layers.concatenate(
-        [branch3x3, branch7x7x3, branch_pool], axis=3, name=&#39;mixed8&#39;)
+        [branch3x3, branch7x7x3, branch_pool], axis=3, name='mixed8')
 
     # Block3 part2 part3
     # 8 x 8 x 1280 -&gt; 8 x 8 x 2048 -&gt; 8 x 8 x 2048
@@ -5257,7 +5257,7 @@ def InceptionV3(input_shape=[299,299,3],
         branch3x3_1 = conv2d_bn(branch3x3, 384, 1, 3)
         branch3x3_2 = conv2d_bn(branch3x3, 384, 3, 1)
         branch3x3 = layers.concatenate(
-            [branch3x3_1, branch3x3_2], axis=3, name=&#39;mixed9_&#39; + str(i))
+            [branch3x3_1, branch3x3_2], axis=3, name='mixed9_' + str(i))
 
         branch3x3dbl = conv2d_bn(x, 448, 1, 1)
         branch3x3dbl = conv2d_bn(branch3x3dbl, 384, 3, 3)
@@ -5267,20 +5267,20 @@ def InceptionV3(input_shape=[299,299,3],
             [branch3x3dbl_1, branch3x3dbl_2], axis=3)
 
         branch_pool = AveragePooling2D(
-            (3, 3), strides=(1, 1), padding=&#39;same&#39;)(x)
+            (3, 3), strides=(1, 1), padding='same')(x)
         branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
         x = layers.concatenate(
             [branch1x1, branch3x3, branch3x3dbl, branch_pool],
             axis=3,
-            name=&#39;mixed&#39; + str(9 + i))
+            name='mixed' + str(9 + i))
     # 平均池化后全连接。
-    x = GlobalAveragePooling2D(name=&#39;avg_pool&#39;)(x)
-    x = Dense(classes, activation=&#39;softmax&#39;, name=&#39;predictions&#39;)(x)
+    x = GlobalAveragePooling2D(name='avg_pool')(x)
+    x = Dense(classes, activation='softmax', name='predictions')(x)
 
 
     inputs = img_input
 
-    model = Model(inputs, x, name=&#39;inception_v3&#39;)
+    model = Model(inputs, x, name='inception_v3')
 
     return model
 </code></pre>
@@ -5292,12 +5292,12 @@ def InceptionV3(input_shape=[299,299,3],
     return x
 
 
-if __name__ == &#39;__main__&#39;:
+if __name__ == '__main__':
     model = InceptionV3()
 
-    model.load_weights(&quot;inception_v3_weights_tf_dim_ordering_tf_kernels.h5&quot;)
+    model.load_weights("inception_v3_weights_tf_dim_ordering_tf_kernels.h5")
 
-    img_path = &#39;elephant.jpg&#39;
+    img_path = 'elephant.jpg'
     img = image.load_img(img_path, target_size=(299, 299))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
@@ -5305,10 +5305,10 @@ if __name__ == &#39;__main__&#39;:
     x = preprocess_input(x)
 
     preds = model.predict(x)
-    print(&#39;Predicted:&#39;, decode_predictions(preds))
+    print('Predicted:', decode_predictions(preds))
 </code></pre>
 <p>预测所需的已经训练好的InceptionV3模型可以在<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/fchollet/deep-learning-models/releases下载。非常方便。">https://github.com/fchollet/deep-learning-models/releases下载。非常方便。</a><br>预测结果为：</p>
-<pre><code class="lang-markdown">Predicted: [[(&#39;n02504458&#39;, &#39;African_elephant&#39;, 0.50874853), (&#39;n01871265&#39;, &#39;tusker&#39;, 0.19524273), (&#39;n02504013&#39;, &#39;Indian_elephant&#39;, 0.1566972), (&#39;n01917289&#39;, &#39;brain_coral&#39;, 0.0008956835), (&#39;n01695060&#39;, &#39;Komodo_dragon&#39;, 0.0008260256)]]
+<pre><code class="lang-markdown">Predicted: [[('n02504458', 'African_elephant', 0.50874853), ('n01871265', 'tusker', 0.19524273), ('n02504013', 'Indian_elephant', 0.1566972), ('n01917289', 'brain_coral', 0.0008956835), ('n01695060', 'Komodo_dragon', 0.0008260256)]]
 </code></pre>
 
   </div>
@@ -6508,7 +6508,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp"];
   let index = 0;
   let IntervalParallax = null;
 

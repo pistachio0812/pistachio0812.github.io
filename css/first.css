@@ -1554,7 +1554,7 @@ button {
 }
 @font-face {
   font-family: 'MaShanZheng';
-  src: url("../diy-font/MaShanZhang.woff2");
+  src: url("https://cdn.jsdelivr.net/gh/pistachio0812/CDN@0.1.0/cdn-fonts/MaShanZheng.woff2");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;

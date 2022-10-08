@@ -48,7 +48,7 @@
       <link rel="alternate" href="/atom.xml" title="阿月浑子-Hexo博客" type="application/atom+xml">
   <!-- 页面元数据 -->
   <title>yolov3论文笔记 - 阿月浑子-Hexo博客</title>
-  <meta name="keywords" content="论文笔记,yolov3,null">
+  <meta name="keywords" content="yolov3,论文笔记,null">
   <meta desc name="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测 - pistachio - 阿月浑子-Hexo博客">
   
 <meta property="og:type" content="article">
@@ -63,8 +63,8 @@
 <meta property="article:published_time" content="2022-04-16T07:40:57.513Z">
 <meta property="article:modified_time" content="2022-10-04T13:35:06.698Z">
 <meta property="article:author" content="config.author">
-<meta property="article:tag" content="论文笔记">
 <meta property="article:tag" content="yolov3">
+<meta property="article:tag" content="论文笔记">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/zh-CN/YOLOV3/image-20220416194945035.png">
   <style>
@@ -3732,7 +3732,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665157331018),
+    lastupdate: new Date(1665209991219),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -4997,7 +4997,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：6.5k 字</p>
+      <p>字数：6.4k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -5099,13 +5099,13 @@ class DarkNet(nn.Module):
     def _make_layer(self, planes, blocks):
         layers = []
         # 下采样，步长为2，卷积核大小为3
-        layers.append((&quot;ds_conv&quot;, nn.Conv2d(self.inplanes, planes[1], kernel_size=3, stride=2, padding=1, bias=False)))
-        layers.append((&quot;ds_bn&quot;, nn.BatchNorm2d(planes[1])))
-        layers.append((&quot;ds_relu&quot;, nn.LeakyReLU(0.1)))
+        layers.append(("ds_conv", nn.Conv2d(self.inplanes, planes[1], kernel_size=3, stride=2, padding=1, bias=False)))
+        layers.append(("ds_bn", nn.BatchNorm2d(planes[1])))
+        layers.append(("ds_relu", nn.LeakyReLU(0.1)))
         # 加入残差结构
         self.inplanes = planes[1]
         for i in range(0, blocks):
-            layers.append((&quot;residual_&#123;&#125;&quot;.format(i), BasicBlock(self.inplanes, planes)))
+            layers.append(("residual_{}".format(i), BasicBlock(self.inplanes, planes)))
         return nn.Sequential(OrderedDict(layers))
 
     def forward(self, x):
@@ -5138,9 +5138,9 @@ def darknet53():
 def conv2d(filter_in, filter_out, kernel_size):
     pad = (kernel_size - 1) // 2 if kernel_size else 0
     return nn.Sequential(OrderedDict([
-        (&quot;conv&quot;, nn.Conv2d(filter_in, filter_out, kernel_size=kernel_size, stride=1, padding=pad, bias=False)),
-        (&quot;bn&quot;, nn.BatchNorm2d(filter_out)),
-        (&quot;relu&quot;, nn.LeakyReLU(0.1)),
+        ("conv", nn.Conv2d(filter_in, filter_out, kernel_size=kernel_size, stride=1, padding=pad, bias=False)),
+        ("bn", nn.BatchNorm2d(filter_out)),
+        ("relu", nn.LeakyReLU(0.1)),
     ]))
 
 #------------------------------------------------------------------------#
@@ -5183,11 +5183,11 @@ class YoloBody(nn.Module):
         self.last_layer0            = make_last_layers([512, 1024], out_filters[-1], len(anchors_mask[0]) * (num_classes + 5))
 
         self.last_layer1_conv       = conv2d(512, 256, 1)
-        self.last_layer1_upsample   = nn.Upsample(scale_factor=2, mode=&#39;nearest&#39;)
+        self.last_layer1_upsample   = nn.Upsample(scale_factor=2, mode='nearest')
         self.last_layer1            = make_last_layers([256, 512], out_filters[-2] + 256, len(anchors_mask[1]) * (num_classes + 5))
 
         self.last_layer2_conv       = conv2d(256, 128, 1)
-        self.last_layer2_upsample   = nn.Upsample(scale_factor=2, mode=&#39;nearest&#39;)
+        self.last_layer2_upsample   = nn.Upsample(scale_factor=2, mode='nearest')
         self.last_layer2            = make_last_layers([128, 256], out_filters[-3] + 128, len(anchors_mask[2]) * (num_classes + 5))
 
     def forward(self, x):
@@ -5839,8 +5839,8 @@ class YOLOLoss(nn.Module):
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>论文笔记</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/yolov3/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>yolov3</p></a></div>
-  <span hidden itemprop="keywords">论文笔记 yolov3</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/yolov3/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>yolov3</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>论文笔记</p></a></div>
+  <span hidden itemprop="keywords">yolov3 论文笔记</span>
 
 
         
@@ -6998,7 +6998,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -7225,7 +7225,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/目标检测/","name":"目标检测"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/YOLOV3/","name":"yolov3论文笔记"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"yolov3论文笔记","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/YOLOV3/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/YOLOV3/","wordCount":0,"datePublished":"2022-04-16T07:40:57.513Z","dateModified":"2022-10-04T13:35:06.698Z","articleSection":"目标检测","keywords":"论文笔记,yolov3","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/目标检测/","name":"目标检测"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/YOLOV3/","name":"yolov3论文笔记"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"yolov3论文笔记","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/YOLOV3/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/YOLOV3/","wordCount":0,"datePublished":"2022-04-16T07:40:57.513Z","dateModified":"2022-10-04T13:35:06.698Z","articleSection":"目标检测","keywords":"yolov3,论文笔记","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

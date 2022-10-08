@@ -3731,7 +3731,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665157331018),
+    lastupdate: new Date(1665209991219),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -5067,7 +5067,7 @@ class MultiboxLoss(nn.Module):
         self.alpha = alpha
         self.neg_pos_ratio = neg_pos_ratio
         if background_label_id != 0:
-            raise Exception(&#39;Only 0 as background label id is supported&#39;)
+            raise Exception('Only 0 as background label id is supported')
         self.background_label_id = background_label_id
         self.negatives_for_hard = torch.FloatTensor([negatives_for_hard])[0]
 
@@ -5175,26 +5175,26 @@ class MultiboxLoss(nn.Module):
         return total_loss
 
 
-def weights_init(net, init_type=&#39;normal&#39;, init_gain=0.02):
+def weights_init(net, init_type='normal', init_gain=0.02):
     def init_func(m):
         classname = m.__class__.__name__
-        if hasattr(m, &#39;weight&#39;) and classname.find(&#39;Conv&#39;) != -1:
-            if init_type == &#39;normal&#39;:
+        if hasattr(m, 'weight') and classname.find('Conv') != -1:
+            if init_type == 'normal':
                 torch.nn.init.normal_(m.weight.data, 0.0, init_gain)
-            elif init_type == &#39;xavier&#39;:
+            elif init_type == 'xavier':
                 torch.nn.init.xavier_normal_(m.weight.data, gain=init_gain)
-            elif init_type == &#39;kaiming&#39;:
+            elif init_type == 'kaiming':
                 torch.nn.init.kaiming_normal_(
-                    m.weight.data, a=0, mode=&#39;fan_in&#39;)
-            elif init_type == &#39;orthogonal&#39;:
+                    m.weight.data, a=0, mode='fan_in')
+            elif init_type == 'orthogonal':
                 torch.nn.init.orthogonal_(m.weight.data, gain=init_gain)
             else:
                 raise NotImplementedError(
-                    &#39;initialization method [%s] is not implemented&#39; % init_type)
-        elif classname.find(&#39;BatchNorm2d&#39;) != -1:
+                    'initialization method [%s] is not implemented' % init_type)
+        elif classname.find('BatchNorm2d') != -1:
             torch.nn.init.normal_(m.weight.data, 1.0, 0.02)
             torch.nn.init.constant_(m.bias.data, 0.0)
-    print(&#39;initialize network with %s type&#39; % init_type)
+    print('initialize network with %s type' % init_type)
     net.apply(init_func)
 
 
@@ -5215,12 +5215,12 @@ def get_lr_scheduler(lr_decay_type, lr, min_lr, total_iters, warmup_iters_ratio=
 
     def step_lr(lr, decay_rate, step_size, iters):
         if step_size &lt; 1:
-            raise ValueError(&quot;step_size must above 1.&quot;)
+            raise ValueError("step_size must above 1.")
         n = iters // step_size
         out_lr = lr * decay_rate ** n
         return out_lr
 
-    if lr_decay_type == &quot;cos&quot;:
+    if lr_decay_type == "cos":
         warmup_total_iters = min(max(warmup_iters_ratio * total_iters, 1), 3)
         warmup_lr_start = max(warmup_lr_ratio * lr, 1e-6)
         no_aug_iter = min(max(no_aug_iter_ratio * total_iters, 1), 15)
@@ -5237,7 +5237,7 @@ def get_lr_scheduler(lr_decay_type, lr, min_lr, total_iters, warmup_iters_ratio=
 def set_optimizer_lr(optimizer, lr_scheduler_func, epoch):
     lr = lr_scheduler_func(epoch)
     for param_group in optimizer.param_groups:
-        param_group[&#39;lr&#39;] = lr
+        param_group['lr'] = lr
 </code></pre>
 
   </div>
@@ -6440,7 +6440,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp"];
   let index = 0;
   let IntervalParallax = null;
 

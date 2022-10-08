@@ -3745,7 +3745,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665157331018),
+    lastupdate: new Date(1665209991219),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -5010,7 +5010,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：5.8k 字</p>
+      <p>字数：5.7k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -5062,22 +5062,22 @@ import torch.utils.model_zoo as model_zoo
 import pdb
 
 
-model_urls = &#123;
-&#39;resnet18&#39;: &#39;https://s3.amazonaws.com/pytorch/models/resnet18-5c106cde.pth&#39;,
-&#39;resnet34&#39;: &#39;https://s3.amazonaws.com/pytorch/models/resnet34-333f7ec4.pth&#39;,
-&#39;resnet50&#39;: &#39;https://s3.amazonaws.com/pytorch/models/resnet50-19c8e357.pth&#39;,
-&#39;resnet101&#39;: &#39;https://s3.amazonaws.com/pytorch/models/resnet101-5d3b4d8f.pth&#39;,
-&#39;resnet152&#39;: &#39;https://s3.amazonaws.com/pytorch/models/resnet152-b121ed2d.pth&#39;,
-&#125;
+model_urls = {
+'resnet18': 'https://s3.amazonaws.com/pytorch/models/resnet18-5c106cde.pth',
+'resnet34': 'https://s3.amazonaws.com/pytorch/models/resnet34-333f7ec4.pth',
+'resnet50': 'https://s3.amazonaws.com/pytorch/models/resnet50-19c8e357.pth',
+'resnet101': 'https://s3.amazonaws.com/pytorch/models/resnet101-5d3b4d8f.pth',
+'resnet152': 'https://s3.amazonaws.com/pytorch/models/resnet152-b121ed2d.pth',
+}
 
 def conv3x3(in_planes, out_planes, stride=1, groups=1, dilation=1):
-    &quot;&quot;&quot;3x3 convolution with padding&quot;&quot;&quot;
+    """3x3 convolution with padding"""
     return nn.Conv2d(in_planes, out_planes, kernel_size=3, stride=stride,
                      padding=dilation, groups=groups, bias=False, dilation=dilation)
 
 
 def conv1x1(in_planes, out_planes, stride=1):
-    &quot;&quot;&quot;1x1 convolution&quot;&quot;&quot;
+    """1x1 convolution"""
     return nn.Conv2d(in_planes, out_planes, kernel_size=1, stride=stride, bias=False)
 
 
@@ -5090,9 +5090,9 @@ class BasicBlock(nn.Module):
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         if groups != 1 or base_width != 64:
-            raise ValueError(&#39;BasicBlock only supports groups=1 and base_width=64&#39;)
+            raise ValueError('BasicBlock only supports groups=1 and base_width=64')
         if dilation &gt; 1:
-            raise NotImplementedError(&quot;Dilation &gt; 1 not supported in BasicBlock&quot;)
+            raise NotImplementedError("Dilation &gt; 1 not supported in BasicBlock")
         # Both self.conv1 and self.downsample layers downsample the input when stride != 1
         self.conv1 = conv3x3(inplanes, planes, stride)
         self.bn1 = norm_layer(planes)
@@ -5227,57 +5227,57 @@ class ResNet(nn.Module):
 
 
 def resnet18(pretrained=False, **kwargs):
-    &quot;&quot;&quot;Constructs a ResNet-18 model.
+    """Constructs a ResNet-18 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
-    &quot;&quot;&quot;
+    """
     model = ResNet(BasicBlock, [2, 2, 2, 2], **kwargs)
     if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls[&#39;resnet18&#39;], model_dir=&#39;model_data&#39;), strict=False)
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet18'], model_dir='model_data'), strict=False)
     return model
 
 
 def resnet34(pretrained=False, **kwargs):
-    &quot;&quot;&quot;Constructs a ResNet-34 model.
+    """Constructs a ResNet-34 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
-    &quot;&quot;&quot;
+    """
     model = ResNet(BasicBlock, [3, 4, 6, 3], **kwargs)
     if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls[&#39;resnet34&#39;], model_dir=&#39;model_data&#39;), strict=False)
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet34'], model_dir='model_data'), strict=False)
     return model
 
 
 def resnet50(pretrained=False, **kwargs):
-    &quot;&quot;&quot;Constructs a ResNet-50 model.
+    """Constructs a ResNet-50 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
-    &quot;&quot;&quot;
+    """
     model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
     if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls[&#39;resnet50&#39;], model_dir=&#39;model_data&#39;), strict=False)
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet50'], model_dir='model_data'), strict=False)
     return model
 
 
 def resnet101(pretrained=False, **kwargs):
-    &quot;&quot;&quot;Constructs a ResNet-101 model.
+    """Constructs a ResNet-101 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
-    &quot;&quot;&quot;
+    """
     model = ResNet(Bottleneck, [3, 4, 23, 3], **kwargs)
     if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls[&#39;resnet101&#39;], model_dir=&#39;model_data&#39;), strict=False)
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet101'], model_dir='model_data'), strict=False)
     return model
 
 
 def resnet152(pretrained=False, **kwargs):
-    &quot;&quot;&quot;Constructs a ResNet-152 model.
+    """Constructs a ResNet-152 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
-    &quot;&quot;&quot;
+    """
     model = ResNet(Bottleneck, [3, 8, 36, 3], **kwargs)
     if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls[&#39;resnet152&#39;], model_dir=&#39;model_data&#39;), strict=False)
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet152'], model_dir='model_data'), strict=False)
     return model
 </code></pre>
 <h4 id="从特征获取预测结果"><a href="#从特征获取预测结果" class="headerlink" title="从特征获取预测结果"></a>从特征获取预测结果</h4><p><img src="/zh-CN/RetinaNet/image-20220419100322079.png" class="lazyload" data-srcset="/zh-CN/RetinaNet/image-20220419100322079.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
@@ -5455,13 +5455,13 @@ class Retinanet(nn.Module):
         super(Retinanet, self).__init__()
         self.pretrain_weights = pretrain_weights
         self.backbone_net = Resnet(phi,pretrain_weights)
-        fpn_sizes = &#123;
+        fpn_sizes = {
             0: [128, 256, 512],
             1: [128, 256, 512],
             2: [512, 1024, 2048],
             3: [512, 1024, 2048],
             4: [512, 1024, 2048],
-        &#125;[phi]
+        }[phi]
 
         self.fpn = PyramidFeatures(fpn_sizes[0], fpn_sizes[1], fpn_sizes[2])
         self.regressionModel = RegressionModel(256)
@@ -5471,7 +5471,7 @@ class Retinanet(nn.Module):
 
     def _init_weights(self):
         if not self.pretrain_weights:
-            print(&quot;_init_weights&quot;)
+            print("_init_weights")
             for m in self.modules():
                 if isinstance(m, nn.Conv2d):
                     n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
@@ -5480,11 +5480,11 @@ class Retinanet(nn.Module):
                     m.weight.data.fill_(1)
                     m.bias.data.zero_()
 
-        print(&quot;_init_classificationModel&quot;)
+        print("_init_classificationModel")
         anchor = 0.01
         self.classificationModel.output.weight.data.fill_(0)
         self.classificationModel.output.bias.data.fill_(-math.log((1.0 - anchor) / anchor))
-        print(&quot;_init_regressionModel&quot;)
+        print("_init_regressionModel")
         self.regressionModel.output.weight.data.fill_(0)
         self.regressionModel.output.bias.data.fill_(0)
 
@@ -5558,7 +5558,7 @@ class Retinanet(nn.Module):
     # anchor_h = ha[0,-4*4*9:]
 
     # for i in range(9,18):
-    #     rect1 = plt.Rectangle([anchor_left[i],anchor_top[i]],anchor_w[i],anchor_h[i],color=&quot;r&quot;,fill=False)
+    #     rect1 = plt.Rectangle([anchor_left[i],anchor_top[i]],anchor_w[i],anchor_h[i],color="r",fill=False)
     #     ax.add_patch(rect1)
 
     # ax = fig.add_subplot(122)
@@ -5580,8 +5580,8 @@ class Retinanet(nn.Module):
     # pre_h = ymax[0,-4*4*9:]-ymin[0,-4*4*9:]
 
     # for i in range(9,18):
-    #     plt.scatter(x_centers[i].cpu(),y_centers[i].cpu(),c=&#39;r&#39;)
-    #     rect1 = plt.Rectangle([pre_left[i],pre_top[i]],pre_w[i],pre_h[i],color=&quot;r&quot;,fill=False)
+    #     plt.scatter(x_centers[i].cpu(),y_centers[i].cpu(),c='r')
+    #     rect1 = plt.Rectangle([pre_left[i],pre_top[i]],pre_w[i],pre_h[i],color="r",fill=False)
     #     ax.add_patch(rect1)
 
     # plt.show()
@@ -7071,7 +7071,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp"];
   let index = 0;
   let IntervalParallax = null;
 

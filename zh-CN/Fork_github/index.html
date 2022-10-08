@@ -3731,7 +3731,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665157331018),
+    lastupdate: new Date(1665209991219),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -4996,13 +4996,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：634 字</p>
+      <p>字数：586 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：3 分钟</p>
+      <p>时长：2 分钟</p>
     </a>
   </div>
 
@@ -5026,13 +5026,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="博客园添加fork"><a href="#博客园添加fork" class="headerlink" title="博客园添加fork"></a>博客园添加fork</h2><h3 id="进入博客园后台"><a href="#进入博客园后台" class="headerlink" title="进入博客园后台"></a>进入博客园后台</h3><p>进入博客园的管理界面，依次点击 <strong>管理 </strong> -&gt; <strong>设置</strong>，进入到设置页面后，将页面拖动到最下面，您会看到：<strong>页首Html代码</strong>一栏</p>
 <p><img src="/zh-CN/Fork_github/image-20220502215437444.png" class="lazyload" data-srcset="/zh-CN/Fork_github/image-20220502215437444.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220502215437444" style="zoom:50%;"></p>
 <h3 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h3><p>在页面Html代码框中输入如下代码：</p>
-<pre><code class="lang-js">&lt;a href=&quot;https://github.com/pistachio&quot;&gt;  
-&lt;img style=&quot;position: fixed; top: 0; right: 0; border: 0; z-index:9999;&quot; 
-       src=&quot;https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png&quot; 
-       alt=&quot;Fork me on GitHub&quot;&gt;
+<pre><code class="lang-js">&lt;a href="https://github.com/pistachio"&gt;  
+&lt;img style="position: fixed; top: 0; right: 0; border: 0; z-index:9999;" 
+       src="https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png" 
+       alt="Fork me on GitHub"&gt;
 &lt;/a&gt;
 </code></pre>
-<p><strong>注意，您需要将 <code>&lt;a href=&quot;&quot;&gt;</code> 中的链接换成您自己的 GitHub 主页地址。</strong></p>
+<p><strong>注意，您需要将 <code>&lt;a href=""&gt;</code> 中的链接换成您自己的 GitHub 主页地址。</strong></p>
 <p>保存后，随意打开一篇您自己的博客，就可以看见和教程开头展示的效果一样了。大功告成！</p>
 <h3 id="更换彩带颜色"><a href="#更换彩带颜色" class="headerlink" title="更换彩带颜色"></a>更换彩带颜色</h3><p>我上面使用的是红色的彩带，如果您需要更换成其他颜色，只需将 <code>&lt;img&gt;</code> 标签中的 <code>src</code> 地址更换成您想要颜色的地址即可。</p>
 <pre><code class="lang-js"># 绿色
@@ -5047,15 +5047,15 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_gray_6d6d6d.png
 https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
 </code></pre>
 <p>从上面挑选一款您喜欢的样式颜色吧！！</p>
-<h2 id="hexo添加fork"><a href="#hexo添加fork" class="headerlink" title="hexo添加fork"></a>hexo添加fork</h2><h3 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h3><p>粘贴复制如下的代码到<code>themes\hexo-theme-next\layout\layout.ejs</code>文件中(放在<code>&lt;div id=&quot;l_body&quot;&gt;&lt;/div&gt;</code>的下面 如图)，并把href改为你的csdn主页,换成github同上，记得换上自己的链接。</p>
+<h2 id="hexo添加fork"><a href="#hexo添加fork" class="headerlink" title="hexo添加fork"></a>hexo添加fork</h2><h3 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h3><p>粘贴复制如下的代码到<code>themes\hexo-theme-next\layout\layout.ejs</code>文件中(放在<code>&lt;div id="l_body"&gt;&lt;/div&gt;</code>的下面 如图)，并把href改为你的csdn主页,换成github同上，记得换上自己的链接。</p>
 <pre><code class="lang-js"># 黑色版本
 # 个人认为position属性值改为fixed好一点~
   &lt;!--Follow me on CSDN--&gt;
-  &lt;a href=&quot;https://blog.csdn.net/qq_38452951&quot;&gt; &lt;img loading=&quot;lazy&quot; width=&quot;149&quot; height=&quot;149&quot; style=&quot;position: absolute; top: 0; right: 0; border: 0;&quot; src=&quot;https://img-blog.csdnimg.cn/abe3797b7d77419b81ecc02dd1bf8c34.png&quot; class=&quot;attachment-full size-full&quot; alt=&quot;Fork me on GitHub&quot; data-recalc-dims=&quot;1&quot;&gt;&lt;/a&gt;
+  &lt;a href="https://blog.csdn.net/qq_38452951"&gt; &lt;img loading="lazy" width="149" height="149" style="position: absolute; top: 0; right: 0; border: 0;" src="https://img-blog.csdnimg.cn/abe3797b7d77419b81ecc02dd1bf8c34.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"&gt;&lt;/a&gt;
 
 # 白色版本
   &lt;!--Follow me on CSDN--&gt;
-  &lt;a href=&quot;https://blog.csdn.net/qq_38452951&quot;&gt;&lt;img loading=&quot;lazy&quot; width=&quot;149&quot; height=&quot;149&quot; style=&quot;position: absolute; top: 0; right: 0; border: 0;&quot; src=&quot;https://img-blog.csdnimg.cn/1f8e1ef9be9f4f7db01fe3a2d57829de.png&quot; class=&quot;attachment-full size-full&quot; alt=&quot;Fork me on GitHub&quot; data-recalc-dims=&quot;1&quot;&gt;&lt;/a&gt;
+  &lt;a href="https://blog.csdn.net/qq_38452951"&gt;&lt;img loading="lazy" width="149" height="149" style="position: absolute; top: 0; right: 0; border: 0;" src="https://img-blog.csdnimg.cn/1f8e1ef9be9f4f7db01fe3a2d57829de.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"&gt;&lt;/a&gt;
 </code></pre>
 <p><img src="/zh-CN/Fork_github/image-20220502220838865.png" class="lazyload" data-srcset="/zh-CN/Fork_github/image-20220502220838865.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220502220838865" style="zoom:50%;"></p>
 <h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p>详情请见：</p>
@@ -6257,7 +6257,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp"];
   let index = 0;
   let IntervalParallax = null;
 

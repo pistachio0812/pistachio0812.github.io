@@ -3727,7 +3727,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665157331018),
+    lastupdate: new Date(1665209991219),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -4992,13 +4992,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：645 字</p>
+      <p>字数：571 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：3 分钟</p>
+      <p>时长：2 分钟</p>
     </a>
   </div>
 
@@ -5033,30 +5033,30 @@ eg:
 113.06
 </code></pre>
 <p>3.在交互式解释器中，输出的字符串会用引号引起来，特殊字符会用反斜杠转义，如果前面带有\的字符被当做特殊字符，可以使用原始字符串，方法是在第一个引号前面加上一个r</p>
-<pre><code class="lang-python">&gt;&gt;&gt; print(&#39;c:\user\test&#39;)
+<pre><code class="lang-python">&gt;&gt;&gt; print('c:\user\test')
 c:\user
 test
-&gt;&gt;&gt; print(r&#39;c:\user\test&#39;)
+&gt;&gt;&gt; print(r'c:\user\test')
 c:\user\test
 </code></pre>
 <p>4.python能够优雅的处理那些没有意义的切片：一个过大的索引值（即下标值大于字符串实际长度）将被字符串实际长度所代替，当上边界比下边界大时（即切片左值大于右值）就返回空字符串</p>
-<pre><code class="lang-python"># word = &#39;superman&#39;
+<pre><code class="lang-python"># word = 'superman'
 &gt;&gt;&gt; word[4:42]
-&#39;rman&#39;
+'rman'
 &gt;&gt;&gt; word[42:]
-&#39;&#39;
+''
 </code></pre>
 <p>5.序列的切片，一定要左边的数字小于右边的数字，否则返回空</p>
 <pre><code class="lang-python">&gt;&gt;&gt; lang
-&#39;python&#39;
+'python'
 &gt;&gt;&gt; lst
-[&#39;python&#39;, &#39;java&#39;, &#39;c++&#39;]
+['python', 'java', 'c++']
 &gt;&gt;&gt; lang[-1:-3]
-&#39;&#39;
+''
 &gt;&gt;&gt; lang[-3:-1]
-&#39;ho&#39;
+'ho'
 &gt;&gt;&gt; lst[-3:-1]
-[&#39;python&#39;, &#39;java&#39;]
+['python', 'java']
 </code></pre>
 <p>6.反转</p>
 <pre><code class="lang-python">&gt;&gt;&gt; alst = [1, 2, 3, 4]
@@ -5066,28 +5066,28 @@ c:\user\test
 [4, 3, 2, 1]
 </code></pre>
 <p>7.append()和extend()是原地修改，没有返回值</p>
-<pre><code class="lang-python">&gt;&gt;&gt; one = [&#39;good&#39;, &#39;good&#39;, &#39;study&#39;]
-&gt;&gt;&gt; another = one.extend([&#39;day&#39;, &#39;day&#39;, &#39;up&#39;])
+<pre><code class="lang-python">&gt;&gt;&gt; one = ['good', 'good', 'study']
+&gt;&gt;&gt; another = one.extend(['day', 'day', 'up'])
 &gt;&gt;&gt; another #没有返回值
 &gt;&gt;&gt; one
-[&#39;good&#39;, &#39;good&#39;, &#39;study&#39;, &#39;day&#39;, &#39;day&#39;, &#39;up&#39;]
+['good', 'good', 'study', 'day', 'day', 'up']
 </code></pre>
 <p>8.extend()和append()区别</p>
 <pre><code class="lang-python">&gt;&gt;&gt; lst = [1, 2, 3]
-&gt;&gt;&gt; lst.append([&#39;quit&#39;, &#39;final&#39;])
+&gt;&gt;&gt; lst.append(['quit', 'final'])
 &gt;&gt;&gt; lst
-[1, 2, 3, [&#39;quit&#39;, &#39;final&#39;]]
-&gt;&gt;&gt; lst.extend([&#39;test&#39;, &#39;different&#39;])
+[1, 2, 3, ['quit', 'final']]
+&gt;&gt;&gt; lst.extend(['test', 'different'])
 &gt;&gt;&gt; lst
-[1, 2, 3, [&#39;quit&#39;, &#39;final&#39;], &#39;test&#39;, &#39;different&#39;]
+[1, 2, 3, ['quit', 'final'], 'test', 'different']
 </code></pre>
 <p>9.如果元组只有一个元素时，应该在该元素后面加一个半角的英文逗号</p>
 <pre><code class="lang-python">&gt;&gt;&gt; a = (3)
 &gt;&gt;&gt; type(a)
-&lt;type &#39;int&#39;&gt;
+&lt;type 'int'&gt;
 &gt;&gt;&gt; b = (3, )
 &gt;&gt;&gt; type(b)
-&lt;type &#39;tuple&#39;&gt;
+&lt;type 'tuple'&gt;
 </code></pre>
 <p>10.</p>
 
@@ -6279,7 +6279,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp"];
   let index = 0;
   let IntervalParallax = null;
 

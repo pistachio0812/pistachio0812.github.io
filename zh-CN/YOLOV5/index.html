@@ -3743,7 +3743,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665157331018),
+    lastupdate: new Date(1665209991219),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -5237,10 +5237,10 @@ from nets.Swin_transformer import Swin_transformer_Tiny
 #   yolo_body
 #---------------------------------------------------#
 class YoloBody(nn.Module):
-    def __init__(self, anchors_mask, num_classes, phi, backbone=&#39;cspdarknet&#39;, pretrained=False, input_shape=[640, 640]):
+    def __init__(self, anchors_mask, num_classes, phi, backbone='cspdarknet', pretrained=False, input_shape=[640, 640]):
         super(YoloBody, self).__init__()
-        depth_dict          = &#123;&#39;s&#39; : 0.33, &#39;m&#39; : 0.67, &#39;l&#39; : 1.00, &#39;x&#39; : 1.33,&#125;
-        width_dict          = &#123;&#39;s&#39; : 0.50, &#39;m&#39; : 0.75, &#39;l&#39; : 1.00, &#39;x&#39; : 1.25,&#125;
+        depth_dict          = {'s' : 0.33, 'm' : 0.67, 'l' : 1.00, 'x' : 1.33,}
+        width_dict          = {'s' : 0.50, 'm' : 0.75, 'l' : 1.00, 'x' : 1.25,}
         dep_mul, wid_mul    = depth_dict[phi], width_dict[phi]
 
         base_channels       = int(wid_mul * 64)  # 64
@@ -5250,7 +5250,7 @@ class YoloBody(nn.Module):
         #   初始的基本通道是64
         #-----------------------------------------------#
         self.backbone_name  = backbone
-        if backbone == &quot;cspdarknet&quot;:
+        if backbone == "cspdarknet":
             #---------------------------------------------------#   
             #   生成CSPdarknet53的主干模型
             #   获得三个有效特征层，他们的shape分别是：
@@ -5264,23 +5264,23 @@ class YoloBody(nn.Module):
             #   如果输入不为cspdarknet，则调整通道数
             #   使其符合YoloV5的格式
             #---------------------------------------------------#
-            self.backbone       = &#123;
-                &#39;convnext_tiny&#39;         : ConvNeXt_Tiny,
-                &#39;convnext_small&#39;        : ConvNeXt_Small,
-                &#39;swin_transfomer_tiny&#39;  : Swin_transformer_Tiny,
-            &#125;[backbone](pretrained=pretrained, input_shape=input_shape)
-            in_channels         = &#123;
-                &#39;convnext_tiny&#39;         : [192, 384, 768],
-                &#39;convnext_small&#39;        : [192, 384, 768],
-                &#39;swin_transfomer_tiny&#39;  : [192, 384, 768],
-            &#125;[backbone]
+            self.backbone       = {
+                'convnext_tiny'         : ConvNeXt_Tiny,
+                'convnext_small'        : ConvNeXt_Small,
+                'swin_transfomer_tiny'  : Swin_transformer_Tiny,
+            }[backbone](pretrained=pretrained, input_shape=input_shape)
+            in_channels         = {
+                'convnext_tiny'         : [192, 384, 768],
+                'convnext_small'        : [192, 384, 768],
+                'swin_transfomer_tiny'  : [192, 384, 768],
+            }[backbone]
             feat1_c, feat2_c, feat3_c = in_channels 
             self.conv_1x1_feat1 = Conv(feat1_c, base_channels * 4, 1, 1)
             self.conv_1x1_feat2 = Conv(feat2_c, base_channels * 8, 1, 1)
             self.conv_1x1_feat3 = Conv(feat3_c, base_channels * 16, 1, 1)
 
         # 上采样操作，采用最近邻插值法
-        self.upsample   = nn.Upsample(scale_factor=2, mode=&quot;nearest&quot;)
+        self.upsample   = nn.Upsample(scale_factor=2, mode="nearest")
 
         # Conv1×1,获得p5
         self.conv_for_feat3         = Conv(base_channels * 16, base_channels * 8, 1, 1)
@@ -5307,7 +5307,7 @@ class YoloBody(nn.Module):
     def forward(self, x):
         #  backbone
         feat1, feat2, feat3 = self.backbone(x)
-        if self.backbone_name != &quot;cspdarknet&quot;:
+        if self.backbone_name != "cspdarknet":
             feat1 = self.conv_1x1_feat1(feat1)
             feat2 = self.conv_1x1_feat2(feat2)
             feat3 = self.conv_1x1_feat3(feat3)
@@ -5674,7 +5674,7 @@ class YOLOLoss(nn.Module):
         return output
 
     def box_giou(self, b1, b2):
-        &quot;&quot;&quot;
+        """
         输入为：
         ----------
         b1: tensor, shape=(batch, feat_w, feat_h, anchor_num, 4), xywh
@@ -5683,7 +5683,7 @@ class YOLOLoss(nn.Module):
         返回为：
         -------
         giou: tensor, shape=(batch, feat_w, feat_h, anchor_num, 1)
-        &quot;&quot;&quot;
+        """
         #----------------------------------------------------#
         #   求出预测框左上角右下角
         #----------------------------------------------------#
@@ -7185,7 +7185,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp"];
   let index = 0;
   let IntervalParallax = null;
 
