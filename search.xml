@@ -143,9 +143,6 @@ Process finished with exit code 0
         <category>计算机视觉</category>
         <category>卷积神经网络</category>
       </categories>
-      <tags>
-        <tag>参数计算</tag>
-      </tags>
   </entry>
   <entry>
     <title>CNN输入与输出的关系</title>
@@ -187,9 +184,6 @@ Process finished with exit code 0
         <category>计算机视觉</category>
         <category>卷积神经网络</category>
       </categories>
-      <tags>
-        <tag>输入与输出</tag>
-      </tags>
   </entry>
   <entry>
     <title>C语言基础学习</title>
@@ -260,9 +254,6 @@ int main()
       <categories>
         <category>C语言</category>
       </categories>
-      <tags>
-        <tag>函数库</tag>
-      </tags>
   </entry>
   <entry>
     <title>Darknet53</title>
@@ -394,10 +385,6 @@ def darknet53():
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>yolov3</tag>
-        <tag>darknet</tag>
-      </tags>
   </entry>
   <entry>
     <title>Faster-RCNN论文笔记</title>
@@ -411,10 +398,6 @@ def darknet53():
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>faster-rcnn</tag>
-      </tags>
   </entry>
   <entry>
     <title>FPS计算</title>
@@ -568,10 +551,6 @@ int fps()
       <categories>
         <category>计算机视觉</category>
       </categories>
-      <tags>
-        <tag>基础概念</tag>
-        <tag>FPS</tag>
-      </tags>
   </entry>
   <entry>
     <title>InceptionV3论文笔记</title>
@@ -870,10 +849,6 @@ if __name__ == '__main__':
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>Inception</tag>
-      </tags>
   </entry>
   <entry>
     <title>How to use Linux</title>
@@ -890,9 +865,6 @@ if __name__ == '__main__':
       <categories>
         <category>Linux</category>
       </categories>
-      <tags>
-        <tag>Liunx使用教程</tag>
-      </tags>
   </entry>
   <entry>
     <title>CABNet论文笔记</title>
@@ -918,9 +890,6 @@ if __name__ == '__main__':
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>论文笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>Matplotlib学习笔记</title>
@@ -2543,9 +2512,6 @@ plt.show()
       <categories>
         <category>python</category>
       </categories>
-      <tags>
-        <tag>matplotlib</tag>
-      </tags>
   </entry>
   <entry>
     <title>RFBNet论文笔记</title>
@@ -2557,10 +2523,6 @@ plt.show()
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>RFBNet</tag>
-      </tags>
   </entry>
   <entry>
     <title>Resnet论文笔记</title>
@@ -2734,10 +2696,6 @@ def resnet50(pretrained = False):
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>resnet</tag>
-      </tags>
   </entry>
   <entry>
     <title>MySQL学习笔记</title>
@@ -3476,9 +3434,6 @@ ERROR 1146: Table 'W3CSCHOOL.SalesSummary' doesn't exist
       <categories>
         <category>MySQL</category>
       </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>SSD损失函数详解</title>
@@ -3707,10 +3662,6 @@ def set_optimizer_lr(optimizer, lr_scheduler_func, epoch):
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>SSD</tag>
-        <tag>损失函数</tag>
-      </tags>
   </entry>
   <entry>
     <title>RetinaNet论文笔记</title>
@@ -4561,10 +4512,6 @@ def encode_bbox(assigned_annotations, positive_indices, anchor_widths, anchor_he
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>retinanet</tag>
-      </tags>
   </entry>
   <entry>
     <title>DCGAN论文笔记</title>
@@ -4744,10 +4691,6 @@ class discriminator(nn.Module):
       <categories>
         <category>计算机视觉</category>
       </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>GAN</tag>
-      </tags>
   </entry>
   <entry>
     <title>yolov3论文笔记</title>
@@ -5539,10 +5482,6 @@ class YOLOLoss(nn.Module):
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>yolov3</tag>
-        <tag>论文笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>YOLOV5论文笔记</title>
@@ -6503,10 +6442,6 @@ class YOLOLoss(nn.Module):
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>yolov5</tag>
-      </tags>
   </entry>
   <entry>
     <title>fork me on github</title>
@@ -6557,10 +6492,6 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
       <categories>
         <category>Hexo博客搭建</category>
       </categories>
-      <tags>
-        <tag>博客提升</tag>
-        <tag>fork</tag>
-      </tags>
   </entry>
   <entry>
     <title>Concat和add的区别</title>
@@ -6574,9 +6505,6 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>Concat&amp;add</tag>
-      </tags>
   </entry>
   <entry>
     <title>pytorch中contiguous函数的用法</title>
@@ -6600,10 +6528,6 @@ x.transpose(0, 1).contiguous().is_contiguous() # True
       <categories>
         <category>pytorch</category>
       </categories>
-      <tags>
-        <tag>函数库</tag>
-        <tag>contiguous</tag>
-      </tags>
   </entry>
   <entry>
     <title>CenterNet论文笔记</title>
@@ -6617,9 +6541,6 @@ x.transpose(0, 1).contiguous().is_contiguous() # True
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>论文笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>github使用指南</title>
@@ -6669,10 +6590,6 @@ x.transpose(0, 1).contiguous().is_contiguous() # True
       <categories>
         <category>github</category>
       </categories>
-      <tags>
-        <tag>使用指南</tag>
-        <tag>github</tag>
-      </tags>
   </entry>
   <entry>
     <title>Sanderson the Man 1</title>
@@ -6703,10 +6620,6 @@ x.transpose(0, 1).contiguous().is_contiguous() # True
       <categories>
         <category>Hexo博客搭建</category>
       </categories>
-      <tags>
-        <tag>博客搭建</tag>
-        <tag>Hexo</tag>
-      </tags>
   </entry>
   <entry>
     <title>epoch和iteration的区别</title>
@@ -6721,10 +6634,6 @@ x.transpose(0, 1).contiguous().is_contiguous() # True
       <categories>
         <category>计算机视觉</category>
       </categories>
-      <tags>
-        <tag>基础概念</tag>
-        <tag>epoch&amp;iteration</tag>
-      </tags>
   </entry>
   <entry>
     <title>vision transformer论文笔记</title>
@@ -7402,10 +7311,6 @@ def vit(input_shape=[224, 224], pretrained=False, num_classes=1000):
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>transformer</tag>
-      </tags>
   </entry>
   <entry>
     <title>hexo标签插件测试</title>
@@ -8275,10 +8180,6 @@ rounded, circle
       <categories>
         <category>Hexo博客搭建</category>
       </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>volantis</tag>
-      </tags>
   </entry>
   <entry>
     <title>np.cumsum()函数</title>
@@ -8325,9 +8226,6 @@ rounded, circle
       <categories>
         <category>python</category>
       </categories>
-      <tags>
-        <tag>cumsum</tag>
-      </tags>
   </entry>
   <entry>
     <title>nn.relu和F.relu的区别</title>
@@ -8370,10 +8268,6 @@ class AlexNet_2(nn.Module):
       <categories>
         <category>pytorch</category>
       </categories>
-      <tags>
-        <tag>函数库</tag>
-        <tag>relu</tag>
-      </tags>
   </entry>
   <entry>
     <title>pip换源</title>
@@ -8413,9 +8307,6 @@ trusted-host = pypi.tuna.tsinghua.edu.cn
       <categories>
         <category>pytorch</category>
       </categories>
-      <tags>
-        <tag>pip换源</tag>
-      </tags>
   </entry>
   <entry>
     <title>pyperclip模块</title>
@@ -8434,9 +8325,6 @@ trusted-host = pypi.tuna.tsinghua.edu.cn
       <categories>
         <category>python</category>
       </categories>
-      <tags>
-        <tag>函数库</tag>
-      </tags>
   </entry>
   <entry>
     <title>python知识补充</title>
@@ -8520,9 +8408,6 @@ c:\user\test
       <categories>
         <category>python</category>
       </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>pytorch官方文档中文版</title>
@@ -8559,9 +8444,6 @@ class Model(nn.Module):
       <categories>
         <category>pytorch</category>
       </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>Grad-cam论文笔记</title>
@@ -8748,10 +8630,6 @@ if __name__ == '__main__':
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>grad-cam</tag>
-      </tags>
   </entry>
   <entry>
     <title>np.newaxis详解</title>
@@ -8775,10 +8653,6 @@ x1_new = x1[np.newaxis,:]
       <categories>
         <category>python</category>
       </categories>
-      <tags>
-        <tag>函数库</tag>
-        <tag>newaxis</tag>
-      </tags>
   </entry>
   <entry>
     <title>wandb</title>
@@ -8788,9 +8662,6 @@ x1_new = x1[np.newaxis,:]
       <categories>
         <category>计算机视觉</category>
       </categories>
-      <tags>
-        <tag>可视化</tag>
-      </tags>
   </entry>
   <entry>
     <title>typora数学公式教程</title>
@@ -8802,9 +8673,6 @@ x1_new = x1[np.newaxis,:]
       <categories>
         <category>typora</category>
       </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>visdom使用教程</title>
@@ -8884,9 +8752,6 @@ vis2.line(X=x,Y=y,win='polynomial',name = 'this is new trace',update='append')
       <categories>
         <category>pytorch</category>
       </categories>
-      <tags>
-        <tag>可视化</tag>
-      </tags>
   </entry>
   <entry>
     <title>zetane的使用说明</title>
@@ -8896,10 +8761,6 @@ vis2.line(X=x,Y=y,win='polynomial',name = 'this is new trace',update='append')
       <categories>
         <category>计算机视觉</category>
       </categories>
-      <tags>
-        <tag>可视化</tag>
-        <tag>zetane</tag>
-      </tags>
   </entry>
   <entry>
     <title>Remove Element</title>
@@ -8932,9 +8793,6 @@ public:
       <categories>
         <category>Leetcode</category>
       </categories>
-      <tags>
-        <tag>力扣题解</tag>
-      </tags>
   </entry>
   <entry>
     <title>jsDelivr+Github 使用方法</title>
@@ -8985,10 +8843,6 @@ https://cdn.jsdelivr.net/gh/jquery/jquery/
       <categories>
         <category>github</category>
       </categories>
-      <tags>
-        <tag>学习笔记</tag>
-        <tag>CDN</tag>
-      </tags>
   </entry>
   <entry>
     <title>可视化技术</title>
@@ -9015,9 +8869,6 @@ sudo apt-get install texlive-latex-extra
       <categories>
         <category>计算机视觉</category>
       </categories>
-      <tags>
-        <tag>可视化</tag>
-      </tags>
   </entry>
   <entry>
     <title>学习网站集合</title>
@@ -9031,9 +8882,6 @@ sudo apt-get install texlive-latex-extra
       <categories>
         <category>科研推荐</category>
       </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>tensorflow学习笔记</title>
@@ -9856,9 +9704,6 @@ train_model(model,
       <categories>
         <category>tensorflow</category>
       </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>Warnings_unsample</title>
@@ -9882,9 +9727,6 @@ train_model(model,
       <categories>
         <category>pytorch</category>
       </categories>
-      <tags>
-        <tag>warnings</tag>
-      </tags>
   </entry>
   <entry>
     <title>学术搜索网站集合</title>
@@ -9906,9 +9748,6 @@ train_model(model,
       <categories>
         <category>科研推荐</category>
       </categories>
-      <tags>
-        <tag>文献工具</tag>
-      </tags>
   </entry>
   <entry>
     <title>matplotlib.use(&#39;agg&#39;)的作用机理</title>
@@ -9946,9 +9785,6 @@ Qt5Agg
       <categories>
         <category>python</category>
       </categories>
-      <tags>
-        <tag>matplotlib</tag>
-      </tags>
   </entry>
   <entry>
     <title>扁平时代的写作·节选</title>
@@ -9966,9 +9802,6 @@ Qt5Agg
       <categories>
         <category>文学黑洞</category>
       </categories>
-      <tags>
-        <tag>今日故事</tag>
-      </tags>
   </entry>
   <entry>
     <title>色彩搭配</title>
@@ -9986,9 +9819,6 @@ Qt5Agg
       <categories>
         <category>色彩搭配</category>
       </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>感受野的计算</title>
@@ -10006,9 +9836,6 @@ Qt5Agg
       <categories>
         <category>计算机视觉</category>
       </categories>
-      <tags>
-        <tag>感受野</tag>
-      </tags>
   </entry>
   <entry>
     <title>数据处理</title>
@@ -10414,9 +10241,6 @@ def _next_data(self):
       <categories>
         <category>pytorch</category>
       </categories>
-      <tags>
-        <tag>数据处理</tag>
-      </tags>
   </entry>
   <entry>
     <title>提醒幸福</title>
@@ -10452,9 +10276,6 @@ def _next_data(self):
       <categories>
         <category>文学黑洞</category>
       </categories>
-      <tags>
-        <tag>今日故事</tag>
-      </tags>
   </entry>
   <entry>
     <title>CV必备文献</title>
@@ -10499,9 +10320,6 @@ def _next_data(self):
       <categories>
         <category>计算机视觉</category>
       </categories>
-      <tags>
-        <tag>文献推荐</tag>
-      </tags>
   </entry>
   <entry>
     <title>未婚妻</title>
@@ -10553,9 +10371,6 @@ def _next_data(self):
       <categories>
         <category>文学黑洞</category>
       </categories>
-      <tags>
-        <tag>今日故事</tag>
-      </tags>
   </entry>
   <entry>
     <title>开放图谱协议</title>
@@ -10589,10 +10404,6 @@ open_graph:
       <categories>
         <category>Hexo博客搭建</category>
       </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>open_graph</tag>
-      </tags>
   </entry>
   <entry>
     <title>ubuntu软件安装的问题总结</title>
@@ -10629,9 +10440,6 @@ ID   Status  Spawn                     Ready                     Summary
       <categories>
         <category>ubuntu</category>
       </categories>
-      <tags>
-        <tag>软件安装</tag>
-      </tags>
   </entry>
   <entry>
     <title>详解注意力机制</title>
@@ -10845,10 +10653,6 @@ class YoloBody(nn.Module):
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>Attention</tag>
-      </tags>
   </entry>
   <entry>
     <title>激活函数</title>
@@ -11015,10 +10819,6 @@ if __name__ == '__main__':
       <categories>
         <category>pytorch</category>
       </categories>
-      <tags>
-        <tag>函数库</tag>
-        <tag>激活函数</tag>
-      </tags>
   </entry>
   <entry>
     <title>机器学习</title>
@@ -11056,9 +10856,6 @@ if __name__ == '__main__':
       <categories>
         <category>机器学习</category>
       </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>数据集介绍</title>
@@ -11091,9 +10888,6 @@ if __name__ == '__main__':
       <categories>
         <category>目标检测</category>
       </categories>
-      <tags>
-        <tag>数据集</tag>
-      </tags>
   </entry>
   <entry>
     <title>计算机视觉单词表</title>
@@ -11464,9 +11258,6 @@ if __name__ == '__main__':
       <categories>
         <category>计算机视觉</category>
       </categories>
-      <tags>
-        <tag>专业名词</tag>
-      </tags>
   </entry>
   <entry>
     <title>烟之外</title>
@@ -11477,9 +11268,6 @@ if __name__ == '__main__':
       <categories>
         <category>文学黑洞</category>
       </categories>
-      <tags>
-        <tag>今日故事</tag>
-      </tags>
   </entry>
   <entry>
     <title>Pytorch API之torch</title>
@@ -11492,10 +11280,6 @@ if __name__ == '__main__':
       <categories>
         <category>pytorch</category>
       </categories>
-      <tags>
-        <tag>函数库</tag>
-        <tag>torch</tag>
-      </tags>
   </entry>
   <entry>
     <title>马裤先生</title>
@@ -11533,9 +11317,6 @@ if __name__ == '__main__':
       <categories>
         <category>文学黑洞</category>
       </categories>
-      <tags>
-        <tag>今日故事</tag>
-      </tags>
   </entry>
   <entry>
     <title>用两个栈实现队列</title>
@@ -11548,9 +11329,6 @@ if __name__ == '__main__':
       <categories>
         <category>leetcode</category>
       </categories>
-      <tags>
-        <tag>力扣题解</tag>
-      </tags>
   </entry>
   <entry>
     <title>Q &amp; A</title>
@@ -12219,8 +11997,600 @@ return x
       <categories>
         <category>pytorch</category>
       </categories>
+  </entry>
+  <entry>
+    <title>rss学习笔记</title>
+    <url>/zh-CN/RSS/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://www.runoob.com/rss/rss-tutorial.html">RSS 教程 | 菜鸟教程 (runoob.com)</a></p>
+<p>通过使用 RSS，您可以有选择地浏览您感兴趣的以及与您的工作相关的新闻。</p>
+<p>通过使用 RSS，您可以把需要的信息从不需要的信息（兜售信息，垃圾邮件等）中分离出来。</p>
+<p>通过使用 RSS，您可以创建自己的新闻频道，并将之发布到因特网。</p>
+<h3 id="rss工作原理"><a href="#rss工作原理" class="headerlink" title="rss工作原理"></a>rss工作原理</h3><p>RSS 用于在网站间分享信息。</p>
+<p>使用 RSS，您在名为聚合器的公司注册您的内容。</p>
+<p>步骤之一是，创建一个 RSS 文档，然后使用 .xml 后缀来保存它。然后把此文件上传到您的网站。接下来，通过一个 RSS 聚合器来注册。每天，聚合器都会到被注册的网站搜索 RSS 文档，校验其链接，并显示有关 feed 的信息，这样客户就能够链接到使他们产生兴趣的文档。</p>
+<h3 id="rss实例"><a href="#rss实例" class="headerlink" title="rss实例"></a>rss实例</h3><pre><code class="lang-xml">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;rss version="2.0"&gt;
+
+&lt;channel&gt;
+  &lt;title&gt;菜鸟教程首页&lt;/title&gt;
+  &lt;link&gt;http://www.runoob.com&lt;/link&gt;
+  &lt;description&gt;免费编程教程&lt;/description&gt;
+  &lt;item&gt;
+    &lt;title&gt;RSS 教程&lt;/title&gt;
+    &lt;link&gt;http://www.runoob.com/rss&lt;/link&gt;
+    &lt;description&gt;菜鸟教程 Rss 教程&lt;/description&gt;
+  &lt;/item&gt;
+  &lt;item&gt;
+    &lt;title&gt;XML 教程&lt;/title&gt;
+    &lt;link&gt;http://www.runoob.com/xml&lt;/link&gt;
+    &lt;description&gt;菜鸟教程 XML 教程&lt;/description&gt;
+  &lt;/item&gt;
+&lt;/channel&gt;
+
+&lt;/rss&gt;
+</code></pre>
+<p>文档中的第一行：XML 声明 - 定义了文档中使用的 XML 版本和字符编码。此例子遵守 1.0 规范，并使用 UTF-8 字符集(可支持中文)。</p>
+<p>下一行是标识此文档是一个 RSS 文档的 RSS 声明（此例是 RSS version 2.0）。</p>
+<p>下一行含有 <channel> 元素。此元素用于描述 RSS feed。</channel></p>
+<p><channel> 元素有三个必需的子元素：</channel></p>
+<ul>
+<li><title> - 定义频道的标题。（比如 菜鸟教程首页）&lt;/li&gt;
+&lt;li&gt;&lt;link&gt; - 定义到达频道的超链接。（比如 www.runoob.com）&lt;/li&gt;
+&lt;li&gt;&lt;description&gt; - 描述此频道（比如 免费编程教程）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;每个 &lt;channel&gt; 元素可拥有一个或多个 &lt;item&gt; 元素。&lt;/p&gt;
+&lt;p&gt;每个 &lt;item&gt; 元素可定义 RSS feed 中的一篇文章或 “story”。&lt;/p&gt;
+&lt;p&gt;&lt;item&gt; 元素拥有三个必需的子元素：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;title&gt; - 定义项目的标题。（比如 RSS 教程）&lt;/li&gt;
+&lt;li&gt;&lt;link&gt; - 定义到达项目的超链接。（比如 &lt;a href="http://www.runoob.com/rss）"&gt;http://www.runoob.com/rss）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;description&gt; - 描述此项目（比如 菜鸟教程 Rss 教程）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最后，后面的两行关闭 &lt;channel&gt; 和 &lt;rss&gt; 元素。&lt;/p&gt;
+&lt;h3 id="rss发布到web"&gt;&lt;a href="#rss发布到web" class="headerlink" title="rss发布到web"&gt;&lt;/a&gt;rss发布到web&lt;/h3&gt;&lt;p&gt;现在是时候把您的 RSS 文件上传到网上了。下面是具体的步骤：&lt;/p&gt;
+&lt;p&gt;1.为您的 RSS 命名。请注意文件必须有 .xml 的后缀。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;验证您的 RSS 文件。（可以在 &lt;a href="http://www.feedvalidator.org/"&gt;http://www.feedvalidator.org&lt;/a&gt; 找到很好的验证器）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;把 RSS 文件上传到您的 web 服务器上的 web 目录。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;把这个小的橙色按钮 &lt;img src="RSS/rss.gif" alt="RSS Logo" style="zoom:80%;" /&gt;或 &lt;img src="RSS/xml.gif" alt="XML Logo" style="zoom:80%;" /&gt;拷贝到您的 web 目录。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在你希望向外界提供 RSS 的页面上放置这个小按钮。然后向这个按钮添加一个指向 RSS 文件的链接。代码应该类似这样：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class="lang-xml"&gt;&lt;a href="http://www.runoob.com/feed"&gt;
+&lt;img loading="lazy" src="http://www.runoob.com/images/rss.gif" width="36" height="14"&gt;
+&lt;/a&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;把你的 RSS feed 提交到 RSS Feed 目录。要注意！feed 的 URL 不是你的页面，而是您的指向您的 feed 的 URL，比如 “&lt;a href="http://www.runoob.com/feed"。"&gt;http://www.runoob.com/feed"。&lt;/a&gt; 此处提供一些免费的 RSS 聚合服务：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.newsisfree.com/"&gt;Newsisfree&lt;/a&gt;: &lt;a href="http://www.newsisfree.com/user/new/"&gt;点我注册&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;在重要的搜索引擎注册您的 feed ：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://wordpress.org/"&gt;WordPress&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.blogger.com/"&gt;Blogger&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://radio.userland.com/"&gt;Radio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;更新您的 feed - 现在您已获得了来自 Google、Yahoo、以及 MSN 的 RSS feed 按钮。请您务必经常更新您的内容，并保持 RSS feed 的长期可用。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="元素"&gt;&lt;a href="#元素" class="headerlink" title="元素"&gt;&lt;/a&gt;&lt;channel&gt;元素&lt;/h3&gt;&lt;div class="table-container"&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align:left"&gt;元素&lt;/th&gt;
+&lt;th style="text-align:left"&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-category-channel.html"&gt;category&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。为 feed 定义所属的一个或多个种类。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-cloud.html"&gt;cloud&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。注册进程，以获得 feed 更新的立即通知。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-copyright.html"&gt;copyright&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选。告知版权资料。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html"&gt;description&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;必需的。描述频道。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-docs.html"&gt;docs&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。规定指向当前 RSS 文件所用格式说明的 URL。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-generator.html"&gt;generator&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。规定用于生成 feed 的程序。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-image.html"&gt;image&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。在聚合器呈现某个 feed 时，显示一个图像。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-language.html"&gt;language&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。规定编写 feed 所用的语言。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-lastbuilddate.html"&gt;lastBuildDate&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。定义 feed 内容的最后修改日期。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;必需的。定义指向频道的超链接。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-managingeditor.html"&gt;manageingEditor&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。定义 feed 内容编辑的电子邮件地址。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-pubdate.html"&gt;pubDate&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。为 feed 的内容定义最后发布日期。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;rating&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。feed 的 PICS 级别。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-skipDays.html"&gt;skipDays&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。规定忽略 feed 更新的天。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-skipHours.html"&gt;skipHours&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。规定忽略 feed 更新的小时。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-textinput.html"&gt;textInput&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。规定应当与 feed 一同显示的文本输入域。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html"&gt;title&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;必需的。定义频道的标题。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-ttl.html"&gt;ttl&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。指定从 feed 源更新此 feed 之前，feed 可被缓存的分钟数。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-webmaster.html"&gt;webMaster&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。定义此 feed 的 web 管理员的电子邮件地址。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;h3 id="元素-1"&gt;&lt;a href="#元素-1" class="headerlink" title="元素"&gt;&lt;/a&gt;&lt;item&gt;元素&lt;/h3&gt;&lt;div class="table-container"&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align:left"&gt;元素&lt;/th&gt;
+&lt;th style="text-align:left"&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-author.html"&gt;author&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。规定项目作者的电子邮件地址。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-category-item.html"&gt;category&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。定义项目所属的一个或多个类别。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-comments.html"&gt;comments&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。允许项目连接到有关此项目的注释（文件）。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html"&gt;description&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;必需的。描述此项目。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-enclosure.html"&gt;enclosure&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。允许将一个媒体文件导入一个项中。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-guid.html"&gt;guid&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。为项目定义一个唯一的标识符。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;必需的。定义指向此项目的超链接。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-pubdate-item.html"&gt;pubDate&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。定义此项目的最后发布日期。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-source.html"&gt;source&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;可选的。为此项目指定一个第三方来源。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html"&gt;title&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;必需的。定义此项目的标题。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</title></li></ul>]]></content>
+      <categories>
+        <category>rss</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Logo语言的学习</title>
+    <url>/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://baike.baidu.com/item/logo/4689862">logo（程序设计语言）</a></p>
+<p>2.<a href="https://www.w3cschool.cn/logo_cn/logo_cn-4fnq3l4z.html">Logo 简介_w3cschool</a></p>
+<p>Logo 是一种易于学习的编程语言。它用于教学生和儿童如何编程计算机。它被开发用于处理单词列表。</p>
+<h3 id="安装logo"><a href="#安装logo" class="headerlink" title="安装logo"></a>安装logo</h3><p>如果想要安装logo编程软件，点击<a href="https://www.softronix.com/logo_downloads/">MSWLogo Downloads – Softronics Inc. (softronix.com)</a></p>
+<p>下载setup kit安装即可</p>
+<h3 id="turtle"><a href="#turtle" class="headerlink" title="turtle"></a>turtle</h3><p>简单的 Logo 绘制命令可以前后移动 Turtle，也可以向右或向左转动。命令及其缩写如下:</p>
+<ul>
+<li><code>fd</code> – 前进</li>
+<li><code>bk</code> – 向后</li>
+<li><code>rt</code> – 右</li>
+<li><code>lt</code> – 左</li>
+<li><code>cs</code> – 清屏</li>
+</ul>
+<p>可以使用这些命令的任一版本。除了<code>cs</code>命令，这些命令中的每一个都必须跟一个称为参数的值。<code>fd</code>和<code>bk</code>的参数是单位；<code>rt</code>和<code>lt</code>的角度可以是任何整数。<strong>旋转 360 度</strong>是完整的旋转，因此<strong>旋转 375 度</strong>与 <strong>1/15 度</strong>相同。</p>
+<ul>
+<li><code>forward 60</code>或<code>fd 60</code>表示前进 60 步</li>
+<li><code>right 90</code>或<code>rt 90</code>表示右转 90 度</li>
+<li><code>left 90</code>或<code>lt 90</code>表示左转 90 度</li>
+<li><code>back 60</code>或<code>bk 60</code>表示返回 60 步</li>
+<li><code>clearscreen</code>或<code>cs</code>表示擦除所有绘图。这将 Turtle 设置在中心</li>
+</ul>
+<p>图形窗口有一个坐标系。中心的两个坐标（通常称为 x 和 y）的值为0、0。在东北角，它们是250、250；在东南角，它们是 250，-250。在西南角，它们是-250、-250；等等。如果 Turtle 试图走到屏幕的一侧，它会绕过去。右侧绕到左侧，顶部绕到底部。</p>
+<h3 id="turtle命令"><a href="#turtle命令" class="headerlink" title="turtle命令"></a>turtle命令</h3><p>现在让我们尝试一些命令。命令将每行发出一个，然后是回车。可以在命令窗口中连续键入其中几个命令，然后按回车符。对 Turtle 的效果是一样的。但是，如果您键入一个命令，该命令需要一个或多个输入并在下一行提供缺少的输入，Logo 将显示错误。</p>
+<p>示例1：</p>
+<pre><code class="lang-bash"># 尝试画一个领奖台
+fd 40 rt 90 fd 40 lt 90 fd 40 rt 90 fd 40 rt 90 fd 40 lt 90 fd 40 rt 90 fd 40 rt 90 fd 120
+</code></pre>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011194845234.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011194845234.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011194845234" style="zoom:50%;"></p>
+<p>示例2：</p>
+<pre><code class="lang-bash"># 尝试画一个正五边形
+fd 60 rt 72 fd 60 rt 72 fd 60 rt 72 fd 60 rt 72 fd 60
+</code></pre>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011195053589.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011195053589.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011195053589" style="zoom:50%;"></p>
+<p>现在你可以尝试画出以下图形或者任何你想画的了</p>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011195259241.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011195259241.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011195259241" style="zoom:50%;"></p>
+<h3 id="控制turtle和笔"><a href="#控制turtle和笔" class="headerlink" title="控制turtle和笔"></a>控制turtle和笔</h3><p>Logo 还有许多其他绘图命令，其中一些在下面给出。</p>
+<ul>
+<li><strong>pu</strong> - penup</li>
+<li><strong>pd</strong> - pendown</li>
+<li><strong>ht</strong> - hideturtle</li>
+<li><strong>dt</strong> - showturtle</li>
+<li><strong>setpensize</strong></li>
+</ul>
+<p>pendown 和 penup 命令分别告诉 turtle 在移动时在屏幕上留下墨迹或不留下墨迹。该hideturtle和showturtle命令隐藏或显示 turtle，但不影响其离开墨因为它移动的能力。home 命令使 turtle 返回到屏幕的中心。当 turtle 回到屏幕中心时，它可能会留下墨水。setpensize 命令决定绘图笔的大小。</p>
+<ul>
+<li><strong>penup</strong>或<strong>pu</strong>表示拿起笔，因此您可以移动 turtle 而不会留下痕迹。</li>
+<li><strong>pendown</strong>或<strong>pd</strong>表示放下笔，因此您可以移动 turtle 并留下轨迹。</li>
+<li><strong>hideturtle</strong>或<strong>ht</strong>表示隐藏 turtle，这样您就可以欣赏您的画作。</li>
+<li><strong>showturtle</strong>或<strong>st</strong>表示显示 turtle，因此您可以继续绘图。</li>
+<li><strong>setpensize</strong>意味着它可以使笔更大，更容易看到。默认笔大小为<strong>–[1  1]</strong>。</li>
+</ul>
+<p>示例1：</p>
+<pre><code class="lang-bash"># 设置笔的大小，是[1 1],中间有空格
+setpensize [1 1] fd 40 setpensize [3 3] fd 40
+</code></pre>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011201718341.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011201718341.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011201718341" style="zoom:50%;"></p>
+<p>示例2：</p>
+<pre><code class="lang-bash"># repeat表示重复， 4为重复次数
+# 展示pu, pd功能
+repeat 4[fd 30 pu fd 30 pd fd 30 rt 90]
+</code></pre>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011201922042.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011201922042.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011201922042" style="zoom:50%;"></p>
+<p>示例3：</p>
+<pre><code class="lang-bash"># 展示ht, 默认st,如果你想重新显示turtle, 后面加上st就行了
+repeat 4[fd 30 pu fd 30 pd fd 30 rt 90] ht
+</code></pre>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011202159256.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011202159256.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011202159256" style="zoom:50%;"></p>
+<h3 id="turtle世界"><a href="#turtle世界" class="headerlink" title="turtle世界"></a>turtle世界</h3><p>Logo 还有许多其他附加绘图命令，其中一些在下面给出。</p>
+<ul>
+<li><code>Home</code></li>
+<li><code>cleartext</code> 或 <code>ct</code></li>
+<li><code>label</code></li>
+<li><code>setxy</code></li>
+</ul>
+<p><code>label</code>命令将单个单词作为带引号的字符串（例如“a_string”）或 [ ] 括号中不带引号的单词列表（例如 [Programming]），并将它们打印在 turtle 所在位置的图形窗口上. 让我们考虑以下代码。</p>
+<pre><code class="lang-bash">label "Programming repeat 3 [rt 90 label "Programming ] ht
+</code></pre>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011202750309.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011202750309.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011202750309" style="zoom:50%;"></p>
+<p><code>setxy</code>命令采用两个参数，第一个参数作为横坐标（水平轴）的值和第二个参数为纵坐标（垂直轴）的值。它将 turtle 放置在这些坐标处，可能在到达这些坐标时留下墨迹。</p>
+<p>示例1：</p>
+<pre><code class="lang-bash">setxy 60 60
+</code></pre>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011203557341.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011203557341.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011203557341" style="zoom:50%;"></p>
+<p>示例2：</p>
+<pre><code class="lang-bash">setxy 60 60 pu setxy -60 60
+</code></pre>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011203925009.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011203925009.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011203925009" style="zoom:50%;"></p>
+<p><code>cleartext</code>命令，缩写为<code>ct</code>，用于清除命令窗口的文本区域。</p>
+<p>尝试一下下面的命令</p>
+<pre><code class="lang-bash">cs pu setxy -60 60 pd home rt 45 fd 85 lt 135 fd 120
+</code></pre>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011204450563.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011204450563.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011204450563" style="zoom:50%;"></p>
+<p>当您从左到右阅读这些命令时，请对其进行解释。尝试找出结果。 以下是命令摘要表。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令名称</th>
+<th style="text-align:left">目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">setx 100</td>
+<td style="text-align:left">将turtle的 x 坐标设置为 +100;将其移动到中心右侧 100 点;无垂直变化</td>
+</tr>
+<tr>
+<td style="text-align:left">setx -200</td>
+<td style="text-align:left">将turtle移动到中心左侧 200 点;无垂直变化</td>
+</tr>
+<tr>
+<td style="text-align:left">150</td>
+<td style="text-align:left">将turtle的 y 坐标设置为 150;将其移动到中心上方 150 点;无横向变化</td>
+</tr>
+<tr>
+<td style="text-align:left">sety - 50</td>
+<td style="text-align:left">将turtle移动到中心下方 50 点; 无横向变化</td>
+</tr>
+<tr>
+<td style="text-align:left">setxy 100 100</td>
+<td style="text-align:left">将turtle移动到 xy 坐标 (100,100)</td>
+</tr>
+<tr>
+<td style="text-align:left">show xcor;show ycor</td>
+<td style="text-align:left">报告turtle的 x 坐标;报告turtle的 y 坐标</td>
+</tr>
+<tr>
+<td style="text-align:left">setheading 0;seth 0</td>
+<td style="text-align:left">将turtle直指，“正午”</td>
+</tr>
+<tr>
+<td style="text-align:left">seth 120</td>
+<td style="text-align:left">将turtle移动 120 度以指向四点钟位置</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="logo变量"><a href="#logo变量" class="headerlink" title="logo变量"></a>logo变量</h3><p>变量是可以包含值的内存位置的名称。在计算机中，每个内存位置都有一个整数地址。由于很难记住包含程序使用的值的每个位置的地址，计算机科学家已经找到了给这些位置、符号名称的方法。一旦变量有了名称，我们就可以使用和操作它。</p>
+<p>变量的名称是字母串。变量名可以包含字母（不区分大小写）、数字和下划线。变量名可以在计算中使用<code>:</code>在它之前访问。让我们在屏幕截图中考虑以下示例。</p>
+<p>示例：</p>
+<pre><code class="lang-bash">make "val1 100
+make "val2 200
+print :val1
+100
+print : val2
+ has no value
+print :val1 + :val2
+300
+print :val1 - :val2
+-100
+</code></pre>
+<h3 id="logo运算符"><a href="#logo运算符" class="headerlink" title="logo运算符"></a>logo运算符</h3><p>Logo 提供了常用的加、减、乘、除算术运算，用符号<code>+、-、*、/</code>表示。这些操作中的每一个都会产生一个结果。如果对结果不做任何处理，例如打印它，Logo 将显示错误。</p>
+<p>使用打印命令，可以在命令窗口中使用和打印算术运算的结果。以下屏幕截图中给出的示例演示了相同的内容。</p>
+<p>其他有用的命令是：</p>
+<ul>
+<li><strong>sqrt</strong> - 它接受一个非负参数并返回其平方根。</li>
+<li><strong>power</strong> - 它需要两个参数，称为“a”和“b”，并生成 a 的 b 次幂。</li>
+<li><strong>ln</strong> - 它接受一个参数并返回其自然对数。</li>
+<li><strong>exp</strong> - 它需要一个参数并计算 e 的那个幂，e 是自然数 2.718281828。</li>
+<li><strong>log10</strong> - 取其一个参数的以 10 为底的对数。</li>
+</ul>
+<pre><code class="lang-bash">print sqrt 16
+4
+print power 10 3
+1000
+print ln 2
+0.693147180559945
+print exp 2
+7.38905609893065
+print log10 1000
+3
+</code></pre>
+<p>算术运算符的优先级决定了它们的计算顺序。</p>
+<p><strong>注意:</strong> 打印<code>60 * sqrt 2</code>和打印<code>sqrt 2 * 60</code>会产生不同的答案。这里<code>*</code>运算符优先于 sqrt 运算符。因此，如果有选择，<code>*</code>将在 sqrt 之前完成，就像在第二种情况下一样。</p>
+<h3 id="logo重复"><a href="#logo重复" class="headerlink" title="logo重复"></a>logo重复</h3><p>让我们假设我们想画一个边长为 100 的正方形，我们可以使用以下程序来做到这一点：</p>
+<pre><code class="lang-bash">fd 100
+rt 90
+fd 100
+rt 90
+fd 100
+rt 90
+fd 100
+rt 90
+# 你可以写成下面的形式
+repeat 4[fd 100 rt 90]
+</code></pre>
+<h3 id="logo随机化"><a href="#logo随机化" class="headerlink" title="logo随机化"></a>logo随机化</h3><p>有时，计算出不可预测的结果很有趣。Logo 提供了一个随机程序来生成一个随机数。它有一个参数并产生一个随机统一选择的整数值，该值大于或等于 0 且小于其参数的值。因此，如果您想要一个 0 到 359 度之间的随机角度，您可以使用命令<code>random 360</code>来生成它。请记住，除非您对结果执行某些操作（例如打印），否则 Logo 将显示错误。</p>
+<p>示例1：</p>
+<pre><code class="lang-bash">print random 360
+231
+</code></pre>
+<p>示例2：</p>
+<pre><code class="lang-bash">repeat 100[fd random 80 rt 90]
+</code></pre>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011211802488.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011211802488.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011211802488" style="zoom:50%;"></p>
+<p>示例3：</p>
+<pre><code class="lang-bash">repeat 1000[fd 10 rt random 360]
+</code></pre>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011212013978.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011212013978.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011212013978" style="zoom:50%;"></p>
+<h3 id="logo程序"><a href="#logo程序" class="headerlink" title="logo程序"></a>logo程序</h3><p>过程提供了一种封装命令集合的方法。一旦创建了过程，就可以像使用内置命令一样使用它。一个过程的“意义”就是它的各个命令的意义。</p>
+<p>没有参数的过程在第一行有单词<code>to</code>（保留字）和过程名称。（Logo 中的保留字不能作为变量使用，有明确的含义和用途。）它在最后一行有保留字<code>end</code>。</p>
+<p>子程序是供另一个程序执行的命名步骤序列。子程序的其他名称是过程和函数。在 Logo 中，你告诉计算机如何做某事——例如:</p>
+<pre><code class="lang-bash">to square
+repeat 4 [fd 100 rt 90]
+end
+</code></pre>
+<p>一旦我们向 Logo 描述了我们的过程，我们就可以在命令行上输入它的名称，就像我们对任何内置的东西所做的一样。在这种情况下，我们将在命令行上输入<code>square</code>，Logo 会查找命令以制作一个正方形。</p>
+<p>单击显示Edall（用于编辑全部）的按钮以调出 Logo 的内置编辑器。（如果您的徽标没有 Edall 按钮，请在命令行中输入<code>edall</code>）。以下代码块具有子程序所需的结构。</p>
+<pre><code class="lang-bash">to procedurename
+steps of your procedure here
+end
+</code></pre>
+<p>过程或子程序必须以<code>to</code>这个词开头，后面跟着一个我们想到的名字。下一步是键入我们将在命令行上编写的所有相同步骤。该过程必须以<code>end</code>一词结尾。所有注释或备注行都应以分号 <code>;</code>开头。</p>
+<p>我们不希望每个方格的大小都一样——我们想要多样性。在 Logo 中，我们创建了变量，我们可以更改其值。在以下示例中，我们将使用相同的平方程序，但稍作改动。</p>
+<pre><code class="lang-bash">to square :n
+repeat 4 [fd :n rt 90]
+end
+</code></pre>
+<p>我们在命令行上给 Logo 一个<code>:n</code>的替换值，如下所示。</p>
+<pre><code class="lang-bash">square 40
+square 50
+square 70
+</code></pre>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011213810341.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011213810341.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011213810341" style="zoom:50%;"></p>
+<h3 id="logo递归过程"><a href="#logo递归过程" class="headerlink" title="logo递归过程"></a>logo递归过程</h3><p>在递归过程中，过程中会有一个过程的递归调用。让我们考虑以下代码 </p>
+<pre><code># 螺旋线， 图形中n=30
+to spiral_recur :n
+   if :n &lt; 1 [stop]
+   fd :n
+   rt 20
+   spiral_recur 0.95 * :n
+end
+</code></pre><p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011214339527.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011214339527.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011214339527" style="zoom:50%;"></p>
+<h3 id="logo决策"><a href="#logo决策" class="headerlink" title="logo决策"></a>logo决策</h3><p>决策和变量相辅相成。程序需要能够根据情况改变课程。例如，下面是绘制螺旋的框架。它有一个循环，是前面显示的重复的变体，循环的主体供我们填写。</p>
+<pre><code class="lang-bash">to spiral
+   make "n 1
+   while [:n &lt; 100] [
+      make "n :n + 5
+      fd :n rt 90
+   ]
+end
+</code></pre>
+<p>上面的代码展示了 MSW Logo 语法的几个新特性。我们通过键入<code>make</code>将一个变量设置为一个新值，然后变量的名称前面是双引号<code>"</code>而不是冒号<code>:</code> ，如下所示。</p>
+<pre><code class="lang-bash">make "n 1
+</code></pre>
+<p>不过，我们使用了一个变量，在它的名称前有一个冒号<code>:</code></p>
+<pre><code class="lang-bash">while [:n &lt; 100]
+</code></pre>
+<p><code>while [condition]</code>后括号内的代码被执行，而条件为真。当它不再为真时，因为（在这种情况下）<code>:n</code>的值增长大于 100，执行括号后面的代码。</p>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011220420163.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011220420163.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011220420163" style="zoom:50%;"></p>
+<p>现在，我们将讨论<strong>if 语句</strong>的使用，它具有仅在给定条件为真时才会执行的代码。</p>
+<p>它还显示了一个生成随机数的内置徽标。语句random 3在随机序列中任意生成任意数字 0 或 1 或 2。然后程序决定“随机”走哪条路。生成的随机数将保存在 <code>r</code> 中，稍后将根据变量<code>r</code>的值执行 if 语句之一，这将满足条件。因此，如果:</p>
+<ul>
+<li><code>r</code> 的值为 0，则将执行[fd 20]。</li>
+<li><code>r</code> 的值为 1，则将执行[rt 90 fd 20]。</li>
+<li><code>r</code> 的值为 2，则将执行[lt 90 fd 20]。</li>
+</ul>
+<p>代码：</p>
+<pre><code>to randomwalk
+repeat 100[
+ make "r random 3
+ if :r = 0 [fd 20]
+ if :r = 1 [rt 90 fd 20]
+ if :r = 2 [lt 90 fd 20]
+]
+end
+</code></pre><p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011221139685.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011221139685.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011221139685" style="zoom:50%;"></p>
+<h3 id="logo字符串"><a href="#logo字符串" class="headerlink" title="logo字符串"></a>logo字符串</h3><p>任何字母数字字符序列，例如<code>america</code>、<code>emp1234</code>等，都是字符串的示例。计算字符数是所有字符串过程中最基本的。问题<code>stringlength "abc12ef</code>的答案由以下过程给出:</p>
+<pre><code class="lang-bash">to stringlength :s
+   make "inputstring :s
+   make "count 0
+   while [not emptyp :s] [
+      make "count :count + 1
+      print first :s
+      make "s butfirst :s
+   ]
+   print (sentence :inputstring "has :count "letters)
+end
+</code></pre>
+<p>在上面的过程中<code>s</code>是包含输入字符串的变量。变量<code>inputstring</code>包含输入字符串的副本。变量计数初始化为 0。在 while 循环中，条件检查字符串是否为空。在每个循环计数中，一个变量增加 1 以保持长度计数。语句<code>print first :s</code>仅打印存储在<code>s</code>中的字符串的第一个字符。</p>
+<p>语句<code>make "s butfirst :s</code>，检索不包括第一个字符的子字符串。退出while循环后，我们打印了输入字符串的字符数或长度。</p>
+<h3 id="logo颜色"><a href="#logo颜色" class="headerlink" title="logo颜色"></a>logo颜色</h3><p>计算机屏幕使用红色、绿色和蓝色的光成分，因此它们有时被称为RGB 屏幕。 在 Logo 的设置菜单上，我们可以设置三个屏幕元素的颜色:</p>
+<ul>
+<li>turtle 的笔</li>
+<li>turtle 的填充物（就像围栏的油漆桶）</li>
+<li>画面背景</li>
+</ul>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011221830591.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011221830591.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011221830591" style="zoom:50%;"></p>
+<p>我们通过左右移动这三个滑块来设置颜色。请记住，黑色是所有颜色的缺失，而白色是所有颜色的结合。混合光不像混合油漆。例如，如果您将红色和绿色颜料混合，则会得到浑浊的颜色。由于这是一台计算机，因此每种颜色都有一个内部数字表示。</p>
+<p>滑动刻度的左端为零 (0)。右端是 255，这有点像计算机的 99（它是 2 8 - 1）。因此黑色是[0 0 0]，红色是[255 0 0]，绿色是[0 255 0]，蓝色是[0 0 255]。你可以在这些颜色之间制作任何东西，在所有这些颜色中，有<code>256 * 256 * 256</code>种可能的颜色。那是<code>2^8 * 2^8 * 2^8</code>，或 24 位颜色 — 机器内部的 24 位二进制数字。 以下命令会给你一个大红笔 -</p>
+<pre><code class="lang-bash">setpensize [5 5]
+setpencolor [255 0 0]
+</code></pre>
+<p>当您使用滑块找到您喜欢的颜色时，您可以询问 Logo 它是什么：选择笔的颜色，然后在命令窗口中输入以下命令。</p>
+<pre><code class="lang-bash">show pencolor
+</code></pre>
+<p>您可以使用以下步骤制作彩色方块 -</p>
+<p><strong>步骤 1</strong> - 使用以下命令绘制边长为 40 的正方形。</p>
+<pre><code>repeat 4 [fd 40 rt 90]
+</code></pre><p><strong>步骤 2</strong> - 使用以下命令完成。</p>
+<pre><code>pu
+</code></pre><p><strong>步骤 3</strong> - 转到正方形内的一个点。例如，使用以下命令将海龟放置在坐标 (20, 20) 处。</p>
+<pre><code>setxy 20 20
+</code></pre><p><strong>步骤 4</strong> - 用设置的泛色填充正方形。例如，要将泛光颜色设置为蓝色，请使用以下命令。</p>
+<pre><code>setfloodcolor [0 0 255]
+</code></pre><p>下表列出了更多与颜色和笔相关的命令。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">颜色和笔命令</th>
+<th style="text-align:left">命令的目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">setpencolor [rgb]；setpc [rgb]</td>
+<td style="text-align:left">设置turtle笔的颜色 rgb 是 [0, 255] 范围内的数字</td>
+</tr>
+<tr>
+<td style="text-align:left">setfloodcolor [rgb]； setfc [rgb]</td>
+<td style="text-align:left">设置批注区域的颜色</td>
+</tr>
+<tr>
+<td style="text-align:left">设置屏幕颜色 [rgb]; 设置sc [rgb]</td>
+<td style="text-align:left">设置背景颜色</td>
+</tr>
+<tr>
+<td style="text-align:left">显示笔色; 显示泛色; 显示屏幕颜色</td>
+<td style="text-align:left">指定命名项的 [rgb] 的当前值</td>
+</tr>
+<tr>
+<td style="text-align:left">填充</td>
+<td style="text-align:left">在光标位置倾倒一桶当前的泛色</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>尝试执行以下命令集：</p>
+<ul>
+<li><strong>cs</strong> - 清除屏幕。</li>
+<li><strong>home</strong> - 将turtle放置在初识位置。</li>
+<li><strong>setpensize [5 5]</strong> - 设置笔的大小。</li>
+<li><strong>setpencolor [255 0 0]</strong> - 将笔颜色设置为红色。</li>
+<li><strong>setfloodcolor [0 0 255]</strong> - 将泛色设置为蓝色。</li>
+<li><strong>setscreencolor [0 255 0]</strong> - 将屏幕颜色设置为绿色。</li>
+<li><strong>repeat 4 [fd 40 rt 90]</strong> - 画一个边长为 40 的正方形。</li>
+<li><strong>pu</strong> - 拿起钢笔。</li>
+<li><strong>setxy 20 20</strong> - 将turtle放在坐标 (20, 20) 处。</li>
+<li><strong>fill</strong>- 用设置的泛光蓝色填充正方形。</li>
+<li><strong>ht</strong> - 隐藏turtle。</li>
+</ul>
+<p><img src="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011222542070.png" class="lazyload" data-srcset="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20221011222542070.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221011222542070" style="zoom:50%;"></p>
+<p>好了，到此结束，有点像python里的turtle库，或许就是，再见！！！</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
       <tags>
-        <tag>函数库</tag>
+        <tag>logo</tag>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
 </search>
