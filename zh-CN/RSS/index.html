@@ -41,14 +41,14 @@
   
   <!-- Custom Files headBegin end-->
   <link rel="preload" href="/css/style.css" as="style">
-  <link rel="preload" href="https://gcore.jsdelivr.net/gh/pistachio0812/CDN@0.1.0/cdn-fonts/MaShanZheng.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/diy-font/MaShanZheng.woff2# https://gcore.jsdelivr.net/gh/pistachio0812/CDN@0.1.0/cdn-fonts/MaShanZheng.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- feed -->
       <link rel="alternate" href="/atom.xml" title="阿月浑子-Hexo博客" type="application/atom+xml">
   <!-- 页面元数据 -->
   <title>rss学习笔记 - 阿月浑子-Hexo博客</title>
-  <meta name="keywords" content="null">
+  <meta name="keywords" content="学习笔记,rss,null">
   <meta desc name="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测 - pistachio - 阿月浑子-Hexo博客">
   
 <meta property="og:type" content="article">
@@ -57,10 +57,15 @@
 <meta property="og:site_name" content="阿月浑子-Hexo博客">
 <meta property="og:description" content="参考博文： 1.RSS 教程 | 菜鸟教程 (runoob.com) 通过使用 RSS，您可以有选择地浏览您感兴趣的以及与您的工作相关的新闻。 通过使用 RSS，您可以把需要的信息从不需要的信息（兜售信息，垃圾邮件等）中分离出来。 通过使用 RSS，您可以创建自己的新闻频道，并将之发布到因特网。 rss工作原理RSS 用于在网站间分享信息。 使用 RSS，您在名为聚合器的公司注册您的内容。 步骤之">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="/zh-CN/RSS/rss.gif">
+<meta property="og:image" content="/zh-CN/RSS/xml.gif">
 <meta property="article:published_time" content="2022-10-10T09:58:38.565Z">
 <meta property="article:modified_time" content="2022-10-10T12:16:05.872Z">
 <meta property="article:author" content="config.author">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="rss">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/zh-CN/RSS/rss.gif">
   <style>
     /* 首屏样式 */
     #safearea {
@@ -1619,7 +1624,7 @@ button {
 }
 @font-face {
   font-family: 'MaShanZheng';
-  src: url("https://gcore.jsdelivr.net/gh/pistachio0812/CDN@0.1.0/cdn-fonts/MaShanZheng.woff2");
+  src: url("/diy-font/MaShanZheng.woff2# https://gcore.jsdelivr.net/gh/pistachio0812/CDN@0.1.0/cdn-fonts/MaShanZheng.woff2");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
@@ -3726,7 +3731,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665498490184),
+    lastupdate: new Date(1665568705919),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -3736,7 +3741,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           friendlyShow: true
         },
         runtime: {
-          data: "2020/01/01",
+          data: "2022/03/11",
           unit: "天"
         }
       }
@@ -4993,13 +4998,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：3.2k 字</p>
+      <p>字数：1.4k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：16 分钟</p>
+      <p>时长：5 分钟</p>
     </a>
   </div>
 
@@ -5050,193 +5055,193 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>下一行含有 <channel> 元素。此元素用于描述 RSS feed。</channel></p>
 <p><channel> 元素有三个必需的子元素：</channel></p>
 <ul>
-<li><title> - 定义频道的标题。（比如 菜鸟教程首页）&lt;/li&gt;
-&lt;li&gt;&lt;link&gt; - 定义到达频道的超链接。（比如 www.runoob.com）&lt;/li&gt;
-&lt;li&gt;&lt;description&gt; - 描述此频道（比如 免费编程教程）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;每个 &lt;channel&gt; 元素可拥有一个或多个 &lt;item&gt; 元素。&lt;/p&gt;
-&lt;p&gt;每个 &lt;item&gt; 元素可定义 RSS feed 中的一篇文章或 “story”。&lt;/p&gt;
-&lt;p&gt;&lt;item&gt; 元素拥有三个必需的子元素：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;title&gt; - 定义项目的标题。（比如 RSS 教程）&lt;/li&gt;
-&lt;li&gt;&lt;link&gt; - 定义到达项目的超链接。（比如 &lt;a href="http://www.runoob.com/rss）"&gt;http://www.runoob.com/rss）&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;description&gt; - 描述此项目（比如 菜鸟教程 Rss 教程）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;最后，后面的两行关闭 &lt;channel&gt; 和 &lt;rss&gt; 元素。&lt;/p&gt;
-&lt;h3 id="rss发布到web"&gt;&lt;a href="#rss发布到web" class="headerlink" title="rss发布到web"&gt;&lt;/a&gt;rss发布到web&lt;/h3&gt;&lt;p&gt;现在是时候把您的 RSS 文件上传到网上了。下面是具体的步骤：&lt;/p&gt;
-&lt;p&gt;1.为您的 RSS 命名。请注意文件必须有 .xml 的后缀。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;验证您的 RSS 文件。（可以在 &lt;a href="http://www.feedvalidator.org/"&gt;http://www.feedvalidator.org&lt;/a&gt; 找到很好的验证器）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;把 RSS 文件上传到您的 web 服务器上的 web 目录。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;把这个小的橙色按钮 &lt;img src="RSS/rss.gif" alt="RSS Logo" style="zoom:80%;" /&gt;或 &lt;img src="RSS/xml.gif" alt="XML Logo" style="zoom:80%;" /&gt;拷贝到您的 web 目录。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在你希望向外界提供 RSS 的页面上放置这个小按钮。然后向这个按钮添加一个指向 RSS 文件的链接。代码应该类似这样：&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code class="lang-xml"&gt;&lt;a href="http://www.runoob.com/feed"&gt;
+<li><title> - 定义频道的标题。（比如 菜鸟教程首页）</title></li>
+<li><link> - 定义到达频道的超链接。（比如 www.runoob.com）</li>
+<li><description> - 描述此频道（比如 免费编程教程）</description></li>
+</ul>
+<p>每个 <channel> 元素可拥有一个或多个 <item> 元素。</item></channel></p>
+<p>每个 <item> 元素可定义 RSS feed 中的一篇文章或 “story”。</item></p>
+<p><item> 元素拥有三个必需的子元素：</item></p>
+<ul>
+<li><title> - 定义项目的标题。（比如 RSS 教程）</title></li>
+<li><link> - 定义到达项目的超链接。（比如 <a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.runoob.com/rss）">http://www.runoob.com/rss）</a></li>
+<li><description> - 描述此项目（比如 菜鸟教程 Rss 教程）</description></li>
+</ul>
+<p>最后，后面的两行关闭 <channel> 和 <rss> 元素。</rss></channel></p>
+<h3 id="rss发布到web"><a href="#rss发布到web" class="headerlink" title="rss发布到web"></a>rss发布到web</h3><p>现在是时候把您的 RSS 文件上传到网上了。下面是具体的步骤：</p>
+<p>1.为您的 RSS 命名。请注意文件必须有 .xml 的后缀。</p>
+<ol>
+<li><p>验证您的 RSS 文件。（可以在 <a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.feedvalidator.org/">http://www.feedvalidator.org</a> 找到很好的验证器）。</p>
+</li>
+<li><p>把 RSS 文件上传到您的 web 服务器上的 web 目录。</p>
+</li>
+<li><p>把这个小的橙色按钮 <img src="/zh-CN/RSS/rss.gif" class="lazyload" data-srcset="/zh-CN/RSS/rss.gif" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="RSS Logo" style="zoom:80%;">或 <img src="/zh-CN/RSS/xml.gif" class="lazyload" data-srcset="/zh-CN/RSS/xml.gif" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="XML Logo" style="zoom:80%;">拷贝到您的 web 目录。</p>
+</li>
+<li><p>在你希望向外界提供 RSS 的页面上放置这个小按钮。然后向这个按钮添加一个指向 RSS 文件的链接。代码应该类似这样：</p>
+</li>
+</ol>
+<pre><code class="lang-xml">&lt;a href="http://www.runoob.com/feed"&gt;
 &lt;img loading="lazy" src="http://www.runoob.com/images/rss.gif" width="36" height="14"&gt;
 &lt;/a&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol&gt;
-&lt;li&gt;把你的 RSS feed 提交到 RSS Feed 目录。要注意！feed 的 URL 不是你的页面，而是您的指向您的 feed 的 URL，比如 “&lt;a href="http://www.runoob.com/feed"。"&gt;http://www.runoob.com/feed"。&lt;/a&gt; 此处提供一些免费的 RSS 聚合服务：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://www.newsisfree.com/"&gt;Newsisfree&lt;/a&gt;: &lt;a href="http://www.newsisfree.com/user/new/"&gt;点我注册&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;在重要的搜索引擎注册您的 feed ：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://wordpress.org/"&gt;WordPress&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.blogger.com/"&gt;Blogger&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://radio.userland.com/"&gt;Radio&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;更新您的 feed - 现在您已获得了来自 Google、Yahoo、以及 MSN 的 RSS feed 按钮。请您务必经常更新您的内容，并保持 RSS feed 的长期可用。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id="元素"&gt;&lt;a href="#元素" class="headerlink" title="元素"&gt;&lt;/a&gt;&lt;channel&gt;元素&lt;/h3&gt;&lt;div class="table-container"&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style="text-align:left"&gt;元素&lt;/th&gt;
-&lt;th style="text-align:left"&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-category-channel.html"&gt;category&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。为 feed 定义所属的一个或多个种类。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-cloud.html"&gt;cloud&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。注册进程，以获得 feed 更新的立即通知。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-copyright.html"&gt;copyright&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选。告知版权资料。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html"&gt;description&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;必需的。描述频道。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-docs.html"&gt;docs&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。规定指向当前 RSS 文件所用格式说明的 URL。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-generator.html"&gt;generator&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。规定用于生成 feed 的程序。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-image.html"&gt;image&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。在聚合器呈现某个 feed 时，显示一个图像。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-language.html"&gt;language&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。规定编写 feed 所用的语言。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-lastbuilddate.html"&gt;lastBuildDate&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。定义 feed 内容的最后修改日期。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html"&gt;link&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;必需的。定义指向频道的超链接。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-managingeditor.html"&gt;manageingEditor&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。定义 feed 内容编辑的电子邮件地址。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-pubdate.html"&gt;pubDate&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。为 feed 的内容定义最后发布日期。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;rating&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。feed 的 PICS 级别。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-skipDays.html"&gt;skipDays&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。规定忽略 feed 更新的天。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-skipHours.html"&gt;skipHours&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。规定忽略 feed 更新的小时。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-textinput.html"&gt;textInput&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。规定应当与 feed 一同显示的文本输入域。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html"&gt;title&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;必需的。定义频道的标题。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-ttl.html"&gt;ttl&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。指定从 feed 源更新此 feed 之前，feed 可被缓存的分钟数。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-webmaster.html"&gt;webMaster&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。定义此 feed 的 web 管理员的电子邮件地址。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;h3 id="元素-1"&gt;&lt;a href="#元素-1" class="headerlink" title="元素"&gt;&lt;/a&gt;&lt;item&gt;元素&lt;/h3&gt;&lt;div class="table-container"&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style="text-align:left"&gt;元素&lt;/th&gt;
-&lt;th style="text-align:left"&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-author.html"&gt;author&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。规定项目作者的电子邮件地址。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-category-item.html"&gt;category&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。定义项目所属的一个或多个类别。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-comments.html"&gt;comments&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。允许项目连接到有关此项目的注释（文件）。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html"&gt;description&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;必需的。描述此项目。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-enclosure.html"&gt;enclosure&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。允许将一个媒体文件导入一个项中。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-guid.html"&gt;guid&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。为项目定义一个唯一的标识符。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html"&gt;link&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;必需的。定义指向此项目的超链接。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-pubdate-item.html"&gt;pubDate&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。定义此项目的最后发布日期。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-source.html"&gt;source&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;可选的。为此项目指定一个第三方来源。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align:left"&gt;&lt;a href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html"&gt;title&lt;/a&gt;&lt;/td&gt;
-&lt;td style="text-align:left"&gt;必需的。定义此项目的标题。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-</title></li></ul>
+</code></pre>
+<ol>
+<li>把你的 RSS feed 提交到 RSS Feed 目录。要注意！feed 的 URL 不是你的页面，而是您的指向您的 feed 的 URL，比如 “<a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.runoob.com/feed&quot;。">http://www.runoob.com/feed"。</a> 此处提供一些免费的 RSS 聚合服务：</li>
+</ol>
+<ul>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.newsisfree.com/">Newsisfree</a>: <a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.newsisfree.com/user/new/">点我注册</a></li>
+</ul>
+<ol>
+<li>在重要的搜索引擎注册您的 feed ：</li>
+</ol>
+<ul>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="http://wordpress.org/">WordPress</a></li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.blogger.com/">Blogger</a></li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="http://radio.userland.com/">Radio</a></li>
+</ul>
+<ol>
+<li>更新您的 feed - 现在您已获得了来自 Google、Yahoo、以及 MSN 的 RSS feed 按钮。请您务必经常更新您的内容，并保持 RSS feed 的长期可用。</li>
+</ol>
+<h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a><channel>元素</channel></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">元素</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-category-channel.html">category</a></td>
+<td style="text-align:left">可选的。为 feed 定义所属的一个或多个种类。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-cloud.html">cloud</a></td>
+<td style="text-align:left">可选的。注册进程，以获得 feed 更新的立即通知。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-copyright.html">copyright</a></td>
+<td style="text-align:left">可选。告知版权资料。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html">description</a></td>
+<td style="text-align:left">必需的。描述频道。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-docs.html">docs</a></td>
+<td style="text-align:left">可选的。规定指向当前 RSS 文件所用格式说明的 URL。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-generator.html">generator</a></td>
+<td style="text-align:left">可选的。规定用于生成 feed 的程序。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-image.html">image</a></td>
+<td style="text-align:left">可选的。在聚合器呈现某个 feed 时，显示一个图像。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-language.html">language</a></td>
+<td style="text-align:left">可选的。规定编写 feed 所用的语言。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-lastbuilddate.html">lastBuildDate</a></td>
+<td style="text-align:left">可选的。定义 feed 内容的最后修改日期。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html">link</a></td>
+<td style="text-align:left">必需的。定义指向频道的超链接。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-managingeditor.html">manageingEditor</a></td>
+<td style="text-align:left">可选的。定义 feed 内容编辑的电子邮件地址。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-pubdate.html">pubDate</a></td>
+<td style="text-align:left">可选的。为 feed 的内容定义最后发布日期。</td>
+</tr>
+<tr>
+<td style="text-align:left"><rating></rating></td>
+<td style="text-align:left">可选的。feed 的 PICS 级别。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-skipDays.html">skipDays</a></td>
+<td style="text-align:left">可选的。规定忽略 feed 更新的天。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-skipHours.html">skipHours</a></td>
+<td style="text-align:left">可选的。规定忽略 feed 更新的小时。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-textinput.html">textInput</a></td>
+<td style="text-align:left">可选的。规定应当与 feed 一同显示的文本输入域。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html">title</a></td>
+<td style="text-align:left">必需的。定义频道的标题。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-ttl.html">ttl</a></td>
+<td style="text-align:left">可选的。指定从 feed 源更新此 feed 之前，feed 可被缓存的分钟数。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-webmaster.html">webMaster</a></td>
+<td style="text-align:left">可选的。定义此 feed 的 web 管理员的电子邮件地址。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="元素-1"><a href="#元素-1" class="headerlink" title="元素"></a><item>元素</item></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">元素</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-author.html">author</a></td>
+<td style="text-align:left">可选的。规定项目作者的电子邮件地址。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-category-item.html">category</a></td>
+<td style="text-align:left">可选的。定义项目所属的一个或多个类别。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-comments.html">comments</a></td>
+<td style="text-align:left">可选的。允许项目连接到有关此项目的注释（文件）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html">description</a></td>
+<td style="text-align:left">必需的。描述此项目。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-enclosure.html">enclosure</a></td>
+<td style="text-align:left">可选的。允许将一个媒体文件导入一个项中。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-guid.html">guid</a></td>
+<td style="text-align:left">可选的。为项目定义一个唯一的标识符。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html">link</a></td>
+<td style="text-align:left">必需的。定义指向此项目的超链接。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-pubdate-item.html">pubDate</a></td>
+<td style="text-align:left">可选的。定义此项目的最后发布日期。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-source.html">source</a></td>
+<td style="text-align:left">可选的。为此项目指定一个第三方来源。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html">title</a></td>
+<td style="text-align:left">必需的。定义此项目的标题。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
   </div>
   
   
@@ -5271,6 +5276,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>学习笔记</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/rss/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>rss</p></a></div>
+  <span hidden itemprop="keywords">学习笔记 rss</span>
+
 
         
       
@@ -5303,6 +5312,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         </a>
       
     
+      
+        
+        <div class="hoverbox">
+          <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
+          <div class="target">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC6klEQVR42u3aSXLDMAwEQP3/08k9FZeJARQbTvPmRRLZukwBuL6sX9eFAAwYMGDAgFkDc4Xr6QMO///z99PnPrpv9zxgwIABAwYMmH0wxwEo3NApXPX/p/s7fjFgwIABAwYMmLUw1WB1d/ArB7TuecCAAQMGDBgw/x6mCnZ63el+wIABAwYMGDBgqhtJA1vakEsbeGDAgAEDBgyYz4MpN6iGClTpC0j3AwYMGDBgwID5HJjpBterP8fnAQMGDBgwYMCsgemu6YOdFpjuWmDAgAEDBgyYPTBpQHoG1P29W9CKG3xgwIABAwYMmDUw08EuBf2rgaLjwSEwYMCAAQMGzDqY0wNPQ3UDYjc4ggEDBgwYMGD2w1QfWC0cpQEvbcy9rFAFBgwYMGDAgHkZTNrwmrq++4Li/YABAwYMGDBg1sBMDRifBqw0CLYLUKf7AgMGDBgwYMCsgUkba68qSFW/Lw8ygQEDBgwYMGDWwHQHdtKAWA1y5cZZGCDBgAEDBgwYMHtgpgpC6aBPuZBUDIqnzwEDBgwYMGDA7INJHzBdiEqD5XjjDwwYMGDAgAGzDqbaOGsHqTAo3jUwBAYMGDBgwID5PJhqQy1twE0FvtPztAMeGDBgwIABA+ZtYNIC0l0NuW4DsFrYAgMGDBgwYMB8Hkw3sKX3rRbMpmDBgAEDBgwYMPtg4kAUNuBS2KkGW7nhBgYMGDBgwIBZD/PXhafugPZ1uMCAAQMGDBgw+2G6g0RTDbGpA5cDIhgwYMCAAQNmDUx33RXgqiAp+MOABwYMGDBgwIB5e5grXM82XP3+rkZaOTiCAQMGDBgwYNbBdAd5umBpAez2gAcGDBgwYMCAWQNTbVilBaUqRFroKgdPMGDAgAEDBgyYZgEpPWj3xYABAwYMGDBgwEzdPw2S1QIcGDBgwIABA2Y/TLXhNr3xbmMthQcDBgwYMGDA7IUZb1wVr5sGj+8LBgwYMGDAgFkDY4EBAwYMGDBglq1vP3FeBlQDm6MAAAAASUVORK5CYII=">
+          </div>
+        </div>
       
     
       
@@ -5399,7 +5416,7 @@ Logo 是一种易于学习的编程语言。它用于教学生和儿童如何编
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#rss%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">rss工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rss%E5%AE%9E%E4%BE%8B"><span class="toc-text">rss实例</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#rss%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">rss工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rss%E5%AE%9E%E4%BE%8B"><span class="toc-text">rss实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rss%E5%8F%91%E5%B8%83%E5%88%B0web"><span class="toc-text">rss发布到web</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0"><span class="toc-text">元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0-1"><span class="toc-text">元素</span></a></li></ol>
     </div>
   </section>
 
@@ -5492,7 +5509,7 @@ Logo 是一种易于学习的编程语言。它用于教学生和儿童如何编
           
 
   
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="2185397204" list-folded="true">
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="2185397204" list-folded="true">
     </meting-js>
   
 
@@ -6431,7 +6448,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -6658,7 +6675,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/rss/","name":"rss"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/RSS/","name":"rss学习笔记"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"rss学习笔记","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/RSS/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/RSS/","wordCount":0,"datePublished":"2022-10-10T09:58:38.565Z","dateModified":"2022-10-10T12:16:05.872Z","articleSection":"rss","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/rss/","name":"rss"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/RSS/","name":"rss学习笔记"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"rss学习笔记","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/RSS/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/RSS/","wordCount":0,"datePublished":"2022-10-10T09:58:38.565Z","dateModified":"2022-10-10T12:16:05.872Z","articleSection":"rss","keywords":"学习笔记,rss","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
