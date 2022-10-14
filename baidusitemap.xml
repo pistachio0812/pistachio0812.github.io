@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://pistachio0812.github.io/zh-CN/echarts/</loc>
+    <lastmod>2022-10-13</lastmod>
+  </url>
+  <url>
+    <loc>http://pistachio0812.github.io/zh-CN/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2022-10-12</lastmod>
+  </url>
+  <url>
     <loc>http://pistachio0812.github.io/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-10-11</lastmod>
   </url>

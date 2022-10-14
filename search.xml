@@ -12822,4 +12822,1444 @@ return x
         <tag>今日故事</tag>
       </tags>
   </entry>
+  <entry>
+    <title>echarts学习笔记</title>
+    <url>/zh-CN/echarts/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://www.runoob.com/echarts/echarts-tutorial.html">ECharts 教程 | 菜鸟教程 (runoob.com)</a></p>
+<p>ECharts 是一个使用 JavaScript 实现的开源可视化库，涵盖各行业图表，满足各种需求。</p>
+<p>ECharts 遵循 Apache-2.0 开源协议，免费商用。</p>
+<p>ECharts 兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等）及兼容多种设备，可随时随地任性展示。</p>
+<h3 id="echarts安装"><a href="#echarts安装" class="headerlink" title="echarts安装"></a>echarts安装</h3><p>1.独立版本</p>
+<p>我们可以在直接下载 <a href="https://cdn.staticfile.org/echarts/4.7.0/echarts.min.js">echarts.min.js </a>并用 <strong><script></strong> 标签引入。</p>
+<p>2.使用CDN方法</p>
+<p>以下推荐国外比较稳定的两个 CDN，国内还没发现哪一家比较好，目前还是建议下载到本地。</p>
+<ul>
+<li><strong>Staticfile CDN（国内）</strong> : <a href="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js">https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js</a></li>
+<li><strong>jsDelivr</strong>：<a href="https://cdn.jsdelivr.net/npm/echarts@4.3.0/dist/echarts.min.js。">https://cdn.jsdelivr.net/npm/echarts@4.3.0/dist/echarts.min.js。</a></li>
+<li><strong>cdnjs</strong> : <a href="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.3.0/echarts.min.js">https://cdnjs.cloudflare.com/ajax/libs/echarts/4.3.0/echarts.min.js</a></li>
+</ul>
+<p>3.npm方法</p>
+<pre><code class="lang-bash">npm install echarts --save
+</code></pre>
+<h3 id="echarts配置语法"><a href="#echarts配置语法" class="headerlink" title="echarts配置语法"></a>echarts配置语法</h3><p>下面实例可以放在一个html文件里显示效果</p>
+<pre><code class="lang-html">// 创建html页面
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;第一个 ECharts 实例&lt;/title&gt;
+    &lt;!-- 引入 echarts.js --&gt;
+    &lt;script src=&quot;https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 为ECharts准备一个具备大小（宽高）的Dom --&gt;
+    &lt;div id=&quot;main&quot; style=&quot;width: 600px;height:400px;&quot;&gt;&lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById(&#39;main&#39;));
+
+        // 指定图表的配置项和数据
+        var option = &#123;
+            // 为图表配置标题
+            title: &#123;
+                text: &#39;第一个 ECharts 实例&#39;
+            &#125;,
+            // 配置提示信息
+            tooltip: &#123;&#125;,
+            // 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
+            legend: &#123;
+                data:[&#39;销量&#39;]
+            &#125;,
+            // 配置要在x轴显示的项
+            xAxis: &#123;
+                data: [&quot;衬衫&quot;,&quot;羊毛衫&quot;,&quot;雪纺衫&quot;,&quot;裤子&quot;,&quot;高跟鞋&quot;,&quot;袜子&quot;]
+            &#125;,
+            // 配置要在y轴显示的项
+            yAxis: &#123;&#125;,
+            // 每个系列通过type决定自己的图表类型
+            series: [&#123;
+                name: &#39;销量&#39;, // 系列名称
+                type: &#39;bar&#39;, // 系列图表类型
+                data: [5, 20, 36, 10, 10, 20] // 系列中的数据内容
+            &#125;]
+        &#125;;
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>特别说明：</p>
+<p>图例组件：</p>
+<pre><code class="lang-html">legend: &#123;
+    data: [&#123;
+        name: &#39;系列1&#39;,
+        // 强制设置图形为圆。
+        icon: &#39;circle&#39;,
+        // 设置文本为红色
+        textStyle: &#123;
+            color: &#39;red&#39;
+        &#125;
+    &#125;]
+&#125;
+</code></pre>
+<p>系列列表：</p>
+<pre><code class="lang-html">series: [&#123;
+    name: &#39;销量&#39;,  // 系列名称
+    type: &#39;bar&#39;,  // 系列图表类型
+    data: [5, 20, 36, 10, 10, 20]  // 系列中的数据内容
+&#125;]
+</code></pre>
+<p>每个系列通过 type 决定自己的图表类型：</p>
+<ul>
+<li><strong>type: ‘bar’</strong>：柱状/条形图</li>
+<li><strong>type: ‘line’</strong>：折线/面积图</li>
+<li><strong>type: ‘pie’</strong>：饼图</li>
+<li><strong>type: ‘scatter’</strong>：散点（气泡）图</li>
+<li><strong>type: ‘effectScatter’</strong>：带有涟漪特效动画的散点（气泡）</li>
+<li><strong>type: ‘radar’</strong>：雷达图</li>
+<li><strong>type: ‘tree’</strong>：树型图</li>
+<li><strong>type: ‘treemap’</strong>：树型图</li>
+<li><strong>type: ‘sunburst’</strong>：旭日图</li>
+<li><strong>type: ‘boxplot’</strong>：箱形图</li>
+<li><strong>type: ‘candlestick’</strong>：K线图</li>
+<li><strong>type: ‘heatmap’</strong>：热力图</li>
+<li><strong>type: ‘map’</strong>：地图</li>
+<li><strong>type: ‘parallel’</strong>：平行坐标系的系列</li>
+<li><strong>type: ‘lines’</strong>：线图</li>
+<li><strong>type: ‘graph’</strong>：关系图</li>
+<li><strong>type: ‘sankey’</strong>：桑基图</li>
+<li><strong>type: ‘funnel’</strong>：漏斗图</li>
+<li><strong>type: ‘gauge’</strong>：仪表盘</li>
+<li><strong>type: ‘pictorialBar’</strong>：象形柱图</li>
+<li><strong>type: ‘themeRiver’</strong>：主题河流</li>
+<li><strong>type: ‘custom’</strong>：自定义系列</li>
+</ul>
+<h3 id="echarts饼图"><a href="#echarts饼图" class="headerlink" title="echarts饼图"></a>echarts饼图</h3><p>饼图主要是通过扇形的弧度表现不同类目的数据在总和中的占比，它的数据格式比柱状图更简单，只有一维的数值，不需要给类目。因为不在直角坐标系上，所以也不需要 xAxis，yAxis。</p>
+<pre><code class="lang-html">myChart.setOption(&#123;
+    series : [
+        &#123;
+            name: &#39;访问来源&#39;,
+            type: &#39;pie&#39;,    // 设置图表类型为饼图
+            radius: &#39;55%&#39;,  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+            data:[          // 数据数组，name 为数据项名称，value 为数据项值
+                &#123;value:235, name:&#39;视频广告&#39;&#125;,
+                &#123;value:274, name:&#39;联盟广告&#39;&#125;,
+                &#123;value:310, name:&#39;邮件营销&#39;&#125;,
+                &#123;value:335, name:&#39;直接访问&#39;&#125;,
+                &#123;value:400, name:&#39;搜索引擎&#39;&#125;
+            ]
+        &#125;
+    ]
+&#125;)
+</code></pre>
+<p>完整源码：</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;第一个 ECharts 实例&lt;/title&gt;
+    &lt;!-- 引入 echarts.js --&gt;
+    &lt;script src=&quot;https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 为ECharts准备一个具备大小（宽高）的Dom --&gt;
+    &lt;div id=&quot;main&quot; style=&quot;width: 600px;height:400px;&quot;&gt;&lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById(&#39;main&#39;));
+
+        myChart.setOption(&#123;
+            series : [
+                &#123;
+                    name: &#39;访问来源&#39;,
+                    type: &#39;pie&#39;,    // 设置图表类型为饼图
+                    radius: &#39;55%&#39;,  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+                    // roseType: &#39;angle&#39; // 饼图显示为南丁格尔图
+                    data:[          // 数据数组，name 为数据项名称，value 为数据项值
+                        &#123;value:235, name:&#39;视频广告&#39;&#125;,
+                        &#123;value:274, name:&#39;联盟广告&#39;&#125;,
+                        &#123;value:310, name:&#39;邮件营销&#39;&#125;,
+                        &#123;value:335, name:&#39;直接访问&#39;&#125;,
+                        &#123;value:400, name:&#39;搜索引擎&#39;&#125;
+                    ]
+                    //itemStyle 参数可以设置诸如阴影、透明度、颜色、边框颜色、边框宽度等
+                    itemStyle:&#123;
+                        normal:&#123;
+                            shadowBlur: 200,
+                            shadowColor: &#39;rgba(0, 0, 0, 0.5)&#39;
+                                &#125;
+                              &#125;
+                &#125;
+            ]
+        &#125;)
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>从上面两个来看，接下来我们只会更改变量<code>myChart</code>的配置，到时候进行替换就行了</p>
+<h3 id="样式设置"><a href="#样式设置" class="headerlink" title="样式设置"></a>样式设置</h3><p>ECharts 可以通过样式设置来改变图形元素或者文字的颜色、明暗、大小等。</p>
+<h4 id="颜色主题"><a href="#颜色主题" class="headerlink" title="颜色主题"></a>颜色主题</h4><p>ECharts4 开始，除了默认主题外，内置了两套主题，分别为 <strong>light</strong> 和 <strong>dark</strong>。</p>
+<pre><code class="lang-html"># light theme
+var chart = echarts.init(dom, &#39;light&#39;);
+# dark theme
+var chart = echarts.init(dom, &#39;dark&#39;);
+</code></pre>
+<p>另外，我们也可以在官方的 <a href="http://echarts.baidu.com/theme-builder/">主题编辑器</a> 选择自己喜欢的主题下载。</p>
+<p><img src="echarts/image-20221013174408235.png" class="lazyload" data-srcset="echarts/image-20221013174408235.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20221013174408235" style="zoom:50%;" /></p>
+<p>目前主题下载提供了 JS 版本和 JSON 版本。</p>
+<p>如果你使用 JS 版本，可以将 JS 主题代码保存一个 <strong>主题名.js</strong> 文件，然后在 HTML 中引用该文件，最后在代码中使用该主题。</p>
+<p>比如上图中我们选中了一个主题，将 JS 代码保存为 <strong>wonderland.js</strong>。</p>
+<pre><code class="lang-html">&lt;!-- 引入主题 --&gt;
+&lt;script src=&quot;https://www.runoob.com/static/js/wonderland.js&quot;&gt;&lt;/script&gt;
+...
+
+// HTML 引入 wonderland.js 文件后，在初始化的时候调用
+var myChart = echarts.init(dom, &#39;wonderland&#39;);
+// ...
+</code></pre>
+<p>如果主题保存为 JSON 文件，那么可以自行加载和注册。</p>
+<p>比如上图中我们选中了一个主题，将 JSON 代码保存为 <strong>wonderland.json</strong>。</p>
+<pre><code class="lang-html">//主题名称是 wonderland
+$.getJSON(&#39;wonderland.json&#39;, function (themeJSON) &#123;
+    echarts.registerTheme(&#39;wonderland&#39;, themeJSON)
+    var myChart = echarts.init(dom, &#39;wonderland&#39;);
+&#125;);
+</code></pre>
+<p><strong>注意：</strong>我们使用了 $.getJSON，所以需要引入 jQuery。</p>
+<h4 id="调色盘"><a href="#调色盘" class="headerlink" title="调色盘"></a>调色盘</h4><p>调色盘可以在 option 中设置。</p>
+<p>调色盘给定了一组颜色，图形、系列会自动从其中选择颜色。</p>
+<p>可以设置全局的调色盘，也可以设置系列自己专属的调色盘。</p>
+<pre><code class="lang-html">option = &#123;
+    // 全局调色盘。
+    color: [&#39;#c23531&#39;,&#39;#2f4554&#39;, &#39;#61a0a8&#39;, &#39;#d48265&#39;, &#39;#91c7ae&#39;,&#39;#749f83&#39;,  &#39;#ca8622&#39;, &#39;#bda29a&#39;,&#39;#6e7074&#39;, &#39;#546570&#39;, &#39;#c4ccd3&#39;],
+
+    series: [&#123;
+        type: &#39;bar&#39;,
+        // 此系列自己的调色盘。
+        color: [&#39;#dd6b66&#39;,&#39;#759aa0&#39;,&#39;#e69d87&#39;,&#39;#8dc1a9&#39;,&#39;#ea7e53&#39;,&#39;#eedd78&#39;,&#39;#73a373&#39;,&#39;#73b9bc&#39;,&#39;#7289ab&#39;, &#39;#91ca8c&#39;,&#39;#f49f42&#39;],
+        ...
+    &#125;, &#123;
+        type: &#39;pie&#39;,
+        // 此系列自己的调色盘。
+        color: [&#39;#37A2DA&#39;, &#39;#32C5E9&#39;, &#39;#67E0E3&#39;, &#39;#9FE6B8&#39;, &#39;#FFDB5C&#39;,&#39;#ff9f7f&#39;, &#39;#fb7293&#39;, &#39;#E062AE&#39;, &#39;#E690D1&#39;, &#39;#e7bcf3&#39;, &#39;#9d96f5&#39;, &#39;#8378EA&#39;, &#39;#96BFFF&#39;],
+        ...
+    &#125;]
+&#125;
+</code></pre>
+<h4 id="高亮样式emphasis"><a href="#高亮样式emphasis" class="headerlink" title="高亮样式emphasis"></a>高亮样式emphasis</h4><p>直接的样式设置是比较常用设置方式。纵观 ECharts 的 <a href="https://www.echartsjs.com/zh/option.html#title">option</a> 中，很多地方可以设置 <a href="https://www.echartsjs.com/zh/option.html#series.itemStyle">itemStyle</a>、<a href="https://www.echartsjs.com/zh/option.html#series-line.lineStyle">lineStyle</a>、<a href="https://www.echartsjs.com/zh/option.html#series-line.areaStyle">areaStyle</a>、<a href="https://www.echartsjs.com/zh/option.html#series.label">label</a> 等等。这些的地方可以直接设置图形元素的颜色、线宽、点的大小、标签的文字、标签的样式等等。</p>
+<pre><code class="lang-html">// 高亮样式。
+emphasis: &#123;
+    itemStyle: &#123;
+        // 高亮时点的颜色
+        color: &#39;red&#39;
+    &#125;,
+    label: &#123;
+        show: true,
+        // 高亮时标签的文字
+        formatter: &#39;高亮时显示的标签内容&#39;
+    &#125;
+&#125;,
+</code></pre>
+<h3 id="异步加载数据"><a href="#异步加载数据" class="headerlink" title="异步加载数据"></a>异步加载数据</h3><p>ECharts 通常数据设置在 setOption 中，如果我们需要异步加载数据，可以配合 jQuery等工具，在异步获取数据后通过 setOption 填入数据和配置项就行。</p>
+<pre><code class="lang-html">// echarts_test_data.json
+&#123;
+    &quot;data_pie&quot; : [
+    &#123;&quot;value&quot;:235, &quot;name&quot;:&quot;视频广告&quot;&#125;,
+    &#123;&quot;value&quot;:274, &quot;name&quot;:&quot;联盟广告&quot;&#125;,
+    &#123;&quot;value&quot;:310, &quot;name&quot;:&quot;邮件营销&quot;&#125;,
+    &#123;&quot;value&quot;:335, &quot;name&quot;:&quot;直接访问&quot;&#125;,
+    &#123;&quot;value&quot;:400, &quot;name&quot;:&quot;搜索引擎&quot;&#125;
+    ]
+&#125;
+</code></pre>
+<pre><code class="lang-html">// 实例
+var myChart = echarts.init(document.getElementById(&#39;main&#39;));
+myChart.showLoading();  // 开启 loading 效果
+$.get(&#39;https://www.runoob.com/static/js/echarts_test_data.json&#39;, function (data) &#123;
+    myChart.hideLoading();  // 隐藏 loading 效果
+    myChart.setOption(&#123;
+        series : [
+            &#123;
+                name: &#39;访问来源&#39;,
+                type: &#39;pie&#39;,    // 设置图表类型为饼图
+                radius: &#39;55%&#39;,  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+                data:data.data_pie
+            &#125;
+        ]
+    &#125;)
+&#125;, &#39;json&#39;)
+</code></pre>
+<h4 id="数据的动态更新"><a href="#数据的动态更新" class="headerlink" title="数据的动态更新"></a>数据的动态更新</h4><p>ECharts 由数据驱动，数据的改变驱动图表展现的改变，因此动态数据的实现也变得异常简单。</p>
+<p>所有数据的更新都通过 setOption 实现，你只需要定时获取数据，setOption 填入数据，而不用考虑数据到底产生了那些变化，ECharts 会找到两组数据之间的差异然后通过合适的动画去表现数据的变化。</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;第一个 ECharts 实例&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- 引入 echarts.js --&gt;
+    &lt;script src=&quot;https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 为ECharts准备一个具备大小（宽高）的Dom --&gt;
+    &lt;div id=&quot;main&quot; style=&quot;width: 600px;height:400px;&quot;&gt;&lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var base = +new Date(2022, 10, 13);
+        var oneDay = 24 * 3600 * 1000;
+        var date = [];
+
+        var data = [Math.random() * 150];
+        var now = new Date(base);
+
+        function addData(shift) &#123;
+            now = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join(&#39;/&#39;);
+            date.push(now);
+            data.push((Math.random() - 0.4) * 10 + data[data.length - 1]);
+
+            if (shift) &#123;
+                date.shift();
+                data.shift();
+            &#125;
+
+            now = new Date(+new Date(now) + oneDay);
+        &#125;
+
+        for (var i = 1; i &lt; 100; i++) &#123;
+            addData();
+        &#125;
+
+        option = &#123;
+            xAxis: &#123;
+                type: &#39;category&#39;,
+                boundaryGap: false,
+                data: date
+            &#125;,
+            yAxis: &#123;
+                boundaryGap: [0, &#39;50%&#39;],
+                type: &#39;value&#39;
+            &#125;,
+            series: [
+                &#123;
+                    name:&#39;成交&#39;,
+                    type:&#39;line&#39;,
+                    smooth:true,
+                    symbol: &#39;none&#39;,
+                    stack: &#39;a&#39;,
+                    areaStyle: &#123;
+                        normal: &#123;&#125;
+                    &#125;,
+                    data: data
+                &#125;
+            ]
+        &#125;;
+
+        setInterval(function () &#123;
+            addData(true);
+            myChart.setOption(&#123;
+                xAxis: &#123;
+                    data: date
+                &#125;,
+                series: [&#123;
+                    name:&#39;成交&#39;,
+                    data: data
+                &#125;]
+            &#125;);
+        &#125;, 500);
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById(&#39;main&#39;));
+        myChart.setOption(option)
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><p>ECharts 使用 dataset 管理数据。</p>
+<p>dataset 组件用于单独的数据集声明，从而数据可以单独管理，被多个组件复用，并且可以基于数据指定数据到视觉的映射。</p>
+<pre><code class="lang-html">option = &#123;
+    legend: &#123;&#125;,
+    tooltip: &#123;&#125;,
+    dataset: &#123;
+        // 提供一份数据。
+        source: [
+            [&#39;product&#39;, &#39;2015&#39;, &#39;2016&#39;, &#39;2017&#39;],
+            [&#39;Matcha Latte&#39;, 43.3, 85.8, 93.7],
+            [&#39;Milk Tea&#39;, 83.1, 73.4, 55.1],
+            [&#39;Cheese Cocoa&#39;, 86.4, 65.2, 82.5],
+            [&#39;Walnut Brownie&#39;, 72.4, 53.9, 39.1]
+        ]
+    &#125;,
+    // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
+    xAxis: &#123;type: &#39;category&#39;&#125;,
+    // 声明一个 Y 轴，数值轴。
+    yAxis: &#123;&#125;,
+    // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
+    series: [
+        &#123;type: &#39;bar&#39;&#125;,
+        &#123;type: &#39;bar&#39;&#125;,
+        &#123;type: &#39;bar&#39;&#125;
+    ]
+&#125;
+</code></pre>
+<p>或者使用对象数组的格式</p>
+<pre><code class="lang-html">option = &#123;
+    legend: &#123;&#125;,
+    tooltip: &#123;&#125;,
+    dataset: &#123;
+        // 这里指定了维度名的顺序，从而可以利用默认的维度到坐标轴的映射。
+        // 如果不指定 dimensions，也可以通过指定 series.encode 完成映射，参见后文。
+        dimensions: [&#39;product&#39;, &#39;2015&#39;, &#39;2016&#39;, &#39;2017&#39;],
+        source: [
+            &#123;product: &#39;Matcha Latte&#39;, &#39;2015&#39;: 43.3, &#39;2016&#39;: 85.8, &#39;2017&#39;: 93.7&#125;,
+            &#123;product: &#39;Milk Tea&#39;, &#39;2015&#39;: 83.1, &#39;2016&#39;: 73.4, &#39;2017&#39;: 55.1&#125;,
+            &#123;product: &#39;Cheese Cocoa&#39;, &#39;2015&#39;: 86.4, &#39;2016&#39;: 65.2, &#39;2017&#39;: 82.5&#125;,
+            &#123;product: &#39;Walnut Brownie&#39;, &#39;2015&#39;: 72.4, &#39;2016&#39;: 53.9, &#39;2017&#39;: 39.1&#125;
+        ]
+    &#125;,
+    xAxis: &#123;type: &#39;category&#39;&#125;,
+    yAxis: &#123;&#125;,
+    series: [
+        &#123;type: &#39;bar&#39;&#125;,
+        &#123;type: &#39;bar&#39;&#125;,
+        &#123;type: &#39;bar&#39;&#125;
+    ]
+&#125;;
+</code></pre>
+<h4 id="数据到图形的映射"><a href="#数据到图形的映射" class="headerlink" title="数据到图形的映射"></a>数据到图形的映射</h4><p>我们可以在配置项中将数据映射到图形中。</p>
+<p>我们可以使用 series.seriesLayoutBy 属性来配置 dataset 是列（column）还是行（row）映射为图形系列（series），默认是按照列（column）来映射。</p>
+<pre><code>option = &#123;
+    legend: &#123;&#125;,
+    tooltip: &#123;&#125;,
+    dataset: &#123;
+        source: [
+            [&#39;product&#39;, &#39;2012&#39;, &#39;2013&#39;, &#39;2014&#39;, &#39;2015&#39;],
+            [&#39;Matcha Latte&#39;, 41.1, 30.4, 65.1, 53.3],
+            [&#39;Milk Tea&#39;, 86.5, 92.1, 85.7, 83.1],
+            [&#39;Cheese Cocoa&#39;, 24.1, 67.2, 79.5, 86.4]
+        ]
+    &#125;,
+    xAxis: [
+        &#123;type: &#39;category&#39;, gridIndex: 0&#125;,
+        &#123;type: &#39;category&#39;, gridIndex: 1&#125;
+    ],
+    yAxis: [
+        &#123;gridIndex: 0&#125;,
+        &#123;gridIndex: 1&#125;
+    ],
+    grid: [
+        &#123;bottom: &#39;55%&#39;&#125;,
+        &#123;top: &#39;55%&#39;&#125;
+    ],
+    series: [
+        // 这几个系列会在第一个直角坐标系中，每个系列对应到 dataset 的每一行。
+        &#123;type: &#39;bar&#39;, seriesLayoutBy: &#39;row&#39;&#125;,
+        &#123;type: &#39;bar&#39;, seriesLayoutBy: &#39;row&#39;&#125;,
+        &#123;type: &#39;bar&#39;, seriesLayoutBy: &#39;row&#39;&#125;,
+        // 这几个系列会在第二个直角坐标系中，每个系列对应到 dataset 的每一列。
+        &#123;type: &#39;bar&#39;, xAxisIndex: 1, yAxisIndex: 1&#125;,
+        &#123;type: &#39;bar&#39;, xAxisIndex: 1, yAxisIndex: 1&#125;,
+        &#123;type: &#39;bar&#39;, xAxisIndex: 1, yAxisIndex: 1&#125;,
+        &#123;type: &#39;bar&#39;, xAxisIndex: 1, yAxisIndex: 1&#125;
+    ]
+&#125;
+</code></pre><p><img src="echarts/image-20221013200332722.png" class="lazyload" data-srcset="echarts/image-20221013200332722.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20221013200332722" style="zoom:50%;" /></p>
+<p>常用图表所描述的数据大部分是”二维表”结构，我们可以使用 series.encode 属性将对应的数据映射到坐标轴（如 X、Y 轴）</p>
+<pre><code class="lang-html">var option = &#123;
+    dataset: &#123;
+        source: [
+            [&#39;score&#39;, &#39;amount&#39;, &#39;product&#39;],
+            [89.3, 58212, &#39;Matcha Latte&#39;],
+            [57.1, 78254, &#39;Milk Tea&#39;],
+            [74.4, 41032, &#39;Cheese Cocoa&#39;],
+            [50.1, 12755, &#39;Cheese Brownie&#39;],
+            [89.7, 20145, &#39;Matcha Cocoa&#39;],
+            [68.1, 79146, &#39;Tea&#39;],
+            [19.6, 91852, &#39;Orange Juice&#39;],
+            [10.6, 101852, &#39;Lemon Juice&#39;],
+            [32.7, 20112, &#39;Walnut Brownie&#39;]
+        ]
+    &#125;,
+    grid: &#123;containLabel: true&#125;,
+    xAxis: &#123;&#125;,
+    yAxis: &#123;type: &#39;category&#39;&#125;,
+    series: [
+        &#123;
+            type: &#39;bar&#39;,
+            encode: &#123;
+                // 将 &quot;amount&quot; 列映射到 X 轴。
+                x: &#39;amount&#39;,
+                // 将 &quot;product&quot; 列映射到 Y 轴。
+                y: &#39;product&#39;
+            &#125;
+        &#125;
+    ]
+&#125;;
+</code></pre>
+<p>encode 声明的基本结构如下，其中冒号左边是坐标系、标签等特定名称，如 ‘x’, ‘y’, ‘tooltip’ 等，冒号右边是数据中的维度名（string 格式）或者维度的序号（number 格式，从 0 开始计数），可以指定一个或多个维度（使用数组）。通常情况下，下面各种信息不需要所有的都写，按需写即可。</p>
+<pre><code class="lang-html">// 在任何坐标系和系列中，都支持：
+encode: &#123;
+    // 使用 “名为 product 的维度” 和 “名为 score 的维度” 的值在 tooltip 中显示
+    tooltip: [&#39;product&#39;, &#39;score&#39;]
+    // 使用 “维度 1” 和 “维度 3” 的维度名连起来作为系列名。（有时候名字比较长，这可以避免在 series.name 重复输入这些名字）
+    seriesName: [1, 3],
+    // 表示使用 “维度2” 中的值作为 id。这在使用 setOption 动态更新数据时有用处，可以使新老数据用 id 对应起来，从而能够产生合适的数据更新动画。
+    itemId: 2,
+    // 指定数据项的名称使用 “维度3” 在饼图等图表中有用，可以使这个名字显示在图例（legend）中。
+    itemName: 3
+&#125;
+
+// 直角坐标系（grid/cartesian）特有的属性：
+encode: &#123;
+    // 把 “维度1”、“维度5”、“名为 score 的维度” 映射到 X 轴：
+    x: [1, 5, &#39;score&#39;],
+    // 把“维度0”映射到 Y 轴。
+    y: 0
+&#125;
+
+// 单轴（singleAxis）特有的属性：
+encode: &#123;
+    single: 3
+&#125;
+
+// 极坐标系（polar）特有的属性：
+encode: &#123;
+    radius: 3,
+    angle: 2
+&#125;
+
+// 地理坐标系（geo）特有的属性：
+encode: &#123;
+    lng: 3,
+    lat: 2
+&#125;
+
+// 对于一些没有坐标系的图表，例如饼图、漏斗图等，可以是：
+encode: &#123;
+    value: 3
+&#125;
+</code></pre>
+<h4 id="视觉通道的映射"><a href="#视觉通道的映射" class="headerlink" title="视觉通道的映射"></a>视觉通道的映射</h4><p>我们可以使用 visualMap 组件进行视觉通道的映射。</p>
+<p>视觉元素可以是：</p>
+<ul>
+<li>symbol: 图元的图形类别。</li>
+<li>symbolSize: 图元的大小。</li>
+<li>color: 图元的颜色。</li>
+<li>colorAlpha: 图元的颜色的透明度。</li>
+<li>opacity: 图元以及其附属物（如文字标签）的透明度。</li>
+<li>colorLightness: 颜色的明暗度。</li>
+<li>colorSaturation: 颜色的饱和度。</li>
+<li>colorHue: 颜色的色调。</li>
+</ul>
+<p>visualMap 组件可以定义多个，从而可以同时对数据中的多个维度进行视觉映射。</p>
+<pre><code class="lang-html">var option = &#123;
+    dataset: &#123;
+        source: [
+            [&#39;score&#39;, &#39;amount&#39;, &#39;product&#39;],
+            [89.3, 58212, &#39;Matcha Latte&#39;],
+            [57.1, 78254, &#39;Milk Tea&#39;],
+            [74.4, 41032, &#39;Cheese Cocoa&#39;],
+            [50.1, 12755, &#39;Cheese Brownie&#39;],
+            [89.7, 20145, &#39;Matcha Cocoa&#39;],
+            [68.1, 79146, &#39;Tea&#39;],
+            [19.6, 91852, &#39;Orange Juice&#39;],
+            [10.6, 101852, &#39;Lemon Juice&#39;],
+            [32.7, 20112, &#39;Walnut Brownie&#39;]
+        ]
+    &#125;,
+    grid: &#123;containLabel: true&#125;,
+    xAxis: &#123;name: &#39;amount&#39;&#125;,
+    yAxis: &#123;type: &#39;category&#39;&#125;,
+    visualMap: &#123;
+        orient: &#39;horizontal&#39;,
+        left: &#39;center&#39;,
+        min: 10,
+        max: 100,
+        text: [&#39;High Score&#39;, &#39;Low Score&#39;],
+        // Map the score column to color
+        dimension: 0,
+        inRange: &#123;
+            color: [&#39;#D7DA8B&#39;, &#39;#E15457&#39;]
+        &#125;
+    &#125;,
+    series: [
+        &#123;
+            type: &#39;bar&#39;,
+            encode: &#123;
+                // Map the &quot;amount&quot; column to X axis.
+                x: &#39;amount&#39;,
+                // Map the &quot;product&quot; column to Y axis
+                y: &#39;product&#39;
+            &#125;
+        &#125;
+    ]
+&#125;;
+</code></pre>
+<h4 id="交互联动"><a href="#交互联动" class="headerlink" title="交互联动"></a>交互联动</h4><p>以下实例多个图表共享一个 dataset，并带有联动交互：</p>
+<pre><code class="lang-html">setTimeout(function () &#123;
+
+    option = &#123;
+        legend: &#123;&#125;,
+        tooltip: &#123;
+            trigger: &#39;axis&#39;,
+            showContent: false
+        &#125;,
+        dataset: &#123;
+            source: [
+                [&#39;product&#39;, &#39;2012&#39;, &#39;2013&#39;, &#39;2014&#39;, &#39;2015&#39;, &#39;2016&#39;, &#39;2017&#39;],
+                [&#39;Matcha Latte&#39;, 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],
+                [&#39;Milk Tea&#39;, 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],
+                [&#39;Cheese Cocoa&#39;, 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],
+                [&#39;Walnut Brownie&#39;, 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
+            ]
+        &#125;,
+        xAxis: &#123;type: &#39;category&#39;&#125;,
+        yAxis: &#123;gridIndex: 0&#125;,
+        grid: &#123;top: &#39;55%&#39;&#125;,
+        series: [
+            &#123;type: &#39;line&#39;, smooth: true, seriesLayoutBy: &#39;row&#39;&#125;,
+            &#123;type: &#39;line&#39;, smooth: true, seriesLayoutBy: &#39;row&#39;&#125;,
+            &#123;type: &#39;line&#39;, smooth: true, seriesLayoutBy: &#39;row&#39;&#125;,
+            &#123;type: &#39;line&#39;, smooth: true, seriesLayoutBy: &#39;row&#39;&#125;,
+            &#123;
+                type: &#39;pie&#39;,
+                id: &#39;pie&#39;,
+                radius: &#39;30%&#39;,
+                center: [&#39;50%&#39;, &#39;25%&#39;],
+                label: &#123;
+                    formatter: &#39;&#123;b&#125;: &#123;@2012&#125; (&#123;d&#125;%)&#39;
+                &#125;,
+                encode: &#123;
+                    itemName: &#39;product&#39;,
+                    value: &#39;2012&#39;,
+                    tooltip: &#39;2012&#39;
+                &#125;
+            &#125;
+        ]
+    &#125;;
+
+    myChart.on(&#39;updateAxisPointer&#39;, function (event) &#123;
+        var xAxisInfo = event.axesInfo[0];
+        if (xAxisInfo) &#123;
+            var dimension = xAxisInfo.value + 1;
+            myChart.setOption(&#123;
+                series: &#123;
+                    id: &#39;pie&#39;,
+                    label: &#123;
+                        formatter: &#39;&#123;b&#125;: &#123;@[&#39; + dimension + &#39;]&#125; (&#123;d&#125;%)&#39;
+                    &#125;,
+                    encode: &#123;
+                        value: dimension,
+                        tooltip: dimension
+                    &#125;
+                &#125;
+            &#125;);
+        &#125;
+    &#125;);
+
+    myChart.setOption(option);
+
+&#125;);
+</code></pre>
+<p><img src="echarts/image-20221013201328866.png" class="lazyload" data-srcset="echarts/image-20221013201328866.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20221013201328866" style="zoom:50%;" /></p>
+<h3 id="交互组件"><a href="#交互组件" class="headerlink" title="交互组件"></a>交互组件</h3><p>ECharts 提供了很多交互组件：例组件 legend、标题组件 title、视觉映射组件 visualMap、数据区域缩放组件 dataZoom、时间线组件 timeline。</p>
+<h4 id="dataZoom"><a href="#dataZoom" class="headerlink" title="dataZoom"></a>dataZoom</h4><p>dataZoom 组件可以实现通过鼠标滚轮滚动，放大缩小图表的功能。</p>
+<p>默认情况下 dataZoom 控制 x 轴，即对 x 轴进行<strong>数据窗口缩放</strong>和<strong>数据窗口平移</strong>操作。</p>
+<pre><code class="lang-html">option = &#123;
+    xAxis: &#123;
+        type: &#39;value&#39;
+    &#125;,
+    yAxis: &#123;
+        type: &#39;value&#39;
+    &#125;,
+    dataZoom: [
+        &#123;   // 这个dataZoom组件，默认控制x轴。
+            type: &#39;slider&#39;, // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+            start: 10,      // 左边在 10% 的位置。
+            end: 60         // 右边在 60% 的位置。
+        &#125;
+    ],
+    series: [
+        &#123;
+            type: &#39;scatter&#39;, // 这是个『散点图』
+            itemStyle: &#123;
+                opacity: 0.8
+            &#125;,
+            symbolSize: function (val) &#123;
+                return val[2] * 40;
+            &#125;,
+            data: [[&quot;14.616&quot;,&quot;7.241&quot;,&quot;0.896&quot;],[&quot;3.958&quot;,&quot;5.701&quot;,&quot;0.955&quot;],[&quot;2.768&quot;,&quot;8.971&quot;,&quot;0.669&quot;],[&quot;9.051&quot;,&quot;9.710&quot;,&quot;0.171&quot;],[&quot;14.046&quot;,&quot;4.182&quot;,&quot;0.536&quot;],[&quot;12.295&quot;,&quot;1.429&quot;,&quot;0.962&quot;],[&quot;4.417&quot;,&quot;8.167&quot;,&quot;0.113&quot;],[&quot;0.492&quot;,&quot;4.771&quot;,&quot;0.785&quot;],[&quot;7.632&quot;,&quot;2.605&quot;,&quot;0.645&quot;],[&quot;14.242&quot;,&quot;5.042&quot;,&quot;0.368&quot;]]
+        &#125;
+    ]
+&#125;
+</code></pre>
+<p>上面的实例只能拖动 dataZoom 组件来缩小或放大图表。如果想在坐标系内进行拖动，以及用鼠标滚轮（或移动触屏上的两指滑动）进行缩放，那么需要 再再加上一个 inside 型的 dataZoom 组件。</p>
+<p>在以上实例基础上我们再增加 <strong>type: ‘inside’</strong> 的配置信息</p>
+<pre><code class="lang-html">option = &#123;
+    ...,
+    dataZoom: [
+        &#123;   // 这个dataZoom组件，默认控制x轴。
+            type: &#39;slider&#39;, // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+            start: 10,      // 左边在 10% 的位置。
+            end: 60         // 右边在 60% 的位置。
+        &#125;,
+        &#123;   // 这个dataZoom组件，也控制x轴。
+            type: &#39;inside&#39;, // 这个 dataZoom 组件是 inside 型 dataZoom 组件
+            start: 10,      // 左边在 10% 的位置。
+            end: 60         // 右边在 60% 的位置。
+        &#125;
+    ],
+    ...
+&#125;
+</code></pre>
+<p>当然我们可以通过 dataZoom.xAxisIndex 或 dataZoom.yAxisIndex 来指定 dataZoom 控制哪个或哪些数轴。</p>
+<pre><code class="lang-html">var data1 = [];
+var data2 = [];
+var data3 = [];
+
+var random = function (max) &#123;
+    return (Math.random() * max).toFixed(3);
+&#125;;
+
+for (var i = 0; i &lt; 500; i++) &#123;
+    data1.push([random(15), random(10), random(1)]);
+    data2.push([random(10), random(10), random(1)]);
+    data3.push([random(15), random(10), random(1)]);
+&#125;
+
+option = &#123;
+    animation: false,
+    legend: &#123;
+        data: [&#39;scatter&#39;, &#39;scatter2&#39;, &#39;scatter3&#39;]
+    &#125;,
+    tooltip: &#123;
+    &#125;,
+    xAxis: &#123;
+        type: &#39;value&#39;,
+        min: &#39;dataMin&#39;,
+        max: &#39;dataMax&#39;,
+        splitLine: &#123;
+            show: true
+        &#125;
+    &#125;,
+    yAxis: &#123;
+        type: &#39;value&#39;,
+        min: &#39;dataMin&#39;,
+        max: &#39;dataMax&#39;,
+        splitLine: &#123;
+            show: true
+        &#125;
+    &#125;,
+    dataZoom: [
+        &#123;
+            type: &#39;slider&#39;,
+            show: true,
+            xAxisIndex: [0],
+            start: 1,
+            end: 35
+        &#125;,
+        &#123;
+            type: &#39;slider&#39;,
+            show: true,
+            yAxisIndex: [0],
+            left: &#39;93%&#39;,
+            start: 29,
+            end: 36
+        &#125;,
+        &#123;
+            type: &#39;inside&#39;,
+            xAxisIndex: [0],
+            start: 1,
+            end: 35
+        &#125;,
+        &#123;
+            type: &#39;inside&#39;,
+            yAxisIndex: [0],
+            start: 29,
+            end: 36
+        &#125;
+    ],
+    series: [
+        &#123;
+            name: &#39;scatter&#39;,
+            type: &#39;scatter&#39;,
+            itemStyle: &#123;
+                normal: &#123;
+                    opacity: 0.8
+                &#125;
+            &#125;,
+            symbolSize: function (val) &#123;
+                return val[2] * 40;
+            &#125;,
+            data: data1
+        &#125;,
+        &#123;
+            name: &#39;scatter2&#39;,
+            type: &#39;scatter&#39;,
+            itemStyle: &#123;
+                normal: &#123;
+                    opacity: 0.8
+                &#125;
+            &#125;,
+            symbolSize: function (val) &#123;
+                return val[2] * 40;
+            &#125;,
+            data: data2
+        &#125;,
+        &#123;
+            name: &#39;scatter3&#39;,
+            type: &#39;scatter&#39;,
+            itemStyle: &#123;
+                normal: &#123;
+                    opacity: 0.8,
+                &#125;
+            &#125;,
+            symbolSize: function (val) &#123;
+                return val[2] * 40;
+            &#125;,
+            data: data3
+        &#125;
+    ]
+&#125;
+</code></pre>
+<p><img src="echarts/image-20221013202500415.png" class="lazyload" data-srcset="echarts/image-20221013202500415.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20221013202500415" style="zoom:50%;" /></p>
+<h3 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h3><p>ECharts 图表显示在用户指定高宽的 DOM 节点（容器）中。</p>
+<p>有时候我们希望在 PC 和 移动设备上都能够很好的展示图表的内容，实现响应式的设计，为了解决这个问题，ECharts 完善了组件的定位设置，并且实现了类似 <a href="https://www.runoob.com/css3/css3-mediaqueries.html">CSS Media Query</a> 的自适应能力。</p>
+<h4 id="组件的定位和布局"><a href="#组件的定位和布局" class="headerlink" title="组件的定位和布局"></a>组件的定位和布局</h4><h5 id="left-right-top-bottom-width-height-定位方式"><a href="#left-right-top-bottom-width-height-定位方式" class="headerlink" title="left/right/top/bottom/width/height 定位方式"></a>left/right/top/bottom/width/height 定位方式</h5><p>这六个量中，每个量都可以是『绝对值』或者『百分比』或者『位置描述』。</p>
+<ul>
+<li><p>绝对值</p>
+<p>单位是浏览器像素（px），用 <code>number</code> 形式书写（不写单位）。例如 <code>&#123;left: 23, height: 400&#125;</code>。</p>
+</li>
+<li><p>百分比</p>
+<p>表示占 DOM 容器高宽的百分之多少，用 <code>string</code> 形式书写。例如 <code>&#123;right: &#39;30%&#39;, bottom: &#39;40%&#39;&#125;</code>。</p>
+</li>
+<li><p>位置描述</p>
+<ul>
+<li>可以设置 <code>left: &#39;center&#39;</code>，表示水平居中。</li>
+<li>可以设置 <code>top: &#39;middle&#39;</code>，表示垂直居中。</li>
+</ul>
+</li>
+</ul>
+<p>这六个量的概念，和 CSS 中六个量的概念类似：</p>
+<ul>
+<li>left：距离 DOM 容器左边界的距离。</li>
+<li>right：距离 DOM 容器右边界的距离。</li>
+<li>top：距离 DOM 容器上边界的距离。</li>
+<li>bottom：距离 DOM 容器下边界的距离。</li>
+<li>width：宽度。</li>
+<li>height：高度。</li>
+</ul>
+<p>在横向，left、right、width 三个量中，只需两个量有值即可，因为任两个量可以决定组件的位置和大小，例如 left 和 right 或者 right 和 width 都可以决定组件的位置和大小。 纵向，top、bottom、height 三个量，和横向类同不赘述。</p>
+<h5 id="center-radius-定位方式"><a href="#center-radius-定位方式" class="headerlink" title="center / radius 定位方式"></a>center / radius 定位方式</h5><ul>
+<li><p><code>center</code></p>
+<p>是一个数组，表示 <code>[x, y]</code>，其中，<code>x</code>、<code>y</code>可以是『绝对值』或者『百分比』，含义和前述相同。</p>
+</li>
+<li><p><code>radius</code></p>
+<p>是一个数组，表示 <code>[内半径, 外半径]</code>，其中，内外半径可以是『绝对值』或者『百分比』，含义和前述相同。</p>
+<p>在自适应容器大小时，百分比设置是很有用的。</p>
+</li>
+</ul>
+<h5 id="横向（horizontal）和纵向（vertical）"><a href="#横向（horizontal）和纵向（vertical）" class="headerlink" title="横向（horizontal）和纵向（vertical）"></a>横向（horizontal）和纵向（vertical）</h5><p>ECharts的『外观狭长』型的组件（如 legend、visualMap、dataZoom、timeline等），大多提供了『横向布局』『纵向布局』的选择。例如，在细长的移动端屏幕上，可能适合使用『纵向布局』；在PC宽屏上，可能适合使用『横向布局』。</p>
+<p>横纵向布局的设置，一般在『组件』或者『系列』的 orient 或者 layout 配置项上，设置为 ‘horizontal’ 或者 ‘vertical’。</p>
+<p>以下实例中我们可以可尝试拖动右下角的圆点，图表会随着屏幕尺寸变化，legend 和 系列会自动改变布局位置和方式。</p>
+<p>实例中我们使用了 jQuery 来加载外部数据，使用时我们需要引入 jQuery 库。</p>
+<pre><code class="lang-html">$.when(
+    $.getScript(&#39;https://www.runoob.com/static/js/timelineGDP.js&#39;),
+    $.getScript(&#39;https://www.runoob.com/static/js/draggable.js&#39;)
+).done(function () &#123;
+
+    draggable.init(
+        $(&#39;div[_echarts_instance_]&#39;)[0],
+        myChart,
+        &#123;
+            width: 700,
+            height: 400,
+            throttle: 70
+        &#125;
+    );
+
+    myChart.hideLoading();
+
+
+
+    option = &#123;
+        baseOption: &#123;
+            title : &#123;
+                text: &#39;南丁格尔玫瑰图&#39;,
+                subtext: &#39;纯属虚构&#39;,
+                x:&#39;center&#39;
+            &#125;,
+            tooltip : &#123;
+                trigger: &#39;item&#39;,
+                formatter: &quot;&#123;a&#125; &lt;br/&gt;&#123;b&#125; : &#123;c&#125; (&#123;d&#125;%)&quot;
+            &#125;,
+            legend: &#123;
+                data:[&#39;rose1&#39;,&#39;rose2&#39;,&#39;rose3&#39;,&#39;rose4&#39;,&#39;rose5&#39;,&#39;rose6&#39;,&#39;rose7&#39;,&#39;rose8&#39;]
+            &#125;,
+            toolbox: &#123;
+                show : true,
+                feature : &#123;
+                    mark : &#123;show: true&#125;,
+                    dataView : &#123;show: true, readOnly: false&#125;,
+                    magicType : &#123;
+                        show: true,
+                        type: [&#39;pie&#39;, &#39;funnel&#39;]
+                    &#125;,
+                    restore : &#123;show: true&#125;,
+                    saveAsImage : &#123;show: true&#125;
+                &#125;
+            &#125;,
+            calculable : true,
+            series : [
+                &#123;
+                    name:&#39;半径模式&#39;,
+                    type:&#39;pie&#39;,
+                    roseType : &#39;radius&#39;,
+                    label: &#123;
+                        normal: &#123;
+                            show: false
+                        &#125;,
+                        emphasis: &#123;
+                            show: true
+                        &#125;
+                    &#125;,
+                    lableLine: &#123;
+                        normal: &#123;
+                            show: false
+                        &#125;,
+                        emphasis: &#123;
+                            show: true
+                        &#125;
+                    &#125;,
+                    data:[
+                        &#123;value:10, name:&#39;rose1&#39;&#125;,
+                        &#123;value:5, name:&#39;rose2&#39;&#125;,
+                        &#123;value:15, name:&#39;rose3&#39;&#125;,
+                        &#123;value:25, name:&#39;rose4&#39;&#125;,
+                        &#123;value:20, name:&#39;rose5&#39;&#125;,
+                        &#123;value:35, name:&#39;rose6&#39;&#125;,
+                        &#123;value:30, name:&#39;rose7&#39;&#125;,
+                        &#123;value:40, name:&#39;rose8&#39;&#125;
+                    ]
+                &#125;,
+                &#123;
+                    name:&#39;面积模式&#39;,
+                    type:&#39;pie&#39;,
+                    roseType : &#39;area&#39;,
+                    data:[
+                        &#123;value:10, name:&#39;rose1&#39;&#125;,
+                        &#123;value:5, name:&#39;rose2&#39;&#125;,
+                        &#123;value:15, name:&#39;rose3&#39;&#125;,
+                        &#123;value:25, name:&#39;rose4&#39;&#125;,
+                        &#123;value:20, name:&#39;rose5&#39;&#125;,
+                        &#123;value:35, name:&#39;rose6&#39;&#125;,
+                        &#123;value:30, name:&#39;rose7&#39;&#125;,
+                        &#123;value:40, name:&#39;rose8&#39;&#125;
+                    ]
+                &#125;
+            ]
+        &#125;,
+        media: [
+            &#123;
+                option: &#123;
+                    legend: &#123;
+                        right: &#39;center&#39;,
+                        bottom: 0,
+                        orient: &#39;horizontal&#39;
+                    &#125;,
+                    series: [
+                        &#123;
+                            radius: [20, &#39;50%&#39;],
+                            center: [&#39;25%&#39;, &#39;50%&#39;]
+                        &#125;,
+                        &#123;
+                            radius: [30, &#39;50%&#39;],
+                            center: [&#39;75%&#39;, &#39;50%&#39;]
+                        &#125;
+                    ]
+                &#125;
+            &#125;,
+            &#123;
+                query: &#123;
+                    minAspectRatio: 1
+                &#125;,
+                option: &#123;
+                    legend: &#123;
+                        right: &#39;center&#39;,
+                        bottom: 0,
+                        orient: &#39;horizontal&#39;
+                    &#125;,
+                    series: [
+                        &#123;
+                            radius: [20, &#39;50%&#39;],
+                            center: [&#39;25%&#39;, &#39;50%&#39;]
+                        &#125;,
+                        &#123;
+                            radius: [30, &#39;50%&#39;],
+                            center: [&#39;75%&#39;, &#39;50%&#39;]
+                        &#125;
+                    ]
+                &#125;
+            &#125;,
+            &#123;
+                query: &#123;
+                    maxAspectRatio: 1
+                &#125;,
+                option: &#123;
+                    legend: &#123;
+                        right: &#39;center&#39;,
+                        bottom: 0,
+                        orient: &#39;horizontal&#39;
+                    &#125;,
+                    series: [
+                        &#123;
+                            radius: [20, &#39;50%&#39;],
+                            center: [&#39;50%&#39;, &#39;30%&#39;]
+                        &#125;,
+                        &#123;
+                            radius: [30, &#39;50%&#39;],
+                            center: [&#39;50%&#39;, &#39;70%&#39;]
+                        &#125;
+                    ]
+                &#125;
+            &#125;,
+            &#123;
+                query: &#123;
+                    maxWidth: 500
+                &#125;,
+                option: &#123;
+                    legend: &#123;
+                        right: 10,
+                        top: &#39;15%&#39;,
+                        orient: &#39;vertical&#39;
+                    &#125;,
+                    series: [
+                        &#123;
+                            radius: [20, &#39;50%&#39;],
+                            center: [&#39;50%&#39;, &#39;30%&#39;]
+                        &#125;,
+                        &#123;
+                            radius: [30, &#39;50%&#39;],
+                            center: [&#39;50%&#39;, &#39;75%&#39;]
+                        &#125;
+                    ]
+                &#125;
+            &#125;
+        ]
+    &#125;;
+
+
+
+    myChart.setOption(option);
+
+&#125;);
+</code></pre>
+<h3 id="数据的视觉映射"><a href="#数据的视觉映射" class="headerlink" title="数据的视觉映射"></a>数据的视觉映射</h3><p>visualMap 组件中可以使用的视觉元素有：</p>
+<ul>
+<li>图形类别（symbol）</li>
+<li>图形大小（symbolSize）</li>
+<li>颜色（color）</li>
+<li>透明度（opacity）</li>
+<li>颜色透明度（colorAlpha）</li>
+<li>颜色明暗度（colorLightness）</li>
+<li>颜色饱和度（colorSaturation）</li>
+<li>色调（colorHue）</li>
+</ul>
+<h4 id="数据和维度"><a href="#数据和维度" class="headerlink" title="数据和维度"></a>数据和维度</h4><p>ECharts 中的数据，一般存放于 <strong>series.data</strong> 中。</p>
+<p>不同的图表类型，数据格式有所不一样，但是他们的共同特点就都是数据项（dataItem） 的集合。每个数据项含有 数据值（value） 和其他信息（可选）。每个数据值，可以是单一的数值（一维）或者一个数组（多维）。</p>
+<p>series.data 最常见的形式 是线性表，即一个普通数组：</p>
+<pre><code class="lang-html">series: &#123;
+    data: [
+        &#123;       // 这里每一个项就是数据项（dataItem）
+            value: 2323, // 这是数据项的数据值（value）
+            itemStyle: &#123;...&#125;
+        &#125;,
+        1212,   // 也可以直接是 dataItem 的 value，这更常见。
+        2323,   // 每个 value 都是『一维』的。
+        4343,
+        3434
+    ]
+&#125;
+series: &#123;
+    data: [
+        &#123;                        // 这里每一个项就是数据项（dataItem）
+            value: [3434, 129,  &#39;圣马力诺&#39;], // 这是数据项的数据值（value）
+            itemStyle: &#123;...&#125;
+        &#125;,
+        [1212, 5454, &#39;梵蒂冈&#39;],   // 也可以直接是 dataItem 的 value，这更常见。
+        [2323, 3223, &#39;瑙鲁&#39;],     // 每个 value 都是『三维』的，每列是一个维度。
+        [4343, 23,   &#39;图瓦卢&#39;]    // 假如是『气泡图』，常见第一维度映射到x轴，
+                                 // 第二维度映射到y轴，
+                                 // 第三维度映射到气泡半径（symbolSize）
+    ]
+&#125;
+</code></pre>
+<p>在图表中，往往默认把 value 的前一两个维度进行映射，比如取第一个维度映射到x轴，取第二个维度映射到y轴。如果想要把更多的维度展现出来，可以借助 visualMap 。</p>
+<h4 id="visualMap组件"><a href="#visualMap组件" class="headerlink" title="visualMap组件"></a>visualMap组件</h4><p>visualMap 组件定义了把数据的指定维度映射到对应的视觉元素上。</p>
+<p>visualMap 组件可以定义多个，从而可以同时对数据中的多个维度进行视觉映射。</p>
+<p>visualMap 组件可以定义为 分段型（visualMapPiecewise） 或 连续型（visualMapContinuous），通过 type 来区分。例如</p>
+<pre><code>option = &#123;
+    visualMap: [
+        &#123; // 第一个 visualMap 组件
+            type: &#39;continuous&#39;, // 定义为连续型 visualMap
+            ...
+        &#125;,
+        &#123; // 第二个 visualMap 组件
+            type: &#39;piecewise&#39;, // 定义为分段型 visualMap
+            ...
+        &#125;
+    ],
+    ...
+&#125;;
+</code></pre><p>分段型视觉映射组件，有三种模式：</p>
+<ul>
+<li>连续型数据平均分段: 依据 visualMap-piecewise.splitNumber 来自动平均分割成若干块。</li>
+<li>连续型数据自定义分段: 依据 visualMap-piecewise.pieces 来定义每块范围。</li>
+<li>离散数据根据类别分段: 类别定义在 visualMap-piecewise.categories 中。</li>
+</ul>
+<h4 id="映射方式配置"><a href="#映射方式配置" class="headerlink" title="映射方式配置"></a>映射方式配置</h4><p>visualMap 中可以指定数据的指定维度映射到对应的视觉元素上。</p>
+<pre><code>option = &#123;
+    visualMap: [
+        &#123;
+            type: &#39;piecewise&#39;
+            min: 0,
+            max: 5000,
+            dimension: 3,       // series.data 的第四个维度（即 value[3]）被映射
+            seriesIndex: 4,     // 对第四个系列进行映射。
+            inRange: &#123;          // 选中范围中的视觉配置
+                color: [&#39;blue&#39;, &#39;#121122&#39;, &#39;red&#39;], // 定义了图形颜色映射的颜色列表，
+                                                    // 数据最小值映射到&#39;blue&#39;上，
+                                                    // 最大值映射到&#39;red&#39;上，
+                                                    // 其余自动线性计算。
+                symbolSize: [30, 100]               // 定义了图形尺寸的映射范围，
+                                                    // 数据最小值映射到30上，
+                                                    // 最大值映射到100上，
+                                                    // 其余自动线性计算。
+            &#125;,
+            outOfRange: &#123;       // 选中范围外的视觉配置
+                symbolSize: [30, 100]
+            &#125;
+        &#125;,
+        ...
+    ]
+&#125;;
+</code></pre><pre><code>option = &#123;
+    visualMap: [
+        &#123;
+            ...,
+            inRange: &#123;          // 选中范围中的视觉配置
+                colorLightness: [0.2, 1], // 映射到明暗度上。也就是对本来的颜色进行明暗度处理。
+                                          // 本来的颜色可能是从全局色板中选取的颜色，visualMap组件并不关心。
+                symbolSize: [30, 100]
+            &#125;,
+            ...
+        &#125;,
+        ...
+    ]
+&#125;;
+</code></pre><h3 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h3><p>ECharts 中我们可以通过监听用户的操作行为来回调对应的函数。</p>
+<p>ECharts 通过 <strong>on</strong> 方法来监听用户的行为，例如监控用户的点击行为。</p>
+<p>ECharts 中事件分为两种类型:</p>
+<p>用户鼠标操作点击，如 <strong>‘click’、’dblclick’、’mousedown’、’mousemove’、’mouseup’、’mouseover’、’mouseout’、’globalout’、’contextmenu’</strong> 事件。</p>
+<p>还有一种是用户在使用可以交互的组件后触发的行为事件，例如在切换图例开关时触发的 ‘legendselectchanged’ 事件），数据区域缩放时触发的 ‘datazoom’ 事件等等。</p>
+<pre><code class="lang-html">myChart.on(&#39;click&#39;, function (params) &#123;
+    // 在用户点击后控制台打印数据的名称
+    console.log(params);
+&#125;);
+
+myChart.on(&#39;legendselectchanged&#39;, function (params) &#123;
+    console.log(params);
+&#125;);
+
+chart.on(&#39;click&#39;, &#39;series.line&#39;, function (params) &#123;
+    console.log(params);
+&#125;);
+
+chart.on(&#39;mouseover&#39;, &#123;seriesIndex: 1, name: &#39;xx&#39;&#125;, function (params) &#123;
+    console.log(params);
+&#125;);
+</code></pre>
+<h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><p>ECharts 支持的鼠标事件类型，包括 ‘click’、’dblclick’、’mousedown’、’mousemove’、’mouseup’、’mouseover’、’mouseout’、’globalout’、’contextmenu’ 事件。</p>
+<p>以下实例在点击柱形图时会弹出对话框：</p>
+<pre><code>// 基于准备好的dom，初始化ECharts实例
+var myChart = echarts.init(document.getElementById(&#39;main&#39;));
+
+// 指定图表的配置项和数据
+var option = &#123;
+    xAxis: &#123;
+        data: [&quot;衬衫&quot;,&quot;羊毛衫&quot;,&quot;雪纺衫&quot;,&quot;裤子&quot;,&quot;高跟鞋&quot;,&quot;袜子&quot;]
+    &#125;,
+    yAxis: &#123;&#125;,
+    series: [&#123;
+        name: &#39;销量&#39;,
+        type: &#39;bar&#39;,
+        data: [5, 20, 36, 10, 10, 20]
+    &#125;]
+&#125;;
+
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option);
+// 处理点击事件并且弹出数据名称
+myChart.on(&#39;click&#39;, function (params) &#123;
+    alert(params.name);
+&#125;);
+</code></pre><p>所有的鼠标事件包含参数 params，这是一个包含点击图形的数据信息的对象，格式如下：</p>
+<pre><code>&#123;
+    // 当前点击的图形元素所属的组件名称，
+    // 其值如 &#39;series&#39;、&#39;markLine&#39;、&#39;markPoint&#39;、&#39;timeLine&#39; 等。
+    componentType: string,
+    // 系列类型。值可能为：&#39;line&#39;、&#39;bar&#39;、&#39;pie&#39; 等。当 componentType 为 &#39;series&#39; 时有意义。
+    seriesType: string,
+    // 系列在传入的 option.series 中的 index。当 componentType 为 &#39;series&#39; 时有意义。
+    seriesIndex: number,
+    // 系列名称。当 componentType 为 &#39;series&#39; 时有意义。
+    seriesName: string,
+    // 数据名，类目名
+    name: string,
+    // 数据在传入的 data 数组中的 index
+    dataIndex: number,
+    // 传入的原始数据项
+    data: Object,
+    // sankey、graph 等图表同时含有 nodeData 和 edgeData 两种 data，
+    // dataType 的值会是 &#39;node&#39; 或者 &#39;edge&#39;，表示当前点击在 node 还是 edge 上。
+    // 其他大部分图表中只有一种 data，dataType 无意义。
+    dataType: string,
+    // 传入的数据值
+    value: number|Array
+    // 数据图形的颜色。当 componentType 为 &#39;series&#39; 时有意义。
+    color: string
+&#125;
+</code></pre><p>如何区分鼠标点击到了哪里：</p>
+<pre><code>myChart.on(&#39;click&#39;, function (params) &#123;
+    if (params.componentType === &#39;markPoint&#39;) &#123;
+        // 点击到了 markPoint 上
+        if (params.seriesIndex === 5) &#123;
+            // 点击到了 index 为 5 的 series 的 markPoint 上。
+        &#125;
+    &#125;
+    else if (params.componentType === &#39;series&#39;) &#123;
+        if (params.seriesType === &#39;graph&#39;) &#123;
+            if (params.dataType === &#39;edge&#39;) &#123;
+                // 点击到了 graph 的 edge（边）上。
+            &#125;
+            else &#123;
+                // 点击到了 graph 的 node（节点）上。
+            &#125;
+        &#125;
+    &#125;
+&#125;);
+</code></pre><p>使用 query 只对指定的组件的图形元素的触发回调：</p>
+<pre><code>chart.on(eventName, query, handler);
+</code></pre><p>query 可为 string 或者 Object。</p>
+<p>如果为 string 表示组件类型。格式可以是 ‘mainType’ 或者 ‘mainType.subType’。例如：</p>
+<pre><code>chart.on(&#39;click&#39;, &#39;series&#39;, function () &#123;...&#125;);
+chart.on(&#39;click&#39;, &#39;series.line&#39;, function () &#123;...&#125;);
+chart.on(&#39;click&#39;, &#39;dataZoom&#39;, function () &#123;...&#125;);
+chart.on(&#39;click&#39;, &#39;xAxis.category&#39;, function () &#123;...&#125;);
+</code></pre><p>如果为 Object，可以包含以下一个或多个属性，每个属性都是可选的：</p>
+<pre><code>&#123;
+    &lt;mainType&gt;Index: number // 组件 index
+    &lt;mainType&gt;Name: string // 组件 name
+    &lt;mainType&gt;Id: string // 组件 id
+    dataIndex: number // 数据项 index
+    name: string // 数据项 name
+    dataType: string // 数据项 type，如关系图中的 &#39;node&#39;, &#39;edge&#39;
+    element: string // 自定义系列中的 el 的 name
+&#125;
+</code></pre><p>例如：</p>
+<pre><code>chart.setOption(&#123;
+    // ...
+    series: [&#123;
+        name: &#39;uuu&#39;
+        // ...
+    &#125;]
+&#125;);
+chart.on(&#39;mouseover&#39;, &#123;seriesName: &#39;uuu&#39;&#125;, function () &#123;
+    // series name 为 &#39;uuu&#39; 的系列中的图形元素被 &#39;mouseover&#39; 时，此方法被回调。
+&#125;);
+</code></pre><p>例如：</p>
+<pre><code>chart.setOption(&#123;
+    // ...
+    series: [&#123;
+        // ...
+    &#125;, &#123;
+        // ...
+        data: [
+            &#123;name: &#39;xx&#39;, value: 121&#125;,
+            &#123;name: &#39;yy&#39;, value: 33&#125;
+        ]
+    &#125;]
+&#125;);
+chart.on(&#39;mouseover&#39;, &#123;seriesIndex: 1, name: &#39;xx&#39;&#125;, function () &#123;
+    // series index 1 的系列中的 name 为 &#39;xx&#39; 的元素被 &#39;mouseover&#39; 时，此方法被回调。
+&#125;);
+</code></pre><p>例如：</p>
+<pre><code>chart.setOption(&#123;
+    // ...
+    series: [&#123;
+        type: &#39;graph&#39;,
+        nodes: [&#123;name: &#39;a&#39;, value: 10&#125;, &#123;name: &#39;b&#39;, value: 20&#125;],
+        edges: [&#123;source: 0, target: 1&#125;]
+    &#125;]
+&#125;);
+chart.on(&#39;click&#39;, &#123;dataType: &#39;node&#39;&#125;, function () &#123;
+    // 关系图的节点被点击时此方法被回调。
+&#125;);
+chart.on(&#39;click&#39;, &#123;dataType: &#39;edge&#39;&#125;, function () &#123;
+    // 关系图的边被点击时此方法被回调。
+&#125;);
+</code></pre><p>例如：</p>
+<pre><code>chart.setOption(&#123;
+    // ...
+    series: &#123;
+        // ...
+        type: &#39;custom&#39;,
+        renderItem: function (params, api) &#123;
+            return &#123;
+                type: &#39;group&#39;,
+                children: [&#123;
+                    type: &#39;circle&#39;,
+                    name: &#39;my_el&#39;,
+                    // ...
+                &#125;, &#123;
+                    // ...
+                &#125;]
+            &#125;
+        &#125;,
+        data: [[12, 33]]
+    &#125;
+&#125;)
+chart.on(&#39;mouseup&#39;, &#123;element: &#39;my_el&#39;&#125;, function () &#123;
+    // name 为 &#39;my_el&#39; 的元素被 &#39;mouseup&#39; 时，此方法被回调。
+&#125;);
+</code></pre><p>你可以在回调函数中获得这个对象中的数据名、系列名称后在自己的数据仓库中索引得到其它的信息候更新图表，显示浮层等等，如下示例代码：</p>
+<pre><code>myChart.on(&#39;click&#39;, function (parmas) &#123;
+    $.get(&#39;detail?q=&#39; + params.name, function (detail) &#123;
+        myChart.setOption(&#123;
+            series: [&#123;
+                name: &#39;pie&#39;,
+                // 通过饼图表现单个柱子中的数据分布
+                data: [detail.data]
+            &#125;]
+        &#125;);
+    &#125;);
+&#125;);
+</code></pre><h4 id="行为事件"><a href="#行为事件" class="headerlink" title="行为事件"></a>行为事件</h4><p>在 ECharts 中基本上所有的组件交互行为都会触发相应的事件，常用的事件和事件对应参数在 events 文档中有列出。</p>
+<p>下面是监听一个图例开关的示例：</p>
+<pre><code>// 图例开关的行为只会触发 legendselectchanged 事件
+myChart.on(&#39;legendselectchanged&#39;, function (params) &#123;
+    // 获取点击图例的选中状态
+    var isSelected = params.selected[params.name];
+    // 在控制台中打印
+    console.log((isSelected ? &#39;选中了&#39; : &#39;取消选中了&#39;) + &#39;图例&#39; + params.name);
+    // 打印所有图例的状态
+    console.log(params.selected);
+&#125;);
+</code></pre><h4 id="触发组件行为"><a href="#触发组件行为" class="headerlink" title="触发组件行为"></a>触发组件行为</h4><p>上面我们只说明了用户的交互操作，但有时候我们也会需要在程序里调用方法并触发图表的行为，比如显示 tooltip。</p>
+<p>ECharts 通过 dispatchAction({ type: ‘’ }) 来触发图表行为，统一管理了所有动作，也可以根据需要去记录用户的行为路径。</p>
+<p>以上实例用于轮播饼图中的 tooltip：</p>
+<pre><code class="lang-html">setInterval(function () &#123;
+    var dataLen = option.series[0].data.length;
+    // 取消之前高亮的图形
+    myChart.dispatchAction(&#123;
+        type: &#39;downplay&#39;,
+        seriesIndex: 0,
+        dataIndex: app.currentIndex
+    &#125;);
+    app.currentIndex = (app.currentIndex + 1) % dataLen;
+    // 高亮当前图形
+    myChart.dispatchAction(&#123;
+        type: &#39;highlight&#39;,
+        seriesIndex: 0,
+        dataIndex: app.currentIndex
+    &#125;);
+    // 显示 tooltip
+    myChart.dispatchAction(&#123;
+        type: &#39;showTip&#39;,
+        seriesIndex: 0,
+        dataIndex: app.currentIndex
+    &#125;);
+&#125;, 1000);
+</code></pre>
+<h3 id="旭日图"><a href="#旭日图" class="headerlink" title="旭日图"></a>旭日图</h3><p>旭日图（Sunburst）由多层的环形图组成，在数据结构上，内圈是外圈的父节点。因此，它既能像饼图一样表现局部和整体的占比，又能像矩形树图一样表现层级关系。</p>
+<p>ECharts 创建旭日图很简单，只需要在 series 配置项中声明类型为 <strong>sunburst</strong> 即可，data 数据结构以树形结构声明，看下一个简单的实例：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;ECharts 实例&lt;/title&gt;
+    &lt;!-- 引入 echarts.js --&gt;
+    &lt;script src=&quot;https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 为ECharts准备一个具备大小（宽高）的Dom --&gt;
+    &lt;div id=&quot;main&quot; style=&quot;width: 600px;height:400px;&quot;&gt;&lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById(&#39;main&#39;));
+
+        // 指定图表的配置项和数据
+        var option = &#123;
+            series: &#123;
+                type: &#39;sunburst&#39;,
+                data: [&#123;
+                    name: &#39;A&#39;,
+                    value: 10,
+                    children: [&#123;
+                        value: 3,
+                        name: &#39;Aa&#39;
+                    &#125;, &#123;
+                        value: 5,
+                        name: &#39;Ab&#39;
+                    &#125;]
+                &#125;, &#123;
+                    name: &#39;B&#39;,
+                    children: [&#123;
+                        name: &#39;Ba&#39;,
+                        value: 4
+                    &#125;, &#123;
+                        name: &#39;Bb&#39;,
+                        value: 2
+                    &#125;]
+                &#125;, &#123;
+                    name: &#39;C&#39;,
+                    value: 3
+                &#125;]
+            &#125;
+        &#125;;
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><img src="echarts/image-20221013212851746.png" class="lazyload" data-srcset="echarts/image-20221013212851746.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20221013212851746" style="zoom:50%;" /></p>
+<p>更多详情<a href="https://www.runoob.com/echarts/echarts-sunburst.html">ECharts 旭日图 | 菜鸟教程 (runoob.com)</a></p>
+<p>累了，累了，学习笔记就写到这吧，不懂的去菜鸟教程自学</p>
+</script></strong></p>]]></content>
+      <categories>
+        <category>echarts</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>echarts</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序开发</title>
+    <url>/zh-CN/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://www.w3cschool.cn/weixinapp/">微信小程序开发文档_w3cschool</a></p>
+<p>2.<a href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a></p>
+<p>3.<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/">微信开放文档 (qq.com)</a></p>
+<p>4.<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">微信开发者工具下载地址与更新日志 | 微信开放文档 (qq.com)</a></p>
+]]></content>
+      <categories>
+        <category>开发日记</category>
+      </categories>
+      <tags>
+        <tag>微信小程序</tag>
+      </tags>
+  </entry>
 </search>
