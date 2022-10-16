@@ -1179,6 +1179,7 @@ const VolantisRequest = {
   }
 }
 Object.freeze(VolantisRequest);
+
 $(function () {
   var canvas = $('#fireworks')[0];
   canvas.width = $(window).width();
