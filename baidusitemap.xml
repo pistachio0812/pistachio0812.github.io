@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://pistachio0812.github.io/zh-CN/pth_to_onnx/</loc>
+    <lastmod>2022-10-31</lastmod>
+  </url>
+  <url>
+    <loc>http://pistachio0812.github.io/zh-CN/Fork_github/</loc>
+    <lastmod>2022-10-31</lastmod>
+  </url>
+  <url>
     <loc>http://pistachio0812.github.io/zh-CN/FPS/</loc>
     <lastmod>2022-10-20</lastmod>
   </url>
@@ -242,10 +250,6 @@
   </url>
   <url>
     <loc>http://pistachio0812.github.io/zh-CN/grad-cam/</loc>
-    <lastmod>2022-10-04</lastmod>
-  </url>
-  <url>
-    <loc>http://pistachio0812.github.io/zh-CN/Fork_github/</loc>
     <lastmod>2022-10-04</lastmod>
   </url>
   <url>

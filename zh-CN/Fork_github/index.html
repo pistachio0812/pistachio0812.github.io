@@ -60,7 +60,7 @@
 <meta property="og:image" content="/zh-CN/Fork_github/image-20220502215437444.png">
 <meta property="og:image" content="/zh-CN/Fork_github/image-20220502220838865.png">
 <meta property="article:published_time" content="2022-05-02T13:46:32.496Z">
-<meta property="article:modified_time" content="2022-10-04T13:11:52.290Z">
+<meta property="article:modified_time" content="2022-10-31T01:40:23.867Z">
 <meta property="article:author" content="config.author">
 <meta property="article:tag" content="博客提升">
 <meta property="article:tag" content="fork">
@@ -3731,7 +3731,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1666698502820),
+    lastupdate: new Date(1667200416325),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -5153,16 +5153,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="博客园添加fork"><a href="#博客园添加fork" class="headerlink" title="博客园添加fork"></a>博客园添加fork</h2><h3 id="进入博客园后台"><a href="#进入博客园后台" class="headerlink" title="进入博客园后台"></a>进入博客园后台</h3><p>进入博客园的管理界面，依次点击 <strong>管理 </strong> -&gt; <strong>设置</strong>，进入到设置页面后，将页面拖动到最下面，您会看到：<strong>页首Html代码</strong>一栏</p>
 <p><img src="/zh-CN/Fork_github/image-20220502215437444.png" class="lazyload" data-srcset="/zh-CN/Fork_github/image-20220502215437444.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220502215437444" style="zoom:50%;"></p>
 <h3 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h3><p>在页面Html代码框中输入如下代码：</p>
-<pre><code class="lang-js">&lt;a href="https://github.com/pistachio"&gt;  
+<pre><code>&lt;a href="https://github.com/pistachio"&gt;  
 &lt;img style="position: fixed; top: 0; right: 0; border: 0; z-index:9999;" 
        src="https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png" 
        alt="Fork me on GitHub"&gt;
 &lt;/a&gt;
-</code></pre>
-<p><strong>注意，您需要将 <code>&lt;a href=""&gt;</code> 中的链接换成您自己的 GitHub 主页地址。</strong></p>
+</code></pre><p><strong>注意，您需要将 <code>&lt;a href=""&gt;</code> 中的链接换成您自己的 GitHub 主页地址。</strong></p>
 <p>保存后，随意打开一篇您自己的博客，就可以看见和教程开头展示的效果一样了。大功告成！</p>
 <h3 id="更换彩带颜色"><a href="#更换彩带颜色" class="headerlink" title="更换彩带颜色"></a>更换彩带颜色</h3><p>我上面使用的是红色的彩带，如果您需要更换成其他颜色，只需将 <code>&lt;img&gt;</code> 标签中的 <code>src</code> 地址更换成您想要颜色的地址即可。</p>
-<pre><code class="lang-js"># 绿色
+<pre><code># 绿色
 https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png
 # 黑色
 https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png
@@ -5170,12 +5169,11 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png
 https://github.blog/wp-content/uploads/2008/12/forkme_right_orange_ff7600.png
 # 灰色
 https://github.blog/wp-content/uploads/2008/12/forkme_right_gray_6d6d6d.png
-# 白色
+# 白色  
 https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
-</code></pre>
-<p>从上面挑选一款您喜欢的样式颜色吧！！</p>
+</code></pre><p>从上面挑选一款您喜欢的样式颜色吧！！</p>
 <h2 id="hexo添加fork"><a href="#hexo添加fork" class="headerlink" title="hexo添加fork"></a>hexo添加fork</h2><h3 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h3><p>粘贴复制如下的代码到<code>themes\hexo-theme-next\layout\layout.ejs</code>文件中(放在<code>&lt;div id="l_body"&gt;&lt;/div&gt;</code>的下面 如图)，并把href改为你的csdn主页,换成github同上，记得换上自己的链接。</p>
-<pre><code class="lang-js"># 黑色版本
+<pre><code># 黑色版本
 # 个人认为position属性值改为fixed好一点~
   &lt;!--Follow me on CSDN--&gt;
   &lt;a href="https://blog.csdn.net/qq_38452951"&gt; &lt;img loading="lazy" width="149" height="149" style="position: absolute; top: 0; right: 0; border: 0;" src="https://img-blog.csdnimg.cn/abe3797b7d77419b81ecc02dd1bf8c34.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"&gt;&lt;/a&gt;
@@ -5183,8 +5181,7 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
 # 白色版本
   &lt;!--Follow me on CSDN--&gt;
   &lt;a href="https://blog.csdn.net/qq_38452951"&gt;&lt;img loading="lazy" width="149" height="149" style="position: absolute; top: 0; right: 0; border: 0;" src="https://img-blog.csdnimg.cn/1f8e1ef9be9f4f7db01fe3a2d57829de.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"&gt;&lt;/a&gt;
-</code></pre>
-<p><img src="/zh-CN/Fork_github/image-20220502220838865.png" class="lazyload" data-srcset="/zh-CN/Fork_github/image-20220502220838865.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220502220838865" style="zoom:50%;"></p>
+</code></pre><p><img src="/zh-CN/Fork_github/image-20220502220838865.png" class="lazyload" data-srcset="/zh-CN/Fork_github/image-20220502220838865.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220502220838865" style="zoom:50%;"></p>
 <h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p>详情请见：</p>
 <p>1.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.cnblogs.com/pistachio0812/">追风赶月的少年 - 博客园 (cnblogs.com)</a></p>
 <p>2.<a href="https://pistachio0812.github.io/">相思似海深旧事如天远 (pistachio0812.github.io)</a></p>
@@ -5216,10 +5213,10 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-04T21:11:52+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-31T09:40:23+08:00">
   <a class="notlink">
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年10月4日</p>
+    <p>更新于：2022年10月31日</p>
   </a>
 </div>
 
@@ -6396,7 +6393,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -6623,7 +6620,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/Hexo博客搭建/","name":"Hexo博客搭建"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/Fork_github/","name":"fork me on github"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"fork me on github","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/Fork_github/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/Fork_github/","wordCount":0,"datePublished":"2022-05-02T13:46:32.496Z","dateModified":"2022-10-04T13:11:52.290Z","articleSection":"Hexo博客搭建","keywords":"博客提升,fork","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/Hexo博客搭建/","name":"Hexo博客搭建"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/Fork_github/","name":"fork me on github"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"fork me on github","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/Fork_github/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/Fork_github/","wordCount":0,"datePublished":"2022-05-02T13:46:32.496Z","dateModified":"2022-10-31T01:40:23.867Z","articleSection":"Hexo博客搭建","keywords":"博客提升,fork","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
