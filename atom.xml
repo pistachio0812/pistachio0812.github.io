@@ -6,7 +6,7 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-10-31T03:25:29.398Z</updated>
+  <updated>2022-10-31T07:59:11.786Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SSD300转换到SSD512</title>
+    <link href="http://pistachio0812.github.io/zh-CN/SSD300_to_SSD512/"/>
+    <id>http://pistachio0812.github.io/zh-CN/SSD300_to_SSD512/</id>
+    <published>2022-10-31T07:52:05.818Z</published>
+    <updated>2022-10-31T07:59:11.786Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="学习笔记" scheme="http://pistachio0812.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="目标检测" scheme="http://pistachio0812.github.io/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    <category term="SSD" scheme="http://pistachio0812.github.io/tags/SSD/"/>
+    
+  </entry>
   
   <entry>
     <title>pth权重文件转换为onnx权重文件</title>
@@ -506,31 +533,6 @@
     <category term="可视化" scheme="http://pistachio0812.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
     <category term="zetane" scheme="http://pistachio0812.github.io/tags/zetane/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>matplotlib.use(&#39;agg&#39;)的作用机理</title>
-    <link href="http://pistachio0812.github.io/zh-CN/use_agg/"/>
-    <id>http://pistachio0812.github.io/zh-CN/use_agg/</id>
-    <published>2022-09-17T13:26:58.004Z</published>
-    <updated>2022-10-04T13:31:21.985Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="python" scheme="http://pistachio0812.github.io/categories/python/"/>
-    
-    
-    <category term="matplotlib" scheme="http://pistachio0812.github.io/tags/matplotlib/"/>
     
   </entry>
   

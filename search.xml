@@ -17,9 +17,37 @@
       </tags>
   </entry>
   <entry>
+    <title>CABNet论文笔记</title>
+    <url>/zh-CN/CABNet/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://sci-hub.et-fine.com/10.1109/tcyb.2020.3004636">Sci-Hub | Context-Aware Block Net for Small Object Detection | 10.1109/TCYB.2020.3004636 (et-fine.com)</a></p>
+<p>今天看的这篇论文是吕培教授发表在IEEE TRANS上的<code>Context-Aware Block Net for Small Object Detection</code>,ok,开始进入正文</p>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>CABNet能够捕捉基本的视觉模式，也可以捕捉小物体的语义信息。看到这个，其实我也有点懵，基本的视觉模式是啥，搞不懂，这个得好好查查，还有就是如何捕捉的呢，那得继续看论文喽，毕竟这只是摘要</p>
+<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>文中引入文献，讲了几个近些年提升小目标检测性能的方法，第一种：用高分辨率特征图做预测，这样做是因为这些特征图能保留小目标的细节信息，如下图a所示，作者认为不可取，因为高分辨率特征图包含的上下文信息较少，会影响检测精度。第二种：如下图b所示，带有跳跃连接的自上而下的结构，能够在所有尺度上构建高级语义信息。这些引入了额外的上下文信息给高分辨率特征图，因此，提高了检测精度，然而，作者认为还是不可取，因为在训练和测试的时候计算开销很大，如果网络中使用了下采样，就会丢失小目标的信息，这是不可恢复的。</p>
+<p><img src="/zh-CN/CABNet/image-20220927153422183.png" class="lazyload" data-srcset="/zh-CN/CABNet/image-20220927153422183.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220927153422183"></p>
+<p>有文献指出，对于小目标检测，高分辨率特征图的表征更适合准确定位目标，那为什么不保持更高分辨率的特征图（64×64）来检测小目标呢，如下图所示，主要的原因高分辨率特征图底层的神经元产生的感受野是有限的，也就是说，在特征图上包含的上下文信息也是受到限制的。</p>
+<p><img src="/zh-CN/CABNet/image-20220927154959945.png" class="lazyload" data-srcset="/zh-CN/CABNet/image-20220927154959945.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220927154959945"></p>
+<p>因此，如下图c所示，在CABNet上，只会在骨干网络（文中指VGG16)上下采样几次，目的就是保持小目标的空间信息（未完。。。）</p>
+<p><img src="/zh-CN/CABNet/image-20220927155113203.png" class="lazyload" data-srcset="/zh-CN/CABNet/image-20220927155113203.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220927155113203" style="zoom:80%;"></p>
+<h3 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h3><p>A目标检测</p>
+<p>介绍了很多文献，总结下来就是小目标的检测性能之所以差劲，关键原因就是在一个深的网络里过度下采样了。</p>
+<p>B小目标检测</p>
+<p>由于内容太杂，简单说一下吧，里面介绍了前人的一些工作，比如，有人通过缩小小物体和大物体的表征差异来提升小目标的检测性能；有人通过简单的粘贴复制小目标多次提升性能；有人通过增加输入图片的大小来提升小目标的检测性能。</p>
+<p>C空洞卷积</p>
+<p>使用空洞卷积是能够丰富特征图的语义信息的，文章中提到了RFBNet使用空洞卷积保证了特征的可区分性和鲁棒性，受此启发，CAB通过不同扩张率的金字塔扩张卷积来包含多级上下文信息，如下图所示。</p>
+<p><img src="/zh-CN/CABNet/image-20220927160946040.png" class="lazyload" data-srcset="/zh-CN/CABNet/image-20220927160946040.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220927160946040" style="zoom:80%;"></p>
+<h3 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h3><h4 id="上下文模块"><a href="#上下文模块" class="headerlink" title="上下文模块"></a>上下文模块</h4>]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CNN参数计算</title>
     <url>/zh-CN/CNN%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在CNN的前向传播过程中，我们通常需要参数量，那么参数量的计算又当如何计算呢，不急，听我慢慢道来。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在CNN的<emp>前向传播</emp>过程中，我们通常需要参数量，那么参数量的计算又当如何计算呢，不急，听我慢慢道来。</p>
 <p>实例：</p>
 <p>1.定义一个简单网络</p>
 <pre><code class="lang-python"># 该文件为test.py
@@ -164,34 +192,6 @@ Process finished with exit code 0
       </tags>
   </entry>
   <entry>
-    <title>CABNet论文笔记</title>
-    <url>/zh-CN/CABNet/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://sci-hub.et-fine.com/10.1109/tcyb.2020.3004636">Sci-Hub | Context-Aware Block Net for Small Object Detection | 10.1109/TCYB.2020.3004636 (et-fine.com)</a></p>
-<p>今天看的这篇论文是吕培教授发表在IEEE TRANS上的<code>Context-Aware Block Net for Small Object Detection</code>,ok,开始进入正文</p>
-<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>CABNet能够捕捉基本的视觉模式，也可以捕捉小物体的语义信息。看到这个，其实我也有点懵，基本的视觉模式是啥，搞不懂，这个得好好查查，还有就是如何捕捉的呢，那得继续看论文喽，毕竟这只是摘要</p>
-<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>文中引入文献，讲了几个近些年提升小目标检测性能的方法，第一种：用高分辨率特征图做预测，这样做是因为这些特征图能保留小目标的细节信息，如下图a所示，作者认为不可取，因为高分辨率特征图包含的上下文信息较少，会影响检测精度。第二种：如下图b所示，带有跳跃连接的自上而下的结构，能够在所有尺度上构建高级语义信息。这些引入了额外的上下文信息给高分辨率特征图，因此，提高了检测精度，然而，作者认为还是不可取，因为在训练和测试的时候计算开销很大，如果网络中使用了下采样，就会丢失小目标的信息，这是不可恢复的。</p>
-<p><img src="/zh-CN/CABNet/image-20220927153422183.png" class="lazyload" data-srcset="/zh-CN/CABNet/image-20220927153422183.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220927153422183"></p>
-<p>有文献指出，对于小目标检测，高分辨率特征图的表征更适合准确定位目标，那为什么不保持更高分辨率的特征图（64×64）来检测小目标呢，如下图所示，主要的原因高分辨率特征图底层的神经元产生的感受野是有限的，也就是说，在特征图上包含的上下文信息也是受到限制的。</p>
-<p><img src="/zh-CN/CABNet/image-20220927154959945.png" class="lazyload" data-srcset="/zh-CN/CABNet/image-20220927154959945.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220927154959945"></p>
-<p>因此，如下图c所示，在CABNet上，只会在骨干网络（文中指VGG16)上下采样几次，目的就是保持小目标的空间信息（未完。。。）</p>
-<p><img src="/zh-CN/CABNet/image-20220927155113203.png" class="lazyload" data-srcset="/zh-CN/CABNet/image-20220927155113203.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220927155113203" style="zoom:80%;"></p>
-<h3 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h3><p>A目标检测</p>
-<p>介绍了很多文献，总结下来就是小目标的检测性能之所以差劲，关键原因就是在一个深的网络里过度下采样了。</p>
-<p>B小目标检测</p>
-<p>由于内容太杂，简单说一下吧，里面介绍了前人的一些工作，比如，有人通过缩小小物体和大物体的表征差异来提升小目标的检测性能；有人通过简单的粘贴复制小目标多次提升性能；有人通过增加输入图片的大小来提升小目标的检测性能。</p>
-<p>C空洞卷积</p>
-<p>使用空洞卷积是能够丰富特征图的语义信息的，文章中提到了RFBNet使用空洞卷积保证了特征的可区分性和鲁棒性，受此启发，CAB通过不同扩张率的金字塔扩张卷积来包含多级上下文信息，如下图所示。</p>
-<p><img src="/zh-CN/CABNet/image-20220927160946040.png" class="lazyload" data-srcset="/zh-CN/CABNet/image-20220927160946040.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220927160946040" style="zoom:80%;"></p>
-<h3 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h3><h4 id="上下文模块"><a href="#上下文模块" class="headerlink" title="上下文模块"></a>上下文模块</h4>]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CNN输入与输出的关系</title>
     <url>/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原文链接：<a href="https://www.zhihu.com/question/56688854">卷积神经网络里输入图像大小何时是固定，何时是任意</a></p>
@@ -306,163 +306,6 @@ int main()
       </categories>
       <tags>
         <tag>函数库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>FPS计算</title>
-    <url>/zh-CN/FPS/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://baijiahao.baidu.com/s?id=1714660168795599325&amp;wfr=spider&amp;for=pc">帧率(FPS)计算的几种方法总结 (baidu.com)</a></p>
-<p>帧率(FPS， frame per second)计算是游戏编程中常见的一个话题，因为表现在画面刷新与视觉感官上，所以相对而言，帧率非常影响用户体验。这也是很多大型3D游戏所要提升的重要点，意味着你要不断优化渲染速度与性能，不断提升画面质量。以下是几种计算帧率fps的方法。</p>
-<h3 id="固定时间帧数法"><a href="#固定时间帧数法" class="headerlink" title="固定时间帧数法"></a>固定时间帧数法</h3><p><strong>其实这个方法的核心是1s内刷新了多少帧，完全不考虑其他设备，相对参照来计算帧率，最准的方法也可以叫做dps，即data per second.</strong></p>
-<p>帧率计算公式：</p>
-<pre><code class="lang-python">fps = frame / elapsedTime
-</code></pre>
-<p>如果记录固定时间内的帧数，就可以计算出同步率。此种方法用得较多。</p>
-<p>实现代码如下：</p>
-<pre><code class="lang-c">int fps()
-{
-    static int fps = 0;
-    static int startTime = getTime(); //ms
-    static int frameCount = 0;
-
-    ++frameCount;
-
-    int curTime = getTime();
-    if(curTime - startTime &gt; 1000)//取固定时间为1s
-    {
-        fps = frameCount;
-        frameCount = 0;
-        startTime = curTime;
-    }
-    return fps;
-}
-</code></pre>
-<p>这个固定时间为1s，其实本文的获取方法是精度比较低，也就是没有采用高精度获取时间戳的方法，在一些要求数据比较高的方法中，最好采用高精度获取时间的方法。</p>
-<p>另一种实现方式如下：</p>
-<pre><code class="lang-c">int fps(int deltatime)
-{
-    static int fps = 0;
-    static int timeLeft = 1000; //取固定时间间隔为1s
-    static int frameCount = 0;
-
-    ++frameCount;
-    timeLeft -= deltaTime;
-    if(timeLeft &lt; 0)
-    {
-        fps = frameCount;
-        frameCount = 0; //重新计算
-        timeLeft = 1000;
-    }
-    return fps;
-}
-</code></pre>
-<h3 id="固定帧数时间法"><a href="#固定帧数时间法" class="headerlink" title="固定帧数时间法"></a>固定帧数时间法</h3><p>帧率计算公式为：</p>
-<pre><code class="lang-python">fps = frameNum / elapsedTime
-</code></pre>
-<p>如果每隔固定的帧数，计算帧数使用的时间，也可求出帧率。此种方法使用得较少。这个方法其实已经不能成为实时刷新的，因为帧率最好能够再1s内，如果说固定的帧数计算帧数使用的时间，那么我1s的帧率可能得等到10s后才能采集数据完毕计算出来结果。但是不可置否，这个帧率会比较稳定，变化跳动可能不会那么大。</p>
-<p>实现代码如下：</p>
-<pre><code class="lang-c">int fps()
-{
-    static int fps = 0;
-    static int frameCount = 0;
-    static int startTime = getTime();//ms
-
-    ++frameCount;
-
-    if(frameCount &gt;= 100)//取固定帧数为100帧
-    {
-        int curTime = getTime();
-        fps = frameCount / (curTime - startTime) * 1000;
-        startTime = curTime;
-        frameCount = 0;
-    }
-    return fps;
-}
-</code></pre>
-<h3 id="实时计算法"><a href="#实时计算法" class="headerlink" title="实时计算法"></a>实时计算法</h3><p>实时计算法直接使用上一帧的时间间隔进行计算，结果具有实时性，但平滑性不好。这是刷新最快的，但是很明显这个帧率极其不稳定的，因为帧与帧之间的间隔总是不会那么稳定。</p>
-<p>实现代码如下：</p>
-<pre><code class="lang-c">int fps(int deltaTime)//ms
-{
-    int fps = static_cast&lt;int&gt;(1.f / deltaTime * 1000);
-    //别忘了先转换为浮点数，否则会有精度损失
-    return fps;
-}
-</code></pre>
-<h3 id="总平均法"><a href="#总平均法" class="headerlink" title="总平均法"></a>总平均法</h3><p>总平均法使用全局帧数除以全局时间，以求出帧率。这个刷新就更慢了，这个方法的使用可能是放在一些对帧率这个参数要求没那么高的场景中。</p>
-<p>实现代码如下：</p>
-<pre><code class="lang-c">int startTime = getTime();
-
-int fps()
-{
-    static int frameCount = 0;
-
-    ++frameCount;
-
-    int deltaTime = getTime() - startTime();
-    int fps = static_cast&lt;int&gt;(frameCount * 1.f / deltaTime * 1000);
-    //别忘了先转换为浮点数，否则会有精度损失
-    return fps;
-}
-</code></pre>
-<h3 id="精确采样法"><a href="#精确采样法" class="headerlink" title="精确采样法"></a>精确采样法</h3><p>精确采样法采样前N个帧，然后计算平均值。此种方法需要额外的内存空间，所以不常用。一般而言，大都数实验场景中不会用如此复杂的方法。</p>
-<p>实现代码如下：</p>
-<pre><code class="lang-c">int fps(int deltaTime)//ms
-{
-    static std::queue&lt;int&gt; q;
-    static int sumDuration = 0; //ms
-
-    int fps = 0;
-    if(q.size() &lt; 100)//设置样本数为100
-    {
-        sumDuration += deltaTime;
-        q.push(deltaTime);
-        fps = statci_cast&lt;int&gt;(q.size() * 1.f / sumDuration * 1000.f);
-        //别忘了先转换为浮点数，否则会有精度损失
-    }
-    else
-    {
-        sumDuration -= q.front();
-        sumDuration += deltaTime;
-        sumDuration.pop();
-        sumDuration.push(deltaTime);
-        fps = static_cast&lt;int&gt;(100.f / sumDuration * 1000.f);
-        //别忘了先转换为浮点数，否则会有精度损失
-    }
-    return fps;
-}
-</code></pre>
-<h3 id="平均采样法"><a href="#平均采样法" class="headerlink" title="平均采样法"></a>平均采样法</h3><p>平均采样法利用上次的统计结果，克服了精确采样法需要使用额外空间的缺点。此种方法较常用。</p>
-<p>实现代码如下：</p>
-<pre><code class="lang-c">int fps(int deltaTime)//ms
-{
-    static float avgDuration = 0.f;
-    static alpha = 1.f / 100.f;//采样数设置为100
-    static int frameCount = 0;
-
-    ++frameCount;
-
-    int fps = 0;
-    if(1 == frameCount)
-    {
-        avgDuration = static_cast&lt;float&gt;(deltaTime);
-    }
-    else
-    {
-        avgDuration = avgDuration * (1 - alpha) + deltaTime * alpha;
-    }
-    fps = static_cast&lt;int&gt;(1.f / avgDuration * 1000);
-    return fps;
-}
-</code></pre>
-<p>帧率的计算应该来说不能影响线程，进程中的性能，不要把这部分代码放在你的业务逻辑中，这样子其实又包含了你业务逻辑执行完毕后的运行时间，显得有点臃肿，并且代码不是那么优雅。最好是创建一个线程去计算帧率，这样会显得比较优雅。</p>
-]]></content>
-      <categories>
-        <category>计算机视觉</category>
-      </categories>
-      <tags>
-        <tag>基础概念</tag>
-        <tag>FPS</tag>
       </tags>
   </entry>
   <entry>
@@ -801,6 +644,163 @@ def darknet53():
       </tags>
   </entry>
   <entry>
+    <title>FPS计算</title>
+    <url>/zh-CN/FPS/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://baijiahao.baidu.com/s?id=1714660168795599325&amp;wfr=spider&amp;for=pc">帧率(FPS)计算的几种方法总结 (baidu.com)</a></p>
+<p>帧率(FPS， frame per second)计算是游戏编程中常见的一个话题，因为表现在画面刷新与视觉感官上，所以相对而言，帧率非常影响用户体验。这也是很多大型3D游戏所要提升的重要点，意味着你要不断优化渲染速度与性能，不断提升画面质量。以下是几种计算帧率fps的方法。</p>
+<h3 id="固定时间帧数法"><a href="#固定时间帧数法" class="headerlink" title="固定时间帧数法"></a>固定时间帧数法</h3><p><strong>其实这个方法的核心是1s内刷新了多少帧，完全不考虑其他设备，相对参照来计算帧率，最准的方法也可以叫做dps，即data per second.</strong></p>
+<p>帧率计算公式：</p>
+<pre><code class="lang-python">fps = frame / elapsedTime
+</code></pre>
+<p>如果记录固定时间内的帧数，就可以计算出同步率。此种方法用得较多。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-c">int fps()
+{
+    static int fps = 0;
+    static int startTime = getTime(); //ms
+    static int frameCount = 0;
+
+    ++frameCount;
+
+    int curTime = getTime();
+    if(curTime - startTime &gt; 1000)//取固定时间为1s
+    {
+        fps = frameCount;
+        frameCount = 0;
+        startTime = curTime;
+    }
+    return fps;
+}
+</code></pre>
+<p>这个固定时间为1s，其实本文的获取方法是精度比较低，也就是没有采用高精度获取时间戳的方法，在一些要求数据比较高的方法中，最好采用高精度获取时间的方法。</p>
+<p>另一种实现方式如下：</p>
+<pre><code class="lang-c">int fps(int deltatime)
+{
+    static int fps = 0;
+    static int timeLeft = 1000; //取固定时间间隔为1s
+    static int frameCount = 0;
+
+    ++frameCount;
+    timeLeft -= deltaTime;
+    if(timeLeft &lt; 0)
+    {
+        fps = frameCount;
+        frameCount = 0; //重新计算
+        timeLeft = 1000;
+    }
+    return fps;
+}
+</code></pre>
+<h3 id="固定帧数时间法"><a href="#固定帧数时间法" class="headerlink" title="固定帧数时间法"></a>固定帧数时间法</h3><p>帧率计算公式为：</p>
+<pre><code class="lang-python">fps = frameNum / elapsedTime
+</code></pre>
+<p>如果每隔固定的帧数，计算帧数使用的时间，也可求出帧率。此种方法使用得较少。这个方法其实已经不能成为实时刷新的，因为帧率最好能够再1s内，如果说固定的帧数计算帧数使用的时间，那么我1s的帧率可能得等到10s后才能采集数据完毕计算出来结果。但是不可置否，这个帧率会比较稳定，变化跳动可能不会那么大。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-c">int fps()
+{
+    static int fps = 0;
+    static int frameCount = 0;
+    static int startTime = getTime();//ms
+
+    ++frameCount;
+
+    if(frameCount &gt;= 100)//取固定帧数为100帧
+    {
+        int curTime = getTime();
+        fps = frameCount / (curTime - startTime) * 1000;
+        startTime = curTime;
+        frameCount = 0;
+    }
+    return fps;
+}
+</code></pre>
+<h3 id="实时计算法"><a href="#实时计算法" class="headerlink" title="实时计算法"></a>实时计算法</h3><p>实时计算法直接使用上一帧的时间间隔进行计算，结果具有实时性，但平滑性不好。这是刷新最快的，但是很明显这个帧率极其不稳定的，因为帧与帧之间的间隔总是不会那么稳定。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-c">int fps(int deltaTime)//ms
+{
+    int fps = static_cast&lt;int&gt;(1.f / deltaTime * 1000);
+    //别忘了先转换为浮点数，否则会有精度损失
+    return fps;
+}
+</code></pre>
+<h3 id="总平均法"><a href="#总平均法" class="headerlink" title="总平均法"></a>总平均法</h3><p>总平均法使用全局帧数除以全局时间，以求出帧率。这个刷新就更慢了，这个方法的使用可能是放在一些对帧率这个参数要求没那么高的场景中。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-c">int startTime = getTime();
+
+int fps()
+{
+    static int frameCount = 0;
+
+    ++frameCount;
+
+    int deltaTime = getTime() - startTime();
+    int fps = static_cast&lt;int&gt;(frameCount * 1.f / deltaTime * 1000);
+    //别忘了先转换为浮点数，否则会有精度损失
+    return fps;
+}
+</code></pre>
+<h3 id="精确采样法"><a href="#精确采样法" class="headerlink" title="精确采样法"></a>精确采样法</h3><p>精确采样法采样前N个帧，然后计算平均值。此种方法需要额外的内存空间，所以不常用。一般而言，大都数实验场景中不会用如此复杂的方法。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-c">int fps(int deltaTime)//ms
+{
+    static std::queue&lt;int&gt; q;
+    static int sumDuration = 0; //ms
+
+    int fps = 0;
+    if(q.size() &lt; 100)//设置样本数为100
+    {
+        sumDuration += deltaTime;
+        q.push(deltaTime);
+        fps = statci_cast&lt;int&gt;(q.size() * 1.f / sumDuration * 1000.f);
+        //别忘了先转换为浮点数，否则会有精度损失
+    }
+    else
+    {
+        sumDuration -= q.front();
+        sumDuration += deltaTime;
+        sumDuration.pop();
+        sumDuration.push(deltaTime);
+        fps = static_cast&lt;int&gt;(100.f / sumDuration * 1000.f);
+        //别忘了先转换为浮点数，否则会有精度损失
+    }
+    return fps;
+}
+</code></pre>
+<h3 id="平均采样法"><a href="#平均采样法" class="headerlink" title="平均采样法"></a>平均采样法</h3><p>平均采样法利用上次的统计结果，克服了精确采样法需要使用额外空间的缺点。此种方法较常用。</p>
+<p>实现代码如下：</p>
+<pre><code class="lang-c">int fps(int deltaTime)//ms
+{
+    static float avgDuration = 0.f;
+    static alpha = 1.f / 100.f;//采样数设置为100
+    static int frameCount = 0;
+
+    ++frameCount;
+
+    int fps = 0;
+    if(1 == frameCount)
+    {
+        avgDuration = static_cast&lt;float&gt;(deltaTime);
+    }
+    else
+    {
+        avgDuration = avgDuration * (1 - alpha) + deltaTime * alpha;
+    }
+    fps = static_cast&lt;int&gt;(1.f / avgDuration * 1000);
+    return fps;
+}
+</code></pre>
+<p>帧率的计算应该来说不能影响线程，进程中的性能，不要把这部分代码放在你的业务逻辑中，这样子其实又包含了你业务逻辑执行完毕后的运行时间，显得有点臃肿，并且代码不是那么优雅。最好是创建一个线程去计算帧率，这样会显得比较优雅。</p>
+]]></content>
+      <categories>
+        <category>计算机视觉</category>
+      </categories>
+      <tags>
+        <tag>基础概念</tag>
+        <tag>FPS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>fork me on github</title>
     <url>/zh-CN/Fork_github/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -849,327 +849,6 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
       <tags>
         <tag>博客提升</tag>
         <tag>fork</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>InceptionV3论文笔记</title>
-    <url>/zh-CN/InceptionV3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>论文地址：<a href="https://arxiv.org/pdf/1512.00567.pdf">Inceptionv3 </a></p>
-<p>源码地址：<a href="https://github.com/MasazI/InceptionV3_TensorFlow">InceptionV3_TensorFlow: Inception v3 </a></p>
-<p>文章引用出处1：<a href="https://blog.csdn.net/weixin_44791964/article/details/102802866">https://blog.csdn.net/weixin_44791964/article/details/102802866</a></p>
-<p>文章引用出处2：<a href="https://cloud.tencent.com/developer/article/1006032">InceptionV3 网络模型</a></p>
-<h2 id="InceptionV3模型"><a href="#InceptionV3模型" class="headerlink" title="InceptionV3模型"></a>InceptionV3模型</h2><p>InceptionV3模型是谷歌Inception系列里面的第三代模型，其模型结构与InceptionV2模型放在了同一篇论文里，其实二者模型结构差距不大，相比于其它神经网络模型，Inception网络最大的特点在于将神经网络层与层之间的卷积运算进行了拓展。<br>如VGG，AlexNet网络，它就是一直卷积下来的，一层接着一层；<br>ResNet则是创新性的引入了残差网络的概念，使得靠前若干层的某一层数据输出直接跳过多层引入到后面数据层的输入部分，后面的特征层的内容会有一部分由其前面的某一层线性贡献。<br>而Inception网络则是采用不同大小的卷积核，使得存在不同大小的感受野，最后实现拼接达到不同尺度特征的融合。<br>对于InceptionV3而言，其网络中存在着如下的结构。<br>这个结构使用不同大小的卷积核对输入进行卷积（这个结构主要在代码中的block1使用）。<br><img src="/zh-CN/InceptionV3/2019111309515588.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/2019111309515588.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Inceptionv3_block1"></p>
-<p>还存在着这样的结构，利用1x7的卷积和7x1的卷积代替7x7的卷积，这样可以只使用约（1x7 + 7x1) / (7x7) = 28.6%的计算开销；利用1x3的卷积和3x1的卷积代替3x3的卷积，这样可以只使用约（1x3 + 3x1) / (3x3) = 67%的计算开销。<br>下图利用1x7的卷积和7x1的卷积代替7x7的卷积（这个结构主要在代码中的block2使用）。</p>
-<p><img src="/zh-CN/InceptionV3/20191113095610269.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/20191113095610269.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Inceptionv3_block2"></p>
-<p>下图利用1x3的卷积和3x1的卷积代替3x3的卷积（这个结构主要在代码中的block3使用）。</p>
-<p><img src="/zh-CN/InceptionV3/2019111309572648.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/2019111309572648.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="inceptionv3_block3"></p>
-<h2 id="网络部分实现代码"><a href="#网络部分实现代码" class="headerlink" title="网络部分实现代码"></a>网络部分实现代码</h2><p>一共将InceptionV3划分为3个block，对应着35x35、17x17，8x8维度大小的图像。每个block中间有许多的part，对应着不同的特征层深度，用于特征提取。</p>
-<pre><code class="lang-python">#-------------------------------------------------------------#
-#   InceptionV3的网络部分
-#-------------------------------------------------------------#
-from __future__ import print_function
-from __future__ import absolute_import
-
-import warnings
-import numpy as np
-
-from keras.models import Model
-from keras import layers
-from keras.layers import Activation,Dense,Input,BatchNormalization,Conv2D,MaxPooling2D,AveragePooling2D
-from keras.layers import GlobalAveragePooling2D,GlobalMaxPooling2D
-from keras.engine.topology import get_source_inputs
-from keras.utils.layer_utils import convert_all_kernels_in_model
-from keras.utils.data_utils import get_file
-from keras import backend as K
-from keras.applications.imagenet_utils import decode_predictions
-from keras.preprocessing import image
-
-
-def conv2d_bn(x,
-              filters,
-              num_row,
-              num_col,
-              padding='same',
-              strides=(1, 1),
-              name=None):
-    if name is not None:
-        bn_name = name + '_bn'
-        conv_name = name + '_conv'
-    else:
-        bn_name = None
-        conv_name = None
-    x = Conv2D(
-        filters, (num_row, num_col),
-        strides=strides,
-        padding=padding,
-        use_bias=False,
-        name=conv_name)(x)
-    x = BatchNormalization(scale=False, name=bn_name)(x)
-    x = Activation('relu', name=name)(x)
-    return x
-
-
-def InceptionV3(input_shape=[299,299,3],
-                classes=1000):
-
-
-    img_input = Input(shape=input_shape)
-
-    x = conv2d_bn(img_input, 32, 3, 3, strides=(2, 2), padding='valid')
-    x = conv2d_bn(x, 32, 3, 3, padding='valid')
-    x = conv2d_bn(x, 64, 3, 3)
-    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
-
-    x = conv2d_bn(x, 80, 1, 1, padding='valid')
-    x = conv2d_bn(x, 192, 3, 3, padding='valid')
-    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
-
-    #--------------------------------#
-    #   Block1 35x35
-    #--------------------------------#
-    # Block1 part1
-    # 35 x 35 x 192 -&gt; 35 x 35 x 256
-    branch1x1 = conv2d_bn(x, 64, 1, 1)
-
-    branch5x5 = conv2d_bn(x, 48, 1, 1)
-    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
-
-    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 32, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
-        axis=3,
-        name='mixed0')
-
-    # Block1 part2
-    # 35 x 35 x 256 -&gt; 35 x 35 x 288
-    branch1x1 = conv2d_bn(x, 64, 1, 1)
-
-    branch5x5 = conv2d_bn(x, 48, 1, 1)
-    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
-
-    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
-        axis=3,
-        name='mixed1')
-
-    # Block1 part3
-    # 35 x 35 x 288 -&gt; 35 x 35 x 288
-    branch1x1 = conv2d_bn(x, 64, 1, 1)
-
-    branch5x5 = conv2d_bn(x, 48, 1, 1)
-    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
-
-    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
-        axis=3,
-        name='mixed2')
-
-    #--------------------------------#
-    #   Block2 17x17
-    #--------------------------------#
-    # Block2 part1
-    # 35 x 35 x 288 -&gt; 17 x 17 x 768
-    branch3x3 = conv2d_bn(x, 384, 3, 3, strides=(2, 2), padding='valid')
-
-    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-    branch3x3dbl = conv2d_bn(
-        branch3x3dbl, 96, 3, 3, strides=(2, 2), padding='valid')
-
-    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
-    x = layers.concatenate(
-        [branch3x3, branch3x3dbl, branch_pool], axis=3, name='mixed3')
-
-    # Block2 part2
-    # 17 x 17 x 768 -&gt; 17 x 17 x 768
-    branch1x1 = conv2d_bn(x, 192, 1, 1)
-
-    branch7x7 = conv2d_bn(x, 128, 1, 1)
-    branch7x7 = conv2d_bn(branch7x7, 128, 1, 7)
-    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
-
-    branch7x7dbl = conv2d_bn(x, 128, 1, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 1, 7)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
-        axis=3,
-        name='mixed4')
-
-    # Block2 part3 and part4
-    # 17 x 17 x 768 -&gt; 17 x 17 x 768 -&gt; 17 x 17 x 768
-    for i in range(2):
-        branch1x1 = conv2d_bn(x, 192, 1, 1)
-
-        branch7x7 = conv2d_bn(x, 160, 1, 1)
-        branch7x7 = conv2d_bn(branch7x7, 160, 1, 7)
-        branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
-
-        branch7x7dbl = conv2d_bn(x, 160, 1, 1)
-        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
-        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 1, 7)
-        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
-        branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
-
-        branch_pool = AveragePooling2D(
-            (3, 3), strides=(1, 1), padding='same')(x)
-        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
-        x = layers.concatenate(
-            [branch1x1, branch7x7, branch7x7dbl, branch_pool],
-            axis=3,
-            name='mixed' + str(5 + i))
-
-    # Block2 part5
-    # 17 x 17 x 768 -&gt; 17 x 17 x 768
-    branch1x1 = conv2d_bn(x, 192, 1, 1)
-
-    branch7x7 = conv2d_bn(x, 192, 1, 1)
-    branch7x7 = conv2d_bn(branch7x7, 192, 1, 7)
-    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
-
-    branch7x7dbl = conv2d_bn(x, 192, 1, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
-        axis=3,
-        name='mixed7')
-
-    #--------------------------------#
-    #   Block3 8x8
-    #--------------------------------#
-    # Block3 part1
-    # 17 x 17 x 768 -&gt; 8 x 8 x 1280
-    branch3x3 = conv2d_bn(x, 192, 1, 1)
-    branch3x3 = conv2d_bn(branch3x3, 320, 3, 3,
-                          strides=(2, 2), padding='valid')
-
-    branch7x7x3 = conv2d_bn(x, 192, 1, 1)
-    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 1, 7)
-    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 7, 1)
-    branch7x7x3 = conv2d_bn(
-        branch7x7x3, 192, 3, 3, strides=(2, 2), padding='valid')
-
-    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
-    x = layers.concatenate(
-        [branch3x3, branch7x7x3, branch_pool], axis=3, name='mixed8')
-
-    # Block3 part2 part3
-    # 8 x 8 x 1280 -&gt; 8 x 8 x 2048 -&gt; 8 x 8 x 2048
-    for i in range(2):
-        branch1x1 = conv2d_bn(x, 320, 1, 1)
-
-        branch3x3 = conv2d_bn(x, 384, 1, 1)
-        branch3x3_1 = conv2d_bn(branch3x3, 384, 1, 3)
-        branch3x3_2 = conv2d_bn(branch3x3, 384, 3, 1)
-        branch3x3 = layers.concatenate(
-            [branch3x3_1, branch3x3_2], axis=3, name='mixed9_' + str(i))
-
-        branch3x3dbl = conv2d_bn(x, 448, 1, 1)
-        branch3x3dbl = conv2d_bn(branch3x3dbl, 384, 3, 3)
-        branch3x3dbl_1 = conv2d_bn(branch3x3dbl, 384, 1, 3)
-        branch3x3dbl_2 = conv2d_bn(branch3x3dbl, 384, 3, 1)
-        branch3x3dbl = layers.concatenate(
-            [branch3x3dbl_1, branch3x3dbl_2], axis=3)
-
-        branch_pool = AveragePooling2D(
-            (3, 3), strides=(1, 1), padding='same')(x)
-        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
-        x = layers.concatenate(
-            [branch1x1, branch3x3, branch3x3dbl, branch_pool],
-            axis=3,
-            name='mixed' + str(9 + i))
-    # 平均池化后全连接。
-    x = GlobalAveragePooling2D(name='avg_pool')(x)
-    x = Dense(classes, activation='softmax', name='predictions')(x)
-
-
-    inputs = img_input
-
-    model = Model(inputs, x, name='inception_v3')
-
-    return model
-</code></pre>
-<h2 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h2><p>建立网络后就可以进行预测了，实现代码如下：</p>
-<pre><code class="lang-python">def preprocess_input(x):
-    x /= 255.
-    x -= 0.5
-    x *= 2.
-    return x
-
-
-if __name__ == '__main__':
-    model = InceptionV3()
-
-    model.load_weights("inception_v3_weights_tf_dim_ordering_tf_kernels.h5")
-
-    img_path = 'elephant.jpg'
-    img = image.load_img(img_path, target_size=(299, 299))
-    x = image.img_to_array(img)
-    x = np.expand_dims(x, axis=0)
-
-    x = preprocess_input(x)
-
-    preds = model.predict(x)
-    print('Predicted:', decode_predictions(preds))
-</code></pre>
-<p>预测所需的已经训练好的InceptionV3模型可以在<a href="https://github.com/fchollet/deep-learning-models/releases下载。非常方便。">https://github.com/fchollet/deep-learning-models/releases下载。非常方便。</a><br>预测结果为：</p>
-<pre><code class="lang-markdown">Predicted: [[('n02504458', 'African_elephant', 0.50874853), ('n01871265', 'tusker', 0.19524273), ('n02504013', 'Indian_elephant', 0.1566972), ('n01917289', 'brain_coral', 0.0008956835), ('n01695060', 'Komodo_dragon', 0.0008260256)]]
-</code></pre>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>Inception</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to use Linux</title>
-    <url>/zh-CN/Linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="Linux简介"><a href="#Linux简介" class="headerlink" title="Linux简介"></a>Linux简介</h3><p>UNIX 是一个交互式系统，用于同时处理多进程和多用户同时在线。为什么要说 UNIX，那是因为 Linux 是由 UNIX 发展而来的，UNIX 是由程序员设计，它的主要服务对象也是程序员。Linux 继承了 UNIX 的设计目标。从智能手机到汽车，超级计算机和家用电器，从家用台式机到企业服务器，Linux 操作系统无处不在。</p>
-<p>大多数程序员都喜欢让系统尽量简单，优雅并具有一致性。举个例子，从最底层的角度来讲，一个文件应该只是一个字节集合。为了实现顺序存取、随机存取、按键存取、远程存取只能是妨碍你的工作。相同的，如果命令</p>
-<p>ls A*<br>意味着只列出以 A 为开头的所有文件，那么命令</p>
-<p>rm A<em><br>应该会移除所有以 A 为开头的文件而不是只删除文件名是 A</em> 的文件。这个特性也是最小吃惊原则(principle of least surprise)</p>
-<p>最小吃惊原则一般常用于用户界面和软件设计。它的原型是：该功能或者特征应该符合用户的预期，不应该使用户感到惊讶和震惊。</p>
-<p>一些有经验的程序员通常希望系统具有较强的功能性和灵活性。设计 Linux 的一个基本目标是每个应用程序只做一件事情并把他做好。所以编译器只负责编译的工作，编译器不会产生列表，因为有其他应用比编译器做的更好。</p>
-<p>很多人都不喜欢冗余，为什么在 cp 就能描述清楚你想干什么时候还使用 copy？这完全是在浪费宝贵的 hacking time。为了从文件中提取所有包含字符串 ard 的行，Linux 程序员应该输入</p>
-<p>grep ard f</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Liunx使用教程</tag>
       </tags>
   </entry>
   <entry>
@@ -1537,6 +1216,327 @@ setpencolor [255 0 0]
       <tags>
         <tag>logo</tag>
         <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to use Linux</title>
+    <url>/zh-CN/Linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="Linux简介"><a href="#Linux简介" class="headerlink" title="Linux简介"></a>Linux简介</h3><p>UNIX 是一个交互式系统，用于同时处理多进程和多用户同时在线。为什么要说 UNIX，那是因为 Linux 是由 UNIX 发展而来的，UNIX 是由程序员设计，它的主要服务对象也是程序员。Linux 继承了 UNIX 的设计目标。从智能手机到汽车，超级计算机和家用电器，从家用台式机到企业服务器，Linux 操作系统无处不在。</p>
+<p>大多数程序员都喜欢让系统尽量简单，优雅并具有一致性。举个例子，从最底层的角度来讲，一个文件应该只是一个字节集合。为了实现顺序存取、随机存取、按键存取、远程存取只能是妨碍你的工作。相同的，如果命令</p>
+<p>ls A*<br>意味着只列出以 A 为开头的所有文件，那么命令</p>
+<p>rm A<em><br>应该会移除所有以 A 为开头的文件而不是只删除文件名是 A</em> 的文件。这个特性也是最小吃惊原则(principle of least surprise)</p>
+<p>最小吃惊原则一般常用于用户界面和软件设计。它的原型是：该功能或者特征应该符合用户的预期，不应该使用户感到惊讶和震惊。</p>
+<p>一些有经验的程序员通常希望系统具有较强的功能性和灵活性。设计 Linux 的一个基本目标是每个应用程序只做一件事情并把他做好。所以编译器只负责编译的工作，编译器不会产生列表，因为有其他应用比编译器做的更好。</p>
+<p>很多人都不喜欢冗余，为什么在 cp 就能描述清楚你想干什么时候还使用 copy？这完全是在浪费宝贵的 hacking time。为了从文件中提取所有包含字符串 ard 的行，Linux 程序员应该输入</p>
+<p>grep ard f</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Liunx使用教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>InceptionV3论文笔记</title>
+    <url>/zh-CN/InceptionV3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>论文地址：<a href="https://arxiv.org/pdf/1512.00567.pdf">Inceptionv3 </a></p>
+<p>源码地址：<a href="https://github.com/MasazI/InceptionV3_TensorFlow">InceptionV3_TensorFlow: Inception v3 </a></p>
+<p>文章引用出处1：<a href="https://blog.csdn.net/weixin_44791964/article/details/102802866">https://blog.csdn.net/weixin_44791964/article/details/102802866</a></p>
+<p>文章引用出处2：<a href="https://cloud.tencent.com/developer/article/1006032">InceptionV3 网络模型</a></p>
+<h2 id="InceptionV3模型"><a href="#InceptionV3模型" class="headerlink" title="InceptionV3模型"></a>InceptionV3模型</h2><p>InceptionV3模型是谷歌Inception系列里面的第三代模型，其模型结构与InceptionV2模型放在了同一篇论文里，其实二者模型结构差距不大，相比于其它神经网络模型，Inception网络最大的特点在于将神经网络层与层之间的卷积运算进行了拓展。<br>如VGG，AlexNet网络，它就是一直卷积下来的，一层接着一层；<br>ResNet则是创新性的引入了残差网络的概念，使得靠前若干层的某一层数据输出直接跳过多层引入到后面数据层的输入部分，后面的特征层的内容会有一部分由其前面的某一层线性贡献。<br>而Inception网络则是采用不同大小的卷积核，使得存在不同大小的感受野，最后实现拼接达到不同尺度特征的融合。<br>对于InceptionV3而言，其网络中存在着如下的结构。<br>这个结构使用不同大小的卷积核对输入进行卷积（这个结构主要在代码中的block1使用）。<br><img src="/zh-CN/InceptionV3/2019111309515588.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/2019111309515588.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Inceptionv3_block1"></p>
+<p>还存在着这样的结构，利用1x7的卷积和7x1的卷积代替7x7的卷积，这样可以只使用约（1x7 + 7x1) / (7x7) = 28.6%的计算开销；利用1x3的卷积和3x1的卷积代替3x3的卷积，这样可以只使用约（1x3 + 3x1) / (3x3) = 67%的计算开销。<br>下图利用1x7的卷积和7x1的卷积代替7x7的卷积（这个结构主要在代码中的block2使用）。</p>
+<p><img src="/zh-CN/InceptionV3/20191113095610269.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/20191113095610269.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Inceptionv3_block2"></p>
+<p>下图利用1x3的卷积和3x1的卷积代替3x3的卷积（这个结构主要在代码中的block3使用）。</p>
+<p><img src="/zh-CN/InceptionV3/2019111309572648.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/2019111309572648.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="inceptionv3_block3"></p>
+<h2 id="网络部分实现代码"><a href="#网络部分实现代码" class="headerlink" title="网络部分实现代码"></a>网络部分实现代码</h2><p>一共将InceptionV3划分为3个block，对应着35x35、17x17，8x8维度大小的图像。每个block中间有许多的part，对应着不同的特征层深度，用于特征提取。</p>
+<pre><code class="lang-python">#-------------------------------------------------------------#
+#   InceptionV3的网络部分
+#-------------------------------------------------------------#
+from __future__ import print_function
+from __future__ import absolute_import
+
+import warnings
+import numpy as np
+
+from keras.models import Model
+from keras import layers
+from keras.layers import Activation,Dense,Input,BatchNormalization,Conv2D,MaxPooling2D,AveragePooling2D
+from keras.layers import GlobalAveragePooling2D,GlobalMaxPooling2D
+from keras.engine.topology import get_source_inputs
+from keras.utils.layer_utils import convert_all_kernels_in_model
+from keras.utils.data_utils import get_file
+from keras import backend as K
+from keras.applications.imagenet_utils import decode_predictions
+from keras.preprocessing import image
+
+
+def conv2d_bn(x,
+              filters,
+              num_row,
+              num_col,
+              padding='same',
+              strides=(1, 1),
+              name=None):
+    if name is not None:
+        bn_name = name + '_bn'
+        conv_name = name + '_conv'
+    else:
+        bn_name = None
+        conv_name = None
+    x = Conv2D(
+        filters, (num_row, num_col),
+        strides=strides,
+        padding=padding,
+        use_bias=False,
+        name=conv_name)(x)
+    x = BatchNormalization(scale=False, name=bn_name)(x)
+    x = Activation('relu', name=name)(x)
+    return x
+
+
+def InceptionV3(input_shape=[299,299,3],
+                classes=1000):
+
+
+    img_input = Input(shape=input_shape)
+
+    x = conv2d_bn(img_input, 32, 3, 3, strides=(2, 2), padding='valid')
+    x = conv2d_bn(x, 32, 3, 3, padding='valid')
+    x = conv2d_bn(x, 64, 3, 3)
+    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
+
+    x = conv2d_bn(x, 80, 1, 1, padding='valid')
+    x = conv2d_bn(x, 192, 3, 3, padding='valid')
+    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
+
+    #--------------------------------#
+    #   Block1 35x35
+    #--------------------------------#
+    # Block1 part1
+    # 35 x 35 x 192 -&gt; 35 x 35 x 256
+    branch1x1 = conv2d_bn(x, 64, 1, 1)
+
+    branch5x5 = conv2d_bn(x, 48, 1, 1)
+    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 32, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
+        axis=3,
+        name='mixed0')
+
+    # Block1 part2
+    # 35 x 35 x 256 -&gt; 35 x 35 x 288
+    branch1x1 = conv2d_bn(x, 64, 1, 1)
+
+    branch5x5 = conv2d_bn(x, 48, 1, 1)
+    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
+        axis=3,
+        name='mixed1')
+
+    # Block1 part3
+    # 35 x 35 x 288 -&gt; 35 x 35 x 288
+    branch1x1 = conv2d_bn(x, 64, 1, 1)
+
+    branch5x5 = conv2d_bn(x, 48, 1, 1)
+    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
+        axis=3,
+        name='mixed2')
+
+    #--------------------------------#
+    #   Block2 17x17
+    #--------------------------------#
+    # Block2 part1
+    # 35 x 35 x 288 -&gt; 17 x 17 x 768
+    branch3x3 = conv2d_bn(x, 384, 3, 3, strides=(2, 2), padding='valid')
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(
+        branch3x3dbl, 96, 3, 3, strides=(2, 2), padding='valid')
+
+    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
+    x = layers.concatenate(
+        [branch3x3, branch3x3dbl, branch_pool], axis=3, name='mixed3')
+
+    # Block2 part2
+    # 17 x 17 x 768 -&gt; 17 x 17 x 768
+    branch1x1 = conv2d_bn(x, 192, 1, 1)
+
+    branch7x7 = conv2d_bn(x, 128, 1, 1)
+    branch7x7 = conv2d_bn(branch7x7, 128, 1, 7)
+    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
+
+    branch7x7dbl = conv2d_bn(x, 128, 1, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 1, 7)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
+        axis=3,
+        name='mixed4')
+
+    # Block2 part3 and part4
+    # 17 x 17 x 768 -&gt; 17 x 17 x 768 -&gt; 17 x 17 x 768
+    for i in range(2):
+        branch1x1 = conv2d_bn(x, 192, 1, 1)
+
+        branch7x7 = conv2d_bn(x, 160, 1, 1)
+        branch7x7 = conv2d_bn(branch7x7, 160, 1, 7)
+        branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
+
+        branch7x7dbl = conv2d_bn(x, 160, 1, 1)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 1, 7)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+
+        branch_pool = AveragePooling2D(
+            (3, 3), strides=(1, 1), padding='same')(x)
+        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+        x = layers.concatenate(
+            [branch1x1, branch7x7, branch7x7dbl, branch_pool],
+            axis=3,
+            name='mixed' + str(5 + i))
+
+    # Block2 part5
+    # 17 x 17 x 768 -&gt; 17 x 17 x 768
+    branch1x1 = conv2d_bn(x, 192, 1, 1)
+
+    branch7x7 = conv2d_bn(x, 192, 1, 1)
+    branch7x7 = conv2d_bn(branch7x7, 192, 1, 7)
+    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
+
+    branch7x7dbl = conv2d_bn(x, 192, 1, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
+        axis=3,
+        name='mixed7')
+
+    #--------------------------------#
+    #   Block3 8x8
+    #--------------------------------#
+    # Block3 part1
+    # 17 x 17 x 768 -&gt; 8 x 8 x 1280
+    branch3x3 = conv2d_bn(x, 192, 1, 1)
+    branch3x3 = conv2d_bn(branch3x3, 320, 3, 3,
+                          strides=(2, 2), padding='valid')
+
+    branch7x7x3 = conv2d_bn(x, 192, 1, 1)
+    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 1, 7)
+    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 7, 1)
+    branch7x7x3 = conv2d_bn(
+        branch7x7x3, 192, 3, 3, strides=(2, 2), padding='valid')
+
+    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
+    x = layers.concatenate(
+        [branch3x3, branch7x7x3, branch_pool], axis=3, name='mixed8')
+
+    # Block3 part2 part3
+    # 8 x 8 x 1280 -&gt; 8 x 8 x 2048 -&gt; 8 x 8 x 2048
+    for i in range(2):
+        branch1x1 = conv2d_bn(x, 320, 1, 1)
+
+        branch3x3 = conv2d_bn(x, 384, 1, 1)
+        branch3x3_1 = conv2d_bn(branch3x3, 384, 1, 3)
+        branch3x3_2 = conv2d_bn(branch3x3, 384, 3, 1)
+        branch3x3 = layers.concatenate(
+            [branch3x3_1, branch3x3_2], axis=3, name='mixed9_' + str(i))
+
+        branch3x3dbl = conv2d_bn(x, 448, 1, 1)
+        branch3x3dbl = conv2d_bn(branch3x3dbl, 384, 3, 3)
+        branch3x3dbl_1 = conv2d_bn(branch3x3dbl, 384, 1, 3)
+        branch3x3dbl_2 = conv2d_bn(branch3x3dbl, 384, 3, 1)
+        branch3x3dbl = layers.concatenate(
+            [branch3x3dbl_1, branch3x3dbl_2], axis=3)
+
+        branch_pool = AveragePooling2D(
+            (3, 3), strides=(1, 1), padding='same')(x)
+        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+        x = layers.concatenate(
+            [branch1x1, branch3x3, branch3x3dbl, branch_pool],
+            axis=3,
+            name='mixed' + str(9 + i))
+    # 平均池化后全连接。
+    x = GlobalAveragePooling2D(name='avg_pool')(x)
+    x = Dense(classes, activation='softmax', name='predictions')(x)
+
+
+    inputs = img_input
+
+    model = Model(inputs, x, name='inception_v3')
+
+    return model
+</code></pre>
+<h2 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h2><p>建立网络后就可以进行预测了，实现代码如下：</p>
+<pre><code class="lang-python">def preprocess_input(x):
+    x /= 255.
+    x -= 0.5
+    x *= 2.
+    return x
+
+
+if __name__ == '__main__':
+    model = InceptionV3()
+
+    model.load_weights("inception_v3_weights_tf_dim_ordering_tf_kernels.h5")
+
+    img_path = 'elephant.jpg'
+    img = image.load_img(img_path, target_size=(299, 299))
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+
+    x = preprocess_input(x)
+
+    preds = model.predict(x)
+    print('Predicted:', decode_predictions(preds))
+</code></pre>
+<p>预测所需的已经训练好的InceptionV3模型可以在<a href="https://github.com/fchollet/deep-learning-models/releases下载。非常方便。">https://github.com/fchollet/deep-learning-models/releases下载。非常方便。</a><br>预测结果为：</p>
+<pre><code class="lang-markdown">Predicted: [[('n02504458', 'African_elephant', 0.50874853), ('n01871265', 'tusker', 0.19524273), ('n02504013', 'Indian_elephant', 0.1566972), ('n01917289', 'brain_coral', 0.0008956835), ('n01695060', 'Komodo_dragon', 0.0008260256)]]
+</code></pre>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
+        <tag>Inception</tag>
       </tags>
   </entry>
   <entry>
@@ -3165,6 +3165,21 @@ plt.show()
       </tags>
   </entry>
   <entry>
+    <title>RFBNet论文笔记</title>
+    <url>/zh-CN/RFBNet/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://openaccess.thecvf.com/content_ECCV_2018/papers/Songtao_Liu_Receptive_Field_Block_ECCV_2018_paper.pdf">Receptive Field Block Net for Accurate and Fast Object Detection (thecvf.com)</a></p>
+<p>代码地址：<a href="https://github.com/ruinmessi/RFBNet">https://github.com/ruinmessi/RFBNet</a></p>
+<h4 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h4><p>RFB模块是怎么考虑感受野尺寸和离心率之间的关系的？</p>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
+        <tag>RFBNet</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL学习笔记</title>
     <url>/zh-CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="MySQL入门教程"><a href="#MySQL入门教程" class="headerlink" title="MySQL入门教程"></a>MySQL入门教程</h2><h3 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h3><p>数据库是按照数据结构来组织、存储和管理数据的仓库</p>
@@ -4138,21 +4153,6 @@ ERROR 1146: Table 'W3CSCHOOL.SalesSummary' doesn't exist
       </tags>
   </entry>
   <entry>
-    <title>RFBNet论文笔记</title>
-    <url>/zh-CN/RFBNet/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://openaccess.thecvf.com/content_ECCV_2018/papers/Songtao_Liu_Receptive_Field_Block_ECCV_2018_paper.pdf">Receptive Field Block Net for Accurate and Fast Object Detection (thecvf.com)</a></p>
-<p>代码地址：<a href="https://github.com/ruinmessi/RFBNet">https://github.com/ruinmessi/RFBNet</a></p>
-<h4 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h4><p>RFB模块是怎么考虑感受野尺寸和离心率之间的关系的？</p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>RFBNet</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>react学习笔记</title>
     <url>/zh-CN/React/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="react特点"><a href="#react特点" class="headerlink" title="react特点"></a>react特点</h3><ul>
@@ -4377,6 +4377,254 @@ def resnet50(pretrained = False):
       <tags>
         <tag>论文笔记</tag>
         <tag>resnet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SSD300转换到SSD512</title>
+    <url>/zh-CN/SSD300_to_SSD512/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://gitcode.net/mirrors/bubbliiiing/ssd-pytorch">mirrors / bubbliiiing / ssd-pytorch · GitCode</a></p>
+<p>2.<a href="https://github.com/midasklr/SSD.Pytorch">https://github.com/midasklr/SSD.Pytorch</a></p>
+<p>由于我使用的第一篇参考链接里的代码，只有SSD300，而我又想升级改造成SSD512，因此找了一些参考，比如第二个链接，现在，让我们尝试着改造它吧。</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>目标检测</tag>
+        <tag>SSD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SSD损失函数详解</title>
+    <url>/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://www.freesion.com/article/9127332548/">目标识别：SSD pytorch代码学习笔记</a></p>
+<p>2.<a href="https://linkspringer.53yu.com/content/pdf/10.1007/978-3-319-46448-0_2.pdf">SSD论文</a></p>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>SSD损失函数包括两部分：位置损失函数<script type="math/tex">L_{loc}</script>和置信度损失函数<script type="math/tex">L_{conf}</script></p>
+<p>整个损失函数为：</p>
+<p><img src="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/image-20220506200608617.png" class="lazyload" data-srcset="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/image-20220506200608617.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220506200608617" style="zoom:80%;"></p>
+<p>说明：</p>
+<p>·N是先验框的正样本数量</p>
+<p>·c是类别置信度预测值</p>
+<p>·l为先验框所对应边界框的位置预测值</p>
+<p>·g为ground truth的位置参数</p>
+<h4 id="位置损失函数"><a href="#位置损失函数" class="headerlink" title="位置损失函数"></a>位置损失函数</h4><p>针对所有正样本，采用Smooth L1损失，位置信息都是编码之后的信息。</p>
+<p><img src="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/390ed4e1f5fc0a137b65dea937b907a5.png" class="lazyload" data-srcset="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/390ed4e1f5fc0a137b65dea937b907a5.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>代码如下：</p>
+<pre><code class="lang-python">    def _l1_smooth_loss(self, y_true, y_pred):
+        abs_loss = torch.abs(y_true - y_pred)
+        sq_loss = 0.5 * (y_true - y_pred)**2
+        l1_loss = torch.where(abs_loss &lt; 1.0, sq_loss, abs_loss - 0.5)
+        return torch.sum(l1_loss, -1)
+</code></pre>
+<h4 id="置信度损失函数"><a href="#置信度损失函数" class="headerlink" title="置信度损失函数"></a>置信度损失函数</h4><p>首先需要使用 <strong>hard negative mining</strong> 将正负样本按照 <strong>1:3</strong> 的比例把负样本抽样出来，抽样的方法是：</p>
+<p><strong>思想</strong>： 针对所有batch的confidence，按照置信度误差进行降序排列，取出前<strong>top_k</strong>个负样本。</p>
+<p>编程:</p>
+<p>·reshape所有batch中的conf</p>
+<p><code>batch_conf = conf_data.view(-1, self.num_classes)</code></p>
+<p>·置信度误差越大，实际上就是预测背景的置信度越小</p>
+<p>·把所有置信度进行log_softmax处理（均为负值），预测的置信度越小，则log_softmax越小，取绝对值，则|log_softmax|越大，降序排列后，取前top_k的负样本。</p>
+<p>softmax代码如下：</p>
+<pre><code class="lang-python">    def _softmax_loss(self, y_true, y_pred):
+        y_pred = torch.clamp(y_pred, min=1e-7)
+        softmax_loss = -torch.sum(y_true * torch.log(y_pred),
+                                  axis=-1)
+        return softmax_loss
+</code></pre>
+<h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h4><pre><code class="lang-python">import math
+from functools import partial
+
+import torch
+import torch.nn as nn
+
+
+class MultiboxLoss(nn.Module):
+    def __init__(self, num_classes, alpha=1.0, neg_pos_ratio=3.0,
+                 background_label_id=0, negatives_for_hard=100.0):
+        self.num_classes = num_classes
+        self.alpha = alpha
+        self.neg_pos_ratio = neg_pos_ratio
+        if background_label_id != 0:
+            raise Exception('Only 0 as background label id is supported')
+        self.background_label_id = background_label_id
+        self.negatives_for_hard = torch.FloatTensor([negatives_for_hard])[0]
+
+    def _l1_smooth_loss(self, y_true, y_pred):
+        abs_loss = torch.abs(y_true - y_pred)
+        sq_loss = 0.5 * (y_true - y_pred)**2
+        l1_loss = torch.where(abs_loss &lt; 1.0, sq_loss, abs_loss - 0.5)
+        return torch.sum(l1_loss, -1)
+
+    def _softmax_loss(self, y_true, y_pred):
+        y_pred = torch.clamp(y_pred, min=1e-7)
+        softmax_loss = -torch.sum(y_true * torch.log(y_pred),
+                                  axis=-1)
+        return softmax_loss
+
+    def forward(self, y_true, y_pred):
+        # --------------------------------------------- #
+        #   y_true batch_size, 8732, 4 + self.num_classes + 1
+        #   y_pred batch_size, 8732, 4 + self.num_classes
+        # --------------------------------------------- #
+        num_boxes = y_true.size()[1]
+        y_pred = torch.cat([y_pred[0], nn.Softmax(-1)(y_pred[1])], dim=-1)
+
+        # --------------------------------------------- #
+        #   分类的loss
+        #   batch_size,8732,21 -&gt; batch_size,8732
+        # --------------------------------------------- #
+        conf_loss = self._softmax_loss(y_true[:, :, 4:-1], y_pred[:, :, 4:])
+
+        # --------------------------------------------- #
+        #   框的位置的loss
+        #   batch_size,8732,4 -&gt; batch_size,8732
+        # --------------------------------------------- #
+        loc_loss = self._l1_smooth_loss(y_true[:, :, :4],
+                                        y_pred[:, :, :4])
+
+        # --------------------------------------------- #
+        #   获取所有的正标签的loss
+        # --------------------------------------------- #
+        pos_loc_loss = torch.sum(loc_loss * y_true[:, :, -1],
+                                 axis=1)
+        pos_conf_loss = torch.sum(conf_loss * y_true[:, :, -1],
+                                  axis=1)
+
+        # --------------------------------------------- #
+        #   每一张图的正样本的个数
+        #   num_pos     [batch_size,]
+        # --------------------------------------------- #
+        num_pos = torch.sum(y_true[:, :, -1], axis=-1)
+
+        # --------------------------------------------- #
+        #   每一张图的负样本的个数
+        #   num_neg     [batch_size,]
+        # --------------------------------------------- #
+        num_neg = torch.min(self.neg_pos_ratio * num_pos, num_boxes - num_pos)
+        # 找到了哪些值是大于0的
+        pos_num_neg_mask = num_neg &gt; 0
+        # --------------------------------------------- #
+        #   如果所有的图，正样本的数量均为0
+        #   那么则默认选取100个先验框作为负样本
+        # --------------------------------------------- #
+        has_min = torch.sum(pos_num_neg_mask)
+
+        # --------------------------------------------- #
+        #   从这里往后，与视频中看到的代码有些许不同。
+        #   由于以前的负样本选取方式存在一些问题，
+        #   我对该部分代码进行重构。
+        #   求整个batch应该的负样本数量总和
+        # --------------------------------------------- #
+        num_neg_batch = torch.sum(
+            num_neg) if has_min &gt; 0 else self.negatives_for_hard
+
+        # --------------------------------------------- #
+        #   对预测结果进行判断，如果该先验框没有包含物体
+        #   那么它的不属于背景的预测概率过大的话
+        #   就是难分类样本
+        # --------------------------------------------- #
+        confs_start = 4 + self.background_label_id + 1
+        confs_end = confs_start + self.num_classes - 1
+
+        # --------------------------------------------- #
+        #   batch_size,8732
+        #   把不是背景的概率求和，求和后的概率越大
+        #   代表越难分类。
+        # --------------------------------------------- #
+        max_confs = torch.sum(y_pred[:, :, confs_start:confs_end], dim=2)
+
+        # --------------------------------------------------- #
+        #   只有没有包含物体的先验框才得到保留
+        #   我们在整个batch里面选取最难分类的num_neg_batch个
+        #   先验框作为负样本。
+        # --------------------------------------------------- #
+        max_confs = (max_confs * (1 - y_true[:, :, -1])).view([-1])
+
+        _, indices = torch.topk(max_confs, k=int(
+            num_neg_batch.cpu().numpy().tolist()))
+
+        neg_conf_loss = torch.gather(conf_loss.view([-1]), 0, indices)
+
+        # 进行归一化
+        num_pos = torch.where(num_pos != 0, num_pos, torch.ones_like(num_pos))
+        total_loss = torch.sum(
+            pos_conf_loss) + torch.sum(neg_conf_loss) + torch.sum(self.alpha * pos_loc_loss)
+        total_loss = total_loss / torch.sum(num_pos)
+        return total_loss
+
+
+def weights_init(net, init_type='normal', init_gain=0.02):
+    def init_func(m):
+        classname = m.__class__.__name__
+        if hasattr(m, 'weight') and classname.find('Conv') != -1:
+            if init_type == 'normal':
+                torch.nn.init.normal_(m.weight.data, 0.0, init_gain)
+            elif init_type == 'xavier':
+                torch.nn.init.xavier_normal_(m.weight.data, gain=init_gain)
+            elif init_type == 'kaiming':
+                torch.nn.init.kaiming_normal_(
+                    m.weight.data, a=0, mode='fan_in')
+            elif init_type == 'orthogonal':
+                torch.nn.init.orthogonal_(m.weight.data, gain=init_gain)
+            else:
+                raise NotImplementedError(
+                    'initialization method [%s] is not implemented' % init_type)
+        elif classname.find('BatchNorm2d') != -1:
+            torch.nn.init.normal_(m.weight.data, 1.0, 0.02)
+            torch.nn.init.constant_(m.bias.data, 0.0)
+    print('initialize network with %s type' % init_type)
+    net.apply(init_func)
+
+
+def get_lr_scheduler(lr_decay_type, lr, min_lr, total_iters, warmup_iters_ratio=0.1, warmup_lr_ratio=0.1, no_aug_iter_ratio=0.3, step_num=10):
+    def yolox_warm_cos_lr(lr, min_lr, total_iters, warmup_total_iters, warmup_lr_start, no_aug_iter, iters):
+        if iters &lt;= warmup_total_iters:
+            # lr = (lr - warmup_lr_start) * iters / float(warmup_total_iters) + warmup_lr_start
+            lr = (lr - warmup_lr_start) * pow(iters /
+                                              float(warmup_total_iters), 2) + warmup_lr_start
+        elif iters &gt;= total_iters - no_aug_iter:
+            lr = min_lr
+        else:
+            lr = min_lr + 0.5 * (lr - min_lr) * (
+                1.0 + math.cos(math.pi * (iters - warmup_total_iters) /
+                               (total_iters - warmup_total_iters - no_aug_iter))
+            )
+        return lr
+
+    def step_lr(lr, decay_rate, step_size, iters):
+        if step_size &lt; 1:
+            raise ValueError("step_size must above 1.")
+        n = iters // step_size
+        out_lr = lr * decay_rate ** n
+        return out_lr
+
+    if lr_decay_type == "cos":
+        warmup_total_iters = min(max(warmup_iters_ratio * total_iters, 1), 3)
+        warmup_lr_start = max(warmup_lr_ratio * lr, 1e-6)
+        no_aug_iter = min(max(no_aug_iter_ratio * total_iters, 1), 15)
+        func = partial(yolox_warm_cos_lr, lr, min_lr, total_iters,
+                       warmup_total_iters, warmup_lr_start, no_aug_iter)
+    else:
+        decay_rate = (min_lr / lr) ** (1 / (step_num - 1))
+        step_size = total_iters / step_num
+        func = partial(step_lr, lr, decay_rate, step_size)
+
+    return func
+
+
+def set_optimizer_lr(optimizer, lr_scheduler_func, epoch):
+    lr = lr_scheduler_func(epoch)
+    for param_group in optimizer.param_groups:
+        param_group['lr'] = lr
+</code></pre>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>SSD</tag>
+        <tag>损失函数</tag>
       </tags>
   </entry>
   <entry>
@@ -5231,238 +5479,6 @@ def encode_bbox(assigned_annotations, positive_indices, anchor_widths, anchor_he
       <tags>
         <tag>论文笔记</tag>
         <tag>retinanet</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SSD损失函数详解</title>
-    <url>/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://www.freesion.com/article/9127332548/">目标识别：SSD pytorch代码学习笔记</a></p>
-<p>2.<a href="https://linkspringer.53yu.com/content/pdf/10.1007/978-3-319-46448-0_2.pdf">SSD论文</a></p>
-<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>SSD损失函数包括两部分：位置损失函数<script type="math/tex">L_{loc}</script>和置信度损失函数<script type="math/tex">L_{conf}</script></p>
-<p>整个损失函数为：</p>
-<p><img src="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/image-20220506200608617.png" class="lazyload" data-srcset="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/image-20220506200608617.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220506200608617" style="zoom:80%;"></p>
-<p>说明：</p>
-<p>·N是先验框的正样本数量</p>
-<p>·c是类别置信度预测值</p>
-<p>·l为先验框所对应边界框的位置预测值</p>
-<p>·g为ground truth的位置参数</p>
-<h4 id="位置损失函数"><a href="#位置损失函数" class="headerlink" title="位置损失函数"></a>位置损失函数</h4><p>针对所有正样本，采用Smooth L1损失，位置信息都是编码之后的信息。</p>
-<p><img src="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/390ed4e1f5fc0a137b65dea937b907a5.png" class="lazyload" data-srcset="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/390ed4e1f5fc0a137b65dea937b907a5.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="在这里插入图片描述" style="zoom:50%;"></p>
-<p>代码如下：</p>
-<pre><code class="lang-python">    def _l1_smooth_loss(self, y_true, y_pred):
-        abs_loss = torch.abs(y_true - y_pred)
-        sq_loss = 0.5 * (y_true - y_pred)**2
-        l1_loss = torch.where(abs_loss &lt; 1.0, sq_loss, abs_loss - 0.5)
-        return torch.sum(l1_loss, -1)
-</code></pre>
-<h4 id="置信度损失函数"><a href="#置信度损失函数" class="headerlink" title="置信度损失函数"></a>置信度损失函数</h4><p>首先需要使用 <strong>hard negative mining</strong> 将正负样本按照 <strong>1:3</strong> 的比例把负样本抽样出来，抽样的方法是：</p>
-<p><strong>思想</strong>： 针对所有batch的confidence，按照置信度误差进行降序排列，取出前<strong>top_k</strong>个负样本。</p>
-<p>编程:</p>
-<p>·reshape所有batch中的conf</p>
-<p><code>batch_conf = conf_data.view(-1, self.num_classes)</code></p>
-<p>·置信度误差越大，实际上就是预测背景的置信度越小</p>
-<p>·把所有置信度进行log_softmax处理（均为负值），预测的置信度越小，则log_softmax越小，取绝对值，则|log_softmax|越大，降序排列后，取前top_k的负样本。</p>
-<p>softmax代码如下：</p>
-<pre><code class="lang-python">    def _softmax_loss(self, y_true, y_pred):
-        y_pred = torch.clamp(y_pred, min=1e-7)
-        softmax_loss = -torch.sum(y_true * torch.log(y_pred),
-                                  axis=-1)
-        return softmax_loss
-</code></pre>
-<h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h4><pre><code class="lang-python">import math
-from functools import partial
-
-import torch
-import torch.nn as nn
-
-
-class MultiboxLoss(nn.Module):
-    def __init__(self, num_classes, alpha=1.0, neg_pos_ratio=3.0,
-                 background_label_id=0, negatives_for_hard=100.0):
-        self.num_classes = num_classes
-        self.alpha = alpha
-        self.neg_pos_ratio = neg_pos_ratio
-        if background_label_id != 0:
-            raise Exception('Only 0 as background label id is supported')
-        self.background_label_id = background_label_id
-        self.negatives_for_hard = torch.FloatTensor([negatives_for_hard])[0]
-
-    def _l1_smooth_loss(self, y_true, y_pred):
-        abs_loss = torch.abs(y_true - y_pred)
-        sq_loss = 0.5 * (y_true - y_pred)**2
-        l1_loss = torch.where(abs_loss &lt; 1.0, sq_loss, abs_loss - 0.5)
-        return torch.sum(l1_loss, -1)
-
-    def _softmax_loss(self, y_true, y_pred):
-        y_pred = torch.clamp(y_pred, min=1e-7)
-        softmax_loss = -torch.sum(y_true * torch.log(y_pred),
-                                  axis=-1)
-        return softmax_loss
-
-    def forward(self, y_true, y_pred):
-        # --------------------------------------------- #
-        #   y_true batch_size, 8732, 4 + self.num_classes + 1
-        #   y_pred batch_size, 8732, 4 + self.num_classes
-        # --------------------------------------------- #
-        num_boxes = y_true.size()[1]
-        y_pred = torch.cat([y_pred[0], nn.Softmax(-1)(y_pred[1])], dim=-1)
-
-        # --------------------------------------------- #
-        #   分类的loss
-        #   batch_size,8732,21 -&gt; batch_size,8732
-        # --------------------------------------------- #
-        conf_loss = self._softmax_loss(y_true[:, :, 4:-1], y_pred[:, :, 4:])
-
-        # --------------------------------------------- #
-        #   框的位置的loss
-        #   batch_size,8732,4 -&gt; batch_size,8732
-        # --------------------------------------------- #
-        loc_loss = self._l1_smooth_loss(y_true[:, :, :4],
-                                        y_pred[:, :, :4])
-
-        # --------------------------------------------- #
-        #   获取所有的正标签的loss
-        # --------------------------------------------- #
-        pos_loc_loss = torch.sum(loc_loss * y_true[:, :, -1],
-                                 axis=1)
-        pos_conf_loss = torch.sum(conf_loss * y_true[:, :, -1],
-                                  axis=1)
-
-        # --------------------------------------------- #
-        #   每一张图的正样本的个数
-        #   num_pos     [batch_size,]
-        # --------------------------------------------- #
-        num_pos = torch.sum(y_true[:, :, -1], axis=-1)
-
-        # --------------------------------------------- #
-        #   每一张图的负样本的个数
-        #   num_neg     [batch_size,]
-        # --------------------------------------------- #
-        num_neg = torch.min(self.neg_pos_ratio * num_pos, num_boxes - num_pos)
-        # 找到了哪些值是大于0的
-        pos_num_neg_mask = num_neg &gt; 0
-        # --------------------------------------------- #
-        #   如果所有的图，正样本的数量均为0
-        #   那么则默认选取100个先验框作为负样本
-        # --------------------------------------------- #
-        has_min = torch.sum(pos_num_neg_mask)
-
-        # --------------------------------------------- #
-        #   从这里往后，与视频中看到的代码有些许不同。
-        #   由于以前的负样本选取方式存在一些问题，
-        #   我对该部分代码进行重构。
-        #   求整个batch应该的负样本数量总和
-        # --------------------------------------------- #
-        num_neg_batch = torch.sum(
-            num_neg) if has_min &gt; 0 else self.negatives_for_hard
-
-        # --------------------------------------------- #
-        #   对预测结果进行判断，如果该先验框没有包含物体
-        #   那么它的不属于背景的预测概率过大的话
-        #   就是难分类样本
-        # --------------------------------------------- #
-        confs_start = 4 + self.background_label_id + 1
-        confs_end = confs_start + self.num_classes - 1
-
-        # --------------------------------------------- #
-        #   batch_size,8732
-        #   把不是背景的概率求和，求和后的概率越大
-        #   代表越难分类。
-        # --------------------------------------------- #
-        max_confs = torch.sum(y_pred[:, :, confs_start:confs_end], dim=2)
-
-        # --------------------------------------------------- #
-        #   只有没有包含物体的先验框才得到保留
-        #   我们在整个batch里面选取最难分类的num_neg_batch个
-        #   先验框作为负样本。
-        # --------------------------------------------------- #
-        max_confs = (max_confs * (1 - y_true[:, :, -1])).view([-1])
-
-        _, indices = torch.topk(max_confs, k=int(
-            num_neg_batch.cpu().numpy().tolist()))
-
-        neg_conf_loss = torch.gather(conf_loss.view([-1]), 0, indices)
-
-        # 进行归一化
-        num_pos = torch.where(num_pos != 0, num_pos, torch.ones_like(num_pos))
-        total_loss = torch.sum(
-            pos_conf_loss) + torch.sum(neg_conf_loss) + torch.sum(self.alpha * pos_loc_loss)
-        total_loss = total_loss / torch.sum(num_pos)
-        return total_loss
-
-
-def weights_init(net, init_type='normal', init_gain=0.02):
-    def init_func(m):
-        classname = m.__class__.__name__
-        if hasattr(m, 'weight') and classname.find('Conv') != -1:
-            if init_type == 'normal':
-                torch.nn.init.normal_(m.weight.data, 0.0, init_gain)
-            elif init_type == 'xavier':
-                torch.nn.init.xavier_normal_(m.weight.data, gain=init_gain)
-            elif init_type == 'kaiming':
-                torch.nn.init.kaiming_normal_(
-                    m.weight.data, a=0, mode='fan_in')
-            elif init_type == 'orthogonal':
-                torch.nn.init.orthogonal_(m.weight.data, gain=init_gain)
-            else:
-                raise NotImplementedError(
-                    'initialization method [%s] is not implemented' % init_type)
-        elif classname.find('BatchNorm2d') != -1:
-            torch.nn.init.normal_(m.weight.data, 1.0, 0.02)
-            torch.nn.init.constant_(m.bias.data, 0.0)
-    print('initialize network with %s type' % init_type)
-    net.apply(init_func)
-
-
-def get_lr_scheduler(lr_decay_type, lr, min_lr, total_iters, warmup_iters_ratio=0.1, warmup_lr_ratio=0.1, no_aug_iter_ratio=0.3, step_num=10):
-    def yolox_warm_cos_lr(lr, min_lr, total_iters, warmup_total_iters, warmup_lr_start, no_aug_iter, iters):
-        if iters &lt;= warmup_total_iters:
-            # lr = (lr - warmup_lr_start) * iters / float(warmup_total_iters) + warmup_lr_start
-            lr = (lr - warmup_lr_start) * pow(iters /
-                                              float(warmup_total_iters), 2) + warmup_lr_start
-        elif iters &gt;= total_iters - no_aug_iter:
-            lr = min_lr
-        else:
-            lr = min_lr + 0.5 * (lr - min_lr) * (
-                1.0 + math.cos(math.pi * (iters - warmup_total_iters) /
-                               (total_iters - warmup_total_iters - no_aug_iter))
-            )
-        return lr
-
-    def step_lr(lr, decay_rate, step_size, iters):
-        if step_size &lt; 1:
-            raise ValueError("step_size must above 1.")
-        n = iters // step_size
-        out_lr = lr * decay_rate ** n
-        return out_lr
-
-    if lr_decay_type == "cos":
-        warmup_total_iters = min(max(warmup_iters_ratio * total_iters, 1), 3)
-        warmup_lr_start = max(warmup_lr_ratio * lr, 1e-6)
-        no_aug_iter = min(max(no_aug_iter_ratio * total_iters, 1), 15)
-        func = partial(yolox_warm_cos_lr, lr, min_lr, total_iters,
-                       warmup_total_iters, warmup_lr_start, no_aug_iter)
-    else:
-        decay_rate = (min_lr / lr) ** (1 / (step_num - 1))
-        step_size = total_iters / step_num
-        func = partial(step_lr, lr, decay_rate, step_size)
-
-    return func
-
-
-def set_optimizer_lr(optimizer, lr_scheduler_func, epoch):
-    lr = lr_scheduler_func(epoch)
-    for param_group in optimizer.param_groups:
-        param_group['lr'] = lr
-</code></pre>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>SSD</tag>
-        <tag>损失函数</tag>
       </tags>
   </entry>
   <entry>
@@ -7992,249 +8008,6 @@ x.transpose(0, 1).contiguous().is_contiguous() # True
       </tags>
   </entry>
   <entry>
-    <title>github使用指南</title>
-    <url>/zh-CN/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h4><p>1.安装git OSX版</p>
-<p>下载地址：<a href="http://git-scm.com/download/mac">http://git-scm.com/download/mac</a></p>
-<p>2.安装git Windows版</p>
-<p>下载地址：<a href="http://book.git-scm.com/download/win">http://book.git-scm.com/download/win</a></p>
-<p>3.安装git Linux版</p>
-<p>下载地址：<a href="http://book.git-scm.com/download/linux">http://book.git-scm.com/download/linux</a></p>
-<h4 id="创建新仓库"><a href="#创建新仓库" class="headerlink" title="创建新仓库"></a>创建新仓库</h4><p>创建新文件夹，打开，然后执行<code>git init</code>以创建新的git仓库</p>
-<h4 id="检出仓库"><a href="#检出仓库" class="headerlink" title="检出仓库"></a>检出仓库</h4><p>执行如下命令以创建一个本地仓库的克隆版本：</p>
-<p><code>git clone /path/to/repository</code></p>
-<p>如果是远端服务器上的仓库，则使用如下命令：</p>
-<p><code>git clone username@host:/path/to/repository</code></p>
-<h4 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h4><p>你的本地仓库由git维护的三棵“树”组成。第一个是你的<strong>工作目录</strong>，它持有实际文件；第二个是<strong>暂存区（index)</strong>,它像个缓存区域，临时保存你的改动；最后是<strong>HEAD</strong>,它指向你最后一次提交的结果。</p>
-<h4 id="添加和提交"><a href="#添加和提交" class="headerlink" title="添加和提交"></a>添加和提交</h4><p>你可以提出更改（把它们添加到暂存区），使用如下命令：</p>
-<p><code>git add &lt;filename&gt;</code></p>
-<p><code>git add *</code></p>
-<p>这是git基本工作流程的第一步；使用如下命令以实际提交改动：</p>
-<p><code>git commit -m "代码提交信息"</code></p>
-<p>现在，你的改动已经提交到了HEAD,但是还没到你的远端仓库。</p>
-<h4 id="推送改动"><a href="#推送改动" class="headerlink" title="推送改动"></a>推送改动</h4><p>你的改动现在已经在本地仓库的HEAD中了。执行如下命令以将这些改动提交到远端仓库：</p>
-<p><code>git push origin master</code></p>
-<p>可以把<em>master</em>换成你想要推送的任何分支。</p>
-<p>如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加：</p>
-<p><code>git remote add origin &lt;server&gt;</code></p>
-<p>如此你就能够将你的改动推送到所添加的服务器上去了。</p>
-<h4 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h4><p>分支是用来将特性开发绝缘开来的。在你创建仓库的时候，<em>master</em>是默认的分支。在其他分支上进行开发，完成后再将它们合并到主分支上。</p>
-<p>创建一个叫做“feature_x”的分支，并切换过去：</p>
-<p><code>git checkout -b feature_x</code></p>
-<p>切换回主分支：</p>
-<p><code>git checkout master</code></p>
-<p>再把新建的分支删掉：</p>
-<p><code>git branch -d feature_x</code></p>
-<p>除非你将分支推送到远端仓库，不然该分支就是不为他人所见的：</p>
-<p><code>git push origin &lt;branch&gt;</code></p>
-<h4 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h4><p>要更新你的本地仓库至最新改动，执行：<br><code>git pull</code><br>以在你的工作目录中 <em>获取（fetch）</em> 并 <em>合并（merge）</em> 远端的改动。<br>要合并其他分支到你的当前分支（例如 master），执行：<br><code>git merge &lt;branch&gt;</code><br>在这两种情况下，git 都会尝试去自动合并改动。遗憾的是，这可能并非每次都成功，并可能出现<em>冲突（conflicts）</em>。 这时候就需要你修改这些文件来手动合并这些<em>冲突（conflicts）</em>。改完之后，你需要执行如下命令以将它们标记为合并成功：</p>
-<p><code>git add &lt;filename&gt;</code><br>在合并改动之前，你可以使用如下命令预览差异：<br><code>git diff &lt;source_branch&gt; &lt;target_branch&gt;</code></p>
-<h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><p>为软件发布创建标签是推荐的。这个概念早已存在，在 SVN 中也有。你可以执行如下命令创建一个叫做 <em>1.0.0</em> 的标签：<br><code>git tag 1.0.0 1b2e1d63ff</code><br><em>1b2e1d63ff</em> 是你想要标记的提交 ID 的前 10 位字符。可以使用下列命令获取提交 ID：<br><code>git log</code><br>你也可以使用少一点的提交 ID 前几位，只要它的指向具有唯一性。</p>
-<h4 id="log"><a href="#log" class="headerlink" title="log"></a>log</h4><p>如果你想了解本地仓库的历史记录，最简单的命令就是使用:<br><code>git log</code><br>你可以添加一些参数来修改他的输出，从而得到自己想要的结果。 只看某一个人的提交记录:<br><code>git log --author=bob</code><br>一个压缩后的每一条提交记录只占一行的输出:<br><code>git log --pretty=oneline</code><br>或者你想通过 ASCII 艺术的树形结构来展示所有的分支, 每个分支都标示了他的名字和标签:<br><code>git log --graph --oneline --decorate --all</code><br>看看哪些文件改变了:<br><code>git log --name-status</code><br>这些只是你可以使用的参数中很小的一部分。更多的信息，参考：<br><code>git log --help</code></p>
-<h4 id="替换本地改动"><a href="#替换本地改动" class="headerlink" title="替换本地改动"></a>替换本地改动</h4><p>假如你操作失误（当然，这最好永远不要发生），你可以使用如下命令替换掉本地改动：<br><code>git checkout -- &lt;filename&gt;</code><br>此命令会使用 HEAD 中的最新内容替换掉你的工作目录中的文件。已添加到暂存区的改动以及新文件都不会受到影响。</p>
-<p>假如你想丢弃你在本地的所有改动与提交，可以到服务器上获取最新的版本历史，并将你本地主分支指向它：<br><code>git fetch origin</code><br><code>git reset --hard origin/master</code></p>
-<h4 id="实用小贴士"><a href="#实用小贴士" class="headerlink" title="实用小贴士"></a>实用小贴士</h4><p>内建的图形化 git：<br><code>gitk</code><br>彩色的 git 输出：<br><code>git config color.ui true</code><br>显示历史记录时，每个提交的信息只显示一行：<br><code>git config format.pretty oneline</code><br>交互式添加文件到暂存区：<br><code>git add -i</code></p>
-<p>更多内容请参考：<a href="http://rogerdudler.github.io/git-guide/index.zh.html">git - 简明指南</a></p>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>使用指南</tag>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Grad-cam论文笔记</title>
-    <url>/zh-CN/grad-cam/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://openaccess.thecvf.com/content_ICCV_2017/papers/Selvaraju_Grad-CAM_Visual_Explanations_ICCV_2017_paper.pdf">Grad-CAM: Visual Explanations From Deep Networks via Gradient-Based Localization </a></p>
-<p>2.<a href="https://github.com/jacobgil/pytorch-grad-cam">jacobgil/pytorch-grad-cam: Advanced AI Explainability for computer vision. Support for CNNs, Vision Transformers, Classification, Object detection, Segmentation, Image similarity and more. (github.com)</a></p>
-<p>3.<a href="https://blog.csdn.net/Sylvia_Lan/article/details/123309476">一个库可视化类激活热力图Grad-CAM pytorch版本</a></p>
-<p>4.<a href="https://blog.csdn.net/qq_37924224/article/details/119181028"> libpng warning: iCCP: known incorrect sRGB profile 警告</a></p>
-<h3 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h3><p>从第二个参考博文里下载源码或者直接用pip安装，安装命令如下</p>
-<pre><code class="lang-python">pip install grad-cam
-</code></pre>
-<h3 id="解读源码"><a href="#解读源码" class="headerlink" title="解读源码"></a>解读源码</h3><p>现解读的是源码根目录下的<code>cam.py</code>文件，即它的使用代码，采取注释的方式解读：</p>
-<pre><code class="lang-python">import argparse
-import cv2
-import numpy as np
-import torch
-from torchvision import models
-# 这里默认你了解它的各种变体，这里有11种变体，有时间我会各个解读一下，你们也可以自行了解
-from pytorch_grad_cam import GradCAM, \
-    HiResCAM, \
-    ScoreCAM, \
-    GradCAMPlusPlus, \
-    AblationCAM, \
-    XGradCAM, \
-    EigenCAM, \
-    EigenGradCAM, \
-    LayerCAM, \
-    FullGrad, \
-    GradCAMElementWise
-
-
-from pytorch_grad_cam import GuidedBackpropReLUModel
-from pytorch_grad_cam.utils.image import show_cam_on_image, \
-    deprocess_image, \
-    preprocess_image
-from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
-
-# 这里是命令行参数，等下给出运行命令你就一下子明白了，最重要的就是选择method,必须得跟choices里的一样
-def get_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--use-cuda', action='store_true', default=False,
-                        help='Use NVIDIA GPU acceleration')
-    parser.add_argument(
-        '--image-path',
-        type=str,
-        default='./examples/both.png',
-        help='Input image path')
-    parser.add_argument('--aug_smooth', action='store_true',
-                        help='Apply test time augmentation to smooth the CAM')
-    parser.add_argument(
-        '--eigen_smooth',
-        action='store_true',
-        help='Reduce noise by taking the first principle componenet'
-        'of cam_weights*activations')
-    parser.add_argument('--method', type=str, default='gradcam',
-                        choices=['gradcam', 'hirescam', 'gradcam++',
-                                 'scorecam', 'xgradcam',
-                                 'ablationcam', 'eigencam',
-                                 'eigengradcam', 'layercam', 'fullgrad'],
-                        help='Can be gradcam/gradcam++/scorecam/xgradcam'
-                             '/ablationcam/eigencam/eigengradcam/layercam')
-
-    args = parser.parse_args()
-    args.use_cuda = args.use_cuda and torch.cuda.is_available()
-    if args.use_cuda:
-        print('Using GPU for acceleration')
-    else:
-        print('Using CPU for computation')
-
-    return args
-
-
-if __name__ == '__main__':
-    """ python cam.py -image-path &lt;path_to_image&gt;
-    Example usage of loading an image, and computing:
-        1. CAM
-        2. Guided Back Propagation
-        3. Combining both
-    """
-
-    args = get_args()
-    methods = \
-        {"gradcam": GradCAM,
-         "hirescam":HiResCAM,
-         "scorecam": ScoreCAM,
-         "gradcam++": GradCAMPlusPlus,
-         "ablationcam": AblationCAM,
-         "xgradcam": XGradCAM,
-         "eigencam": EigenCAM,
-         "eigengradcam": EigenGradCAM,
-         "layercam": LayerCAM,
-         "fullgrad": FullGrad,
-         "gradcamelementwise": GradCAMElementWise}
-
-    # 这里就可以替换你的模型了，用之前记得引入自己的模型
-    model = models.resnet50(pretrained=True)
-
-    # Choose the target layer you want to compute the visualization for.
-    # Usually this will be the last convolutional layer in the model.
-    # Some common choices can be:
-    # Resnet18 and 50: model.layer4
-    # VGG, densenet161: model.features[-1]
-    # mnasnet1_0: model.layers[-1]
-    # You can print the model to help chose the layer
-    # You can pass a list with several target layers,
-    # in that case the CAMs will be computed per layer and then aggregated.
-    # You can also try selecting all layers of a certain type, with e.g:
-    # from pytorch_grad_cam.utils.find_layers import find_layer_types_recursive
-    # find_layer_types_recursive(model, [torch.nn.ReLU])
-
-    # 选择你想要可视化的特征层
-    target_layers = [model.layer4]
-    # 读取图片
-    rgb_img = cv2.imread(args.image_path, 1)[:, :, ::-1]
-    # 归一化
-    rgb_img = np.float32(rgb_img) / 255
-    # 预处理图片
-    input_tensor = preprocess_image(rgb_img,
-                                    mean=[0.485, 0.456, 0.406],
-                                    std=[0.229, 0.224, 0.225])
-
-
-    # We have to specify the target we want to generate
-    # the Class Activation Maps for.
-    # If targets is None, the highest scoring category (for every member in the batch) will be used.
-    # You can target specific categories by
-    # targets = [e.g ClassifierOutputTarget(281)]
-    # 如果target设置为None,就会选择得分最高的类别
-    targets = None
-
-    # Using the with statement ensures the context is freed, and you can
-    # recreate different CAM objects in a loop.
-    cam_algorithm = methods[args.method]
-    with cam_algorithm(model=model,
-                       target_layers=target_layers,
-                       use_cuda=args.use_cuda) as cam:
-
-        # AblationCAM and ScoreCAM have batched implementations.
-        # You can override the internal batch size for faster computation.
-        cam.batch_size = 32
-        grayscale_cam = cam(input_tensor=input_tensor,
-                            targets=targets,
-                            aug_smooth=args.aug_smooth,
-                            eigen_smooth=args.eigen_smooth)
-
-        # Here grayscale_cam has only one image in the batch
-        grayscale_cam = grayscale_cam[0, :]
-        # 展示图片
-        cam_image = show_cam_on_image(rgb_img, grayscale_cam, use_rgb=True)
-
-        # cam_image is RGB encoded whereas "cv2.imwrite" requires BGR encoding.
-        cam_image = cv2.cvtColor(cam_image, cv2.COLOR_RGB2BGR)
-
-    gb_model = GuidedBackpropReLUModel(model=model, use_cuda=args.use_cuda)
-    gb = gb_model(input_tensor, target_category=None)
-
-    cam_mask = cv2.merge([grayscale_cam, grayscale_cam, grayscale_cam])
-    cam_gb = deprocess_image(cam_mask * gb)
-    gb = deprocess_image(gb)
-
-    cv2.imwrite(f'{args.method}_cam.jpg', cam_image)
-    cv2.imwrite(f'{args.method}_gb.jpg', gb)
-    cv2.imwrite(f'{args.method}_cam_gb.jpg', cam_gb)
-</code></pre>
-<p>这里有很多类都是源码里写了的，可以看源码了解一下，将该代码放在你的模型下，另起一个文件，导入自己的模型即可</p>
-<h3 id="Grad-cam应用"><a href="#Grad-cam应用" class="headerlink" title="Grad-cam应用"></a>Grad-cam应用</h3><p>上述代码放在<code>test.py</code>文件里了</p>
-<p>终端命令：<code>python test.py --image-path zophie.png --method gradcam --use-cuda</code></p>
-<p><img src="/zh-CN/grad-cam/image-20220922205142809.png" class="lazyload" data-srcset="/zh-CN/grad-cam/image-20220922205142809.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>issue:</p>
-<p>1.可能有一两个包没用，比如<code>HiResCAM</code>,<code>GradCAMElementWise</code></p>
-<p>这很简单，就是这个代码人家一直在更新，你只要使用<code>pip uninstall grad-cam</code>卸载,然后重新使用<code>pip install grad-cam</code>命令安装一遍就行了</p>
-<p>2.显示<code>libpng warning: iCCP: known incorrect sRGB profile</code></p>
-<p>放心，这只是一个警告啦，具体参考博文4</p>
-<p>结果显示：</p>
-<p>1.gradcam_cam.jpg</p>
-<p><img src="/zh-CN/grad-cam/image-20220922205934818.png" class="lazyload" data-srcset="/zh-CN/grad-cam/image-20220922205934818.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220922205934818" style="zoom:25%;"></p>
-<p>2.gradcam_cam_gb.jpg</p>
-<p><img src="/zh-CN/grad-cam/image-20220922210017803.png" class="lazyload" data-srcset="/zh-CN/grad-cam/image-20220922210017803.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220922210017803" style="zoom:25%;"></p>
-<p>3.gradcam_gb.jpg</p>
-<p><img src="/zh-CN/grad-cam/image-20220922210044972.png" class="lazyload" data-srcset="/zh-CN/grad-cam/image-20220922210044972.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220922210044972" style="zoom:25%;"></p>
-<p>可以看出文件命名方式为类激活方法+预处理方法，有兴趣的可以去看看预处理方法，代码里有写</p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>grad-cam</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>echarts学习笔记</title>
     <url>/zh-CN/echarts/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -9659,6 +9432,249 @@ myChart.on(&#39;legendselectchanged&#39;, function (params) &#123;
       </tags>
   </entry>
   <entry>
+    <title>github使用指南</title>
+    <url>/zh-CN/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h4><p>1.安装git OSX版</p>
+<p>下载地址：<a href="http://git-scm.com/download/mac">http://git-scm.com/download/mac</a></p>
+<p>2.安装git Windows版</p>
+<p>下载地址：<a href="http://book.git-scm.com/download/win">http://book.git-scm.com/download/win</a></p>
+<p>3.安装git Linux版</p>
+<p>下载地址：<a href="http://book.git-scm.com/download/linux">http://book.git-scm.com/download/linux</a></p>
+<h4 id="创建新仓库"><a href="#创建新仓库" class="headerlink" title="创建新仓库"></a>创建新仓库</h4><p>创建新文件夹，打开，然后执行<code>git init</code>以创建新的git仓库</p>
+<h4 id="检出仓库"><a href="#检出仓库" class="headerlink" title="检出仓库"></a>检出仓库</h4><p>执行如下命令以创建一个本地仓库的克隆版本：</p>
+<p><code>git clone /path/to/repository</code></p>
+<p>如果是远端服务器上的仓库，则使用如下命令：</p>
+<p><code>git clone username@host:/path/to/repository</code></p>
+<h4 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h4><p>你的本地仓库由git维护的三棵“树”组成。第一个是你的<strong>工作目录</strong>，它持有实际文件；第二个是<strong>暂存区（index)</strong>,它像个缓存区域，临时保存你的改动；最后是<strong>HEAD</strong>,它指向你最后一次提交的结果。</p>
+<h4 id="添加和提交"><a href="#添加和提交" class="headerlink" title="添加和提交"></a>添加和提交</h4><p>你可以提出更改（把它们添加到暂存区），使用如下命令：</p>
+<p><code>git add &lt;filename&gt;</code></p>
+<p><code>git add *</code></p>
+<p>这是git基本工作流程的第一步；使用如下命令以实际提交改动：</p>
+<p><code>git commit -m "代码提交信息"</code></p>
+<p>现在，你的改动已经提交到了HEAD,但是还没到你的远端仓库。</p>
+<h4 id="推送改动"><a href="#推送改动" class="headerlink" title="推送改动"></a>推送改动</h4><p>你的改动现在已经在本地仓库的HEAD中了。执行如下命令以将这些改动提交到远端仓库：</p>
+<p><code>git push origin master</code></p>
+<p>可以把<em>master</em>换成你想要推送的任何分支。</p>
+<p>如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加：</p>
+<p><code>git remote add origin &lt;server&gt;</code></p>
+<p>如此你就能够将你的改动推送到所添加的服务器上去了。</p>
+<h4 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h4><p>分支是用来将特性开发绝缘开来的。在你创建仓库的时候，<em>master</em>是默认的分支。在其他分支上进行开发，完成后再将它们合并到主分支上。</p>
+<p>创建一个叫做“feature_x”的分支，并切换过去：</p>
+<p><code>git checkout -b feature_x</code></p>
+<p>切换回主分支：</p>
+<p><code>git checkout master</code></p>
+<p>再把新建的分支删掉：</p>
+<p><code>git branch -d feature_x</code></p>
+<p>除非你将分支推送到远端仓库，不然该分支就是不为他人所见的：</p>
+<p><code>git push origin &lt;branch&gt;</code></p>
+<h4 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h4><p>要更新你的本地仓库至最新改动，执行：<br><code>git pull</code><br>以在你的工作目录中 <em>获取（fetch）</em> 并 <em>合并（merge）</em> 远端的改动。<br>要合并其他分支到你的当前分支（例如 master），执行：<br><code>git merge &lt;branch&gt;</code><br>在这两种情况下，git 都会尝试去自动合并改动。遗憾的是，这可能并非每次都成功，并可能出现<em>冲突（conflicts）</em>。 这时候就需要你修改这些文件来手动合并这些<em>冲突（conflicts）</em>。改完之后，你需要执行如下命令以将它们标记为合并成功：</p>
+<p><code>git add &lt;filename&gt;</code><br>在合并改动之前，你可以使用如下命令预览差异：<br><code>git diff &lt;source_branch&gt; &lt;target_branch&gt;</code></p>
+<h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><p>为软件发布创建标签是推荐的。这个概念早已存在，在 SVN 中也有。你可以执行如下命令创建一个叫做 <em>1.0.0</em> 的标签：<br><code>git tag 1.0.0 1b2e1d63ff</code><br><em>1b2e1d63ff</em> 是你想要标记的提交 ID 的前 10 位字符。可以使用下列命令获取提交 ID：<br><code>git log</code><br>你也可以使用少一点的提交 ID 前几位，只要它的指向具有唯一性。</p>
+<h4 id="log"><a href="#log" class="headerlink" title="log"></a>log</h4><p>如果你想了解本地仓库的历史记录，最简单的命令就是使用:<br><code>git log</code><br>你可以添加一些参数来修改他的输出，从而得到自己想要的结果。 只看某一个人的提交记录:<br><code>git log --author=bob</code><br>一个压缩后的每一条提交记录只占一行的输出:<br><code>git log --pretty=oneline</code><br>或者你想通过 ASCII 艺术的树形结构来展示所有的分支, 每个分支都标示了他的名字和标签:<br><code>git log --graph --oneline --decorate --all</code><br>看看哪些文件改变了:<br><code>git log --name-status</code><br>这些只是你可以使用的参数中很小的一部分。更多的信息，参考：<br><code>git log --help</code></p>
+<h4 id="替换本地改动"><a href="#替换本地改动" class="headerlink" title="替换本地改动"></a>替换本地改动</h4><p>假如你操作失误（当然，这最好永远不要发生），你可以使用如下命令替换掉本地改动：<br><code>git checkout -- &lt;filename&gt;</code><br>此命令会使用 HEAD 中的最新内容替换掉你的工作目录中的文件。已添加到暂存区的改动以及新文件都不会受到影响。</p>
+<p>假如你想丢弃你在本地的所有改动与提交，可以到服务器上获取最新的版本历史，并将你本地主分支指向它：<br><code>git fetch origin</code><br><code>git reset --hard origin/master</code></p>
+<h4 id="实用小贴士"><a href="#实用小贴士" class="headerlink" title="实用小贴士"></a>实用小贴士</h4><p>内建的图形化 git：<br><code>gitk</code><br>彩色的 git 输出：<br><code>git config color.ui true</code><br>显示历史记录时，每个提交的信息只显示一行：<br><code>git config format.pretty oneline</code><br>交互式添加文件到暂存区：<br><code>git add -i</code></p>
+<p>更多内容请参考：<a href="http://rogerdudler.github.io/git-guide/index.zh.html">git - 简明指南</a></p>
+]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+      <tags>
+        <tag>使用指南</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Grad-cam论文笔记</title>
+    <url>/zh-CN/grad-cam/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://openaccess.thecvf.com/content_ICCV_2017/papers/Selvaraju_Grad-CAM_Visual_Explanations_ICCV_2017_paper.pdf">Grad-CAM: Visual Explanations From Deep Networks via Gradient-Based Localization </a></p>
+<p>2.<a href="https://github.com/jacobgil/pytorch-grad-cam">jacobgil/pytorch-grad-cam: Advanced AI Explainability for computer vision. Support for CNNs, Vision Transformers, Classification, Object detection, Segmentation, Image similarity and more. (github.com)</a></p>
+<p>3.<a href="https://blog.csdn.net/Sylvia_Lan/article/details/123309476">一个库可视化类激活热力图Grad-CAM pytorch版本</a></p>
+<p>4.<a href="https://blog.csdn.net/qq_37924224/article/details/119181028"> libpng warning: iCCP: known incorrect sRGB profile 警告</a></p>
+<h3 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h3><p>从第二个参考博文里下载源码或者直接用pip安装，安装命令如下</p>
+<pre><code class="lang-python">pip install grad-cam
+</code></pre>
+<h3 id="解读源码"><a href="#解读源码" class="headerlink" title="解读源码"></a>解读源码</h3><p>现解读的是源码根目录下的<code>cam.py</code>文件，即它的使用代码，采取注释的方式解读：</p>
+<pre><code class="lang-python">import argparse
+import cv2
+import numpy as np
+import torch
+from torchvision import models
+# 这里默认你了解它的各种变体，这里有11种变体，有时间我会各个解读一下，你们也可以自行了解
+from pytorch_grad_cam import GradCAM, \
+    HiResCAM, \
+    ScoreCAM, \
+    GradCAMPlusPlus, \
+    AblationCAM, \
+    XGradCAM, \
+    EigenCAM, \
+    EigenGradCAM, \
+    LayerCAM, \
+    FullGrad, \
+    GradCAMElementWise
+
+
+from pytorch_grad_cam import GuidedBackpropReLUModel
+from pytorch_grad_cam.utils.image import show_cam_on_image, \
+    deprocess_image, \
+    preprocess_image
+from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
+
+# 这里是命令行参数，等下给出运行命令你就一下子明白了，最重要的就是选择method,必须得跟choices里的一样
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--use-cuda', action='store_true', default=False,
+                        help='Use NVIDIA GPU acceleration')
+    parser.add_argument(
+        '--image-path',
+        type=str,
+        default='./examples/both.png',
+        help='Input image path')
+    parser.add_argument('--aug_smooth', action='store_true',
+                        help='Apply test time augmentation to smooth the CAM')
+    parser.add_argument(
+        '--eigen_smooth',
+        action='store_true',
+        help='Reduce noise by taking the first principle componenet'
+        'of cam_weights*activations')
+    parser.add_argument('--method', type=str, default='gradcam',
+                        choices=['gradcam', 'hirescam', 'gradcam++',
+                                 'scorecam', 'xgradcam',
+                                 'ablationcam', 'eigencam',
+                                 'eigengradcam', 'layercam', 'fullgrad'],
+                        help='Can be gradcam/gradcam++/scorecam/xgradcam'
+                             '/ablationcam/eigencam/eigengradcam/layercam')
+
+    args = parser.parse_args()
+    args.use_cuda = args.use_cuda and torch.cuda.is_available()
+    if args.use_cuda:
+        print('Using GPU for acceleration')
+    else:
+        print('Using CPU for computation')
+
+    return args
+
+
+if __name__ == '__main__':
+    """ python cam.py -image-path &lt;path_to_image&gt;
+    Example usage of loading an image, and computing:
+        1. CAM
+        2. Guided Back Propagation
+        3. Combining both
+    """
+
+    args = get_args()
+    methods = \
+        {"gradcam": GradCAM,
+         "hirescam":HiResCAM,
+         "scorecam": ScoreCAM,
+         "gradcam++": GradCAMPlusPlus,
+         "ablationcam": AblationCAM,
+         "xgradcam": XGradCAM,
+         "eigencam": EigenCAM,
+         "eigengradcam": EigenGradCAM,
+         "layercam": LayerCAM,
+         "fullgrad": FullGrad,
+         "gradcamelementwise": GradCAMElementWise}
+
+    # 这里就可以替换你的模型了，用之前记得引入自己的模型
+    model = models.resnet50(pretrained=True)
+
+    # Choose the target layer you want to compute the visualization for.
+    # Usually this will be the last convolutional layer in the model.
+    # Some common choices can be:
+    # Resnet18 and 50: model.layer4
+    # VGG, densenet161: model.features[-1]
+    # mnasnet1_0: model.layers[-1]
+    # You can print the model to help chose the layer
+    # You can pass a list with several target layers,
+    # in that case the CAMs will be computed per layer and then aggregated.
+    # You can also try selecting all layers of a certain type, with e.g:
+    # from pytorch_grad_cam.utils.find_layers import find_layer_types_recursive
+    # find_layer_types_recursive(model, [torch.nn.ReLU])
+
+    # 选择你想要可视化的特征层
+    target_layers = [model.layer4]
+    # 读取图片
+    rgb_img = cv2.imread(args.image_path, 1)[:, :, ::-1]
+    # 归一化
+    rgb_img = np.float32(rgb_img) / 255
+    # 预处理图片
+    input_tensor = preprocess_image(rgb_img,
+                                    mean=[0.485, 0.456, 0.406],
+                                    std=[0.229, 0.224, 0.225])
+
+
+    # We have to specify the target we want to generate
+    # the Class Activation Maps for.
+    # If targets is None, the highest scoring category (for every member in the batch) will be used.
+    # You can target specific categories by
+    # targets = [e.g ClassifierOutputTarget(281)]
+    # 如果target设置为None,就会选择得分最高的类别
+    targets = None
+
+    # Using the with statement ensures the context is freed, and you can
+    # recreate different CAM objects in a loop.
+    cam_algorithm = methods[args.method]
+    with cam_algorithm(model=model,
+                       target_layers=target_layers,
+                       use_cuda=args.use_cuda) as cam:
+
+        # AblationCAM and ScoreCAM have batched implementations.
+        # You can override the internal batch size for faster computation.
+        cam.batch_size = 32
+        grayscale_cam = cam(input_tensor=input_tensor,
+                            targets=targets,
+                            aug_smooth=args.aug_smooth,
+                            eigen_smooth=args.eigen_smooth)
+
+        # Here grayscale_cam has only one image in the batch
+        grayscale_cam = grayscale_cam[0, :]
+        # 展示图片
+        cam_image = show_cam_on_image(rgb_img, grayscale_cam, use_rgb=True)
+
+        # cam_image is RGB encoded whereas "cv2.imwrite" requires BGR encoding.
+        cam_image = cv2.cvtColor(cam_image, cv2.COLOR_RGB2BGR)
+
+    gb_model = GuidedBackpropReLUModel(model=model, use_cuda=args.use_cuda)
+    gb = gb_model(input_tensor, target_category=None)
+
+    cam_mask = cv2.merge([grayscale_cam, grayscale_cam, grayscale_cam])
+    cam_gb = deprocess_image(cam_mask * gb)
+    gb = deprocess_image(gb)
+
+    cv2.imwrite(f'{args.method}_cam.jpg', cam_image)
+    cv2.imwrite(f'{args.method}_gb.jpg', gb)
+    cv2.imwrite(f'{args.method}_cam_gb.jpg', cam_gb)
+</code></pre>
+<p>这里有很多类都是源码里写了的，可以看源码了解一下，将该代码放在你的模型下，另起一个文件，导入自己的模型即可</p>
+<h3 id="Grad-cam应用"><a href="#Grad-cam应用" class="headerlink" title="Grad-cam应用"></a>Grad-cam应用</h3><p>上述代码放在<code>test.py</code>文件里了</p>
+<p>终端命令：<code>python test.py --image-path zophie.png --method gradcam --use-cuda</code></p>
+<p><img src="/zh-CN/grad-cam/image-20220922205142809.png" class="lazyload" data-srcset="/zh-CN/grad-cam/image-20220922205142809.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>issue:</p>
+<p>1.可能有一两个包没用，比如<code>HiResCAM</code>,<code>GradCAMElementWise</code></p>
+<p>这很简单，就是这个代码人家一直在更新，你只要使用<code>pip uninstall grad-cam</code>卸载,然后重新使用<code>pip install grad-cam</code>命令安装一遍就行了</p>
+<p>2.显示<code>libpng warning: iCCP: known incorrect sRGB profile</code></p>
+<p>放心，这只是一个警告啦，具体参考博文4</p>
+<p>结果显示：</p>
+<p>1.gradcam_cam.jpg</p>
+<p><img src="/zh-CN/grad-cam/image-20220922205934818.png" class="lazyload" data-srcset="/zh-CN/grad-cam/image-20220922205934818.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220922205934818" style="zoom:25%;"></p>
+<p>2.gradcam_cam_gb.jpg</p>
+<p><img src="/zh-CN/grad-cam/image-20220922210017803.png" class="lazyload" data-srcset="/zh-CN/grad-cam/image-20220922210017803.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220922210017803" style="zoom:25%;"></p>
+<p>3.gradcam_gb.jpg</p>
+<p><img src="/zh-CN/grad-cam/image-20220922210044972.png" class="lazyload" data-srcset="/zh-CN/grad-cam/image-20220922210044972.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220922210044972" style="zoom:25%;"></p>
+<p>可以看出文件命名方式为类激活方法+预处理方法，有兴趣的可以去看看预处理方法，代码里有写</p>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
+        <tag>grad-cam</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/zh-CN/hello-world/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -10696,6 +10712,52 @@ public:
       </tags>
   </entry>
   <entry>
+    <title>nn.relu和F.relu的区别</title>
+    <url>/zh-CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://blog.csdn.net/u011501388/article/details/86602275">PyTorch之nn.ReLU与F.ReLU的区别</a></p>
+<p>示例代码：</p>
+<pre><code class="lang-python">import torch.nn as nn
+import torch.nn.functional as F
+import torch.nn as nn
+
+class AlexNet_1(nn.Module):
+
+    def __init__(self, num_classes=n):
+        super(AlexNet, self).__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=True),
+         )
+
+    def forward(self, x):
+        x = self.features(x)
+
+class AlexNet_2(nn.Module):
+
+    def __init__(self, num_classes=n):
+        super(AlexNet, self).__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1),
+            nn.BatchNorm2d(64),
+         )
+
+    def forward(self, x):
+        x = self.features(x)
+        x = F.ReLU(x)
+</code></pre>
+<p>在如上网络中，AlexNet_1与AlexNet_2实现的结果是一致的，但是可以看到将ReLU层添加到网络有两种不同的实现，即nn.ReLU和F.ReLU两种实现方法。<br>其中nn.ReLU作为一个层结构，必须添加到nn.Module容器中才能使用，而F.ReLU则作为一个函数调用，看上去作为一个函数调用更方便更简洁。具体使用哪种方式，取决于编程风格。在PyTorch中,nn.X都有对应的函数版本F.X，但是并不是所有的F.X均可以用于forward或其它代码段中，因为当网络模型训练完毕时，在存储model时，在forward中的F.X函数中的参数是无法保存的。也就是说，在forward中，使用的F.X函数一般均没有状态参数，比如F.ReLU，F.avg_pool2d等，均没有参数，它们可以用在任何代码片段中。</p>
+]]></content>
+      <categories>
+        <category>pytorch</category>
+      </categories>
+      <tags>
+        <tag>函数库</tag>
+        <tag>relu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>np.cumsum()函数</title>
     <url>/zh-CN/np_cumsum/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -10772,6 +10834,69 @@ x1_new = x1[np.newaxis,:]
       </tags>
   </entry>
   <entry>
+    <title>pth权重文件转换为onnx权重文件</title>
+    <url>/zh-CN/pth_to_onnx/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://blog.csdn.net/weixin_50980847/article/details/126409707">pth文件转为onnx格式<em>业精于勤。荒于嬉。的博客-CSDN博客</em>.pth转onnx</a></p>
+<p>2.<a href="https://blog.csdn.net/weixin_45709671/article/details/118545500">Pytorch——初探onnx（1）解决upsample<em>bilinear2d转换问题</em>零壹博弈的博客-CSDN博客</a></p>
+<p>3.<a href="https://blog.csdn.net/magic_show_time/article/details/122476306">https://blog.csdn.net/magic_show_time/article/details/122476306</a></p>
+<p>由于想利用zetane这个软件可视化目标检测模型里面的特征变化过程，zetane只支持<code>onnx</code>、<code>h5</code>、<code>ZTN</code>文件,而我的目标检测模型得到的权重文件是<code>pth</code>文件,因此需要用到权重转换</p>
+<p>经过一系列的摸索，得出以下代码（亲测可用）：</p>
+<pre><code class="lang-python">import torch.onnx
+import onnxruntime as ort
+from nets import ssd
+
+# 创建.pth模型
+
+model = ssd.SSD300(21,'vgg')
+# 加载权重
+model_path = './model_data/ep250-loss1.474-val_loss2.826.pth'
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model_statedict = torch.load(model_path, map_location=device)
+model.load_state_dict(model_statedict)
+
+model.to(device)
+model.eval()
+
+input_data = torch.randn(1, 3, 300, 300, device=device)
+
+# 转化为onnx模型
+input_names = ['input']
+output_names = ['output']
+
+torch.onnx.export(model, input_data, 'ssdv7.onnx', opset_version=11, verbose=True, input_names=input_names,
+                  output_names=output_names)
+</code></pre>
+<p>遇到的问题：</p>
+<p>如果你是按照我给的两篇文章写代码，你会发现很简单</p>
+<p>1.模型无法加载，<code>load_state_dict</code>出现问题</p>
+<pre><code class="lang-bash"># 记住，模型参数一定要写全，根据自己的网络模型写即可
+# 错误代码
+model = ssd.SSD300()
+# 正确代码
+model = ssd.SSD300(21, 'vgg')
+</code></pre>
+<p>2.权重文件因为模型中上采样导出失败问题</p>
+<p><img src="/zh-CN/pth_to_onnx/image-20221031111722457.png" class="lazyload" data-srcset="/zh-CN/pth_to_onnx/image-20221031111722457.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221031111722457" style="zoom:80%;"></p>
+<p>按方法2解决即可，pytorch版本问题</p>
+<pre><code class="lang-bash"># 错误代码
+torch.onnx.export(model, input_data, 'ssdv7.onnx', opset_version=9, verbose=True, input_names=input_names, output_names=output_names)
+
+# 正确代码
+torch.onnx.export(model, input_data, 'ssdv7.onnx', opset_version=11, verbose=True, input_names=input_names,
+                  output_names=output_names)
+</code></pre>
+<p>ok,接下来就是zetane加载模型了，看看最终的模型吧。</p>
+<p><img src="/zh-CN/pth_to_onnx/image-20221031112309197.png" class="lazyload" data-srcset="/zh-CN/pth_to_onnx/image-20221031112309197.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221031112309197" style="zoom:80%;"></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>文件转换</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>pip换源</title>
     <url>/zh-CN/pip%E6%8D%A2%E6%BA%90/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>由于使用pip或pip3安装python第三方包时，经常出现read timed out问题，所以需要将pip的官方软件源服务器换成国内的镜像服务器，从而提升python软件包安装效率和成功率，pip 国内的一些镜像：</p>
@@ -10814,52 +10939,6 @@ trusted-host = pypi.tuna.tsinghua.edu.cn
       </tags>
   </entry>
   <entry>
-    <title>nn.relu和F.relu的区别</title>
-    <url>/zh-CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://blog.csdn.net/u011501388/article/details/86602275">PyTorch之nn.ReLU与F.ReLU的区别</a></p>
-<p>示例代码：</p>
-<pre><code class="lang-python">import torch.nn as nn
-import torch.nn.functional as F
-import torch.nn as nn
-
-class AlexNet_1(nn.Module):
-
-    def __init__(self, num_classes=n):
-        super(AlexNet, self).__init__()
-        self.features = nn.Sequential(
-            nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1),
-            nn.BatchNorm2d(64),
-            nn.ReLU(inplace=True),
-         )
-
-    def forward(self, x):
-        x = self.features(x)
-
-class AlexNet_2(nn.Module):
-
-    def __init__(self, num_classes=n):
-        super(AlexNet, self).__init__()
-        self.features = nn.Sequential(
-            nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1),
-            nn.BatchNorm2d(64),
-         )
-
-    def forward(self, x):
-        x = self.features(x)
-        x = F.ReLU(x)
-</code></pre>
-<p>在如上网络中，AlexNet_1与AlexNet_2实现的结果是一致的，但是可以看到将ReLU层添加到网络有两种不同的实现，即nn.ReLU和F.ReLU两种实现方法。<br>其中nn.ReLU作为一个层结构，必须添加到nn.Module容器中才能使用，而F.ReLU则作为一个函数调用，看上去作为一个函数调用更方便更简洁。具体使用哪种方式，取决于编程风格。在PyTorch中,nn.X都有对应的函数版本F.X，但是并不是所有的F.X均可以用于forward或其它代码段中，因为当网络模型训练完毕时，在存储model时，在forward中的F.X函数中的参数是无法保存的。也就是说，在forward中，使用的F.X函数一般均没有状态参数，比如F.ReLU，F.avg_pool2d等，均没有参数，它们可以用在任何代码片段中。</p>
-]]></content>
-      <categories>
-        <category>pytorch</category>
-      </categories>
-      <tags>
-        <tag>函数库</tag>
-        <tag>relu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>pyperclip模块</title>
     <url>/zh-CN/pyperclip/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>相关链接：<a href="https://blog.csdn.net/qq_36830101/article/details/116205724">python之Pyperclip</a></p>
@@ -10878,20 +10957,6 @@ class AlexNet_2(nn.Module):
       </categories>
       <tags>
         <tag>函数库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>typora数学公式教程</title>
-    <url>/zh-CN/typora%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://www.cnblogs.com/Xuxiaokang/p/15654336.html">Typora数学公式输入指导手册 </a></p>
-<p>上面这个链接教程非常详细，有时间我会一个一个测试，有啥补充的可以私信我</p>
-]]></content>
-      <categories>
-        <category>typora</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -11020,6 +11085,20 @@ class Model(nn.Module):
       </tags>
   </entry>
   <entry>
+    <title>typora数学公式教程</title>
+    <url>/zh-CN/typora%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://www.cnblogs.com/Xuxiaokang/p/15654336.html">Typora数学公式输入指导手册 </a></p>
+<p>上面这个链接教程非常详细，有时间我会一个一个测试，有啥补充的可以私信我</p>
+]]></content>
+      <categories>
+        <category>typora</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ubuntu软件安装的问题总结</title>
     <url>/zh-CN/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考链接：</p>
@@ -11096,18 +11175,6 @@ Qt5Agg
       </categories>
       <tags>
         <tag>matplotlib</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue3学习笔记</title>
-    <url>/zh-CN/vue3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      <categories>
-        <category>vue</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -11190,6 +11257,18 @@ vis2.line(X=x,Y=y,win='polynomial',name = 'this is new trace',update='append')
       </categories>
       <tags>
         <tag>可视化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue3学习笔记</title>
+    <url>/zh-CN/vue3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -12192,22 +12271,6 @@ train_model(model,
       </tags>
   </entry>
   <entry>
-    <title>微信小程序开发</title>
-    <url>/zh-CN/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://www.w3cschool.cn/weixinapp/">微信小程序开发文档_w3cschool</a></p>
-<p>2.<a href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a></p>
-<p>3.<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/">微信开放文档 (qq.com)</a></p>
-<p>4.<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">微信开发者工具下载地址与更新日志 | 微信开放文档 (qq.com)</a></p>
-]]></content>
-      <categories>
-        <category>开发日记</category>
-      </categories>
-      <tags>
-        <tag>微信小程序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>开放图谱协议</title>
     <url>/zh-CN/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -12242,6 +12305,22 @@ open_graph:
       <tags>
         <tag>Hexo</tag>
         <tag>open_graph</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序开发</title>
+    <url>/zh-CN/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://www.w3cschool.cn/weixinapp/">微信小程序开发文档_w3cschool</a></p>
+<p>2.<a href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a></p>
+<p>3.<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/">微信开放文档 (qq.com)</a></p>
+<p>4.<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">微信开发者工具下载地址与更新日志 | 微信开放文档 (qq.com)</a></p>
+]]></content>
+      <categories>
+        <category>开发日记</category>
+      </categories>
+      <tags>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -12340,88 +12419,6 @@ open_graph:
       </categories>
       <tags>
         <tag>今日故事</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CV必备文献</title>
-    <url>/zh-CN/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这里是我平时会看的一些文献，有些没得时间看，但这些确实很值得一看，放在这里，做个提醒，如果后续我记起来了，后续还会有补充，大家可以留言推荐，仅限计算机视觉方向</p>
-<p>1.RFBNet</p>
-<p>论文标题：Receptive Field Block Net for Accurate and Fast Object Detection</p>
-<p>论文地址：<a href="https://openaccess.thecvf.com/content_ECCV_2018/papers/Songtao_Liu_Receptive_Field_Block_ECCV_2018_paper.pdf">Receptive Field Block Net </a></p>
-<p>源码地址：<a href="https://github.com/ruinmessi/RFBNet">https://github.com/ruinmessi/RFBNet</a></p>
-<p>2.Fast R-CNN</p>
-<p>3.Faster R-CNN</p>
-<p>4.ResNet</p>
-<p>5.Inception</p>
-<p>6.Mask R-CNN</p>
-<p>7.YOLOv1</p>
-<p>8.SSD</p>
-<p>9.DSSD</p>
-<p>10.ASDD</p>
-<p>11.FSSD</p>
-<p>12.FASSD</p>
-<p>论文标题：FASSD: A Feature Fusion and Spatial Attention-Based Single Shot Detector for Small Object Detection</p>
-<p>论文地址：<a href="https://www.mdpi.com/2079-9292/9/9/1536">https://www.mdpi.com/2079-9292/9/9/1536</a></p>
-<p>源码地址：</p>
-<p>13.AlexNet</p>
-<p>14.SIFT</p>
-<p>15.HOG</p>
-<p>16.FPN</p>
-<p>论文标题：Feature Pyramid Networks for Object Detection</p>
-<p>论文地址：<a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Lin_Feature_Pyramid_Networks_CVPR_2017_paper.pdf">Feature Pyramid Networks for Object Detection (thecvf.com)</a></p>
-<p>源码地址：<a href="https://github.com/unsky/FPN">FPN: Feature Pyramid Networks for Object Detection </a></p>
-<p>17.RefineDet</p>
-<p>18.M2Det</p>
-<p>19.RSSD</p>
-<p>论文标题：Enhancement of SSD by concatenating feature maps for object detection</p>
-<p>论文地址：</p>
-<p>源码地址：</p>
-<p>20.MDSSD</p>
-<p>论文标题：Mdssd: Multi-scale deconvolutional single shot detector for small objects</p>
-<p>论文地址：</p>
-<p>论文源码：</p>
-]]></content>
-      <categories>
-        <category>计算机视觉</category>
-      </categories>
-      <tags>
-        <tag>文献推荐</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据集介绍</title>
-    <url>/zh-CN/%E6%95%B0%E6%8D%AE%E9%9B%86/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h3><p>1.<a href="https://blog.csdn.net/qq_45616304/article/details/117912347">针对 VOC2007和VOC2012 的具体用法</a></p>
-<p>2.<a href="https://blog.csdn.net/a_piece_of_ppx/article/details/118701340">Pascal Voc（07+12）联合训练并在07上测试</a></p>
-<h3 id="VOC2007和VOC2012用法"><a href="#VOC2007和VOC2012用法" class="headerlink" title="VOC2007和VOC2012用法"></a>VOC2007和VOC2012用法</h3><p>目前广大研究者们普遍使用的是 VOC2007和VOC2012数据集，因为二者是互斥的，不相容的。</p>
-<p>论文中针对 VOC2007和VOC2012 的具体用法有以下几种：</p>
-<p>1.只用VOC2007的trainval 训练，使用VOC2007的test测试。<br>2.只用VOC2012的trainval 训练，使用VOC2012的test测试，这种用法很少使用，因为大家都会结合VOC2007使用。<br>3.（推荐）使用 VOC2007 的 train+val 和 VOC2012的 train+val 训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12 ，研究者可以自己测试在VOC2007上的结果，因为VOC2007的test是公开的。<br>4.使用 VOC2007 的 train+val+test 和 VOC2012的 train+val训练，然后使用 VOC2012的test测试，这个用法是论文中经常看到的 07++12 ，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。<br>5.先在 MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val、 VOC2012的 train+val 微调训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12+COCO 。<br>6.先在 MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val+test 、 VOC2012的 train+val 微调训练，然后使用 VOC2012的test测试 ，这个用法是论文中经常看到的 07++12+COCO，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。</p>
-<h3 id="VOC07-12联合训练并在07上测试"><a href="#VOC07-12联合训练并在07上测试" class="headerlink" title="VOC07+12联合训练并在07上测试"></a>VOC07+12联合训练并在07上测试</h3><h4 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h4><p>对于分类/检测任务而言，完成07 + 12数据集合并后，共得到如下数据：</p>
-<pre><code># 5011+11540=16551, 12608+27450=40058
-训练数据：16551张图像，共40058个目标
-# 全部来自voc07_test
-测试数据：4952张图像，共12032个目标
-</code></pre><p>组成如下所示：</p>
-<p>训练数据：</p>
-<p>1.VOC2007的训练集提供了：</p>
-<pre><code>训练数据：2501张图像，共6301个目标
-验证数据：2510张图像，共6307个目标
-训练+验证数据：5011张图像，共12608个目标
-</code></pre><p>2.VOC2012的训练集提供了：</p>
-<pre><code>训练数据：5717张图像，共13609个目标
-验证数据：5823张图像，共13841个目标
-训练+验证数据：11540张图像，共27450个目标
-</code></pre><p>测试数据：</p>
-<p>1.VOC2007的测试集提供了：</p>
-<pre><code>测试数据：4952张图像，共12032个目标
-</code></pre><h3 id="各种数据集介绍"><a href="#各种数据集介绍" class="headerlink" title="各种数据集介绍"></a>各种数据集介绍</h3><h4 id="Pascal-VOC"><a href="#Pascal-VOC" class="headerlink" title="Pascal VOC"></a>Pascal VOC</h4><p>官网地址：<a href="https://pjreddie.com/projects/pascal-voc-dataset-mirror/">Pascal VOC Dataset Mirror (pjreddie.com)</a></p>
-<h4 id="MS-COCO"><a href="#MS-COCO" class="headerlink" title="MS COCO"></a>MS COCO</h4><h4 id="ILSVRC"><a href="#ILSVRC" class="headerlink" title="ILSVRC"></a>ILSVRC</h4>]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>数据集</tag>
       </tags>
   </entry>
   <entry>
@@ -12833,43 +12830,50 @@ def _next_data(self):
       </tags>
   </entry>
   <entry>
-    <title>机器学习</title>
-    <url>/zh-CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="常见概念"><a href="#常见概念" class="headerlink" title="常见概念"></a>常见概念</h3><h4 id="TP、TN、FP和FN概念"><a href="#TP、TN、FP和FN概念" class="headerlink" title="TP、TN、FP和FN概念"></a>TP、TN、FP和FN概念</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th></th>
-<th>P(分类器认为是正样本)</th>
-<th>N(分类器认为是负样本)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>T(正确分类)</td>
-<td>TP</td>
-<td>TN</td>
-</tr>
-<tr>
-<td>F(错误分类)</td>
-<td>FP</td>
-<td>FN</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>注：</p>
-<p>TP（True Positives）意思就是被分为了正样本，而且分对了。（样本是正样本）<br>TN（True Negatives）意思就是被分为了负样本，而且分对了。(样本是负样本)<br>FP（False Positives）意思就是被分为了正样本，但是分错了。（样本是负样本）<br>FN（False Negatives）意思就是被分为了负样本，但是分错了。（样本是正样本）</p>
-<h4 id="正确率"><a href="#正确率" class="headerlink" title="正确率"></a>正确率</h4><p>正确率是我们最常见的评价指标，通常来说，正确率越高，分类器越好。TP是分类器认为是正样本而且确实是正样本的样本数，FP是分类器认为是正样本但实际上不是正样本的样本数，Precision就是“分类器认为是正类并且确实是正类的部分占所有分类器认为是正类的比例”。</p>
-<p><img src="/zh-CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20220425220526167.png" class="lazyload" data-srcset="/zh-CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20220425220526167.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220425220526167" style="zoom:50%;"></p>
-<h4 id="召回率"><a href="#召回率" class="headerlink" title="召回率"></a>召回率</h4><p>TP是分类器认为是正样本而且确实是正样本的样本数，FN是分类器认为是负样本但实际上不是负样本的样本数，Recall就是“分类器认为是正类并且确实是正类的部分占所有确实是正类的比例”。</p>
-<p><img src="/zh-CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20220425221025699.png" class="lazyload" data-srcset="/zh-CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20220425221025699.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220425221025699" style="zoom:50%;"></p>
+    <title>CV必备文献</title>
+    <url>/zh-CN/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这里是我平时会看的一些文献，有些没得时间看，但这些确实很值得一看，放在这里，做个提醒，如果后续我记起来了，后续还会有补充，大家可以留言推荐，仅限计算机视觉方向</p>
+<p>1.RFBNet</p>
+<p>论文标题：Receptive Field Block Net for Accurate and Fast Object Detection</p>
+<p>论文地址：<a href="https://openaccess.thecvf.com/content_ECCV_2018/papers/Songtao_Liu_Receptive_Field_Block_ECCV_2018_paper.pdf">Receptive Field Block Net </a></p>
+<p>源码地址：<a href="https://github.com/ruinmessi/RFBNet">https://github.com/ruinmessi/RFBNet</a></p>
+<p>2.Fast R-CNN</p>
+<p>3.Faster R-CNN</p>
+<p>4.ResNet</p>
+<p>5.Inception</p>
+<p>6.Mask R-CNN</p>
+<p>7.YOLOv1</p>
+<p>8.SSD</p>
+<p>9.DSSD</p>
+<p>10.ASDD</p>
+<p>11.FSSD</p>
+<p>12.FASSD</p>
+<p>论文标题：FASSD: A Feature Fusion and Spatial Attention-Based Single Shot Detector for Small Object Detection</p>
+<p>论文地址：<a href="https://www.mdpi.com/2079-9292/9/9/1536">https://www.mdpi.com/2079-9292/9/9/1536</a></p>
+<p>源码地址：</p>
+<p>13.AlexNet</p>
+<p>14.SIFT</p>
+<p>15.HOG</p>
+<p>16.FPN</p>
+<p>论文标题：Feature Pyramid Networks for Object Detection</p>
+<p>论文地址：<a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Lin_Feature_Pyramid_Networks_CVPR_2017_paper.pdf">Feature Pyramid Networks for Object Detection (thecvf.com)</a></p>
+<p>源码地址：<a href="https://github.com/unsky/FPN">FPN: Feature Pyramid Networks for Object Detection </a></p>
+<p>17.RefineDet</p>
+<p>18.M2Det</p>
+<p>19.RSSD</p>
+<p>论文标题：Enhancement of SSD by concatenating feature maps for object detection</p>
+<p>论文地址：</p>
+<p>源码地址：</p>
+<p>20.MDSSD</p>
+<p>论文标题：Mdssd: Multi-scale deconvolutional single shot detector for small objects</p>
+<p>论文地址：</p>
+<p>论文源码：</p>
 ]]></content>
       <categories>
-        <category>机器学习</category>
+        <category>计算机视觉</category>
       </categories>
       <tags>
-        <tag>学习笔记</tag>
+        <tag>文献推荐</tag>
       </tags>
   </entry>
   <entry>
@@ -12924,6 +12928,81 @@ def _next_data(self):
       </categories>
       <tags>
         <tag>今日故事</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据集介绍</title>
+    <url>/zh-CN/%E6%95%B0%E6%8D%AE%E9%9B%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h3><p>1.<a href="https://blog.csdn.net/qq_45616304/article/details/117912347">针对 VOC2007和VOC2012 的具体用法</a></p>
+<p>2.<a href="https://blog.csdn.net/a_piece_of_ppx/article/details/118701340">Pascal Voc（07+12）联合训练并在07上测试</a></p>
+<h3 id="VOC2007和VOC2012用法"><a href="#VOC2007和VOC2012用法" class="headerlink" title="VOC2007和VOC2012用法"></a>VOC2007和VOC2012用法</h3><p>目前广大研究者们普遍使用的是 VOC2007和VOC2012数据集，因为二者是互斥的，不相容的。</p>
+<p>论文中针对 VOC2007和VOC2012 的具体用法有以下几种：</p>
+<p>1.只用VOC2007的trainval 训练，使用VOC2007的test测试。<br>2.只用VOC2012的trainval 训练，使用VOC2012的test测试，这种用法很少使用，因为大家都会结合VOC2007使用。<br>3.（推荐）使用 VOC2007 的 train+val 和 VOC2012的 train+val 训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12 ，研究者可以自己测试在VOC2007上的结果，因为VOC2007的test是公开的。<br>4.使用 VOC2007 的 train+val+test 和 VOC2012的 train+val训练，然后使用 VOC2012的test测试，这个用法是论文中经常看到的 07++12 ，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。<br>5.先在 MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val、 VOC2012的 train+val 微调训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12+COCO 。<br>6.先在 MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val+test 、 VOC2012的 train+val 微调训练，然后使用 VOC2012的test测试 ，这个用法是论文中经常看到的 07++12+COCO，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。</p>
+<h3 id="VOC07-12联合训练并在07上测试"><a href="#VOC07-12联合训练并在07上测试" class="headerlink" title="VOC07+12联合训练并在07上测试"></a>VOC07+12联合训练并在07上测试</h3><h4 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h4><p>对于分类/检测任务而言，完成07 + 12数据集合并后，共得到如下数据：</p>
+<pre><code># 5011+11540=16551, 12608+27450=40058
+训练数据：16551张图像，共40058个目标
+# 全部来自voc07_test
+测试数据：4952张图像，共12032个目标
+</code></pre><p>组成如下所示：</p>
+<p>训练数据：</p>
+<p>1.VOC2007的训练集提供了：</p>
+<pre><code>训练数据：2501张图像，共6301个目标
+验证数据：2510张图像，共6307个目标
+训练+验证数据：5011张图像，共12608个目标
+</code></pre><p>2.VOC2012的训练集提供了：</p>
+<pre><code>训练数据：5717张图像，共13609个目标
+验证数据：5823张图像，共13841个目标
+训练+验证数据：11540张图像，共27450个目标
+</code></pre><p>测试数据：</p>
+<p>1.VOC2007的测试集提供了：</p>
+<pre><code>测试数据：4952张图像，共12032个目标
+</code></pre><h3 id="各种数据集介绍"><a href="#各种数据集介绍" class="headerlink" title="各种数据集介绍"></a>各种数据集介绍</h3><h4 id="Pascal-VOC"><a href="#Pascal-VOC" class="headerlink" title="Pascal VOC"></a>Pascal VOC</h4><p>官网地址：<a href="https://pjreddie.com/projects/pascal-voc-dataset-mirror/">Pascal VOC Dataset Mirror (pjreddie.com)</a></p>
+<h4 id="MS-COCO"><a href="#MS-COCO" class="headerlink" title="MS COCO"></a>MS COCO</h4><h4 id="ILSVRC"><a href="#ILSVRC" class="headerlink" title="ILSVRC"></a>ILSVRC</h4>]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>数据集</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习</title>
+    <url>/zh-CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="常见概念"><a href="#常见概念" class="headerlink" title="常见概念"></a>常见概念</h3><h4 id="TP、TN、FP和FN概念"><a href="#TP、TN、FP和FN概念" class="headerlink" title="TP、TN、FP和FN概念"></a>TP、TN、FP和FN概念</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>P(分类器认为是正样本)</th>
+<th>N(分类器认为是负样本)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T(正确分类)</td>
+<td>TP</td>
+<td>TN</td>
+</tr>
+<tr>
+<td>F(错误分类)</td>
+<td>FP</td>
+<td>FN</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>注：</p>
+<p>TP（True Positives）意思就是被分为了正样本，而且分对了。（样本是正样本）<br>TN（True Negatives）意思就是被分为了负样本，而且分对了。(样本是负样本)<br>FP（False Positives）意思就是被分为了正样本，但是分错了。（样本是负样本）<br>FN（False Negatives）意思就是被分为了负样本，但是分错了。（样本是正样本）</p>
+<h4 id="正确率"><a href="#正确率" class="headerlink" title="正确率"></a>正确率</h4><p>正确率是我们最常见的评价指标，通常来说，正确率越高，分类器越好。TP是分类器认为是正样本而且确实是正样本的样本数，FP是分类器认为是正样本但实际上不是正样本的样本数，Precision就是“分类器认为是正类并且确实是正类的部分占所有分类器认为是正类的比例”。</p>
+<p><img src="/zh-CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20220425220526167.png" class="lazyload" data-srcset="/zh-CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20220425220526167.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220425220526167" style="zoom:50%;"></p>
+<h4 id="召回率"><a href="#召回率" class="headerlink" title="召回率"></a>召回率</h4><p>TP是分类器认为是正样本而且确实是正样本的样本数，FN是分类器认为是负样本但实际上不是负样本的样本数，Recall就是“分类器认为是正类并且确实是正类的部分占所有确实是正类的比例”。</p>
+<p><img src="/zh-CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20220425221025699.png" class="lazyload" data-srcset="/zh-CN/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20220425221025699.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220425221025699" style="zoom:50%;"></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -14423,69 +14502,6 @@ return x
       </categories>
       <tags>
         <tag>今日故事</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>pth权重文件转换为onnx权重文件</title>
-    <url>/zh-CN/pth_to_onnx/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://blog.csdn.net/weixin_50980847/article/details/126409707">pth文件转为onnx格式<em>业精于勤。荒于嬉。的博客-CSDN博客</em>.pth转onnx</a></p>
-<p>2.<a href="https://blog.csdn.net/weixin_45709671/article/details/118545500">Pytorch——初探onnx（1）解决upsample<em>bilinear2d转换问题</em>零壹博弈的博客-CSDN博客</a></p>
-<p>3.<a href="https://blog.csdn.net/magic_show_time/article/details/122476306">https://blog.csdn.net/magic_show_time/article/details/122476306</a></p>
-<p>由于想利用zetane这个软件可视化目标检测模型里面的特征变化过程，zetane只支持<code>onnx</code>、<code>h5</code>、<code>ZTN</code>文件,而我的目标检测模型得到的权重文件是<code>pth</code>文件,因此需要用到权重转换</p>
-<p>经过一系列的摸索，得出以下代码（亲测可用）：</p>
-<pre><code class="lang-python">import torch.onnx
-import onnxruntime as ort
-from nets import ssd
-
-# 创建.pth模型
-
-model = ssd.SSD300(21,'vgg')
-# 加载权重
-model_path = './model_data/ep250-loss1.474-val_loss2.826.pth'
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model_statedict = torch.load(model_path, map_location=device)
-model.load_state_dict(model_statedict)
-
-model.to(device)
-model.eval()
-
-input_data = torch.randn(1, 3, 300, 300, device=device)
-
-# 转化为onnx模型
-input_names = ['input']
-output_names = ['output']
-
-torch.onnx.export(model, input_data, 'ssdv7.onnx', opset_version=11, verbose=True, input_names=input_names,
-                  output_names=output_names)
-</code></pre>
-<p>遇到的问题：</p>
-<p>如果你是按照我给的两篇文章写代码，你会发现很简单</p>
-<p>1.模型无法加载，<code>load_state_dict</code>出现问题</p>
-<pre><code class="lang-bash"># 记住，模型参数一定要写全，根据自己的网络模型写即可
-# 错误代码
-model = ssd.SSD300()
-# 正确代码
-model = ssd.SSD300(21, 'vgg')
-</code></pre>
-<p>2.权重文件因为模型中上采样导出失败问题</p>
-<p><img src="/zh-CN/pth_to_onnx/image-20221031111722457.png" class="lazyload" data-srcset="/zh-CN/pth_to_onnx/image-20221031111722457.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221031111722457" style="zoom:80%;"></p>
-<p>按方法2解决即可，pytorch版本问题</p>
-<pre><code class="lang-bash"># 错误代码
-torch.onnx.export(model, input_data, 'ssdv7.onnx', opset_version=9, verbose=True, input_names=input_names, output_names=output_names)
-
-# 正确代码
-torch.onnx.export(model, input_data, 'ssdv7.onnx', opset_version=11, verbose=True, input_names=input_names,
-                  output_names=output_names)
-</code></pre>
-<p>ok,接下来就是zetane加载模型了，看看最终的模型吧。</p>
-<p><img src="/zh-CN/pth_to_onnx/image-20221031112309197.png" class="lazyload" data-srcset="/zh-CN/pth_to_onnx/image-20221031112309197.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221031112309197" style="zoom:80%;"></p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>文件转换</tag>
       </tags>
   </entry>
 </search>
