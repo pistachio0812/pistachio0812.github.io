@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Pytorch API之torch</title>
-    <url>/zh-TW/torch_/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>今天开始，开始一个全新的系列，就是pytorch的API解读，当然初期，我只会自己去读API,然后不懂的记录实验，把相关经验记录下来，懂的我不会写下来，如果你有不懂的，可以私信我，谢谢。</p>
-<p>一个讲的是torch库</p>
-<p>参考链接：</p>
-<p>1.<a href="https://pytorch.org/docs/stable/torch.html#tensors">torch — PyTorch 1.12 documentation</a></p>
-<h4 id="is-nonzero"><a href="#is-nonzero" class="headerlink" title="is_nonzero"></a>is_nonzero</h4><h4 id="numel"><a href="#numel" class="headerlink" title="numel"></a>numel</h4>]]></content>
-      <categories>
-        <category>pytorch</category>
-      </categories>
-      <tags>
-        <tag>函数库</tag>
-        <tag>torch</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CABNet论文笔记</title>
     <url>/zh-CN/CABNet/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -627,23 +611,6 @@ def darknet53():
       </tags>
   </entry>
   <entry>
-    <title>Faster-RCNN论文笔记</title>
-    <url>/zh-CN/Faster-rcnn/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://proceedings.neurips.cc/paper/2015/file/14bfa6bb14875e45bba028a21ed38046-Paper.pdf">Faster R-CNN</a></p>
-<p>源码地址：<a href="https://github.com/ShaoqingRen/faster_rcnn">ShaoqingRen/faster_rcnn: Faster R-CNN (github.com)</a></p>
-<p>文章引用源码：<a href="https://github.com/bubbliiiing/faster-rcnn-pytorch">https://github.com/bubbliiiing/faster-rcnn-pytorch</a></p>
-<p>文章出处：<a href="https://blog.csdn.net/weixin_44791964/article/details/105739918">https://blog.csdn.net/weixin_44791964/article/details/105739918</a></p>
-<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><h3 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h3><h4 id="主干网络"><a href="#主干网络" class="headerlink" title="主干网络"></a>主干网络</h4><p><img src="/zh-CN/Faster-rcnn/image-20220417152429746.png" class="lazyload" data-srcset="/zh-CN/Faster-rcnn/image-20220417152429746.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>faster-rcnn</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FPS计算</title>
     <url>/zh-CN/FPS/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -849,6 +816,42 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
       <tags>
         <tag>博客提升</tag>
         <tag>fork</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Faster-RCNN论文笔记</title>
+    <url>/zh-CN/Faster-rcnn/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://proceedings.neurips.cc/paper/2015/file/14bfa6bb14875e45bba028a21ed38046-Paper.pdf">Faster R-CNN</a></p>
+<p>源码地址：<a href="https://github.com/ShaoqingRen/faster_rcnn">ShaoqingRen/faster_rcnn: Faster R-CNN (github.com)</a></p>
+<p>文章引用源码：<a href="https://github.com/bubbliiiing/faster-rcnn-pytorch">https://github.com/bubbliiiing/faster-rcnn-pytorch</a></p>
+<p>文章出处：<a href="https://blog.csdn.net/weixin_44791964/article/details/105739918">https://blog.csdn.net/weixin_44791964/article/details/105739918</a></p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><h3 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h3><h4 id="主干网络"><a href="#主干网络" class="headerlink" title="主干网络"></a>主干网络</h4><p><img src="/zh-CN/Faster-rcnn/image-20220417152429746.png" class="lazyload" data-srcset="/zh-CN/Faster-rcnn/image-20220417152429746.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
+        <tag>faster-rcnn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to use Linux</title>
+    <url>/zh-CN/Linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="Linux简介"><a href="#Linux简介" class="headerlink" title="Linux简介"></a>Linux简介</h3><p>UNIX 是一个交互式系统，用于同时处理多进程和多用户同时在线。为什么要说 UNIX，那是因为 Linux 是由 UNIX 发展而来的，UNIX 是由程序员设计，它的主要服务对象也是程序员。Linux 继承了 UNIX 的设计目标。从智能手机到汽车，超级计算机和家用电器，从家用台式机到企业服务器，Linux 操作系统无处不在。</p>
+<p>大多数程序员都喜欢让系统尽量简单，优雅并具有一致性。举个例子，从最底层的角度来讲，一个文件应该只是一个字节集合。为了实现顺序存取、随机存取、按键存取、远程存取只能是妨碍你的工作。相同的，如果命令</p>
+<p>ls A*<br>意味着只列出以 A 为开头的所有文件，那么命令</p>
+<p>rm A<em><br>应该会移除所有以 A 为开头的文件而不是只删除文件名是 A</em> 的文件。这个特性也是最小吃惊原则(principle of least surprise)</p>
+<p>最小吃惊原则一般常用于用户界面和软件设计。它的原型是：该功能或者特征应该符合用户的预期，不应该使用户感到惊讶和震惊。</p>
+<p>一些有经验的程序员通常希望系统具有较强的功能性和灵活性。设计 Linux 的一个基本目标是每个应用程序只做一件事情并把他做好。所以编译器只负责编译的工作，编译器不会产生列表，因为有其他应用比编译器做的更好。</p>
+<p>很多人都不喜欢冗余，为什么在 cp 就能描述清楚你想干什么时候还使用 copy？这完全是在浪费宝贵的 hacking time。为了从文件中提取所有包含字符串 ard 的行，Linux 程序员应该输入</p>
+<p>grep ard f</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Liunx使用教程</tag>
       </tags>
   </entry>
   <entry>
@@ -1216,327 +1219,6 @@ setpencolor [255 0 0]
       <tags>
         <tag>logo</tag>
         <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to use Linux</title>
-    <url>/zh-CN/Linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="Linux简介"><a href="#Linux简介" class="headerlink" title="Linux简介"></a>Linux简介</h3><p>UNIX 是一个交互式系统，用于同时处理多进程和多用户同时在线。为什么要说 UNIX，那是因为 Linux 是由 UNIX 发展而来的，UNIX 是由程序员设计，它的主要服务对象也是程序员。Linux 继承了 UNIX 的设计目标。从智能手机到汽车，超级计算机和家用电器，从家用台式机到企业服务器，Linux 操作系统无处不在。</p>
-<p>大多数程序员都喜欢让系统尽量简单，优雅并具有一致性。举个例子，从最底层的角度来讲，一个文件应该只是一个字节集合。为了实现顺序存取、随机存取、按键存取、远程存取只能是妨碍你的工作。相同的，如果命令</p>
-<p>ls A*<br>意味着只列出以 A 为开头的所有文件，那么命令</p>
-<p>rm A<em><br>应该会移除所有以 A 为开头的文件而不是只删除文件名是 A</em> 的文件。这个特性也是最小吃惊原则(principle of least surprise)</p>
-<p>最小吃惊原则一般常用于用户界面和软件设计。它的原型是：该功能或者特征应该符合用户的预期，不应该使用户感到惊讶和震惊。</p>
-<p>一些有经验的程序员通常希望系统具有较强的功能性和灵活性。设计 Linux 的一个基本目标是每个应用程序只做一件事情并把他做好。所以编译器只负责编译的工作，编译器不会产生列表，因为有其他应用比编译器做的更好。</p>
-<p>很多人都不喜欢冗余，为什么在 cp 就能描述清楚你想干什么时候还使用 copy？这完全是在浪费宝贵的 hacking time。为了从文件中提取所有包含字符串 ard 的行，Linux 程序员应该输入</p>
-<p>grep ard f</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Liunx使用教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>InceptionV3论文笔记</title>
-    <url>/zh-CN/InceptionV3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>论文地址：<a href="https://arxiv.org/pdf/1512.00567.pdf">Inceptionv3 </a></p>
-<p>源码地址：<a href="https://github.com/MasazI/InceptionV3_TensorFlow">InceptionV3_TensorFlow: Inception v3 </a></p>
-<p>文章引用出处1：<a href="https://blog.csdn.net/weixin_44791964/article/details/102802866">https://blog.csdn.net/weixin_44791964/article/details/102802866</a></p>
-<p>文章引用出处2：<a href="https://cloud.tencent.com/developer/article/1006032">InceptionV3 网络模型</a></p>
-<h2 id="InceptionV3模型"><a href="#InceptionV3模型" class="headerlink" title="InceptionV3模型"></a>InceptionV3模型</h2><p>InceptionV3模型是谷歌Inception系列里面的第三代模型，其模型结构与InceptionV2模型放在了同一篇论文里，其实二者模型结构差距不大，相比于其它神经网络模型，Inception网络最大的特点在于将神经网络层与层之间的卷积运算进行了拓展。<br>如VGG，AlexNet网络，它就是一直卷积下来的，一层接着一层；<br>ResNet则是创新性的引入了残差网络的概念，使得靠前若干层的某一层数据输出直接跳过多层引入到后面数据层的输入部分，后面的特征层的内容会有一部分由其前面的某一层线性贡献。<br>而Inception网络则是采用不同大小的卷积核，使得存在不同大小的感受野，最后实现拼接达到不同尺度特征的融合。<br>对于InceptionV3而言，其网络中存在着如下的结构。<br>这个结构使用不同大小的卷积核对输入进行卷积（这个结构主要在代码中的block1使用）。<br><img src="/zh-CN/InceptionV3/2019111309515588.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/2019111309515588.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Inceptionv3_block1"></p>
-<p>还存在着这样的结构，利用1x7的卷积和7x1的卷积代替7x7的卷积，这样可以只使用约（1x7 + 7x1) / (7x7) = 28.6%的计算开销；利用1x3的卷积和3x1的卷积代替3x3的卷积，这样可以只使用约（1x3 + 3x1) / (3x3) = 67%的计算开销。<br>下图利用1x7的卷积和7x1的卷积代替7x7的卷积（这个结构主要在代码中的block2使用）。</p>
-<p><img src="/zh-CN/InceptionV3/20191113095610269.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/20191113095610269.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Inceptionv3_block2"></p>
-<p>下图利用1x3的卷积和3x1的卷积代替3x3的卷积（这个结构主要在代码中的block3使用）。</p>
-<p><img src="/zh-CN/InceptionV3/2019111309572648.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/2019111309572648.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="inceptionv3_block3"></p>
-<h2 id="网络部分实现代码"><a href="#网络部分实现代码" class="headerlink" title="网络部分实现代码"></a>网络部分实现代码</h2><p>一共将InceptionV3划分为3个block，对应着35x35、17x17，8x8维度大小的图像。每个block中间有许多的part，对应着不同的特征层深度，用于特征提取。</p>
-<pre><code class="lang-python">#-------------------------------------------------------------#
-#   InceptionV3的网络部分
-#-------------------------------------------------------------#
-from __future__ import print_function
-from __future__ import absolute_import
-
-import warnings
-import numpy as np
-
-from keras.models import Model
-from keras import layers
-from keras.layers import Activation,Dense,Input,BatchNormalization,Conv2D,MaxPooling2D,AveragePooling2D
-from keras.layers import GlobalAveragePooling2D,GlobalMaxPooling2D
-from keras.engine.topology import get_source_inputs
-from keras.utils.layer_utils import convert_all_kernels_in_model
-from keras.utils.data_utils import get_file
-from keras import backend as K
-from keras.applications.imagenet_utils import decode_predictions
-from keras.preprocessing import image
-
-
-def conv2d_bn(x,
-              filters,
-              num_row,
-              num_col,
-              padding='same',
-              strides=(1, 1),
-              name=None):
-    if name is not None:
-        bn_name = name + '_bn'
-        conv_name = name + '_conv'
-    else:
-        bn_name = None
-        conv_name = None
-    x = Conv2D(
-        filters, (num_row, num_col),
-        strides=strides,
-        padding=padding,
-        use_bias=False,
-        name=conv_name)(x)
-    x = BatchNormalization(scale=False, name=bn_name)(x)
-    x = Activation('relu', name=name)(x)
-    return x
-
-
-def InceptionV3(input_shape=[299,299,3],
-                classes=1000):
-
-
-    img_input = Input(shape=input_shape)
-
-    x = conv2d_bn(img_input, 32, 3, 3, strides=(2, 2), padding='valid')
-    x = conv2d_bn(x, 32, 3, 3, padding='valid')
-    x = conv2d_bn(x, 64, 3, 3)
-    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
-
-    x = conv2d_bn(x, 80, 1, 1, padding='valid')
-    x = conv2d_bn(x, 192, 3, 3, padding='valid')
-    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
-
-    #--------------------------------#
-    #   Block1 35x35
-    #--------------------------------#
-    # Block1 part1
-    # 35 x 35 x 192 -&gt; 35 x 35 x 256
-    branch1x1 = conv2d_bn(x, 64, 1, 1)
-
-    branch5x5 = conv2d_bn(x, 48, 1, 1)
-    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
-
-    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 32, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
-        axis=3,
-        name='mixed0')
-
-    # Block1 part2
-    # 35 x 35 x 256 -&gt; 35 x 35 x 288
-    branch1x1 = conv2d_bn(x, 64, 1, 1)
-
-    branch5x5 = conv2d_bn(x, 48, 1, 1)
-    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
-
-    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
-        axis=3,
-        name='mixed1')
-
-    # Block1 part3
-    # 35 x 35 x 288 -&gt; 35 x 35 x 288
-    branch1x1 = conv2d_bn(x, 64, 1, 1)
-
-    branch5x5 = conv2d_bn(x, 48, 1, 1)
-    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
-
-    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
-        axis=3,
-        name='mixed2')
-
-    #--------------------------------#
-    #   Block2 17x17
-    #--------------------------------#
-    # Block2 part1
-    # 35 x 35 x 288 -&gt; 17 x 17 x 768
-    branch3x3 = conv2d_bn(x, 384, 3, 3, strides=(2, 2), padding='valid')
-
-    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-    branch3x3dbl = conv2d_bn(
-        branch3x3dbl, 96, 3, 3, strides=(2, 2), padding='valid')
-
-    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
-    x = layers.concatenate(
-        [branch3x3, branch3x3dbl, branch_pool], axis=3, name='mixed3')
-
-    # Block2 part2
-    # 17 x 17 x 768 -&gt; 17 x 17 x 768
-    branch1x1 = conv2d_bn(x, 192, 1, 1)
-
-    branch7x7 = conv2d_bn(x, 128, 1, 1)
-    branch7x7 = conv2d_bn(branch7x7, 128, 1, 7)
-    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
-
-    branch7x7dbl = conv2d_bn(x, 128, 1, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 1, 7)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
-        axis=3,
-        name='mixed4')
-
-    # Block2 part3 and part4
-    # 17 x 17 x 768 -&gt; 17 x 17 x 768 -&gt; 17 x 17 x 768
-    for i in range(2):
-        branch1x1 = conv2d_bn(x, 192, 1, 1)
-
-        branch7x7 = conv2d_bn(x, 160, 1, 1)
-        branch7x7 = conv2d_bn(branch7x7, 160, 1, 7)
-        branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
-
-        branch7x7dbl = conv2d_bn(x, 160, 1, 1)
-        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
-        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 1, 7)
-        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
-        branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
-
-        branch_pool = AveragePooling2D(
-            (3, 3), strides=(1, 1), padding='same')(x)
-        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
-        x = layers.concatenate(
-            [branch1x1, branch7x7, branch7x7dbl, branch_pool],
-            axis=3,
-            name='mixed' + str(5 + i))
-
-    # Block2 part5
-    # 17 x 17 x 768 -&gt; 17 x 17 x 768
-    branch1x1 = conv2d_bn(x, 192, 1, 1)
-
-    branch7x7 = conv2d_bn(x, 192, 1, 1)
-    branch7x7 = conv2d_bn(branch7x7, 192, 1, 7)
-    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
-
-    branch7x7dbl = conv2d_bn(x, 192, 1, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
-        axis=3,
-        name='mixed7')
-
-    #--------------------------------#
-    #   Block3 8x8
-    #--------------------------------#
-    # Block3 part1
-    # 17 x 17 x 768 -&gt; 8 x 8 x 1280
-    branch3x3 = conv2d_bn(x, 192, 1, 1)
-    branch3x3 = conv2d_bn(branch3x3, 320, 3, 3,
-                          strides=(2, 2), padding='valid')
-
-    branch7x7x3 = conv2d_bn(x, 192, 1, 1)
-    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 1, 7)
-    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 7, 1)
-    branch7x7x3 = conv2d_bn(
-        branch7x7x3, 192, 3, 3, strides=(2, 2), padding='valid')
-
-    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
-    x = layers.concatenate(
-        [branch3x3, branch7x7x3, branch_pool], axis=3, name='mixed8')
-
-    # Block3 part2 part3
-    # 8 x 8 x 1280 -&gt; 8 x 8 x 2048 -&gt; 8 x 8 x 2048
-    for i in range(2):
-        branch1x1 = conv2d_bn(x, 320, 1, 1)
-
-        branch3x3 = conv2d_bn(x, 384, 1, 1)
-        branch3x3_1 = conv2d_bn(branch3x3, 384, 1, 3)
-        branch3x3_2 = conv2d_bn(branch3x3, 384, 3, 1)
-        branch3x3 = layers.concatenate(
-            [branch3x3_1, branch3x3_2], axis=3, name='mixed9_' + str(i))
-
-        branch3x3dbl = conv2d_bn(x, 448, 1, 1)
-        branch3x3dbl = conv2d_bn(branch3x3dbl, 384, 3, 3)
-        branch3x3dbl_1 = conv2d_bn(branch3x3dbl, 384, 1, 3)
-        branch3x3dbl_2 = conv2d_bn(branch3x3dbl, 384, 3, 1)
-        branch3x3dbl = layers.concatenate(
-            [branch3x3dbl_1, branch3x3dbl_2], axis=3)
-
-        branch_pool = AveragePooling2D(
-            (3, 3), strides=(1, 1), padding='same')(x)
-        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
-        x = layers.concatenate(
-            [branch1x1, branch3x3, branch3x3dbl, branch_pool],
-            axis=3,
-            name='mixed' + str(9 + i))
-    # 平均池化后全连接。
-    x = GlobalAveragePooling2D(name='avg_pool')(x)
-    x = Dense(classes, activation='softmax', name='predictions')(x)
-
-
-    inputs = img_input
-
-    model = Model(inputs, x, name='inception_v3')
-
-    return model
-</code></pre>
-<h2 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h2><p>建立网络后就可以进行预测了，实现代码如下：</p>
-<pre><code class="lang-python">def preprocess_input(x):
-    x /= 255.
-    x -= 0.5
-    x *= 2.
-    return x
-
-
-if __name__ == '__main__':
-    model = InceptionV3()
-
-    model.load_weights("inception_v3_weights_tf_dim_ordering_tf_kernels.h5")
-
-    img_path = 'elephant.jpg'
-    img = image.load_img(img_path, target_size=(299, 299))
-    x = image.img_to_array(img)
-    x = np.expand_dims(x, axis=0)
-
-    x = preprocess_input(x)
-
-    preds = model.predict(x)
-    print('Predicted:', decode_predictions(preds))
-</code></pre>
-<p>预测所需的已经训练好的InceptionV3模型可以在<a href="https://github.com/fchollet/deep-learning-models/releases下载。非常方便。">https://github.com/fchollet/deep-learning-models/releases下载。非常方便。</a><br>预测结果为：</p>
-<pre><code class="lang-markdown">Predicted: [[('n02504458', 'African_elephant', 0.50874853), ('n01871265', 'tusker', 0.19524273), ('n02504013', 'Indian_elephant', 0.1566972), ('n01917289', 'brain_coral', 0.0008956835), ('n01695060', 'Komodo_dragon', 0.0008260256)]]
-</code></pre>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>Inception</tag>
       </tags>
   </entry>
   <entry>
@@ -3165,21 +2847,6 @@ plt.show()
       </tags>
   </entry>
   <entry>
-    <title>RFBNet论文笔记</title>
-    <url>/zh-CN/RFBNet/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://openaccess.thecvf.com/content_ECCV_2018/papers/Songtao_Liu_Receptive_Field_Block_ECCV_2018_paper.pdf">Receptive Field Block Net for Accurate and Fast Object Detection (thecvf.com)</a></p>
-<p>代码地址：<a href="https://github.com/ruinmessi/RFBNet">https://github.com/ruinmessi/RFBNet</a></p>
-<h4 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h4><p>RFB模块是怎么考虑感受野尺寸和离心率之间的关系的？</p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>RFBNet</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MySQL学习笔记</title>
     <url>/zh-CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="MySQL入门教程"><a href="#MySQL入门教程" class="headerlink" title="MySQL入门教程"></a>MySQL入门教程</h2><h3 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h3><p>数据库是按照数据结构来组织、存储和管理数据的仓库</p>
@@ -3921,6 +3588,323 @@ ERROR 1146: Table 'W3CSCHOOL.SalesSummary' doesn't exist
       </tags>
   </entry>
   <entry>
+    <title>RFBNet论文笔记</title>
+    <url>/zh-CN/RFBNet/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://openaccess.thecvf.com/content_ECCV_2018/papers/Songtao_Liu_Receptive_Field_Block_ECCV_2018_paper.pdf">Receptive Field Block Net for Accurate and Fast Object Detection (thecvf.com)</a></p>
+<p>代码地址：<a href="https://github.com/ruinmessi/RFBNet">https://github.com/ruinmessi/RFBNet</a></p>
+<h4 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h4><p>RFB模块是怎么考虑感受野尺寸和离心率之间的关系的？</p>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
+        <tag>RFBNet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>InceptionV3论文笔记</title>
+    <url>/zh-CN/InceptionV3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>论文地址：<a href="https://arxiv.org/pdf/1512.00567.pdf">Inceptionv3 </a></p>
+<p>源码地址：<a href="https://github.com/MasazI/InceptionV3_TensorFlow">InceptionV3_TensorFlow: Inception v3 </a></p>
+<p>文章引用出处1：<a href="https://blog.csdn.net/weixin_44791964/article/details/102802866">https://blog.csdn.net/weixin_44791964/article/details/102802866</a></p>
+<p>文章引用出处2：<a href="https://cloud.tencent.com/developer/article/1006032">InceptionV3 网络模型</a></p>
+<h2 id="InceptionV3模型"><a href="#InceptionV3模型" class="headerlink" title="InceptionV3模型"></a>InceptionV3模型</h2><p>InceptionV3模型是谷歌Inception系列里面的第三代模型，其模型结构与InceptionV2模型放在了同一篇论文里，其实二者模型结构差距不大，相比于其它神经网络模型，Inception网络最大的特点在于将神经网络层与层之间的卷积运算进行了拓展。<br>如VGG，AlexNet网络，它就是一直卷积下来的，一层接着一层；<br>ResNet则是创新性的引入了残差网络的概念，使得靠前若干层的某一层数据输出直接跳过多层引入到后面数据层的输入部分，后面的特征层的内容会有一部分由其前面的某一层线性贡献。<br>而Inception网络则是采用不同大小的卷积核，使得存在不同大小的感受野，最后实现拼接达到不同尺度特征的融合。<br>对于InceptionV3而言，其网络中存在着如下的结构。<br>这个结构使用不同大小的卷积核对输入进行卷积（这个结构主要在代码中的block1使用）。<br><img src="/zh-CN/InceptionV3/2019111309515588.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/2019111309515588.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Inceptionv3_block1"></p>
+<p>还存在着这样的结构，利用1x7的卷积和7x1的卷积代替7x7的卷积，这样可以只使用约（1x7 + 7x1) / (7x7) = 28.6%的计算开销；利用1x3的卷积和3x1的卷积代替3x3的卷积，这样可以只使用约（1x3 + 3x1) / (3x3) = 67%的计算开销。<br>下图利用1x7的卷积和7x1的卷积代替7x7的卷积（这个结构主要在代码中的block2使用）。</p>
+<p><img src="/zh-CN/InceptionV3/20191113095610269.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/20191113095610269.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Inceptionv3_block2"></p>
+<p>下图利用1x3的卷积和3x1的卷积代替3x3的卷积（这个结构主要在代码中的block3使用）。</p>
+<p><img src="/zh-CN/InceptionV3/2019111309572648.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/2019111309572648.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="inceptionv3_block3"></p>
+<h2 id="网络部分实现代码"><a href="#网络部分实现代码" class="headerlink" title="网络部分实现代码"></a>网络部分实现代码</h2><p>一共将InceptionV3划分为3个block，对应着35x35、17x17，8x8维度大小的图像。每个block中间有许多的part，对应着不同的特征层深度，用于特征提取。</p>
+<pre><code class="lang-python">#-------------------------------------------------------------#
+#   InceptionV3的网络部分
+#-------------------------------------------------------------#
+from __future__ import print_function
+from __future__ import absolute_import
+
+import warnings
+import numpy as np
+
+from keras.models import Model
+from keras import layers
+from keras.layers import Activation,Dense,Input,BatchNormalization,Conv2D,MaxPooling2D,AveragePooling2D
+from keras.layers import GlobalAveragePooling2D,GlobalMaxPooling2D
+from keras.engine.topology import get_source_inputs
+from keras.utils.layer_utils import convert_all_kernels_in_model
+from keras.utils.data_utils import get_file
+from keras import backend as K
+from keras.applications.imagenet_utils import decode_predictions
+from keras.preprocessing import image
+
+
+def conv2d_bn(x,
+              filters,
+              num_row,
+              num_col,
+              padding='same',
+              strides=(1, 1),
+              name=None):
+    if name is not None:
+        bn_name = name + '_bn'
+        conv_name = name + '_conv'
+    else:
+        bn_name = None
+        conv_name = None
+    x = Conv2D(
+        filters, (num_row, num_col),
+        strides=strides,
+        padding=padding,
+        use_bias=False,
+        name=conv_name)(x)
+    x = BatchNormalization(scale=False, name=bn_name)(x)
+    x = Activation('relu', name=name)(x)
+    return x
+
+
+def InceptionV3(input_shape=[299,299,3],
+                classes=1000):
+
+
+    img_input = Input(shape=input_shape)
+
+    x = conv2d_bn(img_input, 32, 3, 3, strides=(2, 2), padding='valid')
+    x = conv2d_bn(x, 32, 3, 3, padding='valid')
+    x = conv2d_bn(x, 64, 3, 3)
+    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
+
+    x = conv2d_bn(x, 80, 1, 1, padding='valid')
+    x = conv2d_bn(x, 192, 3, 3, padding='valid')
+    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
+
+    #--------------------------------#
+    #   Block1 35x35
+    #--------------------------------#
+    # Block1 part1
+    # 35 x 35 x 192 -&gt; 35 x 35 x 256
+    branch1x1 = conv2d_bn(x, 64, 1, 1)
+
+    branch5x5 = conv2d_bn(x, 48, 1, 1)
+    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 32, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
+        axis=3,
+        name='mixed0')
+
+    # Block1 part2
+    # 35 x 35 x 256 -&gt; 35 x 35 x 288
+    branch1x1 = conv2d_bn(x, 64, 1, 1)
+
+    branch5x5 = conv2d_bn(x, 48, 1, 1)
+    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
+        axis=3,
+        name='mixed1')
+
+    # Block1 part3
+    # 35 x 35 x 288 -&gt; 35 x 35 x 288
+    branch1x1 = conv2d_bn(x, 64, 1, 1)
+
+    branch5x5 = conv2d_bn(x, 48, 1, 1)
+    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
+        axis=3,
+        name='mixed2')
+
+    #--------------------------------#
+    #   Block2 17x17
+    #--------------------------------#
+    # Block2 part1
+    # 35 x 35 x 288 -&gt; 17 x 17 x 768
+    branch3x3 = conv2d_bn(x, 384, 3, 3, strides=(2, 2), padding='valid')
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(
+        branch3x3dbl, 96, 3, 3, strides=(2, 2), padding='valid')
+
+    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
+    x = layers.concatenate(
+        [branch3x3, branch3x3dbl, branch_pool], axis=3, name='mixed3')
+
+    # Block2 part2
+    # 17 x 17 x 768 -&gt; 17 x 17 x 768
+    branch1x1 = conv2d_bn(x, 192, 1, 1)
+
+    branch7x7 = conv2d_bn(x, 128, 1, 1)
+    branch7x7 = conv2d_bn(branch7x7, 128, 1, 7)
+    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
+
+    branch7x7dbl = conv2d_bn(x, 128, 1, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 1, 7)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
+        axis=3,
+        name='mixed4')
+
+    # Block2 part3 and part4
+    # 17 x 17 x 768 -&gt; 17 x 17 x 768 -&gt; 17 x 17 x 768
+    for i in range(2):
+        branch1x1 = conv2d_bn(x, 192, 1, 1)
+
+        branch7x7 = conv2d_bn(x, 160, 1, 1)
+        branch7x7 = conv2d_bn(branch7x7, 160, 1, 7)
+        branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
+
+        branch7x7dbl = conv2d_bn(x, 160, 1, 1)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 1, 7)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+
+        branch_pool = AveragePooling2D(
+            (3, 3), strides=(1, 1), padding='same')(x)
+        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+        x = layers.concatenate(
+            [branch1x1, branch7x7, branch7x7dbl, branch_pool],
+            axis=3,
+            name='mixed' + str(5 + i))
+
+    # Block2 part5
+    # 17 x 17 x 768 -&gt; 17 x 17 x 768
+    branch1x1 = conv2d_bn(x, 192, 1, 1)
+
+    branch7x7 = conv2d_bn(x, 192, 1, 1)
+    branch7x7 = conv2d_bn(branch7x7, 192, 1, 7)
+    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
+
+    branch7x7dbl = conv2d_bn(x, 192, 1, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
+        axis=3,
+        name='mixed7')
+
+    #--------------------------------#
+    #   Block3 8x8
+    #--------------------------------#
+    # Block3 part1
+    # 17 x 17 x 768 -&gt; 8 x 8 x 1280
+    branch3x3 = conv2d_bn(x, 192, 1, 1)
+    branch3x3 = conv2d_bn(branch3x3, 320, 3, 3,
+                          strides=(2, 2), padding='valid')
+
+    branch7x7x3 = conv2d_bn(x, 192, 1, 1)
+    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 1, 7)
+    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 7, 1)
+    branch7x7x3 = conv2d_bn(
+        branch7x7x3, 192, 3, 3, strides=(2, 2), padding='valid')
+
+    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
+    x = layers.concatenate(
+        [branch3x3, branch7x7x3, branch_pool], axis=3, name='mixed8')
+
+    # Block3 part2 part3
+    # 8 x 8 x 1280 -&gt; 8 x 8 x 2048 -&gt; 8 x 8 x 2048
+    for i in range(2):
+        branch1x1 = conv2d_bn(x, 320, 1, 1)
+
+        branch3x3 = conv2d_bn(x, 384, 1, 1)
+        branch3x3_1 = conv2d_bn(branch3x3, 384, 1, 3)
+        branch3x3_2 = conv2d_bn(branch3x3, 384, 3, 1)
+        branch3x3 = layers.concatenate(
+            [branch3x3_1, branch3x3_2], axis=3, name='mixed9_' + str(i))
+
+        branch3x3dbl = conv2d_bn(x, 448, 1, 1)
+        branch3x3dbl = conv2d_bn(branch3x3dbl, 384, 3, 3)
+        branch3x3dbl_1 = conv2d_bn(branch3x3dbl, 384, 1, 3)
+        branch3x3dbl_2 = conv2d_bn(branch3x3dbl, 384, 3, 1)
+        branch3x3dbl = layers.concatenate(
+            [branch3x3dbl_1, branch3x3dbl_2], axis=3)
+
+        branch_pool = AveragePooling2D(
+            (3, 3), strides=(1, 1), padding='same')(x)
+        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+        x = layers.concatenate(
+            [branch1x1, branch3x3, branch3x3dbl, branch_pool],
+            axis=3,
+            name='mixed' + str(9 + i))
+    # 平均池化后全连接。
+    x = GlobalAveragePooling2D(name='avg_pool')(x)
+    x = Dense(classes, activation='softmax', name='predictions')(x)
+
+
+    inputs = img_input
+
+    model = Model(inputs, x, name='inception_v3')
+
+    return model
+</code></pre>
+<h2 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h2><p>建立网络后就可以进行预测了，实现代码如下：</p>
+<pre><code class="lang-python">def preprocess_input(x):
+    x /= 255.
+    x -= 0.5
+    x *= 2.
+    return x
+
+
+if __name__ == '__main__':
+    model = InceptionV3()
+
+    model.load_weights("inception_v3_weights_tf_dim_ordering_tf_kernels.h5")
+
+    img_path = 'elephant.jpg'
+    img = image.load_img(img_path, target_size=(299, 299))
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+
+    x = preprocess_input(x)
+
+    preds = model.predict(x)
+    print('Predicted:', decode_predictions(preds))
+</code></pre>
+<p>预测所需的已经训练好的InceptionV3模型可以在<a href="https://github.com/fchollet/deep-learning-models/releases下载。非常方便。">https://github.com/fchollet/deep-learning-models/releases下载。非常方便。</a><br>预测结果为：</p>
+<pre><code class="lang-markdown">Predicted: [[('n02504458', 'African_elephant', 0.50874853), ('n01871265', 'tusker', 0.19524273), ('n02504013', 'Indian_elephant', 0.1566972), ('n01917289', 'brain_coral', 0.0008956835), ('n01695060', 'Komodo_dragon', 0.0008260256)]]
+</code></pre>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
+        <tag>Inception</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>rss学习笔记</title>
     <url>/zh-CN/RSS/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -4200,431 +4184,6 @@ ReactDOM.render(
       <tags>
         <tag>学习笔记</tag>
         <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Resnet论文笔记</title>
-    <url>/zh-CN/Resnet/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://gitcode.net/mirrors/bubbliiiing/faster-rcnn-pytorch">faster-rcnn-pytorch代码</a></p>
-<p>2.<a href="https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf">Deep Residual Learning for Image Recognition (thecvf.com)</a></p>
-<p>3.<a href="https://www.cnblogs.com/wujianming-110117/p/14975136.html">ResNet50结构 </a></p>
-<p>4.<a href="https://blog.csdn.net/weixin_44791964/article/details/105739918?ops_request_misc=%7B%22request%5Fid%22%3A%22165156747616781685390350%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fblog.%22%7D&amp;request_id=165156747616781685390350&amp;biz_id=0&amp;spm=1018.2226.3001.4450">Pytorch搭建Faster R-CNN目标检测平台</a></p>
-<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>该网络是从原论文搬过来的，也就是参考博文2里的内容。有兴趣的可以读读原论文。</p>
-<p><img src="/zh-CN/Resnet/image-20220503185916137.png" class="lazyload" data-srcset="/zh-CN/Resnet/image-20220503185916137.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220503185916137"></p>
-<h2 id="代码复现"><a href="#代码复现" class="headerlink" title="代码复现"></a>代码复现</h2><p>具体网络结构：</p>
-<p>1.Bottleneck</p>
-<p><img src="/zh-CN/Resnet/image-20220503193754428.png" class="lazyload" data-srcset="/zh-CN/Resnet/image-20220503193754428.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220503193754428" style="zoom:50%;"></p>
-<p>2.Resnet50中50的含义：（3+4+6+3)*3+2=50（卷积全连接层数之和）</p>
-<p>2.resnet101同理，只要把<code>model = ResNet(Bottleneck, [3, 4, 6, 3])</code>改成<code>model=ResNet(Bottleneck, [3, 4, 23, 3])</code>,101=(3+4+23+3)*3+2</p>
-<pre><code class="lang-python">import math
-
-import torch.nn as nn
-from torch.hub import load_state_dict_from_url
-
-# c0表示输入特征图通道数，c1表示输出特征图通道数，由此可见，该类作用为通道扩张4倍
-class Bottleneck(nn.Module):
-    expansion = 4
-    def __init__(self, inplanes, planes, stride=1, downsample=None):
-        super(Bottleneck, self).__init__()
-        # (N, C0, H, W)-&gt;(N, C1, H, W)
-        self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=1, stride=stride, bias=False)
-        # (N, C1, H, W)-&gt;(N, C1, H, W)
-        self.bn1 = nn.BatchNorm2d(planes)
-
-        # (N, C1, H, W)-&gt;(N, C1, H, W)
-        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=1, padding=1, bias=False)
-        # (N, C1, H, W)-&gt;(N, C1, H, W)
-        self.bn2 = nn.BatchNorm2d(planes)
-        # (N, C1, H, W)-&gt;(N, 4*C1, H, W)
-        self.conv3 = nn.Conv2d(planes, planes * 4, kernel_size=1, bias=False)
-        # (N, 4*C1, H, W)-&gt;(N, 4*C1, H, W)
-        self.bn3 = nn.BatchNorm2d(planes * 4)
-
-        # (N, 4*C1, H, W)-&gt;(N, 4*C1, H, W)
-        self.relu = nn.ReLU(inplace=True)
-        # defalt is None
-        self.downsample = downsample
-        self.stride = stride
-
-    def forward(self, x):
-        residual = x
-
-        out = self.conv1(x)
-        out = self.bn1(out)
-        out = self.relu(out)
-
-        out = self.conv2(out)
-        out = self.bn2(out)
-        out = self.relu(out)
-
-        out = self.conv3(out)
-        out = self.bn3(out)
-        if self.downsample is not None:
-            residual = self.downsample(x)
-
-        out += residual
-        out = self.relu(out)
-
-        return out
-
-class ResNet(nn.Module):
-    def __init__(self, block, layers, num_classes=1000):
-        #-----------------------------------#
-        #   假设输入进来的图片是600,600,3
-        #-----------------------------------#
-        self.inplanes = 64
-        super(ResNet, self).__init__()
-
-        # 600,600,3 -&gt; 300,300,64
-        self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False)
-        self.bn1 = nn.BatchNorm2d(64)
-        self.relu = nn.ReLU(inplace=True)
-
-        # 300,300,64 -&gt; 150,150,64
-        self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=0, ceil_mode=True)
-
-        # 150,150,64 -&gt; 150,150,256
-        # 此时stride=1,但通道和原来一样，进行下采样，通道变为4*64=256
-        self.layer1 = self._make_layer(block, 64, layers[0])
-
-        # 150,150,256 -&gt; 75,75,512
-        # 此时stride=2,进行下采样，宽高变为原来的1/2，通道变为4*128=512
-        self.layer2 = self._make_layer(block, 128, layers[1], stride=2)
-
-        # 75,75,512 -&gt; 38,38,1024 到这里可以获得一个38,38,1024的共享特征层
-        self.layer3 = self._make_layer(block, 256, layers[2], stride=2)
-        # self.layer4被用在classifier模型中
-        # 38,38,1024 -&gt; 19,19,2048
-        self.layer4 = self._make_layer(block, 512, layers[3], stride=2)
-
-        # 19,19,2048 -&gt; 2,2,2048
-        self.avgpool = nn.AvgPool2d(7)
-        self.fc = nn.Linear(512 * block.expansion, num_classes)
-
-        for m in self.modules():
-            if isinstance(m, nn.Conv2d):
-                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
-                m.weight.data.normal_(0, math.sqrt(2. / n))
-            elif isinstance(m, nn.BatchNorm2d):
-                m.weight.data.fill_(1)
-                m.bias.data.zero_()
-
-    # 定义每个层的操作，比如在resnet50里conv2_x重复了三次，那么就是block=Bottleck,blocks=3
-    # 其实conv3_x,conv4_x,conv5_x中block都是Bottlenecck,就是重复的次数不一样
-    def _make_layer(self, block, planes, blocks, stride=1):
-        downsample = None
-        #-------------------------------------------------------------------#
-        # 当模型需要进行高和宽的压缩的时候，或者通道不为原来的4倍，就需要用到残差边的downsample
-        # 个人认为这里通道变化不大（相比于2倍上层特征图通道数）也需要downsample是因为通道变化不
-        # 大，信息不够细致
-        #-------------------------------------------------------------------#
-        if stride != 1 or self.inplanes != planes * block.expansion:
-            # (N, C0, H, W)-&gt;(N, 4*C1, H, W)
-            downsample = nn.Sequential(
-                nn.Conv2d(self.inplanes, planes * block.expansion,kernel_size=1, stride=stride, bias=False),
-                nn.BatchNorm2d(planes * block.expansion),
-            )
-        # layers记录块结果
-        layers = []
-        layers.append(block(self.inplanes, planes, stride, downsample))
-        self.inplanes = planes * block.expansion
-        for i in range(1, blocks):
-            layers.append(block(self.inplanes, planes))
-        return nn.Sequential(*layers)
-
-    def forward(self, x):
-        x = self.conv1(x)
-        x = self.bn1(x)
-        x = self.relu(x)
-        x = self.maxpool(x)
-
-        x = self.layer1(x)
-        x = self.layer2(x)
-        x = self.layer3(x)
-        x = self.layer4(x)
-
-        # 接上面假设，此时x=(N, 2, 2, 2048)
-        x = self.avgpool(x)
-        # (N, 2, 2, 2048)-&gt;(N, 4096)
-        x = x.view(x.size(0), -1)
-        # (N,4096)-&gt;(N, 1000)
-        x = self.fc(x)
-        return x
-
-def resnet50(pretrained = False):
-    model = ResNet(Bottleneck, [3, 4, 6, 3])
-    if pretrained:
-        state_dict = load_state_dict_from_url("https://download.pytorch.org/models/resnet50-19c8e357.pth", model_dir="./model_data")
-        model.load_state_dict(state_dict)
-    #----------------------------------------------------------------------------#
-    #   获取特征提取部分，从conv1到model.layer3，最终获得一个38,38,1024的特征层
-    #----------------------------------------------------------------------------#
-    features    = list([model.conv1, model.bn1, model.relu, model.maxpool, model.layer1, model.layer2, model.layer3])
-    #----------------------------------------------------------------------------#
-    #   获取分类部分，从model.layer4到model.avgpool
-    #----------------------------------------------------------------------------#
-    classifier  = list([model.layer4, model.avgpool])
-
-    features    = nn.Sequential(*features)
-    classifier  = nn.Sequential(*classifier)
-    return features, classifier
-</code></pre>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>resnet</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SSD300转换到SSD512</title>
-    <url>/zh-CN/SSD300_to_SSD512/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://gitcode.net/mirrors/bubbliiiing/ssd-pytorch">mirrors / bubbliiiing / ssd-pytorch · GitCode</a></p>
-<p>2.<a href="https://github.com/midasklr/SSD.Pytorch">https://github.com/midasklr/SSD.Pytorch</a></p>
-<p>由于我使用的第一篇参考链接里的代码，只有SSD300，而我又想升级改造成SSD512，因此找了一些参考，比如第二个链接，现在，让我们尝试着改造它吧。</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>目标检测</tag>
-        <tag>SSD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SSD损失函数详解</title>
-    <url>/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://www.freesion.com/article/9127332548/">目标识别：SSD pytorch代码学习笔记</a></p>
-<p>2.<a href="https://linkspringer.53yu.com/content/pdf/10.1007/978-3-319-46448-0_2.pdf">SSD论文</a></p>
-<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>SSD损失函数包括两部分：位置损失函数<script type="math/tex">L_{loc}</script>和置信度损失函数<script type="math/tex">L_{conf}</script></p>
-<p>整个损失函数为：</p>
-<p><img src="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/image-20220506200608617.png" class="lazyload" data-srcset="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/image-20220506200608617.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220506200608617" style="zoom:80%;"></p>
-<p>说明：</p>
-<p>·N是先验框的正样本数量</p>
-<p>·c是类别置信度预测值</p>
-<p>·l为先验框所对应边界框的位置预测值</p>
-<p>·g为ground truth的位置参数</p>
-<h4 id="位置损失函数"><a href="#位置损失函数" class="headerlink" title="位置损失函数"></a>位置损失函数</h4><p>针对所有正样本，采用Smooth L1损失，位置信息都是编码之后的信息。</p>
-<p><img src="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/390ed4e1f5fc0a137b65dea937b907a5.png" class="lazyload" data-srcset="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/390ed4e1f5fc0a137b65dea937b907a5.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="在这里插入图片描述" style="zoom:50%;"></p>
-<p>代码如下：</p>
-<pre><code class="lang-python">    def _l1_smooth_loss(self, y_true, y_pred):
-        abs_loss = torch.abs(y_true - y_pred)
-        sq_loss = 0.5 * (y_true - y_pred)**2
-        l1_loss = torch.where(abs_loss &lt; 1.0, sq_loss, abs_loss - 0.5)
-        return torch.sum(l1_loss, -1)
-</code></pre>
-<h4 id="置信度损失函数"><a href="#置信度损失函数" class="headerlink" title="置信度损失函数"></a>置信度损失函数</h4><p>首先需要使用 <strong>hard negative mining</strong> 将正负样本按照 <strong>1:3</strong> 的比例把负样本抽样出来，抽样的方法是：</p>
-<p><strong>思想</strong>： 针对所有batch的confidence，按照置信度误差进行降序排列，取出前<strong>top_k</strong>个负样本。</p>
-<p>编程:</p>
-<p>·reshape所有batch中的conf</p>
-<p><code>batch_conf = conf_data.view(-1, self.num_classes)</code></p>
-<p>·置信度误差越大，实际上就是预测背景的置信度越小</p>
-<p>·把所有置信度进行log_softmax处理（均为负值），预测的置信度越小，则log_softmax越小，取绝对值，则|log_softmax|越大，降序排列后，取前top_k的负样本。</p>
-<p>softmax代码如下：</p>
-<pre><code class="lang-python">    def _softmax_loss(self, y_true, y_pred):
-        y_pred = torch.clamp(y_pred, min=1e-7)
-        softmax_loss = -torch.sum(y_true * torch.log(y_pred),
-                                  axis=-1)
-        return softmax_loss
-</code></pre>
-<h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h4><pre><code class="lang-python">import math
-from functools import partial
-
-import torch
-import torch.nn as nn
-
-
-class MultiboxLoss(nn.Module):
-    def __init__(self, num_classes, alpha=1.0, neg_pos_ratio=3.0,
-                 background_label_id=0, negatives_for_hard=100.0):
-        self.num_classes = num_classes
-        self.alpha = alpha
-        self.neg_pos_ratio = neg_pos_ratio
-        if background_label_id != 0:
-            raise Exception('Only 0 as background label id is supported')
-        self.background_label_id = background_label_id
-        self.negatives_for_hard = torch.FloatTensor([negatives_for_hard])[0]
-
-    def _l1_smooth_loss(self, y_true, y_pred):
-        abs_loss = torch.abs(y_true - y_pred)
-        sq_loss = 0.5 * (y_true - y_pred)**2
-        l1_loss = torch.where(abs_loss &lt; 1.0, sq_loss, abs_loss - 0.5)
-        return torch.sum(l1_loss, -1)
-
-    def _softmax_loss(self, y_true, y_pred):
-        y_pred = torch.clamp(y_pred, min=1e-7)
-        softmax_loss = -torch.sum(y_true * torch.log(y_pred),
-                                  axis=-1)
-        return softmax_loss
-
-    def forward(self, y_true, y_pred):
-        # --------------------------------------------- #
-        #   y_true batch_size, 8732, 4 + self.num_classes + 1
-        #   y_pred batch_size, 8732, 4 + self.num_classes
-        # --------------------------------------------- #
-        num_boxes = y_true.size()[1]
-        y_pred = torch.cat([y_pred[0], nn.Softmax(-1)(y_pred[1])], dim=-1)
-
-        # --------------------------------------------- #
-        #   分类的loss
-        #   batch_size,8732,21 -&gt; batch_size,8732
-        # --------------------------------------------- #
-        conf_loss = self._softmax_loss(y_true[:, :, 4:-1], y_pred[:, :, 4:])
-
-        # --------------------------------------------- #
-        #   框的位置的loss
-        #   batch_size,8732,4 -&gt; batch_size,8732
-        # --------------------------------------------- #
-        loc_loss = self._l1_smooth_loss(y_true[:, :, :4],
-                                        y_pred[:, :, :4])
-
-        # --------------------------------------------- #
-        #   获取所有的正标签的loss
-        # --------------------------------------------- #
-        pos_loc_loss = torch.sum(loc_loss * y_true[:, :, -1],
-                                 axis=1)
-        pos_conf_loss = torch.sum(conf_loss * y_true[:, :, -1],
-                                  axis=1)
-
-        # --------------------------------------------- #
-        #   每一张图的正样本的个数
-        #   num_pos     [batch_size,]
-        # --------------------------------------------- #
-        num_pos = torch.sum(y_true[:, :, -1], axis=-1)
-
-        # --------------------------------------------- #
-        #   每一张图的负样本的个数
-        #   num_neg     [batch_size,]
-        # --------------------------------------------- #
-        num_neg = torch.min(self.neg_pos_ratio * num_pos, num_boxes - num_pos)
-        # 找到了哪些值是大于0的
-        pos_num_neg_mask = num_neg &gt; 0
-        # --------------------------------------------- #
-        #   如果所有的图，正样本的数量均为0
-        #   那么则默认选取100个先验框作为负样本
-        # --------------------------------------------- #
-        has_min = torch.sum(pos_num_neg_mask)
-
-        # --------------------------------------------- #
-        #   从这里往后，与视频中看到的代码有些许不同。
-        #   由于以前的负样本选取方式存在一些问题，
-        #   我对该部分代码进行重构。
-        #   求整个batch应该的负样本数量总和
-        # --------------------------------------------- #
-        num_neg_batch = torch.sum(
-            num_neg) if has_min &gt; 0 else self.negatives_for_hard
-
-        # --------------------------------------------- #
-        #   对预测结果进行判断，如果该先验框没有包含物体
-        #   那么它的不属于背景的预测概率过大的话
-        #   就是难分类样本
-        # --------------------------------------------- #
-        confs_start = 4 + self.background_label_id + 1
-        confs_end = confs_start + self.num_classes - 1
-
-        # --------------------------------------------- #
-        #   batch_size,8732
-        #   把不是背景的概率求和，求和后的概率越大
-        #   代表越难分类。
-        # --------------------------------------------- #
-        max_confs = torch.sum(y_pred[:, :, confs_start:confs_end], dim=2)
-
-        # --------------------------------------------------- #
-        #   只有没有包含物体的先验框才得到保留
-        #   我们在整个batch里面选取最难分类的num_neg_batch个
-        #   先验框作为负样本。
-        # --------------------------------------------------- #
-        max_confs = (max_confs * (1 - y_true[:, :, -1])).view([-1])
-
-        _, indices = torch.topk(max_confs, k=int(
-            num_neg_batch.cpu().numpy().tolist()))
-
-        neg_conf_loss = torch.gather(conf_loss.view([-1]), 0, indices)
-
-        # 进行归一化
-        num_pos = torch.where(num_pos != 0, num_pos, torch.ones_like(num_pos))
-        total_loss = torch.sum(
-            pos_conf_loss) + torch.sum(neg_conf_loss) + torch.sum(self.alpha * pos_loc_loss)
-        total_loss = total_loss / torch.sum(num_pos)
-        return total_loss
-
-
-def weights_init(net, init_type='normal', init_gain=0.02):
-    def init_func(m):
-        classname = m.__class__.__name__
-        if hasattr(m, 'weight') and classname.find('Conv') != -1:
-            if init_type == 'normal':
-                torch.nn.init.normal_(m.weight.data, 0.0, init_gain)
-            elif init_type == 'xavier':
-                torch.nn.init.xavier_normal_(m.weight.data, gain=init_gain)
-            elif init_type == 'kaiming':
-                torch.nn.init.kaiming_normal_(
-                    m.weight.data, a=0, mode='fan_in')
-            elif init_type == 'orthogonal':
-                torch.nn.init.orthogonal_(m.weight.data, gain=init_gain)
-            else:
-                raise NotImplementedError(
-                    'initialization method [%s] is not implemented' % init_type)
-        elif classname.find('BatchNorm2d') != -1:
-            torch.nn.init.normal_(m.weight.data, 1.0, 0.02)
-            torch.nn.init.constant_(m.bias.data, 0.0)
-    print('initialize network with %s type' % init_type)
-    net.apply(init_func)
-
-
-def get_lr_scheduler(lr_decay_type, lr, min_lr, total_iters, warmup_iters_ratio=0.1, warmup_lr_ratio=0.1, no_aug_iter_ratio=0.3, step_num=10):
-    def yolox_warm_cos_lr(lr, min_lr, total_iters, warmup_total_iters, warmup_lr_start, no_aug_iter, iters):
-        if iters &lt;= warmup_total_iters:
-            # lr = (lr - warmup_lr_start) * iters / float(warmup_total_iters) + warmup_lr_start
-            lr = (lr - warmup_lr_start) * pow(iters /
-                                              float(warmup_total_iters), 2) + warmup_lr_start
-        elif iters &gt;= total_iters - no_aug_iter:
-            lr = min_lr
-        else:
-            lr = min_lr + 0.5 * (lr - min_lr) * (
-                1.0 + math.cos(math.pi * (iters - warmup_total_iters) /
-                               (total_iters - warmup_total_iters - no_aug_iter))
-            )
-        return lr
-
-    def step_lr(lr, decay_rate, step_size, iters):
-        if step_size &lt; 1:
-            raise ValueError("step_size must above 1.")
-        n = iters // step_size
-        out_lr = lr * decay_rate ** n
-        return out_lr
-
-    if lr_decay_type == "cos":
-        warmup_total_iters = min(max(warmup_iters_ratio * total_iters, 1), 3)
-        warmup_lr_start = max(warmup_lr_ratio * lr, 1e-6)
-        no_aug_iter = min(max(no_aug_iter_ratio * total_iters, 1), 15)
-        func = partial(yolox_warm_cos_lr, lr, min_lr, total_iters,
-                       warmup_total_iters, warmup_lr_start, no_aug_iter)
-    else:
-        decay_rate = (min_lr / lr) ** (1 / (step_num - 1))
-        step_size = total_iters / step_num
-        func = partial(step_lr, lr, decay_rate, step_size)
-
-    return func
-
-
-def set_optimizer_lr(optimizer, lr_scheduler_func, epoch):
-    lr = lr_scheduler_func(epoch)
-    for param_group in optimizer.param_groups:
-        param_group['lr'] = lr
-</code></pre>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>SSD</tag>
-        <tag>损失函数</tag>
       </tags>
   </entry>
   <entry>
@@ -5479,6 +5038,431 @@ def encode_bbox(assigned_annotations, positive_indices, anchor_widths, anchor_he
       <tags>
         <tag>论文笔记</tag>
         <tag>retinanet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Resnet论文笔记</title>
+    <url>/zh-CN/Resnet/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://gitcode.net/mirrors/bubbliiiing/faster-rcnn-pytorch">faster-rcnn-pytorch代码</a></p>
+<p>2.<a href="https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf">Deep Residual Learning for Image Recognition (thecvf.com)</a></p>
+<p>3.<a href="https://www.cnblogs.com/wujianming-110117/p/14975136.html">ResNet50结构 </a></p>
+<p>4.<a href="https://blog.csdn.net/weixin_44791964/article/details/105739918?ops_request_misc=%7B%22request%5Fid%22%3A%22165156747616781685390350%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fblog.%22%7D&amp;request_id=165156747616781685390350&amp;biz_id=0&amp;spm=1018.2226.3001.4450">Pytorch搭建Faster R-CNN目标检测平台</a></p>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>该网络是从原论文搬过来的，也就是参考博文2里的内容。有兴趣的可以读读原论文。</p>
+<p><img src="/zh-CN/Resnet/image-20220503185916137.png" class="lazyload" data-srcset="/zh-CN/Resnet/image-20220503185916137.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220503185916137"></p>
+<h2 id="代码复现"><a href="#代码复现" class="headerlink" title="代码复现"></a>代码复现</h2><p>具体网络结构：</p>
+<p>1.Bottleneck</p>
+<p><img src="/zh-CN/Resnet/image-20220503193754428.png" class="lazyload" data-srcset="/zh-CN/Resnet/image-20220503193754428.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220503193754428" style="zoom:50%;"></p>
+<p>2.Resnet50中50的含义：（3+4+6+3)*3+2=50（卷积全连接层数之和）</p>
+<p>2.resnet101同理，只要把<code>model = ResNet(Bottleneck, [3, 4, 6, 3])</code>改成<code>model=ResNet(Bottleneck, [3, 4, 23, 3])</code>,101=(3+4+23+3)*3+2</p>
+<pre><code class="lang-python">import math
+
+import torch.nn as nn
+from torch.hub import load_state_dict_from_url
+
+# c0表示输入特征图通道数，c1表示输出特征图通道数，由此可见，该类作用为通道扩张4倍
+class Bottleneck(nn.Module):
+    expansion = 4
+    def __init__(self, inplanes, planes, stride=1, downsample=None):
+        super(Bottleneck, self).__init__()
+        # (N, C0, H, W)-&gt;(N, C1, H, W)
+        self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=1, stride=stride, bias=False)
+        # (N, C1, H, W)-&gt;(N, C1, H, W)
+        self.bn1 = nn.BatchNorm2d(planes)
+
+        # (N, C1, H, W)-&gt;(N, C1, H, W)
+        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=1, padding=1, bias=False)
+        # (N, C1, H, W)-&gt;(N, C1, H, W)
+        self.bn2 = nn.BatchNorm2d(planes)
+        # (N, C1, H, W)-&gt;(N, 4*C1, H, W)
+        self.conv3 = nn.Conv2d(planes, planes * 4, kernel_size=1, bias=False)
+        # (N, 4*C1, H, W)-&gt;(N, 4*C1, H, W)
+        self.bn3 = nn.BatchNorm2d(planes * 4)
+
+        # (N, 4*C1, H, W)-&gt;(N, 4*C1, H, W)
+        self.relu = nn.ReLU(inplace=True)
+        # defalt is None
+        self.downsample = downsample
+        self.stride = stride
+
+    def forward(self, x):
+        residual = x
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+        out = self.relu(out)
+
+        out = self.conv3(out)
+        out = self.bn3(out)
+        if self.downsample is not None:
+            residual = self.downsample(x)
+
+        out += residual
+        out = self.relu(out)
+
+        return out
+
+class ResNet(nn.Module):
+    def __init__(self, block, layers, num_classes=1000):
+        #-----------------------------------#
+        #   假设输入进来的图片是600,600,3
+        #-----------------------------------#
+        self.inplanes = 64
+        super(ResNet, self).__init__()
+
+        # 600,600,3 -&gt; 300,300,64
+        self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False)
+        self.bn1 = nn.BatchNorm2d(64)
+        self.relu = nn.ReLU(inplace=True)
+
+        # 300,300,64 -&gt; 150,150,64
+        self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=0, ceil_mode=True)
+
+        # 150,150,64 -&gt; 150,150,256
+        # 此时stride=1,但通道和原来一样，进行下采样，通道变为4*64=256
+        self.layer1 = self._make_layer(block, 64, layers[0])
+
+        # 150,150,256 -&gt; 75,75,512
+        # 此时stride=2,进行下采样，宽高变为原来的1/2，通道变为4*128=512
+        self.layer2 = self._make_layer(block, 128, layers[1], stride=2)
+
+        # 75,75,512 -&gt; 38,38,1024 到这里可以获得一个38,38,1024的共享特征层
+        self.layer3 = self._make_layer(block, 256, layers[2], stride=2)
+        # self.layer4被用在classifier模型中
+        # 38,38,1024 -&gt; 19,19,2048
+        self.layer4 = self._make_layer(block, 512, layers[3], stride=2)
+
+        # 19,19,2048 -&gt; 2,2,2048
+        self.avgpool = nn.AvgPool2d(7)
+        self.fc = nn.Linear(512 * block.expansion, num_classes)
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+                m.weight.data.normal_(0, math.sqrt(2. / n))
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.fill_(1)
+                m.bias.data.zero_()
+
+    # 定义每个层的操作，比如在resnet50里conv2_x重复了三次，那么就是block=Bottleck,blocks=3
+    # 其实conv3_x,conv4_x,conv5_x中block都是Bottlenecck,就是重复的次数不一样
+    def _make_layer(self, block, planes, blocks, stride=1):
+        downsample = None
+        #-------------------------------------------------------------------#
+        # 当模型需要进行高和宽的压缩的时候，或者通道不为原来的4倍，就需要用到残差边的downsample
+        # 个人认为这里通道变化不大（相比于2倍上层特征图通道数）也需要downsample是因为通道变化不
+        # 大，信息不够细致
+        #-------------------------------------------------------------------#
+        if stride != 1 or self.inplanes != planes * block.expansion:
+            # (N, C0, H, W)-&gt;(N, 4*C1, H, W)
+            downsample = nn.Sequential(
+                nn.Conv2d(self.inplanes, planes * block.expansion,kernel_size=1, stride=stride, bias=False),
+                nn.BatchNorm2d(planes * block.expansion),
+            )
+        # layers记录块结果
+        layers = []
+        layers.append(block(self.inplanes, planes, stride, downsample))
+        self.inplanes = planes * block.expansion
+        for i in range(1, blocks):
+            layers.append(block(self.inplanes, planes))
+        return nn.Sequential(*layers)
+
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = self.relu(x)
+        x = self.maxpool(x)
+
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        x = self.layer4(x)
+
+        # 接上面假设，此时x=(N, 2, 2, 2048)
+        x = self.avgpool(x)
+        # (N, 2, 2, 2048)-&gt;(N, 4096)
+        x = x.view(x.size(0), -1)
+        # (N,4096)-&gt;(N, 1000)
+        x = self.fc(x)
+        return x
+
+def resnet50(pretrained = False):
+    model = ResNet(Bottleneck, [3, 4, 6, 3])
+    if pretrained:
+        state_dict = load_state_dict_from_url("https://download.pytorch.org/models/resnet50-19c8e357.pth", model_dir="./model_data")
+        model.load_state_dict(state_dict)
+    #----------------------------------------------------------------------------#
+    #   获取特征提取部分，从conv1到model.layer3，最终获得一个38,38,1024的特征层
+    #----------------------------------------------------------------------------#
+    features    = list([model.conv1, model.bn1, model.relu, model.maxpool, model.layer1, model.layer2, model.layer3])
+    #----------------------------------------------------------------------------#
+    #   获取分类部分，从model.layer4到model.avgpool
+    #----------------------------------------------------------------------------#
+    classifier  = list([model.layer4, model.avgpool])
+
+    features    = nn.Sequential(*features)
+    classifier  = nn.Sequential(*classifier)
+    return features, classifier
+</code></pre>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
+        <tag>resnet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SSD损失函数详解</title>
+    <url>/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://www.freesion.com/article/9127332548/">目标识别：SSD pytorch代码学习笔记</a></p>
+<p>2.<a href="https://linkspringer.53yu.com/content/pdf/10.1007/978-3-319-46448-0_2.pdf">SSD论文</a></p>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>SSD损失函数包括两部分：位置损失函数<script type="math/tex">L_{loc}</script>和置信度损失函数<script type="math/tex">L_{conf}</script></p>
+<p>整个损失函数为：</p>
+<p><img src="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/image-20220506200608617.png" class="lazyload" data-srcset="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/image-20220506200608617.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220506200608617" style="zoom:80%;"></p>
+<p>说明：</p>
+<p>·N是先验框的正样本数量</p>
+<p>·c是类别置信度预测值</p>
+<p>·l为先验框所对应边界框的位置预测值</p>
+<p>·g为ground truth的位置参数</p>
+<h4 id="位置损失函数"><a href="#位置损失函数" class="headerlink" title="位置损失函数"></a>位置损失函数</h4><p>针对所有正样本，采用Smooth L1损失，位置信息都是编码之后的信息。</p>
+<p><img src="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/390ed4e1f5fc0a137b65dea937b907a5.png" class="lazyload" data-srcset="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/390ed4e1f5fc0a137b65dea937b907a5.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<p>代码如下：</p>
+<pre><code class="lang-python">    def _l1_smooth_loss(self, y_true, y_pred):
+        abs_loss = torch.abs(y_true - y_pred)
+        sq_loss = 0.5 * (y_true - y_pred)**2
+        l1_loss = torch.where(abs_loss &lt; 1.0, sq_loss, abs_loss - 0.5)
+        return torch.sum(l1_loss, -1)
+</code></pre>
+<h4 id="置信度损失函数"><a href="#置信度损失函数" class="headerlink" title="置信度损失函数"></a>置信度损失函数</h4><p>首先需要使用 <strong>hard negative mining</strong> 将正负样本按照 <strong>1:3</strong> 的比例把负样本抽样出来，抽样的方法是：</p>
+<p><strong>思想</strong>： 针对所有batch的confidence，按照置信度误差进行降序排列，取出前<strong>top_k</strong>个负样本。</p>
+<p>编程:</p>
+<p>·reshape所有batch中的conf</p>
+<p><code>batch_conf = conf_data.view(-1, self.num_classes)</code></p>
+<p>·置信度误差越大，实际上就是预测背景的置信度越小</p>
+<p>·把所有置信度进行log_softmax处理（均为负值），预测的置信度越小，则log_softmax越小，取绝对值，则|log_softmax|越大，降序排列后，取前top_k的负样本。</p>
+<p>softmax代码如下：</p>
+<pre><code class="lang-python">    def _softmax_loss(self, y_true, y_pred):
+        y_pred = torch.clamp(y_pred, min=1e-7)
+        softmax_loss = -torch.sum(y_true * torch.log(y_pred),
+                                  axis=-1)
+        return softmax_loss
+</code></pre>
+<h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h4><pre><code class="lang-python">import math
+from functools import partial
+
+import torch
+import torch.nn as nn
+
+
+class MultiboxLoss(nn.Module):
+    def __init__(self, num_classes, alpha=1.0, neg_pos_ratio=3.0,
+                 background_label_id=0, negatives_for_hard=100.0):
+        self.num_classes = num_classes
+        self.alpha = alpha
+        self.neg_pos_ratio = neg_pos_ratio
+        if background_label_id != 0:
+            raise Exception('Only 0 as background label id is supported')
+        self.background_label_id = background_label_id
+        self.negatives_for_hard = torch.FloatTensor([negatives_for_hard])[0]
+
+    def _l1_smooth_loss(self, y_true, y_pred):
+        abs_loss = torch.abs(y_true - y_pred)
+        sq_loss = 0.5 * (y_true - y_pred)**2
+        l1_loss = torch.where(abs_loss &lt; 1.0, sq_loss, abs_loss - 0.5)
+        return torch.sum(l1_loss, -1)
+
+    def _softmax_loss(self, y_true, y_pred):
+        y_pred = torch.clamp(y_pred, min=1e-7)
+        softmax_loss = -torch.sum(y_true * torch.log(y_pred),
+                                  axis=-1)
+        return softmax_loss
+
+    def forward(self, y_true, y_pred):
+        # --------------------------------------------- #
+        #   y_true batch_size, 8732, 4 + self.num_classes + 1
+        #   y_pred batch_size, 8732, 4 + self.num_classes
+        # --------------------------------------------- #
+        num_boxes = y_true.size()[1]
+        y_pred = torch.cat([y_pred[0], nn.Softmax(-1)(y_pred[1])], dim=-1)
+
+        # --------------------------------------------- #
+        #   分类的loss
+        #   batch_size,8732,21 -&gt; batch_size,8732
+        # --------------------------------------------- #
+        conf_loss = self._softmax_loss(y_true[:, :, 4:-1], y_pred[:, :, 4:])
+
+        # --------------------------------------------- #
+        #   框的位置的loss
+        #   batch_size,8732,4 -&gt; batch_size,8732
+        # --------------------------------------------- #
+        loc_loss = self._l1_smooth_loss(y_true[:, :, :4],
+                                        y_pred[:, :, :4])
+
+        # --------------------------------------------- #
+        #   获取所有的正标签的loss
+        # --------------------------------------------- #
+        pos_loc_loss = torch.sum(loc_loss * y_true[:, :, -1],
+                                 axis=1)
+        pos_conf_loss = torch.sum(conf_loss * y_true[:, :, -1],
+                                  axis=1)
+
+        # --------------------------------------------- #
+        #   每一张图的正样本的个数
+        #   num_pos     [batch_size,]
+        # --------------------------------------------- #
+        num_pos = torch.sum(y_true[:, :, -1], axis=-1)
+
+        # --------------------------------------------- #
+        #   每一张图的负样本的个数
+        #   num_neg     [batch_size,]
+        # --------------------------------------------- #
+        num_neg = torch.min(self.neg_pos_ratio * num_pos, num_boxes - num_pos)
+        # 找到了哪些值是大于0的
+        pos_num_neg_mask = num_neg &gt; 0
+        # --------------------------------------------- #
+        #   如果所有的图，正样本的数量均为0
+        #   那么则默认选取100个先验框作为负样本
+        # --------------------------------------------- #
+        has_min = torch.sum(pos_num_neg_mask)
+
+        # --------------------------------------------- #
+        #   从这里往后，与视频中看到的代码有些许不同。
+        #   由于以前的负样本选取方式存在一些问题，
+        #   我对该部分代码进行重构。
+        #   求整个batch应该的负样本数量总和
+        # --------------------------------------------- #
+        num_neg_batch = torch.sum(
+            num_neg) if has_min &gt; 0 else self.negatives_for_hard
+
+        # --------------------------------------------- #
+        #   对预测结果进行判断，如果该先验框没有包含物体
+        #   那么它的不属于背景的预测概率过大的话
+        #   就是难分类样本
+        # --------------------------------------------- #
+        confs_start = 4 + self.background_label_id + 1
+        confs_end = confs_start + self.num_classes - 1
+
+        # --------------------------------------------- #
+        #   batch_size,8732
+        #   把不是背景的概率求和，求和后的概率越大
+        #   代表越难分类。
+        # --------------------------------------------- #
+        max_confs = torch.sum(y_pred[:, :, confs_start:confs_end], dim=2)
+
+        # --------------------------------------------------- #
+        #   只有没有包含物体的先验框才得到保留
+        #   我们在整个batch里面选取最难分类的num_neg_batch个
+        #   先验框作为负样本。
+        # --------------------------------------------------- #
+        max_confs = (max_confs * (1 - y_true[:, :, -1])).view([-1])
+
+        _, indices = torch.topk(max_confs, k=int(
+            num_neg_batch.cpu().numpy().tolist()))
+
+        neg_conf_loss = torch.gather(conf_loss.view([-1]), 0, indices)
+
+        # 进行归一化
+        num_pos = torch.where(num_pos != 0, num_pos, torch.ones_like(num_pos))
+        total_loss = torch.sum(
+            pos_conf_loss) + torch.sum(neg_conf_loss) + torch.sum(self.alpha * pos_loc_loss)
+        total_loss = total_loss / torch.sum(num_pos)
+        return total_loss
+
+
+def weights_init(net, init_type='normal', init_gain=0.02):
+    def init_func(m):
+        classname = m.__class__.__name__
+        if hasattr(m, 'weight') and classname.find('Conv') != -1:
+            if init_type == 'normal':
+                torch.nn.init.normal_(m.weight.data, 0.0, init_gain)
+            elif init_type == 'xavier':
+                torch.nn.init.xavier_normal_(m.weight.data, gain=init_gain)
+            elif init_type == 'kaiming':
+                torch.nn.init.kaiming_normal_(
+                    m.weight.data, a=0, mode='fan_in')
+            elif init_type == 'orthogonal':
+                torch.nn.init.orthogonal_(m.weight.data, gain=init_gain)
+            else:
+                raise NotImplementedError(
+                    'initialization method [%s] is not implemented' % init_type)
+        elif classname.find('BatchNorm2d') != -1:
+            torch.nn.init.normal_(m.weight.data, 1.0, 0.02)
+            torch.nn.init.constant_(m.bias.data, 0.0)
+    print('initialize network with %s type' % init_type)
+    net.apply(init_func)
+
+
+def get_lr_scheduler(lr_decay_type, lr, min_lr, total_iters, warmup_iters_ratio=0.1, warmup_lr_ratio=0.1, no_aug_iter_ratio=0.3, step_num=10):
+    def yolox_warm_cos_lr(lr, min_lr, total_iters, warmup_total_iters, warmup_lr_start, no_aug_iter, iters):
+        if iters &lt;= warmup_total_iters:
+            # lr = (lr - warmup_lr_start) * iters / float(warmup_total_iters) + warmup_lr_start
+            lr = (lr - warmup_lr_start) * pow(iters /
+                                              float(warmup_total_iters), 2) + warmup_lr_start
+        elif iters &gt;= total_iters - no_aug_iter:
+            lr = min_lr
+        else:
+            lr = min_lr + 0.5 * (lr - min_lr) * (
+                1.0 + math.cos(math.pi * (iters - warmup_total_iters) /
+                               (total_iters - warmup_total_iters - no_aug_iter))
+            )
+        return lr
+
+    def step_lr(lr, decay_rate, step_size, iters):
+        if step_size &lt; 1:
+            raise ValueError("step_size must above 1.")
+        n = iters // step_size
+        out_lr = lr * decay_rate ** n
+        return out_lr
+
+    if lr_decay_type == "cos":
+        warmup_total_iters = min(max(warmup_iters_ratio * total_iters, 1), 3)
+        warmup_lr_start = max(warmup_lr_ratio * lr, 1e-6)
+        no_aug_iter = min(max(no_aug_iter_ratio * total_iters, 1), 15)
+        func = partial(yolox_warm_cos_lr, lr, min_lr, total_iters,
+                       warmup_total_iters, warmup_lr_start, no_aug_iter)
+    else:
+        decay_rate = (min_lr / lr) ** (1 / (step_num - 1))
+        step_size = total_iters / step_num
+        func = partial(step_lr, lr, decay_rate, step_size)
+
+    return func
+
+
+def set_optimizer_lr(optimizer, lr_scheduler_func, epoch):
+    lr = lr_scheduler_func(epoch)
+    for param_group in optimizer.param_groups:
+        param_group['lr'] = lr
+</code></pre>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>SSD</tag>
+        <tag>损失函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SSD300转换到SSD512</title>
+    <url>/zh-CN/SSD300_to_SSD512/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://gitcode.net/mirrors/bubbliiiing/ssd-pytorch">mirrors / bubbliiiing / ssd-pytorch · GitCode</a></p>
+<p>2.<a href="https://github.com/midasklr/SSD.Pytorch">https://github.com/midasklr/SSD.Pytorch</a></p>
+<p>由于我使用的第一篇参考链接里的代码，只有SSD300，而我又想升级改造成SSD512，因此找了一些参考，比如第二个链接，现在，让我们尝试着改造它吧。</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>SSD</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -7931,22 +7915,6 @@ class YOLOLoss(nn.Module):
       </tags>
   </entry>
   <entry>
-    <title>CenterNet论文笔记</title>
-    <url>/zh-CN/centernet/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Duan_CenterNet_Keypoint_Triplets_for_Object_Detection_ICCV_2019_paper.pdf">CenterNet: Keypoint Triplets for Object Detection (thecvf.com)</a></p>
-<p>源码地址： <a href="https://github.com/Duankaiwen/CenterNet">CenterNet: Keypoint Triplets for Object Detection</a></p>
-<p>文章引用代码地址：<a href="https://github.com/bubbliiiing/centernet-pytorch">https://github.com/bubbliiiing/centernet-pytorch</a></p>
-<p>文章出处：<a href="https://blog.csdn.net/weixin_44791964/article/details/107748542?spm=1001.2014.3001.5502">Pytorch搭建自己的Centernet目标检测平台</a></p>
-<h3 id="主干网络"><a href="#主干网络" class="headerlink" title="主干网络"></a>主干网络</h3><p>主干网络选用resnet,ResNet50有两个基本的块，<strong>分别名为Conv Block和Identity Block，其中Conv Block输入和输出的维度是不一样的，所以不能连续串联，它的作用是改变网络的维度；Identity Block输入维度和输出维度相同，可以串联，用于加深网络的。</strong></p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Concat和add的区别</title>
     <url>/zh-CN/concat_add/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -7960,6 +7928,22 @@ class YOLOLoss(nn.Module):
       </categories>
       <tags>
         <tag>Concat&amp;add</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CenterNet论文笔记</title>
+    <url>/zh-CN/centernet/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Duan_CenterNet_Keypoint_Triplets_for_Object_Detection_ICCV_2019_paper.pdf">CenterNet: Keypoint Triplets for Object Detection (thecvf.com)</a></p>
+<p>源码地址： <a href="https://github.com/Duankaiwen/CenterNet">CenterNet: Keypoint Triplets for Object Detection</a></p>
+<p>文章引用代码地址：<a href="https://github.com/bubbliiiing/centernet-pytorch">https://github.com/bubbliiiing/centernet-pytorch</a></p>
+<p>文章出处：<a href="https://blog.csdn.net/weixin_44791964/article/details/107748542?spm=1001.2014.3001.5502">Pytorch搭建自己的Centernet目标检测平台</a></p>
+<h3 id="主干网络"><a href="#主干网络" class="headerlink" title="主干网络"></a>主干网络</h3><p>主干网络选用resnet,ResNet50有两个基本的块，<strong>分别名为Conv Block和Identity Block，其中Conv Block输入和输出的维度是不一样的，所以不能连续串联，它的作用是改变网络的维度；Identity Block输入维度和输出维度相同，可以串联，用于加深网络的。</strong></p>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -7987,24 +7971,6 @@ x.transpose(0, 1).contiguous().is_contiguous() # True
       <tags>
         <tag>函数库</tag>
         <tag>contiguous</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>epoch和iteration的区别</title>
-    <url>/zh-CN/epoch%E5%92%8Citeration%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://blog.csdn.net/u011731135/article/details/81481868">epoch和iteration的区别</a></p>
-<p>（1）batchsize：批大小。在深度学习中，一般采用SGD训练，即每次训练在训练集中取batchsize个样本训练；<br>（2）iteration：1个iteration等于使用batchsize个样本训练一次；一个迭代 = 一个正向通过+一个反向通过<br>（3）epoch：1个epoch等于使用训练集中的全部样本训练一次；一个epoch = 所有训练样本的一个正向传递和一个反向传递</p>
-<p>举个例子，训练集有1000个样本，batchsize=10，那么：<br>训练完整个样本集需要：<br>100次iteration，1次epoch。</p>
-<p>但是也有人说在有些文章中epoch和iteration是一个概念。</p>
-<p>还有就是随机取batchsize，那么并不能保证所有的样本都被抽到，那么epoch的概念不明确。</p>
-]]></content>
-      <categories>
-        <category>计算机视觉</category>
-      </categories>
-      <tags>
-        <tag>基础概念</tag>
-        <tag>epoch&amp;iteration</tag>
       </tags>
   </entry>
   <entry>
@@ -9485,6 +9451,24 @@ myChart.on(&#39;legendselectchanged&#39;, function (params) &#123;
       </tags>
   </entry>
   <entry>
+    <title>epoch和iteration的区别</title>
+    <url>/zh-CN/epoch%E5%92%8Citeration%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://blog.csdn.net/u011731135/article/details/81481868">epoch和iteration的区别</a></p>
+<p>（1）batchsize：批大小。在深度学习中，一般采用SGD训练，即每次训练在训练集中取batchsize个样本训练；<br>（2）iteration：1个iteration等于使用batchsize个样本训练一次；一个迭代 = 一个正向通过+一个反向通过<br>（3）epoch：1个epoch等于使用训练集中的全部样本训练一次；一个epoch = 所有训练样本的一个正向传递和一个反向传递</p>
+<p>举个例子，训练集有1000个样本，batchsize=10，那么：<br>训练完整个样本集需要：<br>100次iteration，1次epoch。</p>
+<p>但是也有人说在有些文章中epoch和iteration是一个概念。</p>
+<p>还有就是随机取batchsize，那么并不能保证所有的样本都被抽到，那么epoch的概念不明确。</p>
+]]></content>
+      <categories>
+        <category>计算机视觉</category>
+      </categories>
+      <tags>
+        <tag>基础概念</tag>
+        <tag>epoch&amp;iteration</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Grad-cam论文笔记</title>
     <url>/zh-CN/grad-cam/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -10834,6 +10818,48 @@ x1_new = x1[np.newaxis,:]
       </tags>
   </entry>
   <entry>
+    <title>pip换源</title>
+    <url>/zh-CN/pip%E6%8D%A2%E6%BA%90/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>由于使用pip或pip3安装python第三方包时，经常出现read timed out问题，所以需要将pip的官方软件源服务器换成国内的镜像服务器，从而提升python软件包安装效率和成功率，pip 国内的一些镜像：</p>
+<ul>
+<li>阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></li>
+<li>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></li>
+<li>豆瓣(douban) <a href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a></li>
+<li>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></li>
+<li>中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/">http://pypi.mirrors.ustc.edu.cn/simple/</a></li>
+</ul>
+<h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><h3 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h3><p>可以在使用 pip 的时候在后面加上-i 参数，指定 pip 源</p>
+<pre><code>eg: pip install scrapy -i https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre><h3 id="永久修改"><a href="#永久修改" class="headerlink" title="永久修改"></a>永久修改</h3><h4 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h4><p>修改 ~/.pip/pip.conf (没有就创建一个文件夹及文件，文件夹要加“.”，表示是隐藏文件夹)， 内容如下：</p>
+<pre><code class="lang-python">[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host = https://pypi.tuna.tsinghua.edu.cn
+</code></pre>
+<h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><p>1.pip永久换源</p>
+<pre><code class="lang-python">pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+</code></pre>
+<p>在cmd命令行中输入上述命令即可。</p>
+<p>最后，升级 pip 到最新的版本</p>
+<pre><code class="lang-python">pip install pip -U
+</code></pre>
+<pre><code class="lang-python">python -m pip install --user --upgrade pip
+</code></pre>
+<p>2.直接在 user 目录中创建一个 pip 目录，如：C:\Users\xx\pip，在 pip 目录下新建文件 pip.ini，即 %HOMEPATH%\pip\pip.ini，内容如下：</p>
+<pre><code>[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host = pypi.tuna.tsinghua.edu.cn
+</code></pre><p>可以在开始运行里面输入三个点 <code>...</code>，敲回车即可打开用户目录。</p>
+]]></content>
+      <categories>
+        <category>pytorch</category>
+      </categories>
+      <tags>
+        <tag>pip换源</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>pth权重文件转换为onnx权重文件</title>
     <url>/zh-CN/pth_to_onnx/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -10894,48 +10920,6 @@ torch.onnx.export(model, input_data, 'ssdv7.onnx', opset_version=11, verbose=Tru
       </categories>
       <tags>
         <tag>文件转换</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>pip换源</title>
-    <url>/zh-CN/pip%E6%8D%A2%E6%BA%90/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>由于使用pip或pip3安装python第三方包时，经常出现read timed out问题，所以需要将pip的官方软件源服务器换成国内的镜像服务器，从而提升python软件包安装效率和成功率，pip 国内的一些镜像：</p>
-<ul>
-<li>阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></li>
-<li>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></li>
-<li>豆瓣(douban) <a href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a></li>
-<li>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></li>
-<li>中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/">http://pypi.mirrors.ustc.edu.cn/simple/</a></li>
-</ul>
-<h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><h3 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h3><p>可以在使用 pip 的时候在后面加上-i 参数，指定 pip 源</p>
-<pre><code>eg: pip install scrapy -i https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre><h3 id="永久修改"><a href="#永久修改" class="headerlink" title="永久修改"></a>永久修改</h3><h4 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h4><p>修改 ~/.pip/pip.conf (没有就创建一个文件夹及文件，文件夹要加“.”，表示是隐藏文件夹)， 内容如下：</p>
-<pre><code class="lang-python">[global]
-index-url = https://pypi.tuna.tsinghua.edu.cn/simple
-[install]
-trusted-host = https://pypi.tuna.tsinghua.edu.cn
-</code></pre>
-<h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><p>1.pip永久换源</p>
-<pre><code class="lang-python">pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
-</code></pre>
-<p>在cmd命令行中输入上述命令即可。</p>
-<p>最后，升级 pip 到最新的版本</p>
-<pre><code class="lang-python">pip install pip -U
-</code></pre>
-<pre><code class="lang-python">python -m pip install --user --upgrade pip
-</code></pre>
-<p>2.直接在 user 目录中创建一个 pip 目录，如：C:\Users\xx\pip，在 pip 目录下新建文件 pip.ini，即 %HOMEPATH%\pip\pip.ini，内容如下：</p>
-<pre><code>[global]
-index-url = https://pypi.tuna.tsinghua.edu.cn/simple
-[install]
-trusted-host = pypi.tuna.tsinghua.edu.cn
-</code></pre><p>可以在开始运行里面输入三个点 <code>...</code>，敲回车即可打开用户目录。</p>
-]]></content>
-      <categories>
-        <category>pytorch</category>
-      </categories>
-      <tags>
-        <tag>pip换源</tag>
       </tags>
   </entry>
   <entry>
@@ -12364,26 +12348,6 @@ open_graph:
       </tags>
   </entry>
   <entry>
-    <title>色彩搭配</title>
-    <url>/zh-CN/%E6%95%99%E4%BD%A0%E5%AD%A6%E4%BC%9A%E8%89%B2%E5%BD%A9%E6%90%AD%E9%85%8D/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="中国色"><a href="#中国色" class="headerlink" title="中国色"></a>中国色</h3><p><a href="http://zhongguose.com/">中国色</a></p>
-<h3 id="COULEUR"><a href="#COULEUR" class="headerlink" title="COULEUR"></a>COULEUR</h3><p><a href="https://www.code-couleur.com/signification/">couleur</a></p>
-<h3 id="color-space"><a href="#color-space" class="headerlink" title="color space"></a>color space</h3><p><a href="https://mycolor.space/">color space</a></p>
-<h3 id="hyper-color"><a href="#hyper-color" class="headerlink" title="hyper color"></a>hyper color</h3><p><a href="https://hypercolor.dev/">Hypercolor</a></p>
-<h3 id="colorable"><a href="#colorable" class="headerlink" title="colorable"></a>colorable</h3><p><a href="https://colorable.jxnblk.com/">Colorable</a></p>
-<h3 id="brandcolors"><a href="#brandcolors" class="headerlink" title="brandcolors"></a>brandcolors</h3><p><a href="https://brandcolors.net/">BrandColors</a></p>
-<h3 id="九月ppt"><a href="#九月ppt" class="headerlink" title="九月ppt"></a>九月ppt</h3><p><a href="https://jiuyueppt.com/#/">九月PPT</a></p>
-<h3 id="huemint"><a href="#huemint" class="headerlink" title="huemint"></a>huemint</h3><p><a href="https://huemint.com/">Huemint - AI color palette generator</a></p>
-<h3 id="Adobe-Color"><a href="#Adobe-Color" class="headerlink" title="Adobe Color"></a>Adobe Color</h3><p><a href="https://color.adobe.com/zh/create/color-wheel">色輪、調色盤產生器 | Adobe Color</a></p>
-]]></content>
-      <categories>
-        <category>色彩搭配</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>提醒幸福</title>
     <url>/zh-CN/%E6%8F%90%E9%86%92%E5%B9%B8%E7%A6%8F/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>我们从小就习惯了在提醒中过日子。天气刚有一丝风吹草动，妈妈就说，别忘了多穿衣服。才相识了一个朋友，爸爸就说，小心<br>他是个骗子。你取得了一点成功，还没容得乐出声来，所有关切着你的人一起说，别骄傲！你沉浸在欢快中的时候，自己不停地<br>对自己说：「千万不可太高兴，苦难也许马上就要降临……」我们已经习惯了在提醒中过日子。看得见的恐惧和看不见的恐惧始<br>终像乌鸦盘旋在头顶。</p>
@@ -12419,6 +12383,26 @@ open_graph:
       </categories>
       <tags>
         <tag>今日故事</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>色彩搭配</title>
+    <url>/zh-CN/%E6%95%99%E4%BD%A0%E5%AD%A6%E4%BC%9A%E8%89%B2%E5%BD%A9%E6%90%AD%E9%85%8D/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="中国色"><a href="#中国色" class="headerlink" title="中国色"></a>中国色</h3><p><a href="http://zhongguose.com/">中国色</a></p>
+<h3 id="COULEUR"><a href="#COULEUR" class="headerlink" title="COULEUR"></a>COULEUR</h3><p><a href="https://www.code-couleur.com/signification/">couleur</a></p>
+<h3 id="color-space"><a href="#color-space" class="headerlink" title="color space"></a>color space</h3><p><a href="https://mycolor.space/">color space</a></p>
+<h3 id="hyper-color"><a href="#hyper-color" class="headerlink" title="hyper color"></a>hyper color</h3><p><a href="https://hypercolor.dev/">Hypercolor</a></p>
+<h3 id="colorable"><a href="#colorable" class="headerlink" title="colorable"></a>colorable</h3><p><a href="https://colorable.jxnblk.com/">Colorable</a></p>
+<h3 id="brandcolors"><a href="#brandcolors" class="headerlink" title="brandcolors"></a>brandcolors</h3><p><a href="https://brandcolors.net/">BrandColors</a></p>
+<h3 id="九月ppt"><a href="#九月ppt" class="headerlink" title="九月ppt"></a>九月ppt</h3><p><a href="https://jiuyueppt.com/#/">九月PPT</a></p>
+<h3 id="huemint"><a href="#huemint" class="headerlink" title="huemint"></a>huemint</h3><p><a href="https://huemint.com/">Huemint - AI color palette generator</a></p>
+<h3 id="Adobe-Color"><a href="#Adobe-Color" class="headerlink" title="Adobe Color"></a>Adobe Color</h3><p><a href="https://color.adobe.com/zh/create/color-wheel">色輪、調色盤產生器 | Adobe Color</a></p>
+]]></content>
+      <categories>
+        <category>色彩搭配</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -12830,6 +12814,41 @@ def _next_data(self):
       </tags>
   </entry>
   <entry>
+    <title>数据集介绍</title>
+    <url>/zh-CN/%E6%95%B0%E6%8D%AE%E9%9B%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h3><p>1.<a href="https://blog.csdn.net/qq_45616304/article/details/117912347">针对 VOC2007和VOC2012 的具体用法</a></p>
+<p>2.<a href="https://blog.csdn.net/a_piece_of_ppx/article/details/118701340">Pascal Voc（07+12）联合训练并在07上测试</a></p>
+<h3 id="VOC2007和VOC2012用法"><a href="#VOC2007和VOC2012用法" class="headerlink" title="VOC2007和VOC2012用法"></a>VOC2007和VOC2012用法</h3><p>目前广大研究者们普遍使用的是 VOC2007和VOC2012数据集，因为二者是互斥的，不相容的。</p>
+<p>论文中针对 VOC2007和VOC2012 的具体用法有以下几种：</p>
+<p>1.只用VOC2007的trainval 训练，使用VOC2007的test测试。<br>2.只用VOC2012的trainval 训练，使用VOC2012的test测试，这种用法很少使用，因为大家都会结合VOC2007使用。<br>3.（推荐）使用 VOC2007 的 train+val 和 VOC2012的 train+val 训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12 ，研究者可以自己测试在VOC2007上的结果，因为VOC2007的test是公开的。<br>4.使用 VOC2007 的 train+val+test 和 VOC2012的 train+val训练，然后使用 VOC2012的test测试，这个用法是论文中经常看到的 07++12 ，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。<br>5.先在 MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val、 VOC2012的 train+val 微调训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12+COCO 。<br>6.先在 MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val+test 、 VOC2012的 train+val 微调训练，然后使用 VOC2012的test测试 ，这个用法是论文中经常看到的 07++12+COCO，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。</p>
+<h3 id="VOC07-12联合训练并在07上测试"><a href="#VOC07-12联合训练并在07上测试" class="headerlink" title="VOC07+12联合训练并在07上测试"></a>VOC07+12联合训练并在07上测试</h3><h4 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h4><p>对于分类/检测任务而言，完成07 + 12数据集合并后，共得到如下数据：</p>
+<pre><code># 5011+11540=16551, 12608+27450=40058
+训练数据：16551张图像，共40058个目标
+# 全部来自voc07_test
+测试数据：4952张图像，共12032个目标
+</code></pre><p>组成如下所示：</p>
+<p>训练数据：</p>
+<p>1.VOC2007的训练集提供了：</p>
+<pre><code>训练数据：2501张图像，共6301个目标
+验证数据：2510张图像，共6307个目标
+训练+验证数据：5011张图像，共12608个目标
+</code></pre><p>2.VOC2012的训练集提供了：</p>
+<pre><code>训练数据：5717张图像，共13609个目标
+验证数据：5823张图像，共13841个目标
+训练+验证数据：11540张图像，共27450个目标
+</code></pre><p>测试数据：</p>
+<p>1.VOC2007的测试集提供了：</p>
+<pre><code>测试数据：4952张图像，共12032个目标
+</code></pre><h3 id="各种数据集介绍"><a href="#各种数据集介绍" class="headerlink" title="各种数据集介绍"></a>各种数据集介绍</h3><h4 id="Pascal-VOC"><a href="#Pascal-VOC" class="headerlink" title="Pascal VOC"></a>Pascal VOC</h4><p>官网地址：<a href="https://pjreddie.com/projects/pascal-voc-dataset-mirror/">Pascal VOC Dataset Mirror (pjreddie.com)</a></p>
+<h4 id="MS-COCO"><a href="#MS-COCO" class="headerlink" title="MS COCO"></a>MS COCO</h4><h4 id="ILSVRC"><a href="#ILSVRC" class="headerlink" title="ILSVRC"></a>ILSVRC</h4>]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>数据集</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CV必备文献</title>
     <url>/zh-CN/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%90%88%E9%9B%86/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这里是我平时会看的一些文献，有些没得时间看，但这些确实很值得一看，放在这里，做个提醒，如果后续我记起来了，后续还会有补充，大家可以留言推荐，仅限计算机视觉方向</p>
@@ -12928,41 +12947,6 @@ def _next_data(self):
       </categories>
       <tags>
         <tag>今日故事</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据集介绍</title>
-    <url>/zh-CN/%E6%95%B0%E6%8D%AE%E9%9B%86/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h3><p>1.<a href="https://blog.csdn.net/qq_45616304/article/details/117912347">针对 VOC2007和VOC2012 的具体用法</a></p>
-<p>2.<a href="https://blog.csdn.net/a_piece_of_ppx/article/details/118701340">Pascal Voc（07+12）联合训练并在07上测试</a></p>
-<h3 id="VOC2007和VOC2012用法"><a href="#VOC2007和VOC2012用法" class="headerlink" title="VOC2007和VOC2012用法"></a>VOC2007和VOC2012用法</h3><p>目前广大研究者们普遍使用的是 VOC2007和VOC2012数据集，因为二者是互斥的，不相容的。</p>
-<p>论文中针对 VOC2007和VOC2012 的具体用法有以下几种：</p>
-<p>1.只用VOC2007的trainval 训练，使用VOC2007的test测试。<br>2.只用VOC2012的trainval 训练，使用VOC2012的test测试，这种用法很少使用，因为大家都会结合VOC2007使用。<br>3.（推荐）使用 VOC2007 的 train+val 和 VOC2012的 train+val 训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12 ，研究者可以自己测试在VOC2007上的结果，因为VOC2007的test是公开的。<br>4.使用 VOC2007 的 train+val+test 和 VOC2012的 train+val训练，然后使用 VOC2012的test测试，这个用法是论文中经常看到的 07++12 ，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。<br>5.先在 MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val、 VOC2012的 train+val 微调训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12+COCO 。<br>6.先在 MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val+test 、 VOC2012的 train+val 微调训练，然后使用 VOC2012的test测试 ，这个用法是论文中经常看到的 07++12+COCO，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。</p>
-<h3 id="VOC07-12联合训练并在07上测试"><a href="#VOC07-12联合训练并在07上测试" class="headerlink" title="VOC07+12联合训练并在07上测试"></a>VOC07+12联合训练并在07上测试</h3><h4 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h4><p>对于分类/检测任务而言，完成07 + 12数据集合并后，共得到如下数据：</p>
-<pre><code># 5011+11540=16551, 12608+27450=40058
-训练数据：16551张图像，共40058个目标
-# 全部来自voc07_test
-测试数据：4952张图像，共12032个目标
-</code></pre><p>组成如下所示：</p>
-<p>训练数据：</p>
-<p>1.VOC2007的训练集提供了：</p>
-<pre><code>训练数据：2501张图像，共6301个目标
-验证数据：2510张图像，共6307个目标
-训练+验证数据：5011张图像，共12608个目标
-</code></pre><p>2.VOC2012的训练集提供了：</p>
-<pre><code>训练数据：5717张图像，共13609个目标
-验证数据：5823张图像，共13841个目标
-训练+验证数据：11540张图像，共27450个目标
-</code></pre><p>测试数据：</p>
-<p>1.VOC2007的测试集提供了：</p>
-<pre><code>测试数据：4952张图像，共12032个目标
-</code></pre><h3 id="各种数据集介绍"><a href="#各种数据集介绍" class="headerlink" title="各种数据集介绍"></a>各种数据集介绍</h3><h4 id="Pascal-VOC"><a href="#Pascal-VOC" class="headerlink" title="Pascal VOC"></a>Pascal VOC</h4><p>官网地址：<a href="https://pjreddie.com/projects/pascal-voc-dataset-mirror/">Pascal VOC Dataset Mirror (pjreddie.com)</a></p>
-<h4 id="MS-COCO"><a href="#MS-COCO" class="headerlink" title="MS COCO"></a>MS COCO</h4><h4 id="ILSVRC"><a href="#ILSVRC" class="headerlink" title="ILSVRC"></a>ILSVRC</h4>]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>数据集</tag>
       </tags>
   </entry>
   <entry>
@@ -14502,6 +14486,22 @@ return x
       </categories>
       <tags>
         <tag>今日故事</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pytorch API之torch</title>
+    <url>/zh-TW/torch_/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>今天开始，开始一个全新的系列，就是pytorch的API解读，当然初期，我只会自己去读API,然后不懂的记录实验，把相关经验记录下来，懂的我不会写下来，如果你有不懂的，可以私信我，谢谢。</p>
+<p>一个讲的是torch库</p>
+<p>参考链接：</p>
+<p>1.<a href="https://pytorch.org/docs/stable/torch.html#tensors">torch — PyTorch 1.12 documentation</a></p>
+<h4 id="is-nonzero"><a href="#is-nonzero" class="headerlink" title="is_nonzero"></a>is_nonzero</h4><h4 id="numel"><a href="#numel" class="headerlink" title="numel"></a>numel</h4>]]></content>
+      <categories>
+        <category>pytorch</category>
+      </categories>
+      <tags>
+        <tag>函数库</tag>
+        <tag>torch</tag>
       </tags>
   </entry>
 </search>
