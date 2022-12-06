@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Pytorch API之torch</title>
+    <url>/zh-TW/torch_/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>今天开始，开始一个全新的系列，就是pytorch的API解读，当然初期，我只会自己去读API,然后不懂的记录实验，把相关经验记录下来，懂的我不会写下来，如果你有不懂的，可以私信我，谢谢。</p>
+<p>一个讲的是torch库</p>
+<p>参考链接：</p>
+<p>1.<a href="https://pytorch.org/docs/stable/torch.html#tensors">torch — PyTorch 1.12 documentation</a></p>
+<h4 id="is-nonzero"><a href="#is-nonzero" class="headerlink" title="is_nonzero"></a>is_nonzero</h4><h4 id="numel"><a href="#numel" class="headerlink" title="numel"></a>numel</h4>]]></content>
+      <categories>
+        <category>pytorch</category>
+      </categories>
+      <tags>
+        <tag>函数库</tag>
+        <tag>torch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CABNet论文笔记</title>
     <url>/zh-CN/CABNet/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -26,6 +42,123 @@
       </categories>
       <tags>
         <tag>论文笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CNN输入与输出的关系</title>
+    <url>/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原文链接：<a href="https://www.zhihu.com/question/56688854">卷积神经网络里输入图像大小何时是固定，何时是任意</a></p>
+<p>相关论文链接：</p>
+<p>1.<a href="https://arxiv.org/abs/1411.4038">Fully Convolutional Networks for Semantic Segmentation</a></p>
+<p>2.<a href="https://arxiv.org/abs/1312.4400">Network In Network </a></p>
+<p>3.<a href="https://arxiv.53yu.com/abs/1712.03452">SPP-Net: Deep absolute pose regression with synthetic views</a></p>
+<h2 id="卷积神经网络里输入图像大小何时是固定，何时是任意"><a href="#卷积神经网络里输入图像大小何时是固定，何时是任意" class="headerlink" title="卷积神经网络里输入图像大小何时是固定，何时是任意"></a>卷积神经网络里输入图像大小何时是固定，何时是任意</h2><p>典型的CNN架构如下：</p>
+<p><img src="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-14d0b66fd755750e48b08cfd1b6bc2e9_r.jpg" class="lazyload" data-srcset="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-14d0b66fd755750e48b08cfd1b6bc2e9_r.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>也就是<a href="https://www.zhihu.com/search?q=卷积层&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;answer&quot;%2C&quot;sourceId&quot;%3A463698542}">卷积层</a>（卷积+非线性激活）+<a href="https://www.zhihu.com/search?q=池化层&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;answer&quot;%2C&quot;sourceId&quot;%3A463698542}">池化层</a>+全连接层+分类层。其中，卷积层、池化层、<a href="https://www.zhihu.com/search?q=分类层&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;answer&quot;%2C&quot;sourceId&quot;%3A463698542}">分类层</a>其实都不在意图像大小，但是全连接层有问题。</p>
+<p>一般而言，全连接层的一个神经元对应一个输入。换句话说，全连接层要求固定的输入维度。而不同大小的图像，卷积模块（卷积+非线性激活+池化）输出的特征映射维度是不一样的。因此，从这个意义上说，因为有全连接层存在，决定了输入的图像的大小必须是固定的。也就是你提到的：</p>
+<blockquote>
+<p>如果神经网络里不仅仅只有卷积层，还有全连接层，那么输入的图像的大小必须是固定的。</p>
+</blockquote>
+<p>既然是全连接层的限制，那么，如果我们去掉全连接层，岂不就可以支持任意大小的输入图像了？也就是你提到的：</p>
+<blockquote>
+<p>如果一个神经网络里面只有卷积层，那么我输入的图像大小是可以任意的</p>
+</blockquote>
+<p>这正是<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1411.4038">Jonathan Long</a>提出的<strong>FCN（Fully Convolutional Networks，全卷积网络）</strong>背后的思路，<strong>用卷积层替换全连接层</strong>。</p>
+<p><img src="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-0bd8d5c23e469f40cc9e7847d5d6491b_r.jpg" class="lazyload" data-srcset="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-0bd8d5c23e469f40cc9e7847d5d6491b_r.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>当然，除了卷积层外，还可以用别的层替换全连接层。比如用<strong>全局平均池化（Global Average Pooling）层</strong>替换全连接层。</p>
+<p><img src="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-4d6368c19a126926541a157da37f4742_r.jpg" class="lazyload" data-srcset="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-4d6368c19a126926541a157da37f4742_r.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>全局平均池化最早是由<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1312.4400">Min Lin</a>等在<strong>网中网（Network In Network）</strong>里提出的<strong>，</strong> 其动机是为了缓解全连接层可能导致的过拟合问题。但因为全局平均池化将任意<code>h * w * d</code>的张量（特征映射）转换为<code>1 * 1 * d</code>的张量，因此碰巧可以自动适应不同尺寸的输入图像。之后的Inception-V3等架构借鉴了这一想法，用全局平均池化层代替全连接层，以适应不同尺寸的输入图像。</p>
+<p>不过，也不是说只要有全连接层，输入的图像大小就一定要固定。之前提到过，固定输入图像大小的原因是：全连接层要求固定的输入维度。那么，除了像上面这样干脆用卷积层替换全连接层，还有一种思路，就是在卷积模块和全连接层之间加一个中间层，整理一下卷积模块的输出，保证不管输入图像大小怎么变，传给全连接层的始终是固定维数的输入。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1406.4729">Kaiming He</a>等提出的<strong>SPP（Spatial Pyramid Pooling，空间金字塔池化）</strong>就是做这个的。</p>
+<p><img src="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-a3f23245d7a2f41554b27e38755927c8_r.jpg" class="lazyload" data-srcset="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-a3f23245d7a2f41554b27e38755927c8_r.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>上图示意了引入SPP前后的不同流程。上为传统的CNN架构，图像（image）经过裁剪或拉伸（crop/warp）统一尺寸，再传给卷积层（conv layers）；下为应用了SPP层后的架构，图像直接传给卷积层，然后经过SPP处理，统一维度，再传给全连接层（fc layers）。</p>
+<p><img src="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-53cfe32119cfeba1e2bc73a18015f450_r.jpg" class="lazyload" data-srcset="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-53cfe32119cfeba1e2bc73a18015f450_r.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;"></p>
+<p>上为SPP层示意图，当中的大方框表示SPP层。SPP层的输入是卷积模块输出的任意尺寸的特征映射，SPP层的输出是固定长度的表示，也就是说，SPP层将固定维度的向量传给之后的全连接层。其中，SPP层使用很多<strong>spatial bins（空间箱）</strong>对特征映射应用池化操作（比如最大池化）。空间箱的个数是固定的，大小与特征映射的尺寸（对应输入图像的尺寸）成比例，这就保证了SPP层的输出向量的维数是固定的。</p>
+<p>个人总结如下：</p>
+<p>1.当卷积神经网络中出现了全连接时，由于网络模型固定，因此倒推过去输入尺寸必然固定</p>
+<p>2.全局平均池化可以将任意h×w×c的张量变为1×1×c的张量，因此可以输入任意尺寸</p>
+<p>3.SPPNet在卷积层和全连接层之间设置中间层，将全连接层前的输入设置为满足要求，因此输入可以任何尺寸</p>
+<p>4.论文中较为常见的是第一种</p>
+]]></content>
+      <categories>
+        <category>计算机视觉</category>
+        <category>卷积神经网络</category>
+      </categories>
+      <tags>
+        <tag>输入与输出</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言基础学习</title>
+    <url>/zh-CN/C%E8%AF%AD%E8%A8%80/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p>1.<a href="https://www.runoob.com/cprogramming">菜鸟教程C语言教程</a></p>
+<h2 id="编译-执行C程序"><a href="#编译-执行C程序" class="headerlink" title="编译/执行C程序"></a>编译/执行C程序</h2><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code class="lang-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    /* 我的第一个 C 程序 */
+    printf("Hello, World! \n");
+
+    return 0;
+}
+</code></pre>
+<p>实例解析：</p>
+<ul>
+<li>所有的 C 语言程序都需要包含 <strong>main()</strong> 函数。 代码从 <strong>main()</strong> 函数开始执行。</li>
+<li><strong>/* … */</strong> 用于注释说明。</li>
+<li><strong>printf()</strong> 用于格式化输出到屏幕。<strong>printf()</strong> 函数在 <strong>“stdio.h”</strong> 头文件中声明。</li>
+<li><strong>stdio.h</strong> 是一个头文件 (标准输入输出头文件) , <strong>#include</strong> 是一个预处理命令，用来引入头文件。 当编译器遇到 <strong>printf()</strong> 函数时，如果没有找到 <strong>stdio.h</strong> 头文件，会发生编译错误。</li>
+<li><strong>return 0;</strong> 语句用于表示退出程序。</li>
+</ul>
+<h2 id="C简介"><a href="#C简介" class="headerlink" title="C简介"></a>C简介</h2><p>C 语言是一种通用的高级语言，最初是由丹尼斯·里奇在贝尔实验室为开发 UNIX 操作系统而设计的。C 语言最开始是于 1972 年在 DEC PDP-11 计算机上被首次实现。</p>
+<p>在 1978 年，布莱恩·柯林汉（Brian Kernighan）和丹尼斯·里奇（Dennis Ritchie）制作了 C 的第一个公开可用的描述，现在被称为 K&amp;R 标准。</p>
+<p>UNIX 操作系统，C编译器，和几乎所有的 UNIX 应用程序都是用 C 语言编写的。由于各种原因，C 语言现在已经成为一种广泛使用的专业语言。</p>
+<ul>
+<li>易于学习。</li>
+<li>结构化语言。</li>
+<li>它产生高效率的程序。</li>
+<li>它可以处理底层的活动。</li>
+</ul>
+<h3 id="关于C"><a href="#关于C" class="headerlink" title="关于C"></a>关于C</h3><ul>
+<li><p>C 语言是为了编写 UNIX 操作系统而被发明的。</p>
+</li>
+<li><p>C 语言是以 B 语言为基础的，B 语言大概是在 1970 年被引进的。</p>
+</li>
+<li><p>C 语言标准是于 1988 年由美国国家标准协会（ANSI，全称 American National Standard Institute）制定的。</p>
+</li>
+<li><p>截至 1973 年，UNIX 操作系统完全使用 C 语言编写。</p>
+</li>
+<li><p>目前，C 语言是最广泛使用的系统程序设计语言。</p>
+</li>
+<li><p>大多数先进的软件都是使用 C 语言实现的。</p>
+</li>
+<li><p>当今最流行的 Linux 操作系统和 RDBMS（Relational Database Management System：关系数据库管理系统） MySQL 都是使用 C 语言编写的。</p>
+</li>
+</ul>
+<h3 id="为什么要使用C"><a href="#为什么要使用C" class="headerlink" title="为什么要使用C"></a>为什么要使用C</h3><p>  C 语言最初是用于系统开发工作，特别是组成操作系统的程序。由于 C 语言所产生的代码运行速度与汇编语言编写的代码运行速度几乎一样，所以采用 C 语言作为系统开发语言。下面列举几个使用 C 的实例：操作系统、语言编译器、汇编器、文本编辑器、打印机、网络驱动器、现代程序、数据库、语言解释器、实体工具。</p>
+<h3 id="C程序"><a href="#C程序" class="headerlink" title="C程序"></a>C程序</h3><p>一个 C 语言程序，可以是 3 行，也可以是数百万行，它可以写在一个或多个扩展名为 <strong>“.c”</strong> 的文本文件中，例如，<em>hello.c</em>。您可以使用 <strong>“vi”</strong>、<strong>“vim”</strong> 或任何其他文本编辑器来编写您的 C 语言程序。</p>
+<p>本教程假定您已经知道如何编辑一个文本文件，以及如何在程序文件中编写源代码。</p>
+<h3 id="C11"><a href="#C11" class="headerlink" title="C11"></a>C11</h3><p>C11（也被称为C1X）指ISO标准ISO/IEC 9899:2011，是当前最新的C语言标准。在它之前的C语言标准为C99。</p>
+<h3 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h3><ul>
+<li>对齐处理（Alignment）的标准化（包括_Alignas标志符，alignof运算符，aligned_alloc函数以及<stdalign.h>头文件）。</stdalign.h></li>
+<li><em>Noreturn 函数标记，类似于 gcc 的 <em>_attribute</em></em>((noreturn))。</li>
+<li>_Generic 关键字。</li>
+<li>多线程（Multithreading）支持，包括：<br>_Thread_local存储类型标识符，<threads.h>头文件，里面包含了线程的创建和管理函数。<br>_Atomic类型修饰符和<stdatomic.h>头文件。</stdatomic.h></threads.h></li>
+<li>增强的Unicode的支持。基于C Unicode技术报告ISO/IEC TR 19769:2004，增强了对Unicode的支持。包括为UTF-16/UTF-32编码增加了char16_t和char32_t数据类型，提供了包含unicode字符串转换函数的头文件<uchar.h>。</uchar.h></li>
+<li>删除了 gets() 函数，使用一个新的更安全的函数gets_s()替代。</li>
+<li>增加了边界检查函数接口，定义了新的安全的函数，例如 fopen_s()，strcat_s() 等等。</li>
+<li>增加了更多浮点处理宏(宏)。</li>
+<li>匿名结构体/联合体支持。这个在gcc早已存在，C11将其引入标准。</li>
+<li>静态断言（Static assertions），_Static_assert()，在解释 #if 和 #error 之后被处理。</li>
+<li>新的 fopen() 模式，(“…x”)。类似 POSIX 中的 O_CREAT|O_EXCL，在文件锁中比较常用。</li>
+<li>新增 quick_exit() 函数作为第三种终止程序的方式。当 exit()失败时可以做最少的清理工作。</li>
+</ul>
+<h2 id="C环境设置"><a href="#C环境设置" class="headerlink" title="C环境设置"></a>C环境设置</h2><h2 id=""><a href="#" class="headerlink" title="#"></a>#</h2>]]></content>
+      <categories>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>函数库</tag>
       </tags>
   </entry>
   <entry>
@@ -176,120 +309,138 @@ Process finished with exit code 0
       </tags>
   </entry>
   <entry>
-    <title>CNN输入与输出的关系</title>
-    <url>/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原文链接：<a href="https://www.zhihu.com/question/56688854">卷积神经网络里输入图像大小何时是固定，何时是任意</a></p>
-<p>相关论文链接：</p>
-<p>1.<a href="https://arxiv.org/abs/1411.4038">Fully Convolutional Networks for Semantic Segmentation</a></p>
-<p>2.<a href="https://arxiv.org/abs/1312.4400">Network In Network </a></p>
-<p>3.<a href="https://arxiv.53yu.com/abs/1712.03452">SPP-Net: Deep absolute pose regression with synthetic views</a></p>
-<h2 id="卷积神经网络里输入图像大小何时是固定，何时是任意"><a href="#卷积神经网络里输入图像大小何时是固定，何时是任意" class="headerlink" title="卷积神经网络里输入图像大小何时是固定，何时是任意"></a>卷积神经网络里输入图像大小何时是固定，何时是任意</h2><p>典型的CNN架构如下：</p>
-<p><img src="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-14d0b66fd755750e48b08cfd1b6bc2e9_r.jpg" class="lazyload" data-srcset="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-14d0b66fd755750e48b08cfd1b6bc2e9_r.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>也就是<a href="https://www.zhihu.com/search?q=卷积层&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;answer&quot;%2C&quot;sourceId&quot;%3A463698542}">卷积层</a>（卷积+非线性激活）+<a href="https://www.zhihu.com/search?q=池化层&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;answer&quot;%2C&quot;sourceId&quot;%3A463698542}">池化层</a>+全连接层+分类层。其中，卷积层、池化层、<a href="https://www.zhihu.com/search?q=分类层&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;answer&quot;%2C&quot;sourceId&quot;%3A463698542}">分类层</a>其实都不在意图像大小，但是全连接层有问题。</p>
-<p>一般而言，全连接层的一个神经元对应一个输入。换句话说，全连接层要求固定的输入维度。而不同大小的图像，卷积模块（卷积+非线性激活+池化）输出的特征映射维度是不一样的。因此，从这个意义上说，因为有全连接层存在，决定了输入的图像的大小必须是固定的。也就是你提到的：</p>
-<blockquote>
-<p>如果神经网络里不仅仅只有卷积层，还有全连接层，那么输入的图像的大小必须是固定的。</p>
-</blockquote>
-<p>既然是全连接层的限制，那么，如果我们去掉全连接层，岂不就可以支持任意大小的输入图像了？也就是你提到的：</p>
-<blockquote>
-<p>如果一个神经网络里面只有卷积层，那么我输入的图像大小是可以任意的</p>
-</blockquote>
-<p>这正是<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1411.4038">Jonathan Long</a>提出的<strong>FCN（Fully Convolutional Networks，全卷积网络）</strong>背后的思路，<strong>用卷积层替换全连接层</strong>。</p>
-<p><img src="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-0bd8d5c23e469f40cc9e7847d5d6491b_r.jpg" class="lazyload" data-srcset="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-0bd8d5c23e469f40cc9e7847d5d6491b_r.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>当然，除了卷积层外，还可以用别的层替换全连接层。比如用<strong>全局平均池化（Global Average Pooling）层</strong>替换全连接层。</p>
-<p><img src="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-4d6368c19a126926541a157da37f4742_r.jpg" class="lazyload" data-srcset="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-4d6368c19a126926541a157da37f4742_r.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>全局平均池化最早是由<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1312.4400">Min Lin</a>等在<strong>网中网（Network In Network）</strong>里提出的<strong>，</strong> 其动机是为了缓解全连接层可能导致的过拟合问题。但因为全局平均池化将任意<code>h * w * d</code>的张量（特征映射）转换为<code>1 * 1 * d</code>的张量，因此碰巧可以自动适应不同尺寸的输入图像。之后的Inception-V3等架构借鉴了这一想法，用全局平均池化层代替全连接层，以适应不同尺寸的输入图像。</p>
-<p>不过，也不是说只要有全连接层，输入的图像大小就一定要固定。之前提到过，固定输入图像大小的原因是：全连接层要求固定的输入维度。那么，除了像上面这样干脆用卷积层替换全连接层，还有一种思路，就是在卷积模块和全连接层之间加一个中间层，整理一下卷积模块的输出，保证不管输入图像大小怎么变，传给全连接层的始终是固定维数的输入。</p>
-<p><a href="https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1406.4729">Kaiming He</a>等提出的<strong>SPP（Spatial Pyramid Pooling，空间金字塔池化）</strong>就是做这个的。</p>
-<p><img src="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-a3f23245d7a2f41554b27e38755927c8_r.jpg" class="lazyload" data-srcset="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-a3f23245d7a2f41554b27e38755927c8_r.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>上图示意了引入SPP前后的不同流程。上为传统的CNN架构，图像（image）经过裁剪或拉伸（crop/warp）统一尺寸，再传给卷积层（conv layers）；下为应用了SPP层后的架构，图像直接传给卷积层，然后经过SPP处理，统一维度，再传给全连接层（fc layers）。</p>
-<p><img src="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-53cfe32119cfeba1e2bc73a18015f450_r.jpg" class="lazyload" data-srcset="/zh-CN/CNN%E8%BE%93%E5%85%A5%E8%AF%A6%E8%A7%A3/v2-53cfe32119cfeba1e2bc73a18015f450_r.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;"></p>
-<p>上为SPP层示意图，当中的大方框表示SPP层。SPP层的输入是卷积模块输出的任意尺寸的特征映射，SPP层的输出是固定长度的表示，也就是说，SPP层将固定维度的向量传给之后的全连接层。其中，SPP层使用很多<strong>spatial bins（空间箱）</strong>对特征映射应用池化操作（比如最大池化）。空间箱的个数是固定的，大小与特征映射的尺寸（对应输入图像的尺寸）成比例，这就保证了SPP层的输出向量的维数是固定的。</p>
-<p>个人总结如下：</p>
-<p>1.当卷积神经网络中出现了全连接时，由于网络模型固定，因此倒推过去输入尺寸必然固定</p>
-<p>2.全局平均池化可以将任意h×w×c的张量变为1×1×c的张量，因此可以输入任意尺寸</p>
-<p>3.SPPNet在卷积层和全连接层之间设置中间层，将全连接层前的输入设置为满足要求，因此输入可以任何尺寸</p>
-<p>4.论文中较为常见的是第一种</p>
+    <title>Darknet53</title>
+    <url>/zh-CN/Darknet53/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://blog.csdn.net/weixin_44791964/article/details/105310627?ops_request_misc=%7B%22request%5Fid%22%3A%22165296353216781685319292%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fblog.%22%7D&amp;request_id=165296353216781685319292&amp;biz_id=0&amp;spm=1018.2226.3001.4450">睿智的目标检测26——Pytorch搭建yolo3目标检测平台<em>Bubbliiiing的博客-CSDN博客</em>睿智的目标检测26</a></p>
+<p>2.<a href="https://www.jianshu.com/p/ab8392ef3394">Darknet53网络各层参数详解 - 简书 (jianshu.com)</a></p>
+<p>3.<a href="https://blog.csdn.net/weixin_48167570/article/details/120688156">Darknet53网络结构及代码实现_Tc.小浩的博客-CSDN博客_darknet53</a></p>
+<p>4.<a href="https://www.cnblogs.com/chenhuabin/p/13908615.html">Yolov3算法详解 - 奥辰 - 博客园 (cnblogs.com)</a></p>
+<p>Darkenet53是Yolov3网络中的一部分（backbone），为了更加详细了解darknet53网络的结构，现将Darknet53各层输入与输出的形状列举下来，便于分析理解。</p>
+<p>Darknet53的网络结构如图1所示，其中蓝色方块×1，x2，x8分别表示该模块重复1次、2次和8次，黄色方块是该模块的名字，<code>Conv Block</code>表示该模块是一个普通的卷积模块，<code>Residual Bolck</code>代表该模块是一个残差网络。  读者可以将图1和图2结合对比着看更容易理解Daeknet53网络三种不同的输出位置。</p>
+<p><img src="/zh-CN/Darknet53/16006821-59dd6b77da823e7f.png" class="lazyload" data-srcset="/zh-CN/Darknet53/16006821-59dd6b77da823e7f.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img" style="zoom:50%;"></p>
+<p>实现代码如下：</p>
+<pre><code class="lang-python">import math
+from collections import OrderedDict
+
+import torch.nn as nn
+
+
+# ---------------------------------------------------------------------#
+#   残差结构
+#   利用一个1x1卷积下降通道数，然后利用一个3x3卷积提取特征并且上升通道数
+#   最后接上一个残差边
+# ---------------------------------------------------------------------#
+class BasicBlock(nn.Module):
+    def __init__(self, inplanes, planes):
+        super(BasicBlock, self).__init__()
+        # (kernel_size, stride, padding)=(1, 1, 0)保持了宽高不变
+        self.conv1 = nn.Conv2d(
+            inplanes, planes[0], kernel_size=1, stride=1, padding=0, bias=False)
+        self.bn1 = nn.BatchNorm2d(planes[0])
+        self.relu1 = nn.LeakyReLU(0.1)
+
+        # (kernel_size, stride, padding)=(3, 1, 1)同样保持了宽高不变
+        self.conv2 = nn.Conv2d(
+            planes[0], planes[1], kernel_size=3, stride=1, padding=1, bias=False)
+        self.bn2 = nn.BatchNorm2d(planes[1])
+        self.relu2 = nn.LeakyReLU(0.1)
+
+    def forward(self, x):
+        residual = x
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu1(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+        out = self.relu2(out)
+
+        out += residual
+        return out
+
+
+class DarkNet(nn.Module):
+    def __init__(self, layers):
+        super(DarkNet, self).__init__()
+        self.inplanes = 32
+        # 416,416,3 -&gt; 416,416,32
+        self.conv1 = nn.Conv2d(
+            3, self.inplanes, kernel_size=3, stride=1, padding=1, bias=False)
+        self.bn1 = nn.BatchNorm2d(self.inplanes)
+        self.relu1 = nn.LeakyReLU(0.1)
+
+        # 416,416,32 -&gt; 208,208,64
+        self.layer1 = self._make_layer([32, 64], layers[0])
+        # 208,208,64 -&gt; 104,104,128
+        self.layer2 = self._make_layer([64, 128], layers[1])
+        # 104,104,128 -&gt; 52,52,256
+        self.layer3 = self._make_layer([128, 256], layers[2])
+        # 52,52,256 -&gt; 26,26,512
+        self.layer4 = self._make_layer([256, 512], layers[3])
+        # 26,26,512 -&gt; 13,13,1024
+        self.layer5 = self._make_layer([512, 1024], layers[4])
+
+        self.layers_out_filters = [64, 128, 256, 512, 1024]
+
+        # 进行权值初始化
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+                m.weight.data.normal_(0, math.sqrt(2. / n))
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.fill_(1)
+                m.bias.data.zero_()
+
+    # ---------------------------------------------------------------------#
+    #   在每一个layer里面，首先利用一个步长为2的3x3卷积进行下采样
+    #   然后进行残差结构的堆叠,使用了上面的BasicBlock模块
+    #   planes = [last_layer_out_channels, this_layer_in_channels]
+    # ---------------------------------------------------------------------#
+    def _make_layer(self, planes, blocks):
+        layers = []
+        # 下采样，步长为2，卷积核大小为3
+        layers.append(("ds_conv", nn.Conv2d(
+            self.inplanes, planes[1], kernel_size=3, stride=2, padding=1, bias=False)))
+        layers.append(("ds_bn", nn.BatchNorm2d(planes[1])))
+        layers.append(("ds_relu", nn.LeakyReLU(0.1)))
+        # 加入残差结构
+        self.inplanes = planes[1]
+        # 将Residual Block重复layer[i]次
+        for i in range(0, blocks):
+            layers.append(("residual_{}".format(
+                i), BasicBlock(self.inplanes, planes)))
+        return nn.Sequential(OrderedDict(layers))
+
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = self.relu1(x)
+
+        x = self.layer1(x)
+        x = self.layer2(x)
+        out3 = self.layer3(x)
+        out4 = self.layer4(out3)
+        out5 = self.layer5(out4)
+        # 取出来了三层特征继续改进
+        return out3, out4, out5
+
+
+def darknet53():
+    model = DarkNet([1, 2, 8, 8, 4])
+    return model
+</code></pre>
+<p>说明：</p>
+<p>Darknet53中的53说的是卷积和全连接层数之和，53 =  1 + （1+2+8+8+4）*2 +5+1</p>
+<p>看结构图就能明白，最后那个1表示全连接，图中没有画出来，得去看原论文，因为这里的代码是利用其做主干得到特征再进行改进，因此没有全连接。我更愿意说它是Darknet52,但根据习惯，还是叫它Darknet53。</p>
 ]]></content>
       <categories>
-        <category>计算机视觉</category>
-        <category>卷积神经网络</category>
+        <category>目标检测</category>
       </categories>
       <tags>
-        <tag>输入与输出</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言基础学习</title>
-    <url>/zh-CN/C%E8%AF%AD%E8%A8%80/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p>1.<a href="https://www.runoob.com/cprogramming">菜鸟教程C语言教程</a></p>
-<h2 id="编译-执行C程序"><a href="#编译-执行C程序" class="headerlink" title="编译/执行C程序"></a>编译/执行C程序</h2><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code class="lang-c">#include &lt;stdio.h&gt;
-
-int main()
-{
-    /* 我的第一个 C 程序 */
-    printf("Hello, World! \n");
-
-    return 0;
-}
-</code></pre>
-<p>实例解析：</p>
-<ul>
-<li>所有的 C 语言程序都需要包含 <strong>main()</strong> 函数。 代码从 <strong>main()</strong> 函数开始执行。</li>
-<li><strong>/* … */</strong> 用于注释说明。</li>
-<li><strong>printf()</strong> 用于格式化输出到屏幕。<strong>printf()</strong> 函数在 <strong>“stdio.h”</strong> 头文件中声明。</li>
-<li><strong>stdio.h</strong> 是一个头文件 (标准输入输出头文件) , <strong>#include</strong> 是一个预处理命令，用来引入头文件。 当编译器遇到 <strong>printf()</strong> 函数时，如果没有找到 <strong>stdio.h</strong> 头文件，会发生编译错误。</li>
-<li><strong>return 0;</strong> 语句用于表示退出程序。</li>
-</ul>
-<h2 id="C简介"><a href="#C简介" class="headerlink" title="C简介"></a>C简介</h2><p>C 语言是一种通用的高级语言，最初是由丹尼斯·里奇在贝尔实验室为开发 UNIX 操作系统而设计的。C 语言最开始是于 1972 年在 DEC PDP-11 计算机上被首次实现。</p>
-<p>在 1978 年，布莱恩·柯林汉（Brian Kernighan）和丹尼斯·里奇（Dennis Ritchie）制作了 C 的第一个公开可用的描述，现在被称为 K&amp;R 标准。</p>
-<p>UNIX 操作系统，C编译器，和几乎所有的 UNIX 应用程序都是用 C 语言编写的。由于各种原因，C 语言现在已经成为一种广泛使用的专业语言。</p>
-<ul>
-<li>易于学习。</li>
-<li>结构化语言。</li>
-<li>它产生高效率的程序。</li>
-<li>它可以处理底层的活动。</li>
-</ul>
-<h3 id="关于C"><a href="#关于C" class="headerlink" title="关于C"></a>关于C</h3><ul>
-<li><p>C 语言是为了编写 UNIX 操作系统而被发明的。</p>
-</li>
-<li><p>C 语言是以 B 语言为基础的，B 语言大概是在 1970 年被引进的。</p>
-</li>
-<li><p>C 语言标准是于 1988 年由美国国家标准协会（ANSI，全称 American National Standard Institute）制定的。</p>
-</li>
-<li><p>截至 1973 年，UNIX 操作系统完全使用 C 语言编写。</p>
-</li>
-<li><p>目前，C 语言是最广泛使用的系统程序设计语言。</p>
-</li>
-<li><p>大多数先进的软件都是使用 C 语言实现的。</p>
-</li>
-<li><p>当今最流行的 Linux 操作系统和 RDBMS（Relational Database Management System：关系数据库管理系统） MySQL 都是使用 C 语言编写的。</p>
-</li>
-</ul>
-<h3 id="为什么要使用C"><a href="#为什么要使用C" class="headerlink" title="为什么要使用C"></a>为什么要使用C</h3><p>  C 语言最初是用于系统开发工作，特别是组成操作系统的程序。由于 C 语言所产生的代码运行速度与汇编语言编写的代码运行速度几乎一样，所以采用 C 语言作为系统开发语言。下面列举几个使用 C 的实例：操作系统、语言编译器、汇编器、文本编辑器、打印机、网络驱动器、现代程序、数据库、语言解释器、实体工具。</p>
-<h3 id="C程序"><a href="#C程序" class="headerlink" title="C程序"></a>C程序</h3><p>一个 C 语言程序，可以是 3 行，也可以是数百万行，它可以写在一个或多个扩展名为 <strong>“.c”</strong> 的文本文件中，例如，<em>hello.c</em>。您可以使用 <strong>“vi”</strong>、<strong>“vim”</strong> 或任何其他文本编辑器来编写您的 C 语言程序。</p>
-<p>本教程假定您已经知道如何编辑一个文本文件，以及如何在程序文件中编写源代码。</p>
-<h3 id="C11"><a href="#C11" class="headerlink" title="C11"></a>C11</h3><p>C11（也被称为C1X）指ISO标准ISO/IEC 9899:2011，是当前最新的C语言标准。在它之前的C语言标准为C99。</p>
-<h3 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h3><ul>
-<li>对齐处理（Alignment）的标准化（包括_Alignas标志符，alignof运算符，aligned_alloc函数以及<stdalign.h>头文件）。</stdalign.h></li>
-<li><em>Noreturn 函数标记，类似于 gcc 的 <em>_attribute</em></em>((noreturn))。</li>
-<li>_Generic 关键字。</li>
-<li>多线程（Multithreading）支持，包括：<br>_Thread_local存储类型标识符，<threads.h>头文件，里面包含了线程的创建和管理函数。<br>_Atomic类型修饰符和<stdatomic.h>头文件。</stdatomic.h></threads.h></li>
-<li>增强的Unicode的支持。基于C Unicode技术报告ISO/IEC TR 19769:2004，增强了对Unicode的支持。包括为UTF-16/UTF-32编码增加了char16_t和char32_t数据类型，提供了包含unicode字符串转换函数的头文件<uchar.h>。</uchar.h></li>
-<li>删除了 gets() 函数，使用一个新的更安全的函数gets_s()替代。</li>
-<li>增加了边界检查函数接口，定义了新的安全的函数，例如 fopen_s()，strcat_s() 等等。</li>
-<li>增加了更多浮点处理宏(宏)。</li>
-<li>匿名结构体/联合体支持。这个在gcc早已存在，C11将其引入标准。</li>
-<li>静态断言（Static assertions），_Static_assert()，在解释 #if 和 #error 之后被处理。</li>
-<li>新的 fopen() 模式，(“…x”)。类似 POSIX 中的 O_CREAT|O_EXCL，在文件锁中比较常用。</li>
-<li>新增 quick_exit() 函数作为第三种终止程序的方式。当 exit()失败时可以做最少的清理工作。</li>
-</ul>
-<h2 id="C环境设置"><a href="#C环境设置" class="headerlink" title="C环境设置"></a>C环境设置</h2><h2 id=""><a href="#" class="headerlink" title="#"></a>#</h2>]]></content>
-      <categories>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>函数库</tag>
+        <tag>yolov3</tag>
+        <tag>darknet</tag>
       </tags>
   </entry>
   <entry>
@@ -473,141 +624,6 @@ class discriminator(nn.Module):
       <tags>
         <tag>论文笔记</tag>
         <tag>GAN</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Darknet53</title>
-    <url>/zh-CN/Darknet53/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://blog.csdn.net/weixin_44791964/article/details/105310627?ops_request_misc=%7B%22request%5Fid%22%3A%22165296353216781685319292%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fblog.%22%7D&amp;request_id=165296353216781685319292&amp;biz_id=0&amp;spm=1018.2226.3001.4450">睿智的目标检测26——Pytorch搭建yolo3目标检测平台<em>Bubbliiiing的博客-CSDN博客</em>睿智的目标检测26</a></p>
-<p>2.<a href="https://www.jianshu.com/p/ab8392ef3394">Darknet53网络各层参数详解 - 简书 (jianshu.com)</a></p>
-<p>3.<a href="https://blog.csdn.net/weixin_48167570/article/details/120688156">Darknet53网络结构及代码实现_Tc.小浩的博客-CSDN博客_darknet53</a></p>
-<p>4.<a href="https://www.cnblogs.com/chenhuabin/p/13908615.html">Yolov3算法详解 - 奥辰 - 博客园 (cnblogs.com)</a></p>
-<p>Darkenet53是Yolov3网络中的一部分（backbone），为了更加详细了解darknet53网络的结构，现将Darknet53各层输入与输出的形状列举下来，便于分析理解。</p>
-<p>Darknet53的网络结构如图1所示，其中蓝色方块×1，x2，x8分别表示该模块重复1次、2次和8次，黄色方块是该模块的名字，<code>Conv Block</code>表示该模块是一个普通的卷积模块，<code>Residual Bolck</code>代表该模块是一个残差网络。  读者可以将图1和图2结合对比着看更容易理解Daeknet53网络三种不同的输出位置。</p>
-<p><img src="/zh-CN/Darknet53/16006821-59dd6b77da823e7f.png" class="lazyload" data-srcset="/zh-CN/Darknet53/16006821-59dd6b77da823e7f.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img" style="zoom:50%;"></p>
-<p>实现代码如下：</p>
-<pre><code class="lang-python">import math
-from collections import OrderedDict
-
-import torch.nn as nn
-
-
-# ---------------------------------------------------------------------#
-#   残差结构
-#   利用一个1x1卷积下降通道数，然后利用一个3x3卷积提取特征并且上升通道数
-#   最后接上一个残差边
-# ---------------------------------------------------------------------#
-class BasicBlock(nn.Module):
-    def __init__(self, inplanes, planes):
-        super(BasicBlock, self).__init__()
-        # (kernel_size, stride, padding)=(1, 1, 0)保持了宽高不变
-        self.conv1 = nn.Conv2d(
-            inplanes, planes[0], kernel_size=1, stride=1, padding=0, bias=False)
-        self.bn1 = nn.BatchNorm2d(planes[0])
-        self.relu1 = nn.LeakyReLU(0.1)
-
-        # (kernel_size, stride, padding)=(3, 1, 1)同样保持了宽高不变
-        self.conv2 = nn.Conv2d(
-            planes[0], planes[1], kernel_size=3, stride=1, padding=1, bias=False)
-        self.bn2 = nn.BatchNorm2d(planes[1])
-        self.relu2 = nn.LeakyReLU(0.1)
-
-    def forward(self, x):
-        residual = x
-
-        out = self.conv1(x)
-        out = self.bn1(out)
-        out = self.relu1(out)
-
-        out = self.conv2(out)
-        out = self.bn2(out)
-        out = self.relu2(out)
-
-        out += residual
-        return out
-
-
-class DarkNet(nn.Module):
-    def __init__(self, layers):
-        super(DarkNet, self).__init__()
-        self.inplanes = 32
-        # 416,416,3 -&gt; 416,416,32
-        self.conv1 = nn.Conv2d(
-            3, self.inplanes, kernel_size=3, stride=1, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(self.inplanes)
-        self.relu1 = nn.LeakyReLU(0.1)
-
-        # 416,416,32 -&gt; 208,208,64
-        self.layer1 = self._make_layer([32, 64], layers[0])
-        # 208,208,64 -&gt; 104,104,128
-        self.layer2 = self._make_layer([64, 128], layers[1])
-        # 104,104,128 -&gt; 52,52,256
-        self.layer3 = self._make_layer([128, 256], layers[2])
-        # 52,52,256 -&gt; 26,26,512
-        self.layer4 = self._make_layer([256, 512], layers[3])
-        # 26,26,512 -&gt; 13,13,1024
-        self.layer5 = self._make_layer([512, 1024], layers[4])
-
-        self.layers_out_filters = [64, 128, 256, 512, 1024]
-
-        # 进行权值初始化
-        for m in self.modules():
-            if isinstance(m, nn.Conv2d):
-                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
-                m.weight.data.normal_(0, math.sqrt(2. / n))
-            elif isinstance(m, nn.BatchNorm2d):
-                m.weight.data.fill_(1)
-                m.bias.data.zero_()
-
-    # ---------------------------------------------------------------------#
-    #   在每一个layer里面，首先利用一个步长为2的3x3卷积进行下采样
-    #   然后进行残差结构的堆叠,使用了上面的BasicBlock模块
-    #   planes = [last_layer_out_channels, this_layer_in_channels]
-    # ---------------------------------------------------------------------#
-    def _make_layer(self, planes, blocks):
-        layers = []
-        # 下采样，步长为2，卷积核大小为3
-        layers.append(("ds_conv", nn.Conv2d(
-            self.inplanes, planes[1], kernel_size=3, stride=2, padding=1, bias=False)))
-        layers.append(("ds_bn", nn.BatchNorm2d(planes[1])))
-        layers.append(("ds_relu", nn.LeakyReLU(0.1)))
-        # 加入残差结构
-        self.inplanes = planes[1]
-        # 将Residual Block重复layer[i]次
-        for i in range(0, blocks):
-            layers.append(("residual_{}".format(
-                i), BasicBlock(self.inplanes, planes)))
-        return nn.Sequential(OrderedDict(layers))
-
-    def forward(self, x):
-        x = self.conv1(x)
-        x = self.bn1(x)
-        x = self.relu1(x)
-
-        x = self.layer1(x)
-        x = self.layer2(x)
-        out3 = self.layer3(x)
-        out4 = self.layer4(out3)
-        out5 = self.layer5(out4)
-        # 取出来了三层特征继续改进
-        return out3, out4, out5
-
-
-def darknet53():
-    model = DarkNet([1, 2, 8, 8, 4])
-    return model
-</code></pre>
-<p>说明：</p>
-<p>Darknet53中的53说的是卷积和全连接层数之和，53 =  1 + （1+2+8+8+4）*2 +5+1</p>
-<p>看结构图就能明白，最后那个1表示全连接，图中没有画出来，得去看原论文，因为这里的代码是利用其做主干得到特征再进行改进，因此没有全连接。我更愿意说它是Darknet52,但根据习惯，还是叫它Darknet53。</p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>yolov3</tag>
-        <tag>darknet</tag>
       </tags>
   </entry>
   <entry>
@@ -833,6 +849,308 @@ https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
       <tags>
         <tag>论文笔记</tag>
         <tag>faster-rcnn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>InceptionV3论文笔记</title>
+    <url>/zh-CN/InceptionV3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>论文地址：<a href="https://arxiv.org/pdf/1512.00567.pdf">Inceptionv3 </a></p>
+<p>源码地址：<a href="https://github.com/MasazI/InceptionV3_TensorFlow">InceptionV3_TensorFlow: Inception v3 </a></p>
+<p>文章引用出处1：<a href="https://blog.csdn.net/weixin_44791964/article/details/102802866">https://blog.csdn.net/weixin_44791964/article/details/102802866</a></p>
+<p>文章引用出处2：<a href="https://cloud.tencent.com/developer/article/1006032">InceptionV3 网络模型</a></p>
+<h2 id="InceptionV3模型"><a href="#InceptionV3模型" class="headerlink" title="InceptionV3模型"></a>InceptionV3模型</h2><p>InceptionV3模型是谷歌Inception系列里面的第三代模型，其模型结构与InceptionV2模型放在了同一篇论文里，其实二者模型结构差距不大，相比于其它神经网络模型，Inception网络最大的特点在于将神经网络层与层之间的卷积运算进行了拓展。<br>如VGG，AlexNet网络，它就是一直卷积下来的，一层接着一层；<br>ResNet则是创新性的引入了残差网络的概念，使得靠前若干层的某一层数据输出直接跳过多层引入到后面数据层的输入部分，后面的特征层的内容会有一部分由其前面的某一层线性贡献。<br>而Inception网络则是采用不同大小的卷积核，使得存在不同大小的感受野，最后实现拼接达到不同尺度特征的融合。<br>对于InceptionV3而言，其网络中存在着如下的结构。<br>这个结构使用不同大小的卷积核对输入进行卷积（这个结构主要在代码中的block1使用）。<br><img src="/zh-CN/InceptionV3/2019111309515588.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/2019111309515588.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Inceptionv3_block1"></p>
+<p>还存在着这样的结构，利用1x7的卷积和7x1的卷积代替7x7的卷积，这样可以只使用约（1x7 + 7x1) / (7x7) = 28.6%的计算开销；利用1x3的卷积和3x1的卷积代替3x3的卷积，这样可以只使用约（1x3 + 3x1) / (3x3) = 67%的计算开销。<br>下图利用1x7的卷积和7x1的卷积代替7x7的卷积（这个结构主要在代码中的block2使用）。</p>
+<p><img src="/zh-CN/InceptionV3/20191113095610269.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/20191113095610269.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Inceptionv3_block2"></p>
+<p>下图利用1x3的卷积和3x1的卷积代替3x3的卷积（这个结构主要在代码中的block3使用）。</p>
+<p><img src="/zh-CN/InceptionV3/2019111309572648.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/2019111309572648.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="inceptionv3_block3"></p>
+<h2 id="网络部分实现代码"><a href="#网络部分实现代码" class="headerlink" title="网络部分实现代码"></a>网络部分实现代码</h2><p>一共将InceptionV3划分为3个block，对应着35x35、17x17，8x8维度大小的图像。每个block中间有许多的part，对应着不同的特征层深度，用于特征提取。</p>
+<pre><code class="lang-python">#-------------------------------------------------------------#
+#   InceptionV3的网络部分
+#-------------------------------------------------------------#
+from __future__ import print_function
+from __future__ import absolute_import
+
+import warnings
+import numpy as np
+
+from keras.models import Model
+from keras import layers
+from keras.layers import Activation,Dense,Input,BatchNormalization,Conv2D,MaxPooling2D,AveragePooling2D
+from keras.layers import GlobalAveragePooling2D,GlobalMaxPooling2D
+from keras.engine.topology import get_source_inputs
+from keras.utils.layer_utils import convert_all_kernels_in_model
+from keras.utils.data_utils import get_file
+from keras import backend as K
+from keras.applications.imagenet_utils import decode_predictions
+from keras.preprocessing import image
+
+
+def conv2d_bn(x,
+              filters,
+              num_row,
+              num_col,
+              padding='same',
+              strides=(1, 1),
+              name=None):
+    if name is not None:
+        bn_name = name + '_bn'
+        conv_name = name + '_conv'
+    else:
+        bn_name = None
+        conv_name = None
+    x = Conv2D(
+        filters, (num_row, num_col),
+        strides=strides,
+        padding=padding,
+        use_bias=False,
+        name=conv_name)(x)
+    x = BatchNormalization(scale=False, name=bn_name)(x)
+    x = Activation('relu', name=name)(x)
+    return x
+
+
+def InceptionV3(input_shape=[299,299,3],
+                classes=1000):
+
+
+    img_input = Input(shape=input_shape)
+
+    x = conv2d_bn(img_input, 32, 3, 3, strides=(2, 2), padding='valid')
+    x = conv2d_bn(x, 32, 3, 3, padding='valid')
+    x = conv2d_bn(x, 64, 3, 3)
+    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
+
+    x = conv2d_bn(x, 80, 1, 1, padding='valid')
+    x = conv2d_bn(x, 192, 3, 3, padding='valid')
+    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
+
+    #--------------------------------#
+    #   Block1 35x35
+    #--------------------------------#
+    # Block1 part1
+    # 35 x 35 x 192 -&gt; 35 x 35 x 256
+    branch1x1 = conv2d_bn(x, 64, 1, 1)
+
+    branch5x5 = conv2d_bn(x, 48, 1, 1)
+    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 32, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
+        axis=3,
+        name='mixed0')
+
+    # Block1 part2
+    # 35 x 35 x 256 -&gt; 35 x 35 x 288
+    branch1x1 = conv2d_bn(x, 64, 1, 1)
+
+    branch5x5 = conv2d_bn(x, 48, 1, 1)
+    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
+        axis=3,
+        name='mixed1')
+
+    # Block1 part3
+    # 35 x 35 x 288 -&gt; 35 x 35 x 288
+    branch1x1 = conv2d_bn(x, 64, 1, 1)
+
+    branch5x5 = conv2d_bn(x, 48, 1, 1)
+    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
+        axis=3,
+        name='mixed2')
+
+    #--------------------------------#
+    #   Block2 17x17
+    #--------------------------------#
+    # Block2 part1
+    # 35 x 35 x 288 -&gt; 17 x 17 x 768
+    branch3x3 = conv2d_bn(x, 384, 3, 3, strides=(2, 2), padding='valid')
+
+    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
+    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
+    branch3x3dbl = conv2d_bn(
+        branch3x3dbl, 96, 3, 3, strides=(2, 2), padding='valid')
+
+    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
+    x = layers.concatenate(
+        [branch3x3, branch3x3dbl, branch_pool], axis=3, name='mixed3')
+
+    # Block2 part2
+    # 17 x 17 x 768 -&gt; 17 x 17 x 768
+    branch1x1 = conv2d_bn(x, 192, 1, 1)
+
+    branch7x7 = conv2d_bn(x, 128, 1, 1)
+    branch7x7 = conv2d_bn(branch7x7, 128, 1, 7)
+    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
+
+    branch7x7dbl = conv2d_bn(x, 128, 1, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 1, 7)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
+        axis=3,
+        name='mixed4')
+
+    # Block2 part3 and part4
+    # 17 x 17 x 768 -&gt; 17 x 17 x 768 -&gt; 17 x 17 x 768
+    for i in range(2):
+        branch1x1 = conv2d_bn(x, 192, 1, 1)
+
+        branch7x7 = conv2d_bn(x, 160, 1, 1)
+        branch7x7 = conv2d_bn(branch7x7, 160, 1, 7)
+        branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
+
+        branch7x7dbl = conv2d_bn(x, 160, 1, 1)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 1, 7)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
+        branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+
+        branch_pool = AveragePooling2D(
+            (3, 3), strides=(1, 1), padding='same')(x)
+        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+        x = layers.concatenate(
+            [branch1x1, branch7x7, branch7x7dbl, branch_pool],
+            axis=3,
+            name='mixed' + str(5 + i))
+
+    # Block2 part5
+    # 17 x 17 x 768 -&gt; 17 x 17 x 768
+    branch1x1 = conv2d_bn(x, 192, 1, 1)
+
+    branch7x7 = conv2d_bn(x, 192, 1, 1)
+    branch7x7 = conv2d_bn(branch7x7, 192, 1, 7)
+    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
+
+    branch7x7dbl = conv2d_bn(x, 192, 1, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
+    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
+
+    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
+    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+    x = layers.concatenate(
+        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
+        axis=3,
+        name='mixed7')
+
+    #--------------------------------#
+    #   Block3 8x8
+    #--------------------------------#
+    # Block3 part1
+    # 17 x 17 x 768 -&gt; 8 x 8 x 1280
+    branch3x3 = conv2d_bn(x, 192, 1, 1)
+    branch3x3 = conv2d_bn(branch3x3, 320, 3, 3,
+                          strides=(2, 2), padding='valid')
+
+    branch7x7x3 = conv2d_bn(x, 192, 1, 1)
+    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 1, 7)
+    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 7, 1)
+    branch7x7x3 = conv2d_bn(
+        branch7x7x3, 192, 3, 3, strides=(2, 2), padding='valid')
+
+    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
+    x = layers.concatenate(
+        [branch3x3, branch7x7x3, branch_pool], axis=3, name='mixed8')
+
+    # Block3 part2 part3
+    # 8 x 8 x 1280 -&gt; 8 x 8 x 2048 -&gt; 8 x 8 x 2048
+    for i in range(2):
+        branch1x1 = conv2d_bn(x, 320, 1, 1)
+
+        branch3x3 = conv2d_bn(x, 384, 1, 1)
+        branch3x3_1 = conv2d_bn(branch3x3, 384, 1, 3)
+        branch3x3_2 = conv2d_bn(branch3x3, 384, 3, 1)
+        branch3x3 = layers.concatenate(
+            [branch3x3_1, branch3x3_2], axis=3, name='mixed9_' + str(i))
+
+        branch3x3dbl = conv2d_bn(x, 448, 1, 1)
+        branch3x3dbl = conv2d_bn(branch3x3dbl, 384, 3, 3)
+        branch3x3dbl_1 = conv2d_bn(branch3x3dbl, 384, 1, 3)
+        branch3x3dbl_2 = conv2d_bn(branch3x3dbl, 384, 3, 1)
+        branch3x3dbl = layers.concatenate(
+            [branch3x3dbl_1, branch3x3dbl_2], axis=3)
+
+        branch_pool = AveragePooling2D(
+            (3, 3), strides=(1, 1), padding='same')(x)
+        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
+        x = layers.concatenate(
+            [branch1x1, branch3x3, branch3x3dbl, branch_pool],
+            axis=3,
+            name='mixed' + str(9 + i))
+    # 平均池化后全连接。
+    x = GlobalAveragePooling2D(name='avg_pool')(x)
+    x = Dense(classes, activation='softmax', name='predictions')(x)
+
+
+    inputs = img_input
+
+    model = Model(inputs, x, name='inception_v3')
+
+    return model
+</code></pre>
+<h2 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h2><p>建立网络后就可以进行预测了，实现代码如下：</p>
+<pre><code class="lang-python">def preprocess_input(x):
+    x /= 255.
+    x -= 0.5
+    x *= 2.
+    return x
+
+
+if __name__ == '__main__':
+    model = InceptionV3()
+
+    model.load_weights("inception_v3_weights_tf_dim_ordering_tf_kernels.h5")
+
+    img_path = 'elephant.jpg'
+    img = image.load_img(img_path, target_size=(299, 299))
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+
+    x = preprocess_input(x)
+
+    preds = model.predict(x)
+    print('Predicted:', decode_predictions(preds))
+</code></pre>
+<p>预测所需的已经训练好的InceptionV3模型可以在<a href="https://github.com/fchollet/deep-learning-models/releases下载。非常方便。">https://github.com/fchollet/deep-learning-models/releases下载。非常方便。</a><br>预测结果为：</p>
+<pre><code class="lang-markdown">Predicted: [[('n02504458', 'African_elephant', 0.50874853), ('n01871265', 'tusker', 0.19524273), ('n02504013', 'Indian_elephant', 0.1566972), ('n01917289', 'brain_coral', 0.0008956835), ('n01695060', 'Komodo_dragon', 0.0008260256)]]
+</code></pre>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
+        <tag>Inception</tag>
       </tags>
   </entry>
   <entry>
@@ -3603,308 +3921,6 @@ ERROR 1146: Table 'W3CSCHOOL.SalesSummary' doesn't exist
       </tags>
   </entry>
   <entry>
-    <title>InceptionV3论文笔记</title>
-    <url>/zh-CN/InceptionV3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>论文地址：<a href="https://arxiv.org/pdf/1512.00567.pdf">Inceptionv3 </a></p>
-<p>源码地址：<a href="https://github.com/MasazI/InceptionV3_TensorFlow">InceptionV3_TensorFlow: Inception v3 </a></p>
-<p>文章引用出处1：<a href="https://blog.csdn.net/weixin_44791964/article/details/102802866">https://blog.csdn.net/weixin_44791964/article/details/102802866</a></p>
-<p>文章引用出处2：<a href="https://cloud.tencent.com/developer/article/1006032">InceptionV3 网络模型</a></p>
-<h2 id="InceptionV3模型"><a href="#InceptionV3模型" class="headerlink" title="InceptionV3模型"></a>InceptionV3模型</h2><p>InceptionV3模型是谷歌Inception系列里面的第三代模型，其模型结构与InceptionV2模型放在了同一篇论文里，其实二者模型结构差距不大，相比于其它神经网络模型，Inception网络最大的特点在于将神经网络层与层之间的卷积运算进行了拓展。<br>如VGG，AlexNet网络，它就是一直卷积下来的，一层接着一层；<br>ResNet则是创新性的引入了残差网络的概念，使得靠前若干层的某一层数据输出直接跳过多层引入到后面数据层的输入部分，后面的特征层的内容会有一部分由其前面的某一层线性贡献。<br>而Inception网络则是采用不同大小的卷积核，使得存在不同大小的感受野，最后实现拼接达到不同尺度特征的融合。<br>对于InceptionV3而言，其网络中存在着如下的结构。<br>这个结构使用不同大小的卷积核对输入进行卷积（这个结构主要在代码中的block1使用）。<br><img src="/zh-CN/InceptionV3/2019111309515588.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/2019111309515588.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Inceptionv3_block1"></p>
-<p>还存在着这样的结构，利用1x7的卷积和7x1的卷积代替7x7的卷积，这样可以只使用约（1x7 + 7x1) / (7x7) = 28.6%的计算开销；利用1x3的卷积和3x1的卷积代替3x3的卷积，这样可以只使用约（1x3 + 3x1) / (3x3) = 67%的计算开销。<br>下图利用1x7的卷积和7x1的卷积代替7x7的卷积（这个结构主要在代码中的block2使用）。</p>
-<p><img src="/zh-CN/InceptionV3/20191113095610269.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/20191113095610269.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Inceptionv3_block2"></p>
-<p>下图利用1x3的卷积和3x1的卷积代替3x3的卷积（这个结构主要在代码中的block3使用）。</p>
-<p><img src="/zh-CN/InceptionV3/2019111309572648.png" class="lazyload" data-srcset="/zh-CN/InceptionV3/2019111309572648.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="inceptionv3_block3"></p>
-<h2 id="网络部分实现代码"><a href="#网络部分实现代码" class="headerlink" title="网络部分实现代码"></a>网络部分实现代码</h2><p>一共将InceptionV3划分为3个block，对应着35x35、17x17，8x8维度大小的图像。每个block中间有许多的part，对应着不同的特征层深度，用于特征提取。</p>
-<pre><code class="lang-python">#-------------------------------------------------------------#
-#   InceptionV3的网络部分
-#-------------------------------------------------------------#
-from __future__ import print_function
-from __future__ import absolute_import
-
-import warnings
-import numpy as np
-
-from keras.models import Model
-from keras import layers
-from keras.layers import Activation,Dense,Input,BatchNormalization,Conv2D,MaxPooling2D,AveragePooling2D
-from keras.layers import GlobalAveragePooling2D,GlobalMaxPooling2D
-from keras.engine.topology import get_source_inputs
-from keras.utils.layer_utils import convert_all_kernels_in_model
-from keras.utils.data_utils import get_file
-from keras import backend as K
-from keras.applications.imagenet_utils import decode_predictions
-from keras.preprocessing import image
-
-
-def conv2d_bn(x,
-              filters,
-              num_row,
-              num_col,
-              padding='same',
-              strides=(1, 1),
-              name=None):
-    if name is not None:
-        bn_name = name + '_bn'
-        conv_name = name + '_conv'
-    else:
-        bn_name = None
-        conv_name = None
-    x = Conv2D(
-        filters, (num_row, num_col),
-        strides=strides,
-        padding=padding,
-        use_bias=False,
-        name=conv_name)(x)
-    x = BatchNormalization(scale=False, name=bn_name)(x)
-    x = Activation('relu', name=name)(x)
-    return x
-
-
-def InceptionV3(input_shape=[299,299,3],
-                classes=1000):
-
-
-    img_input = Input(shape=input_shape)
-
-    x = conv2d_bn(img_input, 32, 3, 3, strides=(2, 2), padding='valid')
-    x = conv2d_bn(x, 32, 3, 3, padding='valid')
-    x = conv2d_bn(x, 64, 3, 3)
-    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
-
-    x = conv2d_bn(x, 80, 1, 1, padding='valid')
-    x = conv2d_bn(x, 192, 3, 3, padding='valid')
-    x = MaxPooling2D((3, 3), strides=(2, 2))(x)
-
-    #--------------------------------#
-    #   Block1 35x35
-    #--------------------------------#
-    # Block1 part1
-    # 35 x 35 x 192 -&gt; 35 x 35 x 256
-    branch1x1 = conv2d_bn(x, 64, 1, 1)
-
-    branch5x5 = conv2d_bn(x, 48, 1, 1)
-    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
-
-    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 32, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
-        axis=3,
-        name='mixed0')
-
-    # Block1 part2
-    # 35 x 35 x 256 -&gt; 35 x 35 x 288
-    branch1x1 = conv2d_bn(x, 64, 1, 1)
-
-    branch5x5 = conv2d_bn(x, 48, 1, 1)
-    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
-
-    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
-        axis=3,
-        name='mixed1')
-
-    # Block1 part3
-    # 35 x 35 x 288 -&gt; 35 x 35 x 288
-    branch1x1 = conv2d_bn(x, 64, 1, 1)
-
-    branch5x5 = conv2d_bn(x, 48, 1, 1)
-    branch5x5 = conv2d_bn(branch5x5, 64, 5, 5)
-
-    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 64, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch5x5, branch3x3dbl, branch_pool],
-        axis=3,
-        name='mixed2')
-
-    #--------------------------------#
-    #   Block2 17x17
-    #--------------------------------#
-    # Block2 part1
-    # 35 x 35 x 288 -&gt; 17 x 17 x 768
-    branch3x3 = conv2d_bn(x, 384, 3, 3, strides=(2, 2), padding='valid')
-
-    branch3x3dbl = conv2d_bn(x, 64, 1, 1)
-    branch3x3dbl = conv2d_bn(branch3x3dbl, 96, 3, 3)
-    branch3x3dbl = conv2d_bn(
-        branch3x3dbl, 96, 3, 3, strides=(2, 2), padding='valid')
-
-    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
-    x = layers.concatenate(
-        [branch3x3, branch3x3dbl, branch_pool], axis=3, name='mixed3')
-
-    # Block2 part2
-    # 17 x 17 x 768 -&gt; 17 x 17 x 768
-    branch1x1 = conv2d_bn(x, 192, 1, 1)
-
-    branch7x7 = conv2d_bn(x, 128, 1, 1)
-    branch7x7 = conv2d_bn(branch7x7, 128, 1, 7)
-    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
-
-    branch7x7dbl = conv2d_bn(x, 128, 1, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 1, 7)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 128, 7, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
-        axis=3,
-        name='mixed4')
-
-    # Block2 part3 and part4
-    # 17 x 17 x 768 -&gt; 17 x 17 x 768 -&gt; 17 x 17 x 768
-    for i in range(2):
-        branch1x1 = conv2d_bn(x, 192, 1, 1)
-
-        branch7x7 = conv2d_bn(x, 160, 1, 1)
-        branch7x7 = conv2d_bn(branch7x7, 160, 1, 7)
-        branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
-
-        branch7x7dbl = conv2d_bn(x, 160, 1, 1)
-        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
-        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 1, 7)
-        branch7x7dbl = conv2d_bn(branch7x7dbl, 160, 7, 1)
-        branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
-
-        branch_pool = AveragePooling2D(
-            (3, 3), strides=(1, 1), padding='same')(x)
-        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
-        x = layers.concatenate(
-            [branch1x1, branch7x7, branch7x7dbl, branch_pool],
-            axis=3,
-            name='mixed' + str(5 + i))
-
-    # Block2 part5
-    # 17 x 17 x 768 -&gt; 17 x 17 x 768
-    branch1x1 = conv2d_bn(x, 192, 1, 1)
-
-    branch7x7 = conv2d_bn(x, 192, 1, 1)
-    branch7x7 = conv2d_bn(branch7x7, 192, 1, 7)
-    branch7x7 = conv2d_bn(branch7x7, 192, 7, 1)
-
-    branch7x7dbl = conv2d_bn(x, 192, 1, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 7, 1)
-    branch7x7dbl = conv2d_bn(branch7x7dbl, 192, 1, 7)
-
-    branch_pool = AveragePooling2D((3, 3), strides=(1, 1), padding='same')(x)
-    branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
-    x = layers.concatenate(
-        [branch1x1, branch7x7, branch7x7dbl, branch_pool],
-        axis=3,
-        name='mixed7')
-
-    #--------------------------------#
-    #   Block3 8x8
-    #--------------------------------#
-    # Block3 part1
-    # 17 x 17 x 768 -&gt; 8 x 8 x 1280
-    branch3x3 = conv2d_bn(x, 192, 1, 1)
-    branch3x3 = conv2d_bn(branch3x3, 320, 3, 3,
-                          strides=(2, 2), padding='valid')
-
-    branch7x7x3 = conv2d_bn(x, 192, 1, 1)
-    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 1, 7)
-    branch7x7x3 = conv2d_bn(branch7x7x3, 192, 7, 1)
-    branch7x7x3 = conv2d_bn(
-        branch7x7x3, 192, 3, 3, strides=(2, 2), padding='valid')
-
-    branch_pool = MaxPooling2D((3, 3), strides=(2, 2))(x)
-    x = layers.concatenate(
-        [branch3x3, branch7x7x3, branch_pool], axis=3, name='mixed8')
-
-    # Block3 part2 part3
-    # 8 x 8 x 1280 -&gt; 8 x 8 x 2048 -&gt; 8 x 8 x 2048
-    for i in range(2):
-        branch1x1 = conv2d_bn(x, 320, 1, 1)
-
-        branch3x3 = conv2d_bn(x, 384, 1, 1)
-        branch3x3_1 = conv2d_bn(branch3x3, 384, 1, 3)
-        branch3x3_2 = conv2d_bn(branch3x3, 384, 3, 1)
-        branch3x3 = layers.concatenate(
-            [branch3x3_1, branch3x3_2], axis=3, name='mixed9_' + str(i))
-
-        branch3x3dbl = conv2d_bn(x, 448, 1, 1)
-        branch3x3dbl = conv2d_bn(branch3x3dbl, 384, 3, 3)
-        branch3x3dbl_1 = conv2d_bn(branch3x3dbl, 384, 1, 3)
-        branch3x3dbl_2 = conv2d_bn(branch3x3dbl, 384, 3, 1)
-        branch3x3dbl = layers.concatenate(
-            [branch3x3dbl_1, branch3x3dbl_2], axis=3)
-
-        branch_pool = AveragePooling2D(
-            (3, 3), strides=(1, 1), padding='same')(x)
-        branch_pool = conv2d_bn(branch_pool, 192, 1, 1)
-        x = layers.concatenate(
-            [branch1x1, branch3x3, branch3x3dbl, branch_pool],
-            axis=3,
-            name='mixed' + str(9 + i))
-    # 平均池化后全连接。
-    x = GlobalAveragePooling2D(name='avg_pool')(x)
-    x = Dense(classes, activation='softmax', name='predictions')(x)
-
-
-    inputs = img_input
-
-    model = Model(inputs, x, name='inception_v3')
-
-    return model
-</code></pre>
-<h2 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h2><p>建立网络后就可以进行预测了，实现代码如下：</p>
-<pre><code class="lang-python">def preprocess_input(x):
-    x /= 255.
-    x -= 0.5
-    x *= 2.
-    return x
-
-
-if __name__ == '__main__':
-    model = InceptionV3()
-
-    model.load_weights("inception_v3_weights_tf_dim_ordering_tf_kernels.h5")
-
-    img_path = 'elephant.jpg'
-    img = image.load_img(img_path, target_size=(299, 299))
-    x = image.img_to_array(img)
-    x = np.expand_dims(x, axis=0)
-
-    x = preprocess_input(x)
-
-    preds = model.predict(x)
-    print('Predicted:', decode_predictions(preds))
-</code></pre>
-<p>预测所需的已经训练好的InceptionV3模型可以在<a href="https://github.com/fchollet/deep-learning-models/releases下载。非常方便。">https://github.com/fchollet/deep-learning-models/releases下载。非常方便。</a><br>预测结果为：</p>
-<pre><code class="lang-markdown">Predicted: [[('n02504458', 'African_elephant', 0.50874853), ('n01871265', 'tusker', 0.19524273), ('n02504013', 'Indian_elephant', 0.1566972), ('n01917289', 'brain_coral', 0.0008956835), ('n01695060', 'Komodo_dragon', 0.0008260256)]]
-</code></pre>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>Inception</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>rss学习笔记</title>
     <url>/zh-CN/RSS/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -4137,6 +4153,183 @@ if __name__ == '__main__':
       </tags>
   </entry>
   <entry>
+    <title>Resnet论文笔记</title>
+    <url>/zh-CN/Resnet/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://gitcode.net/mirrors/bubbliiiing/faster-rcnn-pytorch">faster-rcnn-pytorch代码</a></p>
+<p>2.<a href="https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf">Deep Residual Learning for Image Recognition (thecvf.com)</a></p>
+<p>3.<a href="https://www.cnblogs.com/wujianming-110117/p/14975136.html">ResNet50结构 </a></p>
+<p>4.<a href="https://blog.csdn.net/weixin_44791964/article/details/105739918?ops_request_misc=%7B%22request%5Fid%22%3A%22165156747616781685390350%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fblog.%22%7D&amp;request_id=165156747616781685390350&amp;biz_id=0&amp;spm=1018.2226.3001.4450">Pytorch搭建Faster R-CNN目标检测平台</a></p>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>该网络是从原论文搬过来的，也就是参考博文2里的内容。有兴趣的可以读读原论文。</p>
+<p><img src="/zh-CN/Resnet/image-20220503185916137.png" class="lazyload" data-srcset="/zh-CN/Resnet/image-20220503185916137.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220503185916137"></p>
+<h2 id="代码复现"><a href="#代码复现" class="headerlink" title="代码复现"></a>代码复现</h2><p>具体网络结构：</p>
+<p>1.Bottleneck</p>
+<p><img src="/zh-CN/Resnet/image-20220503193754428.png" class="lazyload" data-srcset="/zh-CN/Resnet/image-20220503193754428.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220503193754428" style="zoom:50%;"></p>
+<p>2.Resnet50中50的含义：（3+4+6+3)*3+2=50（卷积全连接层数之和）</p>
+<p>2.resnet101同理，只要把<code>model = ResNet(Bottleneck, [3, 4, 6, 3])</code>改成<code>model=ResNet(Bottleneck, [3, 4, 23, 3])</code>,101=(3+4+23+3)*3+2</p>
+<pre><code class="lang-python">import math
+
+import torch.nn as nn
+from torch.hub import load_state_dict_from_url
+
+# c0表示输入特征图通道数，c1表示输出特征图通道数，由此可见，该类作用为通道扩张4倍
+class Bottleneck(nn.Module):
+    expansion = 4
+    def __init__(self, inplanes, planes, stride=1, downsample=None):
+        super(Bottleneck, self).__init__()
+        # (N, C0, H, W)-&gt;(N, C1, H, W)
+        self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=1, stride=stride, bias=False)
+        # (N, C1, H, W)-&gt;(N, C1, H, W)
+        self.bn1 = nn.BatchNorm2d(planes)
+
+        # (N, C1, H, W)-&gt;(N, C1, H, W)
+        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=1, padding=1, bias=False)
+        # (N, C1, H, W)-&gt;(N, C1, H, W)
+        self.bn2 = nn.BatchNorm2d(planes)
+        # (N, C1, H, W)-&gt;(N, 4*C1, H, W)
+        self.conv3 = nn.Conv2d(planes, planes * 4, kernel_size=1, bias=False)
+        # (N, 4*C1, H, W)-&gt;(N, 4*C1, H, W)
+        self.bn3 = nn.BatchNorm2d(planes * 4)
+
+        # (N, 4*C1, H, W)-&gt;(N, 4*C1, H, W)
+        self.relu = nn.ReLU(inplace=True)
+        # defalt is None
+        self.downsample = downsample
+        self.stride = stride
+
+    def forward(self, x):
+        residual = x
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+        out = self.relu(out)
+
+        out = self.conv3(out)
+        out = self.bn3(out)
+        if self.downsample is not None:
+            residual = self.downsample(x)
+
+        out += residual
+        out = self.relu(out)
+
+        return out
+
+class ResNet(nn.Module):
+    def __init__(self, block, layers, num_classes=1000):
+        #-----------------------------------#
+        #   假设输入进来的图片是600,600,3
+        #-----------------------------------#
+        self.inplanes = 64
+        super(ResNet, self).__init__()
+
+        # 600,600,3 -&gt; 300,300,64
+        self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False)
+        self.bn1 = nn.BatchNorm2d(64)
+        self.relu = nn.ReLU(inplace=True)
+
+        # 300,300,64 -&gt; 150,150,64
+        self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=0, ceil_mode=True)
+
+        # 150,150,64 -&gt; 150,150,256
+        # 此时stride=1,但通道和原来一样，进行下采样，通道变为4*64=256
+        self.layer1 = self._make_layer(block, 64, layers[0])
+
+        # 150,150,256 -&gt; 75,75,512
+        # 此时stride=2,进行下采样，宽高变为原来的1/2，通道变为4*128=512
+        self.layer2 = self._make_layer(block, 128, layers[1], stride=2)
+
+        # 75,75,512 -&gt; 38,38,1024 到这里可以获得一个38,38,1024的共享特征层
+        self.layer3 = self._make_layer(block, 256, layers[2], stride=2)
+        # self.layer4被用在classifier模型中
+        # 38,38,1024 -&gt; 19,19,2048
+        self.layer4 = self._make_layer(block, 512, layers[3], stride=2)
+
+        # 19,19,2048 -&gt; 2,2,2048
+        self.avgpool = nn.AvgPool2d(7)
+        self.fc = nn.Linear(512 * block.expansion, num_classes)
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+                m.weight.data.normal_(0, math.sqrt(2. / n))
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.fill_(1)
+                m.bias.data.zero_()
+
+    # 定义每个层的操作，比如在resnet50里conv2_x重复了三次，那么就是block=Bottleck,blocks=3
+    # 其实conv3_x,conv4_x,conv5_x中block都是Bottlenecck,就是重复的次数不一样
+    def _make_layer(self, block, planes, blocks, stride=1):
+        downsample = None
+        #-------------------------------------------------------------------#
+        # 当模型需要进行高和宽的压缩的时候，或者通道不为原来的4倍，就需要用到残差边的downsample
+        # 个人认为这里通道变化不大（相比于2倍上层特征图通道数）也需要downsample是因为通道变化不
+        # 大，信息不够细致
+        #-------------------------------------------------------------------#
+        if stride != 1 or self.inplanes != planes * block.expansion:
+            # (N, C0, H, W)-&gt;(N, 4*C1, H, W)
+            downsample = nn.Sequential(
+                nn.Conv2d(self.inplanes, planes * block.expansion,kernel_size=1, stride=stride, bias=False),
+                nn.BatchNorm2d(planes * block.expansion),
+            )
+        # layers记录块结果
+        layers = []
+        layers.append(block(self.inplanes, planes, stride, downsample))
+        self.inplanes = planes * block.expansion
+        for i in range(1, blocks):
+            layers.append(block(self.inplanes, planes))
+        return nn.Sequential(*layers)
+
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = self.relu(x)
+        x = self.maxpool(x)
+
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        x = self.layer4(x)
+
+        # 接上面假设，此时x=(N, 2, 2, 2048)
+        x = self.avgpool(x)
+        # (N, 2, 2, 2048)-&gt;(N, 4096)
+        x = x.view(x.size(0), -1)
+        # (N,4096)-&gt;(N, 1000)
+        x = self.fc(x)
+        return x
+
+def resnet50(pretrained = False):
+    model = ResNet(Bottleneck, [3, 4, 6, 3])
+    if pretrained:
+        state_dict = load_state_dict_from_url("https://download.pytorch.org/models/resnet50-19c8e357.pth", model_dir="./model_data")
+        model.load_state_dict(state_dict)
+    #----------------------------------------------------------------------------#
+    #   获取特征提取部分，从conv1到model.layer3，最终获得一个38,38,1024的特征层
+    #----------------------------------------------------------------------------#
+    features    = list([model.conv1, model.bn1, model.relu, model.maxpool, model.layer1, model.layer2, model.layer3])
+    #----------------------------------------------------------------------------#
+    #   获取分类部分，从model.layer4到model.avgpool
+    #----------------------------------------------------------------------------#
+    classifier  = list([model.layer4, model.avgpool])
+
+    features    = nn.Sequential(*features)
+    classifier  = nn.Sequential(*classifier)
+    return features, classifier
+</code></pre>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
+        <tag>resnet</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>react学习笔记</title>
     <url>/zh-CN/React/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="react特点"><a href="#react特点" class="headerlink" title="react特点"></a>react特点</h3><ul>
@@ -4184,6 +4377,22 @@ ReactDOM.render(
       <tags>
         <tag>学习笔记</tag>
         <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SSD300转换到SSD512</title>
+    <url>/zh-CN/SSD300_to_SSD512/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://gitcode.net/mirrors/bubbliiiing/ssd-pytorch">mirrors / bubbliiiing / ssd-pytorch · GitCode</a></p>
+<p>2.<a href="https://github.com/midasklr/SSD.Pytorch">https://github.com/midasklr/SSD.Pytorch</a></p>
+<p>由于我使用的第一篇参考链接里的代码，只有SSD300，而我又想升级改造成SSD512，因此找了一些参考，比如第二个链接，现在，让我们尝试着改造它吧。</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>目标检测</tag>
+        <tag>SSD</tag>
       </tags>
   </entry>
   <entry>
@@ -5041,183 +5250,6 @@ def encode_bbox(assigned_annotations, positive_indices, anchor_widths, anchor_he
       </tags>
   </entry>
   <entry>
-    <title>Resnet论文笔记</title>
-    <url>/zh-CN/Resnet/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://gitcode.net/mirrors/bubbliiiing/faster-rcnn-pytorch">faster-rcnn-pytorch代码</a></p>
-<p>2.<a href="https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf">Deep Residual Learning for Image Recognition (thecvf.com)</a></p>
-<p>3.<a href="https://www.cnblogs.com/wujianming-110117/p/14975136.html">ResNet50结构 </a></p>
-<p>4.<a href="https://blog.csdn.net/weixin_44791964/article/details/105739918?ops_request_misc=%7B%22request%5Fid%22%3A%22165156747616781685390350%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fblog.%22%7D&amp;request_id=165156747616781685390350&amp;biz_id=0&amp;spm=1018.2226.3001.4450">Pytorch搭建Faster R-CNN目标检测平台</a></p>
-<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>该网络是从原论文搬过来的，也就是参考博文2里的内容。有兴趣的可以读读原论文。</p>
-<p><img src="/zh-CN/Resnet/image-20220503185916137.png" class="lazyload" data-srcset="/zh-CN/Resnet/image-20220503185916137.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220503185916137"></p>
-<h2 id="代码复现"><a href="#代码复现" class="headerlink" title="代码复现"></a>代码复现</h2><p>具体网络结构：</p>
-<p>1.Bottleneck</p>
-<p><img src="/zh-CN/Resnet/image-20220503193754428.png" class="lazyload" data-srcset="/zh-CN/Resnet/image-20220503193754428.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220503193754428" style="zoom:50%;"></p>
-<p>2.Resnet50中50的含义：（3+4+6+3)*3+2=50（卷积全连接层数之和）</p>
-<p>2.resnet101同理，只要把<code>model = ResNet(Bottleneck, [3, 4, 6, 3])</code>改成<code>model=ResNet(Bottleneck, [3, 4, 23, 3])</code>,101=(3+4+23+3)*3+2</p>
-<pre><code class="lang-python">import math
-
-import torch.nn as nn
-from torch.hub import load_state_dict_from_url
-
-# c0表示输入特征图通道数，c1表示输出特征图通道数，由此可见，该类作用为通道扩张4倍
-class Bottleneck(nn.Module):
-    expansion = 4
-    def __init__(self, inplanes, planes, stride=1, downsample=None):
-        super(Bottleneck, self).__init__()
-        # (N, C0, H, W)-&gt;(N, C1, H, W)
-        self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=1, stride=stride, bias=False)
-        # (N, C1, H, W)-&gt;(N, C1, H, W)
-        self.bn1 = nn.BatchNorm2d(planes)
-
-        # (N, C1, H, W)-&gt;(N, C1, H, W)
-        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=1, padding=1, bias=False)
-        # (N, C1, H, W)-&gt;(N, C1, H, W)
-        self.bn2 = nn.BatchNorm2d(planes)
-        # (N, C1, H, W)-&gt;(N, 4*C1, H, W)
-        self.conv3 = nn.Conv2d(planes, planes * 4, kernel_size=1, bias=False)
-        # (N, 4*C1, H, W)-&gt;(N, 4*C1, H, W)
-        self.bn3 = nn.BatchNorm2d(planes * 4)
-
-        # (N, 4*C1, H, W)-&gt;(N, 4*C1, H, W)
-        self.relu = nn.ReLU(inplace=True)
-        # defalt is None
-        self.downsample = downsample
-        self.stride = stride
-
-    def forward(self, x):
-        residual = x
-
-        out = self.conv1(x)
-        out = self.bn1(out)
-        out = self.relu(out)
-
-        out = self.conv2(out)
-        out = self.bn2(out)
-        out = self.relu(out)
-
-        out = self.conv3(out)
-        out = self.bn3(out)
-        if self.downsample is not None:
-            residual = self.downsample(x)
-
-        out += residual
-        out = self.relu(out)
-
-        return out
-
-class ResNet(nn.Module):
-    def __init__(self, block, layers, num_classes=1000):
-        #-----------------------------------#
-        #   假设输入进来的图片是600,600,3
-        #-----------------------------------#
-        self.inplanes = 64
-        super(ResNet, self).__init__()
-
-        # 600,600,3 -&gt; 300,300,64
-        self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False)
-        self.bn1 = nn.BatchNorm2d(64)
-        self.relu = nn.ReLU(inplace=True)
-
-        # 300,300,64 -&gt; 150,150,64
-        self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=0, ceil_mode=True)
-
-        # 150,150,64 -&gt; 150,150,256
-        # 此时stride=1,但通道和原来一样，进行下采样，通道变为4*64=256
-        self.layer1 = self._make_layer(block, 64, layers[0])
-
-        # 150,150,256 -&gt; 75,75,512
-        # 此时stride=2,进行下采样，宽高变为原来的1/2，通道变为4*128=512
-        self.layer2 = self._make_layer(block, 128, layers[1], stride=2)
-
-        # 75,75,512 -&gt; 38,38,1024 到这里可以获得一个38,38,1024的共享特征层
-        self.layer3 = self._make_layer(block, 256, layers[2], stride=2)
-        # self.layer4被用在classifier模型中
-        # 38,38,1024 -&gt; 19,19,2048
-        self.layer4 = self._make_layer(block, 512, layers[3], stride=2)
-
-        # 19,19,2048 -&gt; 2,2,2048
-        self.avgpool = nn.AvgPool2d(7)
-        self.fc = nn.Linear(512 * block.expansion, num_classes)
-
-        for m in self.modules():
-            if isinstance(m, nn.Conv2d):
-                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
-                m.weight.data.normal_(0, math.sqrt(2. / n))
-            elif isinstance(m, nn.BatchNorm2d):
-                m.weight.data.fill_(1)
-                m.bias.data.zero_()
-
-    # 定义每个层的操作，比如在resnet50里conv2_x重复了三次，那么就是block=Bottleck,blocks=3
-    # 其实conv3_x,conv4_x,conv5_x中block都是Bottlenecck,就是重复的次数不一样
-    def _make_layer(self, block, planes, blocks, stride=1):
-        downsample = None
-        #-------------------------------------------------------------------#
-        # 当模型需要进行高和宽的压缩的时候，或者通道不为原来的4倍，就需要用到残差边的downsample
-        # 个人认为这里通道变化不大（相比于2倍上层特征图通道数）也需要downsample是因为通道变化不
-        # 大，信息不够细致
-        #-------------------------------------------------------------------#
-        if stride != 1 or self.inplanes != planes * block.expansion:
-            # (N, C0, H, W)-&gt;(N, 4*C1, H, W)
-            downsample = nn.Sequential(
-                nn.Conv2d(self.inplanes, planes * block.expansion,kernel_size=1, stride=stride, bias=False),
-                nn.BatchNorm2d(planes * block.expansion),
-            )
-        # layers记录块结果
-        layers = []
-        layers.append(block(self.inplanes, planes, stride, downsample))
-        self.inplanes = planes * block.expansion
-        for i in range(1, blocks):
-            layers.append(block(self.inplanes, planes))
-        return nn.Sequential(*layers)
-
-    def forward(self, x):
-        x = self.conv1(x)
-        x = self.bn1(x)
-        x = self.relu(x)
-        x = self.maxpool(x)
-
-        x = self.layer1(x)
-        x = self.layer2(x)
-        x = self.layer3(x)
-        x = self.layer4(x)
-
-        # 接上面假设，此时x=(N, 2, 2, 2048)
-        x = self.avgpool(x)
-        # (N, 2, 2, 2048)-&gt;(N, 4096)
-        x = x.view(x.size(0), -1)
-        # (N,4096)-&gt;(N, 1000)
-        x = self.fc(x)
-        return x
-
-def resnet50(pretrained = False):
-    model = ResNet(Bottleneck, [3, 4, 6, 3])
-    if pretrained:
-        state_dict = load_state_dict_from_url("https://download.pytorch.org/models/resnet50-19c8e357.pth", model_dir="./model_data")
-        model.load_state_dict(state_dict)
-    #----------------------------------------------------------------------------#
-    #   获取特征提取部分，从conv1到model.layer3，最终获得一个38,38,1024的特征层
-    #----------------------------------------------------------------------------#
-    features    = list([model.conv1, model.bn1, model.relu, model.maxpool, model.layer1, model.layer2, model.layer3])
-    #----------------------------------------------------------------------------#
-    #   获取分类部分，从model.layer4到model.avgpool
-    #----------------------------------------------------------------------------#
-    classifier  = list([model.layer4, model.avgpool])
-
-    features    = nn.Sequential(*features)
-    classifier  = nn.Sequential(*classifier)
-    return features, classifier
-</code></pre>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>resnet</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SSD损失函数详解</title>
     <url>/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -5447,22 +5479,6 @@ def set_optimizer_lr(optimizer, lr_scheduler_func, epoch):
       <tags>
         <tag>SSD</tag>
         <tag>损失函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SSD300转换到SSD512</title>
-    <url>/zh-CN/SSD300_to_SSD512/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://gitcode.net/mirrors/bubbliiiing/ssd-pytorch">mirrors / bubbliiiing / ssd-pytorch · GitCode</a></p>
-<p>2.<a href="https://github.com/midasklr/SSD.Pytorch">https://github.com/midasklr/SSD.Pytorch</a></p>
-<p>由于我使用的第一篇参考链接里的代码，只有SSD300，而我又想升级改造成SSD512，因此找了一些参考，比如第二个链接，现在，让我们尝试着改造它吧。</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>SSD</tag>
-        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -6951,6 +6967,38 @@ class YOLOLoss(nn.Module):
       </tags>
   </entry>
   <entry>
+    <title>CenterNet论文笔记</title>
+    <url>/zh-CN/centernet/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Duan_CenterNet_Keypoint_Triplets_for_Object_Detection_ICCV_2019_paper.pdf">CenterNet: Keypoint Triplets for Object Detection (thecvf.com)</a></p>
+<p>源码地址： <a href="https://github.com/Duankaiwen/CenterNet">CenterNet: Keypoint Triplets for Object Detection</a></p>
+<p>文章引用代码地址：<a href="https://github.com/bubbliiiing/centernet-pytorch">https://github.com/bubbliiiing/centernet-pytorch</a></p>
+<p>文章出处：<a href="https://blog.csdn.net/weixin_44791964/article/details/107748542?spm=1001.2014.3001.5502">Pytorch搭建自己的Centernet目标检测平台</a></p>
+<h3 id="主干网络"><a href="#主干网络" class="headerlink" title="主干网络"></a>主干网络</h3><p>主干网络选用resnet,ResNet50有两个基本的块，<strong>分别名为Conv Block和Identity Block，其中Conv Block输入和输出的维度是不一样的，所以不能连续串联，它的作用是改变网络的维度；Identity Block输入维度和输出维度相同，可以串联，用于加深网络的。</strong></p>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Concat和add的区别</title>
+    <url>/zh-CN/concat_add/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://openreview.net/pdf?id=q2ZaVU6bEsT">https://openreview.net/pdf?id=q2ZaVU6bEsT</a></p>
+<p>今天偶然看到了这篇论文，论文里有一部分讲到了concat,add还有自适应的关系，很感兴趣，记录下来。</p>
+<p><img src="/zh-CN/concat_add/image-20220508171742020.png" class="lazyload" data-srcset="/zh-CN/concat_add/image-20220508171742020.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220508171742020" style="zoom:50%;"></p>
+<p>方法（a）和（c）分别是加权融合和连接操作。即在空间和通道维度上直接添加特征图。方法（b）是一种自适应融合方法。具体来说，假设输入的大小可以表示为（bs，C，H，W），我们可以通过卷积运算得到（bs，3，H，W）的空间自适应权重，连接和 Softmax。三个通道与三个输入一一对应，通过计算加权和可以将上下文信息聚合到输出。</p>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>Concat&amp;add</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>YOLOV5论文笔记</title>
     <url>/zh-CN/YOLOV5/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -7912,38 +7960,6 @@ class YOLOLoss(nn.Module):
       <tags>
         <tag>论文笔记</tag>
         <tag>yolov5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Concat和add的区别</title>
-    <url>/zh-CN/concat_add/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://openreview.net/pdf?id=q2ZaVU6bEsT">https://openreview.net/pdf?id=q2ZaVU6bEsT</a></p>
-<p>今天偶然看到了这篇论文，论文里有一部分讲到了concat,add还有自适应的关系，很感兴趣，记录下来。</p>
-<p><img src="/zh-CN/concat_add/image-20220508171742020.png" class="lazyload" data-srcset="/zh-CN/concat_add/image-20220508171742020.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220508171742020" style="zoom:50%;"></p>
-<p>方法（a）和（c）分别是加权融合和连接操作。即在空间和通道维度上直接添加特征图。方法（b）是一种自适应融合方法。具体来说，假设输入的大小可以表示为（bs，C，H，W），我们可以通过卷积运算得到（bs，3，H，W）的空间自适应权重，连接和 Softmax。三个通道与三个输入一一对应，通过计算加权和可以将上下文信息聚合到输出。</p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>Concat&amp;add</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CenterNet论文笔记</title>
-    <url>/zh-CN/centernet/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Duan_CenterNet_Keypoint_Triplets_for_Object_Detection_ICCV_2019_paper.pdf">CenterNet: Keypoint Triplets for Object Detection (thecvf.com)</a></p>
-<p>源码地址： <a href="https://github.com/Duankaiwen/CenterNet">CenterNet: Keypoint Triplets for Object Detection</a></p>
-<p>文章引用代码地址：<a href="https://github.com/bubbliiiing/centernet-pytorch">https://github.com/bubbliiiing/centernet-pytorch</a></p>
-<p>文章出处：<a href="https://blog.csdn.net/weixin_44791964/article/details/107748542?spm=1001.2014.3001.5502">Pytorch搭建自己的Centernet目标检测平台</a></p>
-<h3 id="主干网络"><a href="#主干网络" class="headerlink" title="主干网络"></a>主干网络</h3><p>主干网络选用resnet,ResNet50有两个基本的块，<strong>分别名为Conv Block和Identity Block，其中Conv Block输入和输出的维度是不一样的，所以不能连续串联，它的作用是改变网络的维度；Identity Block输入维度和输出维度相同，可以串联，用于加深网络的。</strong></p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -9398,6 +9414,24 @@ myChart.on(&#39;legendselectchanged&#39;, function (params) &#123;
       </tags>
   </entry>
   <entry>
+    <title>epoch和iteration的区别</title>
+    <url>/zh-CN/epoch%E5%92%8Citeration%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://blog.csdn.net/u011731135/article/details/81481868">epoch和iteration的区别</a></p>
+<p>（1）batchsize：批大小。在深度学习中，一般采用SGD训练，即每次训练在训练集中取batchsize个样本训练；<br>（2）iteration：1个iteration等于使用batchsize个样本训练一次；一个迭代 = 一个正向通过+一个反向通过<br>（3）epoch：1个epoch等于使用训练集中的全部样本训练一次；一个epoch = 所有训练样本的一个正向传递和一个反向传递</p>
+<p>举个例子，训练集有1000个样本，batchsize=10，那么：<br>训练完整个样本集需要：<br>100次iteration，1次epoch。</p>
+<p>但是也有人说在有些文章中epoch和iteration是一个概念。</p>
+<p>还有就是随机取batchsize，那么并不能保证所有的样本都被抽到，那么epoch的概念不明确。</p>
+]]></content>
+      <categories>
+        <category>计算机视觉</category>
+      </categories>
+      <tags>
+        <tag>基础概念</tag>
+        <tag>epoch&amp;iteration</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>github使用指南</title>
     <url>/zh-CN/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h4><p>1.安装git OSX版</p>
@@ -9448,24 +9482,6 @@ myChart.on(&#39;legendselectchanged&#39;, function (params) &#123;
       <tags>
         <tag>使用指南</tag>
         <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>epoch和iteration的区别</title>
-    <url>/zh-CN/epoch%E5%92%8Citeration%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://blog.csdn.net/u011731135/article/details/81481868">epoch和iteration的区别</a></p>
-<p>（1）batchsize：批大小。在深度学习中，一般采用SGD训练，即每次训练在训练集中取batchsize个样本训练；<br>（2）iteration：1个iteration等于使用batchsize个样本训练一次；一个迭代 = 一个正向通过+一个反向通过<br>（3）epoch：1个epoch等于使用训练集中的全部样本训练一次；一个epoch = 所有训练样本的一个正向传递和一个反向传递</p>
-<p>举个例子，训练集有1000个样本，batchsize=10，那么：<br>训练完整个样本集需要：<br>100次iteration，1次epoch。</p>
-<p>但是也有人说在有些文章中epoch和iteration是一个概念。</p>
-<p>还有就是随机取batchsize，那么并不能保证所有的样本都被抽到，那么epoch的概念不明确。</p>
-]]></content>
-      <categories>
-        <category>计算机视觉</category>
-      </categories>
-      <tags>
-        <tag>基础概念</tag>
-        <tag>epoch&amp;iteration</tag>
       </tags>
   </entry>
   <entry>
@@ -11390,6 +11406,29 @@ sudo apt-get install texlive-latex-extra
       </tags>
   </entry>
   <entry>
+    <title>tensorboard</title>
+    <url>/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://blog.csdn.net/LeungSr/article/details/120800763">✔✔✔ TensorBoard 的正确打开方法（含错误解决方法，超详细</a></p>
+<h3 id="安装tensorboard"><a href="#安装tensorboard" class="headerlink" title="安装tensorboard"></a>安装tensorboard</h3><pre><code>pip install tensorboard
+</code></pre><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>略</p>
+<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><p>tf_logs文件下存放的就是训练模型时的日志文件，如下图所示：</p>
+<p><img src="/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/image-20221127103837594.png" class="lazyload" data-srcset="/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/image-20221127103837594.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221127103837594" style="zoom:80%;"></p>
+<p>cmd下用如下命令打开:</p>
+<pre><code>tensorboard --logdir "absolute_path"
+</code></pre><p><img src="/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/image-20221127103736045.png" class="lazyload" data-srcset="/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/image-20221127103736045.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221127103736045" style="zoom:80%;"></p>
+<h3 id="打开网页"><a href="#打开网页" class="headerlink" title="打开网页"></a>打开网页</h3><p>打开<a href="http://localhost:6006/">http://localhost:6006/</a></p>
+<p><img src="/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/image-20221127104257117.png" class="lazyload" data-srcset="/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/image-20221127104257117.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221127104257117" style="zoom:80%;"></p>
+<p>如果不懂，参考博文</p>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>tensorboard</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>tensorflow学习笔记</title>
     <url>/zh-CN/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>tf中矩阵量存在形式常用有三种，具体如下：<br>1.tf.Variable()<br>表示神经网络中可变化的量（可以通过trainable=False设置成不可变),可在运行中赋值，可以通过constant或者其他方式进行初始化。<br>2.tf.constant()<br>可以通过numpy中的array或者list,还有给定的shape和数值进行赋值<br>3.tf.placeholder()<br>相当于占位符，也是有shape的量，因为训练过程中需要不断赋值和替换值，而整体计算的结构是不变的。<br>代码：<br>//导包</p>
@@ -12292,22 +12331,6 @@ open_graph:
       </tags>
   </entry>
   <entry>
-    <title>微信小程序开发</title>
-    <url>/zh-CN/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://www.w3cschool.cn/weixinapp/">微信小程序开发文档_w3cschool</a></p>
-<p>2.<a href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a></p>
-<p>3.<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/">微信开放文档 (qq.com)</a></p>
-<p>4.<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">微信开发者工具下载地址与更新日志 | 微信开放文档 (qq.com)</a></p>
-]]></content>
-      <categories>
-        <category>开发日记</category>
-      </categories>
-      <tags>
-        <tag>微信小程序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>感受野的计算</title>
     <url>/zh-CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -12325,6 +12348,22 @@ open_graph:
       </categories>
       <tags>
         <tag>感受野</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序开发</title>
+    <url>/zh-CN/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://www.w3cschool.cn/weixinapp/">微信小程序开发文档_w3cschool</a></p>
+<p>2.<a href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a></p>
+<p>3.<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/">微信开放文档 (qq.com)</a></p>
+<p>4.<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">微信开发者工具下载地址与更新日志 | 微信开放文档 (qq.com)</a></p>
+]]></content>
+      <categories>
+        <category>开发日记</category>
+      </categories>
+      <tags>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -13207,6 +13246,34 @@ class YoloBody(nn.Module):
       </tags>
   </entry>
   <entry>
+    <title>用两个栈实现队列</title>
+    <url>/zh-CN/%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>1.用两个栈实现队列</p>
+<p>题目：<a href="https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/">剑指 Offer 09. 用两个栈实现队列 - 力扣（LeetCode）</a></p>
+<p>题解：<a href="https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/solution/mian-shi-ti-09-yong-liang-ge-zhan-shi-xian-dui-l-2/">面试题09. 用两个栈实现队列（清晰图解） - 用两个栈实现队列 - 力扣（LeetCode）</a></p>
+<p>2</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>力扣题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>烟之外</title>
+    <url>/zh-CN/%E7%83%9F%E4%B9%8B%E5%A4%96/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在涛声中唤你的名字，而你的名字<br>已在千帆之外<br>潮来潮去<br>左边的鞋印才下午<br>右边的鞋印已黄昏了<br>六月原是一本很感伤的书<br>结局如此之凄美<br>——落日西沉</p>
+<p>你依然凝视<br>那人眼中展示的一片纯白<br>他跪向你，向昨日那朵美了整个<br>下午的云<br>海哟，为何在众灯之中<br>独点亮那一盏茫然<br>还能抓住什么呢？<br>你那曾被称为云的眸子<br>现有人叫作<br>烟</p>
+]]></content>
+      <categories>
+        <category>文学黑洞</category>
+      </categories>
+      <tags>
+        <tag>今日故事</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>激活函数</title>
     <url>/zh-CN/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -13374,34 +13441,6 @@ if __name__ == '__main__':
       <tags>
         <tag>函数库</tag>
         <tag>激活函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>烟之外</title>
-    <url>/zh-CN/%E7%83%9F%E4%B9%8B%E5%A4%96/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在涛声中唤你的名字，而你的名字<br>已在千帆之外<br>潮来潮去<br>左边的鞋印才下午<br>右边的鞋印已黄昏了<br>六月原是一本很感伤的书<br>结局如此之凄美<br>——落日西沉</p>
-<p>你依然凝视<br>那人眼中展示的一片纯白<br>他跪向你，向昨日那朵美了整个<br>下午的云<br>海哟，为何在众灯之中<br>独点亮那一盏茫然<br>还能抓住什么呢？<br>你那曾被称为云的眸子<br>现有人叫作<br>烟</p>
-]]></content>
-      <categories>
-        <category>文学黑洞</category>
-      </categories>
-      <tags>
-        <tag>今日故事</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>用两个栈实现队列</title>
-    <url>/zh-CN/%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>1.用两个栈实现队列</p>
-<p>题目：<a href="https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/">剑指 Offer 09. 用两个栈实现队列 - 力扣（LeetCode）</a></p>
-<p>题解：<a href="https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/solution/mian-shi-ti-09-yong-liang-ge-zhan-shi-xian-dui-l-2/">面试题09. 用两个栈实现队列（清晰图解） - 用两个栈实现队列 - 力扣（LeetCode）</a></p>
-<p>2</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>力扣题解</tag>
       </tags>
   </entry>
   <entry>
@@ -14486,45 +14525,6 @@ return x
       </categories>
       <tags>
         <tag>今日故事</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Pytorch API之torch</title>
-    <url>/zh-TW/torch_/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>今天开始，开始一个全新的系列，就是pytorch的API解读，当然初期，我只会自己去读API,然后不懂的记录实验，把相关经验记录下来，懂的我不会写下来，如果你有不懂的，可以私信我，谢谢。</p>
-<p>一个讲的是torch库</p>
-<p>参考链接：</p>
-<p>1.<a href="https://pytorch.org/docs/stable/torch.html#tensors">torch — PyTorch 1.12 documentation</a></p>
-<h4 id="is-nonzero"><a href="#is-nonzero" class="headerlink" title="is_nonzero"></a>is_nonzero</h4><h4 id="numel"><a href="#numel" class="headerlink" title="numel"></a>numel</h4>]]></content>
-      <categories>
-        <category>pytorch</category>
-      </categories>
-      <tags>
-        <tag>函数库</tag>
-        <tag>torch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>tensorboard</title>
-    <url>/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://blog.csdn.net/LeungSr/article/details/120800763">✔✔✔ TensorBoard 的正确打开方法（含错误解决方法，超详细</a></p>
-<h3 id="安装tensorboard"><a href="#安装tensorboard" class="headerlink" title="安装tensorboard"></a>安装tensorboard</h3><pre><code>pip install tensorboard
-</code></pre><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>略</p>
-<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><p>tf_logs文件下存放的就是训练模型时的日志文件，如下图所示：</p>
-<p><img src="/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/image-20221127103837594.png" class="lazyload" data-srcset="/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/image-20221127103837594.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20221127103837594" style="zoom:80%;"></p>
-<p>cmd下用如下命令打开:</p>
-<pre><code>tensorboard --logdir "absolute_path"
-</code></pre><p><img src="/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/image-20221127103736045.png" class="lazyload" data-srcset="/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/image-20221127103736045.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20221127103736045" style="zoom:80%;"></p>
-<h3 id="打开网页"><a href="#打开网页" class="headerlink" title="打开网页"></a>打开网页</h3><p>打开<a href="http://localhost:6006/">http://localhost:6006/</a></p>
-<p><img src="/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/image-20221127104257117.png" class="lazyload" data-srcset="/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/image-20221127104257117.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20221127104257117" style="zoom:80%;"></p>
-<p>如果不懂，参考博文</p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>tensorboard</tag>
       </tags>
   </entry>
 </search>

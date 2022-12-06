@@ -749,14 +749,21 @@
 
   
   <url>
-    <loc>http://pistachio0812.github.io/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://pistachio0812.github.io/tags/%E5%87%BD%E6%95%B0%E5%BA%93/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://pistachio0812.github.io/tags/%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97/</loc>
+    <loc>http://pistachio0812.github.io/tags/torch/</loc>
+    <lastmod>2022-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://pistachio0812.github.io/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -770,14 +777,7 @@
   </url>
   
   <url>
-    <loc>http://pistachio0812.github.io/tags/%E5%87%BD%E6%95%B0%E5%BA%93/</loc>
-    <lastmod>2022-12-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://pistachio0812.github.io/tags/GAN/</loc>
+    <loc>http://pistachio0812.github.io/tags/%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -792,6 +792,13 @@
   
   <url>
     <loc>http://pistachio0812.github.io/tags/darknet/</loc>
+    <lastmod>2022-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://pistachio0812.github.io/tags/GAN/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -833,6 +840,13 @@
   </url>
   
   <url>
+    <loc>http://pistachio0812.github.io/tags/Inception/</loc>
+    <lastmod>2022-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://pistachio0812.github.io/tags/Liunx%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -868,28 +882,7 @@
   </url>
   
   <url>
-    <loc>http://pistachio0812.github.io/tags/Inception/</loc>
-    <lastmod>2022-12-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://pistachio0812.github.io/tags/rss/</loc>
-    <lastmod>2022-12-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://pistachio0812.github.io/tags/React/</loc>
-    <lastmod>2022-12-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://pistachio0812.github.io/tags/retinanet/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -903,14 +896,7 @@
   </url>
   
   <url>
-    <loc>http://pistachio0812.github.io/tags/SSD/</loc>
-    <lastmod>2022-12-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://pistachio0812.github.io/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</loc>
+    <loc>http://pistachio0812.github.io/tags/React/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -924,6 +910,27 @@
   </url>
   
   <url>
+    <loc>http://pistachio0812.github.io/tags/SSD/</loc>
+    <lastmod>2022-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://pistachio0812.github.io/tags/retinanet/</loc>
+    <lastmod>2022-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://pistachio0812.github.io/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2022-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://pistachio0812.github.io/tags/transformer/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -931,14 +938,14 @@
   </url>
   
   <url>
-    <loc>http://pistachio0812.github.io/tags/yolov5/</loc>
+    <loc>http://pistachio0812.github.io/tags/Concat-add/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://pistachio0812.github.io/tags/Concat-add/</loc>
+    <loc>http://pistachio0812.github.io/tags/yolov5/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -959,6 +966,13 @@
   </url>
   
   <url>
+    <loc>http://pistachio0812.github.io/tags/epoch-iteration/</loc>
+    <lastmod>2022-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://pistachio0812.github.io/tags/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -967,13 +981,6 @@
   
   <url>
     <loc>http://pistachio0812.github.io/tags/github/</loc>
-    <lastmod>2022-12-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://pistachio0812.github.io/tags/epoch-iteration/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1092,6 +1099,13 @@
   </url>
   
   <url>
+    <loc>http://pistachio0812.github.io/tags/tensorboard/</loc>
+    <lastmod>2022-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://pistachio0812.github.io/tags/%E6%96%87%E7%8C%AE%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -1106,14 +1120,14 @@
   </url>
   
   <url>
-    <loc>http://pistachio0812.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/</loc>
+    <loc>http://pistachio0812.github.io/tags/%E6%84%9F%E5%8F%97%E9%87%8E/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://pistachio0812.github.io/tags/%E6%84%9F%E5%8F%97%E9%87%8E/</loc>
+    <loc>http://pistachio0812.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1168,21 +1182,14 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>http://pistachio0812.github.io/tags/torch/</loc>
-    <lastmod>2022-12-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://pistachio0812.github.io/tags/tensorboard/</loc>
-    <lastmod>2022-12-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
+  
+  <url>
+    <loc>http://pistachio0812.github.io/categories/pytorch/</loc>
+    <lastmod>2022-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>http://pistachio0812.github.io/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</loc>
@@ -1263,13 +1270,6 @@
   
   <url>
     <loc>http://pistachio0812.github.io/categories/novel/</loc>
-    <lastmod>2022-12-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://pistachio0812.github.io/categories/pytorch/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
