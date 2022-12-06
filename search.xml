@@ -236,79 +236,6 @@ Process finished with exit code 0
       </tags>
   </entry>
   <entry>
-    <title>C语言基础学习</title>
-    <url>/zh-CN/C%E8%AF%AD%E8%A8%80/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p>1.<a href="https://www.runoob.com/cprogramming">菜鸟教程C语言教程</a></p>
-<h2 id="编译-执行C程序"><a href="#编译-执行C程序" class="headerlink" title="编译/执行C程序"></a>编译/执行C程序</h2><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code class="lang-c">#include &lt;stdio.h&gt;
-
-int main()
-{
-    /* 我的第一个 C 程序 */
-    printf("Hello, World! \n");
-
-    return 0;
-}
-</code></pre>
-<p>实例解析：</p>
-<ul>
-<li>所有的 C 语言程序都需要包含 <strong>main()</strong> 函数。 代码从 <strong>main()</strong> 函数开始执行。</li>
-<li><strong>/* … */</strong> 用于注释说明。</li>
-<li><strong>printf()</strong> 用于格式化输出到屏幕。<strong>printf()</strong> 函数在 <strong>“stdio.h”</strong> 头文件中声明。</li>
-<li><strong>stdio.h</strong> 是一个头文件 (标准输入输出头文件) , <strong>#include</strong> 是一个预处理命令，用来引入头文件。 当编译器遇到 <strong>printf()</strong> 函数时，如果没有找到 <strong>stdio.h</strong> 头文件，会发生编译错误。</li>
-<li><strong>return 0;</strong> 语句用于表示退出程序。</li>
-</ul>
-<h2 id="C简介"><a href="#C简介" class="headerlink" title="C简介"></a>C简介</h2><p>C 语言是一种通用的高级语言，最初是由丹尼斯·里奇在贝尔实验室为开发 UNIX 操作系统而设计的。C 语言最开始是于 1972 年在 DEC PDP-11 计算机上被首次实现。</p>
-<p>在 1978 年，布莱恩·柯林汉（Brian Kernighan）和丹尼斯·里奇（Dennis Ritchie）制作了 C 的第一个公开可用的描述，现在被称为 K&amp;R 标准。</p>
-<p>UNIX 操作系统，C编译器，和几乎所有的 UNIX 应用程序都是用 C 语言编写的。由于各种原因，C 语言现在已经成为一种广泛使用的专业语言。</p>
-<ul>
-<li>易于学习。</li>
-<li>结构化语言。</li>
-<li>它产生高效率的程序。</li>
-<li>它可以处理底层的活动。</li>
-</ul>
-<h3 id="关于C"><a href="#关于C" class="headerlink" title="关于C"></a>关于C</h3><ul>
-<li><p>C 语言是为了编写 UNIX 操作系统而被发明的。</p>
-</li>
-<li><p>C 语言是以 B 语言为基础的，B 语言大概是在 1970 年被引进的。</p>
-</li>
-<li><p>C 语言标准是于 1988 年由美国国家标准协会（ANSI，全称 American National Standard Institute）制定的。</p>
-</li>
-<li><p>截至 1973 年，UNIX 操作系统完全使用 C 语言编写。</p>
-</li>
-<li><p>目前，C 语言是最广泛使用的系统程序设计语言。</p>
-</li>
-<li><p>大多数先进的软件都是使用 C 语言实现的。</p>
-</li>
-<li><p>当今最流行的 Linux 操作系统和 RDBMS（Relational Database Management System：关系数据库管理系统） MySQL 都是使用 C 语言编写的。</p>
-</li>
-</ul>
-<h3 id="为什么要使用C"><a href="#为什么要使用C" class="headerlink" title="为什么要使用C"></a>为什么要使用C</h3><p>  C 语言最初是用于系统开发工作，特别是组成操作系统的程序。由于 C 语言所产生的代码运行速度与汇编语言编写的代码运行速度几乎一样，所以采用 C 语言作为系统开发语言。下面列举几个使用 C 的实例：操作系统、语言编译器、汇编器、文本编辑器、打印机、网络驱动器、现代程序、数据库、语言解释器、实体工具。</p>
-<h3 id="C程序"><a href="#C程序" class="headerlink" title="C程序"></a>C程序</h3><p>一个 C 语言程序，可以是 3 行，也可以是数百万行，它可以写在一个或多个扩展名为 <strong>“.c”</strong> 的文本文件中，例如，<em>hello.c</em>。您可以使用 <strong>“vi”</strong>、<strong>“vim”</strong> 或任何其他文本编辑器来编写您的 C 语言程序。</p>
-<p>本教程假定您已经知道如何编辑一个文本文件，以及如何在程序文件中编写源代码。</p>
-<h3 id="C11"><a href="#C11" class="headerlink" title="C11"></a>C11</h3><p>C11（也被称为C1X）指ISO标准ISO/IEC 9899:2011，是当前最新的C语言标准。在它之前的C语言标准为C99。</p>
-<h3 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h3><ul>
-<li>对齐处理（Alignment）的标准化（包括_Alignas标志符，alignof运算符，aligned_alloc函数以及<stdalign.h>头文件）。</stdalign.h></li>
-<li><em>Noreturn 函数标记，类似于 gcc 的 <em>_attribute</em></em>((noreturn))。</li>
-<li>_Generic 关键字。</li>
-<li>多线程（Multithreading）支持，包括：<br>_Thread_local存储类型标识符，<threads.h>头文件，里面包含了线程的创建和管理函数。<br>_Atomic类型修饰符和<stdatomic.h>头文件。</stdatomic.h></threads.h></li>
-<li>增强的Unicode的支持。基于C Unicode技术报告ISO/IEC TR 19769:2004，增强了对Unicode的支持。包括为UTF-16/UTF-32编码增加了char16_t和char32_t数据类型，提供了包含unicode字符串转换函数的头文件<uchar.h>。</uchar.h></li>
-<li>删除了 gets() 函数，使用一个新的更安全的函数gets_s()替代。</li>
-<li>增加了边界检查函数接口，定义了新的安全的函数，例如 fopen_s()，strcat_s() 等等。</li>
-<li>增加了更多浮点处理宏(宏)。</li>
-<li>匿名结构体/联合体支持。这个在gcc早已存在，C11将其引入标准。</li>
-<li>静态断言（Static assertions），_Static_assert()，在解释 #if 和 #error 之后被处理。</li>
-<li>新的 fopen() 模式，(“…x”)。类似 POSIX 中的 O_CREAT|O_EXCL，在文件锁中比较常用。</li>
-<li>新增 quick_exit() 函数作为第三种终止程序的方式。当 exit()失败时可以做最少的清理工作。</li>
-</ul>
-<h2 id="C环境设置"><a href="#C环境设置" class="headerlink" title="C环境设置"></a>C环境设置</h2><h2 id=""><a href="#" class="headerlink" title="#"></a>#</h2>]]></content>
-      <categories>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>函数库</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DCGAN论文笔记</title>
     <url>/zh-CN/DCGAN/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -492,6 +419,79 @@ class discriminator(nn.Module):
       </tags>
   </entry>
   <entry>
+    <title>C语言基础学习</title>
+    <url>/zh-CN/C%E8%AF%AD%E8%A8%80/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p>1.<a href="https://www.runoob.com/cprogramming">菜鸟教程C语言教程</a></p>
+<h2 id="编译-执行C程序"><a href="#编译-执行C程序" class="headerlink" title="编译/执行C程序"></a>编译/执行C程序</h2><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code class="lang-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    /* 我的第一个 C 程序 */
+    printf("Hello, World! \n");
+
+    return 0;
+}
+</code></pre>
+<p>实例解析：</p>
+<ul>
+<li>所有的 C 语言程序都需要包含 <strong>main()</strong> 函数。 代码从 <strong>main()</strong> 函数开始执行。</li>
+<li><strong>/* … */</strong> 用于注释说明。</li>
+<li><strong>printf()</strong> 用于格式化输出到屏幕。<strong>printf()</strong> 函数在 <strong>“stdio.h”</strong> 头文件中声明。</li>
+<li><strong>stdio.h</strong> 是一个头文件 (标准输入输出头文件) , <strong>#include</strong> 是一个预处理命令，用来引入头文件。 当编译器遇到 <strong>printf()</strong> 函数时，如果没有找到 <strong>stdio.h</strong> 头文件，会发生编译错误。</li>
+<li><strong>return 0;</strong> 语句用于表示退出程序。</li>
+</ul>
+<h2 id="C简介"><a href="#C简介" class="headerlink" title="C简介"></a>C简介</h2><p>C 语言是一种通用的高级语言，最初是由丹尼斯·里奇在贝尔实验室为开发 UNIX 操作系统而设计的。C 语言最开始是于 1972 年在 DEC PDP-11 计算机上被首次实现。</p>
+<p>在 1978 年，布莱恩·柯林汉（Brian Kernighan）和丹尼斯·里奇（Dennis Ritchie）制作了 C 的第一个公开可用的描述，现在被称为 K&amp;R 标准。</p>
+<p>UNIX 操作系统，C编译器，和几乎所有的 UNIX 应用程序都是用 C 语言编写的。由于各种原因，C 语言现在已经成为一种广泛使用的专业语言。</p>
+<ul>
+<li>易于学习。</li>
+<li>结构化语言。</li>
+<li>它产生高效率的程序。</li>
+<li>它可以处理底层的活动。</li>
+</ul>
+<h3 id="关于C"><a href="#关于C" class="headerlink" title="关于C"></a>关于C</h3><ul>
+<li><p>C 语言是为了编写 UNIX 操作系统而被发明的。</p>
+</li>
+<li><p>C 语言是以 B 语言为基础的，B 语言大概是在 1970 年被引进的。</p>
+</li>
+<li><p>C 语言标准是于 1988 年由美国国家标准协会（ANSI，全称 American National Standard Institute）制定的。</p>
+</li>
+<li><p>截至 1973 年，UNIX 操作系统完全使用 C 语言编写。</p>
+</li>
+<li><p>目前，C 语言是最广泛使用的系统程序设计语言。</p>
+</li>
+<li><p>大多数先进的软件都是使用 C 语言实现的。</p>
+</li>
+<li><p>当今最流行的 Linux 操作系统和 RDBMS（Relational Database Management System：关系数据库管理系统） MySQL 都是使用 C 语言编写的。</p>
+</li>
+</ul>
+<h3 id="为什么要使用C"><a href="#为什么要使用C" class="headerlink" title="为什么要使用C"></a>为什么要使用C</h3><p>  C 语言最初是用于系统开发工作，特别是组成操作系统的程序。由于 C 语言所产生的代码运行速度与汇编语言编写的代码运行速度几乎一样，所以采用 C 语言作为系统开发语言。下面列举几个使用 C 的实例：操作系统、语言编译器、汇编器、文本编辑器、打印机、网络驱动器、现代程序、数据库、语言解释器、实体工具。</p>
+<h3 id="C程序"><a href="#C程序" class="headerlink" title="C程序"></a>C程序</h3><p>一个 C 语言程序，可以是 3 行，也可以是数百万行，它可以写在一个或多个扩展名为 <strong>“.c”</strong> 的文本文件中，例如，<em>hello.c</em>。您可以使用 <strong>“vi”</strong>、<strong>“vim”</strong> 或任何其他文本编辑器来编写您的 C 语言程序。</p>
+<p>本教程假定您已经知道如何编辑一个文本文件，以及如何在程序文件中编写源代码。</p>
+<h3 id="C11"><a href="#C11" class="headerlink" title="C11"></a>C11</h3><p>C11（也被称为C1X）指ISO标准ISO/IEC 9899:2011，是当前最新的C语言标准。在它之前的C语言标准为C99。</p>
+<h3 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h3><ul>
+<li>对齐处理（Alignment）的标准化（包括_Alignas标志符，alignof运算符，aligned_alloc函数以及<stdalign.h>头文件）。</stdalign.h></li>
+<li><em>Noreturn 函数标记，类似于 gcc 的 <em>_attribute</em></em>((noreturn))。</li>
+<li>_Generic 关键字。</li>
+<li>多线程（Multithreading）支持，包括：<br>_Thread_local存储类型标识符，<threads.h>头文件，里面包含了线程的创建和管理函数。<br>_Atomic类型修饰符和<stdatomic.h>头文件。</stdatomic.h></threads.h></li>
+<li>增强的Unicode的支持。基于C Unicode技术报告ISO/IEC TR 19769:2004，增强了对Unicode的支持。包括为UTF-16/UTF-32编码增加了char16_t和char32_t数据类型，提供了包含unicode字符串转换函数的头文件<uchar.h>。</uchar.h></li>
+<li>删除了 gets() 函数，使用一个新的更安全的函数gets_s()替代。</li>
+<li>增加了边界检查函数接口，定义了新的安全的函数，例如 fopen_s()，strcat_s() 等等。</li>
+<li>增加了更多浮点处理宏(宏)。</li>
+<li>匿名结构体/联合体支持。这个在gcc早已存在，C11将其引入标准。</li>
+<li>静态断言（Static assertions），_Static_assert()，在解释 #if 和 #error 之后被处理。</li>
+<li>新的 fopen() 模式，(“…x”)。类似 POSIX 中的 O_CREAT|O_EXCL，在文件锁中比较常用。</li>
+<li>新增 quick_exit() 函数作为第三种终止程序的方式。当 exit()失败时可以做最少的清理工作。</li>
+</ul>
+<h2 id="C环境设置"><a href="#C环境设置" class="headerlink" title="C环境设置"></a>C环境设置</h2><h2 id=""><a href="#" class="headerlink" title="#"></a>#</h2>]]></content>
+      <categories>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>函数库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Darknet53</title>
     <url>/zh-CN/Darknet53/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -624,74 +624,6 @@ def darknet53():
       <tags>
         <tag>yolov3</tag>
         <tag>darknet</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Faster-RCNN论文笔记</title>
-    <url>/zh-CN/Faster-rcnn/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://proceedings.neurips.cc/paper/2015/file/14bfa6bb14875e45bba028a21ed38046-Paper.pdf">Faster R-CNN</a></p>
-<p>源码地址：<a href="https://github.com/ShaoqingRen/faster_rcnn">ShaoqingRen/faster_rcnn: Faster R-CNN (github.com)</a></p>
-<p>文章引用源码：<a href="https://github.com/bubbliiiing/faster-rcnn-pytorch">https://github.com/bubbliiiing/faster-rcnn-pytorch</a></p>
-<p>文章出处：<a href="https://blog.csdn.net/weixin_44791964/article/details/105739918">https://blog.csdn.net/weixin_44791964/article/details/105739918</a></p>
-<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><h3 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h3><h4 id="主干网络"><a href="#主干网络" class="headerlink" title="主干网络"></a>主干网络</h4><p><img src="/zh-CN/Faster-rcnn/image-20220417152429746.png" class="lazyload" data-srcset="/zh-CN/Faster-rcnn/image-20220417152429746.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>faster-rcnn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>fork me on github</title>
-    <url>/zh-CN/Fork_github/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://blog.csdn.net/weiwosuoai/article/details/88312326">如何在博客园添加 Fork me on GitHub 彩带效果</a></p>
-<p>2.<a href="https://github.blog/2008-12-19-github-ribbons/">GitHub Ribbons | The GitHub Blog</a></p>
-<p>3.<a href="https://blog.csdn.net/weixin_44543463/article/details/119750964">Hexo添加Follow me on CSDN效果</a></p>
-<h2 id="博客园添加fork"><a href="#博客园添加fork" class="headerlink" title="博客园添加fork"></a>博客园添加fork</h2><h3 id="进入博客园后台"><a href="#进入博客园后台" class="headerlink" title="进入博客园后台"></a>进入博客园后台</h3><p>进入博客园的管理界面，依次点击 <strong>管理 </strong> -&gt; <strong>设置</strong>，进入到设置页面后，将页面拖动到最下面，您会看到：<strong>页首Html代码</strong>一栏</p>
-<p><img src="/zh-CN/Fork_github/image-20220502215437444.png" class="lazyload" data-srcset="/zh-CN/Fork_github/image-20220502215437444.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220502215437444" style="zoom:50%;"></p>
-<h3 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h3><p>在页面Html代码框中输入如下代码：</p>
-<pre><code>&lt;a href="https://github.com/pistachio"&gt;  
-&lt;img style="position: fixed; top: 0; right: 0; border: 0; z-index:9999;" 
-       src="https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png" 
-       alt="Fork me on GitHub"&gt;
-&lt;/a&gt;
-</code></pre><p><strong>注意，您需要将 <code>&lt;a href=""&gt;</code> 中的链接换成您自己的 GitHub 主页地址。</strong></p>
-<p>保存后，随意打开一篇您自己的博客，就可以看见和教程开头展示的效果一样了。大功告成！</p>
-<h3 id="更换彩带颜色"><a href="#更换彩带颜色" class="headerlink" title="更换彩带颜色"></a>更换彩带颜色</h3><p>我上面使用的是红色的彩带，如果您需要更换成其他颜色，只需将 <code>&lt;img&gt;</code> 标签中的 <code>src</code> 地址更换成您想要颜色的地址即可。</p>
-<pre><code># 绿色
-https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png
-# 黑色
-https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png
-# 橘黄色
-https://github.blog/wp-content/uploads/2008/12/forkme_right_orange_ff7600.png
-# 灰色
-https://github.blog/wp-content/uploads/2008/12/forkme_right_gray_6d6d6d.png
-# 白色  
-https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
-</code></pre><p>从上面挑选一款您喜欢的样式颜色吧！！</p>
-<h2 id="hexo添加fork"><a href="#hexo添加fork" class="headerlink" title="hexo添加fork"></a>hexo添加fork</h2><h3 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h3><p>粘贴复制如下的代码到<code>themes\hexo-theme-next\layout\layout.ejs</code>文件中(放在<code>&lt;div id="l_body"&gt;&lt;/div&gt;</code>的下面 如图)，并把href改为你的csdn主页,换成github同上，记得换上自己的链接。</p>
-<pre><code># 黑色版本
-# 个人认为position属性值改为fixed好一点~
-  &lt;!--Follow me on CSDN--&gt;
-  &lt;a href="https://blog.csdn.net/qq_38452951"&gt; &lt;img loading="lazy" width="149" height="149" style="position: absolute; top: 0; right: 0; border: 0;" src="https://img-blog.csdnimg.cn/abe3797b7d77419b81ecc02dd1bf8c34.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"&gt;&lt;/a&gt;
-
-# 白色版本
-  &lt;!--Follow me on CSDN--&gt;
-  &lt;a href="https://blog.csdn.net/qq_38452951"&gt;&lt;img loading="lazy" width="149" height="149" style="position: absolute; top: 0; right: 0; border: 0;" src="https://img-blog.csdnimg.cn/1f8e1ef9be9f4f7db01fe3a2d57829de.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"&gt;&lt;/a&gt;
-</code></pre><p><img src="/zh-CN/Fork_github/image-20220502220838865.png" class="lazyload" data-srcset="/zh-CN/Fork_github/image-20220502220838865.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220502220838865" style="zoom:50%;"></p>
-<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p>详情请见：</p>
-<p>1.<a href="https://www.cnblogs.com/pistachio0812/">追风赶月的少年 - 博客园 (cnblogs.com)</a></p>
-<p>2.<a href="https://pistachio0812.github.io/">相思似海深旧事如天远 (pistachio0812.github.io)</a></p>
-]]></content>
-      <categories>
-        <category>Hexo博客搭建</category>
-      </categories>
-      <tags>
-        <tag>博客提升</tag>
-        <tag>fork</tag>
       </tags>
   </entry>
   <entry>
@@ -852,22 +784,71 @@ int fps()
       </tags>
   </entry>
   <entry>
-    <title>How to use Linux</title>
-    <url>/zh-CN/Linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="Linux简介"><a href="#Linux简介" class="headerlink" title="Linux简介"></a>Linux简介</h3><p>UNIX 是一个交互式系统，用于同时处理多进程和多用户同时在线。为什么要说 UNIX，那是因为 Linux 是由 UNIX 发展而来的，UNIX 是由程序员设计，它的主要服务对象也是程序员。Linux 继承了 UNIX 的设计目标。从智能手机到汽车，超级计算机和家用电器，从家用台式机到企业服务器，Linux 操作系统无处不在。</p>
-<p>大多数程序员都喜欢让系统尽量简单，优雅并具有一致性。举个例子，从最底层的角度来讲，一个文件应该只是一个字节集合。为了实现顺序存取、随机存取、按键存取、远程存取只能是妨碍你的工作。相同的，如果命令</p>
-<p>ls A*<br>意味着只列出以 A 为开头的所有文件，那么命令</p>
-<p>rm A<em><br>应该会移除所有以 A 为开头的文件而不是只删除文件名是 A</em> 的文件。这个特性也是最小吃惊原则(principle of least surprise)</p>
-<p>最小吃惊原则一般常用于用户界面和软件设计。它的原型是：该功能或者特征应该符合用户的预期，不应该使用户感到惊讶和震惊。</p>
-<p>一些有经验的程序员通常希望系统具有较强的功能性和灵活性。设计 Linux 的一个基本目标是每个应用程序只做一件事情并把他做好。所以编译器只负责编译的工作，编译器不会产生列表，因为有其他应用比编译器做的更好。</p>
-<p>很多人都不喜欢冗余，为什么在 cp 就能描述清楚你想干什么时候还使用 copy？这完全是在浪费宝贵的 hacking time。为了从文件中提取所有包含字符串 ard 的行，Linux 程序员应该输入</p>
-<p>grep ard f</p>
+    <title>Faster-RCNN论文笔记</title>
+    <url>/zh-CN/Faster-rcnn/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://proceedings.neurips.cc/paper/2015/file/14bfa6bb14875e45bba028a21ed38046-Paper.pdf">Faster R-CNN</a></p>
+<p>源码地址：<a href="https://github.com/ShaoqingRen/faster_rcnn">ShaoqingRen/faster_rcnn: Faster R-CNN (github.com)</a></p>
+<p>文章引用源码：<a href="https://github.com/bubbliiiing/faster-rcnn-pytorch">https://github.com/bubbliiiing/faster-rcnn-pytorch</a></p>
+<p>文章出处：<a href="https://blog.csdn.net/weixin_44791964/article/details/105739918">https://blog.csdn.net/weixin_44791964/article/details/105739918</a></p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><h3 id="预测部分"><a href="#预测部分" class="headerlink" title="预测部分"></a>预测部分</h3><h4 id="主干网络"><a href="#主干网络" class="headerlink" title="主干网络"></a>主干网络</h4><p><img src="/zh-CN/Faster-rcnn/image-20220417152429746.png" class="lazyload" data-srcset="/zh-CN/Faster-rcnn/image-20220417152429746.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>目标检测</category>
       </categories>
       <tags>
-        <tag>Liunx使用教程</tag>
+        <tag>论文笔记</tag>
+        <tag>faster-rcnn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>fork me on github</title>
+    <url>/zh-CN/Fork_github/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://blog.csdn.net/weiwosuoai/article/details/88312326">如何在博客园添加 Fork me on GitHub 彩带效果</a></p>
+<p>2.<a href="https://github.blog/2008-12-19-github-ribbons/">GitHub Ribbons | The GitHub Blog</a></p>
+<p>3.<a href="https://blog.csdn.net/weixin_44543463/article/details/119750964">Hexo添加Follow me on CSDN效果</a></p>
+<h2 id="博客园添加fork"><a href="#博客园添加fork" class="headerlink" title="博客园添加fork"></a>博客园添加fork</h2><h3 id="进入博客园后台"><a href="#进入博客园后台" class="headerlink" title="进入博客园后台"></a>进入博客园后台</h3><p>进入博客园的管理界面，依次点击 <strong>管理 </strong> -&gt; <strong>设置</strong>，进入到设置页面后，将页面拖动到最下面，您会看到：<strong>页首Html代码</strong>一栏</p>
+<p><img src="/zh-CN/Fork_github/image-20220502215437444.png" class="lazyload" data-srcset="/zh-CN/Fork_github/image-20220502215437444.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220502215437444" style="zoom:50%;"></p>
+<h3 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h3><p>在页面Html代码框中输入如下代码：</p>
+<pre><code>&lt;a href="https://github.com/pistachio"&gt;  
+&lt;img style="position: fixed; top: 0; right: 0; border: 0; z-index:9999;" 
+       src="https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png" 
+       alt="Fork me on GitHub"&gt;
+&lt;/a&gt;
+</code></pre><p><strong>注意，您需要将 <code>&lt;a href=""&gt;</code> 中的链接换成您自己的 GitHub 主页地址。</strong></p>
+<p>保存后，随意打开一篇您自己的博客，就可以看见和教程开头展示的效果一样了。大功告成！</p>
+<h3 id="更换彩带颜色"><a href="#更换彩带颜色" class="headerlink" title="更换彩带颜色"></a>更换彩带颜色</h3><p>我上面使用的是红色的彩带，如果您需要更换成其他颜色，只需将 <code>&lt;img&gt;</code> 标签中的 <code>src</code> 地址更换成您想要颜色的地址即可。</p>
+<pre><code># 绿色
+https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png
+# 黑色
+https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png
+# 橘黄色
+https://github.blog/wp-content/uploads/2008/12/forkme_right_orange_ff7600.png
+# 灰色
+https://github.blog/wp-content/uploads/2008/12/forkme_right_gray_6d6d6d.png
+# 白色  
+https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png
+</code></pre><p>从上面挑选一款您喜欢的样式颜色吧！！</p>
+<h2 id="hexo添加fork"><a href="#hexo添加fork" class="headerlink" title="hexo添加fork"></a>hexo添加fork</h2><h3 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h3><p>粘贴复制如下的代码到<code>themes\hexo-theme-next\layout\layout.ejs</code>文件中(放在<code>&lt;div id="l_body"&gt;&lt;/div&gt;</code>的下面 如图)，并把href改为你的csdn主页,换成github同上，记得换上自己的链接。</p>
+<pre><code># 黑色版本
+# 个人认为position属性值改为fixed好一点~
+  &lt;!--Follow me on CSDN--&gt;
+  &lt;a href="https://blog.csdn.net/qq_38452951"&gt; &lt;img loading="lazy" width="149" height="149" style="position: absolute; top: 0; right: 0; border: 0;" src="https://img-blog.csdnimg.cn/abe3797b7d77419b81ecc02dd1bf8c34.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"&gt;&lt;/a&gt;
+
+# 白色版本
+  &lt;!--Follow me on CSDN--&gt;
+  &lt;a href="https://blog.csdn.net/qq_38452951"&gt;&lt;img loading="lazy" width="149" height="149" style="position: absolute; top: 0; right: 0; border: 0;" src="https://img-blog.csdnimg.cn/1f8e1ef9be9f4f7db01fe3a2d57829de.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"&gt;&lt;/a&gt;
+</code></pre><p><img src="/zh-CN/Fork_github/image-20220502220838865.png" class="lazyload" data-srcset="/zh-CN/Fork_github/image-20220502220838865.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220502220838865" style="zoom:50%;"></p>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p>详情请见：</p>
+<p>1.<a href="https://www.cnblogs.com/pistachio0812/">追风赶月的少年 - 博客园 (cnblogs.com)</a></p>
+<p>2.<a href="https://pistachio0812.github.io/">相思似海深旧事如天远 (pistachio0812.github.io)</a></p>
+]]></content>
+      <categories>
+        <category>Hexo博客搭建</category>
+      </categories>
+      <tags>
+        <tag>博客提升</tag>
+        <tag>fork</tag>
       </tags>
   </entry>
   <entry>
@@ -1170,6 +1151,25 @@ if __name__ == '__main__':
       <tags>
         <tag>论文笔记</tag>
         <tag>Inception</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to use Linux</title>
+    <url>/zh-CN/Linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="Linux简介"><a href="#Linux简介" class="headerlink" title="Linux简介"></a>Linux简介</h3><p>UNIX 是一个交互式系统，用于同时处理多进程和多用户同时在线。为什么要说 UNIX，那是因为 Linux 是由 UNIX 发展而来的，UNIX 是由程序员设计，它的主要服务对象也是程序员。Linux 继承了 UNIX 的设计目标。从智能手机到汽车，超级计算机和家用电器，从家用台式机到企业服务器，Linux 操作系统无处不在。</p>
+<p>大多数程序员都喜欢让系统尽量简单，优雅并具有一致性。举个例子，从最底层的角度来讲，一个文件应该只是一个字节集合。为了实现顺序存取、随机存取、按键存取、远程存取只能是妨碍你的工作。相同的，如果命令</p>
+<p>ls A*<br>意味着只列出以 A 为开头的所有文件，那么命令</p>
+<p>rm A<em><br>应该会移除所有以 A 为开头的文件而不是只删除文件名是 A</em> 的文件。这个特性也是最小吃惊原则(principle of least surprise)</p>
+<p>最小吃惊原则一般常用于用户界面和软件设计。它的原型是：该功能或者特征应该符合用户的预期，不应该使用户感到惊讶和震惊。</p>
+<p>一些有经验的程序员通常希望系统具有较强的功能性和灵活性。设计 Linux 的一个基本目标是每个应用程序只做一件事情并把他做好。所以编译器只负责编译的工作，编译器不会产生列表，因为有其他应用比编译器做的更好。</p>
+<p>很多人都不喜欢冗余，为什么在 cp 就能描述清楚你想干什么时候还使用 copy？这完全是在浪费宝贵的 hacking time。为了从文件中提取所有包含字符串 ard 的行，Linux 程序员应该输入</p>
+<p>grep ard f</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Liunx使用教程</tag>
       </tags>
   </entry>
   <entry>
@@ -1536,747 +1536,6 @@ setpencolor [255 0 0]
       </categories>
       <tags>
         <tag>logo</tag>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL学习笔记</title>
-    <url>/zh-CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="MySQL入门教程"><a href="#MySQL入门教程" class="headerlink" title="MySQL入门教程"></a>MySQL入门教程</h2><h3 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h3><p>数据库是按照数据结构来组织、存储和管理数据的仓库</p>
-<p>关系型数据库：建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据</p>
-<p>RDBMS即关系数据库管理系统的特点：</p>
-<p>1.数据以表格的形式出现</p>
-<p>2.每行为各种记录名称</p>
-<p>3.每列为记录名称所对应的数据域</p>
-<p>4.许多行和列组成一张表单</p>
-<p>5.若干的表单组成数据库</p>
-<h3 id="RDBMS相关概念"><a href="#RDBMS相关概念" class="headerlink" title="RDBMS相关概念"></a>RDBMS相关概念</h3><p>·</p>
-<h3 id="MySQL创建数据表"><a href="#MySQL创建数据表" class="headerlink" title="MySQL创建数据表"></a>MySQL创建数据表</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p><code>CREATE TABLE table_name (column_name column_type)</code></p>
-<p>举例：在W3CSCHOOL数据库中创建数据表w3cschool_tbl:</p>
-<pre><code class="lang-mysql">CREATE TABLE IF NOT EXISTS tutorials_tbl(
-    tutorial_id INT NOT NULL AUTO_INCREMENT,
-    tutorial_title VARCHAR(100) NOT NULL,
-    tutorial_author VARCHAR(40) NOT NULL,
-    submission_date DATE,
-    PRIMARY KEY (tutorial_id)
-    );
-</code></pre>
-<p>注：</p>
-<p>·如果你不想字段为NULL可以设置字段的属性为NOT NULL,在操作数据库如果输入该字段的数据为NULL,则会报错。</p>
-<p>·AUTO_INCREMENT定义列为自增的属性，一般用于主键，数值会自动加1。</p>
-<p>·PRIMARY KEY关键字用于定义列为主键。你可以使用多列来定义主键，列间以逗号分隔。</p>
-<h3 id="MySQL删除数据表"><a href="#MySQL删除数据表" class="headerlink" title="MySQL删除数据表"></a>MySQL删除数据表</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><p><code>DROP TABLE table_name</code></p>
-<h3 id="MySQL插入数据"><a href="#MySQL插入数据" class="headerlink" title="MySQL插入数据"></a>MySQL插入数据</h3><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">INSERT INTO table_name(field1, field2, ...fieldN)
-                      VALUES
-                      (value1, value2, ...valueN);
-</code></pre>
-<p>举例：使用SQL INSERT INTO语句向MySQL数据表w3cschool_tbl插入数据：</p>
-<pre><code class="lang-mysql">INSERT INTO w3cschool_tbl
-(w3cschool_title, w3cschool_author, submission_date)
-VALUES
-("Learn PHP", "John Poul", NOW());
-</code></pre>
-<h3 id="MySQL查询数据"><a href="#MySQL查询数据" class="headerlink" title="MySQL查询数据"></a>MySQL查询数据</h3><h4 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">SELECT column_name, column_name
-FROM table_name
-[WHERE Clause]
-[OFFSET M][LIMIT N]
-</code></pre>
-<p>注：</p>
-<p>·查询语句中你可以使用一个或者多个表，表之间使用逗号(,)分隔，并使用WHERE语句来设定查询条件。</p>
-<p>·SELECT命令可以读取一条或者多条记录。</p>
-<p>·你可以使用星号(*)来代替其他字段，SELECT语句会返回表的所有字段数据。</p>
-<p>·你可以使用WHERE语句来包含任何条件。</p>
-<p>·你可以通过OFFSET指定SELECT语句开始查询的数据偏移量，默认偏移量为0。</p>
-<p>·你可以使用LIMIT属性来设定返回的记录数。</p>
-<p>举例：通过SQL SELECT命令来获取MySQL数据表w3cschool_tbl的数据：</p>
-<p><code>SELECT * from w3cschool_tbl;</code></p>
-<h3 id="MySQL-where子句"><a href="#MySQL-where子句" class="headerlink" title="MySQL where子句"></a>MySQL where子句</h3><h4 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">SELECT field1, field2, ...fieldN
-FROM table_name1, table_name2...
-[WHERE condition1 [[AND][OR]] condition2...]
-</code></pre>
-<p>注：</p>
-<p>·查询语句中你可以使用一个或者多个表，表之间使用逗号(,)分隔，并使用WHERE语句来设定查询条件。</p>
-<p>·你可以在WHERE子句中指定任何条件。</p>
-<p>·你可以使用AND或者OR指定一个或多个条件。</p>
-<p>·WHERE子句也可以运用于SQL的DELETE或UPDATE命令。</p>
-<p>·WHERE子句类似于程序中的if条件，根据MySQL表中的字段值来读取指定的数据。</p>
-<p>操作符列表，实例假定A=10,B=20:</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th>描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">=</td>
-<td>等号，检测两个值是否相等，如果相等返回True</td>
-<td>(A=B)返回false</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;&gt;或！=</td>
-<td>不等于，检测两个值是否相等，如果不相等返回True</td>
-<td>（A!=B)返归true</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;</td>
-<td>大于号，检测左边的值是否大于右边的值，如果左边的值大于右边的值返回True</td>
-<td>(A&gt;B)返回false</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;</td>
-<td>小于号，检测左边的值是否小于右边的值，如果左边的值小于右边的值返回True</td>
-<td>(A&lt;B)返回true</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;=</td>
-<td>大于等于号，检测左边的值是否大于等于右边的值，如果左边的值大于或等于右边的值返回True</td>
-<td>(A&gt;=B)返回false</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;=</td>
-<td>小于等于号，检测左边的值是否小于或等于右边的值，如果左边的值小于或等于右边的值返回True</td>
-<td>(A&lt;=B)返回true</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>举例：读取w3cschool_tbl表中w3cschool_author字段值为Sanjay的所有记录：</p>
-<p><code>SELECT * from w3cschool_tbl WHERE w3cschool_author='Sanjay';</code></p>
-<p>除非你使用LIKE来比较字符串，否则MySQL的WHERE子句的字符串比较是不区分大小写的。你可以使用BINARY关键字来设定WHERE子句的紫福春是区分大小写的。</p>
-<p><code>SELECT * from w3cschool_tbl WHERE BINARY w3cschool_author='sanjay';</code></p>
-<h3 id="MySQL-UPDATE查询"><a href="#MySQL-UPDATE查询" class="headerlink" title="MySQL UPDATE查询"></a>MySQL UPDATE查询</h3><h4 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">UPDATE table_name SET field1=new-value1, field2=new-value2
-
-[WHERE Clause]
-</code></pre>
-<p>注：</p>
-<p>·你可以同时更新一个或多个字段</p>
-<p>·你可以在WHERE字句中指定任何条件</p>
-<p>·你可以在一个单独表中同时更新数据</p>
-<p>当你需要更新表中指定行的数据时，WHERE子句是非常有用的。</p>
-<p>举例：更新数据表中w3cschool_id为3的w3cschool_title字段值：</p>
-<pre><code class="lang-mysql">UPDATE w3cschool_tbl
-SET w3cschool_title='Learning JAVA'
-WHERE w3cschool_id=3;
-</code></pre>
-<h3 id="MySQL-DELETE语句"><a href="#MySQL-DELETE语句" class="headerlink" title="MySQL DELETE语句"></a>MySQL DELETE语句</h3><h4 id="语法-6"><a href="#语法-6" class="headerlink" title="语法"></a>语法</h4><p><code>DELETE FROM table_name [WHERE Clause]</code></p>
-<p>注：</p>
-<p>·如果没有指定WHERE子句，MySQL表中的所有记录将被删除</p>
-<p>·你可以在WHERE字句中指定任何条件</p>
-<p>·你可以在单个表中一次性删除记录</p>
-<p>当你想删除数据表中的指定记录时，WHERE子句是非常有用的</p>
-<p>举例：删除w3cschool_tbl表中w3cschool_id为3的记录：</p>
-<pre><code class="lang-mysql">DELETE FROM w3cschool_tbl WHERE w3cschool_id=3;
-</code></pre>
-<h3 id="MySQL-LIKE子句"><a href="#MySQL-LIKE子句" class="headerlink" title="MySQL LIKE子句"></a>MySQL LIKE子句</h3><p>SQL LIKE子句中使用百分号（%）字符来表示任意字符，类似于UNIX或者正则表达式中的星号（*）。</p>
-<h4 id="语法-7"><a href="#语法-7" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">SELECT field1, field2, ...fieldN
-FROM table_name1, table_name2...
-WHERE field1 LIKE condition [[AND][OR]] field2='somevalue'
-</code></pre>
-<p>注：</p>
-<p>·你可以在WHERE子句中指定任何条件</p>
-<p>·你可以在WHERE字句中使用LIKE子句</p>
-<p>·你可以使用LIKE子句代替等号</p>
-<p>·LIKE通常与%一同使用，类似于一个元字符的搜索</p>
-<p>·你可以使用AND或OR指定一个或多个条件</p>
-<p>·你可以在DELETE或UPDATE命令中使用WHERE…LIKE子句来指定条件</p>
-<p>举例：查询w3cschool_tbl表中的w3cschool_author字段中以’jay’为结尾的所有记录：</p>
-<pre><code class="lang-mysql">SELECT * from w3cschool_tbl
-WHERE w3cschool_author LIKE '%jay';
-</code></pre>
-<h3 id="MySQL排序"><a href="#MySQL排序" class="headerlink" title="MySQL排序"></a>MySQL排序</h3><h4 id="语法-8"><a href="#语法-8" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">SELECT field1, field2,...fieldN FROM table_name1, table_name2...
-ORDER BY field1, [field2...] [ASC[DESC]]
-</code></pre>
-<p>注：</p>
-<p>·你可以使用任何字段来作为排序的条件，从而返回排序后的查询结果</p>
-<p>·你可以设定多个字段来排序</p>
-<p>·你可以使用ASC或DESC关键字来设置查询结果是按升序或者降序排列。默认情况下，它是按升序排列</p>
-<p>·你可以添加WHERE…LIKE子句来设置条件</p>
-<p>举例：使用ORDER BY子句来读取MySQL数据表w3cschool_tbl中的数据：</p>
-<p><code>SELECT * from w3cschool_tbl ORDER BY w3cschool_author ASC;</code></p>
-<p><code>SELECT * from w3cschool_tbl ORDER BY w3cschool_author DESC;</code></p>
-<h3 id="MySQL-分组"><a href="#MySQL-分组" class="headerlink" title="MySQL 分组"></a>MySQL 分组</h3><p>GROUP BY语句根据一个或者多个列对结果集进行分组，在分组的列上我们可以使用COUNT,SUM,AVG等函数。</p>
-<h4 id="语法-9"><a href="#语法-9" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">SELECT column_name, function(column_name)
-FROM table_name
-WHERE column_name operator value
-GROUP BY column_name;
-</code></pre>
-<p>employee_tbl表格信息如下：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">id</th>
-<th>name</th>
-<th>date</th>
-<th>singin</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td>小明</td>
-<td>2016-04-22 15:25:33</td>
-<td>1</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td>小王</td>
-<td>2016-04-20 15:25:47</td>
-<td>3</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td>小丽</td>
-<td>2016-04-19 15:26:02</td>
-<td>2</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td>小王</td>
-<td>2016-04-07 15:26:14</td>
-<td>4</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td>小明</td>
-<td>2016-04-11 15:26:40</td>
-<td>4</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td>小明</td>
-<td>2016-04-04 15:26:54</td>
-<td>2</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>举例：将数据表按名字进行分组，并统计每个人有多少条记录：</p>
-<p><code>SELECT name, COUNT(*) FROM employ_tbl GROUP BY name;</code></p>
-<h3 id="使用WITH-ROLLUP"><a href="#使用WITH-ROLLUP" class="headerlink" title="使用WITH ROLLUP"></a>使用WITH ROLLUP</h3><p>WITH ROLLUP可以实现在分组统计数据基础上再进行相同的统计（SUM.AVG,COUNT).</p>
-<p>举例：将以上的数据表按名字进行分组，再统计每个人登录的次数：</p>
-<pre><code class="lang-mysql">SELECT name, SUM(singin) as singin_count
-FROM employee_tbl
-GROUP BY name WITH ROLLUP;
-</code></pre>
-<p>其中结果如下：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>name</th>
-<th>singin_out</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>小丽</td>
-<td>2</td>
-</tr>
-<tr>
-<td>小明</td>
-<td>7</td>
-</tr>
-<tr>
-<td>小王</td>
-<td>7</td>
-</tr>
-<tr>
-<td>NULL</td>
-<td>16</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>其中记录NULL表示所有人的登录次数，我们可以使用coalesce来设置一个可以取代NULL的名称。</p>
-<h4 id="语法-10"><a href="#语法-10" class="headerlink" title="语法"></a>语法</h4><p><code>select coalesce(a, b, c);</code></p>
-<p>参数说明：如果a==null,则选择b;如果b==null,则选择c;如果a!=null,则选择a;如果abc都为null,则返回null(没意义)。</p>
-<p>举例：如果名字为空，使用总数代替：</p>
-<pre><code class="lang-mysql">SELECT coalesce(name, '总数'), SUM(singin) as singin_out
-FROM employee_tbl
-GROUP BY name WITH ROLLUP;
-</code></pre>
-<h3 id="MySQL连接的使用"><a href="#MySQL连接的使用" class="headerlink" title="MySQL连接的使用"></a>MySQL连接的使用</h3><p>JOIN按照功能大致分为如下三类：</p>
-<p>·INNER JOIN(内连接，或等值连接)：获取两个表中字段匹配关系的记录</p>
-<p>·LEFT JOIN（左连接）：获取左表所有记录，即使右表没有对应匹配的记录</p>
-<p>·RIGHT JOIN(右连接)：用于获取右表所有记录，即使左表没有对应匹配的记录</p>
-<p><a href="https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/images/SQL_JOINS.png">SQL JOINS</a></p>
-<p>假设W3CSCHOOL数据库中有两张表tcount_tbl和w3cschool_tbl,两张数据表数据如下：</p>
-<p>1.tcount_tbl</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">w3cschool_author</th>
-<th>w3cschool_count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">mahran</td>
-<td>20</td>
-</tr>
-<tr>
-<td style="text-align:center">mahnaz</td>
-<td>NULL</td>
-</tr>
-<tr>
-<td style="text-align:center">Jen</td>
-<td>NULL</td>
-</tr>
-<tr>
-<td style="text-align:center">Gill</td>
-<td>20</td>
-</tr>
-<tr>
-<td style="text-align:center">John Poul</td>
-<td>1</td>
-</tr>
-<tr>
-<td style="text-align:center">Sanjay</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>2.w3cschool_tbl</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>w3cschool_id</th>
-<th>w3cschool_title</th>
-<th>w3cschool_author</th>
-<th>submission_date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Learn PHP</td>
-<td>John Poul</td>
-<td>2007-05-24</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Learn MyQL</td>
-<td>Abdul S</td>
-<td>2007-05-24</td>
-</tr>
-<tr>
-<td>3</td>
-<td>JAVA Tutorial</td>
-<td>Sanjay</td>
-<td>2007-05-06</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>举例：使用INNER JOIN来连接以上两张表来读取w3cschool_tbl表中所有w3cschool_author字段在tcount_tbl表中对应的w3cschool_count字段值。</p>
-<pre><code class="lang-mysql">SELECT a.w3cschool_id, a.w3cschool_author, b.w3cschool_count
-FROM w3cschool_tbl a INNER JOIN tcount_tbl b
-ON a.w3cschool_author = b.w3cschool_author
-</code></pre>
-<p>等价于：</p>
-<pre><code class="lang-mysql">SELECT a.w3cschool_id, a_w3cschool_author, b.w3cschool_count
-FROM w3cschool_tbl a, tcount_tbl b
-WHERE a.w3cschool_author = b.w3cschool_author;
-</code></pre>
-<p>举例：以w3cschool_tbl为左表， t_count_tbl为右表，理解MySQL LEFT JOIN的应用：</p>
-<pre><code class="lang-mysql">SELECT a.w3cschool_id, a.w3cschool_author, b.w3cschool_count
-FROM w3cschool_tbl a LEFT JOIN tcount_tbl b
-ON a.w3cschool_author = b.w3cschool_author;
-</code></pre>
-<p>举例：以tcount_tbl为左表， w3cschool_tbl为右表，理解MySQL RIGHT JOIN的应用：</p>
-<pre><code class="lang-mysql">SELECT b.w3cschool_id, b.w3cschool_author, a.w3cschool_count
-FROM tcount_tbl a RIGHT JOIN w3cschool_tbl b
-ON a.w3cschool_author = b.w3cschool_author;
-</code></pre>
-<h3 id="MySQL-NULL值处理"><a href="#MySQL-NULL值处理" class="headerlink" title="MySQL NULL值处理"></a>MySQL NULL值处理</h3><p>查询条件字段为NULL时，该命令可能无法正常工作，为了处理这种情况，MySQL提供了三大运算符：</p>
-<p>·IS NULL:当列的值为NULL,此运算符返回True</p>
-<p>·IS NOT NULL:当列的值不为NULL,运算符返回True</p>
-<p>·&lt;=&gt;:比较运算符，当比较的两个值为NULL时返回True</p>
-<p>关于NULL的条件比较运算是比较特殊的，你不能够使用=NULL或！=NULL在列中查找NULL值，在MySQL中，NULL值与任何其他值的比较永远返回false,即NULL=NULL返回false。</p>
-<h4 id="在命令提示符中使用NULL值"><a href="#在命令提示符中使用NULL值" class="headerlink" title="在命令提示符中使用NULL值"></a>在命令提示符中使用NULL值</h4><p>假设数据库W3CSCHOOL中的表tcount_tbl含有两列w3cschool_author和w3cschool_count, w3cschool_count中设置插入NULL值。</p>
-<p>假设表如下所示：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>w3cschool_author</th>
-<th>w3cschool_count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>mahran</td>
-<td>20</td>
-</tr>
-<tr>
-<td>mahnaz</td>
-<td>NULL</td>
-</tr>
-<tr>
-<td>Jen</td>
-<td>NULL</td>
-</tr>
-<tr>
-<td>Gill</td>
-<td>20</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>查询数据表中w3cschool_count列是否为NULL,必须使用IS NULL和IS NOT NULL,如下实例：</p>
-<pre><code class="lang-mysql">SELECT * FROM tcount_tbl
-WHERE w3cschool_count IS NULL;
-</code></pre>
-<pre><code class="lang-mysql">SELECT * FROM tcount_tbl
-WHERE w3cschool_count IS NOT NULL;
-</code></pre>
-<h3 id="MySQL正则表达式"><a href="#MySQL正则表达式" class="headerlink" title="MySQL正则表达式"></a>MySQL正则表达式</h3><p>下表中的正则模式可应用于REGEXP操作符中。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>^</th>
-<th>匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配’\n’或’\r’之后的位置。</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$</td>
-<td>匹配输入字符串的结束位置。如果设置了RegExp对象的Multiline属性，^也匹配’\n’或’\r’之前的位置。</td>
-</tr>
-<tr>
-<td>.</td>
-<td>匹配除’\n’之外的任何单个字符。要匹配包括’\n’在内的任何字符，请使用’[.\n]’的模式。</td>
-</tr>
-<tr>
-<td>[…]</td>
-<td>字符集合。匹配所包含的任何一个字符。例如’[abc]’可以匹配’plain’中的’a’。</td>
-</tr>
-<tr>
-<td><sup><a href="#fn_..." id="reffn_...">...</a></sup></td>
-<td>负值字符集合。匹配未包含的任意字符。例如，’<sup><a href="#fn_abc" id="reffn_abc">abc</a></sup>‘可以匹配’plain’中的’p’。</td>
-</tr>
-<tr>
-<td>p1\</td>
-<td>p2\</td>
-<td>p3</td>
-<td>匹配p1或p2或p3.例如，’z\</td>
-<td>food’能匹配’z’或’food’。，’(z\</td>
-<td>f)food’能匹配’zood’或’food’</td>
-</tr>
-<tr>
-<td>*</td>
-<td>匹配前面的子表达式零次或多次。例如，zo能匹配’z’以及’zoo’.*等价于{0，}。</td>
-</tr>
-<tr>
-<td>+</td>
-<td>匹配前面的子表达式一次或多次。例如，’zo+’能匹配’zo’以及’zoo’,但不能匹配’z’。+等价于{1，}</td>
-</tr>
-<tr>
-<td>{n}</td>
-<td>n是一个非负整数。匹配确定的n次。例如，’o{2}’不能匹配’Bob’中的’o’,但是能匹配’food’中的两个o。</td>
-</tr>
-<tr>
-<td>{n, m}</td>
-<td>m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>举例：</p>
-<p>1.查找name字段中以’st’为开头的所有数据：</p>
-<pre><code class="lang-mysql">SELECT name FROM person_tbl WHERE name REGEXP '^st';
-</code></pre>
-<p>2.查找name字段中以’ok’为结尾的所有数据：</p>
-<pre><code class="lang-mysql">SELECT name FROM person_tbl WHERE name REGEXP 'ok$';
-</code></pre>
-<p>3.查找name字段中包含’mar’字符串的所有数据：</p>
-<pre><code class="lang-mysql">SELECT name FROM person_tbl WHERE name REGEXP 'mar'
-</code></pre>
-<p>4.查找name字段中以元音字符开头或以’ok’字符串结尾的所有数据：</p>
-<pre><code class="lang-mysql">SELECT name FROM person_tbl WHERE name REGEXP '^[aeiou]|ok$'
-</code></pre>
-<h3 id="MySQL事务"><a href="#MySQL事务" class="headerlink" title="MySQL事务"></a>MySQL事务</h3><p>MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你即需要删除人员的基本资料，也要删除和该人员相关的信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个事务！</p>
-<ul>
-<li>在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。</li>
-<li>事务处理可以用来维护数据库的完整性，保证成批的SQL语句要么全部执行，要么全部不执行。</li>
-<li>事务用来管理 insert , update , delete 语句。</li>
-</ul>
-<p>一般来说，事务是必须满足4个条件（ACID）： Atomicity（原子性或不可分割性）、Consistency（一致性）、Isolation（隔离性或独立性）、Durability（持久性）</p>
-<ul>
-<li>1、<strong>原子性：</strong>一组事务，要么成功；要么撤回，即事务在执行过程中出错会回滚到事务开始前的状态。</li>
-<li>2、<strong>一致性</strong> ： 一个事务不论是开始前还是结束后，数据库的完整性都没有被破坏。因此写入的数据必须完全符合所有预设规则（资料精确度、串联性以及后续数据库能够自发完成预定工作）。</li>
-<li>3、<strong>隔离性：</strong>数据库允许多个事务并发的同时对其数据进行读写修改等操作，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离可分为：Read uncommitted（读未提交）、Read committed（读提交）、Repeatable read（可重复读）、Serializable（串行化）。</li>
-<li>4、持久<strong>性：</strong>事务在处理结束后对数据做出的修改是永久的，无法丢失</li>
-</ul>
-<h4 id="事务控制语句"><a href="#事务控制语句" class="headerlink" title="事务控制语句"></a>事务控制语句</h4><p>1.显式的开始一个事务：</p>
-<p><code>start transaction</code>或者<code>begin</code></p>
-<p>2.做保存点，一个事务中可以有多个保存点：</p>
-<p><code>savepoint  [savepoint_name]</code></p>
-<p>3.提交事务，并使数据库中进行的修改成为永久性的：</p>
-<p><code>commit</code>或<code>commit work</code></p>
-<p>4.回滚结束用户的事务，并撤销正在进行的所有未提交的修改：</p>
-<p><code>rollback</code>或<code>rollback work</code></p>
-<p>5.删除一个事务的保存点，若没有指定保存点，执行该语句操作则会抛错：</p>
-<p><code>release savepoint [savepoint_name]</code></p>
-<p>6.将事务滚回标记点：</p>
-<p><code>rollback to 标记点</code></p>
-<p>7.设置事务的隔离级别。InnoDB 存储引擎提供事务的隔离级别有READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ 和 SERIALIZABLE。</p>
-<pre><code>set transaction
-</code></pre><h4 id="事务处理方法"><a href="#事务处理方法" class="headerlink" title="事务处理方法"></a>事务处理方法</h4><p>1.用 begin ， rollback ， commit 来实现事务处理。</p>
-<p>2.用 set 来改变 MySQL 的自动提交模式。</p>
-<ul>
-<li>set autocommit = 0 （禁止自动提交）。</li>
-<li>set autocommit = 1 （开启自动提交）。</li>
-</ul>
-<h3 id="MySQL-ALTER命令"><a href="#MySQL-ALTER命令" class="headerlink" title="MySQL ALTER命令"></a>MySQL ALTER命令</h3><p>当我们需要修改数据表名或者修改数据表字段时，就需要使用到MySQL ALTER命令。</p>
-<p>开始本章教程前让我们先创建一张表，表名为：testalter_tbl。</p>
-<pre><code class="lang-mysql">create table testalter_tbl(
-    i INT,
-    c CHAR(1)
-    );
-</code></pre>
-<p><code>SHOW COLUMNS FROM testalter_tbl;</code></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Null</th>
-<th>Key</th>
-<th>Default</th>
-<th>Extra</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>i</td>
-<td>int(11)</td>
-<td>YES</td>
-<td></td>
-<td>NULL</td>
-<td></td>
-</tr>
-<tr>
-<td>c</td>
-<td>char(1)</td>
-<td>YES</td>
-<td></td>
-<td>NULL</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h4 id="删除、添加或修改表字段"><a href="#删除、添加或修改表字段" class="headerlink" title="删除、添加或修改表字段"></a>删除、添加或修改表字段</h4><p><em>如下命令使用了 ALTER 命令及 DROP 子句来删除以上创建表的 i 字段：</em></p>
-<p><em><code>mysql&gt; ALTER TABLE testalter_tbl  DROP i;</code></em></p>
-<p><em>如果数据表中只剩余一个字段则无法使用DROP来删除字段。</em></p>
-<p><em>MySQL 中使用 ADD 子句来想数据表中添加列，如下实例在表 testalter_tbl 中添加 i 字段，并定义数据类型:</em></p>
-<p><code>mysql&gt; ALTER TABLE testalter_tbl ADD i INT;</code></p>
-<p>执行以上命令后，i 字段会自动添加到数据表字段的末尾。</p>
-<p>`mysql&gt; SHOW COLUMNS FROM testalter_tbl; </p>
-<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
-<p> <code>| Field | Type    | Null | Key | Default | Extra |</code></p>
-<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
-<p> <code>| c     | char(1) | YES  |     | NULL    |       |</code></p>
-<p> <code>| i     | int(11) | YES  |     | NULL    |       |</code> </p>
-<p> <code>+-------+---------+------+-----+---------+-------+</code> </p>
-<p> <code>2 rows in set (0.00 sec)</code></p>
-<p>如果你需要指定新增字段的位置，可以使用MySQL提供的关键字 FIRST (设定位第一列)， AFTER 字段名（设定位于某个字段之后）。</p>
-<p>尝试以下 ALTER TABLE 语句, 在执行成功后，使用 SHOW COLUMNS 查看表结构的变化：</p>
-<p><code>ALTER TABLE testalter_tbl DROP i;</code></p>
-<p> <code>ALTER TABLE testalter_tbl ADD i INT FIRST;</code></p>
-<p> <code>ALTER TABLE testalter_tbl DROP i;</code> </p>
-<p> <code>ALTER TABLE testalter_tbl ADD i INT AFTER c;</code></p>
-<p>FIRST 和 AFTER 关键字只占用于 ADD 子句，所以如果你想重置数据表字段的位置就需要先使用 DROP 删除字段然后使用 ADD 来添加字段并设置位置。</p>
-<h4 id="修改字段类型及名称"><a href="#修改字段类型及名称" class="headerlink" title="修改字段类型及名称"></a>修改字段类型及名称</h4><p>如果需要修改字段类型及名称, 你可以在ALTER命令中使用 MODIFY 或 CHANGE 子句 。</p>
-<p>例如，把字段 c 的类型从 CHAR(1) 改为 CHAR(10)，可以执行以下命令:</p>
-<p><code>mysql&gt; ALTER TABLE testalter_tbl MODIFY c CHAR(10);</code></p>
-<p> 使用 CHANGE 子句, 语法有很大的不同。 在 CHANGE 关键字之后，紧跟着的是你要修改的字段名，然后指定新字段的类型及名称。尝试如下实例：</p>
-<p><code>mysql&gt; ALTER TABLE testalter_tbl CHANGE i j BIGINT;</code></p>
-<p>如果你现在想把字段 j 从 BIGINT 修改为 INT，SQL语句如下：</p>
-<p><code>mysql&gt; ALTER TABLE testalter_tbl CHANGE j j INT;</code></p>
-<h4 id="ALTER-TABLE-对-Null-值和默认值的影响"><a href="#ALTER-TABLE-对-Null-值和默认值的影响" class="headerlink" title="ALTER TABLE 对 Null 值和默认值的影响"></a>ALTER TABLE 对 Null 值和默认值的影响</h4><p>当你修改字段时，你可以指定是否包含只或者是否设置默认值。以下实例，指定字段 j 为 NOT NULL 且默认值为100 。</p>
-<p><code>mysql&gt; ALTER TABLE testalter_tbl</code></p>
-<p>​        <code>-&gt; MODIFY j BIGINT NOT NULL DEFAULT 100;</code></p>
-<p>如果你不设置默认值，MySQL会自动设置该字段默认为 NULL。</p>
-<h4 id="修改字段默认值"><a href="#修改字段默认值" class="headerlink" title="修改字段默认值"></a>修改字段默认值</h4><p>你可以使用 ALTER 来修改字段的默认值，尝试以下实例：</p>
-<p><code>mysql&gt; ALTER TABLE testalter_tbl ALTER i SET DEFAULT 1000;</code></p>
-<p><code>mysql&gt; SHOW COLUMNS FROM testalter_tbl;</code></p>
-<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
-<p> <code>| Field | Type    | Null | Key | Default | Extra |</code></p>
-<p> <code>+-------+---------+------+-----+---------+-------+</code> </p>
-<p> <code>| c     | char(1) | YES  |     | NULL    |       |</code></p>
-<p> <code>| i     | int(11) | YES  |     | 1000    |       |</code></p>
-<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
-<p> <code>2 rows in set (0.00 sec)</code></p>
-<p>你也可以使用 ALTER 命令及 DROP子句来删除字段的默认值，如下实例：</p>
-<p><code>mysql&gt; ALTER TABLE testalter_tbl ALTER i DROP DEFAULT;</code></p>
-<p> <code>mysql&gt; SHOW COLUMNS FROM testalter_tbl;</code></p>
-<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
-<p> <code>| Field | Type    | Null | Key | Default | Extra |</code></p>
-<p> <code>+-------+---------+------+-----+---------+-------+</code> </p>
-<p> <code>| c     | char(1) | YES  |     | NULL    |       |</code></p>
-<p> <code>| i     | int(11) | YES  |     | NULL    |       |</code></p>
-<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
-<p> <code>2 rows in set (0.00 sec) Changing a Table Type:</code></p>
-<p>修改数据表类型，可以使用 ALTER 命令及 TYPE 子句来完成。尝试以下实例，我们将表 testalter_tbl 的类型修改为 MYISAM ：<strong>注意：</strong>查看数据表类型可以使用 SHOW TABLE STATUS 语句。*</p>
-<pre><code>mysql&gt; ALTER TABLE testalter_tbl TYPE = MYISAM;
-mysql&gt;  SHOW TABLE STATUS LIKE 'testalter_tbl'\G
- 1. row **
-           Name: testalter_tbl
-           Type: MyISAM
-     Row_format: Fixed
-           Rows: 0
- Avg_row_length: 0
-    Data_length: 0
-Max_data_length: 25769803775
-   Index_length: 1024
-      Data_free: 0
- Auto_increment: NULL
-    Create_time: 2007-06-03 08:04:36
-    Update_time: 2007-06-03 08:04:36
-     Check_time: NULL
- Create_options:
-        Comment:
-1 row in set (0.00 sec)
-</code></pre><h4 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h4><p>如果需要修改数据表的名称，可以在 ALTER TABLE 语句中使用 RENAME 子句来实现。</p>
-<p>尝试以下实例将数据表 testalter_tbl 重命名为 alter_tbl：</p>
-<pre><code>mysql&gt; ALTER TABLE testalter_tbl RENAME TO alter_tbl;
-</code></pre><h3 id="MySQL索引"><a href="#MySQL索引" class="headerlink" title="MySQL索引"></a>MySQL索引</h3><p>MySQL索引的建立对于MySQL的高效运行是很重要的，索引可以大大提高MySQL的检索速度。</p>
-<p>打个比方，如果合理的设计且使用索引的MySQL是一辆兰博基尼的话，那么没有设计和使用索引的MySQL就是一个人力三轮车。</p>
-<p>拿汉语字典的目录页（索引）打比方，我们可以按拼音、笔画、偏旁部首等排序的目录（索引）快速查找到需要的字。</p>
-<p>索引分单列索引和组合索引。单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。组合索引，即一个索引包含多个列。</p>
-<p>创建索引时，你需要确保该索引是应用在 SQL 查询语句的条件(一般作为 WHERE 子句的条件)。</p>
-<p>实际上，索引也是一张表，该表保存了主键与索引字段，并指向实体表的记录。</p>
-<p>上面都在说使用索引的好处，但过多的使用索引将会造成滥用。因此索引也会有它的缺点：虽然索引大大提高了查询速度，同时却会降低更新表的速度，如对表进行INSERT、UPDATE和DELETE。因为更新表时，MySQL不仅要保存数据，还要保存一下索引文件。</p>
-<p>建立索引会占用磁盘空间的索引文件。</p>
-<h4 id="普通索引"><a href="#普通索引" class="headerlink" title="普通索引"></a>普通索引</h4><p>创建索引</p>
-<p>这是最基本的索引，它没有任何限制。它有以下几种创建方式：</p>
-<pre><code>CREATE INDEX indexName ON mytable(username(length));
-</code></pre><p>如果是CHAR，VARCHAR类型，length可以小于字段实际长度；如果是BLOB和TEXT类型，必须指定 length。</p>
-<p>修改表结构(添加索引)</p>
-<pre><code>ALTER table tableName ADD INDEX indexName(columnName)
-</code></pre><p>创建表的时候直接指定</p>
-<pre><code>CREATE TABLE mytable(  
-
-ID INT NOT NULL,   
-
-username VARCHAR(16) NOT NULL,  
-
-INDEX [indexName] (username(length))  
-
-);
-</code></pre><p>删除索引的语法</p>
-<pre><code>DROP INDEX [indexName] ON mytable;
-</code></pre><h4 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h4><p>它与前面的普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。它有以下几种创建方式：</p>
-<p>创建索引</p>
-<pre><code>CREATE UNIQUE INDEX indexName ON mytable(username(length))
-</code></pre><p>修改表结构</p>
-<pre><code>ALTER table mytable ADD UNIQUE [indexName] (username(length))
-</code></pre><p>创建表的时候直接指定</p>
-<pre><code>CREATE TABLE mytable(  
-
-ID INT NOT NULL,   
-
-username VARCHAR(16) NOT NULL,  
-
-UNIQUE [indexName] (username(length))  
-
-);
-</code></pre><p>使用ALTER 命令添加和删除索引</p>
-<p>有四种方式来添加数据表的索引：</p>
-<ul>
-<li>ALTER TABLE tbl_name ADD PRIMARY KEY (column_list): 该语句添加一个主键，这意味着索引值必须是唯一的，且不能为NULL。</li>
-<li>ALTER TABLE tbl_name ADD UNIQUE index_name (column_list): 这条语句创建索引的值必须是唯一的（除了NULL外，NULL可能会出现多次）。</li>
-<li>ALTER TABLE tbl_name ADD INDEX index_name (column_list): 添加普通索引，索引值可出现多次。</li>
-<li>ALTER TABLE tbl_name ADD FULLTEXT index_name (column_list):该语句指定了索引为 FULLTEXT ，用于全文索引。</li>
-</ul>
-<p>以下实例为在表中添加索引。</p>
-<pre><code>mysql&gt; ALTER TABLE testalter_tbl ADD INDEX (c);
-</code></pre><p>你还可以在 ALTER 命令中使用 DROP 子句来删除索引。尝试以下实例删除索引:</p>
-<pre><code>mysql&gt; ALTER TABLE testalter_tbl DROP INDEX c;
-</code></pre><p>使用 ALTER 命令添加和删除主键</p>
-<p>主键只能作用于一个列上，添加主键索引时，你需要确保该主键默认不为空（NOT NULL）。实例如下：</p>
-<pre><code>mysql&gt; ALTER TABLE testalter_tbl MODIFY i INT NOT NULL;
-mysql&gt; ALTER TABLE testalter_tbl ADD PRIMARY KEY (i);
-</code></pre><p>你也可以使用 ALTER 命令删除主键：</p>
-<pre><code>mysql&gt; ALTER TABLE testalter_tbl DROP PRIMARY KEY;
-</code></pre><p>删除主键时只需指定PRIMARY KEY，但在删除索引时，你必须知道索引名。</p>
-<p>显示索引信息</p>
-<p>你可以使用 SHOW INDEX 命令来列出表中的相关的索引信息。可以通过添加 \G 来格式化输出信息。</p>
-<p>尝试以下实例:</p>
-<pre><code>mysql&gt; SHOW INDEX FROM table_name; \G
-........
-</code></pre><h3 id="MySQL临时表"><a href="#MySQL临时表" class="headerlink" title="MySQL临时表"></a>MySQL临时表</h3><p>MySQL 临时表在我们需要保存一些临时数据时是非常有用的。临时表只在当前连接可见，当关闭连接时，MySQL会自动删除表并释放所有空间。</p>
-<p>临时表在MySQL 3.23版本中添加，如果你的MySQL版本低于 3.23版本就无法使用MySQL的临时表。不过现在一般很少有再使用这么低版本的MySQL数据库服务了。</p>
-<p>MySQL临时表只在当前连接可见，如果你使用PHP脚本来创建MySQL临时表，那每当PHP脚本执行完成后，该临时表也会自动销毁。</p>
-<p>如果你使用了其他MySQL客户端程序连接MySQL数据库服务器来创建临时表，那么只有在关闭客户端程序时才会销毁临时表，当然你也可以手动销毁。</p>
-<p>实例</p>
-<p>以下展示了使用MySQL 临时表的简单实例，以下的SQL代码可以适用于PHP脚本的mysql_query()函数。</p>
-<pre><code class="lang-mysql">mysql&gt; CREATE TEMPORARY TABLE SalesSummary (
-    -&gt; product_name VARCHAR(50) NOT NULL
-    -&gt; , total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00
-    -&gt; , avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00
-    -&gt; , total_units_sold INT UNSIGNED NOT NULL DEFAULT 0
-);
-Query OK, 0 rows affected (0.00 sec)
-
-mysql&gt; INSERT INTO SalesSummary
-    -&gt; (product_name, total_sales, avg_unit_price, total_units_sold)
-    -&gt; VALUES
-    -&gt; ('cucumber', 100.25, 90, 2);
-
-mysql&gt; SELECT * FROM SalesSummary;
-+--------------+-------------+----------------+------------------+
-| product_name | total_sales | avg_unit_price | total_units_sold |
-+--------------+-------------+----------------+------------------+
-| cucumber     |      100.25 |          90.00 |                2 |
-+--------------+-------------+----------------+------------------+
-1 row in set (0.00 sec)
-</code></pre>
-<p>当你使用 <strong>SHOW TABLES</strong>命令显示数据表列表时，你将无法看到 SalesSummary表。</p>
-<p>如果你退出当前MySQL会话，再使用 <strong>SELECT</strong>命令来读取原先创建的临时表数据，那你会发现数据库中没有该表的存在，因为在你退出时该临时表已经被销毁了。</p>
-<p>删除MySQL 临时表</p>
-<p>默认情况下，当你断开与数据库的连接后，临时表就会自动被销毁。当然你也可以在当前MySQL会话使用 <strong>DROP TABLE</strong> 命令来手动删除临时表。</p>
-<p>以下是手动删除临时表的实例：</p>
-<pre><code class="lang-mysql">mysql&gt; CREATE TEMPORARY TABLE SalesSummary (
-    -&gt; product_name VARCHAR(50) NOT NULL
-    -&gt; , total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00
-    -&gt; , avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00
-    -&gt; , total_units_sold INT UNSIGNED NOT NULL DEFAULT 0
-);
-Query OK, 0 rows affected (0.00 sec)
-
-mysql&gt; INSERT INTO SalesSummary
-    -&gt; (product_name, total_sales, avg_unit_price, total_units_sold)
-    -&gt; VALUES
-    -&gt; ('cucumber', 100.25, 90, 2);
-
-mysql&gt; SELECT * FROM SalesSummary;
-+--------------+-------------+----------------+------------------+
-| product_name | total_sales | avg_unit_price | total_units_sold |
-+--------------+-------------+----------------+------------------+
-| cucumber     |      100.25 |          90.00 |                2 |
-+--------------+-------------+----------------+------------------+
-1 row in set (0.00 sec)
-mysql&gt; DROP TABLE SalesSummary;
-mysql&gt;  SELECT * FROM SalesSummary;
-ERROR 1146: Table 'W3CSCHOOL.SalesSummary' doesn't exist
-</code></pre>
-]]></content>
-      <categories>
-        <category>MySQL</category>
-      </categories>
-      <tags>
         <tag>学习笔记</tag>
       </tags>
   </entry>
@@ -3906,6 +3165,762 @@ plt.show()
       </tags>
   </entry>
   <entry>
+    <title>RFBNet论文笔记</title>
+    <url>/zh-CN/RFBNet/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://openaccess.thecvf.com/content_ECCV_2018/papers/Songtao_Liu_Receptive_Field_Block_ECCV_2018_paper.pdf">Receptive Field Block Net for Accurate and Fast Object Detection (thecvf.com)</a></p>
+<p>代码地址：<a href="https://github.com/ruinmessi/RFBNet">https://github.com/ruinmessi/RFBNet</a></p>
+<h4 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h4><p>RFB模块是怎么考虑感受野尺寸和离心率之间的关系的？</p>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
+        <tag>RFBNet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL学习笔记</title>
+    <url>/zh-CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="MySQL入门教程"><a href="#MySQL入门教程" class="headerlink" title="MySQL入门教程"></a>MySQL入门教程</h2><h3 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h3><p>数据库是按照数据结构来组织、存储和管理数据的仓库</p>
+<p>关系型数据库：建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据</p>
+<p>RDBMS即关系数据库管理系统的特点：</p>
+<p>1.数据以表格的形式出现</p>
+<p>2.每行为各种记录名称</p>
+<p>3.每列为记录名称所对应的数据域</p>
+<p>4.许多行和列组成一张表单</p>
+<p>5.若干的表单组成数据库</p>
+<h3 id="RDBMS相关概念"><a href="#RDBMS相关概念" class="headerlink" title="RDBMS相关概念"></a>RDBMS相关概念</h3><p>·</p>
+<h3 id="MySQL创建数据表"><a href="#MySQL创建数据表" class="headerlink" title="MySQL创建数据表"></a>MySQL创建数据表</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p><code>CREATE TABLE table_name (column_name column_type)</code></p>
+<p>举例：在W3CSCHOOL数据库中创建数据表w3cschool_tbl:</p>
+<pre><code class="lang-mysql">CREATE TABLE IF NOT EXISTS tutorials_tbl(
+    tutorial_id INT NOT NULL AUTO_INCREMENT,
+    tutorial_title VARCHAR(100) NOT NULL,
+    tutorial_author VARCHAR(40) NOT NULL,
+    submission_date DATE,
+    PRIMARY KEY (tutorial_id)
+    );
+</code></pre>
+<p>注：</p>
+<p>·如果你不想字段为NULL可以设置字段的属性为NOT NULL,在操作数据库如果输入该字段的数据为NULL,则会报错。</p>
+<p>·AUTO_INCREMENT定义列为自增的属性，一般用于主键，数值会自动加1。</p>
+<p>·PRIMARY KEY关键字用于定义列为主键。你可以使用多列来定义主键，列间以逗号分隔。</p>
+<h3 id="MySQL删除数据表"><a href="#MySQL删除数据表" class="headerlink" title="MySQL删除数据表"></a>MySQL删除数据表</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><p><code>DROP TABLE table_name</code></p>
+<h3 id="MySQL插入数据"><a href="#MySQL插入数据" class="headerlink" title="MySQL插入数据"></a>MySQL插入数据</h3><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">INSERT INTO table_name(field1, field2, ...fieldN)
+                      VALUES
+                      (value1, value2, ...valueN);
+</code></pre>
+<p>举例：使用SQL INSERT INTO语句向MySQL数据表w3cschool_tbl插入数据：</p>
+<pre><code class="lang-mysql">INSERT INTO w3cschool_tbl
+(w3cschool_title, w3cschool_author, submission_date)
+VALUES
+("Learn PHP", "John Poul", NOW());
+</code></pre>
+<h3 id="MySQL查询数据"><a href="#MySQL查询数据" class="headerlink" title="MySQL查询数据"></a>MySQL查询数据</h3><h4 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">SELECT column_name, column_name
+FROM table_name
+[WHERE Clause]
+[OFFSET M][LIMIT N]
+</code></pre>
+<p>注：</p>
+<p>·查询语句中你可以使用一个或者多个表，表之间使用逗号(,)分隔，并使用WHERE语句来设定查询条件。</p>
+<p>·SELECT命令可以读取一条或者多条记录。</p>
+<p>·你可以使用星号(*)来代替其他字段，SELECT语句会返回表的所有字段数据。</p>
+<p>·你可以使用WHERE语句来包含任何条件。</p>
+<p>·你可以通过OFFSET指定SELECT语句开始查询的数据偏移量，默认偏移量为0。</p>
+<p>·你可以使用LIMIT属性来设定返回的记录数。</p>
+<p>举例：通过SQL SELECT命令来获取MySQL数据表w3cschool_tbl的数据：</p>
+<p><code>SELECT * from w3cschool_tbl;</code></p>
+<h3 id="MySQL-where子句"><a href="#MySQL-where子句" class="headerlink" title="MySQL where子句"></a>MySQL where子句</h3><h4 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">SELECT field1, field2, ...fieldN
+FROM table_name1, table_name2...
+[WHERE condition1 [[AND][OR]] condition2...]
+</code></pre>
+<p>注：</p>
+<p>·查询语句中你可以使用一个或者多个表，表之间使用逗号(,)分隔，并使用WHERE语句来设定查询条件。</p>
+<p>·你可以在WHERE子句中指定任何条件。</p>
+<p>·你可以使用AND或者OR指定一个或多个条件。</p>
+<p>·WHERE子句也可以运用于SQL的DELETE或UPDATE命令。</p>
+<p>·WHERE子句类似于程序中的if条件，根据MySQL表中的字段值来读取指定的数据。</p>
+<p>操作符列表，实例假定A=10,B=20:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">操作符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">=</td>
+<td>等号，检测两个值是否相等，如果相等返回True</td>
+<td>(A=B)返回false</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;&gt;或！=</td>
+<td>不等于，检测两个值是否相等，如果不相等返回True</td>
+<td>（A!=B)返归true</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;</td>
+<td>大于号，检测左边的值是否大于右边的值，如果左边的值大于右边的值返回True</td>
+<td>(A&gt;B)返回false</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;</td>
+<td>小于号，检测左边的值是否小于右边的值，如果左边的值小于右边的值返回True</td>
+<td>(A&lt;B)返回true</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;=</td>
+<td>大于等于号，检测左边的值是否大于等于右边的值，如果左边的值大于或等于右边的值返回True</td>
+<td>(A&gt;=B)返回false</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;=</td>
+<td>小于等于号，检测左边的值是否小于或等于右边的值，如果左边的值小于或等于右边的值返回True</td>
+<td>(A&lt;=B)返回true</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>举例：读取w3cschool_tbl表中w3cschool_author字段值为Sanjay的所有记录：</p>
+<p><code>SELECT * from w3cschool_tbl WHERE w3cschool_author='Sanjay';</code></p>
+<p>除非你使用LIKE来比较字符串，否则MySQL的WHERE子句的字符串比较是不区分大小写的。你可以使用BINARY关键字来设定WHERE子句的紫福春是区分大小写的。</p>
+<p><code>SELECT * from w3cschool_tbl WHERE BINARY w3cschool_author='sanjay';</code></p>
+<h3 id="MySQL-UPDATE查询"><a href="#MySQL-UPDATE查询" class="headerlink" title="MySQL UPDATE查询"></a>MySQL UPDATE查询</h3><h4 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">UPDATE table_name SET field1=new-value1, field2=new-value2
+
+[WHERE Clause]
+</code></pre>
+<p>注：</p>
+<p>·你可以同时更新一个或多个字段</p>
+<p>·你可以在WHERE字句中指定任何条件</p>
+<p>·你可以在一个单独表中同时更新数据</p>
+<p>当你需要更新表中指定行的数据时，WHERE子句是非常有用的。</p>
+<p>举例：更新数据表中w3cschool_id为3的w3cschool_title字段值：</p>
+<pre><code class="lang-mysql">UPDATE w3cschool_tbl
+SET w3cschool_title='Learning JAVA'
+WHERE w3cschool_id=3;
+</code></pre>
+<h3 id="MySQL-DELETE语句"><a href="#MySQL-DELETE语句" class="headerlink" title="MySQL DELETE语句"></a>MySQL DELETE语句</h3><h4 id="语法-6"><a href="#语法-6" class="headerlink" title="语法"></a>语法</h4><p><code>DELETE FROM table_name [WHERE Clause]</code></p>
+<p>注：</p>
+<p>·如果没有指定WHERE子句，MySQL表中的所有记录将被删除</p>
+<p>·你可以在WHERE字句中指定任何条件</p>
+<p>·你可以在单个表中一次性删除记录</p>
+<p>当你想删除数据表中的指定记录时，WHERE子句是非常有用的</p>
+<p>举例：删除w3cschool_tbl表中w3cschool_id为3的记录：</p>
+<pre><code class="lang-mysql">DELETE FROM w3cschool_tbl WHERE w3cschool_id=3;
+</code></pre>
+<h3 id="MySQL-LIKE子句"><a href="#MySQL-LIKE子句" class="headerlink" title="MySQL LIKE子句"></a>MySQL LIKE子句</h3><p>SQL LIKE子句中使用百分号（%）字符来表示任意字符，类似于UNIX或者正则表达式中的星号（*）。</p>
+<h4 id="语法-7"><a href="#语法-7" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">SELECT field1, field2, ...fieldN
+FROM table_name1, table_name2...
+WHERE field1 LIKE condition [[AND][OR]] field2='somevalue'
+</code></pre>
+<p>注：</p>
+<p>·你可以在WHERE子句中指定任何条件</p>
+<p>·你可以在WHERE字句中使用LIKE子句</p>
+<p>·你可以使用LIKE子句代替等号</p>
+<p>·LIKE通常与%一同使用，类似于一个元字符的搜索</p>
+<p>·你可以使用AND或OR指定一个或多个条件</p>
+<p>·你可以在DELETE或UPDATE命令中使用WHERE…LIKE子句来指定条件</p>
+<p>举例：查询w3cschool_tbl表中的w3cschool_author字段中以’jay’为结尾的所有记录：</p>
+<pre><code class="lang-mysql">SELECT * from w3cschool_tbl
+WHERE w3cschool_author LIKE '%jay';
+</code></pre>
+<h3 id="MySQL排序"><a href="#MySQL排序" class="headerlink" title="MySQL排序"></a>MySQL排序</h3><h4 id="语法-8"><a href="#语法-8" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">SELECT field1, field2,...fieldN FROM table_name1, table_name2...
+ORDER BY field1, [field2...] [ASC[DESC]]
+</code></pre>
+<p>注：</p>
+<p>·你可以使用任何字段来作为排序的条件，从而返回排序后的查询结果</p>
+<p>·你可以设定多个字段来排序</p>
+<p>·你可以使用ASC或DESC关键字来设置查询结果是按升序或者降序排列。默认情况下，它是按升序排列</p>
+<p>·你可以添加WHERE…LIKE子句来设置条件</p>
+<p>举例：使用ORDER BY子句来读取MySQL数据表w3cschool_tbl中的数据：</p>
+<p><code>SELECT * from w3cschool_tbl ORDER BY w3cschool_author ASC;</code></p>
+<p><code>SELECT * from w3cschool_tbl ORDER BY w3cschool_author DESC;</code></p>
+<h3 id="MySQL-分组"><a href="#MySQL-分组" class="headerlink" title="MySQL 分组"></a>MySQL 分组</h3><p>GROUP BY语句根据一个或者多个列对结果集进行分组，在分组的列上我们可以使用COUNT,SUM,AVG等函数。</p>
+<h4 id="语法-9"><a href="#语法-9" class="headerlink" title="语法"></a>语法</h4><pre><code class="lang-mysql">SELECT column_name, function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUP BY column_name;
+</code></pre>
+<p>employee_tbl表格信息如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">id</th>
+<th>name</th>
+<th>date</th>
+<th>singin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>小明</td>
+<td>2016-04-22 15:25:33</td>
+<td>1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>小王</td>
+<td>2016-04-20 15:25:47</td>
+<td>3</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>小丽</td>
+<td>2016-04-19 15:26:02</td>
+<td>2</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>小王</td>
+<td>2016-04-07 15:26:14</td>
+<td>4</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>小明</td>
+<td>2016-04-11 15:26:40</td>
+<td>4</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>小明</td>
+<td>2016-04-04 15:26:54</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>举例：将数据表按名字进行分组，并统计每个人有多少条记录：</p>
+<p><code>SELECT name, COUNT(*) FROM employ_tbl GROUP BY name;</code></p>
+<h3 id="使用WITH-ROLLUP"><a href="#使用WITH-ROLLUP" class="headerlink" title="使用WITH ROLLUP"></a>使用WITH ROLLUP</h3><p>WITH ROLLUP可以实现在分组统计数据基础上再进行相同的统计（SUM.AVG,COUNT).</p>
+<p>举例：将以上的数据表按名字进行分组，再统计每个人登录的次数：</p>
+<pre><code class="lang-mysql">SELECT name, SUM(singin) as singin_count
+FROM employee_tbl
+GROUP BY name WITH ROLLUP;
+</code></pre>
+<p>其中结果如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>singin_out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小丽</td>
+<td>2</td>
+</tr>
+<tr>
+<td>小明</td>
+<td>7</td>
+</tr>
+<tr>
+<td>小王</td>
+<td>7</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>其中记录NULL表示所有人的登录次数，我们可以使用coalesce来设置一个可以取代NULL的名称。</p>
+<h4 id="语法-10"><a href="#语法-10" class="headerlink" title="语法"></a>语法</h4><p><code>select coalesce(a, b, c);</code></p>
+<p>参数说明：如果a==null,则选择b;如果b==null,则选择c;如果a!=null,则选择a;如果abc都为null,则返回null(没意义)。</p>
+<p>举例：如果名字为空，使用总数代替：</p>
+<pre><code class="lang-mysql">SELECT coalesce(name, '总数'), SUM(singin) as singin_out
+FROM employee_tbl
+GROUP BY name WITH ROLLUP;
+</code></pre>
+<h3 id="MySQL连接的使用"><a href="#MySQL连接的使用" class="headerlink" title="MySQL连接的使用"></a>MySQL连接的使用</h3><p>JOIN按照功能大致分为如下三类：</p>
+<p>·INNER JOIN(内连接，或等值连接)：获取两个表中字段匹配关系的记录</p>
+<p>·LEFT JOIN（左连接）：获取左表所有记录，即使右表没有对应匹配的记录</p>
+<p>·RIGHT JOIN(右连接)：用于获取右表所有记录，即使左表没有对应匹配的记录</p>
+<p><a href="https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/images/SQL_JOINS.png">SQL JOINS</a></p>
+<p>假设W3CSCHOOL数据库中有两张表tcount_tbl和w3cschool_tbl,两张数据表数据如下：</p>
+<p>1.tcount_tbl</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">w3cschool_author</th>
+<th>w3cschool_count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">mahran</td>
+<td>20</td>
+</tr>
+<tr>
+<td style="text-align:center">mahnaz</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td style="text-align:center">Jen</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td style="text-align:center">Gill</td>
+<td>20</td>
+</tr>
+<tr>
+<td style="text-align:center">John Poul</td>
+<td>1</td>
+</tr>
+<tr>
+<td style="text-align:center">Sanjay</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>2.w3cschool_tbl</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>w3cschool_id</th>
+<th>w3cschool_title</th>
+<th>w3cschool_author</th>
+<th>submission_date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Learn PHP</td>
+<td>John Poul</td>
+<td>2007-05-24</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Learn MyQL</td>
+<td>Abdul S</td>
+<td>2007-05-24</td>
+</tr>
+<tr>
+<td>3</td>
+<td>JAVA Tutorial</td>
+<td>Sanjay</td>
+<td>2007-05-06</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>举例：使用INNER JOIN来连接以上两张表来读取w3cschool_tbl表中所有w3cschool_author字段在tcount_tbl表中对应的w3cschool_count字段值。</p>
+<pre><code class="lang-mysql">SELECT a.w3cschool_id, a.w3cschool_author, b.w3cschool_count
+FROM w3cschool_tbl a INNER JOIN tcount_tbl b
+ON a.w3cschool_author = b.w3cschool_author
+</code></pre>
+<p>等价于：</p>
+<pre><code class="lang-mysql">SELECT a.w3cschool_id, a_w3cschool_author, b.w3cschool_count
+FROM w3cschool_tbl a, tcount_tbl b
+WHERE a.w3cschool_author = b.w3cschool_author;
+</code></pre>
+<p>举例：以w3cschool_tbl为左表， t_count_tbl为右表，理解MySQL LEFT JOIN的应用：</p>
+<pre><code class="lang-mysql">SELECT a.w3cschool_id, a.w3cschool_author, b.w3cschool_count
+FROM w3cschool_tbl a LEFT JOIN tcount_tbl b
+ON a.w3cschool_author = b.w3cschool_author;
+</code></pre>
+<p>举例：以tcount_tbl为左表， w3cschool_tbl为右表，理解MySQL RIGHT JOIN的应用：</p>
+<pre><code class="lang-mysql">SELECT b.w3cschool_id, b.w3cschool_author, a.w3cschool_count
+FROM tcount_tbl a RIGHT JOIN w3cschool_tbl b
+ON a.w3cschool_author = b.w3cschool_author;
+</code></pre>
+<h3 id="MySQL-NULL值处理"><a href="#MySQL-NULL值处理" class="headerlink" title="MySQL NULL值处理"></a>MySQL NULL值处理</h3><p>查询条件字段为NULL时，该命令可能无法正常工作，为了处理这种情况，MySQL提供了三大运算符：</p>
+<p>·IS NULL:当列的值为NULL,此运算符返回True</p>
+<p>·IS NOT NULL:当列的值不为NULL,运算符返回True</p>
+<p>·&lt;=&gt;:比较运算符，当比较的两个值为NULL时返回True</p>
+<p>关于NULL的条件比较运算是比较特殊的，你不能够使用=NULL或！=NULL在列中查找NULL值，在MySQL中，NULL值与任何其他值的比较永远返回false,即NULL=NULL返回false。</p>
+<h4 id="在命令提示符中使用NULL值"><a href="#在命令提示符中使用NULL值" class="headerlink" title="在命令提示符中使用NULL值"></a>在命令提示符中使用NULL值</h4><p>假设数据库W3CSCHOOL中的表tcount_tbl含有两列w3cschool_author和w3cschool_count, w3cschool_count中设置插入NULL值。</p>
+<p>假设表如下所示：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>w3cschool_author</th>
+<th>w3cschool_count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mahran</td>
+<td>20</td>
+</tr>
+<tr>
+<td>mahnaz</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>Jen</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>Gill</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>查询数据表中w3cschool_count列是否为NULL,必须使用IS NULL和IS NOT NULL,如下实例：</p>
+<pre><code class="lang-mysql">SELECT * FROM tcount_tbl
+WHERE w3cschool_count IS NULL;
+</code></pre>
+<pre><code class="lang-mysql">SELECT * FROM tcount_tbl
+WHERE w3cschool_count IS NOT NULL;
+</code></pre>
+<h3 id="MySQL正则表达式"><a href="#MySQL正则表达式" class="headerlink" title="MySQL正则表达式"></a>MySQL正则表达式</h3><p>下表中的正则模式可应用于REGEXP操作符中。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>^</th>
+<th>匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配’\n’或’\r’之后的位置。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$</td>
+<td>匹配输入字符串的结束位置。如果设置了RegExp对象的Multiline属性，^也匹配’\n’或’\r’之前的位置。</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配除’\n’之外的任何单个字符。要匹配包括’\n’在内的任何字符，请使用’[.\n]’的模式。</td>
+</tr>
+<tr>
+<td>[…]</td>
+<td>字符集合。匹配所包含的任何一个字符。例如’[abc]’可以匹配’plain’中的’a’。</td>
+</tr>
+<tr>
+<td><sup><a href="#fn_..." id="reffn_...">...</a></sup></td>
+<td>负值字符集合。匹配未包含的任意字符。例如，’<sup><a href="#fn_abc" id="reffn_abc">abc</a></sup>‘可以匹配’plain’中的’p’。</td>
+</tr>
+<tr>
+<td>p1\</td>
+<td>p2\</td>
+<td>p3</td>
+<td>匹配p1或p2或p3.例如，’z\</td>
+<td>food’能匹配’z’或’food’。，’(z\</td>
+<td>f)food’能匹配’zood’或’food’</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配前面的子表达式零次或多次。例如，zo能匹配’z’以及’zoo’.*等价于{0，}。</td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配前面的子表达式一次或多次。例如，’zo+’能匹配’zo’以及’zoo’,但不能匹配’z’。+等价于{1，}</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>n是一个非负整数。匹配确定的n次。例如，’o{2}’不能匹配’Bob’中的’o’,但是能匹配’food’中的两个o。</td>
+</tr>
+<tr>
+<td>{n, m}</td>
+<td>m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>举例：</p>
+<p>1.查找name字段中以’st’为开头的所有数据：</p>
+<pre><code class="lang-mysql">SELECT name FROM person_tbl WHERE name REGEXP '^st';
+</code></pre>
+<p>2.查找name字段中以’ok’为结尾的所有数据：</p>
+<pre><code class="lang-mysql">SELECT name FROM person_tbl WHERE name REGEXP 'ok$';
+</code></pre>
+<p>3.查找name字段中包含’mar’字符串的所有数据：</p>
+<pre><code class="lang-mysql">SELECT name FROM person_tbl WHERE name REGEXP 'mar'
+</code></pre>
+<p>4.查找name字段中以元音字符开头或以’ok’字符串结尾的所有数据：</p>
+<pre><code class="lang-mysql">SELECT name FROM person_tbl WHERE name REGEXP '^[aeiou]|ok$'
+</code></pre>
+<h3 id="MySQL事务"><a href="#MySQL事务" class="headerlink" title="MySQL事务"></a>MySQL事务</h3><p>MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你即需要删除人员的基本资料，也要删除和该人员相关的信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个事务！</p>
+<ul>
+<li>在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。</li>
+<li>事务处理可以用来维护数据库的完整性，保证成批的SQL语句要么全部执行，要么全部不执行。</li>
+<li>事务用来管理 insert , update , delete 语句。</li>
+</ul>
+<p>一般来说，事务是必须满足4个条件（ACID）： Atomicity（原子性或不可分割性）、Consistency（一致性）、Isolation（隔离性或独立性）、Durability（持久性）</p>
+<ul>
+<li>1、<strong>原子性：</strong>一组事务，要么成功；要么撤回，即事务在执行过程中出错会回滚到事务开始前的状态。</li>
+<li>2、<strong>一致性</strong> ： 一个事务不论是开始前还是结束后，数据库的完整性都没有被破坏。因此写入的数据必须完全符合所有预设规则（资料精确度、串联性以及后续数据库能够自发完成预定工作）。</li>
+<li>3、<strong>隔离性：</strong>数据库允许多个事务并发的同时对其数据进行读写修改等操作，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离可分为：Read uncommitted（读未提交）、Read committed（读提交）、Repeatable read（可重复读）、Serializable（串行化）。</li>
+<li>4、持久<strong>性：</strong>事务在处理结束后对数据做出的修改是永久的，无法丢失</li>
+</ul>
+<h4 id="事务控制语句"><a href="#事务控制语句" class="headerlink" title="事务控制语句"></a>事务控制语句</h4><p>1.显式的开始一个事务：</p>
+<p><code>start transaction</code>或者<code>begin</code></p>
+<p>2.做保存点，一个事务中可以有多个保存点：</p>
+<p><code>savepoint  [savepoint_name]</code></p>
+<p>3.提交事务，并使数据库中进行的修改成为永久性的：</p>
+<p><code>commit</code>或<code>commit work</code></p>
+<p>4.回滚结束用户的事务，并撤销正在进行的所有未提交的修改：</p>
+<p><code>rollback</code>或<code>rollback work</code></p>
+<p>5.删除一个事务的保存点，若没有指定保存点，执行该语句操作则会抛错：</p>
+<p><code>release savepoint [savepoint_name]</code></p>
+<p>6.将事务滚回标记点：</p>
+<p><code>rollback to 标记点</code></p>
+<p>7.设置事务的隔离级别。InnoDB 存储引擎提供事务的隔离级别有READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ 和 SERIALIZABLE。</p>
+<pre><code>set transaction
+</code></pre><h4 id="事务处理方法"><a href="#事务处理方法" class="headerlink" title="事务处理方法"></a>事务处理方法</h4><p>1.用 begin ， rollback ， commit 来实现事务处理。</p>
+<p>2.用 set 来改变 MySQL 的自动提交模式。</p>
+<ul>
+<li>set autocommit = 0 （禁止自动提交）。</li>
+<li>set autocommit = 1 （开启自动提交）。</li>
+</ul>
+<h3 id="MySQL-ALTER命令"><a href="#MySQL-ALTER命令" class="headerlink" title="MySQL ALTER命令"></a>MySQL ALTER命令</h3><p>当我们需要修改数据表名或者修改数据表字段时，就需要使用到MySQL ALTER命令。</p>
+<p>开始本章教程前让我们先创建一张表，表名为：testalter_tbl。</p>
+<pre><code class="lang-mysql">create table testalter_tbl(
+    i INT,
+    c CHAR(1)
+    );
+</code></pre>
+<p><code>SHOW COLUMNS FROM testalter_tbl;</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Null</th>
+<th>Key</th>
+<th>Default</th>
+<th>Extra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>int(11)</td>
+<td>YES</td>
+<td></td>
+<td>NULL</td>
+<td></td>
+</tr>
+<tr>
+<td>c</td>
+<td>char(1)</td>
+<td>YES</td>
+<td></td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="删除、添加或修改表字段"><a href="#删除、添加或修改表字段" class="headerlink" title="删除、添加或修改表字段"></a>删除、添加或修改表字段</h4><p><em>如下命令使用了 ALTER 命令及 DROP 子句来删除以上创建表的 i 字段：</em></p>
+<p><em><code>mysql&gt; ALTER TABLE testalter_tbl  DROP i;</code></em></p>
+<p><em>如果数据表中只剩余一个字段则无法使用DROP来删除字段。</em></p>
+<p><em>MySQL 中使用 ADD 子句来想数据表中添加列，如下实例在表 testalter_tbl 中添加 i 字段，并定义数据类型:</em></p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl ADD i INT;</code></p>
+<p>执行以上命令后，i 字段会自动添加到数据表字段的末尾。</p>
+<p>`mysql&gt; SHOW COLUMNS FROM testalter_tbl; </p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
+<p> <code>| Field | Type    | Null | Key | Default | Extra |</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
+<p> <code>| c     | char(1) | YES  |     | NULL    |       |</code></p>
+<p> <code>| i     | int(11) | YES  |     | NULL    |       |</code> </p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code> </p>
+<p> <code>2 rows in set (0.00 sec)</code></p>
+<p>如果你需要指定新增字段的位置，可以使用MySQL提供的关键字 FIRST (设定位第一列)， AFTER 字段名（设定位于某个字段之后）。</p>
+<p>尝试以下 ALTER TABLE 语句, 在执行成功后，使用 SHOW COLUMNS 查看表结构的变化：</p>
+<p><code>ALTER TABLE testalter_tbl DROP i;</code></p>
+<p> <code>ALTER TABLE testalter_tbl ADD i INT FIRST;</code></p>
+<p> <code>ALTER TABLE testalter_tbl DROP i;</code> </p>
+<p> <code>ALTER TABLE testalter_tbl ADD i INT AFTER c;</code></p>
+<p>FIRST 和 AFTER 关键字只占用于 ADD 子句，所以如果你想重置数据表字段的位置就需要先使用 DROP 删除字段然后使用 ADD 来添加字段并设置位置。</p>
+<h4 id="修改字段类型及名称"><a href="#修改字段类型及名称" class="headerlink" title="修改字段类型及名称"></a>修改字段类型及名称</h4><p>如果需要修改字段类型及名称, 你可以在ALTER命令中使用 MODIFY 或 CHANGE 子句 。</p>
+<p>例如，把字段 c 的类型从 CHAR(1) 改为 CHAR(10)，可以执行以下命令:</p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl MODIFY c CHAR(10);</code></p>
+<p> 使用 CHANGE 子句, 语法有很大的不同。 在 CHANGE 关键字之后，紧跟着的是你要修改的字段名，然后指定新字段的类型及名称。尝试如下实例：</p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl CHANGE i j BIGINT;</code></p>
+<p>如果你现在想把字段 j 从 BIGINT 修改为 INT，SQL语句如下：</p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl CHANGE j j INT;</code></p>
+<h4 id="ALTER-TABLE-对-Null-值和默认值的影响"><a href="#ALTER-TABLE-对-Null-值和默认值的影响" class="headerlink" title="ALTER TABLE 对 Null 值和默认值的影响"></a>ALTER TABLE 对 Null 值和默认值的影响</h4><p>当你修改字段时，你可以指定是否包含只或者是否设置默认值。以下实例，指定字段 j 为 NOT NULL 且默认值为100 。</p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl</code></p>
+<p>​        <code>-&gt; MODIFY j BIGINT NOT NULL DEFAULT 100;</code></p>
+<p>如果你不设置默认值，MySQL会自动设置该字段默认为 NULL。</p>
+<h4 id="修改字段默认值"><a href="#修改字段默认值" class="headerlink" title="修改字段默认值"></a>修改字段默认值</h4><p>你可以使用 ALTER 来修改字段的默认值，尝试以下实例：</p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl ALTER i SET DEFAULT 1000;</code></p>
+<p><code>mysql&gt; SHOW COLUMNS FROM testalter_tbl;</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
+<p> <code>| Field | Type    | Null | Key | Default | Extra |</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code> </p>
+<p> <code>| c     | char(1) | YES  |     | NULL    |       |</code></p>
+<p> <code>| i     | int(11) | YES  |     | 1000    |       |</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
+<p> <code>2 rows in set (0.00 sec)</code></p>
+<p>你也可以使用 ALTER 命令及 DROP子句来删除字段的默认值，如下实例：</p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl ALTER i DROP DEFAULT;</code></p>
+<p> <code>mysql&gt; SHOW COLUMNS FROM testalter_tbl;</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
+<p> <code>| Field | Type    | Null | Key | Default | Extra |</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code> </p>
+<p> <code>| c     | char(1) | YES  |     | NULL    |       |</code></p>
+<p> <code>| i     | int(11) | YES  |     | NULL    |       |</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
+<p> <code>2 rows in set (0.00 sec) Changing a Table Type:</code></p>
+<p>修改数据表类型，可以使用 ALTER 命令及 TYPE 子句来完成。尝试以下实例，我们将表 testalter_tbl 的类型修改为 MYISAM ：<strong>注意：</strong>查看数据表类型可以使用 SHOW TABLE STATUS 语句。*</p>
+<pre><code>mysql&gt; ALTER TABLE testalter_tbl TYPE = MYISAM;
+mysql&gt;  SHOW TABLE STATUS LIKE 'testalter_tbl'\G
+ 1. row **
+           Name: testalter_tbl
+           Type: MyISAM
+     Row_format: Fixed
+           Rows: 0
+ Avg_row_length: 0
+    Data_length: 0
+Max_data_length: 25769803775
+   Index_length: 1024
+      Data_free: 0
+ Auto_increment: NULL
+    Create_time: 2007-06-03 08:04:36
+    Update_time: 2007-06-03 08:04:36
+     Check_time: NULL
+ Create_options:
+        Comment:
+1 row in set (0.00 sec)
+</code></pre><h4 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h4><p>如果需要修改数据表的名称，可以在 ALTER TABLE 语句中使用 RENAME 子句来实现。</p>
+<p>尝试以下实例将数据表 testalter_tbl 重命名为 alter_tbl：</p>
+<pre><code>mysql&gt; ALTER TABLE testalter_tbl RENAME TO alter_tbl;
+</code></pre><h3 id="MySQL索引"><a href="#MySQL索引" class="headerlink" title="MySQL索引"></a>MySQL索引</h3><p>MySQL索引的建立对于MySQL的高效运行是很重要的，索引可以大大提高MySQL的检索速度。</p>
+<p>打个比方，如果合理的设计且使用索引的MySQL是一辆兰博基尼的话，那么没有设计和使用索引的MySQL就是一个人力三轮车。</p>
+<p>拿汉语字典的目录页（索引）打比方，我们可以按拼音、笔画、偏旁部首等排序的目录（索引）快速查找到需要的字。</p>
+<p>索引分单列索引和组合索引。单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。组合索引，即一个索引包含多个列。</p>
+<p>创建索引时，你需要确保该索引是应用在 SQL 查询语句的条件(一般作为 WHERE 子句的条件)。</p>
+<p>实际上，索引也是一张表，该表保存了主键与索引字段，并指向实体表的记录。</p>
+<p>上面都在说使用索引的好处，但过多的使用索引将会造成滥用。因此索引也会有它的缺点：虽然索引大大提高了查询速度，同时却会降低更新表的速度，如对表进行INSERT、UPDATE和DELETE。因为更新表时，MySQL不仅要保存数据，还要保存一下索引文件。</p>
+<p>建立索引会占用磁盘空间的索引文件。</p>
+<h4 id="普通索引"><a href="#普通索引" class="headerlink" title="普通索引"></a>普通索引</h4><p>创建索引</p>
+<p>这是最基本的索引，它没有任何限制。它有以下几种创建方式：</p>
+<pre><code>CREATE INDEX indexName ON mytable(username(length));
+</code></pre><p>如果是CHAR，VARCHAR类型，length可以小于字段实际长度；如果是BLOB和TEXT类型，必须指定 length。</p>
+<p>修改表结构(添加索引)</p>
+<pre><code>ALTER table tableName ADD INDEX indexName(columnName)
+</code></pre><p>创建表的时候直接指定</p>
+<pre><code>CREATE TABLE mytable(  
+
+ID INT NOT NULL,   
+
+username VARCHAR(16) NOT NULL,  
+
+INDEX [indexName] (username(length))  
+
+);
+</code></pre><p>删除索引的语法</p>
+<pre><code>DROP INDEX [indexName] ON mytable;
+</code></pre><h4 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h4><p>它与前面的普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。它有以下几种创建方式：</p>
+<p>创建索引</p>
+<pre><code>CREATE UNIQUE INDEX indexName ON mytable(username(length))
+</code></pre><p>修改表结构</p>
+<pre><code>ALTER table mytable ADD UNIQUE [indexName] (username(length))
+</code></pre><p>创建表的时候直接指定</p>
+<pre><code>CREATE TABLE mytable(  
+
+ID INT NOT NULL,   
+
+username VARCHAR(16) NOT NULL,  
+
+UNIQUE [indexName] (username(length))  
+
+);
+</code></pre><p>使用ALTER 命令添加和删除索引</p>
+<p>有四种方式来添加数据表的索引：</p>
+<ul>
+<li>ALTER TABLE tbl_name ADD PRIMARY KEY (column_list): 该语句添加一个主键，这意味着索引值必须是唯一的，且不能为NULL。</li>
+<li>ALTER TABLE tbl_name ADD UNIQUE index_name (column_list): 这条语句创建索引的值必须是唯一的（除了NULL外，NULL可能会出现多次）。</li>
+<li>ALTER TABLE tbl_name ADD INDEX index_name (column_list): 添加普通索引，索引值可出现多次。</li>
+<li>ALTER TABLE tbl_name ADD FULLTEXT index_name (column_list):该语句指定了索引为 FULLTEXT ，用于全文索引。</li>
+</ul>
+<p>以下实例为在表中添加索引。</p>
+<pre><code>mysql&gt; ALTER TABLE testalter_tbl ADD INDEX (c);
+</code></pre><p>你还可以在 ALTER 命令中使用 DROP 子句来删除索引。尝试以下实例删除索引:</p>
+<pre><code>mysql&gt; ALTER TABLE testalter_tbl DROP INDEX c;
+</code></pre><p>使用 ALTER 命令添加和删除主键</p>
+<p>主键只能作用于一个列上，添加主键索引时，你需要确保该主键默认不为空（NOT NULL）。实例如下：</p>
+<pre><code>mysql&gt; ALTER TABLE testalter_tbl MODIFY i INT NOT NULL;
+mysql&gt; ALTER TABLE testalter_tbl ADD PRIMARY KEY (i);
+</code></pre><p>你也可以使用 ALTER 命令删除主键：</p>
+<pre><code>mysql&gt; ALTER TABLE testalter_tbl DROP PRIMARY KEY;
+</code></pre><p>删除主键时只需指定PRIMARY KEY，但在删除索引时，你必须知道索引名。</p>
+<p>显示索引信息</p>
+<p>你可以使用 SHOW INDEX 命令来列出表中的相关的索引信息。可以通过添加 \G 来格式化输出信息。</p>
+<p>尝试以下实例:</p>
+<pre><code>mysql&gt; SHOW INDEX FROM table_name; \G
+........
+</code></pre><h3 id="MySQL临时表"><a href="#MySQL临时表" class="headerlink" title="MySQL临时表"></a>MySQL临时表</h3><p>MySQL 临时表在我们需要保存一些临时数据时是非常有用的。临时表只在当前连接可见，当关闭连接时，MySQL会自动删除表并释放所有空间。</p>
+<p>临时表在MySQL 3.23版本中添加，如果你的MySQL版本低于 3.23版本就无法使用MySQL的临时表。不过现在一般很少有再使用这么低版本的MySQL数据库服务了。</p>
+<p>MySQL临时表只在当前连接可见，如果你使用PHP脚本来创建MySQL临时表，那每当PHP脚本执行完成后，该临时表也会自动销毁。</p>
+<p>如果你使用了其他MySQL客户端程序连接MySQL数据库服务器来创建临时表，那么只有在关闭客户端程序时才会销毁临时表，当然你也可以手动销毁。</p>
+<p>实例</p>
+<p>以下展示了使用MySQL 临时表的简单实例，以下的SQL代码可以适用于PHP脚本的mysql_query()函数。</p>
+<pre><code class="lang-mysql">mysql&gt; CREATE TEMPORARY TABLE SalesSummary (
+    -&gt; product_name VARCHAR(50) NOT NULL
+    -&gt; , total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00
+    -&gt; , avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00
+    -&gt; , total_units_sold INT UNSIGNED NOT NULL DEFAULT 0
+);
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; INSERT INTO SalesSummary
+    -&gt; (product_name, total_sales, avg_unit_price, total_units_sold)
+    -&gt; VALUES
+    -&gt; ('cucumber', 100.25, 90, 2);
+
+mysql&gt; SELECT * FROM SalesSummary;
++--------------+-------------+----------------+------------------+
+| product_name | total_sales | avg_unit_price | total_units_sold |
++--------------+-------------+----------------+------------------+
+| cucumber     |      100.25 |          90.00 |                2 |
++--------------+-------------+----------------+------------------+
+1 row in set (0.00 sec)
+</code></pre>
+<p>当你使用 <strong>SHOW TABLES</strong>命令显示数据表列表时，你将无法看到 SalesSummary表。</p>
+<p>如果你退出当前MySQL会话，再使用 <strong>SELECT</strong>命令来读取原先创建的临时表数据，那你会发现数据库中没有该表的存在，因为在你退出时该临时表已经被销毁了。</p>
+<p>删除MySQL 临时表</p>
+<p>默认情况下，当你断开与数据库的连接后，临时表就会自动被销毁。当然你也可以在当前MySQL会话使用 <strong>DROP TABLE</strong> 命令来手动删除临时表。</p>
+<p>以下是手动删除临时表的实例：</p>
+<pre><code class="lang-mysql">mysql&gt; CREATE TEMPORARY TABLE SalesSummary (
+    -&gt; product_name VARCHAR(50) NOT NULL
+    -&gt; , total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00
+    -&gt; , avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00
+    -&gt; , total_units_sold INT UNSIGNED NOT NULL DEFAULT 0
+);
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; INSERT INTO SalesSummary
+    -&gt; (product_name, total_sales, avg_unit_price, total_units_sold)
+    -&gt; VALUES
+    -&gt; ('cucumber', 100.25, 90, 2);
+
+mysql&gt; SELECT * FROM SalesSummary;
++--------------+-------------+----------------+------------------+
+| product_name | total_sales | avg_unit_price | total_units_sold |
++--------------+-------------+----------------+------------------+
+| cucumber     |      100.25 |          90.00 |                2 |
++--------------+-------------+----------------+------------------+
+1 row in set (0.00 sec)
+mysql&gt; DROP TABLE SalesSummary;
+mysql&gt;  SELECT * FROM SalesSummary;
+ERROR 1146: Table 'W3CSCHOOL.SalesSummary' doesn't exist
+</code></pre>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>rss学习笔记</title>
     <url>/zh-CN/RSS/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -4135,21 +4150,6 @@ plt.show()
       <tags>
         <tag>学习笔记</tag>
         <tag>rss</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RFBNet论文笔记</title>
-    <url>/zh-CN/RFBNet/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://openaccess.thecvf.com/content_ECCV_2018/papers/Songtao_Liu_Receptive_Field_Block_ECCV_2018_paper.pdf">Receptive Field Block Net for Accurate and Fast Object Detection (thecvf.com)</a></p>
-<p>代码地址：<a href="https://github.com/ruinmessi/RFBNet">https://github.com/ruinmessi/RFBNet</a></p>
-<h4 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h4><p>RFB模块是怎么考虑感受野尺寸和离心率之间的关系的？</p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>论文笔记</tag>
-        <tag>RFBNet</tag>
       </tags>
   </entry>
   <entry>
@@ -5480,6 +5480,15 @@ def set_optimizer_lr(optimizer, lr_scheduler_func, epoch):
         <tag>SSD</tag>
         <tag>损失函数</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Sanderson the Man 1</title>
+    <url>/zh-CN/The_story_of_a_great_schoolmaster/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Of all the men I have met—and I have now had a fairly long and active life and have met a very great variety of interesting people—one only has stirred me to a biographical effort. This one exception is F. W. Sanderson, for many years the headmaster of Oundle School. I think him beyond question the greatest man I have ever known with any degree of <a href="http://dict.qsbdc.com/intimacy"><strong>intimacy</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_1">1</a>, and it is in the hope of conveying to others something of my sense not merely of his importance, but of his <a href="http://dict.qsbdc.com/peculiar"><strong>peculiar</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_2">2</a> genius and the rich humanity of his character, that I am setting out to write this book. He was in himself a very delightful[Pg 2] mixture of <a href="http://dict.qsbdc.com/subtlety"><strong>subtlety</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_3">3</a> and <a href="http://dict.qsbdc.com/simplicity"><strong>simplicity</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_4">4</a>, <a href="http://dict.qsbdc.com/generosity"><strong>generosity</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_5">5</a>, <a href="http://dict.qsbdc.com/adventurousness"><strong>adventurousness</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_6">6</a>, imagination and <a href="http://dict.qsbdc.com/steadfast"><strong>steadfast</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_7">7</a> purpose, and he approached the general life of our time at such an angle as to reflect the most curious and profitable lights upon it. To tell his story is to reflect upon all the main educational ideas of the last half-century, and to revise our conception of the process and purpose of the modern community in relation to education. For Sanderson had a mind like an <a href="http://dict.qsbdc.com/octopus"><strong>octopus</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_8">8</a>, it seemed always to have a <a href="http://dict.qsbdc.com/tentacle"><strong>tentacle</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_9">9</a> free to reach out beyond what was already held, and his <a href="http://dict.qsbdc.com/tentacles"><strong>tentacles</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_10">10</a> grew and radiated farther and farther. Before his end he had come to a vision of the school as a centre for the complete reorganisation of civilised life.</p>
+]]></content>
+      <categories>
+        <category>novel</category>
+      </categories>
   </entry>
   <entry>
     <title>vision transformer论文笔记</title>
@@ -6958,15 +6967,6 @@ class YOLOLoss(nn.Module):
       </tags>
   </entry>
   <entry>
-    <title>Sanderson the Man 1</title>
-    <url>/zh-CN/The_story_of_a_great_schoolmaster/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Of all the men I have met—and I have now had a fairly long and active life and have met a very great variety of interesting people—one only has stirred me to a biographical effort. This one exception is F. W. Sanderson, for many years the headmaster of Oundle School. I think him beyond question the greatest man I have ever known with any degree of <a href="http://dict.qsbdc.com/intimacy"><strong>intimacy</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_1">1</a>, and it is in the hope of conveying to others something of my sense not merely of his importance, but of his <a href="http://dict.qsbdc.com/peculiar"><strong>peculiar</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_2">2</a> genius and the rich humanity of his character, that I am setting out to write this book. He was in himself a very delightful[Pg 2] mixture of <a href="http://dict.qsbdc.com/subtlety"><strong>subtlety</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_3">3</a> and <a href="http://dict.qsbdc.com/simplicity"><strong>simplicity</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_4">4</a>, <a href="http://dict.qsbdc.com/generosity"><strong>generosity</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_5">5</a>, <a href="http://dict.qsbdc.com/adventurousness"><strong>adventurousness</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_6">6</a>, imagination and <a href="http://dict.qsbdc.com/steadfast"><strong>steadfast</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_7">7</a> purpose, and he approached the general life of our time at such an angle as to reflect the most curious and profitable lights upon it. To tell his story is to reflect upon all the main educational ideas of the last half-century, and to revise our conception of the process and purpose of the modern community in relation to education. For Sanderson had a mind like an <a href="http://dict.qsbdc.com/octopus"><strong>octopus</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_8">8</a>, it seemed always to have a <a href="http://dict.qsbdc.com/tentacle"><strong>tentacle</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_9">9</a> free to reach out beyond what was already held, and his <a href="http://dict.qsbdc.com/tentacles"><strong>tentacles</strong></a><a href="http://novel.tingroom.com/jingdian/5031/128151.html#_w_10">10</a> grew and radiated farther and farther. Before his end he had come to a vision of the school as a centre for the complete reorganisation of civilised life.</p>
-]]></content>
-      <categories>
-        <category>novel</category>
-      </categories>
-  </entry>
-  <entry>
     <title>CenterNet论文笔记</title>
     <url>/zh-CN/centernet/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>论文地址：<a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Duan_CenterNet_Keypoint_Triplets_for_Object_Detection_ICCV_2019_paper.pdf">CenterNet: Keypoint Triplets for Object Detection (thecvf.com)</a></p>
@@ -7944,6 +7944,22 @@ class YOLOLoss(nn.Module):
       <tags>
         <tag>论文笔记</tag>
         <tag>yolov5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Concat和add的区别</title>
+    <url>/zh-CN/concat_add/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://openreview.net/pdf?id=q2ZaVU6bEsT">https://openreview.net/pdf?id=q2ZaVU6bEsT</a></p>
+<p>今天偶然看到了这篇论文，论文里有一部分讲到了concat,add还有自适应的关系，很感兴趣，记录下来。</p>
+<p><img src="/zh-CN/concat_add/image-20220508171742020.png" class="lazyload" data-srcset="/zh-CN/concat_add/image-20220508171742020.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220508171742020" style="zoom:50%;"></p>
+<p>方法（a）和（c）分别是加权融合和连接操作。即在空间和通道维度上直接添加特征图。方法（b）是一种自适应融合方法。具体来说，假设输入的大小可以表示为（bs，C，H，W），我们可以通过卷积运算得到（bs，3，H，W）的空间自适应权重，连接和 Softmax。三个通道与三个输入一一对应，通过计算加权和可以将上下文信息聚合到输出。</p>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>Concat&amp;add</tag>
       </tags>
   </entry>
   <entry>
@@ -9398,22 +9414,6 @@ myChart.on(&#39;legendselectchanged&#39;, function (params) &#123;
       </tags>
   </entry>
   <entry>
-    <title>Concat和add的区别</title>
-    <url>/zh-CN/concat_add/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://openreview.net/pdf?id=q2ZaVU6bEsT">https://openreview.net/pdf?id=q2ZaVU6bEsT</a></p>
-<p>今天偶然看到了这篇论文，论文里有一部分讲到了concat,add还有自适应的关系，很感兴趣，记录下来。</p>
-<p><img src="/zh-CN/concat_add/image-20220508171742020.png" class="lazyload" data-srcset="/zh-CN/concat_add/image-20220508171742020.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220508171742020" style="zoom:50%;"></p>
-<p>方法（a）和（c）分别是加权融合和连接操作。即在空间和通道维度上直接添加特征图。方法（b）是一种自适应融合方法。具体来说，假设输入的大小可以表示为（bs，C，H，W），我们可以通过卷积运算得到（bs，3，H，W）的空间自适应权重，连接和 Softmax。三个通道与三个输入一一对应，通过计算加权和可以将上下文信息聚合到输出。</p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>Concat&amp;add</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>epoch和iteration的区别</title>
     <url>/zh-CN/epoch%E5%92%8Citeration%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -9482,31 +9482,6 @@ myChart.on(&#39;legendselectchanged&#39;, function (params) &#123;
       <tags>
         <tag>使用指南</tag>
         <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/zh-CN/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="lang-bash">$ hexo new "My New Post"
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="lang-bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="lang-bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="lang-bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>Hexo博客搭建</category>
-      </categories>
-      <tags>
-        <tag>博客搭建</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -9697,6 +9672,31 @@ if __name__ == '__main__':
       <tags>
         <tag>论文笔记</tag>
         <tag>grad-cam</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/zh-CN/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="lang-bash">$ hexo new "My New Post"
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="lang-bash">$ hexo server
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="lang-bash">$ hexo generate
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="lang-bash">$ hexo deploy
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>Hexo博客搭建</category>
+      </categories>
+      <tags>
+        <tag>博客搭建</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -10677,6 +10677,41 @@ $(document).ready(function() {
 ]]></content>
   </entry>
   <entry>
+    <title>Remove Element</title>
+    <url>/zh-CN/leetcode01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原文链接：<a href="https://siddontang.gitbooks.io/leetcode-solution/content/array/remove_element.html">Remove Element · LeetCode题解 </a></p>
+<p>题目：Given an array and a value, remove all instances of that &gt; value in place and return the new length.</p>
+<p>The order of elements can be changed. It doesn’t matter what you leave beyond the new length.</p>
+<p>作为开胃菜，我当然选取了最容易的一道题目，在一个数组里面移除指定value，并且返回新的数组长度。这题唯一需要注意的地方在于<code>in place</code>，不能新建另一个数组。</p>
+<p>方法很简单，使用两个游标i，j，遍历数组，如果碰到了value，使用j记录位置，同时递增i，直到下一个非value出现，将此时i对应的值复制到j的位置上，增加j，重复上述过程直到遍历结束。这时候j就是新的数组长度。</p>
+<p>题解：</p>
+<pre><code class="lang-c++">class Solution{
+public:
+    int removeElement(int A[], int n, int elem){
+        int i=0;
+        int j=0;
+        for(i=0;i&lt;n;i++){
+            if(A[i]==elem){
+                continue;
+            }
+            A[j]=A[i];
+            j++;
+        }
+        return j;
+    }
+
+};
+</code></pre>
+<p>举一个最简单的例子，譬如数组为1，2，2，3，2，4，我们需要删除2，首先初始化i和j为0，指向第一个位置，因为第一个元素为1，所以A[0] = A[0]，i和j都加1，而第二个元素为2，我们递增i，直到碰到3，此时A[1] = A[3]，也就是3，递增i和j，这时候下一个元素又是2，递增i，直到碰到4，此时A[2] = A[5]，也就是4，再次递增i和j，这时候数组已经遍历完毕，结束。这时候j的值为3，刚好就是新的数组的长度。</p>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>力扣题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>nn.relu和F.relu的区别</title>
     <url>/zh-CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -10720,83 +10755,6 @@ class AlexNet_2(nn.Module):
       <tags>
         <tag>函数库</tag>
         <tag>relu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Remove Element</title>
-    <url>/zh-CN/leetcode01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原文链接：<a href="https://siddontang.gitbooks.io/leetcode-solution/content/array/remove_element.html">Remove Element · LeetCode题解 </a></p>
-<p>题目：Given an array and a value, remove all instances of that &gt; value in place and return the new length.</p>
-<p>The order of elements can be changed. It doesn’t matter what you leave beyond the new length.</p>
-<p>作为开胃菜，我当然选取了最容易的一道题目，在一个数组里面移除指定value，并且返回新的数组长度。这题唯一需要注意的地方在于<code>in place</code>，不能新建另一个数组。</p>
-<p>方法很简单，使用两个游标i，j，遍历数组，如果碰到了value，使用j记录位置，同时递增i，直到下一个非value出现，将此时i对应的值复制到j的位置上，增加j，重复上述过程直到遍历结束。这时候j就是新的数组长度。</p>
-<p>题解：</p>
-<pre><code class="lang-c++">class Solution{
-public:
-    int removeElement(int A[], int n, int elem){
-        int i=0;
-        int j=0;
-        for(i=0;i&lt;n;i++){
-            if(A[i]==elem){
-                continue;
-            }
-            A[j]=A[i];
-            j++;
-        }
-        return j;
-    }
-
-};
-</code></pre>
-<p>举一个最简单的例子，譬如数组为1，2，2，3，2，4，我们需要删除2，首先初始化i和j为0，指向第一个位置，因为第一个元素为1，所以A[0] = A[0]，i和j都加1，而第二个元素为2，我们递增i，直到碰到3，此时A[1] = A[3]，也就是3，递增i和j，这时候下一个元素又是2，递增i，直到碰到4，此时A[2] = A[5]，也就是4，再次递增i和j，这时候数组已经遍历完毕，结束。这时候j的值为3，刚好就是新的数组的长度。</p>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>力扣题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>pip换源</title>
-    <url>/zh-CN/pip%E6%8D%A2%E6%BA%90/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>由于使用pip或pip3安装python第三方包时，经常出现read timed out问题，所以需要将pip的官方软件源服务器换成国内的镜像服务器，从而提升python软件包安装效率和成功率，pip 国内的一些镜像：</p>
-<ul>
-<li>阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></li>
-<li>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></li>
-<li>豆瓣(douban) <a href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a></li>
-<li>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></li>
-<li>中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/">http://pypi.mirrors.ustc.edu.cn/simple/</a></li>
-</ul>
-<h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><h3 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h3><p>可以在使用 pip 的时候在后面加上-i 参数，指定 pip 源</p>
-<pre><code>eg: pip install scrapy -i https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre><h3 id="永久修改"><a href="#永久修改" class="headerlink" title="永久修改"></a>永久修改</h3><h4 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h4><p>修改 ~/.pip/pip.conf (没有就创建一个文件夹及文件，文件夹要加“.”，表示是隐藏文件夹)， 内容如下：</p>
-<pre><code class="lang-python">[global]
-index-url = https://pypi.tuna.tsinghua.edu.cn/simple
-[install]
-trusted-host = https://pypi.tuna.tsinghua.edu.cn
-</code></pre>
-<h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><p>1.pip永久换源</p>
-<pre><code class="lang-python">pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
-</code></pre>
-<p>在cmd命令行中输入上述命令即可。</p>
-<p>最后，升级 pip 到最新的版本</p>
-<pre><code class="lang-python">pip install pip -U
-</code></pre>
-<pre><code class="lang-python">python -m pip install --user --upgrade pip
-</code></pre>
-<p>2.直接在 user 目录中创建一个 pip 目录，如：C:\Users\xx\pip，在 pip 目录下新建文件 pip.ini，即 %HOMEPATH%\pip\pip.ini，内容如下：</p>
-<pre><code>[global]
-index-url = https://pypi.tuna.tsinghua.edu.cn/simple
-[install]
-trusted-host = pypi.tuna.tsinghua.edu.cn
-</code></pre><p>可以在开始运行里面输入三个点 <code>...</code>，敲回车即可打开用户目录。</p>
-]]></content>
-      <categories>
-        <category>pytorch</category>
-      </categories>
-      <tags>
-        <tag>pip换源</tag>
       </tags>
   </entry>
   <entry>
@@ -10873,6 +10831,48 @@ x1_new = x1[np.newaxis,:]
       <tags>
         <tag>函数库</tag>
         <tag>newaxis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pip换源</title>
+    <url>/zh-CN/pip%E6%8D%A2%E6%BA%90/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>由于使用pip或pip3安装python第三方包时，经常出现read timed out问题，所以需要将pip的官方软件源服务器换成国内的镜像服务器，从而提升python软件包安装效率和成功率，pip 国内的一些镜像：</p>
+<ul>
+<li>阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></li>
+<li>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></li>
+<li>豆瓣(douban) <a href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a></li>
+<li>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></li>
+<li>中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/">http://pypi.mirrors.ustc.edu.cn/simple/</a></li>
+</ul>
+<h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><h3 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h3><p>可以在使用 pip 的时候在后面加上-i 参数，指定 pip 源</p>
+<pre><code>eg: pip install scrapy -i https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre><h3 id="永久修改"><a href="#永久修改" class="headerlink" title="永久修改"></a>永久修改</h3><h4 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h4><p>修改 ~/.pip/pip.conf (没有就创建一个文件夹及文件，文件夹要加“.”，表示是隐藏文件夹)， 内容如下：</p>
+<pre><code class="lang-python">[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host = https://pypi.tuna.tsinghua.edu.cn
+</code></pre>
+<h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><p>1.pip永久换源</p>
+<pre><code class="lang-python">pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+</code></pre>
+<p>在cmd命令行中输入上述命令即可。</p>
+<p>最后，升级 pip 到最新的版本</p>
+<pre><code class="lang-python">pip install pip -U
+</code></pre>
+<pre><code class="lang-python">python -m pip install --user --upgrade pip
+</code></pre>
+<p>2.直接在 user 目录中创建一个 pip 目录，如：C:\Users\xx\pip，在 pip 目录下新建文件 pip.ini，即 %HOMEPATH%\pip\pip.ini，内容如下：</p>
+<pre><code>[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host = pypi.tuna.tsinghua.edu.cn
+</code></pre><p>可以在开始运行里面输入三个点 <code>...</code>，敲回车即可打开用户目录。</p>
+]]></content>
+      <categories>
+        <category>pytorch</category>
+      </categories>
+      <tags>
+        <tag>pip换源</tag>
       </tags>
   </entry>
   <entry>
@@ -11085,6 +11085,45 @@ class Model(nn.Module):
       </tags>
   </entry>
   <entry>
+    <title>ubuntu软件安装的问题总结</title>
+    <url>/zh-CN/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考链接：</p>
+<p>1.<a href="https://blog.csdn.net/zeye5731/article/details/124478766">ubuntu安装软件时，status-code=409报错解决方案</a></p>
+<p>2.<a href="https://blog.csdn.net/qq_37006829/article/details/112428179?spm=1001.2101.3001.6661.1&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-112428179-blog-124478766.pc_relevant_multi_platform_whitelistv4&amp;utm_relevant_index=1"> 解决ubuntu软件商店无法安装软件提示snap问题</a></p>
+<p>今天一大早上想去虚拟机上（Linux）看看昨天晚上没安装的软件，给重新安装一下，打开软件商店，结果遇到两个问题，昨天晚上我是用软件更新器安装了一会就退出关闭了</p>
+<p>issue1:</p>
+<p>安装火狐浏览器时，显示<code>无法安装更新，status-code=409</code></p>
+<p>解决方案：</p>
+<pre><code class="lang-commonlisp">(base) z@E580:~$ snap changes
+ID   Status  Spawn                     Ready                     Summary
+6    Done    6 days ago, at 16:03 CST  6 days ago, at 16:04 CST  自动刷新 snap "snapd"
+7    Doing   today at 16:40 CST        -                         Install "xmind" snap from "latest/stable" channel
+</code></pre>
+<p>找到正在安装的软件，将其强行关闭</p>
+<pre><code class="lang-commonlisp">(base) z@E580:~$ snap abort 7
+</code></pre>
+<p>重新安装</p>
+<p>issue2:</p>
+<p><img src="/zh-CN/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/c89ffdc107df9a4e9185e7d51d5a8a21.png" class="lazyload" data-srcset="/zh-CN/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/c89ffdc107df9a4e9185e7d51d5a8a21.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>原因是我们之前安装软件的时候没有安装完成就推出软件商店了，他已经安装了，只是没有安装完成而以，</p>
+<p>解决办法：</p>
+<p>1.查看安装详情：</p>
+<pre><code>snap changes
+</code></pre><p><img src="/zh-CN/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/d9085116a96c5c63859c5259fa0230bb.png" class="lazyload" data-srcset="/zh-CN/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/d9085116a96c5c63859c5259fa0230bb.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>ID7的进程是我之前安装失败的</p>
+<p>2.清除当前安装，然后再重新安装，命令如下：</p>
+<pre><code>snap abort 7
+</code></pre><p>3.重新去软件商店安装</p>
+<p>其实，还有另外一种办法，就是重新去软件更新器安装，继续完成更新，没有必要去软件商店更新，希望对你有所启发</p>
+]]></content>
+      <categories>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>软件安装</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>typora数学公式教程</title>
     <url>/zh-CN/typora%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -11136,45 +11175,6 @@ Qt5Agg
       </categories>
       <tags>
         <tag>matplotlib</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ubuntu软件安装的问题总结</title>
-    <url>/zh-CN/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考链接：</p>
-<p>1.<a href="https://blog.csdn.net/zeye5731/article/details/124478766">ubuntu安装软件时，status-code=409报错解决方案</a></p>
-<p>2.<a href="https://blog.csdn.net/qq_37006829/article/details/112428179?spm=1001.2101.3001.6661.1&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-112428179-blog-124478766.pc_relevant_multi_platform_whitelistv4&amp;utm_relevant_index=1"> 解决ubuntu软件商店无法安装软件提示snap问题</a></p>
-<p>今天一大早上想去虚拟机上（Linux）看看昨天晚上没安装的软件，给重新安装一下，打开软件商店，结果遇到两个问题，昨天晚上我是用软件更新器安装了一会就退出关闭了</p>
-<p>issue1:</p>
-<p>安装火狐浏览器时，显示<code>无法安装更新，status-code=409</code></p>
-<p>解决方案：</p>
-<pre><code class="lang-commonlisp">(base) z@E580:~$ snap changes
-ID   Status  Spawn                     Ready                     Summary
-6    Done    6 days ago, at 16:03 CST  6 days ago, at 16:04 CST  自动刷新 snap "snapd"
-7    Doing   today at 16:40 CST        -                         Install "xmind" snap from "latest/stable" channel
-</code></pre>
-<p>找到正在安装的软件，将其强行关闭</p>
-<pre><code class="lang-commonlisp">(base) z@E580:~$ snap abort 7
-</code></pre>
-<p>重新安装</p>
-<p>issue2:</p>
-<p><img src="/zh-CN/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/c89ffdc107df9a4e9185e7d51d5a8a21.png" class="lazyload" data-srcset="/zh-CN/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/c89ffdc107df9a4e9185e7d51d5a8a21.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>原因是我们之前安装软件的时候没有安装完成就推出软件商店了，他已经安装了，只是没有安装完成而以，</p>
-<p>解决办法：</p>
-<p>1.查看安装详情：</p>
-<pre><code>snap changes
-</code></pre><p><img src="/zh-CN/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/d9085116a96c5c63859c5259fa0230bb.png" class="lazyload" data-srcset="/zh-CN/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/d9085116a96c5c63859c5259fa0230bb.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>ID7的进程是我之前安装失败的</p>
-<p>2.清除当前安装，然后再重新安装，命令如下：</p>
-<pre><code>snap abort 7
-</code></pre><p>3.重新去软件商店安装</p>
-<p>其实，还有另外一种办法，就是重新去软件更新器安装，继续完成更新，没有必要去软件商店更新，希望对你有所启发</p>
-]]></content>
-      <categories>
-        <category>ubuntu</category>
-      </categories>
-      <tags>
-        <tag>软件安装</tag>
       </tags>
   </entry>
   <entry>
@@ -11260,18 +11260,6 @@ vis2.line(X=x,Y=y,win='polynomial',name = 'this is new trace',update='append')
       </tags>
   </entry>
   <entry>
-    <title>wandb</title>
-    <url>/zh-CN/wandb/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>未完待续，后面补充</p>
-]]></content>
-      <categories>
-        <category>计算机视觉</category>
-      </categories>
-      <tags>
-        <tag>可视化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>vue3学习笔记</title>
     <url>/zh-CN/vue3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
@@ -11281,6 +11269,18 @@ vis2.line(X=x,Y=y,win='polynomial',name = 'this is new trace',update='append')
       <tags>
         <tag>学习笔记</tag>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>wandb</title>
+    <url>/zh-CN/wandb/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>未完待续，后面补充</p>
+]]></content>
+      <categories>
+        <category>计算机视觉</category>
+      </categories>
+      <tags>
+        <tag>可视化</tag>
       </tags>
   </entry>
   <entry>
@@ -11307,6 +11307,19 @@ vis2.line(X=x,Y=y,win='polynomial',name = 'this is new trace',update='append')
       </categories>
       <tags>
         <tag>warnings</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>zetane的使用说明</title>
+    <url>/zh-CN/zetane%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>未完待续。。。</p>
+]]></content>
+      <categories>
+        <category>计算机视觉</category>
+      </categories>
+      <tags>
+        <tag>可视化</tag>
+        <tag>zetane</tag>
       </tags>
   </entry>
   <entry>
@@ -11364,19 +11377,6 @@ https://cdn.jsdelivr.net/gh/jquery/jquery/
       </tags>
   </entry>
   <entry>
-    <title>zetane的使用说明</title>
-    <url>/zh-CN/zetane%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>未完待续。。。</p>
-]]></content>
-      <categories>
-        <category>计算机视觉</category>
-      </categories>
-      <tags>
-        <tag>可视化</tag>
-        <tag>zetane</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>可视化技术</title>
     <url>/zh-CN/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -11426,62 +11426,6 @@ sudo apt-get install texlive-latex-extra
       </categories>
       <tags>
         <tag>tensorboard</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>学术搜索网站集合</title>
-    <url>/zh-CN/%E5%AD%A6%E6%9C%AF%E6%90%9C%E7%B4%A2%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>搞学术研究的必不可少的就是论文，而且是大量的论文。因此，在这里我特意把我平时用到的积累到的论文搜索网站集中到了这里，后续遇到了其他的还会继续补充。</p>
-<h2 id="谷歌学术"><a href="#谷歌学术" class="headerlink" title="谷歌学术"></a>谷歌学术</h2><p><a href="https://xs.scqylaw.com/">谷歌学术</a>是一个可以免费搜索学术文章的Google网络应用。2004年11月，Google第一次发布了Google学术搜索的试用版。该项索引包括了世界上绝大部分出版的学术期刊， 可广泛搜索学术文献的简便方法。您可以从一个位置搜索众多学科和资料来源：来自学术著作出版商、专业性社团、预印本、各大学及其他学术组织的经同行评论的文章、论文、图书、摘要和文章。Google 学术搜索可帮助您在整个学术领域中确定相关性最强的研究。</p>
-<p>相关页面如下：</p>
-<p><img src="https://img.99lb.net/images1/logo.png" class="lazyload" data-srcset="https://img.99lb.net/images1/logo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="谷歌学术搜索"></p>
-<h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><p><a href="https://github.com">github</a>于2008年4月10日正式上线，除了代码仓库托管及基本的Web管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过350万，托管版本数量也是非常之多，其中不乏知名开源项目Ruby on Rails、jQuery、python等。</p>
-<p>相关页面如下：</p>
-<p><img src="https://pic2.zhimg.com/v2-3224a8e2da3f76575baaa77e5768fcb2_1440w.jpg?source=172ae18b" class="lazyload" data-srcset="https://pic2.zhimg.com/v2-3224a8e2da3f76575baaa77e5768fcb2_1440w.jpg?source=172ae18b" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="github"></p>
-<h2 id="CVPR"><a href="#CVPR" class="headerlink" title="CVPR"></a>CVPR</h2><p>国际计算机视觉与模式识别会议（<a href="http://www.cvpapers.com/">CVPR</a>）是IEEE一年一度的学术性会议，会议的主要内容是计算机视觉与模式识别技术。CVPR是世界顶级的计算机视觉会议（三大顶会之一，另外两个是ICCV和ECCV，近年来每年有约1500名参加者，收录的论文数量一般300篇左右。本会议每年都会有固定的研讨主题，而每一年都会有公司赞助该会议并获得在会场展示的机会。</p>
-<p>相关页面如下：</p>
-<p><img src="http://www.cvpapers.com/img/cvpapers.png" class="lazyload" data-srcset="http://www.cvpapers.com/img/cvpapers.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="CVPR"></p>
-<h2 id="CVF"><a href="#CVF" class="headerlink" title="CVF"></a>CVF</h2><p><a href="https://openaccess.thecvf.com/">CVF</a>研究论文是由计算机视觉基金会提供的开放获取版本。除水印外，它们与接受的版本相同;最后发表的论文集可以在IEEE Xplore上找到。本材料的提出，以确保及时传播学术和技术工作。版权和其中的所有权利由作者或其他版权持有人保留。所有复制此信息的人都应遵守每个作者的版权所援引的条款和约束。</p>
-<h2 id="arXiv"><a href="#arXiv" class="headerlink" title="arXiv"></a>arXiv</h2><p><a href="https://arxiv.org/">arXiv</a>是一个免费分发服务和开放获取的档案，涵盖物理、数学、计算机科学、定量生物学、定量金融学、统计学、电气工程和系统科学以及经济学领域的2,040,232篇学术文章。</p>
-<h2 id="paperswithcode"><a href="#paperswithcode" class="headerlink" title="paperswithcode"></a>paperswithcode</h2><p><a href="https://paperswithcode.com/">Papers With Code</a>代码论文的任务是创建一个免费和开放的资源与机器学习论文，代码，数据集，方法和评估表。我们相信，在NLP和ML的支持下，与社区合作是最好的。这个网站上的所有内容都是公开许可的CC-BY-SA(与维基百科一样)，每个人都可以贡献——寻找“编辑”按钮!我们还运营专门的门户网站，提供天文学、物理学、计算机科学、数学和统计学的论文代码。</p>
-]]></content>
-      <categories>
-        <category>科研推荐</category>
-      </categories>
-      <tags>
-        <tag>文献工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>学习网站集合</title>
-    <url>/zh-CN/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="万门好课"><a href="#万门好课" class="headerlink" title="万门好课"></a>万门好课</h2><p><a href="https://www.wanmen.org/" title="加油吧少年">万门好课</a>是一家提供多品类原创精品课程的在线教育平台 ，课程覆盖IT与互联网类、职业成长类、经济金融类、本科学习类等领域 。 整体课程定位侧重于“用户刚需”类课程，如语言版块的出国英语考试类课程、小语种培训课程，本科学习版块的各学科基础大课，以及特色的万门通识课程包括PS、化妆等。</p>
-<h2 id="网易云课堂"><a href="#网易云课堂" class="headerlink" title="网易云课堂"></a>网易云课堂</h2><p><a href="https://study.163.com/">网易云课堂</a>立足于实用性的要求，网易云课堂与多家教育、培训机构建立合作，课程数量已达4100+，课时总数超50000,涵盖实用软件、IT与互联网、外语学习、生活家居、兴趣爱好、职场技能、金融管理、考试认证、中小学、亲子教育等十余大门类。</p>
-<h2 id="网易公开课"><a href="#网易公开课" class="headerlink" title="网易公开课"></a>网易公开课</h2><p><a href="https://open.163.com">网易公开课</a>首批1200集课程上线，其中有200多集配有中文字幕。用户可以在线免费观看来自于哈佛大学等世界级名校的公开课课程，可汗学院，TED等教育性组织的精彩视频，内容涵盖人文、社会、艺术、科学、金融等领域。 力求为爱学习的网友创造一个公开的免费课程平台，借此向外界公开招聘兼职字幕翻译。</p>
-<h2 id="爱课程网"><a href="#爱课程网" class="headerlink" title="爱课程网"></a>爱课程网</h2><p><a href="https://www.icourses.cn/home">爱课程网</a>利用现代信息技术和网络技术， 面向高校师生和社会大众。提供优质教育资源共享和个性化教学资源服务，具有资源浏览、搜索、重组、评价、课程包的导入导出、发布、互动参与和“教”“学”兼备等功能。</p>
-<h2 id="粉笔网"><a href="#粉笔网" class="headerlink" title="粉笔网"></a>粉笔网</h2><p><a href="https://www.fenbi.com">粉笔网</a>是一个互联网教育平台，业务包含：公务员考试，考研、教师资格、事业单位、英语、建造、财会等技能培训；利用技术手段实现智能批改功能，并提供免费题库，供用户查阅学习，利用网络直播，进行线上授课，同时提供实物图书、试卷以及客户服务。</p>
-<h2 id="魔方英语"><a href="#魔方英语" class="headerlink" title="魔方英语"></a><a href="http://www.mofunenglish.com/">魔方英语</a></h2><h2 id="声同小语种论坛"><a href="#声同小语种论坛" class="headerlink" title="声同小语种论坛"></a><a href="http://www.somdom.com/">声同小语种论坛</a></h2>]]></content>
-      <categories>
-        <category>科研推荐</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微信小程序开发</title>
-    <url>/zh-CN/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
-<p>1.<a href="https://www.w3cschool.cn/weixinapp/">微信小程序开发文档_w3cschool</a></p>
-<p>2.<a href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a></p>
-<p>3.<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/">微信开放文档 (qq.com)</a></p>
-<p>4.<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">微信开发者工具下载地址与更新日志 | 微信开放文档 (qq.com)</a></p>
-]]></content>
-      <categories>
-        <category>开发日记</category>
-      </categories>
-      <tags>
-        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -12310,6 +12254,46 @@ train_model(model,
       </tags>
   </entry>
   <entry>
+    <title>学习网站集合</title>
+    <url>/zh-CN/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="万门好课"><a href="#万门好课" class="headerlink" title="万门好课"></a>万门好课</h2><p><a href="https://www.wanmen.org/" title="加油吧少年">万门好课</a>是一家提供多品类原创精品课程的在线教育平台 ，课程覆盖IT与互联网类、职业成长类、经济金融类、本科学习类等领域 。 整体课程定位侧重于“用户刚需”类课程，如语言版块的出国英语考试类课程、小语种培训课程，本科学习版块的各学科基础大课，以及特色的万门通识课程包括PS、化妆等。</p>
+<h2 id="网易云课堂"><a href="#网易云课堂" class="headerlink" title="网易云课堂"></a>网易云课堂</h2><p><a href="https://study.163.com/">网易云课堂</a>立足于实用性的要求，网易云课堂与多家教育、培训机构建立合作，课程数量已达4100+，课时总数超50000,涵盖实用软件、IT与互联网、外语学习、生活家居、兴趣爱好、职场技能、金融管理、考试认证、中小学、亲子教育等十余大门类。</p>
+<h2 id="网易公开课"><a href="#网易公开课" class="headerlink" title="网易公开课"></a>网易公开课</h2><p><a href="https://open.163.com">网易公开课</a>首批1200集课程上线，其中有200多集配有中文字幕。用户可以在线免费观看来自于哈佛大学等世界级名校的公开课课程，可汗学院，TED等教育性组织的精彩视频，内容涵盖人文、社会、艺术、科学、金融等领域。 力求为爱学习的网友创造一个公开的免费课程平台，借此向外界公开招聘兼职字幕翻译。</p>
+<h2 id="爱课程网"><a href="#爱课程网" class="headerlink" title="爱课程网"></a>爱课程网</h2><p><a href="https://www.icourses.cn/home">爱课程网</a>利用现代信息技术和网络技术， 面向高校师生和社会大众。提供优质教育资源共享和个性化教学资源服务，具有资源浏览、搜索、重组、评价、课程包的导入导出、发布、互动参与和“教”“学”兼备等功能。</p>
+<h2 id="粉笔网"><a href="#粉笔网" class="headerlink" title="粉笔网"></a>粉笔网</h2><p><a href="https://www.fenbi.com">粉笔网</a>是一个互联网教育平台，业务包含：公务员考试，考研、教师资格、事业单位、英语、建造、财会等技能培训；利用技术手段实现智能批改功能，并提供免费题库，供用户查阅学习，利用网络直播，进行线上授课，同时提供实物图书、试卷以及客户服务。</p>
+<h2 id="魔方英语"><a href="#魔方英语" class="headerlink" title="魔方英语"></a><a href="http://www.mofunenglish.com/">魔方英语</a></h2><h2 id="声同小语种论坛"><a href="#声同小语种论坛" class="headerlink" title="声同小语种论坛"></a><a href="http://www.somdom.com/">声同小语种论坛</a></h2>]]></content>
+      <categories>
+        <category>科研推荐</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>学术搜索网站集合</title>
+    <url>/zh-CN/%E5%AD%A6%E6%9C%AF%E6%90%9C%E7%B4%A2%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>搞学术研究的必不可少的就是论文，而且是大量的论文。因此，在这里我特意把我平时用到的积累到的论文搜索网站集中到了这里，后续遇到了其他的还会继续补充。</p>
+<h2 id="谷歌学术"><a href="#谷歌学术" class="headerlink" title="谷歌学术"></a>谷歌学术</h2><p><a href="https://xs.scqylaw.com/">谷歌学术</a>是一个可以免费搜索学术文章的Google网络应用。2004年11月，Google第一次发布了Google学术搜索的试用版。该项索引包括了世界上绝大部分出版的学术期刊， 可广泛搜索学术文献的简便方法。您可以从一个位置搜索众多学科和资料来源：来自学术著作出版商、专业性社团、预印本、各大学及其他学术组织的经同行评论的文章、论文、图书、摘要和文章。Google 学术搜索可帮助您在整个学术领域中确定相关性最强的研究。</p>
+<p>相关页面如下：</p>
+<p><img src="https://img.99lb.net/images1/logo.png" class="lazyload" data-srcset="https://img.99lb.net/images1/logo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="谷歌学术搜索"></p>
+<h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><p><a href="https://github.com">github</a>于2008年4月10日正式上线，除了代码仓库托管及基本的Web管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过350万，托管版本数量也是非常之多，其中不乏知名开源项目Ruby on Rails、jQuery、python等。</p>
+<p>相关页面如下：</p>
+<p><img src="https://pic2.zhimg.com/v2-3224a8e2da3f76575baaa77e5768fcb2_1440w.jpg?source=172ae18b" class="lazyload" data-srcset="https://pic2.zhimg.com/v2-3224a8e2da3f76575baaa77e5768fcb2_1440w.jpg?source=172ae18b" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="github"></p>
+<h2 id="CVPR"><a href="#CVPR" class="headerlink" title="CVPR"></a>CVPR</h2><p>国际计算机视觉与模式识别会议（<a href="http://www.cvpapers.com/">CVPR</a>）是IEEE一年一度的学术性会议，会议的主要内容是计算机视觉与模式识别技术。CVPR是世界顶级的计算机视觉会议（三大顶会之一，另外两个是ICCV和ECCV，近年来每年有约1500名参加者，收录的论文数量一般300篇左右。本会议每年都会有固定的研讨主题，而每一年都会有公司赞助该会议并获得在会场展示的机会。</p>
+<p>相关页面如下：</p>
+<p><img src="http://www.cvpapers.com/img/cvpapers.png" class="lazyload" data-srcset="http://www.cvpapers.com/img/cvpapers.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="CVPR"></p>
+<h2 id="CVF"><a href="#CVF" class="headerlink" title="CVF"></a>CVF</h2><p><a href="https://openaccess.thecvf.com/">CVF</a>研究论文是由计算机视觉基金会提供的开放获取版本。除水印外，它们与接受的版本相同;最后发表的论文集可以在IEEE Xplore上找到。本材料的提出，以确保及时传播学术和技术工作。版权和其中的所有权利由作者或其他版权持有人保留。所有复制此信息的人都应遵守每个作者的版权所援引的条款和约束。</p>
+<h2 id="arXiv"><a href="#arXiv" class="headerlink" title="arXiv"></a>arXiv</h2><p><a href="https://arxiv.org/">arXiv</a>是一个免费分发服务和开放获取的档案，涵盖物理、数学、计算机科学、定量生物学、定量金融学、统计学、电气工程和系统科学以及经济学领域的2,040,232篇学术文章。</p>
+<h2 id="paperswithcode"><a href="#paperswithcode" class="headerlink" title="paperswithcode"></a>paperswithcode</h2><p><a href="https://paperswithcode.com/">Papers With Code</a>代码论文的任务是创建一个免费和开放的资源与机器学习论文，代码，数据集，方法和评估表。我们相信，在NLP和ML的支持下，与社区合作是最好的。这个网站上的所有内容都是公开许可的CC-BY-SA(与维基百科一样)，每个人都可以贡献——寻找“编辑”按钮!我们还运营专门的门户网站，提供天文学、物理学、计算机科学、数学和统计学的论文代码。</p>
+]]></content>
+      <categories>
+        <category>科研推荐</category>
+      </categories>
+      <tags>
+        <tag>文献工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>开放图谱协议</title>
     <url>/zh-CN/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
@@ -12344,6 +12328,22 @@ open_graph:
       <tags>
         <tag>Hexo</tag>
         <tag>open_graph</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序开发</title>
+    <url>/zh-CN/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考博文：</p>
+<p>1.<a href="https://www.w3cschool.cn/weixinapp/">微信小程序开发文档_w3cschool</a></p>
+<p>2.<a href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a></p>
+<p>3.<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/">微信开放文档 (qq.com)</a></p>
+<p>4.<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">微信开发者工具下载地址与更新日志 | 微信开放文档 (qq.com)</a></p>
+]]></content>
+      <categories>
+        <category>开发日记</category>
+      </categories>
+      <tags>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -13429,6 +13429,434 @@ if __name__ == '__main__':
       </tags>
   </entry>
   <entry>
+    <title>用两个栈实现队列</title>
+    <url>/zh-CN/%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>1.用两个栈实现队列</p>
+<p>题目：<a href="https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/">剑指 Offer 09. 用两个栈实现队列 - 力扣（LeetCode）</a></p>
+<p>题解：<a href="https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/solution/mian-shi-ti-09-yong-liang-ge-zhan-shi-xian-dui-l-2/">面试题09. 用两个栈实现队列（清晰图解） - 用两个栈实现队列 - 力扣（LeetCode）</a></p>
+<p>2</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>力扣题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>马裤先生</title>
+    <url>/zh-CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>火车在北平东站还没开，同屋那位睡上铺的穿马裤，戴平光的眼镜，青缎子洋服上身，胸袋插着小楷羊毫，足登青绒快靴的先生发了问：「你也是从北平上车？」很和气的。</p>
+<p>火车还没动呢，不从北平上车，由哪儿呢？我只好反攻了：「你从哪儿上车？」</p>
+<p>他没言语。看了看铺位，用尽全身的力气喊了声，「茶房！」</p>
+<p>茶房跑来了。</p>
+<p>「拿毯子！」马裤先生喊。</p>
+<p>「请少待一会儿，先生。」茶房很和气的说，</p>
+<p>「拿枕头！」</p>
+<p>「先生，您等我忙过这会儿去，毯子和枕头就一齐全到。」茶房说的很快，可依然是很和气。</p>
+<p>马裤先生没任何的表示。茶房故意地笑了笑，表示歉意。然后搭讪着慢慢地转身，腿刚预备好要走，背后打了个霹雳：「茶房！<br>」</p>
+<p>茶房不是假装没听见，便是耳朵已经震聋，竟自没回头，一直地快步走开。</p>
+<p>「茶房！茶房！茶房！」马裤先生连喊，一声比一声高：站台上送客的跑过一群来，以为车上失了火，要不然便是出了人命。茶<br>房始终没回头。马裤先生又挖了鼻孔一下，坐在我的床上。</p>
+<p>茶房从门前走过。</p>
+<p>「茶房！拿手巾把！」</p>
+<p>「等等。」茶房似乎下了抵抗的决心。</p>
+<p>马裤先生把领带解开，摘下领子来，分别挂在铁钩上：所有的钩子都被占了，他的帽子，大衣，已占了两个。车开了，他爬上了<br>上铺，在我的头上脱靴子，并且击打靴底上的土。枕着个手提箱，车还没到永定门，他睡着了。我心中安坦了许多。</p>
+<p>到了丰台，车还没站住，上面出了声：「茶房！」</p>
+<p>没等茶房答应，他又睡着了；大概这次是梦话。</p>
+<p>过了丰台，大概还没到廊房，上面又打了雷：「茶房！」</p>
+<p>茶房来了，眉毛拧得好像要把谁吃了才痛快。</p>
+<p>「干吗？先——生——」</p>
+<p>「拿茶！」</p>
+<p>「好吧！」茶房的眉毛拧得直往下落毛。</p>
+<p>马裤先生又入了梦乡，呼声只比「茶房」小一点。有时呼声稍低一点，用咬牙来补上。</p>
+<p>到了天津。又上来些旅客。车好容易又从天津开走。刚一开车，茶房给马裤先生拿来头一份毯子枕头和手巾把。马裤先生用手巾<br>把耳鼻孔全钻得到家，这一把手巾擦了至少有一刻钟，最后用手巾擦了擦手提箱上的土。我给他数着，从老站到总站的十来分钟之间，他又喊了四五十声茶房。茶房只来了一次，他的问题是火车向哪面走呢？茶房的回答是不知道；于是又引起他的建议，车上总该有人知道，茶房应当负责去问。茶房说，连驶车的也不晓得东西南北。于是他几乎变了颜色，万一车走迷了路？！</p>
+<p>茶房没再回答，可是又掉了几根眉毛。</p>
+<p>他又睡了，这次是在头上摔了摔袜子，可是一口痰并没往下唾，而是照顾了车顶。</p>
+<p>我的目的地是德州，天将亮就到了。谢天谢地！</p>
+<p>我雇好车，进了城，还清清楚楚地听见「茶房！」</p>
+<p>一个多礼拜了，我还惦记着茶房的眉毛呢。</p>
+]]></content>
+      <categories>
+        <category>文学黑洞</category>
+      </categories>
+      <tags>
+        <tag>今日故事</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机视觉单词表</title>
+    <url>/zh-CN/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%8D%95%E8%AF%8D%E8%A1%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>artificial neural network,ANN        人工神经网络</p>
+<p>perceptron        感知机，人工神经元</p>
+<p>activation function        激活函数</p>
+<p>rectified linear unit,RELU        修正线性单元</p>
+<p>bias        偏置</p>
+<p>loss function        损失函数</p>
+<p>universal approximation theorem        万能逼近定理</p>
+<p>one-hot encoding        独热编码</p>
+<p>cross-entropy        交叉熵</p>
+<p>dropout        丢弃</p>
+<p>bagging        装袋</p>
+<p>model averaging        模型平均</p>
+<p>batch normalization        批归一化</p>
+<p>backpropagation        反向传播</p>
+<p>stochastic gradient descent,SGD        随机梯度下降</p>
+<p>acquisition         学习，获得</p>
+<p>integrate       整合，集成，合并</p>
+<p>diverse         多样化的，不同的</p>
+<p>tune          调优</p>
+<p>curation        内容管理</p>
+<p>projection      投影，预测</p>
+<p>coherent         有条理的，连贯的</p>
+<p>redundant        冗余的</p>
+<p>entity          实体</p>
+<p>synthetic     合成的，虚假的，不诚恳的</p>
+<p>spammy     垃圾邮件式的，无聊的</p>
+<p>crowdsourcing          众包</p>
+<p>continuity        连续性，连贯性</p>
+<p>manifold       多种多样的</p>
+<p>inherent        固有的，内在的</p>
+<p>pseudo     假的，仿冒的</p>
+<p>ensemble         套</p>
+<p>heuristic        启发式的；启发式教育法</p>
+<p>erroneous        错误的，不正确的</p>
+<p>resilient        有弹性的，可迅速恢复的</p>
+<p>degraded        堕落的，退化的</p>
+<p>converge        收敛，集中</p>
+<p>outlier        离群值，异常值</p>
+<p>violate        违反，违背</p>
+<p>syntactic        语法的</p>
+<p>cartesian        笛卡尔的</p>
+<p>categorical        分类，绝对的</p>
+<p>prune        修剪</p>
+<p>param        停止</p>
+<p>translation  invariance        平移不变性</p>
+<p>suppress        抑制，镇压，阻止</p>
+<p>bidirectional        双向</p>
+<p>tabular        扁平的，列成表格的</p>
+<p>revenue        收入，税收</p>
+<p>latency        延迟</p>
+<p>harmonic        和声的，谐和的，音乐般的</p>
+<p>harmonic mean        调和平均数</p>
+<p>harmonic series        调和级数</p>
+<p>rote        死记硬背，生搬硬套</p>
+<p>bid        出价，投标</p>
+<p>leaderboard        排行榜，通栏广告</p>
+<p>minor        较小的，次要的，轻微的</p>
+<p>contaminated        受污染的，弄脏的</p>
+<p>tradeoff        权衡，折中</p>
+<p>ensemble learning        集成学习</p>
+<p>decompose        分解，使腐烂</p>
+<p>intrinsic        内在的，固有的</p>
+<p>notable         显要的，值得注意的；非常成功的，令人尊敬的</p>
+<p>camouflaged        伪装的</p>
+<p>facilitate        促进，使便利</p>
+<p>overlap    与……重叠，部分地相同；重叠的部分，互搭量</p>
+<p>threshold    入口，门槛，开始，极限，临界值</p>
+<p>conjecture    猜测，推测</p>
+<p>within    在……之内</p>
+<p>oversample:过采样</p>
+<p>trade off:权衡，卖掉，折中方案</p>
+<p>ultimately:最后，根本，基本上</p>
+<p>robotics：机器人学</p>
+<p>areial:空中的，航空的，空气的</p>
+<p>underperform:表现不佳，工作不如预期</p>
+<p>crucial:重要的，决定性的</p>
+<p>high-resolution:高分辨率的</p>
+<p>deploy:配置，展开，部署</p>
+<p>barely:仅仅，勉强，几乎不</p>
+<p>tumor:肿瘤，肿块</p>
+<p>diagnosis:诊断</p>
+<p>inspection:检查，视察</p>
+<p>defect:缺陷，缺点，不足之处</p>
+<p>annotate:注释，作注解</p>
+<p>address:地址，编址</p>
+<p>potentially:可能地，潜在地</p>
+<p>imply:意味，暗示，隐含</p>
+<p>diversity:多样性，差异</p>
+<p>generalize:概括，推广，使……一般化</p>
+<p>portion:部分</p>
+<p>crop:裁剪</p>
+<p>merge:合并</p>
+<p>align:匹配，排列，对齐，对准</p>
+<p>mask:掩码，掩膜</p>
+<p>cascade:小瀑布，串联，级联</p>
+<p>fuse:融合，熔接，熔化</p>
+<p>computational:计算的</p>
+<p>overhead:经常性费用，运营费用</p>
+<p>fraction:分数，部分，小部分，稍微</p>
+<p>schematic illustration:示意图</p>
+<p>respect to:关于，考虑</p>
+<p>validate:验证，确认，使生效</p>
+<p>stochastic:随机的，猜测的</p>
+<p>decay    衰退，衰减</p>
+<p>coefficient    系数，率</p>
+<p>explicitly    明确地，明白地</p>
+<p>outline    大纲，概要</p>
+<p>distillation:蒸馏</p>
+<p>curvature:曲率</p>
+<p>stochastic    随机</p>
+<p>variance    差异，方差</p>
+<p>spectrum    光谱，频谱；范围</p>
+<p>neat    灵巧的，整洁的；优雅的，平滑的</p>
+<p>heterogenerous    由很多种类组成的</p>
+<p>intricate    复杂的，错综的</p>
+<p>arbitrary    任意的，武断的</p>
+<p>vanilla    香草，比较原始的</p>
+<p>sketch    示意图</p>
+<p>incarnation    化身，典型</p>
+<p>waive    放弃，搁置</p>
+<p>shrinkage    收缩，皱缩，缩水; 跌价; 抽缩</p>
+<p>alleviate    缓解，减轻</p>
+<p>de-facto    事实上</p>
+<p>corpus    文集，语料库</p>
+<p>unprecedented    前所未有的</p>
+<p>inductive    归纳的</p>
+<p>empirical    经验主义的</p>
+<p>allergic    过敏的，反感的</p>
+<p>pollen     花粉</p>
+<p>badminton    羽毛球运动</p>
+<p>pharmacy    药房</p>
+<p>jasmine    茉莉</p>
+<p>latent    潜在的，潜伏的，潜意识的</p>
+<p>prepend    预先考虑</p>
+<p>embedding    编码</p>
+<p>alternating    交互的</p>
+<p>interpolation    插入，篡改，添写</p>
+<p>de-duplicate    删除重复数据</p>
+<p>suite    一套，套件</p>
+<p>geometric    几何图形的，几何的</p>
+<p>intermediate    中间的</p>
+<p>fine-tuning    微调</p>
+<p>appendix    附录</p>
+<p>warmup    预热</p>
+<p>least-squares regression    最小二乘回归</p>
+<p>on-the-fly    匆匆忙忙地；在空中；（计）运行中</p>
+<p>literature    文献</p>
+<p>outperform    胜过，做的比……好</p>
+<p>substantially    实质上；大体上；充分地</p>
+<p>standard deviation    标准差</p>
+<p>co-training    协同训练</p>
+<p>boost    促进，增加</p>
+<p>overtake    赶上，压倒，突然来袭</p>
+<p>plateau    趋于平稳，进入停滞期</p>
+<p>vanish    消失</p>
+<p>versus     与</p>
+<p>saturate    饱和的</p>
+<p>principal    最主要的</p>
+<p>plausible    貌似可信的，花言巧语的；貌似真实的，貌似有理的</p>
+<p>sinusoidal    正弦曲线的</p>
+<p>degree    程度</p>
+<p>analogous    类似的</p>
+<p>preliminary    初步的</p>
+<p>manual    手动的，手工的</p>
+<p>insight    洞察力，领悟</p>
+<p>exponentially    以指数方式的</p>
+<p>holistically    整体论地</p>
+<p>unidirectional    单向性的</p>
+<p>incorporate    包含，吸收，体现；把……合并</p>
+<p>alleviate    减轻</p>
+<p>shallow    浅的，肤浅的</p>
+<p>discriminate    区分，辨别</p>
+<p>coarser    粗糙的</p>
+<p>granularity    间隔尺寸，粒度</p>
+<p>derived    导出的，衍生的，派生的</p>
+<p>predecessor    前任，前辈;(被取代的)原有事物，前身</p>
+<p>cloze    adj. 完形的；填充测验法的</p>
+<p>cloze task    完形填空</p>
+<p>recipe    秘诀，处方</p>
+<p>distinctive    有特色的，与众不同的</p>
+<p>unambiguously    不含糊地，明白地</p>
+<p>intuitively    直观地；直觉地</p>
+<p>trivially    琐细地，平凡地，无能地</p>
+<p>mitigate    使缓和，使减轻</p>
+<p>monolingual    单语的；仅用一种语言的；仅懂一种语言的</p>
+<p>procedure    程序，手续，步骤</p>
+<p>degenerate    使退化，恶化</p>
+<p>de-facto    (法)实际上的</p>
+<p>explicitly    显式地</p>
+<p>reformulate    重新构造</p>
+<p>ensemble    全体，总效果</p>
+<p>nontrivial    重要的，显著的</p>
+<p>obstacle    阻碍，障碍</p>
+<p>notorious    臭名昭著的，声名狼藉的</p>
+<p>vanishing/exploding gradients    梯度消失/梯度爆炸</p>
+<p>hamper    妨碍，束缚</p>
+<p>degradation    退化，降级，堕落</p>
+<p>thoroughly    完全地，彻底地</p>
+<p>counterpart    副本，配对物</p>
+<p>feasible    可行的，可能的</p>
+<p>akin to     类似于</p>
+<p>generic    类的，属性的; 一般的; 不受商标保护的; [生]属的，类的</p>
+<p>retrieval    检索</p>
+<p>quantization    量化</p>
+<p>partial differential equations    偏微分方程</p>
+<p>auxiliary    辅助的，备用的</p>
+<p>Concurrent    并发的，同时发生的</p>
+<p>asymptotically    渐近地</p>
+<p>counterintuitive    违反直觉的</p>
+<p>perturbations    [流]扰动，不安</p>
+<p>trial    测试</p>
+<p>curse    咒骂，诅咒</p>
+<p>estimation    评估，评价，判断</p>
+<p>surrogate    代理的</p>
+<p>prominent    突出的，显著的，卓越的，杰出的</p>
+<p>thes    命题，论文</p>
+<p>recalibrate    重新校准</p>
+<p>pruning    剪枝</p>
+<p>proxy    代理人，代表权</p>
+<p>compound    加重; 使复杂化; 混合;混合的</p>
+<p>criteria    标准，条件</p>
+<p>panoptic    全景的</p>
+<p>controversial    有争议的</p>
+<p>problematic    有疑问的，有问题的</p>
+<p>contrastive    对比的</p>
+<p>intuitive    直觉的; 凭直觉获知的; 直观的</p>
+<p>preserve    保存；保护；维持；腌；禁猎</p>
+<p>intractable    棘手的；难治的；倔强的；不听话的</p>
+<p>pretext    借口，托辞; 假象，掩饰</p>
+<p>permutation    排列，置换</p>
+<p>discrimination    区别对待; 鉴别力; 区别</p>
+<p>shuffle    洗牌; 曳脚而行; 搬移; 搁置，随手放</p>
+<p>neatness    整洁，干净</p>
+<p>blur    模糊</p>
+<p>permutation    排列，置换</p>
+<p>infrared    红外线的</p>
+<p>attenuation    衰减，衰变</p>
+<p>tricky    棘手的，难对付的</p>
+<p>plethora    过多，过剩</p>
+<p>deluge    泛滥，淹没</p>
+<p>elaborate    精心制作的，详尽的</p>
+<p>repurpose    改换意图，重新</p>
+<p>assistive    辅助性的</p>
+<p>eliminate    消除</p>
+<p>duplicate    重复的</p>
+<p>coordinate    坐标</p>
+<p>refreshingly    清爽地，有精神地，令人耳目一新地</p>
+<p>millisecond     毫秒</p>
+<p>implicitly    隐式地</p>
+<p>delimiter    分隔符</p>
+<p>diverge    分歧，相异</p>
+<p>remedy    解决方法，纠正方法</p>
+<p>deviation    偏差</p>
+<p>coarse    粗糙的</p>
+<p>begnign    无有害的，认为无关紧要的</p>
+<p>malicious    恶意的，怀恨的</p>
+<p>rigorous    严格的</p>
+<p>outlier    离群值</p>
+<p>deliberate    故意的；深思熟虑的；从容的</p>
+<p>susceptible    易受影响的；易感动的；容许…的</p>
+<p>leverage    利用</p>
+<p>kinda    有点，有几分</p>
+<p>centroid    形心，重心</p>
+<p>exclusively    专门地，唯一地</p>
+<p>collision    碰撞，警告</p>
+<p>hint    暗示，示意</p>
+<p>stand-alone    （计算机）独立运行的；（公司、组织）独立的</p>
+<p>photometric distortion    光度失真</p>
+<p>geometric    几何失真</p>
+<p>hue    色调</p>
+<p>saturation    饱和度</p>
+<p>superimpose    叠加</p>
+<p>adjacent    相邻的</p>
+<p>incorporate    包含，吸收；体现；把……合并</p>
+<p>mimic    模仿</p>
+<p>tentative    初步的</p>
+<p>tackle    处理</p>
+<p>cortex    皮层</p>
+<p>factorization    因子分解，因式分解</p>
+<p>compatible    兼容的</p>
+<p>substantially    实质上；大体上；充分地</p>
+<p>explicitly    明确地；明白地</p>
+<p>reformulate    v. 再制订；换种方式说（或表达）</p>
+<p>nontrival    重要的</p>
+<p>notorious    声名狼藉的，臭名昭著的</p>
+<p>aggregated    聚合的，合计的</p>
+<p>cardinality    基数</p>
+<p>acquisition    获得物</p>
+<p>obscured    遮挡</p>
+<p>out-of-view    看不见的</p>
+<p>precedent    先前的</p>
+<p>intuitive    直观的</p>
+<p>overhead    开销</p>
+<p>efficacy    功效，效力</p>
+<p>hierarchical    分层的</p>
+<p>foeval    视网膜中心的</p>
+<p>iteratively    迭代地</p>
+<p>salient    重点的</p>
+<p>modality    形式，形态</p>
+<p>in a conditional fashion    有条件的方式</p>
+<p>squeeze    挤压</p>
+<p>excitation    激励</p>
+<p>self-contained    独立的，设备齐全的，沉默寡言的</p>
+<p>aggregate    集合，聚集</p>
+<p>superscript    上标</p>
+<p>an apples to apples comparison    比较两个相近的事物</p>
+<p>thoroughly    彻底地，完全地</p>
+<p>conjecture    推测，猜测</p>
+<p>auxiliary    辅助的</p>
+<p>parentheses    圆括号，插入成分</p>
+<p>nest    嵌套</p>
+<p>the best of both worlds    两全其美</p>
+<p>incur    带来（成本、花费）等；招致，遭受</p>
+<p>decimal    十进位的，小数的</p>
+<p>timestamp    时间戳</p>
+<p>clause    从句，分句；（法律文件的）条款</p>
+<p>overlap    重叠</p>
+<p>coalesce    合并，联合</p>
+<p>rollup    归纳，卷曲，袅袅上升</p>
+<p>coarse-to-fine    由粗到细，由繁到简</p>
+<p>tic-tac-toe    井字棋，圈叉游戏</p>
+<p>overlay    覆在……上面，覆盖</p>
+<p>cached    贮藏起来，高速缓存</p>
+<p>eigen    特征，固有的</p>
+<p>tremendous    巨大的，极好的</p>
+<p>versus    （比赛或诉讼中）以……为对手，与……竞争；与……相对，与……相比</p>
+<p>delineating    描述，描绘</p>
+<p>primitive    原始的</p>
+<p>recalibrating    重新调整</p>
+<p>magenta    洋红色</p>
+<p>cyan    青绿色</p>
+<p>pentagon    五边形</p>
+<p>hexagon    六边形</p>
+<p>diamond    菱形</p>
+<p>line chart    折线图</p>
+<p>flip    翻转</p>
+<p>alias    别名</p>
+<p>incurring    招致，遭受</p>
+<p>ellipse    椭圆</p>
+<p>tile    平铺，瓷砖</p>
+<p>diversity    多样性</p>
+<p>discard    丢弃</p>
+<p>adequately    充分地，足够地</p>
+<p>flaw    缺陷，缺点</p>
+<p>susceptible    易得病的，易受影响的；（人）易受感动的，易动感情的</p>
+<p>caret    脱字符号，插入符号</p>
+<p>teardown    拆卸</p>
+<p>untangle    理清，整顿，解开……纠结</p>
+<p>duration    持续时间</p>
+<p>optical    光学的；（装置）光电的</p>
+<p>decent    像样的，尚好的，得体的</p>
+<p>inevitable    必然发生的，不可避免的</p>
+<p>leverage    n.影响力，杠杆作用adj.充分利用</p>
+<p>overwhelm    压倒，压垮</p>
+<p>degenerate    恶化，堕落，退化</p>
+<p>elaborate    详细说明，复杂的</p>
+<p>mitigate    减轻</p>
+<p>severe    严重的，艰巨的</p>
+<p>hamper    阻碍</p>
+<p>induce    诱导，引诱</p>
+<p>deteriorate    恶化，变坏</p>
+<p>atomic    原子的，核能的</p>
+]]></content>
+      <categories>
+        <category>计算机视觉</category>
+      </categories>
+      <tags>
+        <tag>专业名词</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Q &amp; A</title>
     <url>/zh-CN/%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="就地操作"><a href="#就地操作" class="headerlink" title="就地操作"></a>就地操作</h3><p>问题来源：看代码发现<code>self.relu=nn.ReLU(inplace=True)</code>不明白<code>inplace=True</code>什么意思。</p>
@@ -14097,434 +14525,6 @@ return x
       </categories>
       <tags>
         <tag>函数库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机视觉单词表</title>
-    <url>/zh-CN/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%8D%95%E8%AF%8D%E8%A1%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>artificial neural network,ANN        人工神经网络</p>
-<p>perceptron        感知机，人工神经元</p>
-<p>activation function        激活函数</p>
-<p>rectified linear unit,RELU        修正线性单元</p>
-<p>bias        偏置</p>
-<p>loss function        损失函数</p>
-<p>universal approximation theorem        万能逼近定理</p>
-<p>one-hot encoding        独热编码</p>
-<p>cross-entropy        交叉熵</p>
-<p>dropout        丢弃</p>
-<p>bagging        装袋</p>
-<p>model averaging        模型平均</p>
-<p>batch normalization        批归一化</p>
-<p>backpropagation        反向传播</p>
-<p>stochastic gradient descent,SGD        随机梯度下降</p>
-<p>acquisition         学习，获得</p>
-<p>integrate       整合，集成，合并</p>
-<p>diverse         多样化的，不同的</p>
-<p>tune          调优</p>
-<p>curation        内容管理</p>
-<p>projection      投影，预测</p>
-<p>coherent         有条理的，连贯的</p>
-<p>redundant        冗余的</p>
-<p>entity          实体</p>
-<p>synthetic     合成的，虚假的，不诚恳的</p>
-<p>spammy     垃圾邮件式的，无聊的</p>
-<p>crowdsourcing          众包</p>
-<p>continuity        连续性，连贯性</p>
-<p>manifold       多种多样的</p>
-<p>inherent        固有的，内在的</p>
-<p>pseudo     假的，仿冒的</p>
-<p>ensemble         套</p>
-<p>heuristic        启发式的；启发式教育法</p>
-<p>erroneous        错误的，不正确的</p>
-<p>resilient        有弹性的，可迅速恢复的</p>
-<p>degraded        堕落的，退化的</p>
-<p>converge        收敛，集中</p>
-<p>outlier        离群值，异常值</p>
-<p>violate        违反，违背</p>
-<p>syntactic        语法的</p>
-<p>cartesian        笛卡尔的</p>
-<p>categorical        分类，绝对的</p>
-<p>prune        修剪</p>
-<p>param        停止</p>
-<p>translation  invariance        平移不变性</p>
-<p>suppress        抑制，镇压，阻止</p>
-<p>bidirectional        双向</p>
-<p>tabular        扁平的，列成表格的</p>
-<p>revenue        收入，税收</p>
-<p>latency        延迟</p>
-<p>harmonic        和声的，谐和的，音乐般的</p>
-<p>harmonic mean        调和平均数</p>
-<p>harmonic series        调和级数</p>
-<p>rote        死记硬背，生搬硬套</p>
-<p>bid        出价，投标</p>
-<p>leaderboard        排行榜，通栏广告</p>
-<p>minor        较小的，次要的，轻微的</p>
-<p>contaminated        受污染的，弄脏的</p>
-<p>tradeoff        权衡，折中</p>
-<p>ensemble learning        集成学习</p>
-<p>decompose        分解，使腐烂</p>
-<p>intrinsic        内在的，固有的</p>
-<p>notable         显要的，值得注意的；非常成功的，令人尊敬的</p>
-<p>camouflaged        伪装的</p>
-<p>facilitate        促进，使便利</p>
-<p>overlap    与……重叠，部分地相同；重叠的部分，互搭量</p>
-<p>threshold    入口，门槛，开始，极限，临界值</p>
-<p>conjecture    猜测，推测</p>
-<p>within    在……之内</p>
-<p>oversample:过采样</p>
-<p>trade off:权衡，卖掉，折中方案</p>
-<p>ultimately:最后，根本，基本上</p>
-<p>robotics：机器人学</p>
-<p>areial:空中的，航空的，空气的</p>
-<p>underperform:表现不佳，工作不如预期</p>
-<p>crucial:重要的，决定性的</p>
-<p>high-resolution:高分辨率的</p>
-<p>deploy:配置，展开，部署</p>
-<p>barely:仅仅，勉强，几乎不</p>
-<p>tumor:肿瘤，肿块</p>
-<p>diagnosis:诊断</p>
-<p>inspection:检查，视察</p>
-<p>defect:缺陷，缺点，不足之处</p>
-<p>annotate:注释，作注解</p>
-<p>address:地址，编址</p>
-<p>potentially:可能地，潜在地</p>
-<p>imply:意味，暗示，隐含</p>
-<p>diversity:多样性，差异</p>
-<p>generalize:概括，推广，使……一般化</p>
-<p>portion:部分</p>
-<p>crop:裁剪</p>
-<p>merge:合并</p>
-<p>align:匹配，排列，对齐，对准</p>
-<p>mask:掩码，掩膜</p>
-<p>cascade:小瀑布，串联，级联</p>
-<p>fuse:融合，熔接，熔化</p>
-<p>computational:计算的</p>
-<p>overhead:经常性费用，运营费用</p>
-<p>fraction:分数，部分，小部分，稍微</p>
-<p>schematic illustration:示意图</p>
-<p>respect to:关于，考虑</p>
-<p>validate:验证，确认，使生效</p>
-<p>stochastic:随机的，猜测的</p>
-<p>decay    衰退，衰减</p>
-<p>coefficient    系数，率</p>
-<p>explicitly    明确地，明白地</p>
-<p>outline    大纲，概要</p>
-<p>distillation:蒸馏</p>
-<p>curvature:曲率</p>
-<p>stochastic    随机</p>
-<p>variance    差异，方差</p>
-<p>spectrum    光谱，频谱；范围</p>
-<p>neat    灵巧的，整洁的；优雅的，平滑的</p>
-<p>heterogenerous    由很多种类组成的</p>
-<p>intricate    复杂的，错综的</p>
-<p>arbitrary    任意的，武断的</p>
-<p>vanilla    香草，比较原始的</p>
-<p>sketch    示意图</p>
-<p>incarnation    化身，典型</p>
-<p>waive    放弃，搁置</p>
-<p>shrinkage    收缩，皱缩，缩水; 跌价; 抽缩</p>
-<p>alleviate    缓解，减轻</p>
-<p>de-facto    事实上</p>
-<p>corpus    文集，语料库</p>
-<p>unprecedented    前所未有的</p>
-<p>inductive    归纳的</p>
-<p>empirical    经验主义的</p>
-<p>allergic    过敏的，反感的</p>
-<p>pollen     花粉</p>
-<p>badminton    羽毛球运动</p>
-<p>pharmacy    药房</p>
-<p>jasmine    茉莉</p>
-<p>latent    潜在的，潜伏的，潜意识的</p>
-<p>prepend    预先考虑</p>
-<p>embedding    编码</p>
-<p>alternating    交互的</p>
-<p>interpolation    插入，篡改，添写</p>
-<p>de-duplicate    删除重复数据</p>
-<p>suite    一套，套件</p>
-<p>geometric    几何图形的，几何的</p>
-<p>intermediate    中间的</p>
-<p>fine-tuning    微调</p>
-<p>appendix    附录</p>
-<p>warmup    预热</p>
-<p>least-squares regression    最小二乘回归</p>
-<p>on-the-fly    匆匆忙忙地；在空中；（计）运行中</p>
-<p>literature    文献</p>
-<p>outperform    胜过，做的比……好</p>
-<p>substantially    实质上；大体上；充分地</p>
-<p>standard deviation    标准差</p>
-<p>co-training    协同训练</p>
-<p>boost    促进，增加</p>
-<p>overtake    赶上，压倒，突然来袭</p>
-<p>plateau    趋于平稳，进入停滞期</p>
-<p>vanish    消失</p>
-<p>versus     与</p>
-<p>saturate    饱和的</p>
-<p>principal    最主要的</p>
-<p>plausible    貌似可信的，花言巧语的；貌似真实的，貌似有理的</p>
-<p>sinusoidal    正弦曲线的</p>
-<p>degree    程度</p>
-<p>analogous    类似的</p>
-<p>preliminary    初步的</p>
-<p>manual    手动的，手工的</p>
-<p>insight    洞察力，领悟</p>
-<p>exponentially    以指数方式的</p>
-<p>holistically    整体论地</p>
-<p>unidirectional    单向性的</p>
-<p>incorporate    包含，吸收，体现；把……合并</p>
-<p>alleviate    减轻</p>
-<p>shallow    浅的，肤浅的</p>
-<p>discriminate    区分，辨别</p>
-<p>coarser    粗糙的</p>
-<p>granularity    间隔尺寸，粒度</p>
-<p>derived    导出的，衍生的，派生的</p>
-<p>predecessor    前任，前辈;(被取代的)原有事物，前身</p>
-<p>cloze    adj. 完形的；填充测验法的</p>
-<p>cloze task    完形填空</p>
-<p>recipe    秘诀，处方</p>
-<p>distinctive    有特色的，与众不同的</p>
-<p>unambiguously    不含糊地，明白地</p>
-<p>intuitively    直观地；直觉地</p>
-<p>trivially    琐细地，平凡地，无能地</p>
-<p>mitigate    使缓和，使减轻</p>
-<p>monolingual    单语的；仅用一种语言的；仅懂一种语言的</p>
-<p>procedure    程序，手续，步骤</p>
-<p>degenerate    使退化，恶化</p>
-<p>de-facto    (法)实际上的</p>
-<p>explicitly    显式地</p>
-<p>reformulate    重新构造</p>
-<p>ensemble    全体，总效果</p>
-<p>nontrivial    重要的，显著的</p>
-<p>obstacle    阻碍，障碍</p>
-<p>notorious    臭名昭著的，声名狼藉的</p>
-<p>vanishing/exploding gradients    梯度消失/梯度爆炸</p>
-<p>hamper    妨碍，束缚</p>
-<p>degradation    退化，降级，堕落</p>
-<p>thoroughly    完全地，彻底地</p>
-<p>counterpart    副本，配对物</p>
-<p>feasible    可行的，可能的</p>
-<p>akin to     类似于</p>
-<p>generic    类的，属性的; 一般的; 不受商标保护的; [生]属的，类的</p>
-<p>retrieval    检索</p>
-<p>quantization    量化</p>
-<p>partial differential equations    偏微分方程</p>
-<p>auxiliary    辅助的，备用的</p>
-<p>Concurrent    并发的，同时发生的</p>
-<p>asymptotically    渐近地</p>
-<p>counterintuitive    违反直觉的</p>
-<p>perturbations    [流]扰动，不安</p>
-<p>trial    测试</p>
-<p>curse    咒骂，诅咒</p>
-<p>estimation    评估，评价，判断</p>
-<p>surrogate    代理的</p>
-<p>prominent    突出的，显著的，卓越的，杰出的</p>
-<p>thes    命题，论文</p>
-<p>recalibrate    重新校准</p>
-<p>pruning    剪枝</p>
-<p>proxy    代理人，代表权</p>
-<p>compound    加重; 使复杂化; 混合;混合的</p>
-<p>criteria    标准，条件</p>
-<p>panoptic    全景的</p>
-<p>controversial    有争议的</p>
-<p>problematic    有疑问的，有问题的</p>
-<p>contrastive    对比的</p>
-<p>intuitive    直觉的; 凭直觉获知的; 直观的</p>
-<p>preserve    保存；保护；维持；腌；禁猎</p>
-<p>intractable    棘手的；难治的；倔强的；不听话的</p>
-<p>pretext    借口，托辞; 假象，掩饰</p>
-<p>permutation    排列，置换</p>
-<p>discrimination    区别对待; 鉴别力; 区别</p>
-<p>shuffle    洗牌; 曳脚而行; 搬移; 搁置，随手放</p>
-<p>neatness    整洁，干净</p>
-<p>blur    模糊</p>
-<p>permutation    排列，置换</p>
-<p>infrared    红外线的</p>
-<p>attenuation    衰减，衰变</p>
-<p>tricky    棘手的，难对付的</p>
-<p>plethora    过多，过剩</p>
-<p>deluge    泛滥，淹没</p>
-<p>elaborate    精心制作的，详尽的</p>
-<p>repurpose    改换意图，重新</p>
-<p>assistive    辅助性的</p>
-<p>eliminate    消除</p>
-<p>duplicate    重复的</p>
-<p>coordinate    坐标</p>
-<p>refreshingly    清爽地，有精神地，令人耳目一新地</p>
-<p>millisecond     毫秒</p>
-<p>implicitly    隐式地</p>
-<p>delimiter    分隔符</p>
-<p>diverge    分歧，相异</p>
-<p>remedy    解决方法，纠正方法</p>
-<p>deviation    偏差</p>
-<p>coarse    粗糙的</p>
-<p>begnign    无有害的，认为无关紧要的</p>
-<p>malicious    恶意的，怀恨的</p>
-<p>rigorous    严格的</p>
-<p>outlier    离群值</p>
-<p>deliberate    故意的；深思熟虑的；从容的</p>
-<p>susceptible    易受影响的；易感动的；容许…的</p>
-<p>leverage    利用</p>
-<p>kinda    有点，有几分</p>
-<p>centroid    形心，重心</p>
-<p>exclusively    专门地，唯一地</p>
-<p>collision    碰撞，警告</p>
-<p>hint    暗示，示意</p>
-<p>stand-alone    （计算机）独立运行的；（公司、组织）独立的</p>
-<p>photometric distortion    光度失真</p>
-<p>geometric    几何失真</p>
-<p>hue    色调</p>
-<p>saturation    饱和度</p>
-<p>superimpose    叠加</p>
-<p>adjacent    相邻的</p>
-<p>incorporate    包含，吸收；体现；把……合并</p>
-<p>mimic    模仿</p>
-<p>tentative    初步的</p>
-<p>tackle    处理</p>
-<p>cortex    皮层</p>
-<p>factorization    因子分解，因式分解</p>
-<p>compatible    兼容的</p>
-<p>substantially    实质上；大体上；充分地</p>
-<p>explicitly    明确地；明白地</p>
-<p>reformulate    v. 再制订；换种方式说（或表达）</p>
-<p>nontrival    重要的</p>
-<p>notorious    声名狼藉的，臭名昭著的</p>
-<p>aggregated    聚合的，合计的</p>
-<p>cardinality    基数</p>
-<p>acquisition    获得物</p>
-<p>obscured    遮挡</p>
-<p>out-of-view    看不见的</p>
-<p>precedent    先前的</p>
-<p>intuitive    直观的</p>
-<p>overhead    开销</p>
-<p>efficacy    功效，效力</p>
-<p>hierarchical    分层的</p>
-<p>foeval    视网膜中心的</p>
-<p>iteratively    迭代地</p>
-<p>salient    重点的</p>
-<p>modality    形式，形态</p>
-<p>in a conditional fashion    有条件的方式</p>
-<p>squeeze    挤压</p>
-<p>excitation    激励</p>
-<p>self-contained    独立的，设备齐全的，沉默寡言的</p>
-<p>aggregate    集合，聚集</p>
-<p>superscript    上标</p>
-<p>an apples to apples comparison    比较两个相近的事物</p>
-<p>thoroughly    彻底地，完全地</p>
-<p>conjecture    推测，猜测</p>
-<p>auxiliary    辅助的</p>
-<p>parentheses    圆括号，插入成分</p>
-<p>nest    嵌套</p>
-<p>the best of both worlds    两全其美</p>
-<p>incur    带来（成本、花费）等；招致，遭受</p>
-<p>decimal    十进位的，小数的</p>
-<p>timestamp    时间戳</p>
-<p>clause    从句，分句；（法律文件的）条款</p>
-<p>overlap    重叠</p>
-<p>coalesce    合并，联合</p>
-<p>rollup    归纳，卷曲，袅袅上升</p>
-<p>coarse-to-fine    由粗到细，由繁到简</p>
-<p>tic-tac-toe    井字棋，圈叉游戏</p>
-<p>overlay    覆在……上面，覆盖</p>
-<p>cached    贮藏起来，高速缓存</p>
-<p>eigen    特征，固有的</p>
-<p>tremendous    巨大的，极好的</p>
-<p>versus    （比赛或诉讼中）以……为对手，与……竞争；与……相对，与……相比</p>
-<p>delineating    描述，描绘</p>
-<p>primitive    原始的</p>
-<p>recalibrating    重新调整</p>
-<p>magenta    洋红色</p>
-<p>cyan    青绿色</p>
-<p>pentagon    五边形</p>
-<p>hexagon    六边形</p>
-<p>diamond    菱形</p>
-<p>line chart    折线图</p>
-<p>flip    翻转</p>
-<p>alias    别名</p>
-<p>incurring    招致，遭受</p>
-<p>ellipse    椭圆</p>
-<p>tile    平铺，瓷砖</p>
-<p>diversity    多样性</p>
-<p>discard    丢弃</p>
-<p>adequately    充分地，足够地</p>
-<p>flaw    缺陷，缺点</p>
-<p>susceptible    易得病的，易受影响的；（人）易受感动的，易动感情的</p>
-<p>caret    脱字符号，插入符号</p>
-<p>teardown    拆卸</p>
-<p>untangle    理清，整顿，解开……纠结</p>
-<p>duration    持续时间</p>
-<p>optical    光学的；（装置）光电的</p>
-<p>decent    像样的，尚好的，得体的</p>
-<p>inevitable    必然发生的，不可避免的</p>
-<p>leverage    n.影响力，杠杆作用adj.充分利用</p>
-<p>overwhelm    压倒，压垮</p>
-<p>degenerate    恶化，堕落，退化</p>
-<p>elaborate    详细说明，复杂的</p>
-<p>mitigate    减轻</p>
-<p>severe    严重的，艰巨的</p>
-<p>hamper    阻碍</p>
-<p>induce    诱导，引诱</p>
-<p>deteriorate    恶化，变坏</p>
-<p>atomic    原子的，核能的</p>
-]]></content>
-      <categories>
-        <category>计算机视觉</category>
-      </categories>
-      <tags>
-        <tag>专业名词</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>用两个栈实现队列</title>
-    <url>/zh-CN/%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>1.用两个栈实现队列</p>
-<p>题目：<a href="https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/">剑指 Offer 09. 用两个栈实现队列 - 力扣（LeetCode）</a></p>
-<p>题解：<a href="https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/solution/mian-shi-ti-09-yong-liang-ge-zhan-shi-xian-dui-l-2/">面试题09. 用两个栈实现队列（清晰图解） - 用两个栈实现队列 - 力扣（LeetCode）</a></p>
-<p>2</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>力扣题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>马裤先生</title>
-    <url>/zh-CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>火车在北平东站还没开，同屋那位睡上铺的穿马裤，戴平光的眼镜，青缎子洋服上身，胸袋插着小楷羊毫，足登青绒快靴的先生发了问：「你也是从北平上车？」很和气的。</p>
-<p>火车还没动呢，不从北平上车，由哪儿呢？我只好反攻了：「你从哪儿上车？」</p>
-<p>他没言语。看了看铺位，用尽全身的力气喊了声，「茶房！」</p>
-<p>茶房跑来了。</p>
-<p>「拿毯子！」马裤先生喊。</p>
-<p>「请少待一会儿，先生。」茶房很和气的说，</p>
-<p>「拿枕头！」</p>
-<p>「先生，您等我忙过这会儿去，毯子和枕头就一齐全到。」茶房说的很快，可依然是很和气。</p>
-<p>马裤先生没任何的表示。茶房故意地笑了笑，表示歉意。然后搭讪着慢慢地转身，腿刚预备好要走，背后打了个霹雳：「茶房！<br>」</p>
-<p>茶房不是假装没听见，便是耳朵已经震聋，竟自没回头，一直地快步走开。</p>
-<p>「茶房！茶房！茶房！」马裤先生连喊，一声比一声高：站台上送客的跑过一群来，以为车上失了火，要不然便是出了人命。茶<br>房始终没回头。马裤先生又挖了鼻孔一下，坐在我的床上。</p>
-<p>茶房从门前走过。</p>
-<p>「茶房！拿手巾把！」</p>
-<p>「等等。」茶房似乎下了抵抗的决心。</p>
-<p>马裤先生把领带解开，摘下领子来，分别挂在铁钩上：所有的钩子都被占了，他的帽子，大衣，已占了两个。车开了，他爬上了<br>上铺，在我的头上脱靴子，并且击打靴底上的土。枕着个手提箱，车还没到永定门，他睡着了。我心中安坦了许多。</p>
-<p>到了丰台，车还没站住，上面出了声：「茶房！」</p>
-<p>没等茶房答应，他又睡着了；大概这次是梦话。</p>
-<p>过了丰台，大概还没到廊房，上面又打了雷：「茶房！」</p>
-<p>茶房来了，眉毛拧得好像要把谁吃了才痛快。</p>
-<p>「干吗？先——生——」</p>
-<p>「拿茶！」</p>
-<p>「好吧！」茶房的眉毛拧得直往下落毛。</p>
-<p>马裤先生又入了梦乡，呼声只比「茶房」小一点。有时呼声稍低一点，用咬牙来补上。</p>
-<p>到了天津。又上来些旅客。车好容易又从天津开走。刚一开车，茶房给马裤先生拿来头一份毯子枕头和手巾把。马裤先生用手巾<br>把耳鼻孔全钻得到家，这一把手巾擦了至少有一刻钟，最后用手巾擦了擦手提箱上的土。我给他数着，从老站到总站的十来分钟之间，他又喊了四五十声茶房。茶房只来了一次，他的问题是火车向哪面走呢？茶房的回答是不知道；于是又引起他的建议，车上总该有人知道，茶房应当负责去问。茶房说，连驶车的也不晓得东西南北。于是他几乎变了颜色，万一车走迷了路？！</p>
-<p>茶房没再回答，可是又掉了几根眉毛。</p>
-<p>他又睡了，这次是在头上摔了摔袜子，可是一口痰并没往下唾，而是照顾了车顶。</p>
-<p>我的目的地是德州，天将亮就到了。谢天谢地！</p>
-<p>我雇好车，进了城，还清清楚楚地听见「茶房！」</p>
-<p>一个多礼拜了，我还惦记着茶房的眉毛呢。</p>
-]]></content>
-      <categories>
-        <category>文学黑洞</category>
-      </categories>
-      <tags>
-        <tag>今日故事</tag>
       </tags>
   </entry>
 </search>
