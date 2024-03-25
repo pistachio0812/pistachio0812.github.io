@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,zh-TW,default">
-    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6">
-  <meta name="generator" content="Hexo 6.0.0">
-  <meta name="Volantis" content="5.7.6">
+    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2">
+  <meta name="generator" content="Hexo 7.1.1">
+  <meta name="Volantis" content="7.6.2">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -50,13 +50,13 @@
   <!-- 页面元数据 -->
   <title>matplotlib.use('agg')的作用机理 - 阿月浑子-Hexo博客</title>
   <meta name="keywords" content="matplotlib,null">
-  <meta desc name="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测 - pistachio - 阿月浑子-Hexo博客">
+  <meta desc name="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测 - pistachio - 阿月浑子-Hexo博客">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="page.title">
 <meta property="og:url" content="url">
 <meta property="og:site_name" content="阿月浑子-Hexo博客">
-<meta property="og:description" content="博文链接： matplotlib.use(‘agg‘)“语句的作用机理 matplotlib中什么是后端  问题：在检查SSD代码时，在callback.py文件中发现出现了matplotlib.use(&#39;agg&#39;)的语句。PyCharm中不显示绘图。 相关示例： import numpy as np import matplotlib matplotlib.use(&#39;agg&#39;)  import">
+<meta property="og:description" content="博文链接： matplotlib.use(‘agg‘)“语句的作用机理 matplotlib中什么是后端  问题：在检查SSD代码时，在callback.py文件中发现出现了matplotlib.use(&#39;agg&#39;)的语句。PyCharm中不显示绘图。 相关示例： 123456789101112import numpy as npimport matplotlibmatplotlib.use(&#39;a">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-17T13:26:58.004Z">
 <meta property="article:modified_time" content="2022-10-04T13:31:21.985Z">
@@ -3728,7 +3728,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1671165968583),
+    lastupdate: new Date(1711347947244),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -5060,7 +5060,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </span>
   <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
     <meta itemprop="name" content="阿月浑子-Hexo博客">
-    <meta itemprop="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测">
+    <meta itemprop="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测">
   </span>
   
 
@@ -5120,7 +5120,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：446 字</p>
+      <p>字数：445 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -5148,28 +5148,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.cnblogs.com/suntp/p/6519386.html">matplotlib中什么是后端 </a></p>
 <p>问题：在检查SSD代码时，在<code>callback.py</code>文件中发现出现了<code>matplotlib.use('agg')</code>的语句。<code>PyCharm</code>中不显示绘图。</p>
 <p>相关示例：</p>
-<pre><code class="lang-python">import numpy as np
-import matplotlib
-matplotlib.use('agg') 
-import matplotlib.pyplot as plt # matplotlib.use('agg')必须在本句执行前运行
-x = np.arange(0, 2*np.pi, 0.001) 
-y = np.sin(2 * np.pi * x) 
-plt.clf() 
-plt.plot(x,y) 
-l = plt.axhline(linewidth=1, color='black') 
-l = plt.axvline(linewidth=1, color='black') 
-plt.show()
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line">matplotlib.use(<span class="string">'agg'</span>) </span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment"># matplotlib.use('agg')必须在本句执行前运行</span></span><br><span class="line">x = np.arange(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">0.001</span>) </span><br><span class="line">y = np.sin(<span class="number">2</span> * np.pi * x) </span><br><span class="line">plt.clf() </span><br><span class="line">plt.plot(x,y) </span><br><span class="line">l = plt.axhline(linewidth=<span class="number">1</span>, color=<span class="string">'black'</span>) </span><br><span class="line">l = plt.axvline(linewidth=<span class="number">1</span>, color=<span class="string">'black'</span>) </span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <p>原理分析：</p>
 <p>实际上，这样的理解是表面的，这个语句确实会使得在<code>Pycharm</code>运行时无法显示图，但是必须注意，这是其原理导致的，而这个语句并不是设置<code>Pycharm</code>不显示图的语句，其实前述的代码中，删掉 <code>plt.show()</code>，也不会显示图片。</p>
 <p><code>matplotlib</code>的<code>use()</code>命令其实是用来配置<code>matplotlib</code>的<code>backend</code>（后端）的命令。所谓后端，就是一个渲染器，用于将前端代码渲染成我们想要的图像。后端详细的解释可参考博客：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.cnblogs.com/suntp/p/6519386.html">matplotlib中什么是后端 </a></p>
 <p>对于用户接口，典型的渲染器是<code>Agg</code>，它是使用<code>Anti-Grain Geometry C++</code>库来产生光栅(像素)图。</p>
 <p>那么为什么这样设置<code>Pycharm</code>会导致其不显示图片呢？</p>
 <p>可以查看一下目前的后端设置。方法是执行下面代码。</p>
-<pre><code class="lang-python">&gt;&gt;&gt; import matplotlib
-&gt;&gt;&gt; matplotlib.get_backend()
-Qt5Agg
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>matplotlib.get_backend()</span><br><span class="line">Qt5Agg</span><br></pre></td></tr></tbody></table></figure>
 <p>也就是说，Pycharm运行的时候，默认的后端是<code>Qt5Agg</code>。</p>
 <p>实际上，<code>Agg</code> 渲染器是非交互式的后端，没有GUI界面，所以不显示图片，它是用来生成图像文件。<code>Qt5Agg</code> 是意思是Agg渲染器输出到Qt5绘图面板，它是交互式的后端，拥有在屏幕上展示的能力</p>
 
@@ -5252,7 +5238,7 @@ Qt5Agg
         <div class="hoverbox">
           <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
           <div class="target">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC9klEQVR42u3aSXJCMQwFQO5/abJPQn1NP1ihvYMCD+3NK8mPp/HreCAAAwYMGDBg1sA8iuPHhN++f/W76P+y602dBwwYMGDAgAGzDyYcgIobvTpAd/2p84ABAwYMGDBg9sJcBqBiIIuCtANa9zxgwIABAwYMmI+DqUJF58muDwYMGDBgwIABU124G9CyQRAMGDBgwIABA2YqiFULVN1G2jGdSDBgwIABAwbMn8FMN7je/bl8HjBgwIABAwbMGpjuiBacogfLBsvn8AADBgwYMGDA7IGpBqS7CllXB58KeGDAgAEDBgyY/wNTfcAzddC7L6D8cAgMGDBgwIABswYm+8AnW5Cagp6+IDBgwIABAwbMPpjoBtILFKGrFzAVVMGAAQMGDBgwe2CqgS674W5DbrpAVa7ggQEDBgwYMGCOgelu+K4ANzVv+kLBgAEDBgwYMGtguhuvQkUDYLfhlt4/GDBgwIABA2YNTDdgRQNgNzhOPTxKdyLBgAEDBgwYMMfDlAs7yYDWbcTd1fADAwYMGDBgwOyFmXp4kw1UWeDqumEoMGDAgAEDBswamKkNTReMwoEseXHlTiQYMGDAgAED5jiYbHDKNui6ENOBr1zBAwMGDBgwYMAcB3N3I2yq8NUNeOELBwMGDBgwYMCshamCVQtL1UCYLbCF9wcGDBgwYMCAWQdTDUzdwlS1YdcNgOVOJBgwYMCAAQPmWJjpBlw3cGWDaPQiX84HBgwYMGDAgFkPM9Vo6xa4ohc39ZAJDBgwYMCAAbMHZrpwlH6oUzxQtzF3GfDAgAEDBgwYMMfDPIqjG7im580GzHDyBQMGDBgwYMAcD9MNdNmGWRaoW8gqBzwwYMCAAQMGzBqYaoAab3y9aX0wYMCAAQMGzOfCTD3omS5IgQEDBgwYMGDAdANXN8BVG3HhQhwYMGDAgAEDZi1MtuF29/fZxlr2YsGAAQMGDBgw+2G6javswaOBrDpPeV4wYMCAAQMGzBoYAwwYMGDAgAGzbHwBrsDkHea2M58AAAAASUVORK5CYII=">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC+klEQVR42u3aS3ICMQwFQO5/abJPQo1+E6zQ3kGBZ9zevJL0eFq/rgcCMGDAgAEDZg3Mo7h+bPjt+1e/i/4v+7yp84ABAwYMGDBg9sGEA1DxRa8O0H3+1HnAgAEDBgwYMHthLgNQMZBFQdoBrXseMGDAgAEDBszHwVShovtknw8GDBgwYMCAAVN9cDegZYMgGDBgwIABAwbMVBCrFqi6jbRjOpFgwIABAwYMmD+DmW5wvftz+TxgwIABAwYMmDUw3RUtOEUPlg2Wz+EFBgwYMGDAgNkDUw1IdxWyrg4+FfDAgAEDBgwYMP8HpjrAM3XQuy+gPDgEBgwYMGDAgFkDkx3wmRpEnh4Iqha4wIABAwYMGDB7YKIvkH5AEbp6AVNBFQwYMGDAgAGzB6Ya6KYHh7oDRNkCVbmCBwYMGDBgwIA5BmZq4Gc6wE3tm75QMGDAgAEDBswamO6LV6GiAbDbcEu/PxgwYMCAAQNmDUw3YE0PKkffpzp4lO5EggEDBgwYMGCOh+kO7kQDWrcRd1fDDwwYMGDAgAGzF2Zq8GZ6ICj6+zEoMGDAgAEDBswamKkXmi4YhQNZcYA73YkEAwYMGDBgwBwHkw1O2QZdF2I68JUreGDAgAEDBgyY42DuboRNFb66AS984WDAgAEDBgyYtTBVsGphqTsgnS2glQMeGDBgwIABA+ZYmGpg6hamqg27bgAsdyLBgAEDBgwYMMfCTDfguoErG0SjF/lyPzBgwIABAwbMepipRlu3wBW9uKlBJjBgwIABAwbMHpjpwlF6UKd4oG5j7jLggQEDBgwYMGCOh3kUVzdwTe9bHVy6TL5gwIABAwYMmONhuoEu2zDLAnULWeWABwYMGDBgwIBZA1MNUOONrzc9HwwYMGDAgAHzuTBTAz3TBSkwYMCAAQMGDJhu4OoGuGojLlyIAwMGDBgwYMCshck23O7+PttYy14sGDBgwIABA2Y/TLdxlT14NJBV9ynvCwYMGDBgwIBZA2OBAQMGDBgwYJatL67A5B3xS61PAAAAAElFTkSuQmCC">
           </div>
         </div>
       
@@ -5474,7 +5460,7 @@ Qt5Agg
     
       
         本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
         作为主题
       
     
@@ -6369,7 +6355,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -6596,7 +6582,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/python/","name":"python"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/use_agg/","name":"matplotlib.use('agg')的作用机理"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"matplotlib.use('agg')的作用机理","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/use_agg/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/use_agg/","wordCount":0,"datePublished":"2022-09-17T13:26:58.004Z","dateModified":"2022-10-04T13:31:21.985Z","articleSection":"python","keywords":"matplotlib","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/python/","name":"python"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/use_agg/","name":"matplotlib.use('agg')的作用机理"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"matplotlib.use('agg')的作用机理","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/use_agg/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/use_agg/","wordCount":0,"datePublished":"2022-09-17T13:26:58.004Z","dateModified":"2022-10-04T13:31:21.985Z","articleSection":"python","keywords":"matplotlib","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

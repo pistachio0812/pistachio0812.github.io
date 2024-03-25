@@ -6,7 +6,7 @@
   <link href="http://pistachio0812.github.io/atom.xml" rel="self"/>
   
   <link href="http://pistachio0812.github.io/"/>
-  <updated>2022-11-27T02:43:36.243Z</updated>
+  <updated>2024-03-25T06:21:28.143Z</updated>
   <id>http://pistachio0812.github.io/</id>
   
   <author>
@@ -17,520 +17,460 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>tensorboard</title>
-    <link href="http://pistachio0812.github.io/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/"/>
-    <id>http://pistachio0812.github.io/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/</id>
-    <published>2022-11-27T02:29:16.179Z</published>
-    <updated>2022-11-27T02:43:36.243Z</updated>
+    <title>模型压缩及移动端部署</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch17_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9%E3%80%81%E5%8A%A0%E9%80%9F%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%83%A8%E7%BD%B2/%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9%E3%80%81%E5%8A%A0%E9%80%9F%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%83%A8%E7%BD%B2/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch17_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9%E3%80%81%E5%8A%A0%E9%80%9F%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%83%A8%E7%BD%B2/%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9%E3%80%81%E5%8A%A0%E9%80%9F%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%83%A8%E7%BD%B2/</id>
+    <published>2024-01-24T01:24:21.236Z</published>
+    <updated>2024-03-25T06:21:28.143Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="目标检测" scheme="http://pistachio0812.github.io/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
-    
-    
-    <category term="tensorboard" scheme="http://pistachio0812.github.io/tags/tensorboard/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SSD300转换到SSD512</title>
-    <link href="http://pistachio0812.github.io/zh-CN/SSD300_to_SSD512/"/>
-    <id>http://pistachio0812.github.io/zh-CN/SSD300_to_SSD512/</id>
-    <published>2022-10-31T07:52:05.818Z</published>
-    <updated>2022-10-31T07:59:11.786Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="http://pistachio0812.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="目标检测" scheme="http://pistachio0812.github.io/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
-    
-    <category term="SSD" scheme="http://pistachio0812.github.io/tags/SSD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pth权重文件转换为onnx权重文件</title>
-    <link href="http://pistachio0812.github.io/zh-CN/pth_to_onnx/"/>
-    <id>http://pistachio0812.github.io/zh-CN/pth_to_onnx/</id>
-    <published>2022-10-31T02:59:04.886Z</published>
-    <updated>2022-10-31T03:25:29.398Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="http://pistachio0812.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="文件转换" scheme="http://pistachio0812.github.io/tags/%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue3学习笔记</title>
-    <link href="http://pistachio0812.github.io/zh-CN/vue3/"/>
-    <id>http://pistachio0812.github.io/zh-CN/vue3/</id>
-    <published>2022-10-20T13:29:38.596Z</published>
-    <updated>2022-10-20T13:31:02.923Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="vue" scheme="http://pistachio0812.github.io/categories/vue/"/>
-    
-    
-    <category term="学习笔记" scheme="http://pistachio0812.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="vue" scheme="http://pistachio0812.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>react学习笔记</title>
-    <link href="http://pistachio0812.github.io/zh-CN/React/"/>
-    <id>http://pistachio0812.github.io/zh-CN/React/</id>
-    <published>2022-10-20T11:45:57.275Z</published>
-    <updated>2022-10-20T11:55:38.020Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="React" scheme="http://pistachio0812.github.io/categories/React/"/>
-    
-    
-    <category term="学习笔记" scheme="http://pistachio0812.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="React" scheme="http://pistachio0812.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>highcharts学习笔记</title>
-    <link href="http://pistachio0812.github.io/zh-CN/highcharts%E6%95%99%E7%A8%8B/"/>
-    <id>http://pistachio0812.github.io/zh-CN/highcharts%E6%95%99%E7%A8%8B/</id>
-    <published>2022-10-16T11:44:53.284Z</published>
-    <updated>2022-10-16T12:14:01.594Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
-    <title>echarts学习笔记</title>
-    <link href="http://pistachio0812.github.io/zh-CN/echarts/"/>
-    <id>http://pistachio0812.github.io/zh-CN/echarts/</id>
-    <published>2022-10-13T03:13:43.996Z</published>
-    <updated>2022-10-16T06:42:52.968Z</updated>
+    <title>NCNN部署</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch17_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9%E3%80%81%E5%8A%A0%E9%80%9F%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%83%A8%E7%BD%B2/NCNN%E9%83%A8%E7%BD%B2/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch17_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9%E3%80%81%E5%8A%A0%E9%80%9F%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%83%A8%E7%BD%B2/NCNN%E9%83%A8%E7%BD%B2/</id>
+    <published>2024-01-24T01:24:21.226Z</published>
+    <updated>2024-03-25T06:21:06.835Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="echarts" scheme="http://pistachio0812.github.io/categories/echarts/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    
-    <category term="学习笔记" scheme="http://pistachio0812.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="echarts" scheme="http://pistachio0812.github.io/tags/echarts/"/>
     
   </entry>
   
   <entry>
-    <title>微信小程序开发</title>
-    <link href="http://pistachio0812.github.io/zh-CN/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    <id>http://pistachio0812.github.io/zh-CN/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</id>
-    <published>2022-10-12T11:53:01.972Z</published>
-    <updated>2022-10-12T12:06:32.648Z</updated>
+    <title>自然语言处理入门</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch16_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86(NLP)/%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0_NLP/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch16_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86(NLP)/%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0_NLP/</id>
+    <published>2024-01-24T01:24:21.219Z</published>
+    <updated>2024-03-25T06:20:21.462Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="开发日记" scheme="http://pistachio0812.github.io/categories/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    
-    <category term="微信小程序" scheme="http://pistachio0812.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
-    <title>Logo语言的学习</title>
-    <link href="http://pistachio0812.github.io/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://pistachio0812.github.io/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
-    <published>2022-10-11T10:51:39.314Z</published>
-    <updated>2022-10-11T14:26:40.541Z</updated>
+    <title>异构计算</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch15_GPU%E5%92%8C%E6%A1%86%E6%9E%B6%E9%80%89%E5%9E%8B/%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0_%E5%BC%82%E6%9E%84%E8%BF%90%E7%AE%97%E3%80%81GPU%E5%8F%8A%E6%A1%86%E6%9E%B6%E9%80%89%E5%9E%8B/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch15_GPU%E5%92%8C%E6%A1%86%E6%9E%B6%E9%80%89%E5%9E%8B/%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0_%E5%BC%82%E6%9E%84%E8%BF%90%E7%AE%97%E3%80%81GPU%E5%8F%8A%E6%A1%86%E6%9E%B6%E9%80%89%E5%9E%8B/</id>
+    <published>2024-01-24T01:24:21.153Z</published>
+    <updated>2024-03-25T06:19:47.232Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="学习笔记" scheme="http://pistachio0812.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    
-    <category term="logo" scheme="http://pistachio0812.github.io/tags/logo/"/>
-    
-    <category term="学习笔记" scheme="http://pistachio0812.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
-    <title>rss学习笔记</title>
-    <link href="http://pistachio0812.github.io/zh-CN/RSS/"/>
-    <id>http://pistachio0812.github.io/zh-CN/RSS/</id>
-    <published>2022-10-10T09:58:38.565Z</published>
-    <updated>2022-10-10T12:16:05.872Z</updated>
+    <title>超参数调整</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/</id>
+    <published>2024-01-24T01:24:21.088Z</published>
+    <updated>2024-03-25T06:19:20.466Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="rss" scheme="http://pistachio0812.github.io/categories/rss/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    
-    <category term="学习笔记" scheme="http://pistachio0812.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="rss" scheme="http://pistachio0812.github.io/tags/rss/"/>
     
   </entry>
   
   <entry>
-    <title>jsDelivr+Github 使用方法</title>
-    <link href="http://pistachio0812.github.io/zh-CN/%E5%85%8D%E8%B4%B9cdn/"/>
-    <id>http://pistachio0812.github.io/zh-CN/%E5%85%8D%E8%B4%B9cdn/</id>
-    <published>2022-10-07T15:10:08.661Z</published>
-    <updated>2022-10-07T15:39:37.552Z</updated>
+    <title>优化算法</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch13_%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0_%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch13_%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0_%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</id>
+    <published>2024-01-24T01:24:21.016Z</published>
+    <updated>2024-03-25T06:18:40.123Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="github" scheme="http://pistachio0812.github.io/categories/github/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    
-    <category term="学习笔记" scheme="http://pistachio0812.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="CDN" scheme="http://pistachio0812.github.io/tags/CDN/"/>
     
   </entry>
   
   <entry>
-    <title>Pytorch API之torch</title>
-    <link href="http://pistachio0812.github.io/zh-TW/torch_/"/>
-    <id>http://pistachio0812.github.io/zh-TW/torch_/</id>
-    <published>2022-09-28T07:19:34.857Z</published>
-    <updated>2022-10-04T13:56:00.729Z</updated>
+    <title>网络搭建及训练</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch12_%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E5%8F%8A%E8%AE%AD%E7%BB%83/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0_%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E5%8F%8A%E8%AE%AD%E7%BB%83/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch12_%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E5%8F%8A%E8%AE%AD%E7%BB%83/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0_%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E5%8F%8A%E8%AE%AD%E7%BB%83/</id>
+    <published>2024-01-24T01:24:20.947Z</published>
+    <updated>2024-03-25T06:18:12.895Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="pytorch" scheme="http://pistachio0812.github.io/categories/pytorch/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    
-    <category term="函数库" scheme="http://pistachio0812.github.io/tags/%E5%87%BD%E6%95%B0%E5%BA%93/"/>
-    
-    <category term="torch" scheme="http://pistachio0812.github.io/tags/torch/"/>
     
   </entry>
   
   <entry>
-    <title>typora数学公式教程</title>
-    <link href="http://pistachio0812.github.io/zh-CN/typora%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%95%99%E7%A8%8B/"/>
-    <id>http://pistachio0812.github.io/zh-CN/typora%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%95%99%E7%A8%8B/</id>
-    <published>2022-09-27T03:16:53.509Z</published>
-    <updated>2022-10-04T13:30:15.956Z</updated>
+    <title>迁移学习</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch11_%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0_%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch11_%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0_%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/</id>
+    <published>2024-01-24T01:24:20.387Z</published>
+    <updated>2024-03-25T06:17:49.339Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="typora" scheme="http://pistachio0812.github.io/categories/typora/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    
-    <category term="学习笔记" scheme="http://pistachio0812.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
-    <title>epoch和iteration的区别</title>
-    <link href="http://pistachio0812.github.io/zh-CN/epoch%E5%92%8Citeration%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>http://pistachio0812.github.io/zh-CN/epoch%E5%92%8Citeration%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
-    <published>2022-09-27T02:40:11.597Z</published>
-    <updated>2022-10-04T13:09:36.966Z</updated>
+    <title>强化学习</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch10_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E5%8D%81%E7%AB%A0_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch10_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E5%8D%81%E7%AB%A0_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</id>
+    <published>2024-01-24T01:24:20.335Z</published>
+    <updated>2024-03-25T06:17:26.074Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="计算机视觉" scheme="http://pistachio0812.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    
-    <category term="基础概念" scheme="http://pistachio0812.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
-    
-    <category term="epoch&amp;iteration" scheme="http://pistachio0812.github.io/tags/epoch-iteration/"/>
     
   </entry>
   
   <entry>
-    <title>开放图谱协议</title>
-    <link href="http://pistachio0812.github.io/zh-CN/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/"/>
-    <id>http://pistachio0812.github.io/zh-CN/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/</id>
-    <published>2022-09-26T12:21:00.458Z</published>
-    <updated>2022-10-04T13:42:30.783Z</updated>
+    <title>图像分割</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch09_%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/%E7%AC%AC%E4%B9%9D%E7%AB%A0_%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch09_%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/%E7%AC%AC%E4%B9%9D%E7%AB%A0_%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/</id>
+    <published>2024-01-24T01:24:20.106Z</published>
+    <updated>2024-03-25T06:14:25.641Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="Hexo博客搭建" scheme="http://pistachio0812.github.io/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    
-    <category term="Hexo" scheme="http://pistachio0812.github.io/tags/Hexo/"/>
-    
-    <category term="open_graph" scheme="http://pistachio0812.github.io/tags/open-graph/"/>
     
   </entry>
   
   <entry>
-    <title>ubuntu软件安装的问题总结</title>
-    <link href="http://pistachio0812.github.io/zh-CN/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/"/>
-    <id>http://pistachio0812.github.io/zh-CN/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98/</id>
-    <published>2022-09-26T01:12:36.010Z</published>
-    <updated>2022-10-04T13:30:34.077Z</updated>
+    <title>目标检测</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch08_%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E7%AC%AC%E5%85%AB%E7%AB%A0_%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch08_%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E7%AC%AC%E5%85%AB%E7%AB%A0_%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</id>
+    <published>2024-01-24T01:24:18.505Z</published>
+    <updated>2024-03-25T06:14:05.298Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="ubuntu" scheme="http://pistachio0812.github.io/categories/ubuntu/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    
-    <category term="软件安装" scheme="http://pistachio0812.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
   <entry>
-    <title>CABNet论文笔记</title>
-    <link href="http://pistachio0812.github.io/zh-CN/CABNet/"/>
-    <id>http://pistachio0812.github.io/zh-CN/CABNet/</id>
-    <published>2022-09-25T02:28:30.021Z</published>
-    <updated>2022-10-04T12:53:45.962Z</updated>
+    <title>生成对抗网络</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch07_%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C(GAN)/ch7/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch07_%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C(GAN)/ch7/</id>
+    <published>2024-01-24T01:24:17.843Z</published>
+    <updated>2024-03-25T06:12:08.923Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="目标检测" scheme="http://pistachio0812.github.io/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    
-    <category term="论文笔记" scheme="http://pistachio0812.github.io/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
-    <title>Warnings_unsample</title>
-    <link href="http://pistachio0812.github.io/zh-CN/warning_unsample/"/>
-    <id>http://pistachio0812.github.io/zh-CN/warning_unsample/</id>
-    <published>2022-09-22T13:20:43.936Z</published>
-    <updated>2022-10-04T13:34:23.332Z</updated>
+    <title>循环神经网络</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch06_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(RNN)/%E7%AC%AC%E5%85%AD%E7%AB%A0_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(RNN)/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch06_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(RNN)/%E7%AC%AC%E5%85%AD%E7%AB%A0_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(RNN)/</id>
+    <published>2024-01-24T01:24:17.568Z</published>
+    <updated>2024-03-25T06:11:42.426Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="pytorch" scheme="http://pistachio0812.github.io/categories/pytorch/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    
-    <category term="warnings" scheme="http://pistachio0812.github.io/tags/warnings/"/>
     
   </entry>
   
   <entry>
-    <title>Grad-cam论文笔记</title>
-    <link href="http://pistachio0812.github.io/zh-CN/grad-cam/"/>
-    <id>http://pistachio0812.github.io/zh-CN/grad-cam/</id>
-    <published>2022-09-22T11:37:18.237Z</published>
-    <updated>2022-10-04T13:15:09.178Z</updated>
+    <title>卷积神经网络</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch05_%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(CNN)/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88CNN%EF%BC%89/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch05_%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(CNN)/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88CNN%EF%BC%89/</id>
+    <published>2024-01-24T01:24:17.146Z</published>
+    <updated>2024-03-25T06:11:21.567Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="目标检测" scheme="http://pistachio0812.github.io/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-    
-    <category term="论文笔记" scheme="http://pistachio0812.github.io/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="grad-cam" scheme="http://pistachio0812.github.io/tags/grad-cam/"/>
     
   </entry>
   
   <entry>
-    <title>visdom使用教程</title>
-    <link href="http://pistachio0812.github.io/zh-CN/visdom%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
-    <id>http://pistachio0812.github.io/zh-CN/visdom%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</id>
-    <published>2022-09-20T13:25:26.535Z</published>
-    <updated>2022-10-04T13:31:37.021Z</updated>
+    <title>经典网络</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/</id>
+    <published>2024-01-24T01:24:16.384Z</published>
+    <updated>2024-03-25T06:10:55.274Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="pytorch" scheme="http://pistachio0812.github.io/categories/pytorch/"/>
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="可视化" scheme="http://pistachio0812.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+  </entry>
+  
+  <entry>
+    <title>深度学习基础</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch03_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/%E7%AC%AC%E4%B8%89%E7%AB%A0_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch03_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/%E7%AC%AC%E4%B8%89%E7%AB%A0_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/</id>
+    <published>2024-01-24T01:24:15.972Z</published>
+    <updated>2024-03-25T06:10:35.748Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习基础</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch02_%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/%E7%AC%AC%E4%BA%8C%E7%AB%A0_%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch02_%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/%E7%AC%AC%E4%BA%8C%E7%AB%A0_%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/</id>
+    <published>2024-01-24T01:24:15.416Z</published>
+    <updated>2024-03-25T06:09:48.234Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>数学基础</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch01_%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%AC%AC%E4%B8%80%E7%AB%A0_%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch01_%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%AC%AC%E4%B8%80%E7%AB%A0_%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</id>
+    <published>2024-01-24T01:24:15.222Z</published>
+    <updated>2024-03-25T06:25:06.504Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://pistachio0812.github.io/zh-TW/README/"/>
+    <id>http://pistachio0812.github.io/zh-TW/README/</id>
+    <published>2024-01-24T01:24:15.189Z</published>
+    <updated>2019-07-01T15:01:52.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>后端架构选型及应用场景</title>
+    <link href="http://pistachio0812.github.io/zh-TW/ch18_%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84%E9%80%89%E5%9E%8B%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0_%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84%E9%80%89%E5%9E%8B%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/"/>
+    <id>http://pistachio0812.github.io/zh-TW/ch18_%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84%E9%80%89%E5%9E%8B%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0_%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84%E9%80%89%E5%9E%8B%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/</id>
+    <published>2024-01-24T01:24:13.307Z</published>
+    <updated>2024-03-25T06:21:59.546Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="深度学习" scheme="http://pistachio0812.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
     
   </entry>
   

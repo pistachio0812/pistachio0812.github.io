@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,zh-TW,default">
-    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6">
-  <meta name="generator" content="Hexo 6.0.0">
-  <meta name="Volantis" content="5.7.6">
+    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2">
+  <meta name="generator" content="Hexo 7.1.1">
+  <meta name="Volantis" content="7.6.2">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -50,13 +50,13 @@
   <!-- 页面元数据 -->
   <title>nn.relu和F.relu的区别 - 阿月浑子-Hexo博客</title>
   <meta name="keywords" content="函数库,relu,null">
-  <meta desc name="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测 - pistachio - 阿月浑子-Hexo博客">
+  <meta desc name="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测 - pistachio - 阿月浑子-Hexo博客">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="page.title">
 <meta property="og:url" content="url">
 <meta property="og:site_name" content="阿月浑子-Hexo博客">
-<meta property="og:description" content="参考博文： 1.PyTorch之nn.ReLU与F.ReLU的区别 示例代码： import torch.nn as nn import torch.nn.functional as F import torch.nn as nn  class AlexNet_1(nn.Module):      def __init__(self, num_classes&#x3D;n):         super(A">
+<meta property="og:description" content="参考博文： 1.PyTorch之nn.ReLU与F.ReLU的区别 示例代码： 1234567891011121314151617181920212223242526272829import torch.nn as nnimport torch.nn.functional as Fimport torch.nn as nn class AlexNet_1(nn.Module):     def _">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-20T03:35:58.048Z">
 <meta property="article:modified_time" content="2022-10-04T13:22:14.815Z">
@@ -3729,7 +3729,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1671165968583),
+    lastupdate: new Date(1711347947244),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -5061,7 +5061,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </span>
   <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
     <meta itemprop="name" content="阿月浑子-Hexo博客">
-    <meta itemprop="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测">
+    <meta itemprop="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测">
   </span>
   
 
@@ -5121,7 +5121,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：355 字</p>
+      <p>字数：353 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -5147,36 +5147,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <p>参考博文：</p>
 <p>1.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/u011501388/article/details/86602275">PyTorch之nn.ReLU与F.ReLU的区别</a></p>
 <p>示例代码：</p>
-<pre><code class="lang-python">import torch.nn as nn
-import torch.nn.functional as F
-import torch.nn as nn
-
-class AlexNet_1(nn.Module):
-
-    def __init__(self, num_classes=n):
-        super(AlexNet, self).__init__()
-        self.features = nn.Sequential(
-            nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1),
-            nn.BatchNorm2d(64),
-            nn.ReLU(inplace=True),
-         )
-
-    def forward(self, x):
-        x = self.features(x)
-
-class AlexNet_2(nn.Module):
-
-    def __init__(self, num_classes=n):
-        super(AlexNet, self).__init__()
-        self.features = nn.Sequential(
-            nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1),
-            nn.BatchNorm2d(64),
-         )
-
-    def forward(self, x):
-        x = self.features(x)
-        x = F.ReLU(x)
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AlexNet_1</span>(nn.Module):</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, num_classes=n</span>):</span><br><span class="line">        <span class="built_in">super</span>(AlexNet, self).__init__()</span><br><span class="line">        self.features = nn.Sequential(</span><br><span class="line">            nn.Conv2d(<span class="number">3</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>, stride=<span class="number">2</span>, padding=<span class="number">1</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">64</span>),</span><br><span class="line">            nn.ReLU(inplace=<span class="literal">True</span>),</span><br><span class="line">         )</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.features(x)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AlexNet_2</span>(nn.Module):</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, num_classes=n</span>):</span><br><span class="line">        <span class="built_in">super</span>(AlexNet, self).__init__()</span><br><span class="line">        self.features = nn.Sequential(</span><br><span class="line">            nn.Conv2d(<span class="number">3</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>, stride=<span class="number">2</span>, padding=<span class="number">1</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">64</span>),</span><br><span class="line">         )</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.features(x)</span><br><span class="line">        x = F.ReLU(x)</span><br></pre></td></tr></tbody></table></figure>
 <p>在如上网络中，AlexNet_1与AlexNet_2实现的结果是一致的，但是可以看到将ReLU层添加到网络有两种不同的实现，即nn.ReLU和F.ReLU两种实现方法。<br>其中nn.ReLU作为一个层结构，必须添加到nn.Module容器中才能使用，而F.ReLU则作为一个函数调用，看上去作为一个函数调用更方便更简洁。具体使用哪种方式，取决于编程风格。在PyTorch中,nn.X都有对应的函数版本F.X，但是并不是所有的F.X均可以用于forward或其它代码段中，因为当网络模型训练完毕时，在存储model时，在forward中的F.X函数中的参数是无法保存的。也就是说，在forward中，使用的F.X函数一般均没有状态参数，比如F.ReLU，F.avg_pool2d等，均没有参数，它们可以用在任何代码片段中。</p>
 
   </div>
@@ -5258,7 +5229,7 @@ class AlexNet_2(nn.Module):
         <div class="hoverbox">
           <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
           <div class="target">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEYElEQVR42u3aUbIiMQgFUPe/6ZkVWIYLTbTe4U+r2yQnfgDF6594JF4IwIIVYMGCFWBXYF9hHC90+H51vU/PpefpeoAFCxYsWLBgwYLdha1CVWE+HeDd76cXXf39KQ+wYMGCBQsWLFiwd2BPQU4LgjSxTy946sLT/YIFCxYsWLBgwYL9Ldi0EOge+GPCfrgfsGDBggULFixYsH8TtjqgkTaenyoMwIIFCxYsWLBgwf42bHlAIWxsbz1/Cvh1kzBgwYIFCxYsWLBgj2CrMZXgf+vn2AMsWLBgwYIFCxbsCuxUpA3oKYC08T3uABYsWLBgwYIFC3YFNh1cqB4wbSxXC5UUMB0MAQsWLFiwYMGCBXsXdmoQowq6tU76uVzYgAULFixYsGDBgl2B7UJUE/LpgiJtiKf7/fg8WLBgwYIFCxYs2BXYdIChCpsm4mkhkQ6OVAsCsGDBggULFixYsN8Fe9zYHRqM6A5kpI3y6voffcCCBQsWLFiwYMGuwnYb32kBUW0kb19oexIGLFiwYMGCBQsW7KOw0wl3t6HcHdBIfz9t8IMFCxYsWLBgwYLdha0m0GmiPn1hTxcq6bpgwYIFCxYsWLBg78BON4SrG0730x3s6BYmYMGCBQsWLFiwYO/AVgc20kZzNQFPBzC6gxvpwAhYsGDBggULFizYHdjqwdLEOb3I6oGnozxQAhYsWLBgwYIFC3YFdgr0tOHdfb763Om5qn+YcqMbLFiwYMGCBQsW7COw3cGHLlx38LdbSLyKcVwggAULFixYsGDBgn0UdqoBPHUBp99PXWRamIAFCxYsWLBgwYL9DtipBL5aeEytkzbIuwUSWLBgwYIFCxYs2F3Y9KBpAt9tZKeg3fMcvwcWLFiwYMGCBQv2CmwVIm1MdxP0qUKk22h/2+gGCxYsWLBgwYIF+yhsNSGfGuBIByOq+0oHL+LCBixYsGDBggULFuwKbHUQYvrA3US+OtgxVQAdV15gwYIFCxYsWLBgH4GdGmyoNq6rjeTqYMnp+uMFCFiwYMGCBQsWLNgV2FcYaeO7C3r6fnWdtLABCxYsWLBgwYIFewd2auG08Xy6blqoPPU+WLBgwYIFCxYs2LuwUwO3aYO6+/7YwHCxUf92P2DBggULFixYsGBXYKcb1tUNpQ326fW65wcLFixYsGDBggW7C5sm2FNA6QVNFRbphb79DBYsWLBgwYIFC3YFthvjCXazQZ7+QaYuGixYsGDBggULFuwO7FSC3wVOB0OqgxinYNXnwIIFCxYsWLBgwd6B7SbaXeDuAY8PHu73+HmwYMGCBQsWLFiwV2CrAwvdDd4qBKoF0vEfBCxYsGDBggULFuxPwFbf715gFa66XlqogAULFixYsGDBgv0t2G5CPvX9VCO8PfABFixYsGDBggUL9gpsutAUdAo2fTHpYApYsGDBggULFizYXdjuAbuDGd2Djzesw0IJLFiwYMGCBQsW7A6smA2wYMEKsGDBCrCPxn8FvVY6+uWDtQAAAABJRU5ErkJggg==">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEYUlEQVR42u3aQa4iMQwFQO5/6ZkTIOJntwP6lR2omyQVFrH1Xv+MR8YLAViwBliwYA2wK7CvcBxPdPh+db5Pz6X76XqABQsWLFiwYMGC3YWtQlVhPm3g3e+nB139/SkPsGDBggULFixYsHdgT0FOC4L0Yp8e8NSBp+sFCxYsWLBgwYIF+1uwaSHQ3fDHC/vhesCCBQsWLFiwYMH+TdhqQCNtPD9VGIAFCxYsWLBgwYL9bdhyQCFsbG89fwr4dUkYsGDBggULFixYsEew1TF1wf/Wz7EHWLBgwYIFCxYs2BXYqZE2oKcA0sb3uANYsGDBggULFizYFdg0uFDdYNpYrhYqKWAaDAELFixYsGDBggV7F3YqiFEF3Zon/VwubMCCBQsWLFiwYMGuwHYhqhfy6YIibYin6/34PFiwYMGCBQsWLNgV2DTAUIVNL+JpIZEGR6oFAViwYMGCBQsWLNjvgj1u7A4FI7qBjLRRXp3/ow9YsGDBggULFizYVdhu4zstIKqN5O0DbSdhwIIFCxYsWLBgwT4KO33h7jaUuwGN9PfTBj9YsGDBggULFizYXdjqBTq9qE8f2NOFSjovWLBgwYIFCxYs2Duw0w3h6oLT9XSDHd3CBCxYsGDBggULFuwd2GpgI200Vy/gaQCjG9xIAyNgwYIFCxYsWLBgd2CrG0svzulBVjc8PcqBErBgwYIFCxYsWLArsFOgpw3v7vPV50731Q04gwULFixYsGDBgr0D2w0+dOG6wd9uIfEqjuMCASxYsGDBggULFuyjsFMN4KkDOP1+6iDHAtVgwYIFCxYsWLBgr8BOXeCrhcfUPGmDvFsggQULFixYsGDBgt2FTTeaXuC7jewUtLuf4/fAggULFixYsGDBXoGtQqSN6e4FfaoQ6Tba3za6wYIFCxYsWLBgwT4KW72QTwU40mBEdV1p8CIubMCCBQsWLFiwYMGuwFaDENMb7l7kq8GOqQLouPICCxYsWLBgwYIF+wjsVLCh2riuNpKrwZLT+ccLELBgwYIFCxYsWLArsK9wpI3vLmg1GNINlpR/DyxYsGDBggULFuwK7NTEaeP5ONAbFipPvQ8WLFiwYMGCBQv2LuxU4DZtUHffHwsMFxv1b9cDFixYsGDBggULdgV2umFdXVDaYJ+er7t/sGDBggULFixYsLuw6QV7Cig9oKnCIj3Qt5/BggULFixYsGDBrsB2x/gFu9kgT/8gUwcNFixYsGDBggULdgd26oLfBU6DIdUgxilY9TmwYMGCBQsWLFiwd2C7F+0ucHeDxxsP13v8PFiwYMGCBQsWLNgrsNXAQneBtwqBaoF0/AcBCxYsWLBgwYIF+xOw1fe7B5gGQqpB5PQPARYsWLBgwYIFC/Y3YLsX8qnvpxrh7cAHWLBgwYIFCxYs2Cuw6URT0CnY9MGkwRSwYMGCBQsWLFiwu7DdDXaDGd2Njzes0+AKWLBgwYIFCxYs2BVYY3aABQvWAAsWrAH20fEfBb1WOv8SASEAAAAASUVORK5CYII=">
           </div>
         </div>
       
@@ -5288,10 +5259,7 @@ class AlexNet_2(nn.Module):
         <a class="prev" href="/zh-CN/python%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/">
           <p class="title"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>python知识补充</p>
           <p class="content">1.为源文件指定不同的字符编码
-# 语法，python源文件默认使用UTF-8编码,特殊的编码注释必须在文件的第一行或者第二行定义
-# -*- coding: encoding -*-
-eg:
-...</p>
+12345# 语法，python源文件默认使用UTF-8编码,特殊的编码注释必须在文件的第一行或者第二行定义# -*- coding: encoding -*-e...</p>
         </a>
       
       
@@ -5484,7 +5452,7 @@ eg:
     
       
         本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
         作为主题
       
     
@@ -6379,7 +6347,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -6606,7 +6574,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/pytorch/","name":"pytorch"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/nn_relu和F_relu的区别/","name":"nn.relu和F.relu的区别"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"nn.relu和F.relu的区别","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/","wordCount":0,"datePublished":"2022-06-20T03:35:58.048Z","dateModified":"2022-10-04T13:22:14.815Z","articleSection":"pytorch","keywords":"函数库,relu","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/pytorch/","name":"pytorch"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/nn_relu和F_relu的区别/","name":"nn.relu和F.relu的区别"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"nn.relu和F.relu的区别","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/nn_relu%E5%92%8CF_relu%E7%9A%84%E5%8C%BA%E5%88%AB/","wordCount":0,"datePublished":"2022-06-20T03:35:58.048Z","dateModified":"2022-10-04T13:22:14.815Z","articleSection":"pytorch","keywords":"函数库,relu","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

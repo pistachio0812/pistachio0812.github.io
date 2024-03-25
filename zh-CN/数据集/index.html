@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,zh-TW,default">
-    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6">
-  <meta name="generator" content="Hexo 6.0.0">
-  <meta name="Volantis" content="5.7.6">
+    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2">
+  <meta name="generator" content="Hexo 7.1.1">
+  <meta name="Volantis" content="7.6.2">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -50,7 +50,7 @@
   <!-- 页面元数据 -->
   <title>数据集介绍 - 阿月浑子-Hexo博客</title>
   <meta name="keywords" content="数据集,null">
-  <meta desc name="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测 - pistachio - 阿月浑子-Hexo博客">
+  <meta desc name="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测 - pistachio - 阿月浑子-Hexo博客">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="page.title">
@@ -3728,7 +3728,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1671165968583),
+    lastupdate: new Date(1711347947244),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -5060,7 +5060,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </span>
   <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
     <meta itemprop="name" content="阿月浑子-Hexo博客">
-    <meta itemprop="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测">
+    <meta itemprop="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测">
   </span>
   
 
@@ -5120,7 +5120,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：617 字</p>
+      <p>字数：621 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -5149,24 +5149,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>论文中针对 VOC2007和VOC2012 的具体用法有以下几种：</p>
 <p>1.只用VOC2007的trainval 训练，使用VOC2007的test测试。<br>2.只用VOC2012的trainval 训练，使用VOC2012的test测试，这种用法很少使用，因为大家都会结合VOC2007使用。<br>3.（推荐）使用 VOC2007 的 train+val 和 VOC2012的 train+val 训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12 ，研究者可以自己测试在VOC2007上的结果，因为VOC2007的test是公开的。<br>4.使用 VOC2007 的 train+val+test 和 VOC2012的 train+val训练，然后使用 VOC2012的test测试，这个用法是论文中经常看到的 07++12 ，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。<br>5.先在 MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val、 VOC2012的 train+val 微调训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12+COCO 。<br>6.先在 MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val+test 、 VOC2012的 train+val 微调训练，然后使用 VOC2012的test测试 ，这个用法是论文中经常看到的 07++12+COCO，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。</p>
 <h3 id="VOC07-12联合训练并在07上测试"><a href="#VOC07-12联合训练并在07上测试" class="headerlink" title="VOC07+12联合训练并在07上测试"></a>VOC07+12联合训练并在07上测试</h3><h4 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h4><p>对于分类/检测任务而言，完成07 + 12数据集合并后，共得到如下数据：</p>
-<pre><code># 5011+11540=16551, 12608+27450=40058
-训练数据：16551张图像，共40058个目标
-# 全部来自voc07_test
-测试数据：4952张图像，共12032个目标
-</code></pre><p>组成如下所示：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 5011+11540=16551, 12608+27450=40058</span><br><span class="line">训练数据：16551张图像，共40058个目标</span><br><span class="line"># 全部来自voc07_test</span><br><span class="line">测试数据：4952张图像，共12032个目标</span><br></pre></td></tr></tbody></table></figure>
+<p>组成如下所示：</p>
 <p>训练数据：</p>
 <p>1.VOC2007的训练集提供了：</p>
-<pre><code>训练数据：2501张图像，共6301个目标
-验证数据：2510张图像，共6307个目标
-训练+验证数据：5011张图像，共12608个目标
-</code></pre><p>2.VOC2012的训练集提供了：</p>
-<pre><code>训练数据：5717张图像，共13609个目标
-验证数据：5823张图像，共13841个目标
-训练+验证数据：11540张图像，共27450个目标
-</code></pre><p>测试数据：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">训练数据：2501张图像，共6301个目标</span><br><span class="line">验证数据：2510张图像，共6307个目标</span><br><span class="line">训练+验证数据：5011张图像，共12608个目标</span><br></pre></td></tr></tbody></table></figure>
+<p>2.VOC2012的训练集提供了：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">训练数据：5717张图像，共13609个目标</span><br><span class="line">验证数据：5823张图像，共13841个目标</span><br><span class="line">训练+验证数据：11540张图像，共27450个目标</span><br></pre></td></tr></tbody></table></figure>
+<p>测试数据：</p>
 <p>1.VOC2007的测试集提供了：</p>
-<pre><code>测试数据：4952张图像，共12032个目标
-</code></pre><h3 id="各种数据集介绍"><a href="#各种数据集介绍" class="headerlink" title="各种数据集介绍"></a>各种数据集介绍</h3><h4 id="Pascal-VOC"><a href="#Pascal-VOC" class="headerlink" title="Pascal VOC"></a>Pascal VOC</h4><p>官网地址：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://pjreddie.com/projects/pascal-voc-dataset-mirror/">Pascal VOC Dataset Mirror (pjreddie.com)</a></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">测试数据：4952张图像，共12032个目标</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="各种数据集介绍"><a href="#各种数据集介绍" class="headerlink" title="各种数据集介绍"></a>各种数据集介绍</h3><h4 id="Pascal-VOC"><a href="#Pascal-VOC" class="headerlink" title="Pascal VOC"></a>Pascal VOC</h4><p>官网地址：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://pjreddie.com/projects/pascal-voc-dataset-mirror/">Pascal VOC Dataset Mirror (pjreddie.com)</a></p>
 <h4 id="MS-COCO"><a href="#MS-COCO" class="headerlink" title="MS COCO"></a>MS COCO</h4><h4 id="ILSVRC"><a href="#ILSVRC" class="headerlink" title="ILSVRC"></a>ILSVRC</h4>
   </div>
   
@@ -5247,7 +5240,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="hoverbox">
           <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
           <div class="target">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAE4CAAAAADqFLC2AAADmElEQVR42u3aQXLcMAwEwP3/p5MHpFLiAFAIb5o3l7Uy0LyMgf38ckrngwAcOHDgHHDglsB9iif9/B8FHL7n6fm/vff093G/4MCBAwcOHDhwy+COA+DD82lD1fdVf9/tFxw4cODAgQMHbitcGkTT4Jn+3Wowfu15cODAgQMHDhy4L4GrDjxPB4zdYA4OHDhw4MCBAweuNhicfn/1QsGBAwcOHDhw4L4dLl7QvjQ47AKt3+SDAwcOHDhw4MANwU0vhLf/XO4XHDhw4MCBAwduCVz3nC6Qp4JsN0C3+wUHDhw4cODAgVsCN7VQnmrgrUFpGnTbE2Bw4MCBAwcOHLhLcGnBT0F26j3VAWb3OXDgwIEDBw4cuJ8OVx0MpgWmwXj6+fIgExw4cODAgQMHbgnc1EL6XwXnbv2PwODAgQMHDhw4cEvgpoJn94uCY401B7OPz4EDBw4cOHDgwC2BS4NlFbQLnQbcFLr9xUJw4MCBAwcOHLhLcN3B5XQjUwvm6YEsOHDgwIEDBw7cFrjTAqcAqwvlal3jwRocOHDgwIEDB24JXHUgeVpIGmxTiPQCu+DgwIEDBw4cOHDb4aYGi91A3V4gDy2iwYEDBw4cOHDgtsONLW6HAmo1iKcXWN7kgwMHDhw4cODAXYJLB4bdxXIV4K2BZVwPOHDgwIEDBw7cErhq4HwbcmpwWg3u8X8O4MCBAwcOHDhwl+C6hby1UJ4aTFYvGhw4cODAgQMHbitct+AucHWQWb3w9uAWHDhw4MCBAwduCdzpgrYbgG8DjQV4cODAgQMHDhy4JXDpQG+qodNGq4vq07rjvsCBAwcOHDhw4JbAVRvsBtvTz6cL5+ng/vifAzhw4MCBAwcO3CW4NAhPLajT93Xr7PYDDhw4cODAgQO3Ha4aTLsDzXTAmA4+qxf+OAEGBw4cOHDgwIG7BNf9Il93IVw9aT3dASY4cODAgQMHDtw2uO6ZGlimC+vuQDWtAxw4cODAgQMHbhvcVACtBuHbC++4fnDgwIEDBw4cuGVwbwfeqUX31GD1dOENDhw4cODAgQP3U+CmF8DVoFltsLuQBgcOHDhw4MCB+1/gqovfqYCdXnC3L3DgwIEDBw4cuG+DS4PuaUCehupeMDhw4MCBAwcO3Fa4qYBaXTR3F94pdFwHOHDgwIEDBw7cMrj0pEEzvaDuQnkqYD8OMsGBAwcOHDhw4C7BOeFFIgAHDhw4Bxy4u+c3ll/9ROINcvQAAAAASUVORK5CYII=">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAE4CAAAAADqFLC2AAADl0lEQVR42u3aQXLcMAwEwP3/p5MHpFIiMFAIb5q3lBUZaF7GgD6/nNb5IAAHDhw4Bxy4JXCf5qn+/z8KOHzP0/N/e+/pz8v9ggMHDhw4cODALYM7DoAPz1cb6r6v+/O0X3DgwIEDBw4cuK1w1SBaDZ7V39sNxq89Dw4cOHDgwIED9yVw3YHn6YAxDebgwIEDBw4cOHDgeoPB6fd3LxQcOHDgwIEDB+7b4coL2pcGhynQ+k0+OHDgwIEDBw7cENz0Qnj7v9v9ggMHDhw4cODALYFLz+kCeSrIpgE67hccOHDgwIEDB24J3NRCeaqBtwal1aAbT4DBgQMHDhw4cOAuwVULPv2gL31Pd4CZPgcOHDhw4MCBA/fT4bqDwWqB1WA8/Xx7kAkOHDhw4MCBA7cEbmoh/a+Cc1r/IzA4cODAgQMHDtwSuKngmX4oONZYOJh9fA4cOHDgwIEDB24JXDVYdkFT6GrArULHHxaCAwcOHDhw4MBdgksHl9ONTC2Ypwey4MCBAwcOHDhwW+BOC5wC7C6Uu3WNB2tw4MCBAwcOHLglcN2B5Gkh1WBbhaheYAoODhw4cODAgQO3HW5qsJgG6niBPLSIBgcOHDhw4MCB2w43trgdCqjdIF69wPYmHxw4cODAgQMH7hJcdWCYLpa7AG8NLMv1gAMHDhw4cODALYHrBs63IacGp93gXv7LARw4cODAgQMH7hJcWshbC+WpwWT3osGBAwcOHDhw4LbCpQWnwN1BZvfC48EtOHDgwIEDBw7cErjTBW0agG8DjQV4cODAgQMHDhy4JXDVgd5UQ6eNdhfVp3WX+wIHDhw4cODAgVsC120wDbbpB39vDUbLm3xw4MCBAwcOHLhLcNUgPLWgrr4vrTPtBxw4cODAgQMHbjtcN5imA83qgLE6+Oxe+OMEGBw4cODAgQMH7hJc+iFfuhDunmo96QATHDhw4MCBAwduG1x6pgaW1YV1OlCt1gEOHDhw4MCBA7cNbiqAdoPw7YV3uX5w4MCBAwcOHLhlcG8H3qlF99Rg9XThDQ4cOHDgwIED91PgphfA3aDZbTBdSIMDBw4cOHDgwP0vcN3F71TArl5w2hc4cODAgQMHDty3waUfAp4G2xQqvWBw4MCBAwcOHLitcFMBtbtoThfeVehyHeDAgQMHDhw4cMvgqif9ALB6Ud160oD9OMgEBw4cOHDgwIG7BOcULxIBOHDgwDngwN09vwGWX/1EPE4DowAAAABJRU5ErkJggg==">
           </div>
         </div>
       
@@ -5482,7 +5475,7 @@ Pl...</p>
     
       
         本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
         作为主题
       
     
@@ -6377,7 +6370,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -6604,7 +6597,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/目标检测/","name":"目标检测"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/数据集/","name":"数据集介绍"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"数据集介绍","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/%E6%95%B0%E6%8D%AE%E9%9B%86/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/%E6%95%B0%E6%8D%AE%E9%9B%86/","wordCount":0,"datePublished":"2022-04-19T03:12:24.034Z","dateModified":"2022-10-04T13:44:56.964Z","articleSection":"目标检测","keywords":"数据集","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/目标检测/","name":"目标检测"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/数据集/","name":"数据集介绍"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"数据集介绍","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/%E6%95%B0%E6%8D%AE%E9%9B%86/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/%E6%95%B0%E6%8D%AE%E9%9B%86/","wordCount":0,"datePublished":"2022-04-19T03:12:24.034Z","dateModified":"2022-10-04T13:44:56.964Z","articleSection":"目标检测","keywords":"数据集","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

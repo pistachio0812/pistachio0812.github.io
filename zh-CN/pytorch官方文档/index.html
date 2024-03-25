@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,zh-TW,default">
-    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6">
-  <meta name="generator" content="Hexo 6.0.0">
-  <meta name="Volantis" content="5.7.6">
+    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2">
+  <meta name="generator" content="Hexo 7.1.1">
+  <meta name="Volantis" content="7.6.2">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -50,13 +50,13 @@
   <!-- 页面元数据 -->
   <title>pytorch官方文档中文版 - 阿月浑子-Hexo博客</title>
   <meta name="keywords" content="学习笔记,null">
-  <meta desc name="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测 - pistachio - 阿月浑子-Hexo博客">
+  <meta desc name="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测 - pistachio - 阿月浑子-Hexo博客">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="page.title">
 <meta property="og:url" content="url">
 <meta property="og:site_name" content="阿月浑子-Hexo博客">
-<meta property="og:description" content="torch.nnContainerModuleCLASS    torch.nn.Module    SOURCE 它是所有神经网络模型的基类，你的模块应该继承于该类。 模块还能包含其他模块，允许把它们嵌套在一个树结构中。你可以分配子模块作为常规属性： import torch.nn as nn import torch.nn.functional as F  class Model(nn.Mod">
+<meta property="og:description" content="torch.nnContainerModuleCLASS    torch.nn.Module    SOURCE 它是所有神经网络模型的基类，你的模块应该继承于该类。 模块还能包含其他模块，允许把它们嵌套在一个树结构中。你可以分配子模块作为常规属性： 123456789101112import torch.nn as nnimport torch.nn.functional as Fclass">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-16T07:26:49.017Z">
 <meta property="article:modified_time" content="2022-10-04T13:26:40.180Z">
@@ -3728,7 +3728,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1671165968583),
+    lastupdate: new Date(1711347947244),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -5060,7 +5060,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </span>
   <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
     <meta itemprop="name" content="阿月浑子-Hexo博客">
-    <meta itemprop="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测">
+    <meta itemprop="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测">
   </span>
   
 
@@ -5120,7 +5120,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：281 字</p>
+      <p>字数：279 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -5146,19 +5146,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <h1 id="torch-nn"><a href="#torch-nn" class="headerlink" title="torch.nn"></a>torch.nn</h1><h2 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h2><h3 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h3><p>CLASS    <code>torch.nn.Module</code>    <a target="_blank" rel="external nofollow noopener noreferrer" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module">SOURCE</a></p>
 <p>它是所有神经网络模型的基类，你的模块应该继承于该类。</p>
 <p>模块还能包含其他模块，允许把它们嵌套在一个树结构中。你可以分配子模块作为常规属性：</p>
-<pre><code class="lang-python">import torch.nn as nn
-import torch.nn.functional as F
-
-class Model(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.conv1 = nn.Conv2d(1, 20, 5)
-        self.conv2 = nn.Conv2d(20, 20, 5)
-
-    def forward(self, x):
-        x = F.relu(self.conv1(x))
-        return F.relu(self.conv2(x))
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Model</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.conv1 = nn.Conv2d(<span class="number">1</span>, <span class="number">20</span>, <span class="number">5</span>)</span><br><span class="line">        self.conv2 = nn.Conv2d(<span class="number">20</span>, <span class="number">20</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = F.relu(self.conv1(x))</span><br><span class="line">        <span class="keyword">return</span> F.relu(self.conv2(x))</span><br></pre></td></tr></tbody></table></figure>
 <p>用这种方式分配的模块将会显示，并且当你调用<code>to( )</code>等等方法，它们的参数也将被转换。</p>
 <p>注：</p>
 <p>正如上面的例子一样，一个<code>__init__()</code>调用父类必须在子类赋值之前完成。</p>
@@ -5251,7 +5239,7 @@ class Model(nn.Module):
         <div class="hoverbox">
           <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
           <div class="target">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEYElEQVR42u3aQZIiMQwEQP7/6d0XbLSrJAxspG/D0G05xcFS6PXHest6IQAL1gILFqwF9grsq1zHGx0+//S9p31P42vjOPUACxYsWLBgwYIFexc2hZqCtuDpfqfPbXmABQsWLFiwYMGC/QxselFPv5e+J/3/E1ALfXxOsGDBggULFixYsD8FmxYUW4VJC5p+DyxYsGDBggULFuz/CbudiLaAaBvuYMGCBQsWLFiwYH8bNh5QKAce2sGPdxcUXzMJAxYsWLBgwYIFC/YINl1toL/yd+0BFixYsGDBggUL9grsdE0TMG00t4VFWggce4AFCxYsWLBgwYK9AttekLfgtwDSxE7jBQsWLFiwYMGCBftZ2Pai3UKn791KzLRAOU4gWLBgwYIFCxYs2Cuwjxfew4t2erB0/61ETBNfN7rBggULFixYsGDBrsKmAxVbgxVbAxhpQ3ta0Dw6gAULFixYsGDBgr0CmzaA08GItnGcNrDbQqH94YAFCxYsWLBgwYL9Ttj0hW0CpgVC21h/V+McLFiwYMGCBQsW7B3YaWBtQ7gdnJgWBO1gyHEjHSxYsGDBggULFuxV2PYinzaK/5QrBUv3axviYMGCBQsWLFiwYD8D2zaQ0wv4NtC0kb41yAEWLFiwYMGCBQv2M7CnF/r07xR6C2RaAIw/BwsWLFiwYMGCBfsR2HRQY3rAaYLbfabn+2f8YMGCBQsWLFiwYK/CtoMPT4HcKizSAmIMeFoggAULFixYsGDBgn0LbDtwMb1opwMR04O3CYzjBwsWLFiwYMGCBXsFNj1YG8AU+vT5dtBkK26wYMGCBQsWLFiwd2CnBcL2AEbaCE8LhPb9xz8ssGDBggULFixYsF8Jm17c2+fbwiWGCNfj/mDBggULFixYsGCvwG5dlG8PVGwVKttxgwULFixYsGDBgr0D2x5wa/BhevBpIdLuAxYsWLBgwYIFC/Y7YKcX6nTgYvsiP4132uAGCxYsWLBgwYIFexe2bWyfFg7te9tCo41j7YcEFixYsGDBggUL9grsuwJoG+FpItsBjNMExdBgwYIFCxYsWLBgr8JOBy7eBVg3nIcN7rrxDhYsWLBgwYIFC/YqbHuQ9PktkLbR3iby+IcFFixYsGDBggUL9iOwbSP4NLB0EGIr0W2cYMGCBQsWLFiwYH8LNi0A2kZ0CtkWBq/hGje6wYIFCxYsWLBgwa7CTtcUIi0UpgXHNCGPn4MFCxYsWLBgwYK9Aju9ME8HOVrYFnjaKH9MBFiwYMGCBQsWLNirsG1Dedr4HjeWy4SfJiD2AQsWLFiwYMGCBfsR2NODpM+nF+1pQtP4t+IGCxYsWLBgwYIF+1uwWw3macN8e590MAUsWLBgwYIFCxbsb8O230sHKrYa2D9TIIAFCxYsWLBgwYJdaThvNcBPwdrPtwZGHh3AggULFixYsGDBXoVN1/SApwnbTux24x0sWLBgwYIFCxbsZ2Ct3QUWLFgLLFiwFti3rr8KGpMniQD2mwAAAABJRU5ErkJggg==">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEYklEQVR42u3aQXKDQAwEQP//08kLUqxGQphU7y2OgaXlw0o1nx/rlvVBABasBRYsWAvsCuwnXMcPOrz+6ntXzz3dX7qPUw+wYMGCBQsWLFiwu7BVqC5oCl593ul1Ux5gwYIFCxYsWLBgn4GtHtSr36vep/r/K6AU+vg9wYIFCxYsWLBgwb4KttpQTDUmKWj1e2DBggULFixYsGD/J+x0IdIGohsEAQsWLFiwYMGCBftO2HJAIQw8pMGPuxuKr0nCgAULFixYsGDBgj2Cra5uMOPb/449wIIFCxYsWLBgwa7Adle3AN1Bc9pYVBuBYw+wYMGCBQsWLFiwK7DpAXkKfgqgWtjufsGCBQsWLFiwYME+C5setFPo6n2nCtNtUI4LCBYsWLBgwYIFC3YF9vLAe3jQrr5Y9flThegWPh50gwULFixYsGDBgh2FrQYqpoIVUwGM6kC729BcOoAFCxYsWLBgwYJdga0OgKvBiHRwXB1gp41C+sMBCxYsWLBgwYIF+52w1RumBeg2COlg/a7BOViwYMGCBQsWLNgd2O7G0oFwGpzoNgRpMOR4kA4WLFiwYMGCBQt2FTY9yFcHxT/hSgMhU/c/LhBYsGDBggULFizYFdh0gFw9gE8DdQfpU0EOsGDBggULFixYsM/Anh7oq39XoadAug1A+3OwYMGCBQsWLFiwj8BWgxrTAeKpAk7tq9xAgAULFixYsGDBgl2FTYMPVxvZaiyqDUQb8LRBAAsWLFiwYMGCBXsLbBq46B600yBz+uJbwWewYMGCBQsWLFiwO7DVF0s30IU+vT4NmkztGyxYsGDBggULFuwObLdBmA5gVAfh1QYhvf/xDwssWLBgwYIFCxbsV8JWD+7p9Wnj0g0cnxbkz+eDBQsWLFiwYMGCXYGdOihvByqmGpXpfYMFCxYsWLBgwYLdgU1fcCr40H3xbiOSPgcsWLBgwYIFCxbsd8B2D9TVwMX0Qb673+6AGyxYsGDBggULFuwubDrYPm0c0vumjUa6j7EfEliwYMGCBQsWLNgV2Ls2kA7Cq4VMAxinBSpDgwULFixYsGDBgl2F7QYu7gKMB87NAXc8eAcLFixYsGDBggW7Cpu+SPX6KZB00J4W8viHBRYsWLBgwYIFC/YR2HQQfLqxahBiqtDpPsGCBQsWLFiwYMG+C7baAKSD6Cpk2hh8mqs96AYLFixYsGDBggU7CttdXYhqo9BtOLoFufwcLFiwYMGCBQsW7Aps98DcDXKksClwd1B+WQiwYMGCBQsWLFiwq7DpQLk7+G4PlsOCnxag7AMWLFiwYMGCBQv2EdjTF6leXz1odwta3f/UvsGCBQsWLFiwYMG+C3ZqwNwdmE8/pxpMAQsWLFiwYMGCBftu2PR71UDF1AD7NQ0CWLBgwYIFCxYs2JGB89QA/BQs/XwqMHLpABYsWLBgwYIFC3YVtrq6L5gGfLuFvStQDRYsWLBgwYIFC3YX1ppdYMGCtcCCBWuBvXX9AgoakyfXQ1zbAAAAAElFTkSuQmCC">
           </div>
         </div>
       
@@ -5486,7 +5474,7 @@ brandcolors...</p>
     
       
         本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
         作为主题
       
     
@@ -6381,7 +6369,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -6608,7 +6596,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/pytorch/","name":"pytorch"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/pytorch官方文档/","name":"pytorch官方文档中文版"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"pytorch官方文档中文版","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/pytorch%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/pytorch%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/","wordCount":0,"datePublished":"2022-04-16T07:26:49.017Z","dateModified":"2022-10-04T13:26:40.180Z","articleSection":"pytorch","keywords":"学习笔记","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/pytorch/","name":"pytorch"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/pytorch官方文档/","name":"pytorch官方文档中文版"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"pytorch官方文档中文版","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/pytorch%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/pytorch%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/","wordCount":0,"datePublished":"2022-04-16T07:26:49.017Z","dateModified":"2022-10-04T13:26:40.180Z","articleSection":"pytorch","keywords":"学习笔记","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

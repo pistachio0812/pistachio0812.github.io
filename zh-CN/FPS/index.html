@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,zh-TW,default">
-    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6">
-  <meta name="generator" content="Hexo 6.0.0">
-  <meta name="Volantis" content="5.7.6">
+    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2">
+  <meta name="generator" content="Hexo 7.1.1">
+  <meta name="Volantis" content="7.6.2">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -50,7 +50,7 @@
   <!-- 页面元数据 -->
   <title>FPS计算 - 阿月浑子-Hexo博客</title>
   <meta name="keywords" content="基础概念,FPS,null">
-  <meta desc name="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测 - pistachio - 阿月浑子-Hexo博客">
+  <meta desc name="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测 - pistachio - 阿月浑子-Hexo博客">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="page.title">
@@ -3729,7 +3729,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1671165968583),
+    lastupdate: new Date(1711347947244),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -5061,7 +5061,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </span>
   <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
     <meta itemprop="name" content="阿月浑子-Hexo博客">
-    <meta itemprop="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测">
+    <meta itemprop="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测">
   </span>
   
 
@@ -5149,145 +5149,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>帧率(FPS， frame per second)计算是游戏编程中常见的一个话题，因为表现在画面刷新与视觉感官上，所以相对而言，帧率非常影响用户体验。这也是很多大型3D游戏所要提升的重要点，意味着你要不断优化渲染速度与性能，不断提升画面质量。以下是几种计算帧率fps的方法。</p>
 <h3 id="固定时间帧数法"><a href="#固定时间帧数法" class="headerlink" title="固定时间帧数法"></a>固定时间帧数法</h3><p><strong>其实这个方法的核心是1s内刷新了多少帧，完全不考虑其他设备，相对参照来计算帧率，最准的方法也可以叫做dps，即data per second.</strong></p>
 <p>帧率计算公式：</p>
-<pre><code class="lang-python">fps = frame / elapsedTime
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fps = frame / elapsedTime</span><br></pre></td></tr></tbody></table></figure>
 <p>如果记录固定时间内的帧数，就可以计算出同步率。此种方法用得较多。</p>
 <p>实现代码如下：</p>
-<pre><code class="lang-c">int fps()
-{
-    static int fps = 0;
-    static int startTime = getTime(); //ms
-    static int frameCount = 0;
-
-    ++frameCount;
-
-    int curTime = getTime();
-    if(curTime - startTime &gt; 1000)//取固定时间为1s
-    {
-        fps = frameCount;
-        frameCount = 0;
-        startTime = curTime;
-    }
-    return fps;
-}
-</code></pre>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fps</span><span class="params">()</span></span><br><span class="line">{</span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> fps = <span class="number">0</span>;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> startTime = getTime(); <span class="comment">//ms</span></span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> frameCount = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    ++frameCount;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> curTime = getTime();</span><br><span class="line">    <span class="keyword">if</span>(curTime - startTime &gt; <span class="number">1000</span>)<span class="comment">//取固定时间为1s</span></span><br><span class="line">    {</span><br><span class="line">        fps = frameCount;</span><br><span class="line">        frameCount = <span class="number">0</span>;</span><br><span class="line">        startTime = curTime;</span><br><span class="line">    }</span><br><span class="line">	<span class="keyword">return</span> fps;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>这个固定时间为1s，其实本文的获取方法是精度比较低，也就是没有采用高精度获取时间戳的方法，在一些要求数据比较高的方法中，最好采用高精度获取时间的方法。</p>
 <p>另一种实现方式如下：</p>
-<pre><code class="lang-c">int fps(int deltatime)
-{
-    static int fps = 0;
-    static int timeLeft = 1000; //取固定时间间隔为1s
-    static int frameCount = 0;
-
-    ++frameCount;
-    timeLeft -= deltaTime;
-    if(timeLeft &lt; 0)
-    {
-        fps = frameCount;
-        frameCount = 0; //重新计算
-        timeLeft = 1000;
-    }
-    return fps;
-}
-</code></pre>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fps</span><span class="params">(<span class="type">int</span> deltatime)</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> fps = <span class="number">0</span>;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> timeLeft = <span class="number">1000</span>; <span class="comment">//取固定时间间隔为1s</span></span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> frameCount = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    ++frameCount;</span><br><span class="line">    timeLeft -= deltaTime;</span><br><span class="line">    <span class="keyword">if</span>(timeLeft &lt; <span class="number">0</span>)</span><br><span class="line">    {</span><br><span class="line">        fps = frameCount;</span><br><span class="line">        frameCount = <span class="number">0</span>; <span class="comment">//重新计算</span></span><br><span class="line">        timeLeft = <span class="number">1000</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> fps;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="固定帧数时间法"><a href="#固定帧数时间法" class="headerlink" title="固定帧数时间法"></a>固定帧数时间法</h3><p>帧率计算公式为：</p>
-<pre><code class="lang-python">fps = frameNum / elapsedTime
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fps = frameNum / elapsedTime</span><br></pre></td></tr></tbody></table></figure>
 <p>如果每隔固定的帧数，计算帧数使用的时间，也可求出帧率。此种方法使用得较少。这个方法其实已经不能成为实时刷新的，因为帧率最好能够再1s内，如果说固定的帧数计算帧数使用的时间，那么我1s的帧率可能得等到10s后才能采集数据完毕计算出来结果。但是不可置否，这个帧率会比较稳定，变化跳动可能不会那么大。</p>
 <p>实现代码如下：</p>
-<pre><code class="lang-c">int fps()
-{
-    static int fps = 0;
-    static int frameCount = 0;
-    static int startTime = getTime();//ms
-
-    ++frameCount;
-
-    if(frameCount &gt;= 100)//取固定帧数为100帧
-    {
-        int curTime = getTime();
-        fps = frameCount / (curTime - startTime) * 1000;
-        startTime = curTime;
-        frameCount = 0;
-    }
-    return fps;
-}
-</code></pre>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fps</span><span class="params">()</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> fps = <span class="number">0</span>;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> frameCount = <span class="number">0</span>;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> startTime = getTime();<span class="comment">//ms</span></span><br><span class="line">    </span><br><span class="line">    ++frameCount;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(frameCount &gt;= <span class="number">100</span>)<span class="comment">//取固定帧数为100帧</span></span><br><span class="line">    {</span><br><span class="line">        <span class="type">int</span> curTime = getTime();</span><br><span class="line">        fps = frameCount / (curTime - startTime) * <span class="number">1000</span>;</span><br><span class="line">        startTime = curTime;</span><br><span class="line">        frameCount = <span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> fps;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="实时计算法"><a href="#实时计算法" class="headerlink" title="实时计算法"></a>实时计算法</h3><p>实时计算法直接使用上一帧的时间间隔进行计算，结果具有实时性，但平滑性不好。这是刷新最快的，但是很明显这个帧率极其不稳定的，因为帧与帧之间的间隔总是不会那么稳定。</p>
 <p>实现代码如下：</p>
-<pre><code class="lang-c">int fps(int deltaTime)//ms
-{
-    int fps = static_cast&lt;int&gt;(1.f / deltaTime * 1000);
-    //别忘了先转换为浮点数，否则会有精度损失
-    return fps;
-}
-</code></pre>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fps</span><span class="params">(<span class="type">int</span> deltaTime)</span><span class="comment">//ms</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">int</span> fps = static_cast&lt;<span class="type">int</span>&gt;(<span class="number">1.f</span> / deltaTime * <span class="number">1000</span>);</span><br><span class="line">    <span class="comment">//别忘了先转换为浮点数，否则会有精度损失</span></span><br><span class="line">    <span class="keyword">return</span> fps;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="总平均法"><a href="#总平均法" class="headerlink" title="总平均法"></a>总平均法</h3><p>总平均法使用全局帧数除以全局时间，以求出帧率。这个刷新就更慢了，这个方法的使用可能是放在一些对帧率这个参数要求没那么高的场景中。</p>
 <p>实现代码如下：</p>
-<pre><code class="lang-c">int startTime = getTime();
-
-int fps()
-{
-    static int frameCount = 0;
-
-    ++frameCount;
-
-    int deltaTime = getTime() - startTime();
-    int fps = static_cast&lt;int&gt;(frameCount * 1.f / deltaTime * 1000);
-    //别忘了先转换为浮点数，否则会有精度损失
-    return fps;
-}
-</code></pre>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> startTime = getTime();</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">fps</span><span class="params">()</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> frameCount = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    ++frameCount;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> deltaTime = getTime() - startTime();</span><br><span class="line">    <span class="type">int</span> fps = static_cast&lt;<span class="type">int</span>&gt;(frameCount * <span class="number">1.f</span> / deltaTime * <span class="number">1000</span>);</span><br><span class="line">    <span class="comment">//别忘了先转换为浮点数，否则会有精度损失</span></span><br><span class="line">    <span class="keyword">return</span> fps;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="精确采样法"><a href="#精确采样法" class="headerlink" title="精确采样法"></a>精确采样法</h3><p>精确采样法采样前N个帧，然后计算平均值。此种方法需要额外的内存空间，所以不常用。一般而言，大都数实验场景中不会用如此复杂的方法。</p>
 <p>实现代码如下：</p>
-<pre><code class="lang-c">int fps(int deltaTime)//ms
-{
-    static std::queue&lt;int&gt; q;
-    static int sumDuration = 0; //ms
-
-    int fps = 0;
-    if(q.size() &lt; 100)//设置样本数为100
-    {
-        sumDuration += deltaTime;
-        q.push(deltaTime);
-        fps = statci_cast&lt;int&gt;(q.size() * 1.f / sumDuration * 1000.f);
-        //别忘了先转换为浮点数，否则会有精度损失
-    }
-    else
-    {
-        sumDuration -= q.front();
-        sumDuration += deltaTime;
-        sumDuration.pop();
-        sumDuration.push(deltaTime);
-        fps = static_cast&lt;int&gt;(100.f / sumDuration * 1000.f);
-        //别忘了先转换为浮点数，否则会有精度损失
-    }
-    return fps;
-}
-</code></pre>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fps</span><span class="params">(<span class="type">int</span> deltaTime)</span><span class="comment">//ms</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">static</span> <span class="built_in">std</span>::<span class="built_in">queue</span>&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> sumDuration = <span class="number">0</span>; <span class="comment">//ms</span></span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> fps = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(q.size() &lt; <span class="number">100</span>)<span class="comment">//设置样本数为100</span></span><br><span class="line">    {</span><br><span class="line">        sumDuration += deltaTime;</span><br><span class="line">        q.push(deltaTime);</span><br><span class="line">        fps = statci_cast&lt;<span class="type">int</span>&gt;(q.size() * <span class="number">1.f</span> / sumDuration * <span class="number">1000.f</span>);</span><br><span class="line">        <span class="comment">//别忘了先转换为浮点数，否则会有精度损失</span></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    {</span><br><span class="line">        sumDuration -= q.front();</span><br><span class="line">        sumDuration += deltaTime;</span><br><span class="line">        sumDuration.pop();</span><br><span class="line">        sumDuration.push(deltaTime);</span><br><span class="line">        fps = static_cast&lt;<span class="type">int</span>&gt;(<span class="number">100.f</span> / sumDuration * <span class="number">1000.f</span>);</span><br><span class="line">        <span class="comment">//别忘了先转换为浮点数，否则会有精度损失</span></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> fps;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="平均采样法"><a href="#平均采样法" class="headerlink" title="平均采样法"></a>平均采样法</h3><p>平均采样法利用上次的统计结果，克服了精确采样法需要使用额外空间的缺点。此种方法较常用。</p>
 <p>实现代码如下：</p>
-<pre><code class="lang-c">int fps(int deltaTime)//ms
-{
-    static float avgDuration = 0.f;
-    static alpha = 1.f / 100.f;//采样数设置为100
-    static int frameCount = 0;
-
-    ++frameCount;
-
-    int fps = 0;
-    if(1 == frameCount)
-    {
-        avgDuration = static_cast&lt;float&gt;(deltaTime);
-    }
-    else
-    {
-        avgDuration = avgDuration * (1 - alpha) + deltaTime * alpha;
-    }
-    fps = static_cast&lt;int&gt;(1.f / avgDuration * 1000);
-    return fps;
-}
-</code></pre>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fps</span><span class="params">(<span class="type">int</span> deltaTime)</span><span class="comment">//ms</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">static</span> <span class="type">float</span> avgDuration = <span class="number">0.f</span>;</span><br><span class="line">    <span class="type">static</span> alpha = <span class="number">1.f</span> / <span class="number">100.f</span>;<span class="comment">//采样数设置为100</span></span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> frameCount = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    ++frameCount;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> fps = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span> == frameCount)</span><br><span class="line">    {</span><br><span class="line">        avgDuration = static_cast&lt;<span class="type">float</span>&gt;(deltaTime);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    {</span><br><span class="line">        avgDuration = avgDuration * (<span class="number">1</span> - alpha) + deltaTime * alpha;</span><br><span class="line">    }</span><br><span class="line">    fps = static_cast&lt;<span class="type">int</span>&gt;(<span class="number">1.f</span> / avgDuration * <span class="number">1000</span>);</span><br><span class="line">    <span class="keyword">return</span> fps;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>帧率的计算应该来说不能影响线程，进程中的性能，不要把这部分代码放在你的业务逻辑中，这样子其实又包含了你业务逻辑执行完毕后的运行时间，显得有点臃肿，并且代码不是那么优雅。最好是创建一个线程去计算帧率，这样会显得比较优雅。</p>
 
   </div>
@@ -5369,7 +5254,7 @@ int fps()
         <div class="hoverbox">
           <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
           <div class="target">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC9UlEQVR42u3aS1LEMAwFwLn/peEAQwpLT4EI2ruZfGx3Nq8kvz6ML8cLARgwYMCAAbMG5tUcby88vL/6nvR6dT9gwIABAwYMmH0wxwGouNHT566ud+Hb+wEDBgwYMGDArIVJJ04XVp2nCwoGDBgwYMCAAVMtIKWg1XnAgAEDBgwYMGDS+6vB73TDYMCAAQMGDBgwaWFpugA1BfNrnUgwYMCAAQMGzI/BtA8MP/T32AFoMGDAgAEDBsxjYaZHtSHXLXRNFcDe1gkGDBgwYMCAWQOTBqoUoAs2XfgCAwYMGDBgwOyFqQaz7n1pg6zbiDv+gGDAgAEDBgyYNTCnjavufSn8VMA8DrBgwIABAwYMmDUwdwWsatBKg1y5IFWt4IEBAwYMGDBgHgdTfVE38KUgaSPveD4wYMCAAQMGzDqYtGE2HeymA2JcwQMDBgwYMGDArIE5DVRVuOmCVLVg9e3+wIABAwYMGDBrYarBrVuYmio4TR+8BgMGDBgwYMDsg+k23u4KgClku0AGBgwYMGDAgFkDkxZ+0qB3V8PvdB2XhSowYMCAAQMGzONhugDdxtnUh+h+oLjhBgYMGDBgwIB5DMzUBqYactX5p9cFBgwYMGDAgNkDU25INQNYN0De/fxxJxIMGDBgwIABsw6mCtUNaKfPVYNheZ1gwIABAwYMmDUwaUFqGqIbPKeCHxgwYMCAAQNmD8xUkKteP4W9GxQMGDBgwIABsxcmLuyE/08FxPS9YMCAAQMGDJh9MOk4he029KYagsfrAQMGDBgwYMCsgUkDU1rQSoNm2iAEAwYMGDBgwOyHmQp0aYGqGuRuD3hgwIABAwYMmDUw0wHqdIFV6G5A/RYaDBgwYMCAAfNvYKYbdd3geBrs2ieqwIABAwYMGDB/DqbbmOseDKoGx3KDEAwYMGDAgAGzFiZtuHULVt0P1P1Q5UIVGDBgwIABA+axMFONq+oGuweA0kB5uR8wYMCAAQMGzBoY4yLgGWDAgAEDBsxTxyfn+Rtz8cMuLAAAAABJRU5ErkJggg==">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC8UlEQVR42u3bQXLCQAwEQP7/6eQBhMpKI4OV9N4Sg73bvkxJ4vFl/bgeCMCAAQMGDJg1MI/merrh4eer90mvV88DBgwYMGDAgNkHcxyAigc9/d6r61349nnAgAEDBgwYMGth0genG6s+pwsKBgwYMGDAgAFTLSCloNXngAEDBgwYMGDApJ+vBr/TA4MBAwYMGDBgwKSFpekC1BTMxzqRYMCAAQMGDJi3wbQHhm/698cnw8GAAQMGDBgwl8NMr2pDrlvomiqAPe0TDBgwYMCAAbMGJg1UKUAXbLrwBQYMGDBgwIDZC9MdbE4D17sGio5fIBgwYMCAAQNmDcxp46r7uRR+KmAeB1gwYMCAAQMGzBqYqwJWOihdPlC1IFWt4IEBAwYMGDBgbgdTvVE38KUgaSPv+HlgwIABAwYMmHUwacNsOthNB8S4ggcGDBgwYMCAWQMz9QOqFGxqQPv4fGDAgAEDBgyYtTDV4NYtTE0VnKYHr8GAAQMGDBgw+2C6jberAmAK2S6QgQEDBgwYMGDWwEwNFqcbm274ne7jZaEKDBgwYMCAAXN7mC5At3E29SK6LyhuuIEBAwYMGDBgbgMzdYCphlz1+dP7AgMGDBgwYMDsgSk3pJoBrBsgr/7+cScSDBgwYMCAAbMOpjvYPDX4kwbD8j7BgAEDBgwYMGtg0oLUNEQ3eE4FPzBgwIABAwbMHpipIFe9fgp7NSgYMGDAgAEDZi9MXNgJ/z8VENP7ggEDBgwYMGD2waSrO0h0VQEqHlwCAwYMGDBgwKyBSQNTWtBKg2baIAQDBgwYMGDA7IeZCnRpgaoa5C4PeGDAgAEDBgyYNTDTAep0g1XobkD9FRoMGDBgwIAB829gpht13eB4GuzaE1VgwIABAwYMmD8H023MdQeDqsGx3CAEAwYMGDBgwKyFSRtu3YJV9wV1X1S5UAUGDBgwYMCAuS3MVOOqesDuAFAaKF+eBwwYMGDAgAGzBsZ6EfAsMGDAgAED5q7rG+f5G3PUU/ATAAAAAElFTkSuQmCC">
           </div>
         </div>
       
@@ -5603,7 +5488,7 @@ int fps()
     
       
         本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
         作为主题
       
     
@@ -6498,7 +6383,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -6725,7 +6610,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/计算机视觉/","name":"计算机视觉"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/FPS/","name":"FPS计算"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"FPS计算","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/FPS/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/FPS/","wordCount":0,"datePublished":"2022-05-19T00:13:15.890Z","dateModified":"2022-10-20T14:09:01.756Z","articleSection":"计算机视觉","keywords":"基础概念,FPS","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/计算机视觉/","name":"计算机视觉"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/FPS/","name":"FPS计算"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"FPS计算","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/FPS/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/FPS/","wordCount":0,"datePublished":"2022-05-19T00:13:15.890Z","dateModified":"2022-10-20T14:09:01.756Z","articleSection":"计算机视觉","keywords":"基础概念,FPS","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

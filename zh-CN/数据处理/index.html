@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,zh-TW,default">
-    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6">
-  <meta name="generator" content="Hexo 6.0.0">
-  <meta name="Volantis" content="5.7.6">
+    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2">
+  <meta name="generator" content="Hexo 7.1.1">
+  <meta name="Volantis" content="7.6.2">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -50,7 +50,7 @@
   <!-- 页面元数据 -->
   <title>数据处理 - 阿月浑子-Hexo博客</title>
   <meta name="keywords" content="数据处理,null">
-  <meta desc name="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测 - pistachio - 阿月浑子-Hexo博客">
+  <meta desc name="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测 - pistachio - 阿月浑子-Hexo博客">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="page.title">
@@ -3728,7 +3728,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1671165968583),
+    lastupdate: new Date(1711347947244),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -5060,7 +5060,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </span>
   <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
     <meta itemprop="name" content="阿月浑子-Hexo博客">
-    <meta itemprop="description" content="计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测">
+    <meta itemprop="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测">
   </span>
   
 
@@ -5154,238 +5154,36 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​        主机中的内存，有两种存在方式，一是锁页，二是不锁页。锁页内存存放的内容在任何情况下都不会与主机的虚拟内存进行交换（注：虚拟内存就是硬盘），而不锁页内存在主机内存不足时，数据会存放在虚拟内存中。主机到 GPU 副本源自固定（页面锁定）内存时，速度要快得多。CPU 张量和存储暴露了一种 pin_memory() 方法，该方法返回对象的副本，并将数据放在固定的区域中。</p>
 <p>​        <strong>而显卡中的显存全部是锁页内存！当计算机的内存充足的时候，可以设置 pin_memory=True</strong>。设置 pin_memory=True，则意味着生成的 Tensor 数据最开始是属于内存中的锁页内存，这样将内存的 Tensor 转义到 GPU 的显存就会更快一些。同时，由于 pin_memory 的作用是将张量返回之前将其复制到 CUDA 固定的内存中，所以只有在 CUDA 环境支持下才有用。</p>
 <p>​        PyTorch 原生的 pin_memory 方法如下，其支持大部分 python 数据类型的处理：</p>
-<pre><code class="lang-python">def pin_memory(data):
-    if isinstance(data, torch.Tensor):
-        return data.pin_memory()
-    elif isinstance(data, string_classes):
-        return data
-    elif isinstance(data, container_abcs.Mapping):
-        return {k: pin_memory(sample) for k, sample in data.items()}
-    elif isinstance(data, tuple) and hasattr(data, '_fields'):  # namedtuple
-        return type(data)(*(pin_memory(sample) for sample in data))
-    elif isinstance(data, container_abcs.Sequence):
-        return [pin_memory(sample) for sample in data]
-    elif hasattr(data, "pin_memory"):
-        return data.pin_memory()
-    else:
-        return data
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">pin_memory</span>(<span class="params">data</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(data, torch.Tensor):</span><br><span class="line">        <span class="keyword">return</span> data.pin_memory()</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(data, string_classes):</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(data, container_abcs.Mapping):</span><br><span class="line">        <span class="keyword">return</span> {k: pin_memory(sample) <span class="keyword">for</span> k, sample <span class="keyword">in</span> data.items()}</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(data, <span class="built_in">tuple</span>) <span class="keyword">and</span> <span class="built_in">hasattr</span>(data, <span class="string">'_fields'</span>):  <span class="comment"># namedtuple</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">type</span>(data)(*(pin_memory(sample) <span class="keyword">for</span> sample <span class="keyword">in</span> data))</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(data, container_abcs.<span class="type">Sequence</span>):</span><br><span class="line">        <span class="keyword">return</span> [pin_memory(sample) <span class="keyword">for</span> sample <span class="keyword">in</span> data]</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">hasattr</span>(data, <span class="string">"pin_memory"</span>):</span><br><span class="line">        <span class="keyword">return</span> data.pin_memory()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> data</span><br></pre></td></tr></tbody></table></figure>
 <p>​        默认情况下，如果固定逻辑对于一个属于自定义类型（custom type）的 batch（如果有一个 collate_fn 返回自定义批处理类型的批处理，则会发生），或者如果该批处理的每个元素都是 custom type，则该固定逻辑将无法识别它们，它会返回该批处理（或那些元素）而无需固定内存。而要为自定义批处理或数据类型启用内存固定，我们需使用 pin_memory() 在自定义类型上自定义一个方法。如下：</p>
-<pre><code class="lang-python">class SimpleCustomBatch:
-    # 自定义一个类，该类不能被PyTorch原生的pin_memory方法所支持
-
-    def __init__(self, data):
-        transposed_data = list(zip(*data))
-        self.inp = torch.stack(transposed_data[0], 0)
-        self.tgt = torch.stack(transposed_data[1], 0)
-
-    # custom memory pinning method on custom type
-    def pin_memory(self):
-        self.inp = self.inp.pin_memory()
-        self.tgt = self.tgt.pin_memory()
-        return self
-
-def collate_wrapper(batch):
-    return SimpleCustomBatch(batch)
-
-inps = torch.arange(10 * 5, dtype=torch.float32).view(10, 5)
-tgts = torch.arange(10 * 5, dtype=torch.float32).view(10, 5)
-dataset = TensorDataset(inps, tgts)
-
-loader = DataLoader(dataset, batch_size=2, collate_fn=collate_wrapper,
-                    pin_memory=True)
-
-for batch_ndx, sample in enumerate(loader):
-    print(sample.inp.is_pinned())  # True
-    print(sample.tgt.is_pinned())  # True
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleCustomBatch</span>:</span><br><span class="line">    <span class="comment"># 自定义一个类，该类不能被PyTorch原生的pin_memory方法所支持</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        transposed_data = <span class="built_in">list</span>(<span class="built_in">zip</span>(*data))</span><br><span class="line">        self.inp = torch.stack(transposed_data[<span class="number">0</span>], <span class="number">0</span>)</span><br><span class="line">        self.tgt = torch.stack(transposed_data[<span class="number">1</span>], <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># custom memory pinning method on custom type</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pin_memory</span>(<span class="params">self</span>):</span><br><span class="line">        self.inp = self.inp.pin_memory()</span><br><span class="line">        self.tgt = self.tgt.pin_memory()</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">collate_wrapper</span>(<span class="params">batch</span>):</span><br><span class="line">    <span class="keyword">return</span> SimpleCustomBatch(batch)</span><br><span class="line"></span><br><span class="line">inps = torch.arange(<span class="number">10</span> * <span class="number">5</span>, dtype=torch.float32).view(<span class="number">10</span>, <span class="number">5</span>)</span><br><span class="line">tgts = torch.arange(<span class="number">10</span> * <span class="number">5</span>, dtype=torch.float32).view(<span class="number">10</span>, <span class="number">5</span>)</span><br><span class="line">dataset = TensorDataset(inps, tgts)</span><br><span class="line"></span><br><span class="line">loader = DataLoader(dataset, batch_size=<span class="number">2</span>, collate_fn=collate_wrapper,</span><br><span class="line">                    pin_memory=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> batch_ndx, sample <span class="keyword">in</span> <span class="built_in">enumerate</span>(loader):</span><br><span class="line">    <span class="built_in">print</span>(sample.inp.is_pinned())  <span class="comment"># True</span></span><br><span class="line">    <span class="built_in">print</span>(sample.tgt.is_pinned())  <span class="comment"># True</span></span><br></pre></td></tr></tbody></table></figure>
 <h2 id="预取"><a href="#预取" class="headerlink" title="预取"></a>预取</h2><p>DataLoader 通过指定 prefetch_factor （默认为 2）来进行数据的预取。</p>
-<pre><code class="lang-python">class _MultiProcessingDataLoaderIter(_BaseDataLoaderIter):
-    def __init__(self, loader):
-        ...
-        self._reset(loader, first_iter=True)
-
-    def _reset(self, loader, first_iter=False):
-        ...
-        # prime the prefetch loop
-        for _ in range(self._prefetch_factor * self._num_workers):
-            self._try_put_index()
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">_MultiProcessingDataLoaderIter</span>(<span class="title class_ inherited__">_BaseDataLoaderIter</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, loader</span>):</span><br><span class="line">        ...</span><br><span class="line">        self._reset(loader, first_iter=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_reset</span>(<span class="params">self, loader, first_iter=<span class="literal">False</span></span>):</span><br><span class="line">        ...</span><br><span class="line">        <span class="comment"># prime the prefetch loop</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self._prefetch_factor * self._num_workers):</span><br><span class="line">            self._try_put_index()</span><br></pre></td></tr></tbody></table></figure>
 <p>通过源码可以看到，prefetch 功能仅适用于多进程加载中（下面也会有多进程 dataloader 的部分代码分析）。</p>
 <h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><p>那么现在让我们来看看具体的代码调用流程：</p>
-<pre><code class="lang-python">for data, label in train_loader:
-    ......
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> data, label <span class="keyword">in</span> train_loader:</span><br><span class="line">    ......</span><br></pre></td></tr></tbody></table></figure>
 <p>for 循环会调用 dataloader 的 <strong><strong>iter</strong>(self)</strong> 方法，以此获得迭代器来遍历 dataset。</p>
-<pre><code class="lang-python">class DataLoader(Generic[T_co]):
-    ...
-    def __iter__(self) -&gt; '_BaseDataLoaderIter':
-
-        if self.persistent_workers and self.num_workers &gt; 0:
-            if self._iterator is None:
-                self._iterator = self._get_iterator()
-            else:
-                self._iterator._reset(self)
-            return self._iterator
-        else:
-            return self._get_iterator()
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DataLoader</span>(<span class="type">Generic</span>[T_co]):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>) -&gt; <span class="string">'_BaseDataLoaderIter'</span>:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> self.persistent_workers <span class="keyword">and</span> self.num_workers &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> self._iterator <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                self._iterator = self._get_iterator()</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                self._iterator._reset(self)</span><br><span class="line">            <span class="keyword">return</span> self._iterator</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self._get_iterator()</span><br></pre></td></tr></tbody></table></figure>
 <p>在 <strong><strong>iter</strong>(self)</strong> 方法中，dataloader 调用了 self._get_iterator() 方法，根据 num_workers 获得迭代器，并指示是进行单进程还是多进程处理。</p>
-<pre><code class="lang-python">class DataLoader(Generic[T_co]):
-    ...
-    def _get_iterator(self) -&gt; '_BaseDataLoaderIter':
-        if self.num_workers == 0:
-            return _SingleProcessDataLoaderIter(self)
-        else:
-            self.check_worker_number_rationality()
-            return _MultiProcessingDataLoaderIter(self)
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DataLoader</span>(<span class="type">Generic</span>[T_co]):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_get_iterator</span>(<span class="params">self</span>) -&gt; <span class="string">'_BaseDataLoaderIter'</span>:</span><br><span class="line">        <span class="keyword">if</span> self.num_workers == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> _SingleProcessDataLoaderIter(self)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.check_worker_number_rationality()</span><br><span class="line">            <span class="keyword">return</span> _MultiProcessingDataLoaderIter(self)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <p>为了描述更加清晰，我们只考虑单进程的代码。下面是 class _SingleProcessDataLoaderIter(_BaseDataLoaderIter) ，以及其父类 class _BaseDataLoaderIter(object): 的重点代码片段：</p>
-<pre><code class="lang-python">
-class _BaseDataLoaderIter(object):
-    def __init__(self, loader: DataLoader) -&gt; None:
-        # 初始化赋值一些 DataLoader 参数，
-        # 以及用户输入合法性进行校验
-        self._dataset = loader.dataset
-        self._dataset_kind = loader._dataset_kind
-        self._index_sampler = loader._index_sampler
-        ...
-
-    def __iter__(self) -&gt; '_BaseDataLoaderIter':
-        return self
-
-    def _reset(self, loader, first_iter=False):
-        self._sampler_iter = iter(self._index_sampler)
-        self._num_yielded = 0
-        self._IterableDataset_len_called = loader._IterableDataset_len_called
-
-    def _next_index(self):
-        return next(self._sampler_iter)  # may raise StopIteration
-
-    def _next_data(self):
-        raise NotImplementedError
-
-    def __next__(self) -&gt; Any:
-        with torch.autograd.profiler.record_function(self._profile_name):
-            if self._sampler_iter is None:
-                self._reset()
-            data = self._next_data() # 重点代码行，通过此获取数据
-            self._num_yielded += 1
-            ...
-            return data
-
-    next = __next__  # Python 2 compatibility
-
-    def __len__(self) -&gt; int:
-        return len(self._index_sampler) # len(_BaseDataLoaderIter) == len(self._index_sampler)
-
-    def __getstate__(self):
-        raise NotImplementedError("{} cannot be pickled", self.__class__.__name__)
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_BaseDataLoaderIter</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, loader: DataLoader</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="comment"># 初始化赋值一些 DataLoader 参数，</span></span><br><span class="line">        <span class="comment"># 以及用户输入合法性进行校验</span></span><br><span class="line">        self._dataset = loader.dataset</span><br><span class="line">        self._dataset_kind = loader._dataset_kind</span><br><span class="line">        self._index_sampler = loader._index_sampler</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>) -&gt; <span class="string">'_BaseDataLoaderIter'</span>:</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_reset</span>(<span class="params">self, loader, first_iter=<span class="literal">False</span></span>):</span><br><span class="line">        self._sampler_iter = <span class="built_in">iter</span>(self._index_sampler)</span><br><span class="line">        self._num_yielded = <span class="number">0</span></span><br><span class="line">        self._IterableDataset_len_called = loader._IterableDataset_len_called</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_next_index</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">next</span>(self._sampler_iter)  <span class="comment"># may raise StopIteration</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_next_data</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__next__</span>(<span class="params">self</span>) -&gt; <span class="type">Any</span>:</span><br><span class="line">        <span class="keyword">with</span> torch.autograd.profiler.record_function(self._profile_name):</span><br><span class="line">            <span class="keyword">if</span> self._sampler_iter <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                self._reset()</span><br><span class="line">            data = self._next_data() <span class="comment"># 重点代码行，通过此获取数据</span></span><br><span class="line">            self._num_yielded += <span class="number">1</span></span><br><span class="line">            ...</span><br><span class="line">            <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">    <span class="built_in">next</span> = __next__  <span class="comment"># Python 2 compatibility</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self._index_sampler) <span class="comment"># len(_BaseDataLoaderIter) == len(self._index_sampler)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getstate__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError(<span class="string">"{} cannot be pickled"</span>, self.__class__.__name__)</span><br></pre></td></tr></tbody></table></figure>
 <p><em>BaseDataLoaderIter 是所有 DataLoaderIter 的父类。dataloader获得了迭代器之后，for 循环需要调用 <strong><strong>next</strong>()</strong> 来获得下一个对象，从而实现遍历。通过 **<em>_next</em></em>()** 方法调用 _next_data() 获取数据。</p>
-<pre><code class="lang-python">class _SingleProcessDataLoaderIter(_BaseDataLoaderIter):
-    def __init__(self, loader):
-        super(_SingleProcessDataLoaderIter, self).__init__(loader)
-        assert self._timeout == 0
-        assert self._num_workers == 0
-
-        self._dataset_fetcher = _DatasetKind.create_fetcher(
-            self._dataset_kind, self._dataset, self._auto_collation, self._collate_fn, self._drop_last)
-
-    def _next_data(self):
-        index = self._next_index()  # may raise StopIteration
-        data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
-        if self._pin_memory:
-            data = _utils.pin_memory.pin_memory(data)
-        return data
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">_SingleProcessDataLoaderIter</span>(<span class="title class_ inherited__">_BaseDataLoaderIter</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, loader</span>):</span><br><span class="line">        <span class="built_in">super</span>(_SingleProcessDataLoaderIter, self).__init__(loader)</span><br><span class="line">        <span class="keyword">assert</span> self._timeout == <span class="number">0</span></span><br><span class="line">        <span class="keyword">assert</span> self._num_workers == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        self._dataset_fetcher = _DatasetKind.create_fetcher(</span><br><span class="line">            self._dataset_kind, self._dataset, self._auto_collation, self._collate_fn, self._drop_last)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_next_data</span>(<span class="params">self</span>):</span><br><span class="line">        index = self._next_index()  <span class="comment"># may raise StopIteration</span></span><br><span class="line">        data = self._dataset_fetcher.fetch(index)  <span class="comment"># may raise StopIteration</span></span><br><span class="line">        <span class="keyword">if</span> self._pin_memory:</span><br><span class="line">            data = _utils.pin_memory.pin_memory(data)</span><br><span class="line">        <span class="keyword">return</span> data</span><br></pre></td></tr></tbody></table></figure>
 <p>从 _SingleProcessDataLoaderIter 的初始化参数可以看到，其在父类 _BaseDataLoaderIter 的基础上定义了 _dataset_fetcher，并传入 _dataset，_auto_collation，_collate_fn 等参数，用于定义获取数据的方式。其具体实现会在稍后解释。</p>
 <p>在 _next_data() 被调用后，其需要 _next_index() 获取 index，并通过获得的 index 传入 _dataset_fetcher 中获取对应样本。</p>
-<pre><code class="lang-python">class DataLoader(Generic[T_co]):
-    ...
-    @property
-    def _auto_collation(self):
-        return self.batch_sampler is not None
-
-    @property
-    def _index_sampler(self):
-        if self._auto_collation:
-            return self.batch_sampler
-        else:
-            return self.sampler
-
-class _BaseDataLoaderIter(object):
-    ...
-    def _reset(self, loader, first_iter=False):
-        self._sampler_iter = iter(self._index_sampler)
-        ...
-
-    def _next_index(self):
-        # sampler_iter 来自于 index_sampler
-        return next(self._sampler_iter)  # may raise StopIteration
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DataLoader</span>(<span class="type">Generic</span>[T_co]):</span><br><span class="line">    ...</span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_auto_collation</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.batch_sampler <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_index_sampler</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self._auto_collation:</span><br><span class="line">            <span class="keyword">return</span> self.batch_sampler</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.sampler</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_BaseDataLoaderIter</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_reset</span>(<span class="params">self, loader, first_iter=<span class="literal">False</span></span>):</span><br><span class="line">        self._sampler_iter = <span class="built_in">iter</span>(self._index_sampler)</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_next_index</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># sampler_iter 来自于 index_sampler</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">next</span>(self._sampler_iter)  <span class="comment"># may raise StopIteration</span></span><br></pre></td></tr></tbody></table></figure>
 <p>从这里看出，dataloader 提供了 sampler（可以是batch_sampler 或者是其他 sampler 子类），然后 _SingleProcessDataLoaderIter 迭代 sampler 获得索引。</p>
 <p>下面我们来看看 fetcher，fetcher 需要 index 来获取元素，并同时支持 Map-style dataset（对应 _MapDatasetFetcher）和 Iterable-style dataset（对应 _IterableDatasetFetcher），使其在 Dataloader 内能使用相同的接口 fetch，代码更加简洁。</p>
 <p>· 对于 Map-style：直接输入索引 index，作为 map 的 key，获得对应的样本（即 value）。</p>
-<pre><code class="lang-python">class _MapDatasetFetcher(_BaseDatasetFetcher):
-    def __init__(self, dataset, auto_collation, collate_fn, drop_last):
-        super(_MapDatasetFetcher, self).__init__(dataset, auto_collation, collate_fn, drop_last)
-
-    def fetch(self, possibly_batched_index):
-        if self.auto_collation:
-            # 有batch_sampler，_auto_collation就为True，
-            # 就优先使用batch_sampler，对应在fetcher中传入的就是一个batch的索引
-            data = [self.dataset[idx] for idx in possibly_batched_index]
-        else:
-            data = self.dataset[possibly_batched_index]
-        return self.collate_fn(data)
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">_MapDatasetFetcher</span>(<span class="title class_ inherited__">_BaseDatasetFetcher</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, dataset, auto_collation, collate_fn, drop_last</span>):</span><br><span class="line">        <span class="built_in">super</span>(_MapDatasetFetcher, self).__init__(dataset, auto_collation, collate_fn, drop_last)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fetch</span>(<span class="params">self, possibly_batched_index</span>):</span><br><span class="line">        <span class="keyword">if</span> self.auto_collation:</span><br><span class="line">            <span class="comment"># 有batch_sampler，_auto_collation就为True，</span></span><br><span class="line">            <span class="comment"># 就优先使用batch_sampler，对应在fetcher中传入的就是一个batch的索引</span></span><br><span class="line">            data = [self.dataset[idx] <span class="keyword">for</span> idx <span class="keyword">in</span> possibly_batched_index]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            data = self.dataset[possibly_batched_index]</span><br><span class="line">        <span class="keyword">return</span> self.collate_fn(data)</span><br></pre></td></tr></tbody></table></figure>
 <p>· 对于 Iterable-style: <strong><strong>init</strong></strong> 方法内设置了 dataset 初始的迭代器，fetch 方法内获取元素，此时 index 其实已经没有多大作用了。</p>
-<pre><code class="lang-python">class _IterableDatasetFetcher(_BaseDatasetFetcher):
-    def __init__(self, dataset, auto_collation, collate_fn, drop_last):
-        super(_IterableDatasetFetcher, self).__init__(dataset, auto_collation, collate_fn, drop_last)
-        self.dataset_iter = iter(dataset)
-
-    def fetch(self, possibly_batched_index):
-        if self.auto_collation:
-            # 对于batch_sampler（即auto_collation==True）
-            # 直接使用往后遍历并提取len(possibly_batched_index)个样本（即1个batch的样本）
-            data = []
-            for _ in possibly_batched_index:
-                try:
-                    data.append(next(self.dataset_iter))
-                except StopIteration:
-                    break
-            if len(data) == 0 or (self.drop_last and len(data) &lt; len(possibly_batched_index)):
-                raise StopIteration
-        else:
-            # 对于sampler，直接往后遍历并提取1个样本
-            data = next(self.dataset_iter)
-        return self.collate_fn(data)
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">_IterableDatasetFetcher</span>(<span class="title class_ inherited__">_BaseDatasetFetcher</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, dataset, auto_collation, collate_fn, drop_last</span>):</span><br><span class="line">        <span class="built_in">super</span>(_IterableDatasetFetcher, self).__init__(dataset, auto_collation, collate_fn, drop_last)</span><br><span class="line">        self.dataset_iter = <span class="built_in">iter</span>(dataset)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fetch</span>(<span class="params">self, possibly_batched_index</span>):</span><br><span class="line">        <span class="keyword">if</span> self.auto_collation:</span><br><span class="line">            <span class="comment"># 对于batch_sampler（即auto_collation==True）</span></span><br><span class="line">            <span class="comment"># 直接使用往后遍历并提取len(possibly_batched_index)个样本（即1个batch的样本）</span></span><br><span class="line">            data = []</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> possibly_batched_index:</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    data.append(<span class="built_in">next</span>(self.dataset_iter))</span><br><span class="line">                <span class="keyword">except</span> StopIteration:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(data) == <span class="number">0</span> <span class="keyword">or</span> (self.drop_last <span class="keyword">and</span> <span class="built_in">len</span>(data) &lt; <span class="built_in">len</span>(possibly_batched_index)):</span><br><span class="line">                <span class="keyword">raise</span> StopIteration</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 对于sampler，直接往后遍历并提取1个样本</span></span><br><span class="line">            data = <span class="built_in">next</span>(self.dataset_iter)</span><br><span class="line">        <span class="keyword">return</span> self.collate_fn(data)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <p>最后，我们通过索引传入 fetcher，fetch 得到想要的样本。因此，整个过程调用关系总结如下：</p>
-<pre><code>loader.iter --&gt; self._get_iterator() --&gt; class _SingleProcessDataLoaderIter --&gt; class _BaseDataLoaderIter --&gt; __next__() --&gt; self._next_data() --&gt; self._next_index() --&gt;next(self._sampler_iter) 即 next(iter(self._index_sampler)) --&gt; 获得 index --&gt; self._dataset_fetcher.fetch(index) --&gt; 获得 data
-</code></pre><p>而对于多进程而言，借用 PyTorch 内源码的注释，其运行流程解释如下：</p>
-<pre><code>
-# Our data model looks like this (queues are indicated with curly brackets):
-#
-#                main process                              ||
-#                     |                                    ||
-#               {index_queue}                              ||
-#                     |                                    ||
-#              worker processes                            ||     DATA
-#                     |                                    ||
-#            {worker_result_queue}                         ||     FLOW
-#                     |                                    ||
-#      pin_memory_thread of main process                   ||   DIRECTION
-#                     |                                    ||
-#               {data_queue}                               ||
-#                     |                                    ||
-#                data output                               \/
-#
-# P.S. `worker_result_queue` and `pin_memory_thread` part may be omitted if
-#      `pin_memory=False`.
-</code></pre><p>首先 dataloader 基于 multiprocessing 产生多进程，每个子进程的输入输出通过两个主要的队列（multiprocessing.Queue() 类）产生，分别为：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loader.iter --&gt; self._get_iterator() --&gt; class _SingleProcessDataLoaderIter --&gt; class _BaseDataLoaderIter --&gt; __next__() --&gt; self._next_data() --&gt; self._next_index() --&gt;next(self._sampler_iter) 即 next(iter(self._index_sampler)) --&gt; 获得 index --&gt; self._dataset_fetcher.fetch(index) --&gt; 获得 data</span><br></pre></td></tr></tbody></table></figure>
+<p>而对于多进程而言，借用 PyTorch 内源码的注释，其运行流程解释如下：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Our data model looks like this (queues are indicated with curly brackets):</span><br><span class="line">#</span><br><span class="line">#                main process                              ||</span><br><span class="line">#                     |                                    ||</span><br><span class="line">#               {index_queue}                              ||</span><br><span class="line">#                     |                                    ||</span><br><span class="line">#              worker processes                            ||     DATA</span><br><span class="line">#                     |                                    ||</span><br><span class="line">#            {worker_result_queue}                         ||     FLOW</span><br><span class="line">#                     |                                    ||</span><br><span class="line">#      pin_memory_thread of main process                   ||   DIRECTION</span><br><span class="line">#                     |                                    ||</span><br><span class="line">#               {data_queue}                               ||</span><br><span class="line">#                     |                                    ||</span><br><span class="line">#                data output                               \/</span><br><span class="line">#</span><br><span class="line"># P.S. `worker_result_queue` and `pin_memory_thread` part may be omitted if</span><br><span class="line">#      `pin_memory=False`.</span><br></pre></td></tr></tbody></table></figure>
+<p>首先 dataloader 基于 multiprocessing 产生多进程，每个子进程的输入输出通过两个主要的队列（multiprocessing.Queue() 类）产生，分别为：</p>
 <p>· index_queue：每个子进程的队列中需要处理的任务的下标</p>
 <p>· _worker_result_queue：返回时处理完任务的下标</p>
 <p>· data_queue：表明经过 pin_memory 处理后的数据队列</p>
@@ -5395,150 +5193,11 @@ class _BaseDataLoaderIter(object):
 <p>· _task_info: 存储将要产生的 data 信息的 dict，key为 task idx（由 0 开始的整形索引），value 为 (worker_id,) 或 (worker_id, data)，分别对应数据未取和已取的情况</p>
 <p>· _tasks_outstanding: 整形，代表已经准备好的 task/batch 的数量（可能有些正在准备中）</p>
 <p>每个 worker 一次产生一个 batch 的数据，返回 batch 数据前放入下一个批次要处理的数据下标，对应构造函数子进程初始化如下：</p>
-<pre><code class="lang-python">
-class _MultiProcessingDataLoaderIter(_BaseDataLoaderIter):
-    def __init__(self, loader):
-        super(_MultiProcessingDataLoaderIter, self).__init__(loader)
-        ...
-        self._worker_result_queue = multiprocessing_context.Queue()  # 把该worker取出的数放入该队列，用于进程间通信
-        ...
-        self._workers_done_event = multiprocessing_context.Event()
-        self._index_queues = []
-        self._workers = []
-        for i in range(self._num_workers):
-            index_queue = multiprocessing_context.Queue()  # 索引队列，每个子进程一个队列放要处理的下标
-            index_queue.cancel_join_thread()
-            # _worker_loop 的作用是：从index_queue中取索引，然后通过collate_fn处理数据，
-            # 然后再将处理好的 batch 数据放到 data_queue 中。（发送到队列中的idx是self.send_idx）
-            w = multiprocessing_context.Process(
-                target=_utils.worker._worker_loop,  # 每个worker子进程循环执行的函数，主要将数据以(idx, data)的方式传入_worker_result_queue中
-                args=(self._dataset_kind, self._dataset, index_queue, 
-                      self._worker_result_queue, self._workers_done_event,
-                      self._auto_collation, self._collate_fn, self._drop_last,
-                      self._base_seed + i, self._worker_init_fn, i, self._num_workers,
-                      self._persistent_workers))
-            w.daemon = True
-            w.start()
-            self._index_queues.append(index_queue)
-            self._workers.append(w)
-        if self._pin_memory:
-            self._pin_memory_thread_done_event = threading.Event()
-            self._data_queue = queue.Queue()  # 用于存取出的数据进行 pin_memory 操作后的结果
-            pin_memory_thread = threading.Thread(
-                target=_utils.pin_memory._pin_memory_loop,
-                args=(self._worker_result_queue, self._data_queue,
-                      torch.cuda.current_device(),
-                      self._pin_memory_thread_done_event))
-            pin_memory_thread.daemon = True
-            pin_memory_thread.start()
-            # Similar to workers (see comment above), we only register
-            # pin_memory_thread once it is started.
-            self._pin_memory_thread = pin_memory_thread
-        else:
-            self._data_queue = self._worker_result_queue
-        ...
-        self._reset(loader, first_iter=True)
-    def _reset(self, loader, first_iter=False):
-        super()._reset(loader, first_iter)
-        self._send_idx = 0  # idx of the next task to be sent to workers，发送索引，用来记录这次要放 index_queue 中 batch 的 idx
-        self._rcvd_idx = 0  # idx of the next task to be returned in __next__，接受索引，记录要从 data_queue 中取出的 batch 的 idx
-        # information about data not yet yielded, i.e., tasks w/ indices in range [rcvd_idx, send_idx).
-        # map: task idx =&gt; - (worker_id,)        if data isn't fetched (outstanding)
-        #                  \ (worker_id, data)   if data is already fetched (out-of-order)
-        self._task_info = {}
-        # _tasks_outstanding 指示当前已经准备好的 task/batch 的数量（可能有些正在准备中）
-        # 初始值为 0, 在 self._try_put_index() 中 +1,在 self._next_data 中-1
-        self._tasks_outstanding = 0  # always equal to count(v for v in task_info.values() if len(v) == 1)
-        # this indicates status that a worker still has work to do *for this epoch*.
-        self._workers_status = [True for i in range(self._num_workers)] 
-        # We resume the prefetching in case it was enabled
-        if not first_iter:
-            for idx in range(self._num_workers):
-                self._index_queues[idx].put(_utils.worker._ResumeIteration())
-            resume_iteration_cnt = self._num_workers
-            while resume_iteration_cnt &gt; 0:
-                data = self._get_data()
-                if isinstance(data, _utils.worker._ResumeIteration):
-                    resume_iteration_cnt -= 1
-        ...
-        # 初始化的时候，就将 2*num_workers 个 (batch_idx, sampler_indices) 放到 index_queue 中
-        for _ in range(self._prefetch_factor * self._num_workers):
-            self._try_put_index() # 进行预取
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_MultiProcessingDataLoaderIter</span>(<span class="title class_ inherited__">_BaseDataLoaderIter</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, loader</span>):</span><br><span class="line">        <span class="built_in">super</span>(_MultiProcessingDataLoaderIter, self).__init__(loader)</span><br><span class="line">        ...</span><br><span class="line">        self._worker_result_queue = multiprocessing_context.Queue()  <span class="comment"># 把该worker取出的数放入该队列，用于进程间通信</span></span><br><span class="line">        ...</span><br><span class="line">        self._workers_done_event = multiprocessing_context.Event()</span><br><span class="line">        self._index_queues = []</span><br><span class="line">        self._workers = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self._num_workers):</span><br><span class="line">            index_queue = multiprocessing_context.Queue()  <span class="comment"># 索引队列，每个子进程一个队列放要处理的下标</span></span><br><span class="line">            index_queue.cancel_join_thread()</span><br><span class="line">            <span class="comment"># _worker_loop 的作用是：从index_queue中取索引，然后通过collate_fn处理数据，</span></span><br><span class="line">            <span class="comment"># 然后再将处理好的 batch 数据放到 data_queue 中。（发送到队列中的idx是self.send_idx）</span></span><br><span class="line">            w = multiprocessing_context.Process(</span><br><span class="line">                target=_utils.worker._worker_loop,  <span class="comment"># 每个worker子进程循环执行的函数，主要将数据以(idx, data)的方式传入_worker_result_queue中</span></span><br><span class="line">                args=(self._dataset_kind, self._dataset, index_queue, </span><br><span class="line">                      self._worker_result_queue, self._workers_done_event,</span><br><span class="line">                      self._auto_collation, self._collate_fn, self._drop_last,</span><br><span class="line">                      self._base_seed + i, self._worker_init_fn, i, self._num_workers,</span><br><span class="line">                      self._persistent_workers))</span><br><span class="line">            w.daemon = <span class="literal">True</span></span><br><span class="line">            w.start()</span><br><span class="line">            self._index_queues.append(index_queue)</span><br><span class="line">            self._workers.append(w)</span><br><span class="line">        <span class="keyword">if</span> self._pin_memory:</span><br><span class="line">            self._pin_memory_thread_done_event = threading.Event()</span><br><span class="line">            self._data_queue = queue.Queue()  <span class="comment"># 用于存取出的数据进行 pin_memory 操作后的结果</span></span><br><span class="line">            pin_memory_thread = threading.Thread(</span><br><span class="line">                target=_utils.pin_memory._pin_memory_loop,</span><br><span class="line">                args=(self._worker_result_queue, self._data_queue,</span><br><span class="line">                      torch.cuda.current_device(),</span><br><span class="line">                      self._pin_memory_thread_done_event))</span><br><span class="line">            pin_memory_thread.daemon = <span class="literal">True</span></span><br><span class="line">            pin_memory_thread.start()</span><br><span class="line">            <span class="comment"># Similar to workers (see comment above), we only register</span></span><br><span class="line">            <span class="comment"># pin_memory_thread once it is started.</span></span><br><span class="line">            self._pin_memory_thread = pin_memory_thread</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self._data_queue = self._worker_result_queue</span><br><span class="line">        ...</span><br><span class="line">        self._reset(loader, first_iter=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_reset</span>(<span class="params">self, loader, first_iter=<span class="literal">False</span></span>):</span><br><span class="line">        <span class="built_in">super</span>()._reset(loader, first_iter)</span><br><span class="line">        self._send_idx = <span class="number">0</span>  <span class="comment"># idx of the next task to be sent to workers，发送索引，用来记录这次要放 index_queue 中 batch 的 idx</span></span><br><span class="line">        self._rcvd_idx = <span class="number">0</span>  <span class="comment"># idx of the next task to be returned in __next__，接受索引，记录要从 data_queue 中取出的 batch 的 idx</span></span><br><span class="line">        <span class="comment"># information about data not yet yielded, i.e., tasks w/ indices in range [rcvd_idx, send_idx).</span></span><br><span class="line">        <span class="comment"># map: task idx =&gt; - (worker_id,)        if data isn't fetched (outstanding)</span></span><br><span class="line">        <span class="comment">#                  \ (worker_id, data)   if data is already fetched (out-of-order)</span></span><br><span class="line">        self._task_info = {}</span><br><span class="line">        <span class="comment"># _tasks_outstanding 指示当前已经准备好的 task/batch 的数量（可能有些正在准备中）</span></span><br><span class="line">        <span class="comment"># 初始值为 0, 在 self._try_put_index() 中 +1,在 self._next_data 中-1</span></span><br><span class="line">        self._tasks_outstanding = <span class="number">0</span>  <span class="comment"># always equal to count(v for v in task_info.values() if len(v) == 1)</span></span><br><span class="line">        <span class="comment"># this indicates status that a worker still has work to do *for this epoch*.</span></span><br><span class="line">        self._workers_status = [<span class="literal">True</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self._num_workers)] </span><br><span class="line">        <span class="comment"># We resume the prefetching in case it was enabled</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> first_iter:</span><br><span class="line">            <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(self._num_workers):</span><br><span class="line">                self._index_queues[idx].put(_utils.worker._ResumeIteration())</span><br><span class="line">            resume_iteration_cnt = self._num_workers</span><br><span class="line">            <span class="keyword">while</span> resume_iteration_cnt &gt; <span class="number">0</span>:</span><br><span class="line">                data = self._get_data()</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">isinstance</span>(data, _utils.worker._ResumeIteration):</span><br><span class="line">                    resume_iteration_cnt -= <span class="number">1</span></span><br><span class="line">        ...</span><br><span class="line">        <span class="comment"># 初始化的时候，就将 2*num_workers 个 (batch_idx, sampler_indices) 放到 index_queue 中</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self._prefetch_factor * self._num_workers):</span><br><span class="line">            self._try_put_index() <span class="comment"># 进行预取</span></span><br></pre></td></tr></tbody></table></figure>
 <p>dataloader 初始化的时候，每个 worker 的 index_queue 默认会放入<strong>两个</strong> batch 的 index，从 index_queue 中取出要处理的下标。</p>
-<pre><code class="lang-python">def _try_put_index(self):
-        # self._prefetch_factor 默认为 2
-        assert self._tasks_outstanding &lt; self._prefetch_factor * self._num_workers
-        try:
-            index = self._next_index()
-        except StopIteration:
-            return
-        for _ in range(self._num_workers):  # find the next active worker, if any
-            worker_queue_idx = next(self._worker_queue_idx_cycle)
-            if self._workers_status[worker_queue_idx]:
-                break
-        else:
-            # not found (i.e., didn't break)
-            return
-        self._index_queues[worker_queue_idx].put((self._send_idx, index)) # 放入 任务下标 和 数据下标
-        self._task_info[self._send_idx] = (worker_queue_idx,)
-        # _tasks_outstanding + 1，表明预备好的batch个数+1
-        self._tasks_outstanding += 1
-        # send_idx 发送索引, 记录从sample_iter中发送索引到index_queue的次数
-        self._send_idx += 1
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_try_put_index</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># self._prefetch_factor 默认为 2</span></span><br><span class="line">        <span class="keyword">assert</span> self._tasks_outstanding &lt; self._prefetch_factor * self._num_workers</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            index = self._next_index()</span><br><span class="line">        <span class="keyword">except</span> StopIteration:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self._num_workers):  <span class="comment"># find the next active worker, if any</span></span><br><span class="line">            worker_queue_idx = <span class="built_in">next</span>(self._worker_queue_idx_cycle)</span><br><span class="line">            <span class="keyword">if</span> self._workers_status[worker_queue_idx]:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># not found (i.e., didn't break)</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self._index_queues[worker_queue_idx].put((self._send_idx, index)) <span class="comment"># 放入 任务下标 和 数据下标</span></span><br><span class="line">        self._task_info[self._send_idx] = (worker_queue_idx,)</span><br><span class="line">        <span class="comment"># _tasks_outstanding + 1，表明预备好的batch个数+1</span></span><br><span class="line">        self._tasks_outstanding += <span class="number">1</span></span><br><span class="line">        <span class="comment"># send_idx 发送索引, 记录从sample_iter中发送索引到index_queue的次数</span></span><br><span class="line">        self._send_idx += <span class="number">1</span></span><br></pre></td></tr></tbody></table></figure>
 <p>调用 _next_data(self) 方法进行数据读取，其中 _process_data(self, data) 用于返回数据。</p>
-<pre><code class="lang-python">
-def _next_data(self):
-        while True:
-
-            while self._rcvd_idx &lt; self._send_idx: # 确保待处理的任务(待取的batch)下标 &gt; 处理完毕要返回的任务(已经取完的batch)下标
-                info = self._task_info[self._rcvd_idx]
-                worker_id = info[0]
-                if len(info) == 2 or self._workers_status[worker_id]:  # has data or is still active
-                    break
-                del self._task_info[self._rcvd_idx]
-                self._rcvd_idx += 1
-            else:
-                # no valid `self._rcvd_idx` is found (i.e., didn't break)
-                if not self._persistent_workers:
-                    self._shutdown_workers()
-                raise StopIteration
-
-            # Now `self._rcvd_idx` is the batch index we want to fetch
-
-            # Check if the next sample has already been generated
-            if len(self._task_info[self._rcvd_idx]) == 2:
-                data = self._task_info.pop(self._rcvd_idx)[1]
-                return self._process_data(data)
-
-            assert not self._shutdown and self._tasks_outstanding &gt; 0
-            idx, data = self._get_data() # 调用 self._try_get_data() 从 self._data_queue 中取数
-            self._tasks_outstanding -= 1  # 表明预备好的batch个数需要减1
-            if self._dataset_kind == _DatasetKind.Iterable:
-                # Check for _IterableDatasetStopIteration
-                if isinstance(data, _utils.worker._IterableDatasetStopIteration):
-                    if self._persistent_workers:
-                        self._workers_status[data.worker_id] = False
-                    else:
-                        self._mark_worker_as_unavailable(data.worker_id)
-                    self._try_put_index()
-                    continue
-
-            if idx != self._rcvd_idx:
-                # store out-of-order samples
-                self._task_info[idx] += (data,)
-            else:
-                del self._task_info[idx]
-                return self._process_data(data) # 返回数据
-
-    def _process_data(self, data):
-        self._rcvd_idx += 1
-        self._try_put_index() # 同上，主要放入队列索引 以及 更新flag
-        if isinstance(data, ExceptionWrapper):
-            data.reraise()
-        return data
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_next_data</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> self._rcvd_idx &lt; self._send_idx: <span class="comment"># 确保待处理的任务(待取的batch)下标 &gt; 处理完毕要返回的任务(已经取完的batch)下标</span></span><br><span class="line">                info = self._task_info[self._rcvd_idx]</span><br><span class="line">                worker_id = info[<span class="number">0</span>]</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">len</span>(info) == <span class="number">2</span> <span class="keyword">or</span> self._workers_status[worker_id]:  <span class="comment"># has data or is still active</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">del</span> self._task_info[self._rcvd_idx]</span><br><span class="line">                self._rcvd_idx += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># no valid `self._rcvd_idx` is found (i.e., didn't break)</span></span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> self._persistent_workers:</span><br><span class="line">                    self._shutdown_workers()</span><br><span class="line">                <span class="keyword">raise</span> StopIteration</span><br><span class="line"></span><br><span class="line">            <span class="comment"># Now `self._rcvd_idx` is the batch index we want to fetch</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># Check if the next sample has already been generated</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(self._task_info[self._rcvd_idx]) == <span class="number">2</span>:</span><br><span class="line">                data = self._task_info.pop(self._rcvd_idx)[<span class="number">1</span>]</span><br><span class="line">                <span class="keyword">return</span> self._process_data(data)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">assert</span> <span class="keyword">not</span> self._shutdown <span class="keyword">and</span> self._tasks_outstanding &gt; <span class="number">0</span></span><br><span class="line">            idx, data = self._get_data() <span class="comment"># 调用 self._try_get_data() 从 self._data_queue 中取数</span></span><br><span class="line">            self._tasks_outstanding -= <span class="number">1</span>  <span class="comment"># 表明预备好的batch个数需要减1</span></span><br><span class="line">            <span class="keyword">if</span> self._dataset_kind == _DatasetKind.Iterable:</span><br><span class="line">                <span class="comment"># Check for _IterableDatasetStopIteration</span></span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">isinstance</span>(data, _utils.worker._IterableDatasetStopIteration):</span><br><span class="line">                    <span class="keyword">if</span> self._persistent_workers:</span><br><span class="line">                        self._workers_status[data.worker_id] = <span class="literal">False</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        self._mark_worker_as_unavailable(data.worker_id)</span><br><span class="line">                    self._try_put_index()</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> idx != self._rcvd_idx:</span><br><span class="line">                <span class="comment"># store out-of-order samples</span></span><br><span class="line">                self._task_info[idx] += (data,)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">del</span> self._task_info[idx]</span><br><span class="line">                <span class="keyword">return</span> self._process_data(data) <span class="comment"># 返回数据</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_process_data</span>(<span class="params">self, data</span>):</span><br><span class="line">        self._rcvd_idx += <span class="number">1</span></span><br><span class="line">        self._try_put_index() <span class="comment"># 同上，主要放入队列索引 以及 更新flag</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">isinstance</span>(data, ExceptionWrapper):</span><br><span class="line">            data.reraise()</span><br><span class="line">        <span class="keyword">return</span> data</span><br></pre></td></tr></tbody></table></figure>
 <p>这样，多进程模式的 dataloader 就能通过多个 worker 的协作来共同完成数据的加载。</p>
 
   </div>
@@ -5620,7 +5279,7 @@ def _next_data(self):
         <div class="hoverbox">
           <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
           <div class="target">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAE4CAAAAADqFLC2AAADsklEQVR42u3aQXIiQQwEQP7/ae99IxxIJbEINvs2mBla2T4UEo8fK1oPBODAgQNngQN3BO4Rrr/v/+362evVfVTf/7Twab3gwIEDBw4cOHDH4MoBcAj37AC2ntfdX7lecODAgQMHDhy4o3DdwJsWkgbqbmCtQpb3Aw4cOHDgwIED9yVw3UBbbXB2A23aUAUHDhw4cODAgftf4dIG5/RAuoEcHDhw4MCBAwfu2+G6A9qtH/B1g3MVKt0/OHDgwIEDBw7cp8BNC/2067hecODAgQMHDhy4I3DT1Q3EaUOy2nh89QIHDhw4cODAgbsCl/5QcHswXX1uN9BWD7rsAA4cOHDgwIEDdwSue2O1kOqAejrI3hpcl+sABw4cOHDgwIE7AjctZAssLXwasKt1gAMHDhw4cODAXYWbNga3AmsXuPvcNMCDAwcOHDhw4MBdg5sOpruFdIPzdKCcNjDXB9LgwIEDBw4cOHDLcNsFbhcwhUwDfnkgDQ4cOHDgwIED9ya4FCZ9fdrI3ArkcYAHBw4cOHDgwIH7MLhXAW4dWArfPUBw4MCBAwcOHLhrcFuBeHvDaXDearA+DcDgwIEDBw4cOHBvhtsaCKcD327DsbvPtPHZ/uYADhw4cODAgQP3j+C6gbYLNR1UV4PzVgO23MgEBw4cOHDgwIF7M1z3A9PBbzrw3trn1oGBAwcOHDhw4MBdh9tqaG4VUB0Yp43Lsgc4cODAgQMHDtwRuO2gOd1gOtCeDrqrBwIOHDhw4MCBA3cNLh0sTwfH6f3VQLwVfMGBAwcOHDhw4K7BTQfDaeOwHDibP2ScDp6fvh8cOHDgwIEDB+4YXBVw2iicFrrdaG3vExw4cODAgQMH7hhcGnRT+G5Q3oaM/yHAgQMHDhw4cOA+BC4NrmnjMG2odv8eD97BgQMHDhw4cOCOwE0DaPeD08F1GoC7A+en4ODAgQMHDhw4cEfguhCvGhSn+5k2UNsNXHDgwIEDBw4cuKNw3TUtfCvgbjdAywNpcODAgQMHDhy4N8E9wjUNqNNGaTVQV6/LzwcHDhw4cODAgTsGlwbeFKDb8Ow2QruD8XYjExw4cODAgQMH7hhc2hhMG4mvHihv3Q8OHDhw4MCBA/dtcN2Cu4F62ticBm1w4MCBAwcOHLhvh+s2ILcKS8G7DU9w4MCBAwcOHLjrcN2BdFrI9L50X+mAGxw4cODAgQMH7ipcd20NfFOI7cF0+QsAOHDgwIEDBw7cETireaAIwIEDB84CB+696w9JlQAm1VCUOAAAAABJRU5ErkJggg==">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAE4CAAAAADqFLC2AAADs0lEQVR42u3aQXIbMQwEQP3/0849VS4BAyiClOZNtnZNNC9jgI8fK1oPBODAgQNngQN3BO4Rrr+f/+3zs59X91H9/tPCp/WCAwcOHDhw4MAdgysHwCHcswPYel93f+V6wYEDBw4cOHDgjsJ1A29aSBqou4G1ClneDzhw4MCBAwcO3JfAdQNttcHZDbRpQxUcOHDgwIEDB+5/hUsbnNMD6QZycODAgQMHDhy4b4frDmi3LvB1g3MVKt0/OHDgwIEDBw7cp8BNC/20z3G94MCBAwcOHDhwR+CmqxuI04Zk9wLjqxY4cODAgQMHDtwVuPSi4PZguvrebqCtHnTZARw4cODAgQMH7ghc98FqIdUB9XSQvTW4LtcBDhw4cODAgQN3BG5ayBZYWvg0YFfrAAcOHDhw4MCBuwo3bQxuBdYucPe9aYAHBw4cOHDgwIG7BjcdTHcL6Qbn6UA5bWCuD6TBgQMHDhw4cOCW4bYL3C5gCpkG/PJAGhw4cODAgQMH7k1wKUz682kj819fgAQHDhw4cODAgft0uFcBbh1YCt89QHDgwIEDBw4cuGtwW4F4e8NpcN5qsD4NwODAgQMHDhw4cG+G2xoIpwPfbsOxu8+08RnfyAQHDhw4cODAgXsxXDfQdqGmg+pqcN5qwJYbmeDAgQMHDhw4cG+GSy/ipQPl6cW/dJ9bBwYOHDhw4MCBA3cdbquhuVVAdWCcNi7LHuDAgQMHDhw4cEfgtoPmdIPpQHs66C5ffAQHDhw4cODAgTsGlw6Wp4Pj9PlqIN4KvuDAgQMHDhw4cNfgpoPhtHFYDpzNi4zTwfPT74MDBw4cOHDgwB2DqwJOG4XTQrcbre19ggMHDhw4cODAHYNLg24K/6oLhekAuwwNDhw4cODAgQP3IXBpcE0bh2lDtfv7ePAODhw4cODAgQN3BG4aQLt/OB1cpwG4O3B+Cg4OHDhw4MCBA3cErgvxqkFxup9pA7XdwAUHDhw4cODAgTsK113TwrcC7nYDtDyQBgcOHDhw4MCBexPcI1zTgDptlFYDdfVz+f3gwIEDBw4cOHDH4NLAmwJ0G57dRmh3MN5uZIIDBw4cOHDgwB2DSxuDaSPx1QPlrefBgQMHDhw4cOC+Da5bcDdQTxub06ANDhw4cODAgQP37XDdBuRWYSl4t+EJDhw4cODAgQN3Ha47kE4LmT6X7isdcIMDBw4cOHDgwF2F666tgW8KsT2YLv8DAA4cOHDgwIEDdwTOah4oAnDgwIGzwIF77/oDSZUAJgZB9o4AAAAASUVORK5CYII=">
           </div>
         </div>
       
@@ -5857,7 +5516,7 @@ brandcolors...</p>
     
       
         本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
         作为主题
       
     
@@ -6752,7 +6411,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -6979,7 +6638,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/pytorch/","name":"pytorch"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/数据处理/","name":"数据处理"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"数据处理","description":"计算机视觉，文学，pytorch，hexo，江西理工大学，目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/","wordCount":0,"datePublished":"2022-04-16T07:26:49.041Z","dateModified":"2022-10-04T13:44:25.122Z","articleSection":"pytorch","keywords":"数据处理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/pytorch/","name":"pytorch"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-CN/数据处理/","name":"数据处理"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"数据处理","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-CN/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-CN/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/","wordCount":0,"datePublished":"2022-04-16T07:26:49.041Z","dateModified":"2022-10-04T13:44:25.122Z","articleSection":"pytorch","keywords":"数据处理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
