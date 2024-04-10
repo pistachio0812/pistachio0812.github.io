@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,zh-TW,default">
-    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/7.6.2">
+    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -53,7 +53,11 @@
 
   <script id="loadcss"></script>
 
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://unpkg.com/katex@0.12.0/dist/katex.min.css">
 
+<link rel="stylesheet" href="https://unpkg.com/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end -->
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>  <script>
     function music_on() {
@@ -1053,10 +1057,10 @@
 <p>2.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.jiqizhixin.com/graph/technologies/4821b1eb-34c3-4532-9dca-a97411441f23">感受野 | 机器之心 </a></p>
 <p>计算机视觉中常常出现感受野的概念，我是在修改SSD网络中的过程中，发现增强感受野是非常有必要的。SSD的主干网络是VGG16,其中有个结论：低层特征图的感受野较小，高层特征图的感受野较大。</p>
 <h2 id="感受野定义"><a href="#感受野定义" class="headerlink" title="感受野定义"></a>感受野定义</h2><p>神经网络中每一层输出特征图上的像素点在输入图片上的映射的区域大小，也就是特征图上的每一个点对应的输入图片的区域。</p>
-<h2 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h2><p><style>.xbxlwnjjdxhb{zoom:50%;}</style><img src="/zh-CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/image-20220427214037594.png" class="lazyload" data-srcset="/zh-CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/image-20220427214037594.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220427214037594"></p>
+<h2 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h2><p><style>.jccouuywpllo{zoom:50%;}</style><img src="/zh-CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/image-20220427214037594.png" class="lazyload" data-srcset="/zh-CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/image-20220427214037594.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220427214037594"></p>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>在VGG16中：pool5中<br>pool5:RF=2<br>conv5_3 ：RF=(2-1)<em>1+3=4<br>conv5_2 : RF=(4-1)</em>1+3=6<br>conv5_2: RF=(6-1)<em>1+3=8<br>conv5_1: RF=(8-1)</em>2+2=16<br>pool4 : RF=(8-1)<em>2+2=16<br>conv4_3: RF=(16-1)</em>1+3=18<br>conv4_2: RF=(18-1)<em>1+3=20<br>conv4_1 : RF=(20-1)</em>1+3=22<br>pool3: RF=(22-1)<em>2+2=44<br>conv3_3: RF=(44-1)</em>1+3=46<br>conv3_2: RF=(46-1)<em>1+3=48<br>conv3_1: RF=(48-1)</em>1+3=50<br>pool2: RF=(50-1)<em>2+2=100<br>conv2_2: RF=(150-1)</em>1+3=152<br>conv2_1: RF=（152-1)<em>1+3=154<br>pool1: RF=(154-1)</em>2+2=208<br>conv1_2: RF=(208-1)<em>1+3=210<br>conv1_1: RF=(210-1)</em>1+3=212<br>计算结果为：pool5输出的特征图在输入图片上的感受野为212*</p>
 <p>结果如下图所示：</p>
-<p><style>.pwptyxnlwvqf{}</style><img src="/zh-CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/image-20220427214256808.png" class="lazyload" data-srcset="/zh-CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/image-20220427214256808.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220427214256808"></p>
+<p><style>.kkuqtqrdhxyj{}</style><img src="/zh-CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/image-20220427214256808.png" class="lazyload" data-srcset="/zh-CN/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/%E6%84%9F%E5%8F%97%E9%87%8E%E8%AE%A1%E7%AE%97/image-20220427214256808.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220427214256808"></p>
 
   </div>
   
@@ -1370,7 +1374,7 @@
     
       
         本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#4.2.0" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
         作为主题
       
     
@@ -2265,7 +2269,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp"];
   let index = 0;
   let IntervalParallax = null;
 

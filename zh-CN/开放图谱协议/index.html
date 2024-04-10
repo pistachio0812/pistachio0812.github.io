@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,zh-TW,default">
-    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/7.6.2">
+    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -53,7 +53,11 @@
 
   <script id="loadcss"></script>
 
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://unpkg.com/katex@0.12.0/dist/katex.min.css">
 
+<link rel="stylesheet" href="https://unpkg.com/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end -->
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>  <script>
     function music_on() {
@@ -1054,12 +1058,12 @@
 <p>3.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io/zh-cn/docs/helpers#open-graph">辅助函数（Helpers） | Hexo</a></p>
 <p>今天在继续配置我的博客时，发现有一个open_graph不懂，结果一查才知道这是facebook推的一个开放图谱协议，用于分享网站的时候用，于是抱着学习的目的，继续深挖下去</p>
 <p>按照第一个链接的方法，我查到了我网站的开放协议配置情况</p>
-<p><style>.jpjopdsxxpht{}</style><img src="/zh-CN/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/image-20220926204719850.png" class="lazyload" data-srcset="/zh-CN/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/image-20220926204719850.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><style>.ogaytwjcctcb{}</style><img src="/zh-CN/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/image-20220926204719850.png" class="lazyload" data-srcset="/zh-CN/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/image-20220926204719850.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>和配置情况对比一下，是一样的</p>
 <p>open graph protocol和_config.yml是一致的，twitter card info和主题volantis配置文件是一致的</p>
 <figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># _config.volantis.yml文件</span><br><span class="line">open_graph:</span><br><span class="line">  image: volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png # https://gcore.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png</span><br><span class="line">  twitter_card: summary # summary_large_image , summary</span><br></pre></td></tr></tbody></table></figure>
 <p>如果想配置里面的内容，打开第三个链接</p>
-<p><style>.azvbumffokjn{zoom:50%;}</style><img src="/zh-CN/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/image-20220926205301882.png" class="lazyload" data-srcset="/zh-CN/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/image-20220926205301882.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220926205301882"></p>
+<p><style>.swjjvptjynrw{zoom:50%;}</style><img src="/zh-CN/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/image-20220926205301882.png" class="lazyload" data-srcset="/zh-CN/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/%E5%BC%80%E6%94%BE%E5%9B%BE%E8%B0%B1%E5%8D%8F%E8%AE%AE/image-20220926205301882.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220926205301882"></p>
 <p>原来的配置实在太简陋了，分享了网站估计也没人看，那就开始配置吧</p>
 <figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">open_graph:</span><br><span class="line">  title: page.title</span><br><span class="line">  url: url</span><br><span class="line">  author: config.author</span><br><span class="line">  image:  # https://gcore.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png</span><br><span class="line">  twitter_card: summary # summary_large_image , summary</span><br></pre></td></tr></tbody></table></figure>
 <p>结束了，以后如果还有改进再来补充</p>
@@ -1368,7 +1372,7 @@
     
       
         本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#4.2.0" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
         作为主题
       
     
@@ -2263,7 +2267,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp"];
   let index = 0;
   let IntervalParallax = null;
 

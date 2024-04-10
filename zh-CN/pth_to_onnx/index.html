@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,zh-TW,default">
-    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/7.6.2">
+    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -53,7 +53,11 @@
 
   <script id="loadcss"></script>
 
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://unpkg.com/katex@0.12.0/dist/katex.min.css">
 
+<link rel="stylesheet" href="https://unpkg.com/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end -->
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>  <script>
     function music_on() {
@@ -1060,11 +1064,11 @@
 <p>1.模型无法加载，<code>load_state_dict</code>出现问题</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 记住，模型参数一定要写全，根据自己的网络模型写即可</span></span><br><span class="line"><span class="comment"># 错误代码</span></span><br><span class="line">model = ssd.SSD300()</span><br><span class="line"><span class="comment"># 正确代码</span></span><br><span class="line">model = ssd.SSD300(21, <span class="string">'vgg'</span>)</span><br></pre></td></tr></tbody></table></figure>
 <p>2.权重文件因为模型中上采样导出失败问题</p>
-<p><style>.jhevockaejgn{zoom:80%;}</style><img src="/zh-CN/pth_to_onnx/pth_to_onnx/image-20221031111722457.png" class="lazyload" data-srcset="/zh-CN/pth_to_onnx/pth_to_onnx/image-20221031111722457.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221031111722457"></p>
+<p><style>.txsetsewdfkn{zoom:80%;}</style><img src="/zh-CN/pth_to_onnx/pth_to_onnx/image-20221031111722457.png" class="lazyload" data-srcset="/zh-CN/pth_to_onnx/pth_to_onnx/image-20221031111722457.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221031111722457"></p>
 <p>按方法2解决即可，pytorch版本问题</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 错误代码</span></span><br><span class="line">torch.onnx.export(model, input_data, <span class="string">'ssdv7.onnx'</span>, opset_version=9, verbose=True, input_names=input_names, output_names=output_names)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 正确代码</span></span><br><span class="line">torch.onnx.export(model, input_data, <span class="string">'ssdv7.onnx'</span>, opset_version=11, verbose=True, input_names=input_names,</span><br><span class="line">                  output_names=output_names)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <p>ok,接下来就是zetane加载模型了，看看最终的模型吧。</p>
-<p><style>.sskeuwgoensl{zoom:80%;}</style><img src="/zh-CN/pth_to_onnx/pth_to_onnx/image-20221031112309197.png" class="lazyload" data-srcset="/zh-CN/pth_to_onnx/pth_to_onnx/image-20221031112309197.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221031112309197"></p>
+<p><style>.bbttqyiftwzy{zoom:80%;}</style><img src="/zh-CN/pth_to_onnx/pth_to_onnx/image-20221031112309197.png" class="lazyload" data-srcset="/zh-CN/pth_to_onnx/pth_to_onnx/image-20221031112309197.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221031112309197"></p>
 
   </div>
   
@@ -1368,7 +1372,7 @@
     
       
         本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#4.2.0" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
         作为主题
       
     
@@ -2263,7 +2267,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp"];
   let index = 0;
   let IntervalParallax = null;
 

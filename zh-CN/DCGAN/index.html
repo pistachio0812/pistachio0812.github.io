@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,zh-TW,default">
-    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/7.6.2">
+    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -53,7 +53,11 @@
 
   <script id="loadcss"></script>
 
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://unpkg.com/katex@0.12.0/dist/katex.min.css">
 
+<link rel="stylesheet" href="https://unpkg.com/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end -->
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>  <script>
     function music_on() {
@@ -1057,11 +1061,11 @@
 <p>它是由Alec Radford在论文Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks中提出的。</p>
 <p>实际上它就是在GAN的基础上增加深度卷积网络结构。</p>
 <p>论文中给出的DCGAN结构如图所示。其使用反卷积将特征层的高宽不断扩大，整体结构看起来像普通神经网络的逆过程。</p>
-<p><style>.ermbsdatjyxv{}</style><img src="/zh-CN/DCGAN/DCGAN/image-20220421201415525.png" class="lazyload" data-srcset="/zh-CN/DCGAN/DCGAN/image-20220421201415525.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><style>.rpjjlenrppin{}</style><img src="/zh-CN/DCGAN/DCGAN/image-20220421201415525.png" class="lazyload" data-srcset="/zh-CN/DCGAN/DCGAN/image-20220421201415525.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <h3 id="生成网络的构建"><a href="#生成网络的构建" class="headerlink" title="生成网络的构建"></a>生成网络的构建</h3><p>对于生成网络来讲，它的目的是生成假图片，它的输入是正态分布随机数。输出是假图片。</p>
 <p>在GAN当中，我们将这个正态分布随机数长度定义为100，在经过处理后，我们会得到一个(64,64,3)的假图片。</p>
 <p>在处理过程中，我们会使用到反卷积，反卷积的概念是相对于正常卷积的，在正常卷积下，我们的特征层的高宽会不断被压缩；在反卷积下，我们的特征层的高宽会不断变大。</p>
-<p><style>.wendtlvuibwa{}</style><img src="/zh-CN/DCGAN/DCGAN/20201202124131662.png" class="lazyload" data-srcset="/zh-CN/DCGAN/DCGAN/20201202124131662.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><style>.wvqjxdydmkvd{}</style><img src="/zh-CN/DCGAN/DCGAN/20201202124131662.png" class="lazyload" data-srcset="/zh-CN/DCGAN/DCGAN/20201202124131662.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>在DCGAN的生成网络中，我们首先利用一个全连接，将输入长条全连接到16,384（4x4x1024）这样一个长度上，这样我们才可以对这个全连接的结果进行reshape，使它变成(4,4,1024)的特征层。</p>
 <p>在获得这个特征层之后，我们就可以利用反卷积进行上采样了。</p>
 <p>在每次反卷积后，特征层的高和宽会变为原来的两倍，在四次反卷积后，我们特征层的shape变化是这样的：( 4 , 4 , 1024 ) − &gt; ( 8 , 8 , 512 ) − &gt; ( 16 , 16 , 256 ) − &gt; ( 32 , 32 , 128 ) − &gt; ( 64 , 64 , 3 )</p>
@@ -1077,11 +1081,11 @@
 <h3 id="判别器的训练"><a href="#判别器的训练" class="headerlink" title="判别器的训练"></a>判别器的训练</h3><p>在训练判别器的时候我们希望判别器可以判断输入图片的真伪，因此我们的输入就是真图片、假图片和它们对应的标签。</p>
 <p>因此判别器的训练步骤如下：</p>
 <p>1、随机选取batch_size个真实的图片。<br>2、随机生成batch_size个N维向量，传入到Generator中生成batch_size个虚假图片。<br>3、真实图片的label为1，虚假图片的label为0，将真实图片和虚假图片当作训练集传入到Discriminator中进行训练。</p>
-<p><style>.rbpobgclgxkv{zoom: 25%;}</style><img src="/zh-CN/DCGAN/DCGAN/20201203114355820.png" class="lazyload" data-srcset="/zh-CN/DCGAN/DCGAN/20201203114355820.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><style>.cdvzqkyslcjr{zoom: 25%;}</style><img src="/zh-CN/DCGAN/DCGAN/20201203114355820.png" class="lazyload" data-srcset="/zh-CN/DCGAN/DCGAN/20201203114355820.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <h3 id="生成器训练"><a href="#生成器训练" class="headerlink" title="生成器训练"></a>生成器训练</h3><p>在训练生成器的时候我们希望生成器可以生成极为真实的假图片。因此我们在训练生成器需要知道判别器认为什么图片是真图片。</p>
 <p>因此生成器的训练步骤如下：</p>
 <p>1、随机生成batch_size个N维向量，传入到Generator中生成batch_size个虚假图片。<br>2、将虚假图片的Discriminator预测结果与1的对比作为loss对Generator进行训练（与1对比的意思是，让生成器根据判别器判别的结果进行训练）</p>
-<p><style>.dtjhnafamzih{zoom: 50%;}</style><img src="/zh-CN/DCGAN/DCGAN/20201203114415814.png" class="lazyload" data-srcset="/zh-CN/DCGAN/DCGAN/20201203114415814.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><style>.wuvdouacnwod{zoom: 50%;}</style><img src="/zh-CN/DCGAN/DCGAN/20201203114415814.png" class="lazyload" data-srcset="/zh-CN/DCGAN/DCGAN/20201203114415814.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <h2 id="利用DCGAN生成图片"><a href="#利用DCGAN生成图片" class="headerlink" title="利用DCGAN生成图片"></a>利用DCGAN生成图片</h2><p>详情见源码和参考博文</p>
 
   </div>
@@ -1397,7 +1401,7 @@
     
       
         本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#4.2.0" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
         作为主题
       
     
@@ -2292,7 +2296,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp"];
   let index = 0;
   let IntervalParallax = null;
 
