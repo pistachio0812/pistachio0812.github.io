@@ -1,0 +1,3170 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,zh-TW,default">
+    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/7.6.2">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>经典网络 - 阿月浑子-Hexo博客</title>
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="阿月浑子-Hexo博客" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>  <script>
+    function music_on() {
+        var audio1 = document.getElementById('bg_music');
+        if (audio1.paused) {
+            audio1.play();
+        }else{
+            audio1.pause();
+            audio1.currentTime = 0;//音乐从头播放
+        }
+    }
+    function BackTOP() {
+        $("#btn").hide();
+        $(function () {
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 50) {
+                    $("#btn").fadeIn(200);
+                } else {
+                    $("#btn").fadeOut(200);
+                }
+            });
+            $("#btn").click(function () {
+                $('body,html').animate({
+                        scrollTop: 0
+                    },
+                    500);
+                return false;
+            });
+        });
+        $(function () {
+            $("#say").click(function () {
+                $('body,html').animate({
+                        scrollTop: $('html, body').get(0).scrollHeight
+                    },
+                    500);
+                return false;
+            });
+        })
+    }
+ 
+    $('#readmode').click(function () {
+            $('body').toggleClass('read-mode')
+        })
+        
+    function SiderMenu() {
+        $('#main-container').toggleClass('open');
+        $('.iconflat').css('width', '50px').css('height', '50px');
+        $('.openNav').css('height', '50px');
+        $('#main-container,#mo-nav,.openNav').toggleClass('open')
+    }
+ 
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($("body")), setTimeout(
+            function () {
+                var DarkMode = document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") ||
+                    '0';
+                (volantis.dark.mode == "dark") 
+                ? 
+                ($("html").addClass("DarkMode"), 
+                document.cookie = "DarkMode=1;path=/", 
+                $('#modeicon').attr("xlink:href", "#icon-sun")) 
+                : 
+                ($("html").removeClass("DarkMode"), 
+                document.cookie = "DarkMode=0;path=/", 
+                $('#modeicon').attr("xlink:href", "#icon-_moon")), 
+                setTimeout(function () {
+                    $(".Cuteen_DarkSky").fadeOut(1e3, function () {
+                        $(this).remove()
+                    })
+                }, 2e3)
+            }), 50
+    }
+ 
+    function checkNightMode() {
+        if ($("html").hasClass("n-f")) {
+            $("html").removeClass("day");
+            $("html").addClass("DarkMode");
+            $('#modeicon').attr("xlink:href", "#icon-sun")
+            return;
+        }
+        if ($("html").hasClass("d-f")) {
+            $("html").removeClass("DarkMode");
+            $("html").addClass("day");
+            $('#modeicon').attr("xlink:href", "#icon-_moon")
+ 
+            return;
+        }
+        if (document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") === '') {
+            if (volantis.dark.mode == "dark") {
+                $("html").addClass("DarkMode");
+                document.cookie = "DarkMode=1;path=/";
+                console.log('夜间模式开启');
+                $('#modeicon').attr("xlink:href", "#icon-sun")
+            } else {
+                $("html").removeClass("DarkMode");
+                document.cookie = "DarkMode=0;path=/";
+                console.log('夜间模式关闭');
+                $('#modeicon').attr("xlink:href", "#icon-_moon")
+            }
+        } else {
+            var DarkMode = document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
+            if (DarkMode == '0') {
+                $("html").removeClass("DarkMode");
+                $('#modeicon').attr("xlink:href", "#icon-_moon")
+            } else if (DarkMode == '1') {
+                $("html").addClass("DarkMode");
+                $('#modeicon').attr("xlink:href", "#icon-sun")
+            }
+        }
+    }
+    BackTOP();
+</script>
+ 
+<style>
+    #RightDownBtn {
+        position: fixed;
+        left: 1.875rem;
+        bottom: 1.875rem;
+        padding: 0.3125rem 0.625rem;
+        background: #fff;
+        border-radius: 0.1875rem;
+        transition: 0.3s ease all;
+        z-index: 1;
+        align-items: flex-end;
+        flex-direction: column;
+        display: -moz-flex;
+        display: flex;
+        float: right;
+    }
+ 
+    #RightDownBtn>a,
+    #RightDownBtn>label {
+        width: 1.5em;
+        height: 1.5em;
+        margin: 0.3125rem 0;
+        transition: .2s cubic-bezier(.25, .46, .45, .94);
+    }
+ 
+    /* font color */
+    .DarkMode #page,
+    .DarkMode #colophon,
+    .DarkMode #vcomments .vbtn,
+    .DarkMode .art-content #archives .al_mon_list .al_mon,
+    .DarkMode .art-content #archives .al_mon_list span,
+    .DarkMode body,
+    .DarkMode .art-content #archives .al_mon_list .al_mon,
+    .DarkMode .art-content #archives .al_mon_list span,
+    .DarkMode button,
+    .DarkMode .art .art-content #archives a,
+    .DarkMode textarea,
+    .DarkMode strong,
+    .DarkMode a,
+    .DarkMode p,
+	.DarkMode li,
+    .DarkMode .label {
+        color: rgba(255, 255, 255, .6);
+    }
+ 
+	
+    .DarkMode #page,
+    .DarkMode body,
+    .DarkMode #colophon,
+    .DarkMode #main-container,
+    .DarkMode #page .yya,
+    .DarkMode #content,
+    .DarkMode #contentss,
+    .DarkMode #footer {
+        background-color: #292a2d;
+    }
+    .DarkMode strong,
+    .DarkMode img {
+        filter: brightness(.7);
+    }
+ 
+    /* sun and noon */
+    .Cuteen_DarkSky,
+    .Cuteen_DarkSky:before {
+        content: "";
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 88888888
+    }
+ 
+    .Cuteen_DarkSky {
+        background: linear-gradient(#feb8b0, #fef9db)
+    }
+ 
+    .Cuteen_DarkSky:before {
+        transition: 2s ease all;
+        opacity: 0;
+        background: linear-gradient(#4c3f6d, #6c62bb, #93b1ed)
+    }
+ 
+    .DarkMode .Cuteen_DarkSky:before {
+        opacity: 1
+    }
+ 
+    .Cuteen_DarkPlanet {
+        z-index: 99999999;
+        position: fixed;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 200%;
+        -webkit-animation: CuteenPlanetMove 2s cubic-bezier(.7, 0, 0, 1);
+        animation: CuteenPlanetMove 2s cubic-bezier(.7, 0, 0, 1);
+        transform-origin: center bottom
+    }
+ 
+    @-webkit-keyframes CuteenPlanetMove {
+        0% {
+            transform: rotate(0)
+        }
+ 
+        to {
+            transform: rotate(360deg)
+        }
+    }
+ 
+    @keyframes CuteenPlanetMove {
+        0% {
+            transform: rotate(0)
+        }
+ 
+        to {
+            transform: rotate(360deg)
+        }
+    }
+ 
+    .Cuteen_DarkPlanet:after {
+        position: absolute;
+        left: 35%;
+        top: 40%;
+        width: 9.375rem;
+        height: 9.375rem;
+        border-radius: 50%;
+        content: "";
+        background: linear-gradient(#fefefe, #fffbe8)
+    }
+</style>
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <!-- import body_begin begin-->
+        <script></script>
+    <!-- import body_begin end-->
+    <!-- Custom Files bodyBegin begin-->
+    
+    <!-- 浏览器搞笑标题-->
+    <script type="text/javascript" src="/js/FunnyTitle.js"></script>
+    <!-- Custom Files bodyBegin end-->
+    <!--樱花特效-->
+    <script src="https://gcore.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/sakura.js"></script>
+    <!--鼠标滑动特效-->
+    <script src="https://gcore.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/mouse_slide.js"></script>
+    <!--鼠标点击特效-->
+    <script src="https://gcore.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/mouse_click.js"></script>
+    <!--动态线条背景-->
+    <!--<script type="text/javascript" color="220, 220, 220" opacity="0.6" zIndex="-2" count="100" src="/cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script> -->
+    <script src="https://unpkg.com/hls.js@latest"></script>
+<header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow show" style="opacity: 0">
+  <div class="container">
+  <div id="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self" href="/" onclick="return false;" title="comment"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self" href="/" onclick="return false;" title="toc"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/Logo-NavBar@3x.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" title="博客" active-action="action-home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" title="分类" active-action="action-categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" title="归档" active-action="action-archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" title="友链" active-action="action-friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" title="留言箱" active-action="action-tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>留言箱
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" title="关于" active-action="action-about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" onclick="return false;" title="更多">
+                  <i class="fa-solid fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" title="主题源码" active-action="action-https:githubcomvolantis-xhexo-theme-volantis">
+                  主题源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" title="更新日志" active-action="action-https:githubcomvolantis-xhexo-theme-volantisreleases">
+                  更新日志
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" onclick="return false;" title="有疑问？">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" title="看 FAQ" active-action="action-faqs">
+                  看 FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/volantis-docs/" title="看 本站源码" active-action="action-https:githubcomvolantis-xvolantis-docs">
+                  看 本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/issues/" title="提 Issue" active-action="action-https:githubcomvolantis-xhexo-theme-volantisissues">
+                  提 Issue
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" onclick="return false;" title="文学黑洞">
+                  文学黑洞
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://meiriyiwen.com/random" title="每日一文" active-action="action-https:meiriyiwencomrandom">
+                  每日一文
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.marxists.org/chinese/index.html" title="马克思主义文库" active-action="action-https:wwwmarxistsorgchineseindexhtml">
+                  马克思主义文库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.yikm.net/" title="游戏厅" active-action="action-https:wwwyikmnet">
+                  游戏厅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.xiaozhongjishu.com/" title="小众技术工具库" active-action="action-https:wwwxiaozhongjishucom">
+                  小众技术工具库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+      
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fa-solid fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search...">
+        </form>
+      </div>
+      
+
+			<ul class="switcher nav-list-h m-phone">
+				
+					<li><a class="s-search fa-solid fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
+				
+				<li>
+          <a class="s-menu fa-solid fa-bars fa-fw" target="_self" href="/" onclick="return false;" title="menu"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" title="博客" active-action="action-home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" title="分类" active-action="action-categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" title="归档" active-action="action-archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" title="友链" active-action="action-friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" title="留言箱" active-action="action-tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>留言箱
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" title="关于" active-action="action-about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" onclick="return false;" title="更多">
+                  <i class="fa-solid fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" title="主题源码" active-action="action-https:githubcomvolantis-xhexo-theme-volantis">
+                  主题源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" title="更新日志" active-action="action-https:githubcomvolantis-xhexo-theme-volantisreleases">
+                  更新日志
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" onclick="return false;" title="有疑问？">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" title="看 FAQ" active-action="action-faqs">
+                  看 FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/volantis-docs/" title="看 本站源码" active-action="action-https:githubcomvolantis-xvolantis-docs">
+                  看 本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/issues/" title="提 Issue" active-action="action-https:githubcomvolantis-xhexo-theme-volantisissues">
+                  提 Issue
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" onclick="return false;" title="文学黑洞">
+                  文学黑洞
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://meiriyiwen.com/random" title="每日一文" active-action="action-https:meiriyiwencomrandom">
+                  每日一文
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.marxists.org/chinese/index.html" title="马克思主义文库" active-action="action-https:wwwmarxistsorgchineseindexhtml">
+                  马克思主义文库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.yikm.net/" title="游戏厅" active-action="action-https:wwwyikmnet">
+                  游戏厅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.xiaozhongjishu.com/" title="小众技术工具库" active-action="action-https:wwwxiaozhongjishucom">
+                  小众技术工具库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+
+      <!-- Custom Files header begin -->
+      
+      <!-- Custom Files header end -->
+		</div>
+	</div>
+  </div>
+</header>
+
+     <!-- 春节灯笼 -->
+        <div class="deng-box2">
+          <div class="deng">
+            <div class="xian">
+
+            </div>
+            <div class="deng-a">
+              <div class="deng-b">
+                <div class="deng-t">年</div>
+              </div>
+            </div>
+            <div class="shui shui-a">
+              <div class="shui-c">
+
+              </div>
+              <div class="shui-b"></div>
+            </div>
+          </div>
+        </div>
+        <div class="deng-box3">
+          <div class="deng">
+            <div class="xian">
+
+            </div>
+            <div class="deng-a">
+              <div class="deng-b">
+                <div class="deng-t">新</div>
+              </div>
+            </div>
+            <div class="shui shui-a">
+              <div class="shui-c"></div>
+              <div class="shui-b">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="deng-box1">
+          <div class="deng">
+            <div class="xian">
+
+            </div>
+            <div class="deng-a">
+              <div class="deng-b">
+                <div class="deng-t">乐</div>
+              </div>
+            </div>
+            <div class="shui shui-a">
+              <div class="shui-c"></div>
+              <div class="shui-b"></div>
+            </div>
+          </div>
+        </div>
+        <div class="deng-box">
+          <div class="deng">
+            <div class="xian">
+
+            </div>
+            <div class="deng-a">
+              <div class="deng-b">
+                <div class="deng-t">快</div>
+              </div>
+            </div>
+            <div class="shui shui-a">
+              <div class="shui-c">
+
+              </div>
+              <div class="shui-b"></div>
+            </div>
+          </div>
+        </div>
+        <!-- 春节灯笼 -->
+    <div id="l_body">
+    <canvas id="fireworks" style="position:fixed; height: 100%; width: 100%;"></canvas>
+      <div id="l_cover">
+  
+    
+      <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
+      <div id="none" class="cover-wrapper post dock" style="display: none;">
+        
+  <div id="parallax-window"></div>
+
+<div class="cover-body">
+  <div class="top">
+    
+    
+      <p class="title">相思似海深旧事如天远</p>
+    
+    
+      <p class="subtitle">where there is a will there is a way</p>
+    
+  </div>
+  <div class="bottom">
+    <div class="menu navigation">
+      <div class="list-h">
+        
+          
+            <a href="/v5/getting-started/" active-action="action-v5getting-started">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f5c3.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f5c3.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>文档</p>
+            </a>
+          
+            <a href="/faqs/" active-action="action-faqs">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f516.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f516.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>帮助</p>
+            </a>
+          
+            <a href="/examples/" active-action="action-examples">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f396.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f396.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>示例</p>
+            </a>
+          
+            <a href="/contributors/" active-action="action-contributors">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f389.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f389.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>社区</p>
+            </a>
+          
+            <a href="/archives/" active-action="action-archives">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f4f0.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f4f0.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" active-action="action-https:githubcomvolantis-xhexo-theme-volantis">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f9ec.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f9ec.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+      </div>
+    
+  
+</div>
+
+    <!--Follow me on CSDN-->
+    <a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/qq_38452951"> <img loading="lazy" width="149" height="149" style="position: absolute; top: 0; right: 0; border: 0;" src="https://img-blog.csdnimg.cn/1f8e1ef9be9f4f7db01fe3a2d57829de.png" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/1f8e1ef9be9f4f7db01fe3a2d57829de.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="attachment-full size-full lazyload" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+      <div id="safearea">
+        <div class="body-wrapper">
+          
+<div id="l_main" class>
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow article-type-post" id="post" itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://pistachio0812.github.io/zh-TW/ch04_经典网络/经典网络/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="阿月浑子-Hexo博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="阿月浑子-Hexo博客">
+    <meta itemprop="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测">
+  </span>
+  
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title" itemprop="name headline">
+        经典网络
+      </h1>
+      <div class="new-meta-box">
+        
+          
+            
+<div class="new-meta-item author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class="author" target="_blank" href="https://www.cnblogs.com/pistachio0812" rel="external nofollow noopener noreferrer">
+    <img itemprop="image" src="https://img1.baidu.com/it/u=583582599,306470958&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" class="lazyload" data-srcset="https://img1.baidu.com/it/u=583582599,306470958&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">追风赶月的少年</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item category">
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url"><span itemprop="name">深度学习</span></a>
+      </span>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2024-01-24T09:24:16+08:00">
+  <a class="notlink">
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2024年1月24日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字數：6.4k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>時長：26分鐘</p>
+    </a>
+  </div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <h1 id="经典网络解读"><a href="#经典网络解读" class="headerlink" title="经典网络解读"></a>经典网络解读</h1><h2 id="4-1-LeNet-5"><a href="#4-1-LeNet-5" class="headerlink" title="4.1 LeNet-5"></a>4.1 LeNet-5</h2><h3 id="4-1-1-模型介绍"><a href="#4-1-1-模型介绍" class="headerlink" title="4.1.1 模型介绍"></a>4.1.1 模型介绍</h3><p>​    LeNet-5是由$LeCun$ 提出的一种用于识别手写数字和机器印刷字符的卷积神经网络（Convolutional Neural Network，CNN）$^{[1]}$，其命名来源于作者$LeCun$的名字，5则是其研究成果的代号，在LeNet-5之前还有LeNet-4和LeNet-1鲜为人知。LeNet-5阐述了图像中像素特征之间的相关性能够由参数共享的卷积操作所提取，同时使用卷积、下采样（池化）和非线性映射这样的组合结构，是当前流行的大多数深度图像识别网络的基础。</p>
+<h3 id="4-1-2-模型结构"><a href="#4-1-2-模型结构" class="headerlink" title="4.1.2 模型结构"></a>4.1.2 模型结构</h3><p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image1.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image1.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>​                                                                 图4.1 LeNet-5网络结构图</p>
+<p>​    如图4.1所示，LeNet-5一共包含7层（输入层不作为网络结构），分别由2个卷积层、2个下采样层和3个连接层组成，网络的参数配置如表4.1所示，其中下采样层和全连接层的核尺寸分别代表采样范围和连接矩阵的尺寸（如卷积核尺寸中的$“5\times5\times1/1,6”$表示核大小为$5\times5\times1$、步长为$1$且核个数为6的卷积核）。</p>
+<p>​                                                                 表4.1 LeNet-5网络参数配置</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">网络层</th>
+<th style="text-align:center">输入尺寸</th>
+<th style="text-align:center">核尺寸</th>
+<th style="text-align:center">输出尺寸</th>
+<th style="text-align:center">可训练参数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">卷积层$C_1$</td>
+<td style="text-align:center">$32\times32\times1$</td>
+<td style="text-align:center">$5\times5\times1/1,6$</td>
+<td style="text-align:center">$28\times28\times6$</td>
+<td style="text-align:center">$(5\times5\times1+1)\times6$</td>
+</tr>
+<tr>
+<td style="text-align:center">下采样层$S_2$</td>
+<td style="text-align:center">$28\times28\times6$</td>
+<td style="text-align:center">$2\times2/2$</td>
+<td style="text-align:center">$14\times14\times6$</td>
+<td style="text-align:center">$(1+1)\times6$ $^*$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_3$</td>
+<td style="text-align:center">$14\times14\times6$</td>
+<td style="text-align:center">$5\times5\times6/1,16$</td>
+<td style="text-align:center">$10\times10\times16$</td>
+<td style="text-align:center">$1516^*$</td>
+</tr>
+<tr>
+<td style="text-align:center">下采样层$S_4$</td>
+<td style="text-align:center">$10\times10\times16$</td>
+<td style="text-align:center">$2\times2/2$</td>
+<td style="text-align:center">$5\times5\times16$</td>
+<td style="text-align:center">$(1+1)\times16$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_5$$^*$</td>
+<td style="text-align:center">$5\times5\times16$</td>
+<td style="text-align:center">$5\times5\times16/1,120$</td>
+<td style="text-align:center">$1\times1\times120$</td>
+<td style="text-align:center">$(5\times5\times16+1)\times120$</td>
+</tr>
+<tr>
+<td style="text-align:center">全连接层$F_6$</td>
+<td style="text-align:center">$1\times1\times120$</td>
+<td style="text-align:center">$120\times84$</td>
+<td style="text-align:center">$1\times1\times84$</td>
+<td style="text-align:center">$(120+1)\times84$</td>
+</tr>
+<tr>
+<td style="text-align:center">输出层</td>
+<td style="text-align:center">$1\times1\times84$</td>
+<td style="text-align:center">$84\times10$</td>
+<td style="text-align:center">$1\times1\times10$</td>
+<td style="text-align:center">$(84+1)\times10$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>​    $^*$ 在LeNet中，下采样操作和池化操作类似，但是在得到采样结果后会乘以一个系数和加上一个偏置项，所以下采样的参数个数是$(1+1)\times6$而不是零。</p>
+<p>​    $^*$ $C_3$卷积层可训练参数并未直接连接$S_2$中所有的特征图（Feature Map），而是采用如图4.2所示的采样特征方式进行连接（稀疏连接），生成的16个通道特征图中分别按照相邻3个特征图、相邻4个特征图、非相邻4个特征图和全部6个特征图进行映射，得到的参数个数计算公式为$6\times(25\times3+1)+6\times(25\times4+1)+3\times(25\times4+1)+1\times(25\times6+1)=1516$，在原论文中解释了使用这种采样方式原因包含两点：限制了连接数不至于过大（当年的计算能力比较弱）;强制限定不同特征图的组合可以使映射得到的特征图学习到不同的特征模式。</p>
+</blockquote>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/featureMap.jpg" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/featureMap.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="FeatureMap"></p>
+<p>​                                                                图4.2 $S_2$与$C_3$之间的特征图稀疏连接</p>
+<blockquote>
+<p>​    $^*$ $C_5$卷积层在图4.1中显示为全连接层，原论文中解释这里实际采用的是卷积操作，只是刚好在$5\times5$卷积后尺寸被压缩为$1\times1$，输出结果看起来和全连接很相似。</p>
+</blockquote>
+<h3 id="4-1-3-模型特性"><a href="#4-1-3-模型特性" class="headerlink" title="4.1.3 模型特性"></a>4.1.3 模型特性</h3><ul>
+<li>卷积网络使用一个3层的序列组合：卷积、下采样（池化）、非线性映射（LeNet-5最重要的特性，奠定了目前深层卷积网络的基础）</li>
+<li>使用卷积提取空间特征</li>
+<li>使用映射的空间均值进行下采样</li>
+<li>使用$tanh$或$sigmoid$进行非线性映射</li>
+<li>多层神经网络（MLP）作为最终的分类器</li>
+<li>层间的稀疏连接矩阵以避免巨大的计算开销</li>
+</ul>
+<h2 id="4-2-AlexNet"><a href="#4-2-AlexNet" class="headerlink" title="4.2 AlexNet"></a>4.2 AlexNet</h2><h3 id="4-2-1-模型介绍"><a href="#4-2-1-模型介绍" class="headerlink" title="4.2.1 模型介绍"></a>4.2.1 模型介绍</h3><p>​    AlexNet是由$Alex$ $Krizhevsky $提出的首个应用于图像分类的深层卷积神经网络，该网络在2012年ILSVRC（ImageNet Large Scale Visual Recognition Competition）图像分类竞赛中以15.3%的top-5测试错误率赢得第一名$^{[2]}$。AlexNet使用GPU代替CPU进行运算，使得在可接受的时间范围内模型结构能够更加复杂，它的出现证明了深层卷积神经网络在复杂模型下的有效性，使CNN在计算机视觉中流行开来，直接或间接地引发了深度学习的热潮。</p>
+<h3 id="4-2-2-模型结构"><a href="#4-2-2-模型结构" class="headerlink" title="4.2.2 模型结构"></a>4.2.2 模型结构</h3><p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/alexnet.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/alexnet.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>​                                                                         图4.3 AlexNet网络结构图</p>
+<p>​    如图4.3所示，除去下采样（池化层）和局部响应规范化操作（Local Responsible Normalization, LRN），AlexNet一共包含8层，前5层由卷积层组成，而剩下的3层为全连接层。网络结构分为上下两层，分别对应两个GPU的操作过程，除了中间某些层（$C<em>3$卷积层和$F</em>{6-8}$全连接层会有GPU间的交互），其他层两个GPU分别计算结 果。最后一层全连接层的输出作为$softmax$的输入，得到1000个图像分类标签对应的概率值。除去GPU并行结构的设计，AlexNet网络结构与LeNet十分相似，其网络的参数配置如表4.2所示。</p>
+<p>​                                    表4.2 AlexNet网络参数配置</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">网络层</th>
+<th style="text-align:center">输入尺寸</th>
+<th style="text-align:center">核尺寸</th>
+<th style="text-align:center">输出尺寸</th>
+<th style="text-align:center">可训练参数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">卷积层$C_1$ $^*$</td>
+<td style="text-align:center">$224\times224\times3$</td>
+<td style="text-align:center">$11\times11\times3/4,48(\times2_{GPU})$</td>
+<td style="text-align:center">$55\times55\times48(\times2_{GPU})$</td>
+<td style="text-align:center">$(11\times11\times3+1)\times48\times2$</td>
+</tr>
+<tr>
+<td style="text-align:center">下采样层$S_{max}$$^*$</td>
+<td style="text-align:center">$55\times55\times48(\times2_{GPU})$</td>
+<td style="text-align:center">$3\times3/2(\times2_{GPU})$</td>
+<td style="text-align:center">$27\times27\times48(\times2_{GPU})$</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_2$</td>
+<td style="text-align:center">$27\times27\times48(\times2_{GPU})$</td>
+<td style="text-align:center">$5\times5\times48/1,128(\times2_{GPU})$</td>
+<td style="text-align:center">$27\times27\times128(\times2_{GPU})$</td>
+<td style="text-align:center">$(5\times5\times48+1)\times128\times2$</td>
+</tr>
+<tr>
+<td style="text-align:center">下采样层$S_{max}$</td>
+<td style="text-align:center">$27\times27\times128(\times2_{GPU})$</td>
+<td style="text-align:center">$3\times3/2(\times2_{GPU})$</td>
+<td style="text-align:center">$13\times13\times128(\times2_{GPU})$</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_3$ $^*$</td>
+<td style="text-align:center">$13\times13\times128\times2_{GPU}$</td>
+<td style="text-align:center">$3\times3\times256/1,192(\times2_{GPU})$</td>
+<td style="text-align:center">$13\times13\times192(\times2_{GPU})$</td>
+<td style="text-align:center">$(3\times3\times256+1)\times192\times2$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_4$</td>
+<td style="text-align:center">$13\times13\times192(\times2_{GPU})$</td>
+<td style="text-align:center">$3\times3\times192/1,192(\times2_{GPU})$</td>
+<td style="text-align:center">$13\times13\times192(\times2_{GPU})$</td>
+<td style="text-align:center">$(3\times3\times192+1)\times192\times2$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_5$</td>
+<td style="text-align:center">$13\times13\times192(\times2_{GPU})$</td>
+<td style="text-align:center">$3\times3\times192/1,128(\times2_{GPU})$</td>
+<td style="text-align:center">$13\times13\times128(\times2_{GPU})$</td>
+<td style="text-align:center">$(3\times3\times192+1)\times128\times2$</td>
+</tr>
+<tr>
+<td style="text-align:center">下采样层$S_{max}$</td>
+<td style="text-align:center">$13\times13\times128(\times2_{GPU})$</td>
+<td style="text-align:center">$3\times3/2(\times2_{GPU})$</td>
+<td style="text-align:center">$6\times6\times128(\times2_{GPU})$</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">全连接层$F_6$  $^*$</td>
+<td style="text-align:center">$6\times6\times128\times2_{GPU}$</td>
+<td style="text-align:center">$9216\times2048(\times2_{GPU})$</td>
+<td style="text-align:center">$1\times1\times2048(\times2_{GPU})$</td>
+<td style="text-align:center">$(9216+1)\times2048\times2$</td>
+</tr>
+<tr>
+<td style="text-align:center">全连接层$F_7$</td>
+<td style="text-align:center">$1\times1\times2048\times2_{GPU}$</td>
+<td style="text-align:center">$4096\times2048(\times2_{GPU})$</td>
+<td style="text-align:center">$1\times1\times2048(\times2_{GPU})$</td>
+<td style="text-align:center">$(4096+1)\times2048\times2$</td>
+</tr>
+<tr>
+<td style="text-align:center">全连接层$F_8$</td>
+<td style="text-align:center">$1\times1\times2048\times2_{GPU}$</td>
+<td style="text-align:center">$4096\times1000$</td>
+<td style="text-align:center">$1\times1\times1000$</td>
+<td style="text-align:center">$(4096+1)\times1000\times2$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>卷积层$C_1$输入为$224\times224\times3$的图片数据，分别在两个GPU中经过核为$11\times11\times3$、步长（stride）为4的卷积卷积后，分别得到两条独立的$55\times55\times48$的输出数据。</p>
+<p>下采样层$S<em>{max}$实际上是嵌套在卷积中的最大池化操作，但是为了区分没有采用最大池化的卷积层单独列出来。在$C</em>{1-2}$卷积层中的池化操作之后（ReLU激活操作之前），还有一个LRN操作，用作对相邻特征点的归一化处理。</p>
+<p>卷积层$C<em>3$ 的输入与其他卷积层不同，$13\times13\times192\times2</em>{GPU}$表示汇聚了上一层网络在两个GPU上的输出结果作为输入，所以在进行卷积操作时通道上的卷积核维度为384。</p>
+<p>全连接层$F_{6-8}$中输入数据尺寸也和$C_3$类似，都是融合了两个GPU流向的输出结果作为输入。</p>
+</blockquote>
+<h3 id="4-2-3-模型特性"><a href="#4-2-3-模型特性" class="headerlink" title="4.2.3 模型特性"></a>4.2.3 模型特性</h3><ul>
+<li>所有卷积层都使用ReLU作为非线性映射函数，使模型收敛速度更快</li>
+<li>在多个GPU上进行模型的训练，不但可以提高模型的训练速度，还能提升数据的使用规模</li>
+<li>使用LRN对局部的特征进行归一化，结果作为ReLU激活函数的输入能有效降低错误率</li>
+<li>重叠最大池化（overlapping max pooling），即池化范围z与步长s存在关系$z&gt;s$（如$S_{max}$中核尺度为$3\times3/2$），避免平均池化（average pooling）的平均效应</li>
+<li>使用随机丢弃技术（dropout）选择性地忽略训练中的单个神经元，避免模型的过拟合</li>
+</ul>
+<h2 id="4-3-ZFNet"><a href="#4-3-ZFNet" class="headerlink" title="4.3 ZFNet"></a>4.3 ZFNet</h2><h3 id="4-3-1-模型介绍"><a href="#4-3-1-模型介绍" class="headerlink" title="4.3.1 模型介绍"></a>4.3.1 模型介绍</h3><p>​    ZFNet是由$Matthew$ $D. Zeiler$和$Rob$ $Fergus$在AlexNet基础上提出的大型卷积网络，在2013年ILSVRC图像分类竞赛中以11.19%的错误率获得冠军（实际上原ZFNet所在的队伍并不是真正的冠军，原ZFNet以13.51%错误率排在第8，真正的冠军是$Clarifai$这个队伍，而$Clarifai$这个队伍所对应的一家初创公司的CEO又是$Zeiler$，而且$Clarifai$对ZFNet的改动比较小，所以通常认为是ZFNet获得了冠军）$^{[3-4]}$。ZFNet实际上是微调（fine-tuning）了的AlexNet，并通过反卷积（Deconvolution）的方式可视化各层的输出特征图，进一步解释了卷积操作在大型网络中效果显著的原因。</p>
+<h3 id="4-3-2-模型结构"><a href="#4-3-2-模型结构" class="headerlink" title="4.3.2 模型结构"></a>4.3.2 模型结构</h3><p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image21.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image21.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image21.jpeg" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image21.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>​                        图4.4 ZFNet网络结构图（原始结构图与AlexNet风格结构图）</p>
+<p>​    如图4.4所示，ZFNet与AlexNet类似，都是由8层网络组成的卷积神经网络，其中包含5层卷积层和3层全连接层。两个网络结构最大的不同在于，ZFNet第一层卷积采用了$7\times7\times3/2$的卷积核替代了AlexNet中第一层卷积核$11\times11\times3/4$的卷积核。图4.5中ZFNet相比于AlexNet在第一层输出的特征图中包含更多中间频率的信息，而AlexNet第一层输出的特征图大多是低频或高频的信息，对中间频率特征的缺失导致后续网络层次如图4.5（c）能够学习到的特征不够细致，而导致这个问题的根本原因在于AlexNet在第一层中采用的卷积核和步长过大。</p>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/zfnet-layer1.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/zfnet-layer1.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/zfnet-layer2.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/zfnet-layer2.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>​    图4.5 （a）ZFNet第一层输出的特征图（b）AlexNet第一层输出的特征图（c）AlexNet第二层输出的特征图（d）ZFNet第二层输出的特征图</p>
+<p>​                                    表4.3 ZFNet网络参数配置<br>|        网络层         |               输入尺寸               |                  核尺寸                  |               输出尺寸               |              可训练参数量               |<br>| :—————————-: | :—————————————————: | :———————————————————: | :—————————————————: | :——————————————————-: |<br>|   卷积层$C<em>1$ $^*$  |        $224\times224\times3$         |          $7\times7\times3/2,96$          |        $110\times110\times96$        |      $(7\times7\times3+1)\times96$      |<br>| 下采样层$S</em>{max}$ |        $110\times110\times96$        |               $3\times3/2$               |         $55\times55\times96$         |                    0                    |<br>|      卷积层$C<em>2$ $^*$      |         $55\times55\times96$         |         $5\times5\times96/2,256$         |        $26\times26\times256$        | $(5\times5\times96+1)\times256$ |<br>|   下采样层$S</em>{max}$   | $26\times26\times256$ |       $3\times3/2$       | $13\times13\times256$ |                    0                    |<br>|   卷积层$C<em>3$  |  $13\times13\times256$  | $3\times3\times256/1,384$ | $13\times13\times384$ | $(3\times3\times256+1)\times384$ |<br>|      卷积层$C_4$      | $13\times13\times384$ | $3\times3\times384/1,384$ | $13\times13\times384$ | $(3\times3\times384+1)\times384$ |<br>|      卷积层$C_5$      | $13\times13\times384$ | $3\times3\times384/1,256$ | $13\times13\times256$ | $(3\times3\times384+1)\times256$ |<br>|   下采样层$S</em>{max}$   | $13\times13\times256$ |       $3\times3/2$       |  $6\times6\times256$  |                    0                    |<br>|  全连接层$F_6$  |   $6\times6\times256$   |     $9216\times4096$     | $1\times1\times4096$ |       $(9216+1)\times4096$       |<br>|     全连接层$F_7$     |  $1\times1\times4096$  |     $4096\times4096$     | $1\times1\times4096$ |       $(4096+1)\times4096$       |<br>|     全连接层$F_8$     | $1\times1\times4096$ |             $4096\times1000$             |         $1\times1\times1000$         |       $(4096+1)\times1000$       |</p>
+<blockquote>
+<p>卷积层$C_1$与AlexNet中的$C_1$有所不同，采用$7\times7\times3/2$的卷积核代替$11\times11\times3/4$，使第一层卷积输出的结果可以包含更多的中频率特征，对后续网络层中多样化的特征组合提供更多选择，有利于捕捉更细致的特征。</p>
+<p>卷积层$C_2$采用了步长2的卷积核，区别于AlexNet中$C_2$的卷积核步长，所以输出的维度有所差异。</p>
+</blockquote>
+<h3 id="4-3-3-模型特性"><a href="#4-3-3-模型特性" class="headerlink" title="4.3.3 模型特性"></a>4.3.3 模型特性</h3><p>​    ZFNet与AlexNet在结构上几乎相同，此部分虽属于模型特性，但准确地说应该是ZFNet原论文中可视化技术的贡献。</p>
+<ul>
+<li>可视化技术揭露了激发模型中每层单独的特征图。</li>
+<li>可视化技术允许观察在训练阶段特征的演变过程且诊断出模型的潜在问题。</li>
+<li>可视化技术用到了多层解卷积网络，即由特征激活返回到输入像素空间。</li>
+<li>可视化技术进行了分类器输出的敏感性分析，即通过阻止部分输入图像来揭示那部分对于分类是重要的。</li>
+<li>可视化技术提供了一个非参数的不变性来展示来自训练集的哪一块激活哪个特征图，不仅需要裁剪输入图片，而且自上而下的投影来揭露来自每块的结构激活一个特征图。</li>
+<li>可视化技术依赖于解卷积操作，即卷积操作的逆过程，将特征映射到像素上。</li>
+</ul>
+<h2 id="4-4-Network-in-Network"><a href="#4-4-Network-in-Network" class="headerlink" title="4.4 Network in Network"></a>4.4 Network in Network</h2><h3 id="4-4-1-模型介绍"><a href="#4-4-1-模型介绍" class="headerlink" title="4.4.1 模型介绍"></a>4.4.1 模型介绍</h3><p>​    Network In Network (NIN)是由$Min Lin$等人提出，在CIFAR-10和CIFAR-100分类任务中达到当时的最好水平，因其网络结构是由三个多层感知机堆叠而被成为NIN$^{[5]}$。NIN以一种全新的角度审视了卷积神经网络中的卷积核设计，通过引入子网络结构代替纯卷积中的线性映射部分，这种形式的网络结构激发了更复杂的卷积神经网络的结构设计，其中下一节中介绍的GoogLeNet的Inception结构就是来源于这个思想。</p>
+<h3 id="4-4-2-模型结构"><a href="#4-4-2-模型结构" class="headerlink" title="4.4.2 模型结构"></a>4.4.2 模型结构</h3><p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image23.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image23.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt><br>​                                    图 4.6 NIN网络结构图</p>
+<p>​    NIN由三层的多层感知卷积层（MLPConv Layer）构成，每一层多层感知卷积层内部由若干层的局部全连接层和非线性激活函数组成，代替了传统卷积层中采用的线性卷积核。在网络推理（inference）时，这个多层感知器会对输入特征图的局部特征进行划窗计算，并且每个划窗的局部特征图对应的乘积的权重是共享的，这两点是和传统卷积操作完全一致的，最大的不同在于多层感知器对局部特征进行了非线性的映射，而传统卷积的方式是线性的。NIN的网络参数配置表4.4所示（原论文并未给出网络参数，表中参数为编者结合网络结构图和CIFAR-100数据集以$3\times3$卷积为例给出）。</p>
+<p>​                    表4.4 NIN网络参数配置（结合原论文NIN结构和CIFAR-100数据给出）</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">网络层</th>
+<th style="text-align:center">输入尺寸</th>
+<th style="text-align:center">核尺寸</th>
+<th style="text-align:center">输出尺寸</th>
+<th style="text-align:center">参数个数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">局部全连接层$L_{11}$ $^*$</td>
+<td style="text-align:center">$32\times32\times3$</td>
+<td style="text-align:center">$(3\times3)\times16/1$</td>
+<td style="text-align:center">$30\times30\times16$</td>
+<td style="text-align:center">$(3\times3\times3+1)\times16$</td>
+</tr>
+<tr>
+<td style="text-align:center">全连接层$L_{12}$ $^*$</td>
+<td style="text-align:center">$30\times30\times16$</td>
+<td style="text-align:center">$16\times16$</td>
+<td style="text-align:center">$30\times30\times16$</td>
+<td style="text-align:center">$((16+1)\times16)$</td>
+</tr>
+<tr>
+<td style="text-align:center">局部全连接层$L_{21}$</td>
+<td style="text-align:center">$30\times30\times16$</td>
+<td style="text-align:center">$(3\times3)\times64/1$</td>
+<td style="text-align:center">$28\times28\times64$</td>
+<td style="text-align:center">$(3\times3\times16+1)\times64$</td>
+</tr>
+<tr>
+<td style="text-align:center">全连接层$L_{22}$</td>
+<td style="text-align:center">$28\times28\times64$</td>
+<td style="text-align:center">$64\times64$</td>
+<td style="text-align:center">$28\times28\times64$</td>
+<td style="text-align:center">$((64+1)\times64)$</td>
+</tr>
+<tr>
+<td style="text-align:center">局部全连接层$L_{31}$</td>
+<td style="text-align:center">$28\times28\times64$</td>
+<td style="text-align:center">$(3\times3)\times100/1$</td>
+<td style="text-align:center">$26\times26\times100$</td>
+<td style="text-align:center">$(3\times3\times64+1)\times100$</td>
+</tr>
+<tr>
+<td style="text-align:center">全连接层$L_{32}$</td>
+<td style="text-align:center">$26\times26\times100$</td>
+<td style="text-align:center">$100\times100$</td>
+<td style="text-align:center">$26\times26\times100$</td>
+<td style="text-align:center">$((100+1)\times100)$</td>
+</tr>
+<tr>
+<td style="text-align:center">全局平均采样$GAP$ $^*$</td>
+<td style="text-align:center">$26\times26\times100$</td>
+<td style="text-align:center">$26\times26\times100/1$</td>
+<td style="text-align:center">$1\times1\times100$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>局部全连接层$L<em>{11}$实际上是对原始输入图像进行划窗式的全连接操作，因此划窗得到的输出特征尺寸为$30\times30$（$\frac{32-3_k+1}{1</em>{stride}}=30$）<br>全连接层$L<em>{12}$是紧跟$L</em>{11}$后的全连接操作，输入的特征是划窗后经过激活的局部响应特征，因此仅需连接$L<em>{11}$和$L</em>{12}$的节点即可，而每个局部全连接层和紧接的全连接层构成代替卷积操作的多层感知卷积层（MLPConv）。<br>全局平均采样层或全局平均池化层$GAP$（Global Average Pooling）将$L_{32}$输出的每一个特征图进行全局的平均池化操作，直接得到最后的类别数，可以有效地减少参数量。</p>
+</blockquote>
+<h3 id="4-4-3-模型特点"><a href="#4-4-3-模型特点" class="headerlink" title="4.4.3 模型特点"></a>4.4.3 模型特点</h3><ul>
+<li>使用多层感知机结构来代替卷积的滤波操作，不但有效减少卷积核数过多而导致的参数量暴涨问题，还能通过引入非线性的映射来提高模型对特征的抽象能力。</li>
+<li>使用全局平均池化来代替最后一个全连接层，能够有效地减少参数量（没有可训练参数），同时池化用到了整个特征图的信息，对空间信息的转换更加鲁棒，最后得到的输出结果可直接作为对应类别的置信度。</li>
+</ul>
+<h2 id="4-5-VGGNet"><a href="#4-5-VGGNet" class="headerlink" title="4.5 VGGNet"></a>4.5 VGGNet</h2><h3 id="4-5-1-模型介绍"><a href="#4-5-1-模型介绍" class="headerlink" title="4.5.1 模型介绍"></a>4.5.1 模型介绍</h3><p>​    VGGNet是由牛津大学视觉几何小组（Visual Geometry Group, VGG）提出的一种深层卷积网络结构，他们以7.32%的错误率赢得了2014年ILSVRC分类任务的亚军（冠军由GoogLeNet以6.65%的错误率夺得）和25.32%的错误率夺得定位任务（Localization）的第一名（GoogLeNet错误率为26.44%）$^{[5]}$，网络名称VGGNet取自该小组名缩写。VGGNet是首批把图像分类的错误率降低到10%以内模型，同时该网络所采用的$3\times3$卷积核的思想是后来许多模型的基础，该模型发表在2015年国际学习表征会议（International Conference On Learning Representations, ICLR）后至今被引用的次数已经超过1万4千余次。</p>
+<h3 id="4-5-2-模型结构"><a href="#4-5-2-模型结构" class="headerlink" title="4.5.2 模型结构"></a>4.5.2 模型结构</h3><p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/vgg16.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/vgg16.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>​                                图 4.7 VGG16网络结构图</p>
+<p>​    在原论文中的VGGNet包含了6个版本的演进，分别对应VGG11、VGG11-LRN、VGG13、VGG16-1、VGG16-3和VGG19，不同的后缀数值表示不同的网络层数（VGG11-LRN表示在第一层中采用了LRN的VGG11，VGG16-1表示后三组卷积块中最后一层卷积采用卷积核尺寸为$1\times1$，相应的VGG16-3表示卷积核尺寸为$3\times3$），本节介绍的VGG16为VGG16-3。图4.7中的VGG16体现了VGGNet的核心思路，使用$3\times3$的卷积组合代替大尺寸的卷积（2个$3\times3卷积即可与$$5\times5$卷积拥有相同的感受视野），网络参数设置如表4.5所示。</p>
+<p>​                                表4.5 VGG16网络参数配置</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">网络层</th>
+<th style="text-align:center">输入尺寸</th>
+<th style="text-align:center">核尺寸</th>
+<th style="text-align:center">输出尺寸</th>
+<th style="text-align:center">参数个数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">卷积层$C_{11}$</td>
+<td style="text-align:center">$224\times224\times3$</td>
+<td style="text-align:center">$3\times3\times64/1$</td>
+<td style="text-align:center">$224\times224\times64$</td>
+<td style="text-align:center">$(3\times3\times3+1)\times64$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{12}$</td>
+<td style="text-align:center">$224\times224\times64$</td>
+<td style="text-align:center">$3\times3\times64/1$</td>
+<td style="text-align:center">$224\times224\times64$</td>
+<td style="text-align:center">$(3\times3\times64+1)\times64$</td>
+</tr>
+<tr>
+<td style="text-align:center">下采样层$S_{max1}$</td>
+<td style="text-align:center">$224\times224\times64$</td>
+<td style="text-align:center">$2\times2/2$</td>
+<td style="text-align:center">$112\times112\times64$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{21}$</td>
+<td style="text-align:center">$112\times112\times64$</td>
+<td style="text-align:center">$3\times3\times128/1$</td>
+<td style="text-align:center">$112\times112\times128$</td>
+<td style="text-align:center">$(3\times3\times64+1)\times128$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{22}$</td>
+<td style="text-align:center">$112\times112\times128$</td>
+<td style="text-align:center">$3\times3\times128/1$</td>
+<td style="text-align:center">$112\times112\times128$</td>
+<td style="text-align:center">$(3\times3\times128+1)\times128$</td>
+</tr>
+<tr>
+<td style="text-align:center">下采样层$S_{max2}$</td>
+<td style="text-align:center">$112\times112\times128$</td>
+<td style="text-align:center">$2\times2/2$</td>
+<td style="text-align:center">$56\times56\times128$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{31}$</td>
+<td style="text-align:center">$56\times56\times128$</td>
+<td style="text-align:center">$3\times3\times256/1$</td>
+<td style="text-align:center">$56\times56\times256$</td>
+<td style="text-align:center">$(3\times3\times128+1)\times256$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{32}$</td>
+<td style="text-align:center">$56\times56\times256$</td>
+<td style="text-align:center">$3\times3\times256/1$</td>
+<td style="text-align:center">$56\times56\times256$</td>
+<td style="text-align:center">$(3\times3\times256+1)\times256$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{33}$</td>
+<td style="text-align:center">$56\times56\times256$</td>
+<td style="text-align:center">$3\times3\times256/1$</td>
+<td style="text-align:center">$56\times56\times256$</td>
+<td style="text-align:center">$(3\times3\times256+1)\times256$</td>
+</tr>
+<tr>
+<td style="text-align:center">下采样层$S_{max3}$</td>
+<td style="text-align:center">$56\times56\times256$</td>
+<td style="text-align:center">$2\times2/2$</td>
+<td style="text-align:center">$28\times28\times256$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{41}$</td>
+<td style="text-align:center">$28\times28\times256$</td>
+<td style="text-align:center">$3\times3\times512/1$</td>
+<td style="text-align:center">$28\times28\times512$</td>
+<td style="text-align:center">$(3\times3\times256+1)\times512$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{42}$</td>
+<td style="text-align:center">$28\times28\times512$</td>
+<td style="text-align:center">$3\times3\times512/1$</td>
+<td style="text-align:center">$28\times28\times512$</td>
+<td style="text-align:center">$(3\times3\times512+1)\times512$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{43}$</td>
+<td style="text-align:center">$28\times28\times512$</td>
+<td style="text-align:center">$3\times3\times512/1$</td>
+<td style="text-align:center">$28\times28\times512$</td>
+<td style="text-align:center">$(3\times3\times512+1)\times512$</td>
+</tr>
+<tr>
+<td style="text-align:center">下采样层$S_{max4}$</td>
+<td style="text-align:center">$28\times28\times512$</td>
+<td style="text-align:center">$2\times2/2$</td>
+<td style="text-align:center">$14\times14\times512$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{51}$</td>
+<td style="text-align:center">$14\times14\times512$</td>
+<td style="text-align:center">$3\times3\times512/1$</td>
+<td style="text-align:center">$14\times14\times512$</td>
+<td style="text-align:center">$(3\times3\times512+1)\times512$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{52}$</td>
+<td style="text-align:center">$14\times14\times512$</td>
+<td style="text-align:center">$3\times3\times512/1$</td>
+<td style="text-align:center">$14\times14\times512$</td>
+<td style="text-align:center">$(3\times3\times512+1)\times512$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{53}$</td>
+<td style="text-align:center">$14\times14\times512$</td>
+<td style="text-align:center">$3\times3\times512/1$</td>
+<td style="text-align:center">$14\times14\times512$</td>
+<td style="text-align:center">$(3\times3\times512+1)\times512$</td>
+</tr>
+<tr>
+<td style="text-align:center">下采样层$S_{max5}$</td>
+<td style="text-align:center">$14\times14\times512$</td>
+<td style="text-align:center">$2\times2/2$</td>
+<td style="text-align:center">$7\times7\times512$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+<tr>
+<td style="text-align:center">全连接层$FC_{1}$</td>
+<td style="text-align:center">$7\times7\times512$</td>
+<td style="text-align:center">$(7\times7\times512)\times4096$</td>
+<td style="text-align:center">$1\times4096$</td>
+<td style="text-align:center">$(7\times7\times512+1)\times4096$</td>
+</tr>
+<tr>
+<td style="text-align:center">全连接层$FC_{2}$</td>
+<td style="text-align:center">$1\times4096$</td>
+<td style="text-align:center">$4096\times4096$</td>
+<td style="text-align:center">$1\times4096$</td>
+<td style="text-align:center">$(4096+1)\times4096$</td>
+</tr>
+<tr>
+<td style="text-align:center">全连接层$FC_{3}$</td>
+<td style="text-align:center">$1\times4096$</td>
+<td style="text-align:center">$4096\times1000$</td>
+<td style="text-align:center">$1\times1000$</td>
+<td style="text-align:center">$(4096+1)\times1000$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="4-5-3-模型特性"><a href="#4-5-3-模型特性" class="headerlink" title="4.5.3 模型特性"></a>4.5.3 模型特性</h3><ul>
+<li>整个网络都使用了同样大小的卷积核尺寸$3\times3$和最大池化尺寸$2\times2$。</li>
+<li>$1\times1$卷积的意义主要在于线性变换，而输入通道数和输出通道数不变，没有发生降维。</li>
+<li>两个$3\times3$的卷积层串联相当于1个$5\times5$的卷积层，感受野大小为$5\times5$。同样地，3个$3\times3$的卷积层串联的效果则相当于1个$7\times7$的卷积层。这样的连接方式使得网络参数量更小，而且多层的激活函数令网络对特征的学习能力更强。</li>
+<li>VGGNet在训练时有一个小技巧，先训练浅层的的简单网络VGG11，再复用VGG11的权重来初始化VGG13，如此反复训练并初始化VGG19，能够使训练时收敛的速度更快。</li>
+<li>在训练过程中使用多尺度的变换对原始数据做数据增强，使得模型不易过拟合。</li>
+</ul>
+<h2 id="4-6-GoogLeNet"><a href="#4-6-GoogLeNet" class="headerlink" title="4.6 GoogLeNet"></a>4.6 GoogLeNet</h2><h3 id="4-6-1-模型介绍"><a href="#4-6-1-模型介绍" class="headerlink" title="4.6.1 模型介绍"></a>4.6.1 模型介绍</h3><p>​    GoogLeNet作为2014年ILSVRC在分类任务上的冠军，以6.65%的错误率力压VGGNet等模型，在分类的准确率上面相比过去两届冠军ZFNet和AlexNet都有很大的提升。从名字<strong>GoogLe</strong>Net可以知道这是来自谷歌工程师所设计的网络结构，而名字中Goog<strong>LeNet</strong>更是致敬了LeNet$^{[0]}$。GoogLeNet中最核心的部分是其内部子网络结构Inception，该结构灵感来源于NIN，至今已经经历了四次版本迭代（Inception$_{v1-4}$）。</p>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/img_inception_01.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/img_inception_01.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt><br>​                    图 4.8 Inception性能比较图</p>
+<h3 id="4-6-2-模型结构"><a href="#4-6-2-模型结构" class="headerlink" title="4.6.2 模型结构"></a>4.6.2 模型结构</h3><p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image25.jpeg" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image25.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt><br>​                    图 4.9 GoogLeNet网络结构图<br>​    如图4.9中所示，GoogLeNet相比于以前的卷积神经网络结构，除了在深度上进行了延伸，还对网络的宽度进行了扩展，整个网络由许多块状子网络的堆叠而成，这个子网络构成了Inception结构。图4.9为Inception的四个版本：$Inception<em>{v1}$在同一层中采用不同的卷积核，并对卷积结果进行合并;$Inception</em>{v2}$组合不同卷积核的堆叠形式，并对卷积结果进行合并;$Inception<em>{v3}$则在$v_2$基础上进行深度组合的尝试;$Inception</em>{v4}$结构相比于前面的版本更加复杂，子网络中嵌套着子网络。</p>
+<p>$Inception_{v1}$</p>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image27.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image27.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image28.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image28.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>$Inception_{v2}$</p>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image34.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image34.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image36.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image36.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image38.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image38.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>$Inception_{v3}$</p>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image37.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image37.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>$Inception_{v4}$</p>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image46.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image46.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image47.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image47.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image63.png" class="lazyload" data-srcset="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/ch4/image63.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>​                    图 4.10 Inception$_{v1-4}$结构图</p>
+<p>​                    表 4.6 GoogLeNet中Inception$_{v1}$网络参数配置</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">网络层</th>
+<th style="text-align:center">输入尺寸</th>
+<th style="text-align:center">核尺寸</th>
+<th style="text-align:center">输出尺寸</th>
+<th style="text-align:center">参数个数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">卷积层$C_{11}$</td>
+<td style="text-align:center">$H\times{W}\times{C_1}$</td>
+<td style="text-align:center">$1\times1\times{C_2}/2$</td>
+<td style="text-align:center">$\frac{H}{2}\times\frac{W}{2}\times{C_2}$</td>
+<td style="text-align:center">$(1\times1\times{C_1}+1)\times{C_2}$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{21}$</td>
+<td style="text-align:center">$H\times{W}\times{C_2}$</td>
+<td style="text-align:center">$1\times1\times{C_2}/2$</td>
+<td style="text-align:center">$\frac{H}{2}\times\frac{W}{2}\times{C_2}$</td>
+<td style="text-align:center">$(1\times1\times{C_2}+1)\times{C_2}$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{22}$</td>
+<td style="text-align:center">$H\times{W}\times{C_2}$</td>
+<td style="text-align:center">$3\times3\times{C_2}/1$</td>
+<td style="text-align:center">$H\times{W}\times{C_2}/1$</td>
+<td style="text-align:center">$(3\times3\times{C_2}+1)\times{C_2}$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{31}$</td>
+<td style="text-align:center">$H\times{W}\times{C_1}$</td>
+<td style="text-align:center">$1\times1\times{C_2}/2$</td>
+<td style="text-align:center">$\frac{H}{2}\times\frac{W}{2}\times{C_2}$</td>
+<td style="text-align:center">$(1\times1\times{C_1}+1)\times{C_2}$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{32}$</td>
+<td style="text-align:center">$H\times{W}\times{C_2}$</td>
+<td style="text-align:center">$5\times5\times{C_2}/1$</td>
+<td style="text-align:center">$H\times{W}\times{C_2}/1$</td>
+<td style="text-align:center">$(5\times5\times{C_2}+1)\times{C_2}$</td>
+</tr>
+<tr>
+<td style="text-align:center">下采样层$S_{41}$</td>
+<td style="text-align:center">$H\times{W}\times{C_1}$</td>
+<td style="text-align:center">$3\times3/2$</td>
+<td style="text-align:center">$\frac{H}{2}\times\frac{W}{2}\times{C_2}$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积层$C_{42}$</td>
+<td style="text-align:center">$\frac{H}{2}\times\frac{W}{2}\times{C_2}$</td>
+<td style="text-align:center">$1\times1\times{C_2}/1$</td>
+<td style="text-align:center">$\frac{H}{2}\times\frac{W}{2}\times{C_2}$</td>
+<td style="text-align:center">$(3\times3\times{C_2}+1)\times{C_2}$</td>
+</tr>
+<tr>
+<td style="text-align:center">合并层$M$</td>
+<td style="text-align:center">$\frac{H}{2}\times\frac{W}{2}\times{C_2}(\times4)$</td>
+<td style="text-align:center">拼接</td>
+<td style="text-align:center">$\frac{H}{2}\times\frac{W}{2}\times({C_2}\times4)$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="4-6-3-模型特性"><a href="#4-6-3-模型特性" class="headerlink" title="4.6.3 模型特性"></a>4.6.3 模型特性</h3><ul>
+<li><p>采用不同大小的卷积核意味着不同大小的感受野，最后拼接意味着不同尺度特征的融合； </p>
+</li>
+<li><p>之所以卷积核大小采用1、3和5，主要是为了方便对齐。设定卷积步长stride=1之后，只要分别设定pad=0、1、2，那么卷积之后便可以得到相同维度的特征，然后这些特征就可以直接拼接在一起了；</p>
+</li>
+<li><p>网络越到后面，特征越抽象，而且每个特征所涉及的感受野也更大了，因此随着层数的增加，3x3和5x5卷积的比例也要增加。但是，使用5x5的卷积核仍然会带来巨大的计算量。 为此，文章借鉴NIN2，采用1x1卷积核来进行降维。</p>
+<h1 id><a href="#" class="headerlink" title=" "></a> </h1></li>
+</ul>
+<h2 id="Restnet"><a href="#Restnet" class="headerlink" title="Restnet"></a>Restnet</h2><h2 id="Densenet"><a href="#Densenet" class="headerlink" title="Densenet"></a>Densenet</h2><h2 id="4-7-为什么现在的CNN模型都是在GoogleNet、VGGNet或者AlexNet上调整的？"><a href="#4-7-为什么现在的CNN模型都是在GoogleNet、VGGNet或者AlexNet上调整的？" class="headerlink" title="4.7 为什么现在的CNN模型都是在GoogleNet、VGGNet或者AlexNet上调整的？"></a>4.7 为什么现在的CNN模型都是在GoogleNet、VGGNet或者AlexNet上调整的？</h2><ul>
+<li>评测对比：为了让自己的结果更有说服力，在发表自己成果的时候会同一个标准的baseline及在baseline上改进而进行比较，常见的比如各种检测分割的问题都会基于VGG或者Resnet101这样的基础网络。</li>
+<li>时间和精力有限：在科研压力和工作压力中，时间和精力只允许大家在有限的范围探索。</li>
+<li>模型创新难度大：进行基本模型的改进需要大量的实验和尝试，并且需要大量的实验积累和强大灵感，很有可能投入产出比比较小。</li>
+<li>资源限制：创造一个新的模型需要大量的时间和计算资源，往往在学校和小型商业团队不可行。</li>
+<li>在实际的应用场景中，其实是有大量的非标准模型的配置。</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner. Gradient-based learning applied to document recognition. <em>Proceedings of the IEEE</em>, november 1998.</p>
+<p>[2] A. Krizhevsky, I. Sutskever and G. E. Hinton. ImageNet Classification with Deep Convolutional Neural Networks. <em>Advances in Neural Information Processing Systems 25</em>. Curran Associates, Inc. 1097–1105.</p>
+<p>[3] LSVRC-2013. <a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.image-net.org/challenges/LSVRC/2013/results.php">http://www.image-net.org/challenges/LSVRC/2013/results.php</a></p>
+<p>[4] M. D. Zeiler and R. Fergus. Visualizing and Understanding Convolutional Networks. <em>European Conference on Computer Vision</em>. </p>
+<p>[5] M. Lin,  Q. Chen,  and S. Yan.   Network in network. <em>Computing Research Repository</em>, abs/1312.4400, 2013.</p>
+<p>[6] K. Simonyan and A. Zisserman.  Very Deep Convolutional Networks for Large-Scale Image Recognition. <em>International Conference on Machine Learning</em>, 2015.</p>
+<p>[7] Bharath Raj. <a target="_blank" rel="external nofollow noopener noreferrer" href="https://towardsdatascience.com/a-simple-guide-to-the-versions-of-the-inception-network-7fc52b863202">a-simple-guide-to-the-versions-of-the-inception-network</a>, 2018.</p>
+<p>[8] Christian Szegedy, Sergey Ioffe, Vincent Vanhoucke, Alex Alemi. <a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/1602.07261.pdf">Inception-v4, Inception-ResNet and<br>the Impact of Residual Connections on Learning</a>, 2016.</p>
+<p>[9] Sik-Ho Tsang. <a target="_blank" rel="external nofollow noopener noreferrer" href="https://towardsdatascience.com/review-inception-v4-evolved-from-googlenet-merged-with-resnet-idea-image-classification-5e8c339d18bc">review-inception-v4-evolved-from-googlenet-merged-with-resnet-idea-image-classification</a>, 2018.</p>
+<p>[10] Zbigniew Wojna, Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jonathon Shlens. <a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/1512.00567v3.pdf">Rethinking the Inception Architecture for Computer Vision</a>, 2015.</p>
+<p>[11] Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, Andrew Rabinovich. <a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/1409.4842v1.pdf">Going deeper with convolutions</a>, 2014.</p>
+
+  </div>
+  
+  
+    
+    <div class="footer">
+       <!-- 参考资料、相关资料等 -->
+      
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+      <!-- 打赏组件 -->
+      
+        <div class="donate">
+        <iframe src="https://pistachio0812.github.io/donate/drinks" style="overflow-x:hidden;overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe>
+        </div>
+      
+    </div>
+  
+  
+    
+
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-04-08T16:54:09+08:00">
+  <a class="notlink">
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2024年4月8日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/&title=经典网络 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/&title=经典网络 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/&title=经典网络 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        
+        <div class="hoverbox">
+          <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
+          <div class="target">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZgAAAGYCAAAAABaUKuJAAAF/UlEQVR42u3dQW7cSBAEQP3/0/YDjAErs4qSFht9M6QZNiv6kshe7dcf61euLyMAY4EBY4EBY4GxHmG+yjV+0NH3nL34h+d/+vfTfqefm84BDBgwYMCAAQMGDBgwc5j0xaYvnAJdD2i6v/ZgPT03nScYMGDAgAEDBgwYMGBymHZw6aCug2Id6Mp9Xh0sMGDAgAEDBgwYMGDA/D6Ypxedwo4D2jL4bb8PDBgwYMCAAQMGDBgw/x2YtMjaBro2SF4NtIUFAwYMGDBgwIABAwbMPczVg9ug1wL/1PucPx8MGDBgwIABAwYMGDBjmLcuzP1f/13PEwwYMGDAgAADBgwYMI8w23V1Ie76AuFvC7LjeYIBAwYMGDBgwIABA+YR5qeLouug9lNF2tn8wIABAwYMGDBgwIABEwfMpwdNN7h94TTYpvtO3+96Px+DLRgwYMCAAQMGDBgwYMYw2+A0DXJtgfYWcPp+7cXH8f7BgAEDBgwYMGDAgAHzCLO98NYCprDpRcB0H+kArw4IGDBgwIABAwYMGDBg7mCmD9wGrvbCXgt79Zy3LhqCAQMGDBgwYMCAAQNmDtMGsOsLdWcX546Kr7bwq38OBgwYMGDAgAEDBgyYR5jrQmgapK4u4rUDTQ/i9PnbQA0GDBgwYMCAAQMGDJg5TDqA9sJcW2xNXzgt6q6LwfRgggEDBgwYMGDAgAEDJodJv7AtxtIAdlY8lYExhb6CAwMGDBgwYMCAAQMGTP7/j9kGtu3nrouqNti+FaQfPw8GDBgwYMCAAQMGDJh1wNwOog1wV/vbFl/tAakPMhgwYMCAAQMGDBgwYMYw18XZWwNpi6or0Pa9xwUeGDBgwIABAwYMGDBgHmGmge67glk6yOugmhZkVwcZDBgwYMCAAQMGDBgwc5htwNwWau2LpgdneuDawHoWPMGAAQMGDBgwYMCAARPDvHWBb3th73o/1wVaup84YIIBAwYMGDBgwIABA2b9B9zajW6Ls7a4ugrO7XzGwRMMGDBgwIABAwYMGDCPMNug2BZfV4XVVZDdBt92XmDAgAEDBgwYMGDAgOlhfvoF0sGmAXRbgF0H3o+/DwYMGDBgwIABAwYMmDHMW+u7C7btoNLvv/p9MGDAgAEDBgwYMGDA7PuY9kLctkB6O/hefe/VBcQ4+YMBAwYMGDBgwIABAyZe2+JrO6AUNA2W7e9vi0QwYMCAAQMGDBgwYMDMYd7awNs/b4NxC7A9AOMACwYMGDBgwIABAwYMmEeY9ou3gW1bWKUHqIVrA3gd1MGAAQMGDBgwYMCAATOG2W4oDVJXRVYL1F4wbA/meA5gwIABAwYMGDBgwICJi7I0CF4VXdcBsi2qps9Ni7oxKBgwYMCAAQMGDBgwYMYwV8VTW7C1g00H3gbMFLD+HBgwYMCAAQMGDBgwYMYw2+JoGzSnv78t1t4OmFt4MGDAgAEDBgwYMGDA5P/h0raYagd89dyrAzOFST8HBgwYMGDAgAEDBgyYPcw2uKXFVBv80kB6XZS9VQD+sz8wYMCAAQMGDBgwYMA8wrTF0PZi3Xdf+NsWWenP2wUGDBgwYMCAAQMGDJg5TBvM2o2+FejSg3MdiNsLjWDAgAEDBgwYMGDAgOlh2sFOB98WctuBXAXF9kLgOmCCAQMGDBgwYMCAAQNmvbFtsdUWc1cA24Kw3cc4YIIBAwYMGDBgwIABA+axj6kvqIWDmcKlg9oG222xtw2kYMCAAQMGDBgwYMCAyf8AwzYwXV3wuxr8VcGVFmHpwYiTPxgwYMCAAQMGDBgwYOo/rPBWYdQGz+3+tu+9LRbBgAEDBgwYMGDAgAHTw2wLrzZwbQu5bQBOB3q1wIABAwYMGDBgwIAB83Mw3/1iaSDcFlxXBwUMGDBgwIABAwYMGDC/B2Yb7NJCKT0AV89PwdMLjmDAgAEDBgwYMGDAgMlh2uD2XQNPP98ekG0gri9QggEDBgwYMGDAgAEDZgxzXfxMN3pVhKWAVxcH2wA6DphgwIABAwYMGDBgwID5B8b6XQsMGAsMGAsMGAuM9XH9BcIxe1qKFFnEAAAAAElFTkSuQmCC">
+          </div>
+        </div>
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class="prev" href="/zh-TW/ch05_%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88CNN%EF%BC%89/">
+          <p class="title"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>卷积神经网络</p>
+          <p class="content">卷积神经网络（CNN）​    卷积神经网络是一种用来处理局部和整体相关性的计算网络结构，被应用在图像识别、自然语言处理甚至是语音识别领域，因为图像数据具有显著的局部与整体关系，其在图像识别领域...</p>
+        </a>
+      
+      
+        <a class="next" href="/zh-TW/ch03_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/">
+          <p class="title">深度学习基础<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">深度学习基础基本概念神经网络组成？神经网络类型众多，其中最为重要的是多层感知机。为了详细地描述神经网络，我们先从最简单的神经网络说起。
+感知机
+多层感知机中的特征神经元模型称为感知机，由Fran...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+
+  <article class="post white-box shadow" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/index.html#comments">
+    </span>
+    <p ct><i class="fa-solid fa-comments"></i> 评论</p>
+    
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside id="l_side" itemscope itemtype="http://schema.org/WPSideBar">
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky pjax">
+
+  
+  
+
+
+  <section class="widget toc-wrapper desktop mobile " id="toc-div">
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-LeNet-5"><span class="toc-text">4.1 LeNet-5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="toc-text">4.1.1 模型介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-2-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-text">4.1.2 模型结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-3-%E6%A8%A1%E5%9E%8B%E7%89%B9%E6%80%A7"><span class="toc-text">4.1.3 模型特性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-AlexNet"><span class="toc-text">4.2 AlexNet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="toc-text">4.2.1 模型介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-text">4.2.2 模型结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-%E6%A8%A1%E5%9E%8B%E7%89%B9%E6%80%A7"><span class="toc-text">4.2.3 模型特性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-ZFNet"><span class="toc-text">4.3 ZFNet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="toc-text">4.3.1 模型介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-text">4.3.2 模型结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-3-%E6%A8%A1%E5%9E%8B%E7%89%B9%E6%80%A7"><span class="toc-text">4.3.3 模型特性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-Network-in-Network"><span class="toc-text">4.4 Network in Network</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-1-%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="toc-text">4.4.1 模型介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-2-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-text">4.4.2 模型结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-3-%E6%A8%A1%E5%9E%8B%E7%89%B9%E7%82%B9"><span class="toc-text">4.4.3 模型特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-VGGNet"><span class="toc-text">4.5 VGGNet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-1-%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="toc-text">4.5.1 模型介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-2-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-text">4.5.2 模型结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-3-%E6%A8%A1%E5%9E%8B%E7%89%B9%E6%80%A7"><span class="toc-text">4.5.3 模型特性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-GoogLeNet"><span class="toc-text">4.6 GoogLeNet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-1-%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="toc-text">4.6.1 模型介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-2-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-text">4.6.2 模型结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-3-%E6%A8%A1%E5%9E%8B%E7%89%B9%E6%80%A7"><span class="toc-text">4.6.3 模型特性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Restnet"><span class="toc-text">Restnet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Densenet"><span class="toc-text">Densenet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%8E%B0%E5%9C%A8%E7%9A%84CNN%E6%A8%A1%E5%9E%8B%E9%83%BD%E6%98%AF%E5%9C%A8GoogleNet%E3%80%81VGGNet%E6%88%96%E8%80%85AlexNet%E4%B8%8A%E8%B0%83%E6%95%B4%E7%9A%84%EF%BC%9F"><span class="toc-text">4.7 为什么现在的CNN模型都是在GoogleNet、VGGNet或者AlexNet上调整的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
+    </div>
+  </section>
+
+  
+
+</div>
+
+
+<!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <!-- Custom Files side begin -->
+  
+  <!-- Custom Files side end -->
+</aside>
+
+
+
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<pjax>
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  pdata.commentConfig={};
+  //  see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs
+  
+    // header
+    var l_header=document.getElementById("l_header");
+    
+    l_header.classList.add("show");
+    
+    
+      // cover
+      var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
+      var scroll_down=document.getElementById('scroll-down');
+      cover_wrapper.id="none";
+      cover_wrapper.style.display="none";
+      scroll_down.style.display="none";
+    
+  
+</script>
+</pjax>
+        </div>
+        
+  
+  <footer class="footer clearfix" itemscope itemtype="http://schema.org/WPFooter">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="2185397204" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper" itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer" itemprop="url">
+                
+              </a>
+            
+          
+            
+              <a href="mailto:2395856915@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer" itemprop="url">
+                
+              </a>
+            
+          
+            
+              <a href="https://github.com/pistachio0812" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer" itemprop="url">
+                
+              </a>
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class="copyright">
+        <p><a href="/">Copyright ©2020-2023江西理工大学.All Rights Reserved</a></p>
+
+        </div>
+      
+    
+    <!-- Custom Files footer begin-->
+    
+    <!-- Custom Files footer end-->
+  </footer>
+
+
+        <a id="s-top" class="fa-solid fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+  /******************** volantis.dom ********************************/
+  // 页面选择器 将dom对象缓存起来 see: /source/js/app.js etc.
+  volantis.dom.bodyAnchor = volantis.dom.$(document.getElementById("safearea")); // 页面主体
+  volantis.dom.topBtn = volantis.dom.$(document.getElementById('s-top')); // 向上
+  volantis.dom.wrapper = volantis.dom.$(document.getElementById('wrapper')); // 整个导航栏
+  volantis.dom.coverAnchor = volantis.dom.$(document.querySelector('#l_cover .cover-wrapper')); // 1个
+  volantis.dom.switcher = volantis.dom.$(document.querySelector('#l_header .switcher .s-search')); // 搜索按钮   移动端 1个
+  volantis.dom.header = volantis.dom.$(document.getElementById('l_header')); // 移动端导航栏
+  volantis.dom.search = volantis.dom.$(document.querySelector('#l_header .m_search')); // 搜索框 桌面端 移动端 1个
+  volantis.dom.mPhoneList = volantis.dom.$(document.querySelectorAll('#l_header .m-phone .list-v')); //  手机端 子菜单 多个
+</script>
+
+<script>
+  
+  volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fortawesome/fontawesome-free/css/all.min.css");
+  
+  
+  volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/font-awesome-animation/font-awesome-animation.min.css");
+  
+  
+  volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/node-waves/dist/waves.min.css");
+  
+</script>
+
+<!-- required -->
+
+
+<!-- internal -->
+
+<script src="/js/app.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="rightmenu-wrapper">
+  <ul class="list-v rightmenu" id="rightmenu-content">
+    
+  <li class="navigation menuNavigation-Content">
+
+
+    <a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="fa-solid fa-arrow-left fa-fw"></i></a>
+
+
+
+    <a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="fa-solid fa-arrow-right fa-fw"></i></a>
+
+
+
+    <a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="fa-solid fa-redo fa-fw"></i></a>
+
+
+
+    <a class="nav icon-only fix-cursor-default" onclick="VolantisApp.scrolltoElement(volantis.dom.bodyAnchor)"><i class="fa-solid fa-arrow-up fa-fw"></i></a>
+
+
+  </li>
+
+
+    <hr class="menuLoad-Content">
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="prev" data-event="volantis.rightmenu.jump('prev')" data-group="prevNext">
+      <i class="fa-solid fa-angles-left fa-fw"></i>
+      查看上一篇
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="next" data-event="volantis.rightmenu.jump('next')" data-group="prevNext">
+      <i class="fa-solid fa-angles-right fa-fw"></i>
+      查看下一篇
+    </span>
+  </li>
+
+
+
+    <hr class="menuLoad-Content">
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyPaste" data-event="copyPaste" data-group="inputBox">
+      <i class="fa-solid fa-paste fa-fw"></i>
+      粘贴文本
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyAll" data-event="copyAll" data-group="inputBox">
+      <i class="fa-solid fa-object-ungroup fa-fw"></i>
+      全选文本
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyCut" data-event="copyCut" data-group="inputBox">
+      <i class="fa-solid fa-cut fa-fw"></i>
+      剪切文本
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyText" data-event="copyText" data-group="seletctText">
+      <i class="fa-solid fa-copy fa-fw"></i>
+      复制文本
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="searchWord" data-event="OpenSearch(__text__)" data-group="seletctText">
+      <i class="fa-solid fa-search fa-fw"></i>
+      站内搜索
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="bingSearch" data-event="window.open(`https://cn.bing.com/search?q=${__text__}`)" data-group="seletctText">
+      <i class="fa-solid fa-search fa-fw"></i>
+      必应搜索
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="openTab" data-event="window.open(__link__)" data-group="elementCheck">
+      <i class="fa-solid fa-external-link-square-alt fa-fw"></i>
+      新标签页打开
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyLink" data-event="copyLink" data-group="elementCheck">
+      <i class="fa-solid fa-link fa-fw"></i>
+      复制链接地址
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyImg" data-event="copyImg" data-group="elementImage">
+      <i class="fa-solid fa-image fa-fw"></i>
+      复制图片
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="googleImg" data-event="window.open(`https://www.google.com.hk/searchbyimage?image_url=${__link__}`)" data-group="elementImage">
+      <i class="fa-solid fa-images fa-fw"></i>
+      谷歌识图
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <a class="vlts-menu fix-cursor-default" id="help" target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/faqs/" data-group="link">
+      <i class="fa-solid fa-question fa-fw"></i>
+      常见问题
+    </a>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <a class="vlts-menu fix-cursor-default" id="examples" target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/examples/" data-group="link">
+      <i class="fa-solid fa-rss fa-fw"></i>
+      示例博客
+    </a>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <a class="vlts-menu fix-cursor-default" id="contributors" target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/contributors/" data-group="link">
+      <i class="fa-solid fa-fan fa-fw"></i>
+      加入社区
+    </a>
+  </li>
+
+
+
+    <hr class="menuLoad-Content">
+
+
+
+  <li class="menuLoad-Content">
+    <a class="vlts-menu fix-cursor-default" id="source_docs" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/volantis-docs/" data-group="link">
+      <i class="fa-solid fa-code-branch fa-fw"></i>
+      本站源码
+    </a>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <a class="vlts-menu fix-cursor-default" id="source_theme" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" data-group="link">
+      <i class="fa-solid fa-code-branch fa-fw"></i>
+      主题源码
+    </a>
+  </li>
+
+
+
+    <hr class="menuLoad-Content">
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="darkMode" data-event="volantis.dark.toggle()" data-group="darkMode">
+      <i class="fa-solid fa-moon fa-fw"></i>
+      暗黑模式
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="printMode" data-event="printMode" data-group="articlePage">
+      <i class="fa-solid fa-print fa-fw"></i>
+      打印页面
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="readMode" data-event="readMode" data-group="articlePage">
+      <i class="fa-solid fa-book-open fa-fw"></i>
+      阅读模式
+    </span>
+  </li>
+
+
+<div id="menuMusic">
+  <li class="music name menuOption-Content">
+    <p class="nav music-title fix-cursor-default"></p>
+  </li>
+  <li class="music ctrl">
+    <a class="nav icon-only backward fix-cursor-default" href="/" onclick="return false;" title="backward">
+      <i class="fa-solid fa-step-backward fa-fw"></i>
+    </a>
+    <a class="nav icon-only toggle fix-cursor-default" href="/" onclick="return false;" title="toggle">
+      <i class="fa-solid fa-play fa-fw"></i>
+    </a>
+    <a class="nav icon-only forward fix-cursor-default" href="/" onclick="return false;" title="forward">
+      <i class="fa-solid fa-step-forward fa-fw"></i>
+    </a>
+  </li>
+  <li class="music volume">
+    <div class="nav volume">
+      <div class="aplayer-volume-bar-wrap">
+        <div class="aplayer-volume-bar fix-cursor-pointer">
+          <div class="aplayer-volume"></div>
+          <i class="left fa-solid fa-volume-off fa-fw"></i>
+          <i class="right fa-solid fa-volume-up fa-fw"></i>
+        </div>
+      </div>
+    </div>
+  </li>
+</div>
+
+  </ul>
+</div>
+<script src="/js/plugins/rightMenus.js"></script>
+<script>
+  const RightMenusFunction = {};
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  RightMenusFunction['prev'] = () => {volantis.rightmenu.jump('prev')}
+
+
+
+
+
+  RightMenusFunction['next'] = () => {volantis.rightmenu.jump('next')}
+
+
+
+
+
+
+
+  //RightMenusFunction['copyPaste'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['copyAll'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['copyCut'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['copyText'] = (fun) => {fun()}
+
+
+
+
+
+  RightMenusFunction['searchWord'] = (__text__) => {OpenSearch(__text__)}
+
+
+
+
+
+  RightMenusFunction['bingSearch'] = (__text__) => {window.open(`https://cn.bing.com/search?q=${__text__}`)}
+
+
+
+
+
+  RightMenusFunction['openTab'] = (__link__) => {window.open(__link__)}
+
+
+
+
+
+  //RightMenusFunction['copyLink'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['copyImg'] = (fun) => {fun()}
+
+
+
+
+
+  RightMenusFunction['googleImg'] = (__link__) => {window.open(`https://www.google.com.hk/searchbyimage?image_url=${__link__}`)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  RightMenusFunction['darkMode'] = () => {volantis.dark.toggle()}
+
+
+
+
+
+  //RightMenusFunction['printMode'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['readMode'] = (fun) => {fun()}
+
+
+
+
+
+</script>
+
+
+
+<!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "color-scheme";
+const rootElementDarkModeAttributeName = "color-scheme";
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+  getCustomDarkMode();
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+/**
+ * get target mode
+ */
+ const getCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  if(currentSetting=="dark"){
+    volantis.dark.mode="light";
+  }else{
+    volantis.dark.mode="dark";
+  }
+  // console.log(volantis.dark.mode)
+};
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+/**
+ * 暗黑模式触发器
+ */
+volantis.dark.toggle=()=>{
+  const mode = toggleCustomDarkMode();
+  applyCustomDarkModeSettings(mode);
+  // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
+  volantis.dark.method.toggle.start();
+}
+/**
+ * bind event for toggle button
+ */
+
+function bindToggleButton() {
+  var btn= document.querySelectorAll("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn")
+  btn.forEach(function (e) {
+    volantis.dom.$(e).on('click',volantis.dark.toggle);
+  })
+}
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", ()=>{
+  volantis.requestAnimationFrame(bindToggleButton)
+});
+volantis.pjax.push(bindToggleButton);
+
+const darkModelListeners={
+  dark:(mediaQueryList )=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "dark";
+    }
+    volantis.dark.method.toggle.start();
+  },
+  light:(mediaQueryList)=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "light";
+    }
+    volantis.dark.method.toggle.start();
+  }
+}
+window.matchMedia('(prefers-color-scheme: dark)').addListener(darkModelListeners.dark)
+window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListeners.light)
+</script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    
+      const sites_api = document.getElementById('sites-api');
+      if (sites_api != undefined && typeof SitesJS === 'undefined') {
+        volantis.js("/js/plugins/tags/sites.js")
+      }
+    
+    
+      const friends_api = document.getElementById('friends-api');
+      if (friends_api != undefined && typeof FriendsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/friends.js")
+      }
+    
+    
+      const contributors_api = document.getElementById('contributors-api');
+      if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/contributors.js")
+      }
+    
+  };
+  loadIssuesJS()
+  volantis.pjax.push(()=>{
+    loadIssuesJS();
+  })
+
+</script>
+
+
+
+
+  <script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/vanilla-lazyload/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: ["#"],
+	maxRPS: 6,
+	hoverDelay: 0
+  };
+</script>
+<script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/flying-pages/flying-pages.min.js"></script>
+
+
+
+
+
+
+
+  <script>
+  volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/aplayer/dist/APlayer.min.css");
+  (async () => {
+    // APlayer 需要在  MetingJS 之前加载
+    await volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/aplayer/dist/APlayer.min.js")
+    await volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/meting/dist/Meting.min.js")
+  
+    // 右键 music 需要在 APlayer  MetingJS 之后加载
+    await volantis.js('/js/plugins/aplayer.js')
+  
+  })();
+
+  function SetAPlayerPlugin(){
+    let Metings = document.querySelectorAll('meting-js');
+    if (Metings.length === 0) {return;};
+    if (Metings[0].aplayer && Metings[0].aplayer.on) {
+      // improve the accessibility https://web.dev/button-name/
+      document.querySelectorAll(".aplayer-icon-menu").forEach(e=>{
+        e.setAttribute("aria-label","Aplayer Menu")
+      })
+      // message see: /layout/_plugins/message/script.ejs
+      
+        try {
+          setTimeout(() => {
+            Metings.forEach((item, index) => {
+              const aplayerItem = item.aplayer; if(!aplayerItem) return;
+              const rightAplayerCheck = 'true' === 'true'
+                && item.meta.id === '2185397204';
+              if(rightAplayerCheck) RightMenuAplayer.checkAPlayer();
+              if(aplayerItem.events.events.play.every(item => {return item.name !== 'messagePlay'})) {
+                aplayerItem.on('play', function messagePlay() {
+                  let index = aplayerItem.list.index;
+                  let title = aplayerItem.list.audios[index].title;
+                  let artist = aplayerItem.list.audios[index].artist;
+                  setTimeout(() => {
+                    VolantisApp.message('音乐通知', title + ' - ' + artist, {
+                      icon: 'fa-solid fa-play',
+                      transitionIn: 'flipInX',
+                      transitionOut: 'flipOutX'
+                    });
+                  }, 100)
+                });
+              }
+              if(aplayerItem.events.events.pause.every(item => {return item.name !== 'messagePause'})) {
+                aplayerItem.on('pause', function messagePause() {
+                  let index = aplayerItem.list.index;
+                  let title = aplayerItem.list.audios[index].title;
+                  let artist = aplayerItem.list.audios[index].artist;
+                  setTimeout(() => {
+                    // 歌曲播放结束也会触发 pause 事件，为了避免错误提示，等待一会儿
+                    if(aplayerItem.paused) {
+                      VolantisApp.message('音乐通知', title + ' - ' + artist, {
+                        icon: 'fa-solid fa-pause',
+                        transitionIn: 'flipInX',
+                        transitionOut: 'flipOutX'
+                      });
+                    }
+                  }, 100)
+                });
+              }
+            });
+          }, 500)
+        } catch (error) { console.error(error); }
+      
+    }else{
+      volantis.requestAnimationFrame(SetAPlayerPlugin)
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+    SetAPlayerPlugin();
+  });
+  volantis.pjax.push(SetAPlayerPlugin);
+</script>
+
+
+
+
+      <script>
+  volantis.layoutHelper("comments",`<div id="giscus_container"></div>`)
+
+  volantis.giscus = {};
+
+  function check_giscus() {
+    if (volantis.dark.mode === "dark") {
+      volantis.giscus.Theme = '';
+    } else {
+      volantis.giscus.Theme = '';
+    }
+
+    return document.getElementById("giscus_container");
+  }
+
+  function pjax_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+    let cfg = Object.assign({"theme":"light_tritanopia","repo":"pistachio0812/blog_comments","repo-id":"R_kgDOIEvaCA","category":"Announcements","category-id":"DIC_kwDOIEvaCM4CRrCs","mapping":"title","strict":"0","reactions-enabled":"1","emit-metadata":"0","input-position":"top","lang":"zh-CN","loading":"lazy","crossorigin":"anonymous"},pdata.commentConfig)
+    const script = document.createElement('script');
+    script.setAttribute('src', 'https://giscus.app/client.js');
+    Object.keys(cfg).forEach(k=>{
+      if (k != "theme") {
+        script.setAttribute('data-'+k, cfg[k]);
+      }
+    })
+    script.setAttribute('data-theme', volantis.giscus.Theme);
+    script.setAttribute('crossorigin', "anonymous");
+    HEAD.appendChild(script);
+  }
+
+  function dark_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+
+    const message = {
+      setConfig: {
+        theme: volantis.giscus.Theme
+      }
+    };
+    const giscusIframe = document.querySelector('iframe.giscus-frame');
+    giscusIframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+  }
+  pjax_giscus();
+  volantis.pjax.push(pjax_giscus);
+  volantis.dark.push(dark_giscus);
+</script>
+
+    
+
+
+
+
+
+<!-- optional -->
+
+  <script>
+  const SearchServiceDataPathRoot = ("/" || "/").endsWith("/") ?
+    "/" || "/" :
+    "//" || "/";
+  const SearchServiceDataPath = SearchServiceDataPathRoot + "content.json";
+
+  function loadSearchScript() {
+    // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
+    return volantis.js("/js/search/hexo.js");
+  }
+
+  function loadSearchService() {
+    loadSearchScript();
+    document.querySelectorAll(".input.u-search-input").forEach((e) => {
+      e.removeEventListener("focus", loadSearchService, false);
+    });
+
+    document.querySelectorAll(".u-search-form").forEach((e) => {
+      e.addEventListener("submit", (event) => {
+        event.preventDefault();
+      }, false);
+    });
+  }
+
+  // 打开并搜索 字符串 s
+  function OpenSearch(s) {
+    if (typeof SearchService === 'undefined')
+      loadSearchScript().then(() => {
+        SearchService.setQueryText(s);
+        SearchService.search();
+      });
+    else {
+      SearchService.setQueryText(s);
+      SearchService.search();
+    }
+  }
+
+  // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
+  if (window.location.search && /^\?s=/g.test(window.location.search)) {
+    let queryText = decodeURI(window.location.search)
+      .replace(/\ /g, "-")
+      .replace(/^\?s=/g, "");
+    OpenSearch(queryText);
+  }
+
+  // 搜索输入框获取焦点时加载搜索
+  document.querySelectorAll(".input.u-search-input").forEach((e) => {
+    e.addEventListener("focus", loadSearchService, false);
+  });
+</script>
+
+
+
+  
+<script src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/node-waves/dist/waves.min.js"></script>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+  Waves.attach('.flat-btn', ['waves-button']);
+  Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+  Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+  Waves.attach('.flat-box', ['waves-block']);
+  Waves.attach('.float-box', ['waves-block', 'waves-float']);
+  Waves.attach('.waves-image');
+  Waves.init();
+});
+</script>
+
+
+
+  
+<script src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/comment_typing/comment_typing.js"></script>
+
+
+
+
+  <script>
+
+  volantis.css("https://unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/default.min.css");
+
+
+  volantis.js("https://unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js").then(()=>{
+    volantis.requestAnimationFrame(hljs.highlightAll)
+  })
+  volantis.pjax.push(()=>{
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightElement(block);
+    });
+  },"highlightjs")
+
+
+  function pjax_highlightjs_copyCode(){
+    if (!(document.querySelector(".highlight .code pre") ||
+      document.querySelector(".article pre code"))) {
+      return;
+    }
+    VolantisApp.utilCopyCode(".highlight .code pre, .article pre code")
+  }
+  volantis.requestAnimationFrame(pjax_highlightjs_copyCode)
+  volantis.pjax.push(pjax_highlightjs_copyCode)
+
+</script>
+
+
+
+
+
+
+
+
+  <script src="//code.tidio.co/zilxs37hi5azxti3c2wescen575qkim6.js" async></script>
+
+
+
+
+
+  <script>
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp"];
+  let index = 0;
+  let IntervalParallax = null;
+
+  function parallax(){
+    let ParallaxWindow = document.querySelector("#parallax-window");
+    
+      ParallaxWindow = document.querySelector("html");
+    
+    Parallax.window = ParallaxWindow;
+    Parallax.options.fade = 1500;
+    Parallax.cache = 1;
+    next_parallax();
+    Parallax.init();
+    if (imgs.length>1) {
+      IntervalParallax = setInterval(function () {
+        next_parallax();
+      }, '10000');
+    }
+  }
+
+  function next_parallax() {
+    if (typeof Parallax == "undefined") {
+      return
+    }
+    
+    if (imgs.length>=1) {
+      Parallax.options.src = imgs[index % imgs.length];
+      Parallax.start();
+      index++;
+      if (Parallax.cache) {
+        fetch(imgs[index % imgs.length] +"?t=" + new Date().getTime());
+        if (index == imgs.length) {
+          Parallax.cache = 0;
+        }
+      }
+    }
+  }
+  var runningOnBrowser = typeof window !== "undefined";
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  if (!isBot) {
+    volantis.js('/js/plugins/parallax.js').then(()=>{
+      parallax()
+    })
+    volantis.pjax.send(()=>{
+      clearInterval(IntervalParallax)
+    },"clearIntervalParallax");
+    volantis.pjax.push(parallax);
+  }
+</script>
+
+
+
+
+  <script>
+  function load_swiper() {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.css");
+    volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    volantis.swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
+  volantis.pjax.push(() => {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    if (typeof volantis.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+
+
+<!-- pjax 标签必须存在于所有页面 否则 pjax error -->
+<pjax>
+
+</pjax>
+
+<script>
+  function listennSidebarTOC() {
+    const navItems = document.querySelectorAll(".toc li");
+    if (!navItems.length) return;
+    let targets = []
+    const sections = [...navItems].map((element) => {
+      const link = element.querySelector(".toc-link");
+      const target = document.getElementById(
+        decodeURI(link.getAttribute("href")).replace("#", "")
+      );
+      targets.push(target)
+      // 解除 a 标签 href 的 锚点定位, a 标签 href 的 锚点定位 会随机启用?? 产生错位???
+      link.setAttribute("onclick","return false;")
+      link.setAttribute("toc-action","toc-"+decodeURI(link.getAttribute("href")).replace("#", ""))
+      link.setAttribute("href","/")
+      // 配置 点击 触发新的锚点定位
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        // 这里的 addTop 是通过错位使得 toc 自动展开.
+        volantis.scroll.to(target,{addTop: 5, observer:true})
+        // Anchor id
+        history.pushState(null, document.title, "#" + target.id);
+      });
+      return target;
+    });
+
+    function activateNavByIndex(target) {
+      if (target.classList.contains("active-current")) return;
+
+      document.querySelectorAll(".toc .active").forEach((element) => {
+        element.classList.remove("active", "active-current");
+      });
+      target.classList.add("active", "active-current");
+      let parent = target.parentNode;
+      while (!parent.matches(".toc")) {
+        if (parent.matches("li")) parent.classList.add("active");
+        parent = parent.parentNode;
+      }
+    }
+
+    // 方案一：
+    volantis.activateNavIndex=0
+    activateNavByIndex(navItems[volantis.activateNavIndex])
+    volantis.scroll.push(()=>{
+      if (targets[0].getBoundingClientRect().top >= 0) {
+        volantis.activateNavIndex = 0
+      }else if (targets[targets.length-1].getBoundingClientRect().top < 0) {
+        volantis.activateNavIndex = targets.length-1
+      } else {
+        for (let index = 0; index < targets.length; index++) {
+          const target0 = targets[index];
+          const target1 = targets[(index+1)%targets.length];
+          if (target0.getBoundingClientRect().top < 0&&target1.getBoundingClientRect().top >= 0) {
+            volantis.activateNavIndex=index
+            break;
+          }
+        }
+      }
+      activateNavByIndex(navItems[volantis.activateNavIndex])
+    })
+
+    // 方案二：
+    // IntersectionObserver 不是完美精确到像素级别 也不是低延时性的
+    // function findIndex(entries) {
+    //   let index = 0;
+    //   let entry = entries[index];
+    //   if (entry.boundingClientRect.top > 0) {
+    //     index = sections.indexOf(entry.target);
+    //     return index === 0 ? 0 : index - 1;
+    //   }
+    //   for (; index < entries.length; index++) {
+    //     if (entries[index].boundingClientRect.top <= 0) {
+    //       entry = entries[index];
+    //     } else {
+    //       return sections.indexOf(entry.target);
+    //     }
+    //   }
+    //   return sections.indexOf(entry.target);
+    // }
+    // function createIntersectionObserver(marginTop) {
+    //   marginTop = Math.floor(marginTop + 10000);
+    //   let intersectionObserver = new IntersectionObserver(
+    //     (entries, observe) => {
+    //       let scrollHeight = document.documentElement.scrollHeight;
+    //       if (scrollHeight > marginTop) {
+    //         observe.disconnect();
+    //         createIntersectionObserver(scrollHeight);
+    //         return;
+    //       }
+    //       let index = findIndex(entries);
+    //       activateNavByIndex(navItems[index]);
+    //     }, {
+    //       rootMargin: marginTop + "px 0px -100% 0px",
+    //       threshold: 0,
+    //     }
+    //   );
+    //   sections.forEach((element) => {
+    //     element && intersectionObserver.observe(element);
+    //   });
+    // }
+    // createIntersectionObserver(document.documentElement.scrollHeight);
+  }
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+  document.addEventListener("pjax:success", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+</script>
+
+
+
+<script>
+  document.onreadystatechange = function () {
+    if (document.readyState == 'complete') {
+      // 页面加载完毕 样式加载失败，或是当前网速慢，或是开启了省流模式
+      const { saveData, effectiveType } = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {}
+      if (getComputedStyle(document.querySelector("#safearea"), null)["display"] == "none" || saveData || /2g/.test(effectiveType)) {
+        document.querySelectorAll(".reveal").forEach(function (e) {
+          e.style["opacity"] = "1";
+        });
+        document.querySelector("#safearea").style["display"] = "block";
+      }
+    }
+  }
+</script>
+
+
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/深度学习/","name":"深度学习"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-TW/ch04_经典网络/经典网络/","name":"经典网络"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"经典网络","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-TW/ch04_%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/%E7%BB%8F%E5%85%B8%E7%BD%91%E7%BB%9C/","wordCount":0,"datePublished":"2024-01-24T01:24:16.384Z","dateModified":"2024-04-08T08:54:09.802Z","articleSection":"深度学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+
+
+
+      
+        <!--
+  pjax重载区域接口：
+  1.  <pjax></pjax> 标签 pjax 标签必须存在于所有页面 否则 pjax error
+  2.  script[data-pjax]
+  3.  .pjax-reload script
+  4.  .pjax
+-->
+
+
+
+<script src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/pjax/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox]):not([onclick="return false;"]):not([onclick="return!1"]):not([target="_blank"]):not([target="view_window"]):not([href$=".xml"])',
+        selectors: [
+          "head title",
+          "head meta[name=keywords]",
+          "head meta[name=description]",
+          
+          "#l_main",
+          "#pjax-header-nav-list",
+          ".pjax",
+          "pjax", // <pjax></pjax> 标签
+          "script[data-pjax], .pjax-reload script" // script标签添加data-pjax 或 script标签外层添加.pjax-reload 的script代码段重载
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000,
+        
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+      volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+      volantis.pjax.method.complete.start();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      if(volantis.debug) {
+        console.error(e);
+        console.log('pjax error: \n' + JSON.stringify(e));
+      }else{
+        // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+        volantis.pjax.method.error.start();
+        window.location.href = e.triggerElement.href;
+      }
+    });
+</script>
+
+      
+    </div>
+    <!-- import body_end begin-->
+        <script></script>
+    <!-- import body_end end-->
+    <!-- Custom Files bodyEnd begin-->
+    <script> 
+  volantis.rightmenu.jump = (type) => { 
+    const selector = type === 'prev' ? 'article .prev-next a.prev' : 'article .prev-next a.next';
+    const item = document.querySelector(selector); 
+    if(!!item) { 
+      if(typeof pjax !== 'undefined') { 
+        pjax.loadUrl(item.href) 
+      } else { 
+        window.location.href = item.href; 
+      } 
+    } 
+  } 
+ 
+  volantis.rightmenu.handle(() => { 
+    const prev = document.querySelector('#prev').parentElement, 
+      next = document.querySelector('#next').parentElement, 
+      articlePrev = document.querySelector('article .prev-next a.prev p.title'), 
+      articleNext = document.querySelector('article .prev-next a.next p.title'); 
+ 
+    prev.style.display = articlePrev ? 'block' : 'none'; 
+    prev.title = articlePrev ? articlePrev.innerText : null; 
+    next.style.display = articleNext ? 'block' : 'none'; 
+    next.title = articleNext ? articleNext.innerText : null; 
+  }, 'prevNext', false) 
+</script> 
+    <!-- Custom Files bodyEnd end-->
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

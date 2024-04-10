@@ -1,0 +1,2863 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,zh-TW,default">
+    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/7.6.2">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>超参数调整 - 阿月浑子-Hexo博客</title>
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="阿月浑子-Hexo博客" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>  <script>
+    function music_on() {
+        var audio1 = document.getElementById('bg_music');
+        if (audio1.paused) {
+            audio1.play();
+        }else{
+            audio1.pause();
+            audio1.currentTime = 0;//音乐从头播放
+        }
+    }
+    function BackTOP() {
+        $("#btn").hide();
+        $(function () {
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 50) {
+                    $("#btn").fadeIn(200);
+                } else {
+                    $("#btn").fadeOut(200);
+                }
+            });
+            $("#btn").click(function () {
+                $('body,html').animate({
+                        scrollTop: 0
+                    },
+                    500);
+                return false;
+            });
+        });
+        $(function () {
+            $("#say").click(function () {
+                $('body,html').animate({
+                        scrollTop: $('html, body').get(0).scrollHeight
+                    },
+                    500);
+                return false;
+            });
+        })
+    }
+ 
+    $('#readmode').click(function () {
+            $('body').toggleClass('read-mode')
+        })
+        
+    function SiderMenu() {
+        $('#main-container').toggleClass('open');
+        $('.iconflat').css('width', '50px').css('height', '50px');
+        $('.openNav').css('height', '50px');
+        $('#main-container,#mo-nav,.openNav').toggleClass('open')
+    }
+ 
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($("body")), setTimeout(
+            function () {
+                var DarkMode = document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") ||
+                    '0';
+                (volantis.dark.mode == "dark") 
+                ? 
+                ($("html").addClass("DarkMode"), 
+                document.cookie = "DarkMode=1;path=/", 
+                $('#modeicon').attr("xlink:href", "#icon-sun")) 
+                : 
+                ($("html").removeClass("DarkMode"), 
+                document.cookie = "DarkMode=0;path=/", 
+                $('#modeicon').attr("xlink:href", "#icon-_moon")), 
+                setTimeout(function () {
+                    $(".Cuteen_DarkSky").fadeOut(1e3, function () {
+                        $(this).remove()
+                    })
+                }, 2e3)
+            }), 50
+    }
+ 
+    function checkNightMode() {
+        if ($("html").hasClass("n-f")) {
+            $("html").removeClass("day");
+            $("html").addClass("DarkMode");
+            $('#modeicon').attr("xlink:href", "#icon-sun")
+            return;
+        }
+        if ($("html").hasClass("d-f")) {
+            $("html").removeClass("DarkMode");
+            $("html").addClass("day");
+            $('#modeicon').attr("xlink:href", "#icon-_moon")
+ 
+            return;
+        }
+        if (document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") === '') {
+            if (volantis.dark.mode == "dark") {
+                $("html").addClass("DarkMode");
+                document.cookie = "DarkMode=1;path=/";
+                console.log('夜间模式开启');
+                $('#modeicon').attr("xlink:href", "#icon-sun")
+            } else {
+                $("html").removeClass("DarkMode");
+                document.cookie = "DarkMode=0;path=/";
+                console.log('夜间模式关闭');
+                $('#modeicon').attr("xlink:href", "#icon-_moon")
+            }
+        } else {
+            var DarkMode = document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
+            if (DarkMode == '0') {
+                $("html").removeClass("DarkMode");
+                $('#modeicon').attr("xlink:href", "#icon-_moon")
+            } else if (DarkMode == '1') {
+                $("html").addClass("DarkMode");
+                $('#modeicon').attr("xlink:href", "#icon-sun")
+            }
+        }
+    }
+    BackTOP();
+</script>
+ 
+<style>
+    #RightDownBtn {
+        position: fixed;
+        left: 1.875rem;
+        bottom: 1.875rem;
+        padding: 0.3125rem 0.625rem;
+        background: #fff;
+        border-radius: 0.1875rem;
+        transition: 0.3s ease all;
+        z-index: 1;
+        align-items: flex-end;
+        flex-direction: column;
+        display: -moz-flex;
+        display: flex;
+        float: right;
+    }
+ 
+    #RightDownBtn>a,
+    #RightDownBtn>label {
+        width: 1.5em;
+        height: 1.5em;
+        margin: 0.3125rem 0;
+        transition: .2s cubic-bezier(.25, .46, .45, .94);
+    }
+ 
+    /* font color */
+    .DarkMode #page,
+    .DarkMode #colophon,
+    .DarkMode #vcomments .vbtn,
+    .DarkMode .art-content #archives .al_mon_list .al_mon,
+    .DarkMode .art-content #archives .al_mon_list span,
+    .DarkMode body,
+    .DarkMode .art-content #archives .al_mon_list .al_mon,
+    .DarkMode .art-content #archives .al_mon_list span,
+    .DarkMode button,
+    .DarkMode .art .art-content #archives a,
+    .DarkMode textarea,
+    .DarkMode strong,
+    .DarkMode a,
+    .DarkMode p,
+	.DarkMode li,
+    .DarkMode .label {
+        color: rgba(255, 255, 255, .6);
+    }
+ 
+	
+    .DarkMode #page,
+    .DarkMode body,
+    .DarkMode #colophon,
+    .DarkMode #main-container,
+    .DarkMode #page .yya,
+    .DarkMode #content,
+    .DarkMode #contentss,
+    .DarkMode #footer {
+        background-color: #292a2d;
+    }
+    .DarkMode strong,
+    .DarkMode img {
+        filter: brightness(.7);
+    }
+ 
+    /* sun and noon */
+    .Cuteen_DarkSky,
+    .Cuteen_DarkSky:before {
+        content: "";
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 88888888
+    }
+ 
+    .Cuteen_DarkSky {
+        background: linear-gradient(#feb8b0, #fef9db)
+    }
+ 
+    .Cuteen_DarkSky:before {
+        transition: 2s ease all;
+        opacity: 0;
+        background: linear-gradient(#4c3f6d, #6c62bb, #93b1ed)
+    }
+ 
+    .DarkMode .Cuteen_DarkSky:before {
+        opacity: 1
+    }
+ 
+    .Cuteen_DarkPlanet {
+        z-index: 99999999;
+        position: fixed;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 200%;
+        -webkit-animation: CuteenPlanetMove 2s cubic-bezier(.7, 0, 0, 1);
+        animation: CuteenPlanetMove 2s cubic-bezier(.7, 0, 0, 1);
+        transform-origin: center bottom
+    }
+ 
+    @-webkit-keyframes CuteenPlanetMove {
+        0% {
+            transform: rotate(0)
+        }
+ 
+        to {
+            transform: rotate(360deg)
+        }
+    }
+ 
+    @keyframes CuteenPlanetMove {
+        0% {
+            transform: rotate(0)
+        }
+ 
+        to {
+            transform: rotate(360deg)
+        }
+    }
+ 
+    .Cuteen_DarkPlanet:after {
+        position: absolute;
+        left: 35%;
+        top: 40%;
+        width: 9.375rem;
+        height: 9.375rem;
+        border-radius: 50%;
+        content: "";
+        background: linear-gradient(#fefefe, #fffbe8)
+    }
+</style>
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <!-- import body_begin begin-->
+        <script></script>
+    <!-- import body_begin end-->
+    <!-- Custom Files bodyBegin begin-->
+    
+    <!-- 浏览器搞笑标题-->
+    <script type="text/javascript" src="/js/FunnyTitle.js"></script>
+    <!-- Custom Files bodyBegin end-->
+    <!--樱花特效-->
+    <script src="https://gcore.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/sakura.js"></script>
+    <!--鼠标滑动特效-->
+    <script src="https://gcore.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/mouse_slide.js"></script>
+    <!--鼠标点击特效-->
+    <script src="https://gcore.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/mouse_click.js"></script>
+    <!--动态线条背景-->
+    <!--<script type="text/javascript" color="220, 220, 220" opacity="0.6" zIndex="-2" count="100" src="/cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script> -->
+    <script src="https://unpkg.com/hls.js@latest"></script>
+<header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow show" style="opacity: 0">
+  <div class="container">
+  <div id="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self" href="/" onclick="return false;" title="comment"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self" href="/" onclick="return false;" title="toc"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/Logo-NavBar@3x.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" title="博客" active-action="action-home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" title="分类" active-action="action-categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" title="归档" active-action="action-archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" title="友链" active-action="action-friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" title="留言箱" active-action="action-tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>留言箱
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" title="关于" active-action="action-about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" onclick="return false;" title="更多">
+                  <i class="fa-solid fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" title="主题源码" active-action="action-https:githubcomvolantis-xhexo-theme-volantis">
+                  主题源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" title="更新日志" active-action="action-https:githubcomvolantis-xhexo-theme-volantisreleases">
+                  更新日志
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" onclick="return false;" title="有疑问？">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" title="看 FAQ" active-action="action-faqs">
+                  看 FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/volantis-docs/" title="看 本站源码" active-action="action-https:githubcomvolantis-xvolantis-docs">
+                  看 本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/issues/" title="提 Issue" active-action="action-https:githubcomvolantis-xhexo-theme-volantisissues">
+                  提 Issue
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" onclick="return false;" title="文学黑洞">
+                  文学黑洞
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://meiriyiwen.com/random" title="每日一文" active-action="action-https:meiriyiwencomrandom">
+                  每日一文
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.marxists.org/chinese/index.html" title="马克思主义文库" active-action="action-https:wwwmarxistsorgchineseindexhtml">
+                  马克思主义文库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.yikm.net/" title="游戏厅" active-action="action-https:wwwyikmnet">
+                  游戏厅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.xiaozhongjishu.com/" title="小众技术工具库" active-action="action-https:wwwxiaozhongjishucom">
+                  小众技术工具库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+      
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fa-solid fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search...">
+        </form>
+      </div>
+      
+
+			<ul class="switcher nav-list-h m-phone">
+				
+					<li><a class="s-search fa-solid fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
+				
+				<li>
+          <a class="s-menu fa-solid fa-bars fa-fw" target="_self" href="/" onclick="return false;" title="menu"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" title="博客" active-action="action-home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" title="分类" active-action="action-categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" title="归档" active-action="action-archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" title="友链" active-action="action-friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" title="留言箱" active-action="action-tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>留言箱
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" title="关于" active-action="action-about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" onclick="return false;" title="更多">
+                  <i class="fa-solid fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" title="主题源码" active-action="action-https:githubcomvolantis-xhexo-theme-volantis">
+                  主题源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" title="更新日志" active-action="action-https:githubcomvolantis-xhexo-theme-volantisreleases">
+                  更新日志
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" onclick="return false;" title="有疑问？">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" title="看 FAQ" active-action="action-faqs">
+                  看 FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/volantis-docs/" title="看 本站源码" active-action="action-https:githubcomvolantis-xvolantis-docs">
+                  看 本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/issues/" title="提 Issue" active-action="action-https:githubcomvolantis-xhexo-theme-volantisissues">
+                  提 Issue
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" onclick="return false;" title="文学黑洞">
+                  文学黑洞
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://meiriyiwen.com/random" title="每日一文" active-action="action-https:meiriyiwencomrandom">
+                  每日一文
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.marxists.org/chinese/index.html" title="马克思主义文库" active-action="action-https:wwwmarxistsorgchineseindexhtml">
+                  马克思主义文库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.yikm.net/" title="游戏厅" active-action="action-https:wwwyikmnet">
+                  游戏厅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.xiaozhongjishu.com/" title="小众技术工具库" active-action="action-https:wwwxiaozhongjishucom">
+                  小众技术工具库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+
+      <!-- Custom Files header begin -->
+      
+      <!-- Custom Files header end -->
+		</div>
+	</div>
+  </div>
+</header>
+
+     <!-- 春节灯笼 -->
+        <div class="deng-box2">
+          <div class="deng">
+            <div class="xian">
+
+            </div>
+            <div class="deng-a">
+              <div class="deng-b">
+                <div class="deng-t">年</div>
+              </div>
+            </div>
+            <div class="shui shui-a">
+              <div class="shui-c">
+
+              </div>
+              <div class="shui-b"></div>
+            </div>
+          </div>
+        </div>
+        <div class="deng-box3">
+          <div class="deng">
+            <div class="xian">
+
+            </div>
+            <div class="deng-a">
+              <div class="deng-b">
+                <div class="deng-t">新</div>
+              </div>
+            </div>
+            <div class="shui shui-a">
+              <div class="shui-c"></div>
+              <div class="shui-b">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="deng-box1">
+          <div class="deng">
+            <div class="xian">
+
+            </div>
+            <div class="deng-a">
+              <div class="deng-b">
+                <div class="deng-t">乐</div>
+              </div>
+            </div>
+            <div class="shui shui-a">
+              <div class="shui-c"></div>
+              <div class="shui-b"></div>
+            </div>
+          </div>
+        </div>
+        <div class="deng-box">
+          <div class="deng">
+            <div class="xian">
+
+            </div>
+            <div class="deng-a">
+              <div class="deng-b">
+                <div class="deng-t">快</div>
+              </div>
+            </div>
+            <div class="shui shui-a">
+              <div class="shui-c">
+
+              </div>
+              <div class="shui-b"></div>
+            </div>
+          </div>
+        </div>
+        <!-- 春节灯笼 -->
+    <div id="l_body">
+    <canvas id="fireworks" style="position:fixed; height: 100%; width: 100%;"></canvas>
+      <div id="l_cover">
+  
+    
+      <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
+      <div id="none" class="cover-wrapper post dock" style="display: none;">
+        
+  <div id="parallax-window"></div>
+
+<div class="cover-body">
+  <div class="top">
+    
+    
+      <p class="title">相思似海深旧事如天远</p>
+    
+    
+      <p class="subtitle">where there is a will there is a way</p>
+    
+  </div>
+  <div class="bottom">
+    <div class="menu navigation">
+      <div class="list-h">
+        
+          
+            <a href="/v5/getting-started/" active-action="action-v5getting-started">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f5c3.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f5c3.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>文档</p>
+            </a>
+          
+            <a href="/faqs/" active-action="action-faqs">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f516.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f516.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>帮助</p>
+            </a>
+          
+            <a href="/examples/" active-action="action-examples">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f396.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f396.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>示例</p>
+            </a>
+          
+            <a href="/contributors/" active-action="action-contributors">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f389.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f389.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>社区</p>
+            </a>
+          
+            <a href="/archives/" active-action="action-archives">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f4f0.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f4f0.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" active-action="action-https:githubcomvolantis-xhexo-theme-volantis">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f9ec.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f9ec.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+      </div>
+    
+  
+</div>
+
+    <!--Follow me on CSDN-->
+    <a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/qq_38452951"> <img loading="lazy" width="149" height="149" style="position: absolute; top: 0; right: 0; border: 0;" src="https://img-blog.csdnimg.cn/1f8e1ef9be9f4f7db01fe3a2d57829de.png" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/1f8e1ef9be9f4f7db01fe3a2d57829de.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="attachment-full size-full lazyload" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+      <div id="safearea">
+        <div class="body-wrapper">
+          
+<div id="l_main" class>
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow article-type-post" id="post" itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://pistachio0812.github.io/zh-TW/ch14_超参数调整/第十四章_超参数调整/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="阿月浑子-Hexo博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="阿月浑子-Hexo博客">
+    <meta itemprop="description" content="计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测">
+  </span>
+  
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title" itemprop="name headline">
+        超参数调整
+      </h1>
+      <div class="new-meta-box">
+        
+          
+            
+<div class="new-meta-item author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class="author" target="_blank" href="https://www.cnblogs.com/pistachio0812" rel="external nofollow noopener noreferrer">
+    <img itemprop="image" src="https://img1.baidu.com/it/u=583582599,306470958&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" class="lazyload" data-srcset="https://img1.baidu.com/it/u=583582599,306470958&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">追风赶月的少年</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item category">
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url"><span itemprop="name">深度学习</span></a>
+      </span>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2024-01-24T09:24:21+08:00">
+  <a class="notlink">
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2024年1月24日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字數：11.1k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>時長：38分鐘</p>
+    </a>
+  </div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <h1 id="超参数调整"><a href="#超参数调整" class="headerlink" title="超参数调整"></a>超参数调整</h1><h2 id="14-1-写在前面"><a href="#14-1-写在前面" class="headerlink" title="14.1 写在前面"></a>14.1 写在前面</h2><p>​    关于训练深度学习模型最难的事情之一是你要处理的参数的数量。无论是从网络本身的层宽（宽度）、层数（深度）、连接方式，还是损失函数的超参数设计和调试，亦或者是学习率、批样本数量、优化器参数等等。这些大量的参数都会有网络模型最终的有效容限直接或者间接的影响。面对如此众多的参数，如果我们要一一对其优化调整，所需的无论是时间、资源都是不切实际。结果证实一些超参数比其它的更为重要，因此认识各个超参数的作用和其可能会造成的影响是深度学习训练中必不可少的一项重要技能。</p>
+<p>​    超参数调整可以说是深度学习中理论和实际联系最重要的一个环节。目前，深度学习仍存在很多不可解释的部分，如何设计优化出好的网络可以为深度学习理论的探索提供重要的支持。超参数调整一般分为手动调整和自动优化超参数两种。读者可先浏览思维导图，本章节不会过多阐述所有超参数的详细原理，如果需要了解这部分，您可以翻阅前面的基础章节或者查阅相关文献资料。当然，下面会讲到的一些超参数优化的建议是根据笔者们的实践以及部分文献资料得到认知建议，并不是非常严格且一定有效的，很多研究者可能会很不同意某些的观点或有着不同的直觉，这都是可保留讨论的，因为这很依赖于数据本身情况。</p>
+<p><img src="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\思维导图.png" class="lazyload" data-srcset="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\思维导图.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>​    </p>
+<h2 id="14-2-超参数概念"><a href="#14-2-超参数概念" class="headerlink" title="14.2 超参数概念"></a>14.2 超参数概念</h2><h3 id="14-2-1-什么是超参数，参数和超参数的区别？"><a href="#14-2-1-什么是超参数，参数和超参数的区别？" class="headerlink" title="14.2.1 什么是超参数，参数和超参数的区别？"></a>14.2.1 什么是超参数，参数和超参数的区别？</h3><p>​    区分两者最大的一点就是是否通过数据来进行调整，模型参数通常是有数据来驱动调整，超参数则不需要数据来驱动，而是在训练前或者训练中人为的进行调整的参数。例如卷积核的具体核参数就是指模型参数，这是有数据驱动的。而学习率则是人为来进行调整的超参数。这里需要注意的是，通常情况下卷积核数量、卷积核尺寸这些也是超参数，注意与卷积核的核参数区分。</p>
+<h3 id="14-2-2-神经网络中包含哪些超参数？"><a href="#14-2-2-神经网络中包含哪些超参数？" class="headerlink" title="14.2.2 神经网络中包含哪些超参数？"></a>14.2.2 神经网络中包含哪些超参数？</h3><p>　　 通常可以将超参数分为三类：网络参数、优化参数、正则化参数。</p>
+<p>​    网络参数：可指网络层与层之间的交互方式（相加、相乘或者串接等）、卷积核数量和卷积核尺寸、网络层数（也称深度）和激活函数等。</p>
+<p>​    优化参数：一般指学习率（learning rate）、批样本数量（batch size）、不同优化器的参数以及部分损失函数的可调参数。</p>
+<p>​    正则化：权重衰减系数，丢弃法比率（dropout）</p>
+<h3 id="14-2-3-为什么要进行超参数调优？"><a href="#14-2-3-为什么要进行超参数调优？" class="headerlink" title="14.2.3 为什么要进行超参数调优？"></a>14.2.3 为什么要进行超参数调优？</h3><p>​    本质上，这是模型优化寻找最优解和正则项之间的关系。网络模型优化调整的目的是为了寻找到全局最优解（或者相比更好的局部最优解），而正则项又希望模型尽量拟合到最优。两者通常情况下，存在一定的对立，但两者的目标是一致的，即最小化期望风险。模型优化希望最小化经验风险，而容易陷入过拟合，正则项用来约束模型复杂度。所以如何平衡两者之间的关系，得到最优或者较优的解就是超参数调整优化的目的。</p>
+<h3 id="14-2-4-超参数的重要性顺序"><a href="#14-2-4-超参数的重要性顺序" class="headerlink" title="14.2.4 超参数的重要性顺序"></a>14.2.4 超参数的重要性顺序</h3><ul>
+<li><p>首先， <strong>学习率，损失函数上的可调参数</strong>。在网络参数、优化参数、正则化参数中最重要的超参数可能就是学习率了。学习率直接控制着训练中网络梯度更新的量级，直接影响着模型的<strong>有效容限能力</strong>；损失函数上的可调参数，这些参数通常情况下需要结合实际的损失函数来调整，大部分情况下这些参数也能很直接的影响到模型的的有效容限能力。这些损失一般可分成三类，第一类辅助损失结合常见的损失函数，起到辅助优化特征表达的作用。例如度量学习中的Center loss，通常结合交叉熵损失伴随一个权重完成一些特定的任务。这种情况下一般建议辅助损失值不高于或者不低于交叉熵损失值的两个数量级；第二类，多任务模型的多个损失函数，每个损失函数之间或独立或相关，用于各自任务，这种情况取决于任务之间本身的相关性，目前笔者并没有一个普适的经验由于提供参考；第三类，独立损失函数，这类损失通常会在特定的任务有显著性的效果。例如RetinaNet中的focal loss，其中的参数γ，α，对最终的效果会产生较大的影响。这类损失通常论文中会给出特定的建议值。</p>
+</li>
+<li><p>其次，<strong>批样本数量，动量优化器（Gradient Descent with Momentum）的动量参数<em>β</em></strong>。批样本决定了数量梯度下降的方向。过小的批数量，极端情况下，例如batch size为1，即每个样本都去修正一次梯度方向，样本之间的差异越大越难以收敛。若网络中存在批归一化（batchnorm），batch size过小则更难以收敛，甚至垮掉。这是因为数据样本越少，统计量越不具有代表性，噪声也相应的增加。而过大的batch size，会使得梯度方向基本稳定，容易陷入局部最优解，降低精度。一般参考范围会取在[1:1024]之间，当然这个不是绝对的，需要结合具体场景和样本情况；动量衰减参数<em>β</em>是计算梯度的指数加权平均数，并利用该值来更新参数，设置为 0.9 是一个常见且效果不错的选择；</p>
+</li>
+</ul>
+<ul>
+<li>最后，<strong>Adam优化器的超参数、权重衰减系数、丢弃法比率（dropout）和网络参数</strong>。在这里说明下，这些参数重要性放在最后<strong>并不等价于这些参数不重要</strong>。而是表示这些参数在大部分实践中<strong>不建议过多尝试</strong>，例如Adam优化器中的<em>β1，β2，ϵ</em>，常设为 0.9、0.999、10−8就会有不错的表现。权重衰减系数通常会有个建议值，例如0.0005 ，使用建议值即可，不必过多尝试。dropout通常会在全连接层之间使用防止过拟合，建议比率控制在[0.2,0.5]之间。使用dropout时需要特别注意两点：一、在RNN中，如果直接放在memory cell中,循环会放大噪声，扰乱学习。一般会建议放在输入和输出层；二、不建议dropout后直接跟上batchnorm，dropout很可能影响batchnorm计算统计量，导致方差偏移，这种情况下会使得推理阶段出现模型完全垮掉的极端情况；网络参数通常也属于超参数的范围内，通常情况下增加网络层数能增加模型的容限能力，但模型真正有效的容限能力还和样本数量和质量、层之间的关系等有关，所以一般情况下会选择先固定网络层数，调优到一定阶段或者有大量的硬件资源支持可以在网络深度上进行进一步调整。</li>
+</ul>
+<h3 id="14-2-5-部分超参数如何影响模型性能？"><a href="#14-2-5-部分超参数如何影响模型性能？" class="headerlink" title="14.2.5 部分超参数如何影响模型性能？"></a>14.2.5 部分超参数如何影响模型性能？</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">超参数</th>
+<th style="text-align:center">如何影响模型容量</th>
+<th style="text-align:center">原因</th>
+<th style="text-align:center">注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">学习率</td>
+<td style="text-align:center">调至最优，提升有效容量</td>
+<td style="text-align:center">过高或者过低的学习率，都会由于优化失败而导致降低模型有效容限</td>
+<td style="text-align:center">学习率最优点，在训练的不同时间点都可能变化，所以需要一套有效的学习率衰减策略</td>
+</tr>
+<tr>
+<td style="text-align:center">损失函数部分超参数</td>
+<td style="text-align:center">调至最优，提升有效容量</td>
+<td style="text-align:center">损失函数超参数大部分情况都会可能影响优化，不合适的超参数会使即便是对目标优化非常合适的损失函数同样难以优化模型，降低模型有效容限。</td>
+<td style="text-align:center">对于部分损失函数超参数其变化会对结果十分敏感，而有些则并不会太影响。在调整时，建议参考论文的推荐值，并在该推荐值数量级上进行最大最小值调试该参数对结果的影响。</td>
+</tr>
+<tr>
+<td style="text-align:center">批样本数量</td>
+<td style="text-align:center">过大过小，容易降低有效容量</td>
+<td style="text-align:center">大部分情况下，选择适合自身硬件容量的批样本数量，并不会对模型容限造成。</td>
+<td style="text-align:center">在一些特殊的目标函数的设计中，如何选择样本是很可能影响到模型的有效容限的，例如度量学习（metric learning）中的N-pair loss。这类损失因为需要样本的多样性，可能会依赖于批样本数量。</td>
+</tr>
+<tr>
+<td style="text-align:center">丢弃法</td>
+<td style="text-align:center">比率降低会提升模型的容量</td>
+<td style="text-align:center">较少的丢弃参数意味着模型参数量的提升，参数间适应性提升，模型容量提升，但不一定能提升模型有效容限</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">权重衰减系数</td>
+<td style="text-align:center">调至最优，提升有效容量</td>
+<td style="text-align:center">权重衰减可以有效的起到限制参数变化的幅度，起到一定的正则作用</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">优化器动量</td>
+<td style="text-align:center">调至最优，可能提升有效容量</td>
+<td style="text-align:center">动量参数通常用来加快训练，同时更容易跳出极值点，避免陷入局部最优解。</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">模型深度</td>
+<td style="text-align:center">同条件下，深度增加，模型容量提升</td>
+<td style="text-align:center">同条件，下增加深度意味着模型具有更多的参数，更强的拟合能力。</td>
+<td style="text-align:center">同条件下，深度越深意味着参数越多，需要的时间和硬件资源也越高。</td>
+</tr>
+<tr>
+<td style="text-align:center">卷积核尺寸</td>
+<td style="text-align:center">尺寸增加，模型容量提升</td>
+<td style="text-align:center">增加卷积核尺寸意味着参数量的增加，同条件下，模型参数也相应的增加。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="14-2-6-部分超参数合适的范围"><a href="#14-2-6-部分超参数合适的范围" class="headerlink" title="14.2.6 部分超参数合适的范围"></a>14.2.6 部分超参数合适的范围</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">超参数</th>
+<th style="text-align:center">建议范围</th>
+<th style="text-align:center">注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">初始学习率</td>
+<td style="text-align:center">SGD: [1e-2, 1e-1]<br>momentum: [1e-3, 1e-2]<br>Adagrad: [1e-3, 1e-2]<br>Adadelta: [1e-2, 1e-1]<br>RMSprop: [1e-3, 1e-2]<br>Adam: [1e-3, 1e-2]<br>Adamax: [1e-3, 1e-2]<br>Nadam: [1e-3, 1e-2]</td>
+<td style="text-align:center">这些范围通常是指从头开始训练的情况。若是微调，初始学习率可在降低一到两个数量级。</td>
+</tr>
+<tr>
+<td style="text-align:center">损失函数部分超参数</td>
+<td style="text-align:center">多个损失函数之间，损失值之间尽量相近，不建议超过或者低于两个数量级</td>
+<td style="text-align:center">这是指多个损失组合的情况，不一定完全正确。单个损失超参数需结合实际情况。</td>
+</tr>
+<tr>
+<td style="text-align:center">批样本数量</td>
+<td style="text-align:center">[1:1024]</td>
+<td style="text-align:center">当批样本数量过大(大于6000)或者等于1时，需要注意学习策略或者内部归一化方式的调整。</td>
+</tr>
+<tr>
+<td style="text-align:center">丢弃法比率</td>
+<td style="text-align:center">[0, 0.5]</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">权重衰减系数</td>
+<td style="text-align:center">[0, 1e-4]</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">卷积核尺寸</td>
+<td style="text-align:center">[7x7],[5x5],[3x3],[1x1], [7x1,1x7]</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="14-3-网络训练中的超参调整策略"><a href="#14-3-网络训练中的超参调整策略" class="headerlink" title="14.3 网络训练中的超参调整策略"></a>14.3 网络训练中的超参调整策略</h2><h3 id="14-3-1-如何调试模型？"><a href="#14-3-1-如何调试模型？" class="headerlink" title="14.3.1 如何调试模型？"></a>14.3.1 如何调试模型？</h3><p>在讨论如何调试模型之前，我们先来纠正一个误区。通常理解如何调试模型的时候，我们想到一系列优秀的神经网络模型以及调试技巧。但这里需要指出的是数据才是模型的根本，如果有一批质量优秀的数据，或者说你能将数据质量处理的很好的时候，往往比挑选或者设计模型的收益来的更大。那在这之后才是模型的设计和挑选以及训练技巧上的事情。</p>
+<p>1、探索和清洗数据。探索数据集是设计算法之前最为重要的一步，以图像分类为例，我们需要重点知道给定的数据集样本类别和各类别样本数量是否平衡，图像之间是否存在跨域问题（例如网上爬取的图像通常质量各异，存在噪声）。若是类别数远远超过类别样本数（比如类别10000，每个类别却只有10张图像），那通常的方法可能效果并不显著，这时候few-shot learning或者对数据集做进一步增强可能是你比较不错的选择。再如目标检测，待检测目标在数据集中的尺度范围是对检测器的性能有很大影响的部分。因此重点是检测大目标还是小目标、目标是否密集完全取决于数据集本身。所以，探索和进一步清洗数据集一直都是深度学习中最重要的一步。这是很多新手通常会忽略的一点。</p>
+<p>2、探索模型结果。探索模型的结果，通常是需要对模型在验证集上的性能进行进一步的分析，这是如何进一步提升模型性能很重要的步骤。将模型在训练集和验证集都进行结果的验证和可视化，可直观的分析出模型是否存在较大偏差以及结果的正确性。以图像分类为例，若类别间样本数量很不平衡时，我们需要重点关注少样本类别在验证集的结果是否和训练集的出入较大，对出错类别可进一步进行模型数值分析以及可视化结果分析，进一步确认模型的行为。</p>
+<p>3、监控训练和验证误差。首先很多情况下，我们忽略代码的规范性和算法撰写正确性验证，这点上容易产生致命的影响。在训练和验证都存在问题时，首先请确认自己的代码是否正确。其次，根据训练和验证误差进一步追踪模型的拟合状态。若训练数据集很小，此时监控误差则显得格外重要。确定了模型的拟合状态对进一步调整学习率的策略的选择或者其他有效超参数的选择则会更得心应手。</p>
+<p>4、反向传播数值的计算，这种情况通常适合自己设计一个新操作的情况。目前大部分流行框架都已包含自动求导部分，但并不一定是完全符合你的要求的。验证求导是否正确的方式是比较自动求导的结果和有限差分计算结果是否一致。所谓有限差分即导数的定义，使用一个极小的值近似导数。</p>
+<script type="math/tex; mode=display">
+f^{'}(x_0) = \lim_{n\rightarrow0}\frac{\Delta y}{\Delta x} = \lim_{n\rightarrow0}\frac{f(x_0+\Delta x -f(x_0))}{\Delta x}</script><h3 id="14-3-2-为什么要做学习率调整"><a href="#14-3-2-为什么要做学习率调整" class="headerlink" title="14.3.2 为什么要做学习率调整?"></a>14.3.2 为什么要做学习率调整?</h3><p>​    学习率可以说是模型训练最为重要的超参数。通常情况下，一个或者一组优秀的学习率既能加速模型的训练，又能得到一个较优甚至最优的精度。过大或者过小的学习率会直接影响到模型的收敛。我们知道，当模型训练到一定程度的时候，损失将不再减少，这时候模型的一阶梯度接近零，对应Hessian 矩阵通常是两种情况，一、正定，即所有特征值均为正，此时通常可以得到一个局部极小值，若这个局部极小值接近全局最小则模型已经能得到不错的性能了，但若差距很大，则模型性能还有待于提升，通常情况下后者在训练初最常见。二，特征值有正有负，此时模型很可能陷入了鞍点，若陷入鞍点，模型性能表现就很差。以上两种情况在训练初期以及中期，此时若仍然以固定的学习率，会使模型陷入左右来回的震荡或者鞍点，无法继续优化。所以，学习率衰减或者增大能帮助模型有效的减少震荡或者逃离鞍点。</p>
+<h3 id="14-3-3-学习率调整策略有哪些？"><a href="#14-3-3-学习率调整策略有哪些？" class="headerlink" title="14.3.3 学习率调整策略有哪些？"></a>14.3.3 学习率调整策略有哪些？</h3><p>通常情况下，大部分学习率调整策略都是衰减学习率，但有时若增大学习率也同样起到奇效。这里结合TensorFlow的内置方法来举例。</p>
+<p>1、<strong>exponential_decay</strong>和<strong>natural_exp_decay</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exponential_decay(learning_rate, global_step, decay_steps, decay_rate,</span><br><span class="line">                   staircase=<span class="literal">False</span>, name=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">natural_exp_decay(learning_rate, global_step, decay_steps, decay_rate,</span><br><span class="line">                   staircase=<span class="literal">False</span>, name=<span class="literal">None</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>指数衰减是最常用的衰减方式，这种方式简单直接，在训练初期衰减较大利于收敛，在后期衰减较小利于精调。以上两种均为指数衰减，区别在于后者使用以自然指数下降。</p>
+<p><img src="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\指数衰减.jpeg" class="lazyload" data-srcset="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\指数衰减.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="./"></p>
+<p>2、<strong>piecewise_constant</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">piecewise_constant(x, boundaries, values, name=<span class="literal">None</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>分段设置学习率法，跟指数型类似，区别在于每个阶段的衰减并不是按指数调整。可在不同阶段设置手动不同的学习率。这种学习率重点在有利于精调。</p>
+<p>3、<strong>polynomial_decay</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">polynomial_decay(learning_rate, global_step, decay_steps,</span><br><span class="line">                  end_learning_rate=<span class="number">0.0001</span>, power=<span class="number">1.0</span>,</span><br><span class="line">                  cycle=<span class="literal">False</span>, name=<span class="literal">None</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>多项式衰减，计算如下：</p>
+<script type="math/tex; mode=display">
+global setp = min(global step, decay steps)</script><script type="math/tex; mode=display">
+lr_{decayed} = (lr-lr_{end})*(1-{globalstep\over decaysteps})^{power} +lr_{end}</script><p>有别于上述两种，多项式衰减则是在每一步迭代上都会调整学习率。主要看Power参数，若Power为1，则是下图中的红色直线；若power小于1，则是开1/power次方，为蓝色线；绿色线为指数，power大于1。</p>
+<p><img src="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\多项式衰减.jpeg" class="lazyload" data-srcset="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\多项式衰减.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>此外，需要注意的是参数cycle，cycle对应的是一种周期循环调整的方式。这种cycle策略主要目的在后期防止在一个局部极小值震荡，若跳出该区域或许能得到更有的结果。这里说明cycle的方式不止可以在多项式中应用，可配合类似的周期函数进行衰减，如下图。</p>
+<p><img src="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\cycle衰减.jpeg" class="lazyload" data-srcset="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\cycle衰减.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>4、<strong>inverse_time_decay</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">inverse_time_decay(learning_rate, global_step, decay_steps, decay_rate,</span><br><span class="line">                   staircase=<span class="literal">False</span>, name=<span class="literal">None</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>逆时衰减，这种方式和指数型类似。如图，<img src="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\逆时衰减.jpeg" class="lazyload" data-srcset="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\逆时衰减.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>5、<strong>cosine_decay</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cosine_decay(learning_rate, global_step, decay_steps, alpha=<span class="number">0.0</span>,</span><br><span class="line">                 name=<span class="literal">None</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>余弦衰减，即按余弦函数的方式衰减学习率，如图</p>
+<p><img src="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\余弦衰减.jpeg" class="lazyload" data-srcset="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\余弦衰减.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>6、<strong>cosine_decay_restarts</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cosine_decay_restarts(learning_rate, global_step, first_decay_steps,</span><br><span class="line">                           t_mul=<span class="number">2.0</span>, m_mul=<span class="number">1.0</span>, alpha=<span class="number">0.0</span>, name=<span class="literal">None</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>余弦衰减，即余弦版本的cycle策略，作用与多项式衰减中的cycle相同。区别在于余弦重启衰减会重新回到初始学习率，拉长周期，而多项式版本则会逐周期衰减。</p>
+<p><img src="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\余弦cycle衰减.jpeg" class="lazyload" data-srcset="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\余弦cycle衰减.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>7、<strong>linear_cosine_decay</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">linear_cosine_decay(learning_rate, global_step, decay_steps,</span><br><span class="line">                        num_periods=<span class="number">0.5</span>, alpha=<span class="number">0.0</span>, beta=<span class="number">0.001</span>,</span><br><span class="line">                        name=<span class="literal">None</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>线性余弦衰减，主要应用于增强学习领域。</p>
+<p><img src="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\线性余弦衰减.jpeg" class="lazyload" data-srcset="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\线性余弦衰减.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>8、<strong>noisy_linear_cosine_decay</strong></p>
+<p>噪声线性余弦衰减，即在线性余弦衰减中加入随机噪声，增大寻优的随机性。</p>
+<p><img src="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\噪声线性余弦衰减.jpeg" class="lazyload" data-srcset="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\噪声线性余弦衰减.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<h3 id="14-3-4-极端批样本数量下，如何训练网络？"><a href="#14-3-4-极端批样本数量下，如何训练网络？" class="headerlink" title="14.3.4 极端批样本数量下，如何训练网络？"></a>14.3.4 极端批样本数量下，如何训练网络？</h3><p>​    极端批样本情况一般是指batch size为1或者batch size在6000以上的情况。这两种情况，在使用不合理的情况下都会导致模型最终性能无法达到最优甚至是崩溃的情况。</p>
+<p>​    在目标检测、分割或者3D图像等输入图像尺寸较大的场景，通常batch size 会非常小。而在14.2.4中，我们已经讲到这种情况会导致梯度的不稳定以及batchnorm统计的不准确。针对梯度不稳定的问题，通常不会太致命，若训练中发现梯度不稳定导致性能的严重降低时可采用累计梯度的策略，即每次计算完不反向更新，而是累计多次的误差后进行一次更新，这是一种在内存有限情况下实现有效梯度更新的一个策略。batch size过小通常对batchnorm的影响是最大的，若网络模型中存在batchnorm，batch size若只为1或者2时会对训练结果产生非常大的影响。这时通常有两种策略，一、若模型使用了预训练网络，可冻结预训练网络中batchnorm的模型参数，有效降低batch size引起的统计量变化的影响。二、在网络不是过深或者过于复杂时可直接移除batchnorm或者使用groupnorm代替batchnorm，前者不多阐释，后者是有FAIR提出的一种用于减少batch对batchnorm影响，其主要策略是先将特征在通道上进行分组，然后在组内进行归一化。即归一化操作上完全与batch size无关。这种groupnorm的策略被证实在极小批量网络训练上能达到较优秀的性能。当然这里也引入里group这个超参数，一般情况下建议不宜取group为1或者各通道单独为组的group数量，可结合实际网络稍加调试。</p>
+<p>​    为了降低训练时间的成本，多机多卡的分布式系统通常会使用超大的batch size进行网络训练。同样的在14.2.4中，我们提到了超大batch size会带来梯度方向过于一致而导致的精度大幅度降低的问题。这时通常可采用层自适应速率缩放（LARS）算法。从理论认知上将，batch size增大会减少反向传播的梯度更新次数，但为了达到相同的模型效果，需要增大学习率。但学习率一旦增大，又会引起模型的不收敛。为了解决这一矛盾，LARS算法就在各层上自适应的计算一个本地学习率用于更新本层的参数，这样能有效的提升训练的稳定性。目前利用LARS算法，腾讯公司使用65536的超大batch size能将ResNet50在ImageNet在4分钟完成训练，而谷歌使用32768的batch size使用TPU能将该时间缩短至2分钟。</p>
+<h2 id="14-4-合理使用预训练网络"><a href="#14-4-合理使用预训练网络" class="headerlink" title="14.4 合理使用预训练网络"></a>14.4 合理使用预训练网络</h2><h3 id="14-4-1-什么是微调（fine-tune）"><a href="#14-4-1-什么是微调（fine-tune）" class="headerlink" title="14.4.1 什么是微调（fine-tune）"></a>14.4.1 什么是微调（fine-tune）</h3><p>​    微调（fine-tune），顾名思义指稍微调整参数即可得到优秀的性能，是迁移学习的一种实现方式。微调和从头训练（train from scratch）的本质区别在于模型参数的初始化，train from scratch通常指对网络各类参数进行随机初始化（当然随机初始化也存在一定技巧），随机初始化模型通常不具有任何预测能力，通常需要大量的数据或者特定域的数据进行从零开始的训练，这样需要训练到优秀的模型通常是稍困难的。而微调的网络，网络各类参数已经在其他数据集（例如ImageNet数据集）完成较好调整的，具备了较优秀的表达能力。因此，我们只需要以较小的学习速率在自己所需的数据集领域进行学习即可得到较为优秀的模型。微调通常情况下，无须再重新设计网络结构，预训练模型提供了优秀的结构，只需稍微修改部分层即可。在小数据集上，通常微调的效果比从头训练要好很多，原因在于数据量较小的前提下，训练更多参数容易导致过度拟合。</p>
+<h3 id="14-4-2-微调有哪些不同方法？"><a href="#14-4-2-微调有哪些不同方法？" class="headerlink" title="14.4.2 微调有哪些不同方法？"></a>14.4.2 微调有哪些不同方法？</h3><p>​    以图像分类为例，通常情况下由于不同数据集需要的类别数不同，我们需要修改网络的输出顶层。这种情况下有两种微调方式：</p>
+<ul>
+<li><p>不冻结网络模型的任何层，对最后的改动层使用较大的学习率，对未改动层以较小的学习率进行训练全模型训练，进行多轮训练即可。即一步完成训练。</p>
+</li>
+<li><p>冻结除了顶部改动层以外的所有层参数，即不对冻结部分的层进行参数训练更新，进行若干轮的微调训练后，放开顶部层以下的若干层或者全部放开所有层的参数，再次进行若干轮训练即可。即分多步训练。</p>
+<p>以上两种都属于微调。目前由于存在大量优秀的预训练模型，如何确定哪个模型适合自己的任务并能得到最佳性能需要花大量的时间探索。此时，上述的前者是种不错训练方式，你无须进行过多分步的操作。而当探索到一个比较适合的模型时，你不妨可以再次重新尝试下以第二种方式进行训练，或许能得到相比于前者稍高些的性能，因为小数据集上调整过多的参数过拟合的机率也会增大，当然这并不是绝对的。</p>
+</li>
+</ul>
+<h3 id="14-4-3-微调先冻结底层，训练顶层的原因？"><a href="#14-4-3-微调先冻结底层，训练顶层的原因？" class="headerlink" title="14.4.3 微调先冻结底层，训练顶层的原因？"></a>14.4.3 微调先冻结底层，训练顶层的原因？</h3><p>​    14.12中第二种冻结多步训练的方式。首先冻结除了顶部改动层以外的所有层参数，对顶层进行训练，这个过程可以理解为顶层的域适应训练，主要用来训练适应模型的现有特征空间，防止顶层糟糕的初始化，对已经具备一定表达能力的层的干扰和破坏，影响最终的性能。之后，在很多深度学习框架教程中会使用放开顶层往下一半的层数，继续进行微调。这样的好处在于越底层的特征通常是越通用的特征，越往上其整体的高层次语义越完备，这通过感受野很容易理解。所以，若预训练模型的数据和微调训练的数据语义差异越大（例如ImageNet的预模型用于医学图像的训练），那越往顶层的特征语义差异就越大，因此通常也需要进行相应的调整。</p>
+<h3 id="14-4-4-不同的数据集特性下如何微调？"><a href="#14-4-4-不同的数据集特性下如何微调？" class="headerlink" title="14.4.4 不同的数据集特性下如何微调？"></a>14.4.4 不同的数据集特性下如何微调？</h3><ul>
+<li>数据集数据量少，数据和原数据集类似。这是通常做法只需修改最后的输出层，训练即可，训练过多参数容易过拟合。</li>
+<li>数据集数据量少，数据和原数据集差异较大。由于数据差异较大，可以在完成输出顶层的微调后，微调顶层往下一半的层数，进行微调。</li>
+<li>数据集数据量大，数据与原数据集差异较大。这种情况下，通常已经不需要用预训练模型进行微调，通常直接重新训练即可。</li>
+<li>数据集数据量大，数据与原数据类似。这时预训练模型的参数是个很好的初始化，可利用预训练模型放开所有层以较小的学习率微调即可。</li>
+</ul>
+<h3 id="14-4-4-目标检测中使用预训练模型的优劣？"><a href="#14-4-4-目标检测中使用预训练模型的优劣？" class="headerlink" title="14.4.4 目标检测中使用预训练模型的优劣？"></a>14.4.4 目标检测中使用预训练模型的优劣？</h3><p>​    目标检测中无论是一阶段的YOLO、SSD或者RetinaNet 还是二阶段的Faster R-CNN、R-FCN 和 FPN都是基于ImageNet上预训练好的分类模型。</p>
+<p>​    优势在于：</p>
+<p>​    1、正如大部分微调的情况一样，使用预训练网络已拥有优秀的语义特征，能有效的加快训练速度；</p>
+<p>​    2、其次，对于大部分二阶段的模型来说，并未实现严格意义上的完全端对端的训练，所以使用预训练模型能直接提取到语义特征，能使两个阶段的网络更容易实现模型的优化。</p>
+<p>​    劣势在于，分类模型和检测模型之间仍然存在一定任务上的差异：</p>
+<p>​    1、分类模型大部分训练于单目标数据，对同时进行多目标的捕捉能力稍弱，且不关注目标的位置，在一定程度上让模型损失部分空间信息，这对检测模型通常是不利的；</p>
+<p>​    2、域适应问题，若预训练模型（ImageNet）和实际检测器的使用场景（医学图像，卫星图像）差异较大时，性能会受到影响；</p>
+<p>​    3、使用预训练模型就意味着难以自由改变网络结构和参数限制了应用场合。</p>
+<h3 id="14-4-5-目标检测中如何从零开始训练-train-from-scratch-？"><a href="#14-4-5-目标检测中如何从零开始训练-train-from-scratch-？" class="headerlink" title="14.4.5 目标检测中如何从零开始训练(train from scratch)？"></a>14.4.5 目标检测中如何从零开始训练(train from scratch)？</h3><p>​    结合FAIR相关的研究，我们可以了解目标检测和其他任务从零训练模型一样，只要拥有足够的数据以及充分而有效的训练，同样能训练出不亚于利用预训练模型的检测器。这里我们提供如下几点建议：</p>
+<p>​    1、数据集不大时，同样需要进行数据集增强。</p>
+<p>​    2、预训练模型拥有更好的初始化，train from scratch需要更多的迭代次数以及时间训练和优化检测器。而二阶段模型由于并不是严格的端对端训练，此时可能需要更多的迭代次数以及时间，而一阶段检测模型训练会相对更容易些（例如DSOD以ScratchDet及）。</p>
+<p>​    3、目标检测中train from scratch最大的问题还是batch size过小。所以可采取的策略是增加GPU使用异步batchnorm增大batch size，若条件限制无法使用更多GPU时，可使用groupnorm代替batchnorm</p>
+<p>​    4、由于分类模型存在对多目标的捕捉能力弱以及对物体空间位置信息不敏感等问题，可借鉴DetNet训练一个专属于目标检测的模型网络，增强对多目标、尺度和位置拥有更强的适应性。</p>
+<h2 id="14-5-如何改善-GAN-的性能"><a href="#14-5-如何改善-GAN-的性能" class="headerlink" title="14.5 如何改善 GAN 的性能"></a>14.5 如何改善 GAN 的性能</h2><p>优化GAN性能通常需要在如下几个方面进行</p>
+<ul>
+<li>设计或选择更适合目的代价函数。</li>
+<li>添加额外的惩罚。</li>
+<li>避免判别器过度自信和生成器过度拟合。</li>
+<li>更好的优化模型的方法。</li>
+<li>添加标签明确优化目标。</li>
+</ul>
+<p>GAN常用训练技巧</p>
+<ul>
+<li><p>输入规范化到（-1，1）之间，最后一层的激活函数使用tanh（BEGAN除外）</p>
+</li>
+<li><p>使用wassertein GAN的损失函数，</p>
+</li>
+<li><p>如果有标签数据的话，尽量使用标签，也有人提出使用反转标签效果很好，另外使用标签平滑，单边标签平滑或者双边标签平滑</p>
+</li>
+<li><p>使用mini-batch norm， 如果不用batch norm 可以使用instance norm 或者weight norm</p>
+</li>
+<li><p>避免使用RELU和pooling层，减少稀疏梯度的可能性，可以使用leakrelu激活函数</p>
+</li>
+<li><p>优化器尽量选择ADAM，学习率不要设置太大，初始1e-4可以参考，另外可以随着训练进行不断缩小学习率，</p>
+</li>
+<li><p>给D的网络层增加高斯噪声，相当于是一种正则</p>
+<h2 id="14-6-AutoML"><a href="#14-6-AutoML" class="headerlink" title="14.6 AutoML"></a>14.6 AutoML</h2></li>
+</ul>
+<h3 id="14-6-1-什么是AutoML？"><a href="#14-6-1-什么是AutoML？" class="headerlink" title="14.6.1 什么是AutoML？"></a>14.6.1 什么是AutoML？</h3><p>​    目前一个优秀的机器学习和深度学习模型，离不开这几个方面：</p>
+<p>​    一、优秀的数据预处理；</p>
+<p>​    二、合适的模型结构和功能；</p>
+<p>​    三、优秀的训练策略和超参数；</p>
+<p>​    四、合适的后处理操作；</p>
+<p>​    五、严格的结果分析。</p>
+<p>​    这几方面都对最终的结果有着举足轻重的影响，这也是目前的数据工程师和学者们的主要工作。但由于这每一方面都十分繁琐，尤其是在构建模型和训练模型上。而大部分情况下，这些工作有无须过深专业知识就能使用起来。所以AutoML主要的作用就是来帮助实现高效的模型构建和超参数调整。例如深度学习网络的架构搜索、超参数的重要性分析等等。当然AutoML并不简单的进行暴力或者随机的搜索，其仍然需要机器学习方面的知识，例如贝叶斯优化、强化学习、元学习以及迁移学习等等。目前也有些不错的AutoML工具包，例如Alex Honchar的Hyperopt、微软的NNI、Autokeras等。</p>
+<h3 id="14-6-2-自动化超参数搜索方法有哪些？"><a href="#14-6-2-自动化超参数搜索方法有哪些？" class="headerlink" title="14.6.2 自动化超参数搜索方法有哪些？"></a>14.6.2 自动化超参数搜索方法有哪些？</h3><p>​    目前自动化搜索主要包含网格搜索，随机搜索，基于模型的超参优化</p>
+<p>​    网格搜索：</p>
+<p>​        通常当超参数量较少的时候，可以使用网格搜索法。即列出每个超参数的大致候选集合。利用这些集合        进行逐项组合优化。在条件允许的情况下，重复进行网格搜索会当优秀，当然每次重复需要根据上一步得到的最优参数组合，进行进一步的细粒度的调整。网格搜索最大的问题就在于计算时间会随着超参数的数量指数级的增长。</p>
+<p>​    随机搜索：</p>
+<p>​        随机搜索，是一种用来替代网格搜索的搜索方式。随机搜索有别于网格搜索的一点在于，我们不需要设定一个离散的超参数集合，而是对每个超参数定义一个分布函数来生成随机超参数。随机搜索相比于网格搜索在一些不敏感超参上拥有明显优势。例如网格搜索对于批样本数量（batch size），在[16,32,64]这些范围内进行逐项调试，这样的调试显然收益更低下。当然随机搜索也可以进行细粒度范围内的重复的搜索优化。</p>
+<p><img src="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\14.14.png" class="lazyload" data-srcset="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\14.14.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>​    基于模型的超参优化：</p>
+<p>​        有别于上述两种的搜索策略，基于模型的超参调优问题转化为了优化问题。直觉上会考虑是否进行一个可导建模，然后利用梯度下降进行优化。但不幸的是我们的超参数通常情况下是离散的，而且其计算代价依旧很高。</p>
+<p>​        基于模型的搜索算法，最常见的就是贝叶斯超参优化。有别于的网格搜索和随机搜索独立于前几次搜索结果的搜索，贝叶斯则是利用历史的搜索结果进行优化搜索。其主要有四部分组成，1.目标函数，大部分情况下就是模型验证集上的损失。2、搜索空间，即各类待搜索的超参数。3、优化策略，建立的概率模型和选择超参数的方式。4、历史的搜索结果。首先对搜索空间进行一个先验性的假设猜想，即假设一种选择超参的方式，然后不断的优化更新概率模型，最终的目标是找到验证集上误差最小的一组超参数。</p>
+<h3 id="14-6-3-什么是神经网络架构搜索（NAS）"><a href="#14-6-3-什么是神经网络架构搜索（NAS）" class="headerlink" title="14.6.3 什么是神经网络架构搜索（NAS）"></a>14.6.3 什么是神经网络架构搜索（NAS）</h3><p>2015至2017年间，是CNN网络设计最兴盛的阶段，大多都是由学者人工设计的网络结构。这个过程通常会很繁琐。其主要原因在于对不同模块组件的组成通常是个黑盒优化的问题，此外，在不同结构超参数以及训练超参数的选择优化上非凸优化问题，或者是个混合优化问题，既有离散空间又有连续空间。NAS（Neural Architecture Search）的出现就是为了解决如何通过机器策略和自动化的方式设计出优秀高效的网络。而这种策略通常不是统一的标准，不同的网络结合实际的需求通常会有不同的设计，比如移动端的模型会在效率和精度之间做平衡。目前，NAS也是AUTOML中最重要的部分。NAS通常会分为三个方面，搜索空间（在哪搜索），搜索策略（如何搜索）及评价预估。</p>
+<ul>
+<li><p>搜索空间，即在哪搜索，定义了优化问题所需变量。不同规模的搜索空间的变量其对于的难度也是不一样的。早期由于网络结构以及层数相对比较简单，参数量较少，因此会更多的使用遗传算法等进化算法对网络的超参数和权重进行优化。深度学习发展到目前，模型网络结构越来越复杂，参数量级越来越庞大，这些进化算法已经无法继续使用。但若我们先验给定一些网络结构和超参数，模型的性能已经被限制在给定的空间，此时搜索的空间已变得有限，所以只需对复杂模型的架构参数和对应的超参数进行优化即可。</p>
+</li>
+<li><p>搜索策略， 即如何搜索，定义了如何快速、准确找到最优的网络结构参数配置的策略。常见的搜索方法包括：随机搜索、贝叶斯优化以及基于模型的搜索算法。其中主要代表为2017 年谷歌大脑的使用强化学习的搜索方法。</p>
+</li>
+<li><p>评价预估，定义了如何高效对搜索的评估策略。深度学习中，数据规模往往是庞大的，模型要在如此庞大的数据规模上进行搜索，这无疑是非常耗时的，对优化也会造成非常大的困难，所以需要一些高效的策略做近似的评估。 这里一般会有如下三种思路：</p>
+<p>一、使用些低保真的训练集来训练模型。低保真在实际中可以用不同的理解，比如较少的迭代次数，用一小部分数据集或者保证结构的同时减少通道数等。这些方法都可以在测试优化结构时大大降低计算时间，当然也会存在一定的偏差。但架构搜索从来并不是要一组固定的参数，而是一种优秀的模型结构。最终选取时，只需在较优秀的几组结构中进行全集训练，进行择优选取即可。</p>
+<p>二、使用代理模型。除了低保真的训练方式外，学者们提出了一种叫做代理模型的回归模型，采用例如插值等策略对已知的一些参数范围进行预测，目的是为了用尽可能少的点预测到最佳的结果。</p>
+<p>三、参数级别的迁移。例如知识蒸馏等。用已训练好的模型权重参数对目标问题搜索，通常会让搜索拥有一个优秀的起点。由于积累了大量的历史寻优数据，对新问题的寻优将会起到很大的帮助。</p>
+</li>
+</ul>
+<h3 id="14-6-4-NASNet的设计策略"><a href="#14-6-4-NASNet的设计策略" class="headerlink" title="14.6.4 NASNet的设计策略"></a>14.6.4 NASNet的设计策略</h3><p>NASNet是最早由google brain 通过网络架构搜索策略搜索并成功训练ImageNet的网络，其性能超越所有手动设计的网络模型。关于NASNet的搜索策略，首先需要参考google brain发表在ICLR2017的论文《Neural Architecture Search with Reinforcement Learning》。该论文是最早成功通过架构搜索策略在cifar-10数据集上取得比较不错效果的工作。NASNet很大程度上是沿用该搜索框架的设计思想。</p>
+<p>NASNet的核心思想是利用强化学习对搜索空间内的结构进行反馈探索。架构搜索图如下，定义了一个以RNN为核心的搜索控制器。在搜索空间以概率p对模型进行搜索采样。得到网络模型A后，对该模型进行训练，待模型收敛得到设定的准确率R后，将梯度传递给控制器RNN进行梯度更新。</p>
+<p><img src="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\NAS搜索策略.png" class="lazyload" data-srcset="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\NAS搜索策略.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>​                                    架构搜索策略流程</p>
+<p>RNN控制器会对卷积层的滤波器的尺寸、数量以及滑动间隔进行预测。每次预测的结果都会作为下一级的输入，档层数达到设定的阈值时，会停止预测。而这个阈值也会随着训练的进行而增加。这里的控制器之预测了卷积，并没有对例如inception系列的分支结构或者ResNet的跳级结构等进行搜索。所以，控制器需要进一步扩展到预测这些跳级结构上，这样搜索空间相应的也会增大。为了预测这些结构，RNN控制器内每一层都增加了一个预测跳级结构的神经元，文中称为锚点，稍有不同的是该锚点的预测会由前面所有层的锚点状态决定。</p>
+<p><img src="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\RNN控制器.png" class="lazyload" data-srcset="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\RNN控制器.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>​                                    RNN控制器</p>
+<p>NASNet大体沿用了上述生成网络结构的机器，并在此基础上做了如下两点改进：</p>
+<p>1、先验行地加入inception系列和ResNet的堆叠模块的思想。其定义了两种卷积模块，Normal Cell和Reduction Cell，前者不进行降采样，而后者是个降采样的模块。而由这两种模块组成的结构可以很方便的通过不同数量的模块堆叠将其从小数据集搜索到的架构迁移到大数据集上，大大提高了搜索效率。</p>
+<p><img src="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\NASNet的RNN控制器.png" class="lazyload" data-srcset="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/img\ch14\NASNet的RNN控制器.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>​                                    NASNet的RNN控制器</p>
+<p>2、对RNN控制进行优化，先验性地将各种尺寸和类型的卷积和池化层加入到搜索空间内，用预测一个卷积模块代替原先预测一层卷积。如图，控制器RNN不在预测单个卷积内的超参数组成，而是对一个模块内的每一个部分进行搜索预测，搜索的空间则限定在如下这些操作中：</p>
+<p>​                        • identity                      • 1x3 then 3x1 convolution<br>​                        • 1x7 then 7x1 convolution      • 3x3 dilated convolution<br>​                        • 3x3 average pooling               • 3x3 max pooling<br>​                        • 5x5 max pooling              • 7x7 max pooling<br>​                        • 1x1 convolution                  • 3x3 convolution<br>​                        • 3x3 depthwise-separable conv • 5x5 depthwise-seperable conv<br>​                        • 7x7 depthwise-separable conv</p>
+<p>在模块内的连接方式上也提供了element-wise addition和concatenate两种方式。NASNet的搜索方式和过程对NAS的一些后续工作都具有非常好的参考借鉴意义。</p>
+<h3 id="14-6-5-网络设计中，为什么卷积核设计尺寸都是奇数"><a href="#14-6-5-网络设计中，为什么卷积核设计尺寸都是奇数" class="headerlink" title="14.6.5 网络设计中，为什么卷积核设计尺寸都是奇数"></a>14.6.5 网络设计中，为什么卷积核设计尺寸都是奇数</h3><p>我们发现在很多大部分网络设计时都会使用例如3x3/5x5/7x7等奇数尺寸卷积核，主要原因有两点：</p>
+<ul>
+<li>保证像素点中心位置，避免位置信息偏移</li>
+<li>填充边缘时能保证两边都能填充，原矩阵依然对称</li>
+</ul>
+<h3 id="14-6-6-网络设计中，权重共享的形式有哪些，为什么要权重共享"><a href="#14-6-6-网络设计中，权重共享的形式有哪些，为什么要权重共享" class="headerlink" title="14.6.6 网络设计中，权重共享的形式有哪些，为什么要权重共享"></a>14.6.6 网络设计中，权重共享的形式有哪些，为什么要权重共享</h3><p>权重共享的形式：</p>
+<ul>
+<li>深度学习中，权重共享最具代表性的就是卷积网络的卷积操作。卷积相比于全连接神经网络参数大大减少；</li>
+<li>多任务网络中，通常为了降低每个任务的计算量，会共享一个骨干网络。</li>
+<li>一些相同尺度下的结构化递归网络</li>
+</ul>
+<p>权重共享的好处：</p>
+<p>​    权重共享一定程度上能增强参数之间的联系，获得更好的共性特征。同时很大程度上降低了网络的参数，节省计算量和计算所需内存（当然，结构化递归并不节省计算量）。此外权重共享能起到很好正则的作用。正则化的目的是为了降低模型复杂度，防止过拟合，而权重共享则正好降低了模型的参数和复杂度。</p>
+<p>​    因此一个设计优秀的权重共享方式，在降低计算量的同时，通常会较独享网络有更好的效果。</p>
+
+  </div>
+  
+  
+    
+    <div class="footer">
+       <!-- 参考资料、相关资料等 -->
+      
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+      <!-- 打赏组件 -->
+      
+        <div class="donate">
+        <iframe src="https://pistachio0812.github.io/donate/drinks" style="overflow-x:hidden;overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe>
+        </div>
+      
+    </div>
+  
+  
+    
+
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-04-08T16:57:01+08:00">
+  <a class="notlink">
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2024年4月8日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/&title=超参数调整 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/&title=超参数调整 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/&title=超参数调整 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        
+        <div class="hoverbox">
+          <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/wechat.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
+          <div class="target">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAdgAAAHYCAAAAADLsqZFAAAH80lEQVR42u3aW5LkNgwEwLn/pdcHcIybVYDasVTybx4tkUz0Bwv8+WNcOX5sAVgDrAHWAGuABWsLLof9Kcdvn//Xiz78/dP/te9N19fO+7fPnb6/ne+v+wIWLFiwYMGCBQsWLFiwL4GdTjyFnm5gfYBfKohpAZ3uT+wBFixYsGDBggULFixYsC+DbSe0HUj83wWW7sNWsDL1AAsWLFiwYMGCBQsWLFiw2YK2AdP3poVxOv8ULH0uWLBgwYIFCxYsWLBgwYL9OwKKdsO2Gt5tQaaF1hYmWLBgwYIFCxYsWLBgwYL9b9g0KNhqhLcN6KcKausCQfvFqIMbsGDBggULFixYsGDBgn0JbDrSDffzTsF/9AALFixYP4P1M1iwYMGCvRx2OqYH8LZw2kb6tOGeFnwKO/YACxYsWLBgwYIFCxYs2Mth0wm1De1pI3/rIN+ury28Lejj54EFCxYsWLBgwYIFCxbs5bDtAf4UOl3o9vO3/j/9fRqATH8PFixYsGDBggULFixYsG+FbYOKKcR24zktmLTw2mBjWigf3wcWLFiwYMGCBQsWLFiwl8NuLyhtwE8b5FuBRPr86QWF6UWGjwEFWLBgwYIFCxYsWLBgwV4Om25AGyjEB+7y908V4HaQsv1+sGDBggULFixYsGDBgn0LbNrwTgui3ej2+W1w0BZU+/70IkKdPIEFCxYsWLBgwYIFCxbsJbDpgXvaiE8P5u3z2gsE7QWAtCC3LhiABQsWLFiwYMGCBQsW7Ntg1x44POinUGmQslVQW59LG+rHBQUWLFiwYMGCBQsWLFiwL4VtA4LtAjltVG81wKfBzLTgp4ELWLBgwYIFCxYsWLBgwb4F9lsN8PQgfnqQ/xbENGBpg5bjfQILFixYsGDBggULFizYy2HjA/BDG98GHulzpg3tpxroWxcTwIIFCxYsWLBgwYIFC/Z22K3Gevv70/enAUMbAGzNoy2E8b6DBQsWLFiwYMGCBQsW7OWwbRBQN4Ifatin85424Lca/9MLBseNdrBgwYIFCxYsWLBgwYK9DDY98G8FD20DvA0Q2ob6tGDSedf7DhYsWLBgwYIFCxYsWLCXwz41kZ9ypI3qabCRbui3A5jYCSxYsGDBggULFixYsGBfCvv02A4atuDa96bByjTw+XV9YMGCBQsWLFiwYMGCBXs5bLuArYvPTx3wtzbyqfU/VahgwYIFCxYsWLBgwYIF+xbYaaM63fBpI/7pgCMtrBRye15gwYIFCxYsWLBgwYIFCzaDSAHbjZvOsw04ti/At8/9CA0WLFiwYMGCBQsWLFiwl8NOD9pbAUPaWN4GSxva6QWA9PdtEAMWLFiwYMGCBQsWLFiwt8OmL94OMP4MRwo1hd2+iND+/OvzwIIFCxYsWLBgwYIFC/Zy2O0Df9q4bxeQzid9f9sgTy8aTOcLFixYsGDBggULFixYsG+HbRvo0yAj3bCnA5NpoX9rXz/eoAALFixYsGDBggULFizYS2G3Gu5tI326gdtBR9pof2o/YiewYMGCBQsWLFiwYMGCfRns1kG63aAWfBpITKHTAku/SMfgYMGCBQsWLFiwYMGCBfsy2GkjPT1wTxvaKVi64VuF284rLiiwYMGCBQsWLFiwYMGCvRw2nVh7oN4KDNrAJD3wn65nOs+t/QcLFixYsGDBggULFizYt8CmB+lpIzhtZE+DhemGtwUx/Vz9RQILFixYsGDBggULFizYy2Hbjdta0BR8O1hoG+fT9bUFBhYsWLBgwYIFCxYsWLBvhT09MG8HF6cLSv8vDT7aQKQt+HSex58DCxYsWLBgwYIFCxYs2MthpwvbCiy2GvHp+9vGehuApO+LCwwsWLBgwYIFCxYsWLBgXwY7bZRPg4ztYGNrHm3hpRfCpxcFwIIFCxYsWLBgwYIFC/atsE83wtP/mwJNG+Ft4DL9osT7BxYsWLBgwYIFCxYsWLCXw6YH7e2JtBuQFk7aCJ9CTxvxdXAEFixYsGDBggULFixYsJfDto3erYW2Des20EjBUuj25/SLdtxoBwsWLFiwYMGCBQsWLNjLYKeN3+0CmDam0/d+62JAGvTUQQpYsGDBggULFixYsGDBvhx22sBOD/rTBaYbvx1wbAUObQAEFixYsGDBggULFixYsLfDtgv6VoCQbsz089OC2A4q4vWDBQsWLFiwYMGCBQsW7EtgpyDthNIN2g5MtoKFacO8fQ5YsGDBggULFixYsGDBvhU23aDpAqZBQQqebmxbMG0ht43/40Y7WLBgwYIFCxYsWLBgwV4COw0Wpgfxp6C2CvV0vS38diGBBQsWLFiwYMGCBQsWLNjZBkwbzNMGePr39vnTwl37QoAFCxYsWLBgwYIFCxbs5bA/5Zge5NMFtkHJ6fvaIGL7gsK08Q4WLFiwYMGCBQsWLFiwb4FtD+jtBm0FINOGfxoIpBv+1HzAggULFixYsGDBggULFmy3kW0DOj3wTwshDVxawPYi+XSABQsWLFiwYMGCBQsWLNidxvN2EHF6oG8LcOu9TwU1H9cBFixYsGDBggULFixYsGCjxnYLvxUYpLDt/KYFMv0iPN5oBwsWLFiwYMGCBQsWLNi/BDY9KNcXm8sN+lZBPh3IbAcrYMGCBQsWLFiwYMGCBfs22HSkwULauE4b2em82mBjWhBtsHP8hQELFixYsGDBggULFizYy2GNuwZYsAZYA6wB1gBrgL10/AOSHglxCXxaAAAAAABJRU5ErkJggg==">
+          </div>
+        </div>
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class="prev" href="/zh-TW/ch15_GPU%E5%92%8C%E6%A1%86%E6%9E%B6%E9%80%89%E5%9E%8B/%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0_%E5%BC%82%E6%9E%84%E8%BF%90%E7%AE%97%E3%80%81GPU%E5%8F%8A%E6%A1%86%E6%9E%B6%E9%80%89%E5%9E%8B/">
+          <p class="title"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>异构计算</p>
+          <p class="content">异构计算， GPU和框架选型指南  深度学习训练和推理的过程中，会涉及到大量的向量(vector)，矩阵(matrix)和张量(tensor)操作，通常需要大量的浮点计算，包括高精度（在训练的时...</p>
+        </a>
+      
+      
+        <a class="next" href="/zh-TW/ch13_%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0_%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/">
+          <p class="title">优化算法<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">优化算法13.1 如何解决训练样本少的问题目前大部分的深度学习模型仍然需要海量的数据支持。例如 ImageNet 数据就拥有1400多万的图片。而现实生产环境中，数据集通常较小，只有几万甚至几百...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+
+  <article class="post white-box shadow" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/index.html#comments">
+    </span>
+    <p ct><i class="fa-solid fa-comments"></i> 评论</p>
+    
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside id="l_side" itemscope itemtype="http://schema.org/WPSideBar">
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky pjax">
+
+  
+  
+
+
+  <section class="widget toc-wrapper desktop mobile " id="toc-div">
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#14-1-%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-text">14.1 写在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-2-%E8%B6%85%E5%8F%82%E6%95%B0%E6%A6%82%E5%BF%B5"><span class="toc-text">14.2 超参数概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#14-2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E8%B6%85%E5%8F%82%E6%95%B0%EF%BC%8C%E5%8F%82%E6%95%B0%E5%92%8C%E8%B6%85%E5%8F%82%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">14.2.1 什么是超参数，参数和超参数的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-2-2-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%AD%E5%8C%85%E5%90%AB%E5%93%AA%E4%BA%9B%E8%B6%85%E5%8F%82%E6%95%B0%EF%BC%9F"><span class="toc-text">14.2.2 神经网络中包含哪些超参数？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-2-3-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%BF%9B%E8%A1%8C%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98%EF%BC%9F"><span class="toc-text">14.2.3 为什么要进行超参数调优？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-2-4-%E8%B6%85%E5%8F%82%E6%95%B0%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%E9%A1%BA%E5%BA%8F"><span class="toc-text">14.2.4 超参数的重要性顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-2-5-%E9%83%A8%E5%88%86%E8%B6%85%E5%8F%82%E6%95%B0%E5%A6%82%E4%BD%95%E5%BD%B1%E5%93%8D%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD%EF%BC%9F"><span class="toc-text">14.2.5 部分超参数如何影响模型性能？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-2-6-%E9%83%A8%E5%88%86%E8%B6%85%E5%8F%82%E6%95%B0%E5%90%88%E9%80%82%E7%9A%84%E8%8C%83%E5%9B%B4"><span class="toc-text">14.2.6 部分超参数合适的范围</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-3-%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E4%B8%AD%E7%9A%84%E8%B6%85%E5%8F%82%E8%B0%83%E6%95%B4%E7%AD%96%E7%95%A5"><span class="toc-text">14.3 网络训练中的超参调整策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#14-3-1-%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-text">14.3.1 如何调试模型？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-3-2-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%81%9A%E5%AD%A6%E4%B9%A0%E7%8E%87%E8%B0%83%E6%95%B4"><span class="toc-text">14.3.2 为什么要做学习率调整?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-3-3-%E5%AD%A6%E4%B9%A0%E7%8E%87%E8%B0%83%E6%95%B4%E7%AD%96%E7%95%A5%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">14.3.3 学习率调整策略有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-3-4-%E6%9E%81%E7%AB%AF%E6%89%B9%E6%A0%B7%E6%9C%AC%E6%95%B0%E9%87%8F%E4%B8%8B%EF%BC%8C%E5%A6%82%E4%BD%95%E8%AE%AD%E7%BB%83%E7%BD%91%E7%BB%9C%EF%BC%9F"><span class="toc-text">14.3.4 极端批样本数量下，如何训练网络？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-4-%E5%90%88%E7%90%86%E4%BD%BF%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E7%BD%91%E7%BB%9C"><span class="toc-text">14.4 合理使用预训练网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#14-4-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E8%B0%83%EF%BC%88fine-tune%EF%BC%89"><span class="toc-text">14.4.1 什么是微调（fine-tune）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-4-2-%E5%BE%AE%E8%B0%83%E6%9C%89%E5%93%AA%E4%BA%9B%E4%B8%8D%E5%90%8C%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">14.4.2 微调有哪些不同方法？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-4-3-%E5%BE%AE%E8%B0%83%E5%85%88%E5%86%BB%E7%BB%93%E5%BA%95%E5%B1%82%EF%BC%8C%E8%AE%AD%E7%BB%83%E9%A1%B6%E5%B1%82%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%9F"><span class="toc-text">14.4.3 微调先冻结底层，训练顶层的原因？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-4-4-%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86%E7%89%B9%E6%80%A7%E4%B8%8B%E5%A6%82%E4%BD%95%E5%BE%AE%E8%B0%83%EF%BC%9F"><span class="toc-text">14.4.4 不同的数据集特性下如何微调？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-4-4-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BC%98%E5%8A%A3%EF%BC%9F"><span class="toc-text">14.4.4 目标检测中使用预训练模型的优劣？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-4-5-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%AD%E7%BB%83-train-from-scratch-%EF%BC%9F"><span class="toc-text">14.4.5 目标检测中如何从零开始训练(train from scratch)？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-5-%E5%A6%82%E4%BD%95%E6%94%B9%E5%96%84-GAN-%E7%9A%84%E6%80%A7%E8%83%BD"><span class="toc-text">14.5 如何改善 GAN 的性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-6-AutoML"><span class="toc-text">14.6 AutoML</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#14-6-1-%E4%BB%80%E4%B9%88%E6%98%AFAutoML%EF%BC%9F"><span class="toc-text">14.6.1 什么是AutoML？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-6-2-%E8%87%AA%E5%8A%A8%E5%8C%96%E8%B6%85%E5%8F%82%E6%95%B0%E6%90%9C%E7%B4%A2%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">14.6.2 自动化超参数搜索方法有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-6-3-%E4%BB%80%E4%B9%88%E6%98%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%90%9C%E7%B4%A2%EF%BC%88NAS%EF%BC%89"><span class="toc-text">14.6.3 什么是神经网络架构搜索（NAS）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-6-4-NASNet%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%AD%96%E7%95%A5"><span class="toc-text">14.6.4 NASNet的设计策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-6-5-%E7%BD%91%E7%BB%9C%E8%AE%BE%E8%AE%A1%E4%B8%AD%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8D%B7%E7%A7%AF%E6%A0%B8%E8%AE%BE%E8%AE%A1%E5%B0%BA%E5%AF%B8%E9%83%BD%E6%98%AF%E5%A5%87%E6%95%B0"><span class="toc-text">14.6.5 网络设计中，为什么卷积核设计尺寸都是奇数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-6-6-%E7%BD%91%E7%BB%9C%E8%AE%BE%E8%AE%A1%E4%B8%AD%EF%BC%8C%E6%9D%83%E9%87%8D%E5%85%B1%E4%BA%AB%E7%9A%84%E5%BD%A2%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9D%83%E9%87%8D%E5%85%B1%E4%BA%AB"><span class="toc-text">14.6.6 网络设计中，权重共享的形式有哪些，为什么要权重共享</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+  
+
+</div>
+
+
+<!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <!-- Custom Files side begin -->
+  
+  <!-- Custom Files side end -->
+</aside>
+
+
+
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<pjax>
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  pdata.commentConfig={};
+  //  see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs
+  
+    // header
+    var l_header=document.getElementById("l_header");
+    
+    l_header.classList.add("show");
+    
+    
+      // cover
+      var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
+      var scroll_down=document.getElementById('scroll-down');
+      cover_wrapper.id="none";
+      cover_wrapper.style.display="none";
+      scroll_down.style.display="none";
+    
+  
+</script>
+</pjax>
+        </div>
+        
+  
+  <footer class="footer clearfix" itemscope itemtype="http://schema.org/WPFooter">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="2185397204" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper" itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer" itemprop="url">
+                
+              </a>
+            
+          
+            
+              <a href="mailto:2395856915@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer" itemprop="url">
+                
+              </a>
+            
+          
+            
+              <a href="https://github.com/pistachio0812" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer" itemprop="url">
+                
+              </a>
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#7.6.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class="copyright">
+        <p><a href="/">Copyright ©2020-2023江西理工大学.All Rights Reserved</a></p>
+
+        </div>
+      
+    
+    <!-- Custom Files footer begin-->
+    
+    <!-- Custom Files footer end-->
+  </footer>
+
+
+        <a id="s-top" class="fa-solid fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+  /******************** volantis.dom ********************************/
+  // 页面选择器 将dom对象缓存起来 see: /source/js/app.js etc.
+  volantis.dom.bodyAnchor = volantis.dom.$(document.getElementById("safearea")); // 页面主体
+  volantis.dom.topBtn = volantis.dom.$(document.getElementById('s-top')); // 向上
+  volantis.dom.wrapper = volantis.dom.$(document.getElementById('wrapper')); // 整个导航栏
+  volantis.dom.coverAnchor = volantis.dom.$(document.querySelector('#l_cover .cover-wrapper')); // 1个
+  volantis.dom.switcher = volantis.dom.$(document.querySelector('#l_header .switcher .s-search')); // 搜索按钮   移动端 1个
+  volantis.dom.header = volantis.dom.$(document.getElementById('l_header')); // 移动端导航栏
+  volantis.dom.search = volantis.dom.$(document.querySelector('#l_header .m_search')); // 搜索框 桌面端 移动端 1个
+  volantis.dom.mPhoneList = volantis.dom.$(document.querySelectorAll('#l_header .m-phone .list-v')); //  手机端 子菜单 多个
+</script>
+
+<script>
+  
+  volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fortawesome/fontawesome-free/css/all.min.css");
+  
+  
+  volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/font-awesome-animation/font-awesome-animation.min.css");
+  
+  
+  volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/node-waves/dist/waves.min.css");
+  
+</script>
+
+<!-- required -->
+
+
+<!-- internal -->
+
+<script src="/js/app.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="rightmenu-wrapper">
+  <ul class="list-v rightmenu" id="rightmenu-content">
+    
+  <li class="navigation menuNavigation-Content">
+
+
+    <a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="fa-solid fa-arrow-left fa-fw"></i></a>
+
+
+
+    <a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="fa-solid fa-arrow-right fa-fw"></i></a>
+
+
+
+    <a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="fa-solid fa-redo fa-fw"></i></a>
+
+
+
+    <a class="nav icon-only fix-cursor-default" onclick="VolantisApp.scrolltoElement(volantis.dom.bodyAnchor)"><i class="fa-solid fa-arrow-up fa-fw"></i></a>
+
+
+  </li>
+
+
+    <hr class="menuLoad-Content">
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="prev" data-event="volantis.rightmenu.jump('prev')" data-group="prevNext">
+      <i class="fa-solid fa-angles-left fa-fw"></i>
+      查看上一篇
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="next" data-event="volantis.rightmenu.jump('next')" data-group="prevNext">
+      <i class="fa-solid fa-angles-right fa-fw"></i>
+      查看下一篇
+    </span>
+  </li>
+
+
+
+    <hr class="menuLoad-Content">
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyPaste" data-event="copyPaste" data-group="inputBox">
+      <i class="fa-solid fa-paste fa-fw"></i>
+      粘贴文本
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyAll" data-event="copyAll" data-group="inputBox">
+      <i class="fa-solid fa-object-ungroup fa-fw"></i>
+      全选文本
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyCut" data-event="copyCut" data-group="inputBox">
+      <i class="fa-solid fa-cut fa-fw"></i>
+      剪切文本
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyText" data-event="copyText" data-group="seletctText">
+      <i class="fa-solid fa-copy fa-fw"></i>
+      复制文本
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="searchWord" data-event="OpenSearch(__text__)" data-group="seletctText">
+      <i class="fa-solid fa-search fa-fw"></i>
+      站内搜索
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="bingSearch" data-event="window.open(`https://cn.bing.com/search?q=${__text__}`)" data-group="seletctText">
+      <i class="fa-solid fa-search fa-fw"></i>
+      必应搜索
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="openTab" data-event="window.open(__link__)" data-group="elementCheck">
+      <i class="fa-solid fa-external-link-square-alt fa-fw"></i>
+      新标签页打开
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyLink" data-event="copyLink" data-group="elementCheck">
+      <i class="fa-solid fa-link fa-fw"></i>
+      复制链接地址
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyImg" data-event="copyImg" data-group="elementImage">
+      <i class="fa-solid fa-image fa-fw"></i>
+      复制图片
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="googleImg" data-event="window.open(`https://www.google.com.hk/searchbyimage?image_url=${__link__}`)" data-group="elementImage">
+      <i class="fa-solid fa-images fa-fw"></i>
+      谷歌识图
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <a class="vlts-menu fix-cursor-default" id="help" target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/faqs/" data-group="link">
+      <i class="fa-solid fa-question fa-fw"></i>
+      常见问题
+    </a>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <a class="vlts-menu fix-cursor-default" id="examples" target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/examples/" data-group="link">
+      <i class="fa-solid fa-rss fa-fw"></i>
+      示例博客
+    </a>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <a class="vlts-menu fix-cursor-default" id="contributors" target="_blank" rel="external nofollow noopener noreferrer" href="https://volantis.js.org/contributors/" data-group="link">
+      <i class="fa-solid fa-fan fa-fw"></i>
+      加入社区
+    </a>
+  </li>
+
+
+
+    <hr class="menuLoad-Content">
+
+
+
+  <li class="menuLoad-Content">
+    <a class="vlts-menu fix-cursor-default" id="source_docs" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/volantis-docs/" data-group="link">
+      <i class="fa-solid fa-code-branch fa-fw"></i>
+      本站源码
+    </a>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <a class="vlts-menu fix-cursor-default" id="source_theme" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" data-group="link">
+      <i class="fa-solid fa-code-branch fa-fw"></i>
+      主题源码
+    </a>
+  </li>
+
+
+
+    <hr class="menuLoad-Content">
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="darkMode" data-event="volantis.dark.toggle()" data-group="darkMode">
+      <i class="fa-solid fa-moon fa-fw"></i>
+      暗黑模式
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="printMode" data-event="printMode" data-group="articlePage">
+      <i class="fa-solid fa-print fa-fw"></i>
+      打印页面
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="readMode" data-event="readMode" data-group="articlePage">
+      <i class="fa-solid fa-book-open fa-fw"></i>
+      阅读模式
+    </span>
+  </li>
+
+
+<div id="menuMusic">
+  <li class="music name menuOption-Content">
+    <p class="nav music-title fix-cursor-default"></p>
+  </li>
+  <li class="music ctrl">
+    <a class="nav icon-only backward fix-cursor-default" href="/" onclick="return false;" title="backward">
+      <i class="fa-solid fa-step-backward fa-fw"></i>
+    </a>
+    <a class="nav icon-only toggle fix-cursor-default" href="/" onclick="return false;" title="toggle">
+      <i class="fa-solid fa-play fa-fw"></i>
+    </a>
+    <a class="nav icon-only forward fix-cursor-default" href="/" onclick="return false;" title="forward">
+      <i class="fa-solid fa-step-forward fa-fw"></i>
+    </a>
+  </li>
+  <li class="music volume">
+    <div class="nav volume">
+      <div class="aplayer-volume-bar-wrap">
+        <div class="aplayer-volume-bar fix-cursor-pointer">
+          <div class="aplayer-volume"></div>
+          <i class="left fa-solid fa-volume-off fa-fw"></i>
+          <i class="right fa-solid fa-volume-up fa-fw"></i>
+        </div>
+      </div>
+    </div>
+  </li>
+</div>
+
+  </ul>
+</div>
+<script src="/js/plugins/rightMenus.js"></script>
+<script>
+  const RightMenusFunction = {};
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  RightMenusFunction['prev'] = () => {volantis.rightmenu.jump('prev')}
+
+
+
+
+
+  RightMenusFunction['next'] = () => {volantis.rightmenu.jump('next')}
+
+
+
+
+
+
+
+  //RightMenusFunction['copyPaste'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['copyAll'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['copyCut'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['copyText'] = (fun) => {fun()}
+
+
+
+
+
+  RightMenusFunction['searchWord'] = (__text__) => {OpenSearch(__text__)}
+
+
+
+
+
+  RightMenusFunction['bingSearch'] = (__text__) => {window.open(`https://cn.bing.com/search?q=${__text__}`)}
+
+
+
+
+
+  RightMenusFunction['openTab'] = (__link__) => {window.open(__link__)}
+
+
+
+
+
+  //RightMenusFunction['copyLink'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['copyImg'] = (fun) => {fun()}
+
+
+
+
+
+  RightMenusFunction['googleImg'] = (__link__) => {window.open(`https://www.google.com.hk/searchbyimage?image_url=${__link__}`)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  RightMenusFunction['darkMode'] = () => {volantis.dark.toggle()}
+
+
+
+
+
+  //RightMenusFunction['printMode'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['readMode'] = (fun) => {fun()}
+
+
+
+
+
+</script>
+
+
+
+<!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "color-scheme";
+const rootElementDarkModeAttributeName = "color-scheme";
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+  getCustomDarkMode();
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+/**
+ * get target mode
+ */
+ const getCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  if(currentSetting=="dark"){
+    volantis.dark.mode="light";
+  }else{
+    volantis.dark.mode="dark";
+  }
+  // console.log(volantis.dark.mode)
+};
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+/**
+ * 暗黑模式触发器
+ */
+volantis.dark.toggle=()=>{
+  const mode = toggleCustomDarkMode();
+  applyCustomDarkModeSettings(mode);
+  // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
+  volantis.dark.method.toggle.start();
+}
+/**
+ * bind event for toggle button
+ */
+
+function bindToggleButton() {
+  var btn= document.querySelectorAll("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn")
+  btn.forEach(function (e) {
+    volantis.dom.$(e).on('click',volantis.dark.toggle);
+  })
+}
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", ()=>{
+  volantis.requestAnimationFrame(bindToggleButton)
+});
+volantis.pjax.push(bindToggleButton);
+
+const darkModelListeners={
+  dark:(mediaQueryList )=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "dark";
+    }
+    volantis.dark.method.toggle.start();
+  },
+  light:(mediaQueryList)=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "light";
+    }
+    volantis.dark.method.toggle.start();
+  }
+}
+window.matchMedia('(prefers-color-scheme: dark)').addListener(darkModelListeners.dark)
+window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListeners.light)
+</script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    
+      const sites_api = document.getElementById('sites-api');
+      if (sites_api != undefined && typeof SitesJS === 'undefined') {
+        volantis.js("/js/plugins/tags/sites.js")
+      }
+    
+    
+      const friends_api = document.getElementById('friends-api');
+      if (friends_api != undefined && typeof FriendsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/friends.js")
+      }
+    
+    
+      const contributors_api = document.getElementById('contributors-api');
+      if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/contributors.js")
+      }
+    
+  };
+  loadIssuesJS()
+  volantis.pjax.push(()=>{
+    loadIssuesJS();
+  })
+
+</script>
+
+
+
+
+  <script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/vanilla-lazyload/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: ["#"],
+	maxRPS: 6,
+	hoverDelay: 0
+  };
+</script>
+<script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/flying-pages/flying-pages.min.js"></script>
+
+
+
+
+
+
+
+  <script>
+  volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/aplayer/dist/APlayer.min.css");
+  (async () => {
+    // APlayer 需要在  MetingJS 之前加载
+    await volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/aplayer/dist/APlayer.min.js")
+    await volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/meting/dist/Meting.min.js")
+  
+    // 右键 music 需要在 APlayer  MetingJS 之后加载
+    await volantis.js('/js/plugins/aplayer.js')
+  
+  })();
+
+  function SetAPlayerPlugin(){
+    let Metings = document.querySelectorAll('meting-js');
+    if (Metings.length === 0) {return;};
+    if (Metings[0].aplayer && Metings[0].aplayer.on) {
+      // improve the accessibility https://web.dev/button-name/
+      document.querySelectorAll(".aplayer-icon-menu").forEach(e=>{
+        e.setAttribute("aria-label","Aplayer Menu")
+      })
+      // message see: /layout/_plugins/message/script.ejs
+      
+        try {
+          setTimeout(() => {
+            Metings.forEach((item, index) => {
+              const aplayerItem = item.aplayer; if(!aplayerItem) return;
+              const rightAplayerCheck = 'true' === 'true'
+                && item.meta.id === '2185397204';
+              if(rightAplayerCheck) RightMenuAplayer.checkAPlayer();
+              if(aplayerItem.events.events.play.every(item => {return item.name !== 'messagePlay'})) {
+                aplayerItem.on('play', function messagePlay() {
+                  let index = aplayerItem.list.index;
+                  let title = aplayerItem.list.audios[index].title;
+                  let artist = aplayerItem.list.audios[index].artist;
+                  setTimeout(() => {
+                    VolantisApp.message('音乐通知', title + ' - ' + artist, {
+                      icon: 'fa-solid fa-play',
+                      transitionIn: 'flipInX',
+                      transitionOut: 'flipOutX'
+                    });
+                  }, 100)
+                });
+              }
+              if(aplayerItem.events.events.pause.every(item => {return item.name !== 'messagePause'})) {
+                aplayerItem.on('pause', function messagePause() {
+                  let index = aplayerItem.list.index;
+                  let title = aplayerItem.list.audios[index].title;
+                  let artist = aplayerItem.list.audios[index].artist;
+                  setTimeout(() => {
+                    // 歌曲播放结束也会触发 pause 事件，为了避免错误提示，等待一会儿
+                    if(aplayerItem.paused) {
+                      VolantisApp.message('音乐通知', title + ' - ' + artist, {
+                        icon: 'fa-solid fa-pause',
+                        transitionIn: 'flipInX',
+                        transitionOut: 'flipOutX'
+                      });
+                    }
+                  }, 100)
+                });
+              }
+            });
+          }, 500)
+        } catch (error) { console.error(error); }
+      
+    }else{
+      volantis.requestAnimationFrame(SetAPlayerPlugin)
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+    SetAPlayerPlugin();
+  });
+  volantis.pjax.push(SetAPlayerPlugin);
+</script>
+
+
+
+
+      <script>
+  volantis.layoutHelper("comments",`<div id="giscus_container"></div>`)
+
+  volantis.giscus = {};
+
+  function check_giscus() {
+    if (volantis.dark.mode === "dark") {
+      volantis.giscus.Theme = '';
+    } else {
+      volantis.giscus.Theme = '';
+    }
+
+    return document.getElementById("giscus_container");
+  }
+
+  function pjax_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+    let cfg = Object.assign({"theme":"light_tritanopia","repo":"pistachio0812/blog_comments","repo-id":"R_kgDOIEvaCA","category":"Announcements","category-id":"DIC_kwDOIEvaCM4CRrCs","mapping":"title","strict":"0","reactions-enabled":"1","emit-metadata":"0","input-position":"top","lang":"zh-CN","loading":"lazy","crossorigin":"anonymous"},pdata.commentConfig)
+    const script = document.createElement('script');
+    script.setAttribute('src', 'https://giscus.app/client.js');
+    Object.keys(cfg).forEach(k=>{
+      if (k != "theme") {
+        script.setAttribute('data-'+k, cfg[k]);
+      }
+    })
+    script.setAttribute('data-theme', volantis.giscus.Theme);
+    script.setAttribute('crossorigin', "anonymous");
+    HEAD.appendChild(script);
+  }
+
+  function dark_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+
+    const message = {
+      setConfig: {
+        theme: volantis.giscus.Theme
+      }
+    };
+    const giscusIframe = document.querySelector('iframe.giscus-frame');
+    giscusIframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+  }
+  pjax_giscus();
+  volantis.pjax.push(pjax_giscus);
+  volantis.dark.push(dark_giscus);
+</script>
+
+    
+
+
+
+
+
+<!-- optional -->
+
+  <script>
+  const SearchServiceDataPathRoot = ("/" || "/").endsWith("/") ?
+    "/" || "/" :
+    "//" || "/";
+  const SearchServiceDataPath = SearchServiceDataPathRoot + "content.json";
+
+  function loadSearchScript() {
+    // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
+    return volantis.js("/js/search/hexo.js");
+  }
+
+  function loadSearchService() {
+    loadSearchScript();
+    document.querySelectorAll(".input.u-search-input").forEach((e) => {
+      e.removeEventListener("focus", loadSearchService, false);
+    });
+
+    document.querySelectorAll(".u-search-form").forEach((e) => {
+      e.addEventListener("submit", (event) => {
+        event.preventDefault();
+      }, false);
+    });
+  }
+
+  // 打开并搜索 字符串 s
+  function OpenSearch(s) {
+    if (typeof SearchService === 'undefined')
+      loadSearchScript().then(() => {
+        SearchService.setQueryText(s);
+        SearchService.search();
+      });
+    else {
+      SearchService.setQueryText(s);
+      SearchService.search();
+    }
+  }
+
+  // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
+  if (window.location.search && /^\?s=/g.test(window.location.search)) {
+    let queryText = decodeURI(window.location.search)
+      .replace(/\ /g, "-")
+      .replace(/^\?s=/g, "");
+    OpenSearch(queryText);
+  }
+
+  // 搜索输入框获取焦点时加载搜索
+  document.querySelectorAll(".input.u-search-input").forEach((e) => {
+    e.addEventListener("focus", loadSearchService, false);
+  });
+</script>
+
+
+
+  
+<script src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/node-waves/dist/waves.min.js"></script>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+  Waves.attach('.flat-btn', ['waves-button']);
+  Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+  Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+  Waves.attach('.flat-box', ['waves-block']);
+  Waves.attach('.float-box', ['waves-block', 'waves-float']);
+  Waves.attach('.waves-image');
+  Waves.init();
+});
+</script>
+
+
+
+  
+<script src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/comment_typing/comment_typing.js"></script>
+
+
+
+
+  <script>
+
+  volantis.css("https://unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/default.min.css");
+
+
+  volantis.js("https://unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js").then(()=>{
+    volantis.requestAnimationFrame(hljs.highlightAll)
+  })
+  volantis.pjax.push(()=>{
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightElement(block);
+    });
+  },"highlightjs")
+
+
+  function pjax_highlightjs_copyCode(){
+    if (!(document.querySelector(".highlight .code pre") ||
+      document.querySelector(".article pre code"))) {
+      return;
+    }
+    VolantisApp.utilCopyCode(".highlight .code pre, .article pre code")
+  }
+  volantis.requestAnimationFrame(pjax_highlightjs_copyCode)
+  volantis.pjax.push(pjax_highlightjs_copyCode)
+
+</script>
+
+
+
+
+
+
+
+
+  <script src="//code.tidio.co/zilxs37hi5azxti3c2wescen575qkim6.js" async></script>
+
+
+
+
+
+  <script>
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp"];
+  let index = 0;
+  let IntervalParallax = null;
+
+  function parallax(){
+    let ParallaxWindow = document.querySelector("#parallax-window");
+    
+      ParallaxWindow = document.querySelector("html");
+    
+    Parallax.window = ParallaxWindow;
+    Parallax.options.fade = 1500;
+    Parallax.cache = 1;
+    next_parallax();
+    Parallax.init();
+    if (imgs.length>1) {
+      IntervalParallax = setInterval(function () {
+        next_parallax();
+      }, '10000');
+    }
+  }
+
+  function next_parallax() {
+    if (typeof Parallax == "undefined") {
+      return
+    }
+    
+    if (imgs.length>=1) {
+      Parallax.options.src = imgs[index % imgs.length];
+      Parallax.start();
+      index++;
+      if (Parallax.cache) {
+        fetch(imgs[index % imgs.length] +"?t=" + new Date().getTime());
+        if (index == imgs.length) {
+          Parallax.cache = 0;
+        }
+      }
+    }
+  }
+  var runningOnBrowser = typeof window !== "undefined";
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  if (!isBot) {
+    volantis.js('/js/plugins/parallax.js').then(()=>{
+      parallax()
+    })
+    volantis.pjax.send(()=>{
+      clearInterval(IntervalParallax)
+    },"clearIntervalParallax");
+    volantis.pjax.push(parallax);
+  }
+</script>
+
+
+
+
+  <script>
+  function load_swiper() {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.css");
+    volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    volantis.swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
+  volantis.pjax.push(() => {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    if (typeof volantis.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+
+
+<!-- pjax 标签必须存在于所有页面 否则 pjax error -->
+<pjax>
+
+</pjax>
+
+<script>
+  function listennSidebarTOC() {
+    const navItems = document.querySelectorAll(".toc li");
+    if (!navItems.length) return;
+    let targets = []
+    const sections = [...navItems].map((element) => {
+      const link = element.querySelector(".toc-link");
+      const target = document.getElementById(
+        decodeURI(link.getAttribute("href")).replace("#", "")
+      );
+      targets.push(target)
+      // 解除 a 标签 href 的 锚点定位, a 标签 href 的 锚点定位 会随机启用?? 产生错位???
+      link.setAttribute("onclick","return false;")
+      link.setAttribute("toc-action","toc-"+decodeURI(link.getAttribute("href")).replace("#", ""))
+      link.setAttribute("href","/")
+      // 配置 点击 触发新的锚点定位
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        // 这里的 addTop 是通过错位使得 toc 自动展开.
+        volantis.scroll.to(target,{addTop: 5, observer:true})
+        // Anchor id
+        history.pushState(null, document.title, "#" + target.id);
+      });
+      return target;
+    });
+
+    function activateNavByIndex(target) {
+      if (target.classList.contains("active-current")) return;
+
+      document.querySelectorAll(".toc .active").forEach((element) => {
+        element.classList.remove("active", "active-current");
+      });
+      target.classList.add("active", "active-current");
+      let parent = target.parentNode;
+      while (!parent.matches(".toc")) {
+        if (parent.matches("li")) parent.classList.add("active");
+        parent = parent.parentNode;
+      }
+    }
+
+    // 方案一：
+    volantis.activateNavIndex=0
+    activateNavByIndex(navItems[volantis.activateNavIndex])
+    volantis.scroll.push(()=>{
+      if (targets[0].getBoundingClientRect().top >= 0) {
+        volantis.activateNavIndex = 0
+      }else if (targets[targets.length-1].getBoundingClientRect().top < 0) {
+        volantis.activateNavIndex = targets.length-1
+      } else {
+        for (let index = 0; index < targets.length; index++) {
+          const target0 = targets[index];
+          const target1 = targets[(index+1)%targets.length];
+          if (target0.getBoundingClientRect().top < 0&&target1.getBoundingClientRect().top >= 0) {
+            volantis.activateNavIndex=index
+            break;
+          }
+        }
+      }
+      activateNavByIndex(navItems[volantis.activateNavIndex])
+    })
+
+    // 方案二：
+    // IntersectionObserver 不是完美精确到像素级别 也不是低延时性的
+    // function findIndex(entries) {
+    //   let index = 0;
+    //   let entry = entries[index];
+    //   if (entry.boundingClientRect.top > 0) {
+    //     index = sections.indexOf(entry.target);
+    //     return index === 0 ? 0 : index - 1;
+    //   }
+    //   for (; index < entries.length; index++) {
+    //     if (entries[index].boundingClientRect.top <= 0) {
+    //       entry = entries[index];
+    //     } else {
+    //       return sections.indexOf(entry.target);
+    //     }
+    //   }
+    //   return sections.indexOf(entry.target);
+    // }
+    // function createIntersectionObserver(marginTop) {
+    //   marginTop = Math.floor(marginTop + 10000);
+    //   let intersectionObserver = new IntersectionObserver(
+    //     (entries, observe) => {
+    //       let scrollHeight = document.documentElement.scrollHeight;
+    //       if (scrollHeight > marginTop) {
+    //         observe.disconnect();
+    //         createIntersectionObserver(scrollHeight);
+    //         return;
+    //       }
+    //       let index = findIndex(entries);
+    //       activateNavByIndex(navItems[index]);
+    //     }, {
+    //       rootMargin: marginTop + "px 0px -100% 0px",
+    //       threshold: 0,
+    //     }
+    //   );
+    //   sections.forEach((element) => {
+    //     element && intersectionObserver.observe(element);
+    //   });
+    // }
+    // createIntersectionObserver(document.documentElement.scrollHeight);
+  }
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+  document.addEventListener("pjax:success", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+</script>
+
+
+
+<script>
+  document.onreadystatechange = function () {
+    if (document.readyState == 'complete') {
+      // 页面加载完毕 样式加载失败，或是当前网速慢，或是开启了省流模式
+      const { saveData, effectiveType } = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {}
+      if (getComputedStyle(document.querySelector("#safearea"), null)["display"] == "none" || saveData || /2g/.test(effectiveType)) {
+        document.querySelectorAll(".reveal").forEach(function (e) {
+          e.style["opacity"] = "1";
+        });
+        document.querySelector("#safearea").style["display"] = "block";
+      }
+    }
+  }
+</script>
+
+
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","sameAs":["https://github.com/volantis-x"],"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://pistachio0812.github.io/","name":"阿月浑子-Hexo博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://pistachio0812.github.io/categories/深度学习/","name":"深度学习"}},{"@type":"ListItem","position":3,"item":{"@id":"http://pistachio0812.github.io/zh-TW/ch14_超参数调整/第十四章_超参数调整/","name":"超参数调整"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","keywords":null,"description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","url":"http://pistachio0812.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://pistachio0812.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"超参数调整","description":"计算机视觉,文学,pytorch,hexo,江西理工大学,目标检测","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://pistachio0812.github.io/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/"},"author":{"@type":"Person","name":"pistachio","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://pistachio0812.github.io/"},"publisher":{"@type":"Organization","name":"阿月浑子-Hexo博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://pistachio0812.github.io/zh-TW/ch14_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0_%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4/","wordCount":0,"datePublished":"2024-01-24T01:24:21.088Z","dateModified":"2024-04-08T08:57:01.762Z","articleSection":"深度学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+
+
+
+      
+        <!--
+  pjax重载区域接口：
+  1.  <pjax></pjax> 标签 pjax 标签必须存在于所有页面 否则 pjax error
+  2.  script[data-pjax]
+  3.  .pjax-reload script
+  4.  .pjax
+-->
+
+
+
+<script src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/pjax/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox]):not([onclick="return false;"]):not([onclick="return!1"]):not([target="_blank"]):not([target="view_window"]):not([href$=".xml"])',
+        selectors: [
+          "head title",
+          "head meta[name=keywords]",
+          "head meta[name=description]",
+          
+          "#l_main",
+          "#pjax-header-nav-list",
+          ".pjax",
+          "pjax", // <pjax></pjax> 标签
+          "script[data-pjax], .pjax-reload script" // script标签添加data-pjax 或 script标签外层添加.pjax-reload 的script代码段重载
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000,
+        
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+      volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+      volantis.pjax.method.complete.start();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      if(volantis.debug) {
+        console.error(e);
+        console.log('pjax error: \n' + JSON.stringify(e));
+      }else{
+        // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+        volantis.pjax.method.error.start();
+        window.location.href = e.triggerElement.href;
+      }
+    });
+</script>
+
+      
+    </div>
+    <!-- import body_end begin-->
+        <script></script>
+    <!-- import body_end end-->
+    <!-- Custom Files bodyEnd begin-->
+    <script> 
+  volantis.rightmenu.jump = (type) => { 
+    const selector = type === 'prev' ? 'article .prev-next a.prev' : 'article .prev-next a.next';
+    const item = document.querySelector(selector); 
+    if(!!item) { 
+      if(typeof pjax !== 'undefined') { 
+        pjax.loadUrl(item.href) 
+      } else { 
+        window.location.href = item.href; 
+      } 
+    } 
+  } 
+ 
+  volantis.rightmenu.handle(() => { 
+    const prev = document.querySelector('#prev').parentElement, 
+      next = document.querySelector('#next').parentElement, 
+      articlePrev = document.querySelector('article .prev-next a.prev p.title'), 
+      articleNext = document.querySelector('article .prev-next a.next p.title'); 
+ 
+    prev.style.display = articlePrev ? 'block' : 'none'; 
+    prev.title = articlePrev ? articlePrev.innerText : null; 
+    next.style.display = articleNext ? 'block' : 'none'; 
+    next.title = articleNext ? articleNext.innerText : null; 
+  }, 'prevNext', false) 
+</script> 
+    <!-- Custom Files bodyEnd end-->
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
