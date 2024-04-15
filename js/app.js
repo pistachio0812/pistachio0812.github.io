@@ -285,31 +285,73 @@ const VolantisApp = (() => {
   fn.setGlobalHeaderMenuEvent = () => {
     if (volantis.isMobile) {
       // 【移动端】 关闭已经展开的子菜单 点击展开子菜单
-      document.querySelectorAll('#l_header .m-phone li').forEach(function (e) {
-        if (e.querySelector(".list-v")) {
+      document.querySelectorAll('#l_header .m-phone li').forEach(function (_e) {
+        if (_e.querySelector(".list-v")) {
           // 点击菜单
-          volantis.dom.$(e).click(function (e) {
+          volantis.dom.$(_e).click(function (e) {  
             e.stopPropagation();
-            // 关闭已经展开的子菜单
-            e.currentTarget.parentElement.childNodes.forEach(function (e) {
-              if (Object.prototype.toString.call(e) == '[object HTMLLIElement]') {
-                e.childNodes.forEach(function (e) {
-                  if (Object.prototype.toString.call(e) == '[object HTMLUListElement]') {
-                    volantis.dom.$(e).hide()
+            let menuType = ''
+            // 关闭.menu-phone
+            Array.from(e.currentTarget.children).some(val => {
+              if(val.classList.contains('s-menu')) {
+                menuType = 'menu' // 代表点击的是一级菜单外层的icon
+                return
+              }
+              if(val.classList.contains('menuitem')) {
+                menuType = 'item' // 点击的是下拉一级菜单
+                return
+              }
+            })
+            if(menuType === 'item') {
+              // 关闭已经展开的子菜单, 这一步是针对点击多个拥有二级子菜单的一级菜单，关闭其他所有一级菜单的二级菜单
+              // ①
+              e.currentTarget.parentElement.childNodes.forEach(function (e2) {
+                if (Object.prototype.toString.call(e2) == '[object HTMLLIElement]') {
+                  e2.childNodes.forEach(function (e1) {
+                    if (Object.prototype.toString.call(e1) == '[object HTMLUListElement]') {
+                      volantis.dom.$(e1).hide()
+                    }
+                  })
+                }
+              })
+              // 点击展开二级子菜单
+
+              /* 
+                由于采用事件委托，因此此处点击， 两种情况，currentTarget指向菜单按钮a.s-menu和ul的共同父元素li， 第二，指向ul中的li元素，也就是子菜单
+                区分：情况一的第一个子元素a的类名是s-menu；情况二的子元素a的类名为menuitem
+                我们要点击外部的menu icon时要关闭的是.menu-phone而不是.menuitem
+              */
+              let array = e.currentTarget.children
+              for (let index = 0; index < array.length; index++) {
+                const element = array[index];
+                if (volantis.dom.$(element).title === 'menu') { // 移动端菜单栏异常
+                  volantis.dom.$(element).style.display = "flex"      // https://github.com/volantis-x/hexo-theme-volantis/issues/706
+                } else {
+                  volantis.dom.$(element).show()
+                }
+              }
+            } else {  
+              let menuPhone = document.querySelector('.switcher .menu-phone')
+              let isHiding = window.getComputedStyle(menuPhone).display === 'none'
+              if(isHiding) {
+                volantis.dom.$(menuPhone).show()
+              } else {
+                volantis.dom.$(menuPhone).hide()
+                // 别忘了再执行①
+                // 准备关闭所有二级菜单, 注意此时的e和点击一级菜单时候的e层级不同
+                // 此处好像不能使用变量存储的menuPhone？要重新查询
+                document.querySelector('.switcher .menu-phone').childNodes.forEach(function (e2) {
+                  if (Object.prototype.toString.call(e2) == '[object HTMLLIElement]') {
+                    e2.childNodes.forEach(function (e1) {
+                      if (Object.prototype.toString.call(e1) == '[object HTMLUListElement]') {
+                        volantis.dom.$(e1).hide()
+                      }
+                    })
                   }
                 })
               }
-            })
-            // 点击展开子菜单
-            let array = e.currentTarget.children
-            for (let index = 0; index < array.length; index++) {
-              const element = array[index];
-              if (volantis.dom.$(element).title === 'menu') { // 移动端菜单栏异常
-                volantis.dom.$(element).display = "flex"      // https://github.com/volantis-x/hexo-theme-volantis/issues/706
-              } else {
-                volantis.dom.$(element).show()
-              }
             }
+
           }, 0);
         }
       })
@@ -328,7 +370,7 @@ const VolantisApp = (() => {
     }
     fn.setPageHeaderMenuEvent();
   }
-
+  
   // 【移动端】隐藏子菜单
   fn.setPageHeaderMenuEvent = () => {
     if (!volantis.isMobile) return
@@ -1179,149 +1221,3 @@ const VolantisRequest = {
   }
 }
 Object.freeze(VolantisRequest);
-
-$(function () {
-  var canvas = $('#fireworks')[0];
-  canvas.width = $(window).width();
-  canvas.height = $(window).height();
-  var ctx = canvas.getContext('2d');
-
-  // resize
-  $(window).on('resize', function () {
-    canvas.width = $(window).width();
-    canvas.height = $(window).height();
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-  });
-
-  // init
-  ctx.fillStyle = '#000';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  // objects
-  var listFire = [];
-  var listFirework = [];
-  var fireNumber = 10;
-  var center = { x: canvas.width / 2, y: canvas.height / 2 };
-  var range = 100;
-  for (var i = 0; i < fireNumber; i++) {
-    var fire = {
-      x: Math.random() * range / 2 - range / 4 + center.x,
-      y: Math.random() * range * 2 + canvas.height,
-      size: Math.random() + 0.5,
-      fill: '#fd1',
-      vx: Math.random() - 0.5,
-      vy: -(Math.random() + 4),
-      ax: Math.random() * 0.02 - 0.01,
-      far: Math.random() * range + (center.y - range)
-    };
-    fire.base = {
-      x: fire.x,
-      y: fire.y,
-      vx: fire.vx
-    };
-    //
-    listFire.push(fire);
-  }
-
-  function randColor() {
-    var r = Math.floor(Math.random() * 256);
-    var g = Math.floor(Math.random() * 256);
-    var b = Math.floor(Math.random() * 256);
-    var color = 'rgb($r, $g, $b)';
-    color = color.replace('$r', r);
-    color = color.replace('$g', g);
-    color = color.replace('$b', b);
-    return color;
-  }
-
-  (function loop() {
-    requestAnimationFrame(loop);
-    update();
-    draw();
-  })();
-
-  function update() {
-    for (var i = 0; i < listFire.length; i++) {
-      var fire = listFire[i];
-      //
-      if (fire.y <= fire.far) {
-        // case add firework
-        var color = randColor();
-        for (var i = 0; i < fireNumber * 5; i++) {
-          var firework = {
-            x: fire.x,
-            y: fire.y,
-            size: Math.random() + 1.5,
-            fill: color,
-            vx: Math.random() * 5 - 2.5,
-            vy: Math.random() * -5 + 1.5,
-            ay: 0.05,
-            alpha: 1,
-            life: Math.round(Math.random() * range / 2) + range / 2
-          };
-          firework.base = {
-            life: firework.life,
-            size: firework.size
-          };
-          listFirework.push(firework);
-        }
-        // reset
-        fire.y = fire.base.y;
-        fire.x = fire.base.x;
-        fire.vx = fire.base.vx;
-        fire.ax = Math.random() * 0.02 - 0.01;
-      }
-      //
-      fire.x += fire.vx;
-      fire.y += fire.vy;
-      fire.vx += fire.ax;
-    }
-
-    for (var i = listFirework.length - 1; i >= 0; i--) {
-      var firework = listFirework[i];
-      if (firework) {
-        firework.x += firework.vx;
-        firework.y += firework.vy;
-        firework.vy += firework.ay;
-        firework.alpha = firework.life / firework.base.life;
-        firework.size = firework.alpha * firework.base.size;
-        firework.alpha = firework.alpha > 0.6 ? 1 : firework.alpha;
-        //
-        firework.life--;
-        if (firework.life <= 0) {
-          listFirework.splice(i, 1);
-        }
-      }
-    }
-  }
-
-  function draw() {
-    // clear
-    ctx.globalCompositeOperation = 'source-over';
-    ctx.globalAlpha = 0.18;
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // re-draw
-    ctx.globalCompositeOperation = 'screen';
-    ctx.globalAlpha = 1;
-    for (var i = 0; i < listFire.length; i++) {
-      var fire = listFire[i];
-      ctx.beginPath();
-      ctx.arc(fire.x, fire.y, fire.size, 0, Math.PI * 2);
-      ctx.closePath();
-      ctx.fillStyle = fire.fill;
-      ctx.fill();
-    }
-
-    for (var i = 0; i < listFirework.length; i++) {
-      var firework = listFirework[i];
-      ctx.globalAlpha = firework.alpha;
-      ctx.beginPath();
-      ctx.arc(firework.x, firework.y, firework.size, 0, Math.PI * 2);
-      ctx.closePath();
-      ctx.fillStyle = firework.fill;
-      ctx.fill();
-    }
-  }
-})()
