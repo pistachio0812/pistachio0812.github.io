@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,zh-TW,default">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>MySQL学习笔记 - 阿月浑子-Hexo博客</title>
+  
+    <meta name="keywords" content="学习笔记">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="阿月浑子-Hexo博客" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end -->
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<body>
+  
+
+<header id="l_header" class="l_header auto shadow show" style="opacity: 0">
+  <div class="container">
+  <div id="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="volantis-static/media/org.volantis/blog/Logo-NavBar@3x.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>留言箱
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fa-solid fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis" rel="external nofollow noopener noreferrer" target="_blank">
+                  主题源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" id="https:githubcomvolantis-xhexo-theme-volantisreleases" rel="external nofollow noopener noreferrer" target="_blank">
+                  更新日志
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" id="faqs">
+                  看 FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/volantis-docs/" id="https:githubcomvolantis-xvolantis-docs" rel="external nofollow noopener noreferrer" target="_blank">
+                  看 本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/issues/" id="https:githubcomvolantis-xhexo-theme-volantisissues" rel="external nofollow noopener noreferrer" target="_blank">
+                  提 Issue
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  文学黑洞
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://meiriyiwen.com/random" id="https:meiriyiwencomrandom" rel="external nofollow noopener noreferrer" target="_blank">
+                  每日一文
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.marxists.org/chinese/index.html" id="https:wwwmarxistsorgchineseindexhtml" rel="external nofollow noopener noreferrer" target="_blank">
+                  马克思主义文库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.yikm.net/" id="https:wwwyikmnet" rel="external nofollow noopener noreferrer" target="_blank">
+                  游戏厅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.xiaozhongjishu.com/" id="https:wwwxiaozhongjishucom" rel="external nofollow noopener noreferrer" target="_blank">
+                  小众技术工具库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h m-phone">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>留言箱
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fa-solid fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis" rel="external nofollow noopener noreferrer" target="_blank">
+                  主题源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" id="https:githubcomvolantis-xhexo-theme-volantisreleases" rel="external nofollow noopener noreferrer" target="_blank">
+                  更新日志
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" id="faqs">
+                  看 FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/volantis-docs/" id="https:githubcomvolantis-xvolantis-docs" rel="external nofollow noopener noreferrer" target="_blank">
+                  看 本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/issues/" id="https:githubcomvolantis-xhexo-theme-volantisissues" rel="external nofollow noopener noreferrer" target="_blank">
+                  提 Issue
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  文学黑洞
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://meiriyiwen.com/random" id="https:meiriyiwencomrandom" rel="external nofollow noopener noreferrer" target="_blank">
+                  每日一文
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.marxists.org/chinese/index.html" id="https:wwwmarxistsorgchineseindexhtml" rel="external nofollow noopener noreferrer" target="_blank">
+                  马克思主义文库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.yikm.net/" id="https:wwwyikmnet" rel="external nofollow noopener noreferrer" target="_blank">
+                  游戏厅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.xiaozhongjishu.com/" id="https:wwwxiaozhongjishucom" rel="external nofollow noopener noreferrer" target="_blank">
+                  小众技术工具库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="full" class="cover-wrapper post dock" style="display: none;">
+          
+            <div class="cover-bg lazyload placeholder" data-bg="https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg"></div>
+          
+          <div class="cover-body">
+  <div class="top">
+    
+    
+      <p class="title">相思似海深旧事如天远</p>
+    
+    
+      <p class="subtitle">where there is a will there is a way</p>
+    
+  </div>
+  <div class="bottom">
+    <div class="menu navigation">
+      <div class="list-h">
+        
+          
+            <a href="/v5/getting-started/" id="v5getting-started">
+              <img src="volantis-static/media/twemoji/assets/svg/1f5c3.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f5c3.svg" srcset="data:image/png;base64,666"><p>文档</p>
+            </a>
+          
+            <a href="/faqs/" id="faqs">
+              <img src="volantis-static/media/twemoji/assets/svg/1f516.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f516.svg" srcset="data:image/png;base64,666"><p>帮助</p>
+            </a>
+          
+            <a href="/examples/" id="examples">
+              <img src="volantis-static/media/twemoji/assets/svg/1f396.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f396.svg" srcset="data:image/png;base64,666"><p>示例</p>
+            </a>
+          
+            <a href="/contributors/" id="contributors">
+              <img src="volantis-static/media/twemoji/assets/svg/1f389.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f389.svg" srcset="data:image/png;base64,666"><p>社区</p>
+            </a>
+          
+            <a href="/archives/" id="archives">
+              <img src="volantis-static/media/twemoji/assets/svg/1f4f0.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f4f0.svg" srcset="data:image/png;base64,666"><p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis">
+              <img src="volantis-static/media/twemoji/assets/svg/1f9ec.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f9ec.svg" srcset="data:image/png;base64,666"><p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id="safearea">
+      <div class="body-wrapper" id="pjax-container">
+        
+
+<div class="l_main">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        MySQL学习笔记
+      </h1>
+      <div class="new-meta-box">
+        
+          
+            
+<div class="new-meta-item author">
+  <a class="author" href="/" rel="nofollow">
+    <img no-lazy src="https://img1.baidu.com/it/u=583582599,306470958&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500">
+    <p>coolboy</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item category">
+    <a class="notlink">
+      <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/MySQL/">MySQL</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年3月26日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：6.1k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：24分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <h2 id="MySQL入门教程"><a href="#MySQL入门教程" class="headerlink" title="MySQL入门教程"></a>MySQL入门教程</h2><h3 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h3><p>数据库是按照数据结构来组织、存储和管理数据的仓库</p>
+<p>关系型数据库：建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据</p>
+<p>RDBMS即关系数据库管理系统的特点：</p>
+<p>1.数据以表格的形式出现</p>
+<p>2.每行为各种记录名称</p>
+<p>3.每列为记录名称所对应的数据域</p>
+<p>4.许多行和列组成一张表单</p>
+<p>5.若干的表单组成数据库</p>
+<h3 id="RDBMS相关概念"><a href="#RDBMS相关概念" class="headerlink" title="RDBMS相关概念"></a>RDBMS相关概念</h3><p>·</p>
+<h3 id="MySQL创建数据表"><a href="#MySQL创建数据表" class="headerlink" title="MySQL创建数据表"></a>MySQL创建数据表</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p><code>CREATE TABLE table_name (column_name column_type)</code></p>
+<p>举例：在W3CSCHOOL数据库中创建数据表w3cschool_tbl:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS tutorials_tbl(</span><br><span class="line">	tutorial_id INT NOT NULL AUTO_INCREMENT,</span><br><span class="line">	tutorial_title VARCHAR(100) NOT NULL,</span><br><span class="line">	tutorial_author VARCHAR(40) NOT NULL,</span><br><span class="line">	submission_date DATE,</span><br><span class="line">	PRIMARY KEY (tutorial_id)</span><br><span class="line">	);</span><br></pre></td></tr></tbody></table></figure>
+<p>注：</p>
+<p>·如果你不想字段为NULL可以设置字段的属性为NOT NULL,在操作数据库如果输入该字段的数据为NULL,则会报错。</p>
+<p>·AUTO_INCREMENT定义列为自增的属性，一般用于主键，数值会自动加1。</p>
+<p>·PRIMARY KEY关键字用于定义列为主键。你可以使用多列来定义主键，列间以逗号分隔。</p>
+<h3 id="MySQL删除数据表"><a href="#MySQL删除数据表" class="headerlink" title="MySQL删除数据表"></a>MySQL删除数据表</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><p><code>DROP TABLE table_name</code></p>
+<h3 id="MySQL插入数据"><a href="#MySQL插入数据" class="headerlink" title="MySQL插入数据"></a>MySQL插入数据</h3><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO table_name(field1, field2, ...fieldN)</span><br><span class="line">					  VALUES</span><br><span class="line">					  (value1, value2, ...valueN);</span><br></pre></td></tr></tbody></table></figure>
+<p>举例：使用SQL INSERT INTO语句向MySQL数据表w3cschool_tbl插入数据：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO w3cschool_tbl</span><br><span class="line">(w3cschool_title, w3cschool_author, submission_date)</span><br><span class="line">VALUES</span><br><span class="line">("Learn PHP", "John Poul", NOW());</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="MySQL查询数据"><a href="#MySQL查询数据" class="headerlink" title="MySQL查询数据"></a>MySQL查询数据</h3><h4 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT column_name, column_name</span><br><span class="line">FROM table_name</span><br><span class="line">[WHERE Clause]</span><br><span class="line">[OFFSET M][LIMIT N]</span><br></pre></td></tr></tbody></table></figure>
+<p>注：</p>
+<p>·查询语句中你可以使用一个或者多个表，表之间使用逗号(,)分隔，并使用WHERE语句来设定查询条件。</p>
+<p>·SELECT命令可以读取一条或者多条记录。</p>
+<p>·你可以使用星号(*)来代替其他字段，SELECT语句会返回表的所有字段数据。</p>
+<p>·你可以使用WHERE语句来包含任何条件。</p>
+<p>·你可以通过OFFSET指定SELECT语句开始查询的数据偏移量，默认偏移量为0。</p>
+<p>·你可以使用LIMIT属性来设定返回的记录数。</p>
+<p>举例：通过SQL SELECT命令来获取MySQL数据表w3cschool_tbl的数据：</p>
+<p><code>SELECT * from w3cschool_tbl;</code></p>
+<h3 id="MySQL-where子句"><a href="#MySQL-where子句" class="headerlink" title="MySQL where子句"></a>MySQL where子句</h3><h4 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT field1, field2, ...fieldN</span><br><span class="line">FROM table_name1, table_name2...</span><br><span class="line">[WHERE condition1 [[AND][OR]] condition2...]</span><br></pre></td></tr></tbody></table></figure>
+<p>注：</p>
+<p>·查询语句中你可以使用一个或者多个表，表之间使用逗号(,)分隔，并使用WHERE语句来设定查询条件。</p>
+<p>·你可以在WHERE子句中指定任何条件。</p>
+<p>·你可以使用AND或者OR指定一个或多个条件。</p>
+<p>·WHERE子句也可以运用于SQL的DELETE或UPDATE命令。</p>
+<p>·WHERE子句类似于程序中的if条件，根据MySQL表中的字段值来读取指定的数据。</p>
+<p>操作符列表，实例假定A=10,B=20:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">操作符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">=</td>
+<td>等号，检测两个值是否相等，如果相等返回True</td>
+<td>(A=B)返回false</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;&gt;或！=</td>
+<td>不等于，检测两个值是否相等，如果不相等返回True</td>
+<td>（A!=B)返归true</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;</td>
+<td>大于号，检测左边的值是否大于右边的值，如果左边的值大于右边的值返回True</td>
+<td>(A&gt;B)返回false</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;</td>
+<td>小于号，检测左边的值是否小于右边的值，如果左边的值小于右边的值返回True</td>
+<td>(A&lt;B)返回true</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;=</td>
+<td>大于等于号，检测左边的值是否大于等于右边的值，如果左边的值大于或等于右边的值返回True</td>
+<td>(A&gt;=B)返回false</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;=</td>
+<td>小于等于号，检测左边的值是否小于或等于右边的值，如果左边的值小于或等于右边的值返回True</td>
+<td>(A&lt;=B)返回true</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>举例：读取w3cschool_tbl表中w3cschool_author字段值为Sanjay的所有记录：</p>
+<p><code>SELECT * from w3cschool_tbl WHERE w3cschool_author='Sanjay';</code></p>
+<p>除非你使用LIKE来比较字符串，否则MySQL的WHERE子句的字符串比较是不区分大小写的。你可以使用BINARY关键字来设定WHERE子句的紫福春是区分大小写的。</p>
+<p><code>SELECT * from w3cschool_tbl WHERE BINARY w3cschool_author='sanjay';</code></p>
+<h3 id="MySQL-UPDATE查询"><a href="#MySQL-UPDATE查询" class="headerlink" title="MySQL UPDATE查询"></a>MySQL UPDATE查询</h3><h4 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE table_name SET field1=new-value1, field2=new-value2</span><br><span class="line"></span><br><span class="line">[WHERE Clause]</span><br></pre></td></tr></tbody></table></figure>
+<p>注：</p>
+<p>·你可以同时更新一个或多个字段</p>
+<p>·你可以在WHERE字句中指定任何条件</p>
+<p>·你可以在一个单独表中同时更新数据</p>
+<p>当你需要更新表中指定行的数据时，WHERE子句是非常有用的。</p>
+<p>举例：更新数据表中w3cschool_id为3的w3cschool_title字段值：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE w3cschool_tbl</span><br><span class="line">SET w3cschool_title='Learning JAVA'</span><br><span class="line">WHERE w3cschool_id=3;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="MySQL-DELETE语句"><a href="#MySQL-DELETE语句" class="headerlink" title="MySQL DELETE语句"></a>MySQL DELETE语句</h3><h4 id="语法-6"><a href="#语法-6" class="headerlink" title="语法"></a>语法</h4><p><code>DELETE FROM table_name [WHERE Clause]</code></p>
+<p>注：</p>
+<p>·如果没有指定WHERE子句，MySQL表中的所有记录将被删除</p>
+<p>·你可以在WHERE字句中指定任何条件</p>
+<p>·你可以在单个表中一次性删除记录</p>
+<p>当你想删除数据表中的指定记录时，WHERE子句是非常有用的</p>
+<p>举例：删除w3cschool_tbl表中w3cschool_id为3的记录：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM w3cschool_tbl WHERE w3cschool_id=3;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="MySQL-LIKE子句"><a href="#MySQL-LIKE子句" class="headerlink" title="MySQL LIKE子句"></a>MySQL LIKE子句</h3><p>SQL LIKE子句中使用百分号（%）字符来表示任意字符，类似于UNIX或者正则表达式中的星号（*）。</p>
+<h4 id="语法-7"><a href="#语法-7" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT field1, field2, ...fieldN</span><br><span class="line">FROM table_name1, table_name2...</span><br><span class="line">WHERE field1 LIKE condition [[AND][OR]] field2='somevalue'</span><br></pre></td></tr></tbody></table></figure>
+<p>注：</p>
+<p>·你可以在WHERE子句中指定任何条件</p>
+<p>·你可以在WHERE字句中使用LIKE子句</p>
+<p>·你可以使用LIKE子句代替等号</p>
+<p>·LIKE通常与%一同使用，类似于一个元字符的搜索</p>
+<p>·你可以使用AND或OR指定一个或多个条件</p>
+<p>·你可以在DELETE或UPDATE命令中使用WHERE…LIKE子句来指定条件</p>
+<p>举例：查询w3cschool_tbl表中的w3cschool_author字段中以’jay’为结尾的所有记录：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * from w3cschool_tbl</span><br><span class="line">WHERE w3cschool_author LIKE '%jay';</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="MySQL排序"><a href="#MySQL排序" class="headerlink" title="MySQL排序"></a>MySQL排序</h3><h4 id="语法-8"><a href="#语法-8" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT field1, field2,...fieldN FROM table_name1, table_name2...</span><br><span class="line">ORDER BY field1, [field2...] [ASC[DESC]]</span><br></pre></td></tr></tbody></table></figure>
+<p>注：</p>
+<p>·你可以使用任何字段来作为排序的条件，从而返回排序后的查询结果</p>
+<p>·你可以设定多个字段来排序</p>
+<p>·你可以使用ASC或DESC关键字来设置查询结果是按升序或者降序排列。默认情况下，它是按升序排列</p>
+<p>·你可以添加WHERE…LIKE子句来设置条件</p>
+<p>举例：使用ORDER BY子句来读取MySQL数据表w3cschool_tbl中的数据：</p>
+<p><code>SELECT * from w3cschool_tbl ORDER BY w3cschool_author ASC;</code></p>
+<p><code>SELECT * from w3cschool_tbl ORDER BY w3cschool_author DESC;</code></p>
+<h3 id="MySQL-分组"><a href="#MySQL-分组" class="headerlink" title="MySQL 分组"></a>MySQL 分组</h3><p>GROUP BY语句根据一个或者多个列对结果集进行分组，在分组的列上我们可以使用COUNT,SUM,AVG等函数。</p>
+<h4 id="语法-9"><a href="#语法-9" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT column_name, function(column_name)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE column_name operator value</span><br><span class="line">GROUP BY column_name;</span><br></pre></td></tr></tbody></table></figure>
+<p>employee_tbl表格信息如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">id</th>
+<th>name</th>
+<th>date</th>
+<th>singin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>小明</td>
+<td>2016-04-22 15:25:33</td>
+<td>1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>小王</td>
+<td>2016-04-20 15:25:47</td>
+<td>3</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>小丽</td>
+<td>2016-04-19 15:26:02</td>
+<td>2</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>小王</td>
+<td>2016-04-07 15:26:14</td>
+<td>4</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>小明</td>
+<td>2016-04-11 15:26:40</td>
+<td>4</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>小明</td>
+<td>2016-04-04 15:26:54</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>举例：将数据表按名字进行分组，并统计每个人有多少条记录：</p>
+<p><code>SELECT name, COUNT(*) FROM employ_tbl GROUP BY name;</code></p>
+<h3 id="使用WITH-ROLLUP"><a href="#使用WITH-ROLLUP" class="headerlink" title="使用WITH ROLLUP"></a>使用WITH ROLLUP</h3><p>WITH ROLLUP可以实现在分组统计数据基础上再进行相同的统计（SUM.AVG,COUNT).</p>
+<p>举例：将以上的数据表按名字进行分组，再统计每个人登录的次数：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT name, SUM(singin) as singin_count</span><br><span class="line">FROM employee_tbl</span><br><span class="line">GROUP BY name WITH ROLLUP;</span><br></pre></td></tr></tbody></table></figure>
+<p>其中结果如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>singin_out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小丽</td>
+<td>2</td>
+</tr>
+<tr>
+<td>小明</td>
+<td>7</td>
+</tr>
+<tr>
+<td>小王</td>
+<td>7</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>其中记录NULL表示所有人的登录次数，我们可以使用coalesce来设置一个可以取代NULL的名称。</p>
+<h4 id="语法-10"><a href="#语法-10" class="headerlink" title="语法"></a>语法</h4><p><code>select coalesce(a, b, c);</code></p>
+<p>参数说明：如果a==null,则选择b;如果b==null,则选择c;如果a!=null,则选择a;如果abc都为null,则返回null(没意义)。</p>
+<p>举例：如果名字为空，使用总数代替：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT coalesce(name, '总数'), SUM(singin) as singin_out</span><br><span class="line">FROM employee_tbl</span><br><span class="line">GROUP BY name WITH ROLLUP;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="MySQL连接的使用"><a href="#MySQL连接的使用" class="headerlink" title="MySQL连接的使用"></a>MySQL连接的使用</h3><p>JOIN按照功能大致分为如下三类：</p>
+<p>·INNER JOIN(内连接，或等值连接)：获取两个表中字段匹配关系的记录</p>
+<p>·LEFT JOIN（左连接）：获取左表所有记录，即使右表没有对应匹配的记录</p>
+<p>·RIGHT JOIN(右连接)：用于获取右表所有记录，即使左表没有对应匹配的记录</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://raw.githubusercontent.com/pistachio0812/pistachio0812.github.io/main/images/SQL_JOINS.png">SQL JOINS</a></p>
+<p>假设W3CSCHOOL数据库中有两张表tcount_tbl和w3cschool_tbl,两张数据表数据如下：</p>
+<p>1.tcount_tbl</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">w3cschool_author</th>
+<th>w3cschool_count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">mahran</td>
+<td>20</td>
+</tr>
+<tr>
+<td style="text-align:center">mahnaz</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td style="text-align:center">Jen</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td style="text-align:center">Gill</td>
+<td>20</td>
+</tr>
+<tr>
+<td style="text-align:center">John Poul</td>
+<td>1</td>
+</tr>
+<tr>
+<td style="text-align:center">Sanjay</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>2.w3cschool_tbl</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>w3cschool_id</th>
+<th>w3cschool_title</th>
+<th>w3cschool_author</th>
+<th>submission_date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Learn PHP</td>
+<td>John Poul</td>
+<td>2007-05-24</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Learn MyQL</td>
+<td>Abdul S</td>
+<td>2007-05-24</td>
+</tr>
+<tr>
+<td>3</td>
+<td>JAVA Tutorial</td>
+<td>Sanjay</td>
+<td>2007-05-06</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>举例：使用INNER JOIN来连接以上两张表来读取w3cschool_tbl表中所有w3cschool_author字段在tcount_tbl表中对应的w3cschool_count字段值。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT a.w3cschool_id, a.w3cschool_author, b.w3cschool_count</span><br><span class="line">FROM w3cschool_tbl a INNER JOIN tcount_tbl b</span><br><span class="line">ON a.w3cschool_author = b.w3cschool_author</span><br></pre></td></tr></tbody></table></figure>
+<p>等价于：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT a.w3cschool_id, a_w3cschool_author, b.w3cschool_count</span><br><span class="line">FROM w3cschool_tbl a, tcount_tbl b</span><br><span class="line">WHERE a.w3cschool_author = b.w3cschool_author;</span><br></pre></td></tr></tbody></table></figure>
+<p>举例：以w3cschool_tbl为左表， t_count_tbl为右表，理解MySQL LEFT JOIN的应用：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT a.w3cschool_id, a.w3cschool_author, b.w3cschool_count</span><br><span class="line">FROM w3cschool_tbl a LEFT JOIN tcount_tbl b</span><br><span class="line">ON a.w3cschool_author = b.w3cschool_author;</span><br></pre></td></tr></tbody></table></figure>
+<p>举例：以tcount_tbl为左表， w3cschool_tbl为右表，理解MySQL RIGHT JOIN的应用：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT b.w3cschool_id, b.w3cschool_author, a.w3cschool_count</span><br><span class="line">FROM tcount_tbl a RIGHT JOIN w3cschool_tbl b</span><br><span class="line">ON a.w3cschool_author = b.w3cschool_author;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="MySQL-NULL值处理"><a href="#MySQL-NULL值处理" class="headerlink" title="MySQL NULL值处理"></a>MySQL NULL值处理</h3><p>查询条件字段为NULL时，该命令可能无法正常工作，为了处理这种情况，MySQL提供了三大运算符：</p>
+<p>·IS NULL:当列的值为NULL,此运算符返回True</p>
+<p>·IS NOT NULL:当列的值不为NULL,运算符返回True</p>
+<p>·&lt;=&gt;:比较运算符，当比较的两个值为NULL时返回True</p>
+<p>关于NULL的条件比较运算是比较特殊的，你不能够使用=NULL或！=NULL在列中查找NULL值，在MySQL中，NULL值与任何其他值的比较永远返回false,即NULL=NULL返回false。</p>
+<h4 id="在命令提示符中使用NULL值"><a href="#在命令提示符中使用NULL值" class="headerlink" title="在命令提示符中使用NULL值"></a>在命令提示符中使用NULL值</h4><p>假设数据库W3CSCHOOL中的表tcount_tbl含有两列w3cschool_author和w3cschool_count, w3cschool_count中设置插入NULL值。</p>
+<p>假设表如下所示：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>w3cschool_author</th>
+<th>w3cschool_count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mahran</td>
+<td>20</td>
+</tr>
+<tr>
+<td>mahnaz</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>Jen</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>Gill</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>查询数据表中w3cschool_count列是否为NULL,必须使用IS NULL和IS NOT NULL,如下实例：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM tcount_tbl</span><br><span class="line">WHERE w3cschool_count IS NULL;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM tcount_tbl</span><br><span class="line">WHERE w3cschool_count IS NOT NULL;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="MySQL正则表达式"><a href="#MySQL正则表达式" class="headerlink" title="MySQL正则表达式"></a>MySQL正则表达式</h3><p>下表中的正则模式可应用于REGEXP操作符中。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>^</th>
+<th>匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配’\n’或’\r’之后的位置。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$</td>
+<td>匹配输入字符串的结束位置。如果设置了RegExp对象的Multiline属性，^也匹配’\n’或’\r’之前的位置。</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配除’\n’之外的任何单个字符。要匹配包括’\n’在内的任何字符，请使用’[.\n]’的模式。</td>
+</tr>
+<tr>
+<td>[…]</td>
+<td>字符集合。匹配所包含的任何一个字符。例如’[abc]’可以匹配’plain’中的’a’。</td>
+</tr>
+<tr>
+<td><sup><a href="#fn_..." id="reffn_...">...</a></sup></td>
+<td>负值字符集合。匹配未包含的任意字符。例如，’<sup><a href="#fn_abc" id="reffn_abc">abc</a></sup>‘可以匹配’plain’中的’p’。</td>
+</tr>
+<tr>
+<td>p1\</td>
+<td>p2\</td>
+<td>p3</td>
+<td>匹配p1或p2或p3.例如，’z\</td>
+<td>food’能匹配’z’或’food’。，’(z\</td>
+<td>f)food’能匹配’zood’或’food’</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配前面的子表达式零次或多次。例如，zo能匹配’z’以及’zoo’.*等价于{0，}。</td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配前面的子表达式一次或多次。例如，’zo+’能匹配’zo’以及’zoo’,但不能匹配’z’。+等价于{1，}</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>n是一个非负整数。匹配确定的n次。例如，’o{2}’不能匹配’Bob’中的’o’,但是能匹配’food’中的两个o。</td>
+</tr>
+<tr>
+<td>{n, m}</td>
+<td>m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>举例：</p>
+<p>1.查找name字段中以’st’为开头的所有数据：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT name FROM person_tbl WHERE name REGEXP '^st';</span><br></pre></td></tr></tbody></table></figure>
+<p>2.查找name字段中以’ok’为结尾的所有数据：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT name FROM person_tbl WHERE name REGEXP 'ok$';</span><br></pre></td></tr></tbody></table></figure>
+<p>3.查找name字段中包含’mar’字符串的所有数据：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT name FROM person_tbl WHERE name REGEXP 'mar'</span><br></pre></td></tr></tbody></table></figure>
+<p>4.查找name字段中以元音字符开头或以’ok’字符串结尾的所有数据：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT name FROM person_tbl WHERE name REGEXP '^[aeiou]|ok$'</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="MySQL事务"><a href="#MySQL事务" class="headerlink" title="MySQL事务"></a>MySQL事务</h3><p>MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你即需要删除人员的基本资料，也要删除和该人员相关的信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个事务！</p>
+<ul>
+<li>在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。</li>
+<li>事务处理可以用来维护数据库的完整性，保证成批的SQL语句要么全部执行，要么全部不执行。</li>
+<li>事务用来管理 insert , update , delete 语句。</li>
+</ul>
+<p>一般来说，事务是必须满足4个条件（ACID）： Atomicity（原子性或不可分割性）、Consistency（一致性）、Isolation（隔离性或独立性）、Durability（持久性）</p>
+<ul>
+<li>1、<strong>原子性：</strong>一组事务，要么成功；要么撤回，即事务在执行过程中出错会回滚到事务开始前的状态。</li>
+<li>2、<strong>一致性</strong> ： 一个事务不论是开始前还是结束后，数据库的完整性都没有被破坏。因此写入的数据必须完全符合所有预设规则（资料精确度、串联性以及后续数据库能够自发完成预定工作）。</li>
+<li>3、<strong>隔离性：</strong>数据库允许多个事务并发的同时对其数据进行读写修改等操作，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离可分为：Read uncommitted（读未提交）、Read committed（读提交）、Repeatable read（可重复读）、Serializable（串行化）。</li>
+<li>4、持久<strong>性：</strong>事务在处理结束后对数据做出的修改是永久的，无法丢失</li>
+</ul>
+<h4 id="事务控制语句"><a href="#事务控制语句" class="headerlink" title="事务控制语句"></a>事务控制语句</h4><p>1.显式的开始一个事务：</p>
+<p><code>start transaction</code>或者<code>begin</code></p>
+<p>2.做保存点，一个事务中可以有多个保存点：</p>
+<p><code>savepoint  [savepoint_name]</code></p>
+<p>3.提交事务，并使数据库中进行的修改成为永久性的：</p>
+<p><code>commit</code>或<code>commit work</code></p>
+<p>4.回滚结束用户的事务，并撤销正在进行的所有未提交的修改：</p>
+<p><code>rollback</code>或<code>rollback work</code></p>
+<p>5.删除一个事务的保存点，若没有指定保存点，执行该语句操作则会抛错：</p>
+<p><code>release savepoint [savepoint_name]</code></p>
+<p>6.将事务滚回标记点：</p>
+<p><code>rollback to 标记点</code></p>
+<p>7.设置事务的隔离级别。InnoDB 存储引擎提供事务的隔离级别有READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ 和 SERIALIZABLE。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set transaction</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="事务处理方法"><a href="#事务处理方法" class="headerlink" title="事务处理方法"></a>事务处理方法</h4><p>1.用 begin ， rollback ， commit 来实现事务处理。</p>
+<p>2.用 set 来改变 MySQL 的自动提交模式。</p>
+<ul>
+<li>set autocommit = 0 （禁止自动提交）。</li>
+<li>set autocommit = 1 （开启自动提交）。</li>
+</ul>
+<h3 id="MySQL-ALTER命令"><a href="#MySQL-ALTER命令" class="headerlink" title="MySQL ALTER命令"></a>MySQL ALTER命令</h3><p>当我们需要修改数据表名或者修改数据表字段时，就需要使用到MySQL ALTER命令。</p>
+<p>开始本章教程前让我们先创建一张表，表名为：testalter_tbl。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create table testalter_tbl(</span><br><span class="line">	i INT,</span><br><span class="line">	c CHAR(1)</span><br><span class="line">	);</span><br><span class="line"> </span><br></pre></td></tr></tbody></table></figure>
+<p><code>SHOW COLUMNS FROM testalter_tbl;</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Null</th>
+<th>Key</th>
+<th>Default</th>
+<th>Extra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>int(11)</td>
+<td>YES</td>
+<td></td>
+<td>NULL</td>
+<td></td>
+</tr>
+<tr>
+<td>c</td>
+<td>char(1)</td>
+<td>YES</td>
+<td></td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="删除、添加或修改表字段"><a href="#删除、添加或修改表字段" class="headerlink" title="删除、添加或修改表字段"></a>删除、添加或修改表字段</h4><p><em>如下命令使用了 ALTER 命令及 DROP 子句来删除以上创建表的 i 字段：</em></p>
+<p><em><code>mysql&gt; ALTER TABLE testalter_tbl  DROP i;</code></em></p>
+<p><em>如果数据表中只剩余一个字段则无法使用DROP来删除字段。</em></p>
+<p><em>MySQL 中使用 ADD 子句来想数据表中添加列，如下实例在表 testalter_tbl 中添加 i 字段，并定义数据类型:</em></p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl ADD i INT;</code></p>
+<p>执行以上命令后，i 字段会自动添加到数据表字段的末尾。</p>
+<p>`mysql&gt; SHOW COLUMNS FROM testalter_tbl; </p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
+<p> <code>| Field | Type    | Null | Key | Default | Extra |</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
+<p> <code>| c     | char(1) | YES  |     | NULL    |       |</code></p>
+<p> <code>| i     | int(11) | YES  |     | NULL    |       |</code> </p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code> </p>
+<p> <code>2 rows in set (0.00 sec)</code></p>
+<p>如果你需要指定新增字段的位置，可以使用MySQL提供的关键字 FIRST (设定位第一列)， AFTER 字段名（设定位于某个字段之后）。</p>
+<p>尝试以下 ALTER TABLE 语句, 在执行成功后，使用 SHOW COLUMNS 查看表结构的变化：</p>
+<p><code>ALTER TABLE testalter_tbl DROP i;</code></p>
+<p> <code>ALTER TABLE testalter_tbl ADD i INT FIRST;</code></p>
+<p> <code>ALTER TABLE testalter_tbl DROP i;</code> </p>
+<p> <code>ALTER TABLE testalter_tbl ADD i INT AFTER c;</code></p>
+<p>FIRST 和 AFTER 关键字只占用于 ADD 子句，所以如果你想重置数据表字段的位置就需要先使用 DROP 删除字段然后使用 ADD 来添加字段并设置位置。</p>
+<h4 id="修改字段类型及名称"><a href="#修改字段类型及名称" class="headerlink" title="修改字段类型及名称"></a>修改字段类型及名称</h4><p>如果需要修改字段类型及名称, 你可以在ALTER命令中使用 MODIFY 或 CHANGE 子句 。</p>
+<p>例如，把字段 c 的类型从 CHAR(1) 改为 CHAR(10)，可以执行以下命令:</p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl MODIFY c CHAR(10);</code></p>
+<p> 使用 CHANGE 子句, 语法有很大的不同。 在 CHANGE 关键字之后，紧跟着的是你要修改的字段名，然后指定新字段的类型及名称。尝试如下实例：</p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl CHANGE i j BIGINT;</code></p>
+<p>如果你现在想把字段 j 从 BIGINT 修改为 INT，SQL语句如下：</p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl CHANGE j j INT;</code></p>
+<h4 id="ALTER-TABLE-对-Null-值和默认值的影响"><a href="#ALTER-TABLE-对-Null-值和默认值的影响" class="headerlink" title="ALTER TABLE 对 Null 值和默认值的影响"></a>ALTER TABLE 对 Null 值和默认值的影响</h4><p>当你修改字段时，你可以指定是否包含只或者是否设置默认值。以下实例，指定字段 j 为 NOT NULL 且默认值为100 。</p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl</code></p>
+<p>​        <code>-&gt; MODIFY j BIGINT NOT NULL DEFAULT 100;</code></p>
+<p>如果你不设置默认值，MySQL会自动设置该字段默认为 NULL。</p>
+<h4 id="修改字段默认值"><a href="#修改字段默认值" class="headerlink" title="修改字段默认值"></a>修改字段默认值</h4><p>你可以使用 ALTER 来修改字段的默认值，尝试以下实例：</p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl ALTER i SET DEFAULT 1000;</code></p>
+<p><code>mysql&gt; SHOW COLUMNS FROM testalter_tbl;</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
+<p> <code>| Field | Type    | Null | Key | Default | Extra |</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code> </p>
+<p> <code>| c     | char(1) | YES  |     | NULL    |       |</code></p>
+<p> <code>| i     | int(11) | YES  |     | 1000    |       |</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
+<p> <code>2 rows in set (0.00 sec)</code></p>
+<p>你也可以使用 ALTER 命令及 DROP子句来删除字段的默认值，如下实例：</p>
+<p><code>mysql&gt; ALTER TABLE testalter_tbl ALTER i DROP DEFAULT;</code></p>
+<p> <code>mysql&gt; SHOW COLUMNS FROM testalter_tbl;</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
+<p> <code>| Field | Type    | Null | Key | Default | Extra |</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code> </p>
+<p> <code>| c     | char(1) | YES  |     | NULL    |       |</code></p>
+<p> <code>| i     | int(11) | YES  |     | NULL    |       |</code></p>
+<p> <code>+-------+---------+------+-----+---------+-------+</code></p>
+<p> <code>2 rows in set (0.00 sec) Changing a Table Type:</code></p>
+<p>修改数据表类型，可以使用 ALTER 命令及 TYPE 子句来完成。尝试以下实例，我们将表 testalter_tbl 的类型修改为 MYISAM ：<strong>注意：</strong>查看数据表类型可以使用 SHOW TABLE STATUS 语句。*</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl TYPE = MYISAM;</span><br><span class="line">mysql&gt;  SHOW TABLE STATUS LIKE 'testalter_tbl'\G</span><br><span class="line"> 1. row **</span><br><span class="line">           Name: testalter_tbl</span><br><span class="line">           Type: MyISAM</span><br><span class="line">     Row_format: Fixed</span><br><span class="line">           Rows: 0</span><br><span class="line"> Avg_row_length: 0</span><br><span class="line">    Data_length: 0</span><br><span class="line">Max_data_length: 25769803775</span><br><span class="line">   Index_length: 1024</span><br><span class="line">      Data_free: 0</span><br><span class="line"> Auto_increment: NULL</span><br><span class="line">    Create_time: 2007-06-03 08:04:36</span><br><span class="line">    Update_time: 2007-06-03 08:04:36</span><br><span class="line">     Check_time: NULL</span><br><span class="line"> Create_options:</span><br><span class="line">        Comment:</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h4><p>如果需要修改数据表的名称，可以在 ALTER TABLE 语句中使用 RENAME 子句来实现。</p>
+<p>尝试以下实例将数据表 testalter_tbl 重命名为 alter_tbl：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl RENAME TO alter_tbl;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="MySQL索引"><a href="#MySQL索引" class="headerlink" title="MySQL索引"></a>MySQL索引</h3><p>MySQL索引的建立对于MySQL的高效运行是很重要的，索引可以大大提高MySQL的检索速度。</p>
+<p>打个比方，如果合理的设计且使用索引的MySQL是一辆兰博基尼的话，那么没有设计和使用索引的MySQL就是一个人力三轮车。</p>
+<p>拿汉语字典的目录页（索引）打比方，我们可以按拼音、笔画、偏旁部首等排序的目录（索引）快速查找到需要的字。</p>
+<p>索引分单列索引和组合索引。单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。组合索引，即一个索引包含多个列。</p>
+<p>创建索引时，你需要确保该索引是应用在 SQL 查询语句的条件(一般作为 WHERE 子句的条件)。</p>
+<p>实际上，索引也是一张表，该表保存了主键与索引字段，并指向实体表的记录。</p>
+<p>上面都在说使用索引的好处，但过多的使用索引将会造成滥用。因此索引也会有它的缺点：虽然索引大大提高了查询速度，同时却会降低更新表的速度，如对表进行INSERT、UPDATE和DELETE。因为更新表时，MySQL不仅要保存数据，还要保存一下索引文件。</p>
+<p>建立索引会占用磁盘空间的索引文件。</p>
+<h4 id="普通索引"><a href="#普通索引" class="headerlink" title="普通索引"></a>普通索引</h4><p>创建索引</p>
+<p>这是最基本的索引，它没有任何限制。它有以下几种创建方式：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE INDEX indexName ON mytable(username(length)); </span><br></pre></td></tr></tbody></table></figure>
+<p>如果是CHAR，VARCHAR类型，length可以小于字段实际长度；如果是BLOB和TEXT类型，必须指定 length。</p>
+<p>修改表结构(添加索引)</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER table tableName ADD INDEX indexName(columnName)</span><br></pre></td></tr></tbody></table></figure>
+<p>创建表的时候直接指定</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE mytable(  </span><br><span class="line"> </span><br><span class="line">ID INT NOT NULL,   </span><br><span class="line"> </span><br><span class="line">username VARCHAR(16) NOT NULL,  </span><br><span class="line"> </span><br><span class="line">INDEX [indexName] (username(length))  </span><br><span class="line"> </span><br><span class="line">);  </span><br></pre></td></tr></tbody></table></figure>
+<p>删除索引的语法</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP INDEX [indexName] ON mytable; </span><br></pre></td></tr></tbody></table></figure>
+<h4 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h4><p>它与前面的普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。它有以下几种创建方式：</p>
+<p>创建索引</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE UNIQUE INDEX indexName ON mytable(username(length)) </span><br></pre></td></tr></tbody></table></figure>
+<p>修改表结构</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER table mytable ADD UNIQUE [indexName] (username(length))</span><br></pre></td></tr></tbody></table></figure>
+<p>创建表的时候直接指定</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE mytable(  </span><br><span class="line"> </span><br><span class="line">ID INT NOT NULL,   </span><br><span class="line"> </span><br><span class="line">username VARCHAR(16) NOT NULL,  </span><br><span class="line"> </span><br><span class="line">UNIQUE [indexName] (username(length))  </span><br><span class="line"> </span><br><span class="line">);  </span><br></pre></td></tr></tbody></table></figure>
+<p>使用ALTER 命令添加和删除索引</p>
+<p>有四种方式来添加数据表的索引：</p>
+<ul>
+<li>ALTER TABLE tbl_name ADD PRIMARY KEY (column_list): 该语句添加一个主键，这意味着索引值必须是唯一的，且不能为NULL。</li>
+<li>ALTER TABLE tbl_name ADD UNIQUE index_name (column_list): 这条语句创建索引的值必须是唯一的（除了NULL外，NULL可能会出现多次）。</li>
+<li>ALTER TABLE tbl_name ADD INDEX index_name (column_list): 添加普通索引，索引值可出现多次。</li>
+<li>ALTER TABLE tbl_name ADD FULLTEXT index_name (column_list):该语句指定了索引为 FULLTEXT ，用于全文索引。</li>
+</ul>
+<p>以下实例为在表中添加索引。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl ADD INDEX (c);</span><br></pre></td></tr></tbody></table></figure>
+<p>你还可以在 ALTER 命令中使用 DROP 子句来删除索引。尝试以下实例删除索引:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl DROP INDEX c;</span><br></pre></td></tr></tbody></table></figure>
+<p>使用 ALTER 命令添加和删除主键</p>
+<p>主键只能作用于一个列上，添加主键索引时，你需要确保该主键默认不为空（NOT NULL）。实例如下：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl MODIFY i INT NOT NULL;</span><br><span class="line">mysql&gt; ALTER TABLE testalter_tbl ADD PRIMARY KEY (i);</span><br></pre></td></tr></tbody></table></figure>
+<p>你也可以使用 ALTER 命令删除主键：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl DROP PRIMARY KEY;</span><br></pre></td></tr></tbody></table></figure>
+<p>删除主键时只需指定PRIMARY KEY，但在删除索引时，你必须知道索引名。</p>
+<p>显示索引信息</p>
+<p>你可以使用 SHOW INDEX 命令来列出表中的相关的索引信息。可以通过添加 \G 来格式化输出信息。</p>
+<p>尝试以下实例:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW INDEX FROM table_name; \G</span><br><span class="line">........</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="MySQL临时表"><a href="#MySQL临时表" class="headerlink" title="MySQL临时表"></a>MySQL临时表</h3><p>MySQL 临时表在我们需要保存一些临时数据时是非常有用的。临时表只在当前连接可见，当关闭连接时，MySQL会自动删除表并释放所有空间。</p>
+<p>临时表在MySQL 3.23版本中添加，如果你的MySQL版本低于 3.23版本就无法使用MySQL的临时表。不过现在一般很少有再使用这么低版本的MySQL数据库服务了。</p>
+<p>MySQL临时表只在当前连接可见，如果你使用PHP脚本来创建MySQL临时表，那每当PHP脚本执行完成后，该临时表也会自动销毁。</p>
+<p>如果你使用了其他MySQL客户端程序连接MySQL数据库服务器来创建临时表，那么只有在关闭客户端程序时才会销毁临时表，当然你也可以手动销毁。</p>
+<p>实例</p>
+<p>以下展示了使用MySQL 临时表的简单实例，以下的SQL代码可以适用于PHP脚本的mysql_query()函数。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TEMPORARY TABLE SalesSummary (</span><br><span class="line">    -&gt; product_name VARCHAR(50) NOT NULL</span><br><span class="line">    -&gt; , total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00</span><br><span class="line">    -&gt; , avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00</span><br><span class="line">    -&gt; , total_units_sold INT UNSIGNED NOT NULL DEFAULT 0</span><br><span class="line">);</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; INSERT INTO SalesSummary</span><br><span class="line">    -&gt; (product_name, total_sales, avg_unit_price, total_units_sold)</span><br><span class="line">    -&gt; VALUES</span><br><span class="line">    -&gt; ('cucumber', 100.25, 90, 2);</span><br><span class="line"></span><br><span class="line">mysql&gt; SELECT * FROM SalesSummary;</span><br><span class="line">+--------------+-------------+----------------+------------------+</span><br><span class="line">| product_name | total_sales | avg_unit_price | total_units_sold |</span><br><span class="line">+--------------+-------------+----------------+------------------+</span><br><span class="line">| cucumber     |      100.25 |          90.00 |                2 |</span><br><span class="line">+--------------+-------------+----------------+------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></tbody></table></figure>
+<p>当你使用 <strong>SHOW TABLES</strong>命令显示数据表列表时，你将无法看到 SalesSummary表。</p>
+<p>如果你退出当前MySQL会话，再使用 <strong>SELECT</strong>命令来读取原先创建的临时表数据，那你会发现数据库中没有该表的存在，因为在你退出时该临时表已经被销毁了。</p>
+<p>删除MySQL 临时表</p>
+<p>默认情况下，当你断开与数据库的连接后，临时表就会自动被销毁。当然你也可以在当前MySQL会话使用 <strong>DROP TABLE</strong> 命令来手动删除临时表。</p>
+<p>以下是手动删除临时表的实例：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TEMPORARY TABLE SalesSummary (</span><br><span class="line">    -&gt; product_name VARCHAR(50) NOT NULL</span><br><span class="line">    -&gt; , total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00</span><br><span class="line">    -&gt; , avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00</span><br><span class="line">    -&gt; , total_units_sold INT UNSIGNED NOT NULL DEFAULT 0</span><br><span class="line">);</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; INSERT INTO SalesSummary</span><br><span class="line">    -&gt; (product_name, total_sales, avg_unit_price, total_units_sold)</span><br><span class="line">    -&gt; VALUES</span><br><span class="line">    -&gt; ('cucumber', 100.25, 90, 2);</span><br><span class="line"></span><br><span class="line">mysql&gt; SELECT * FROM SalesSummary;</span><br><span class="line">+--------------+-------------+----------------+------------------+</span><br><span class="line">| product_name | total_sales | avg_unit_price | total_units_sold |</span><br><span class="line">+--------------+-------------+----------------+------------------+</span><br><span class="line">| cucumber     |      100.25 |          90.00 |                2 |</span><br><span class="line">+--------------+-------------+----------------+------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line">mysql&gt; DROP TABLE SalesSummary;</span><br><span class="line">mysql&gt;  SELECT * FROM SalesSummary;</span><br><span class="line">ERROR 1146: Table 'W3CSCHOOL.SalesSummary' doesn't exist</span><br></pre></td></tr></tbody></table></figure>
+  
+  
+    
+    <div class="footer">
+      
+      
+      
+      
+        <div class="donate">
+          <div class="imgs">
+            
+              <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" srcset="data:image/png;base64,666">
+            
+              <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" srcset="data:image/png;base64,666">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    
+
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-04T21:21:47+08:00">
+  <a class="notlink">
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年10月4日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>学习笔记</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/zh-CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=MySQL学习笔记 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="volantis-static/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/zh-CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=MySQL学习笔记 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="volantis-static/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/zh-CN/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=MySQL学习笔记 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="volantis-static/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        
+        <div class="hoverbox">
+          <a class="share"><img src="volantis-static/media/org.volantis/logo/128/wechat.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/wechat.png" srcset="data:image/png;base64,666"></a>
+          <div class="target">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEaUlEQVR42u3aQXLcMAwEQP//08kDUi4RGBBaO83beiVFbO4BmODrj3VlfSEAC9YCCxasBXYF9qu5qvf/8wLf/P27657+/af7T7+PPcCCBQsWLFiwYMGuwh4XwIcvcgp1+twpuO7fjz3AggULFixYsGDBvgJbLchPAaoHdAso3d/j9WDBggULFixYsGB/BOx0wZ0G390DBQsWLFiwYMGCBft/wZ6CdjcwPTAyNcABFixYsGDBggUL9rNgqwV2CpU+t9tYVH8o65MwYMGCBQsWLFiwYI9g0wL9t31ue4AFCxYsWLBgwYJdgb09SPFU0E8PjFQbiPGBErBgwYIFCxYsWLArsNUXnWokuoH26XNuD54cd15gwYIFCxYsWLBgPwK2el23YK8CTg1mdBsNsGDBggULFixYsO/Cphv6c2lVC//qAXU/gwULFixYsGDBgn0X9rRgrr5A9f60kegOjqQNC1iwYMGCBQsWLNh3YavATwV3WpBXg+k0yE4bHbBgwYIFCxYsWLC7sFWAaqF/K6hOD7YK/7h/sGDBggULFixYsCuwaXDdDZpvH8DtIP7b+8CCBQsWLFiwYMG+AtsNfqcK/TT47l6XNj5gwYIFCxYsWLBgd2G7BXy6kW5w3h3EqBb61yZhwIIFCxYsWLBgwY7ATq9PCbS7AXjc4IAFCxYsWLBgwYJdga0WxtUAuNownN6XBuvVAzo+OLBgwYIFCxYsWLAfAduFSYPlNGBPA/P2Z7BgwYIFCxYsWLArsNUXrw5ydIGmYbsDI+UGAixYsGDBggULFuwKbHcjVfA0mE4bjjTYP25swIIFCxYsWLBgwa7Adgc00kGKqQGP241Mef9gwYIFCxYsWLBgX4GdLvCnA/TuwEX1INqDyWDBggULFixYsGBXYNONdzdQLfSnG4mpA378HwSwYMGCBQsWLFiwK7BTDcJUA3EKkQ50dEGPGwSwYMGCBQsWLFiwV2GrAxtTQXcaQKdB9dQPAyxYsGDBggULFuwubDdAnjqYNKCeen580GDBggULFixYsGBXYbsPTgctqs9Lg/duY3O8H7BgwYIFCxYsWLCvwk41ANPXTTU01YM6PhCwYMGCBQsWLFiwq7DdwYfqYMYpRDqQkQJV3wcsWLBgwYIFCxbsZ8CmL5w2FNX7Tw8gbTziBgEsWLBgwYIFCxbsVdhbBXUXOG1MusF3eRAELFiwYMGCBQsW7Apsurpw1UK/27CkDUr5erBgwYIFCxYsWLArsFMFcvp9N+BOA/C0cQELFixYsGDBggX7Lmw6MNGF7hbkU43DVFAOFixYsGDBggUL9l3YbgGdXp8W+NMNQzs4BwsWLFiwYMGCBfurYG99/1S4TzcOj/eBBQsWLFiwYMGC/RGw3QHkFLA6CJ0G9usNAliwYMGCBQsWLNgSbHVgo3vdVLDche8e1OOBgAULFixYsGDBgl2FnRqM6AbO1UK+W9B3A+/jHxRYsGDBggULFizYFVhrdoEFC9YCCxasBfbq+gvU3dLn/ujgbQAAAABJRU5ErkJggg==">
+          </div>
+        </div>
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class="prev" href="/zh-CN/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>详解注意力机制</p>
+          <p class="content">注意力机制注意力机制就是让网络关注到它更需要关注的地方，是一种网络自适应注意的方式。注意力机制可以分为通道注意力，空间注意力以及二者的结合。
+相关论文SENet2017年提出的SENet是最后一...</p>
+        </a>
+      
+      
+        <a class="next" href="/zh-CN/%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
+          <p class="title">Q & A<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">就地操作问题来源：看代码发现self.relu=nn.ReLU(inplace=True)不明白inplace=True什么意思。
+解答：查看pytorch官网关于ReLU定义，ReLU其中in...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  
+
+
+
+
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper sticky shadow desktop mobile" id="toc-div">
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B"><span class="toc-text">MySQL入门教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">什么是数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RDBMS%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="toc-text">RDBMS相关概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-text">MySQL创建数据表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-text">MySQL删除数据表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-text">MySQL插入数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-2"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="toc-text">MySQL查询数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-3"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-where%E5%AD%90%E5%8F%A5"><span class="toc-text">MySQL where子句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-4"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-UPDATE%E6%9F%A5%E8%AF%A2"><span class="toc-text">MySQL UPDATE查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-5"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-DELETE%E8%AF%AD%E5%8F%A5"><span class="toc-text">MySQL DELETE语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-6"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-LIKE%E5%AD%90%E5%8F%A5"><span class="toc-text">MySQL LIKE子句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-7"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL%E6%8E%92%E5%BA%8F"><span class="toc-text">MySQL排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-8"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-%E5%88%86%E7%BB%84"><span class="toc-text">MySQL 分组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-9"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8WITH-ROLLUP"><span class="toc-text">使用WITH ROLLUP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-10"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL%E8%BF%9E%E6%8E%A5%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">MySQL连接的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-NULL%E5%80%BC%E5%A4%84%E7%90%86"><span class="toc-text">MySQL NULL值处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E4%B8%AD%E4%BD%BF%E7%94%A8NULL%E5%80%BC"><span class="toc-text">在命令提示符中使用NULL值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">MySQL正则表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL%E4%BA%8B%E5%8A%A1"><span class="toc-text">MySQL事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5"><span class="toc-text">事务控制语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95"><span class="toc-text">事务处理方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-ALTER%E5%91%BD%E4%BB%A4"><span class="toc-text">MySQL ALTER命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E3%80%81%E6%B7%BB%E5%8A%A0%E6%88%96%E4%BF%AE%E6%94%B9%E8%A1%A8%E5%AD%97%E6%AE%B5"><span class="toc-text">删除、添加或修改表字段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%90%8D%E7%A7%B0"><span class="toc-text">修改字段类型及名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ALTER-TABLE-%E5%AF%B9-Null-%E5%80%BC%E5%92%8C%E9%BB%98%E8%AE%A4%E5%80%BC%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">ALTER TABLE 对 Null 值和默认值的影响</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%AD%97%E6%AE%B5%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-text">修改字段默认值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E5%90%8D"><span class="toc-text">修改表名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL%E7%B4%A2%E5%BC%95"><span class="toc-text">MySQL索引</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E7%B4%A2%E5%BC%95"><span class="toc-text">普通索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="toc-text">唯一索引</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL%E4%B8%B4%E6%97%B6%E8%A1%A8"><span class="toc-text">MySQL临时表</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="MySQL学习笔记";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="2185397204" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="mailto:2395856915@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://github.com/pistachio0812" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class="copyright">
+        <p><a href="/">Copyright ©2020-2023江西理工大学.All Rights Reserved</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("volantis-static/libs/@fortawesome/fontawesome-free/css/all.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("volantis-static/libs/font-awesome-animation/font-awesome-animation.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("volantis-static/libs/node-waves/dist/waves.min.css", window.volantis.loadcss);
+  
+  
+</script>
+<!-- required -->
+
+<script src="/volantis-static/libs/jquery/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="volantis-static/libs/vanilla-lazyload/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="volantis-static/libs/flying-pages/flying-pages.min.js"></script>
+  
+
+
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '2185397204';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("volantis-static/libs/aplayer/dist/APlayer.min.js")
+  window.volantis.LoadMetingJS=0
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return
+    clearInterval(checkAPlayer)
+	if (!window.volantis.LoadMetingJS&&!window.MetingJSElement){
+	  window.LoadMetingJS=1
+      loadScript("volantis-static/libs/meting/dist/Meting.min.js")
+	  }
+  }, 2500)
+
+</script>
+
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+  
+<script src="/volantis-static/libs/node-waves/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+  
+<script src="/volantis-static/libs/comment_typing/comment_typing.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,zh-TW,default">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>SSD损失函数详解 - 阿月浑子-Hexo博客</title>
+  
+    <meta name="keywords" content="SSD,损失函数">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="阿月浑子-Hexo博客" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end -->
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<body>
+  
+
+<header id="l_header" class="l_header auto shadow show" style="opacity: 0">
+  <div class="container">
+  <div id="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="volantis-static/media/org.volantis/blog/Logo-NavBar@3x.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>留言箱
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fa-solid fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis" rel="external nofollow noopener noreferrer" target="_blank">
+                  主题源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" id="https:githubcomvolantis-xhexo-theme-volantisreleases" rel="external nofollow noopener noreferrer" target="_blank">
+                  更新日志
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" id="faqs">
+                  看 FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/volantis-docs/" id="https:githubcomvolantis-xvolantis-docs" rel="external nofollow noopener noreferrer" target="_blank">
+                  看 本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/issues/" id="https:githubcomvolantis-xhexo-theme-volantisissues" rel="external nofollow noopener noreferrer" target="_blank">
+                  提 Issue
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  文学黑洞
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://meiriyiwen.com/random" id="https:meiriyiwencomrandom" rel="external nofollow noopener noreferrer" target="_blank">
+                  每日一文
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.marxists.org/chinese/index.html" id="https:wwwmarxistsorgchineseindexhtml" rel="external nofollow noopener noreferrer" target="_blank">
+                  马克思主义文库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.yikm.net/" id="https:wwwyikmnet" rel="external nofollow noopener noreferrer" target="_blank">
+                  游戏厅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.xiaozhongjishu.com/" id="https:wwwxiaozhongjishucom" rel="external nofollow noopener noreferrer" target="_blank">
+                  小众技术工具库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h m-phone">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>留言箱
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fa-solid fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis" rel="external nofollow noopener noreferrer" target="_blank">
+                  主题源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" id="https:githubcomvolantis-xhexo-theme-volantisreleases" rel="external nofollow noopener noreferrer" target="_blank">
+                  更新日志
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" id="faqs">
+                  看 FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/volantis-docs/" id="https:githubcomvolantis-xvolantis-docs" rel="external nofollow noopener noreferrer" target="_blank">
+                  看 本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/issues/" id="https:githubcomvolantis-xhexo-theme-volantisissues" rel="external nofollow noopener noreferrer" target="_blank">
+                  提 Issue
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  文学黑洞
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://meiriyiwen.com/random" id="https:meiriyiwencomrandom" rel="external nofollow noopener noreferrer" target="_blank">
+                  每日一文
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.marxists.org/chinese/index.html" id="https:wwwmarxistsorgchineseindexhtml" rel="external nofollow noopener noreferrer" target="_blank">
+                  马克思主义文库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.yikm.net/" id="https:wwwyikmnet" rel="external nofollow noopener noreferrer" target="_blank">
+                  游戏厅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.xiaozhongjishu.com/" id="https:wwwxiaozhongjishucom" rel="external nofollow noopener noreferrer" target="_blank">
+                  小众技术工具库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="full" class="cover-wrapper post dock" style="display: none;">
+          
+            <div class="cover-bg lazyload placeholder" data-bg="https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg"></div>
+          
+          <div class="cover-body">
+  <div class="top">
+    
+    
+      <p class="title">相思似海深旧事如天远</p>
+    
+    
+      <p class="subtitle">where there is a will there is a way</p>
+    
+  </div>
+  <div class="bottom">
+    <div class="menu navigation">
+      <div class="list-h">
+        
+          
+            <a href="/v5/getting-started/" id="v5getting-started">
+              <img src="volantis-static/media/twemoji/assets/svg/1f5c3.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f5c3.svg" srcset="data:image/png;base64,666"><p>文档</p>
+            </a>
+          
+            <a href="/faqs/" id="faqs">
+              <img src="volantis-static/media/twemoji/assets/svg/1f516.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f516.svg" srcset="data:image/png;base64,666"><p>帮助</p>
+            </a>
+          
+            <a href="/examples/" id="examples">
+              <img src="volantis-static/media/twemoji/assets/svg/1f396.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f396.svg" srcset="data:image/png;base64,666"><p>示例</p>
+            </a>
+          
+            <a href="/contributors/" id="contributors">
+              <img src="volantis-static/media/twemoji/assets/svg/1f389.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f389.svg" srcset="data:image/png;base64,666"><p>社区</p>
+            </a>
+          
+            <a href="/archives/" id="archives">
+              <img src="volantis-static/media/twemoji/assets/svg/1f4f0.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f4f0.svg" srcset="data:image/png;base64,666"><p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis">
+              <img src="volantis-static/media/twemoji/assets/svg/1f9ec.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f9ec.svg" srcset="data:image/png;base64,666"><p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id="safearea">
+      <div class="body-wrapper" id="pjax-container">
+        
+
+<div class="l_main">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        SSD损失函数详解
+      </h1>
+      <div class="new-meta-box">
+        
+          
+            
+<div class="new-meta-item author">
+  <a class="author" target="_blank" href="https://www.cnblogs.com/pistachio0812" rel="external nofollow noopener noreferrer">
+    <img no-lazy src="https://img1.baidu.com/it/u=583582599,306470958&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500">
+    <p>追风赶月的少年</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item category">
+    <a class="notlink">
+      <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/">目标检测</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年5月6日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：1.2k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：6分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>参考博文：</p>
+<p>1.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.freesion.com/article/9127332548/">目标识别：SSD pytorch代码学习笔记</a></p>
+<p>2.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://linkspringer.53yu.com/content/pdf/10.1007/978-3-319-46448-0_2.pdf">SSD论文</a></p>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>SSD损失函数包括两部分：位置损失函数<script type="math/tex">L_{loc}</script>和置信度损失函数<script type="math/tex">L_{conf}</script></p>
+<p>整个损失函数为：</p>
+<p><style>.qylrqmixmnyy{zoom:80%;}</style><img src="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/image-20220506200608617.png" class="lazyload" data-srcset="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/image-20220506200608617.png" srcset="data:image/png;base64,666" alt="image-20220506200608617"></p>
+<p>说明：</p>
+<p>·N是先验框的正样本数量</p>
+<p>·c是类别置信度预测值</p>
+<p>·l为先验框所对应边界框的位置预测值</p>
+<p>·g为ground truth的位置参数</p>
+<h4 id="位置损失函数"><a href="#位置损失函数" class="headerlink" title="位置损失函数"></a>位置损失函数</h4><p>针对所有正样本，采用Smooth L1损失，位置信息都是编码之后的信息。</p>
+<p><style>.eqxmhorhqhls{zoom:50%;}</style><img src="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/390ed4e1f5fc0a137b65dea937b907a5.png" class="lazyload" data-srcset="/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/390ed4e1f5fc0a137b65dea937b907a5.png" srcset="data:image/png;base64,666" alt="在这里插入图片描述"></p>
+<p>代码如下：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_l1_smooth_loss</span>(<span class="params">self, y_true, y_pred</span>):</span><br><span class="line">    abs_loss = torch.<span class="built_in">abs</span>(y_true - y_pred)</span><br><span class="line">    sq_loss = <span class="number">0.5</span> * (y_true - y_pred)**<span class="number">2</span></span><br><span class="line">    l1_loss = torch.where(abs_loss &lt; <span class="number">1.0</span>, sq_loss, abs_loss - <span class="number">0.5</span>)</span><br><span class="line">    <span class="keyword">return</span> torch.<span class="built_in">sum</span>(l1_loss, -<span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="置信度损失函数"><a href="#置信度损失函数" class="headerlink" title="置信度损失函数"></a>置信度损失函数</h4><p>首先需要使用 <strong>hard negative mining</strong> 将正负样本按照 <strong>1:3</strong> 的比例把负样本抽样出来，抽样的方法是：</p>
+<p><strong>思想</strong>： 针对所有batch的confidence，按照置信度误差进行降序排列，取出前<strong>top_k</strong>个负样本。</p>
+<p>编程:</p>
+<p>·reshape所有batch中的conf</p>
+<p><code>batch_conf = conf_data.view(-1, self.num_classes)</code></p>
+<p>·置信度误差越大，实际上就是预测背景的置信度越小</p>
+<p>·把所有置信度进行log_softmax处理（均为负值），预测的置信度越小，则log_softmax越小，取绝对值，则|log_softmax|越大，降序排列后，取前top_k的负样本。</p>
+<p>softmax代码如下：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_softmax_loss</span>(<span class="params">self, y_true, y_pred</span>):</span><br><span class="line">    y_pred = torch.clamp(y_pred, <span class="built_in">min</span>=<span class="number">1e-7</span>)</span><br><span class="line">    softmax_loss = -torch.<span class="built_in">sum</span>(y_true * torch.log(y_pred),</span><br><span class="line">                              axis=-<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> softmax_loss</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> partial</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MultiboxLoss</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, num_classes, alpha=<span class="number">1.0</span>, neg_pos_ratio=<span class="number">3.0</span>,</span></span><br><span class="line"><span class="params">                 background_label_id=<span class="number">0</span>, negatives_for_hard=<span class="number">100.0</span></span>):</span><br><span class="line">        self.num_classes = num_classes</span><br><span class="line">        self.alpha = alpha</span><br><span class="line">        self.neg_pos_ratio = neg_pos_ratio</span><br><span class="line">        <span class="keyword">if</span> background_label_id != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> Exception(<span class="string">'Only 0 as background label id is supported'</span>)</span><br><span class="line">        self.background_label_id = background_label_id</span><br><span class="line">        self.negatives_for_hard = torch.FloatTensor([negatives_for_hard])[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_l1_smooth_loss</span>(<span class="params">self, y_true, y_pred</span>):</span><br><span class="line">        abs_loss = torch.<span class="built_in">abs</span>(y_true - y_pred)</span><br><span class="line">        sq_loss = <span class="number">0.5</span> * (y_true - y_pred)**<span class="number">2</span></span><br><span class="line">        l1_loss = torch.where(abs_loss &lt; <span class="number">1.0</span>, sq_loss, abs_loss - <span class="number">0.5</span>)</span><br><span class="line">        <span class="keyword">return</span> torch.<span class="built_in">sum</span>(l1_loss, -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_softmax_loss</span>(<span class="params">self, y_true, y_pred</span>):</span><br><span class="line">        y_pred = torch.clamp(y_pred, <span class="built_in">min</span>=<span class="number">1e-7</span>)</span><br><span class="line">        softmax_loss = -torch.<span class="built_in">sum</span>(y_true * torch.log(y_pred),</span><br><span class="line">                                  axis=-<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> softmax_loss</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, y_true, y_pred</span>):</span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        <span class="comment">#   y_true batch_size, 8732, 4 + self.num_classes + 1</span></span><br><span class="line">        <span class="comment">#   y_pred batch_size, 8732, 4 + self.num_classes</span></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        num_boxes = y_true.size()[<span class="number">1</span>]</span><br><span class="line">        y_pred = torch.cat([y_pred[<span class="number">0</span>], nn.Softmax(-<span class="number">1</span>)(y_pred[<span class="number">1</span>])], dim=-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        <span class="comment">#   分类的loss</span></span><br><span class="line">        <span class="comment">#   batch_size,8732,21 -&gt; batch_size,8732</span></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        conf_loss = self._softmax_loss(y_true[:, :, <span class="number">4</span>:-<span class="number">1</span>], y_pred[:, :, <span class="number">4</span>:])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        <span class="comment">#   框的位置的loss</span></span><br><span class="line">        <span class="comment">#   batch_size,8732,4 -&gt; batch_size,8732</span></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        loc_loss = self._l1_smooth_loss(y_true[:, :, :<span class="number">4</span>],</span><br><span class="line">                                        y_pred[:, :, :<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        <span class="comment">#   获取所有的正标签的loss</span></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        pos_loc_loss = torch.<span class="built_in">sum</span>(loc_loss * y_true[:, :, -<span class="number">1</span>],</span><br><span class="line">                                 axis=<span class="number">1</span>)</span><br><span class="line">        pos_conf_loss = torch.<span class="built_in">sum</span>(conf_loss * y_true[:, :, -<span class="number">1</span>],</span><br><span class="line">                                  axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        <span class="comment">#   每一张图的正样本的个数</span></span><br><span class="line">        <span class="comment">#   num_pos     [batch_size,]</span></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        num_pos = torch.<span class="built_in">sum</span>(y_true[:, :, -<span class="number">1</span>], axis=-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        <span class="comment">#   每一张图的负样本的个数</span></span><br><span class="line">        <span class="comment">#   num_neg     [batch_size,]</span></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        num_neg = torch.<span class="built_in">min</span>(self.neg_pos_ratio * num_pos, num_boxes - num_pos)</span><br><span class="line">        <span class="comment"># 找到了哪些值是大于0的</span></span><br><span class="line">        pos_num_neg_mask = num_neg &gt; <span class="number">0</span></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        <span class="comment">#   如果所有的图，正样本的数量均为0</span></span><br><span class="line">        <span class="comment">#   那么则默认选取100个先验框作为负样本</span></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        has_min = torch.<span class="built_in">sum</span>(pos_num_neg_mask)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        <span class="comment">#   从这里往后，与视频中看到的代码有些许不同。</span></span><br><span class="line">        <span class="comment">#   由于以前的负样本选取方式存在一些问题，</span></span><br><span class="line">        <span class="comment">#   我对该部分代码进行重构。</span></span><br><span class="line">        <span class="comment">#   求整个batch应该的负样本数量总和</span></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        num_neg_batch = torch.<span class="built_in">sum</span>(</span><br><span class="line">            num_neg) <span class="keyword">if</span> has_min &gt; <span class="number">0</span> <span class="keyword">else</span> self.negatives_for_hard</span><br><span class="line"></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        <span class="comment">#   对预测结果进行判断，如果该先验框没有包含物体</span></span><br><span class="line">        <span class="comment">#   那么它的不属于背景的预测概率过大的话</span></span><br><span class="line">        <span class="comment">#   就是难分类样本</span></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        confs_start = <span class="number">4</span> + self.background_label_id + <span class="number">1</span></span><br><span class="line">        confs_end = confs_start + self.num_classes - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        <span class="comment">#   batch_size,8732</span></span><br><span class="line">        <span class="comment">#   把不是背景的概率求和，求和后的概率越大</span></span><br><span class="line">        <span class="comment">#   代表越难分类。</span></span><br><span class="line">        <span class="comment"># --------------------------------------------- #</span></span><br><span class="line">        max_confs = torch.<span class="built_in">sum</span>(y_pred[:, :, confs_start:confs_end], dim=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># --------------------------------------------------- #</span></span><br><span class="line">        <span class="comment">#   只有没有包含物体的先验框才得到保留</span></span><br><span class="line">        <span class="comment">#   我们在整个batch里面选取最难分类的num_neg_batch个</span></span><br><span class="line">        <span class="comment">#   先验框作为负样本。</span></span><br><span class="line">        <span class="comment"># --------------------------------------------------- #</span></span><br><span class="line">        max_confs = (max_confs * (<span class="number">1</span> - y_true[:, :, -<span class="number">1</span>])).view([-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">        _, indices = torch.topk(max_confs, k=<span class="built_in">int</span>(</span><br><span class="line">            num_neg_batch.cpu().numpy().tolist()))</span><br><span class="line"></span><br><span class="line">        neg_conf_loss = torch.gather(conf_loss.view([-<span class="number">1</span>]), <span class="number">0</span>, indices)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 进行归一化</span></span><br><span class="line">        num_pos = torch.where(num_pos != <span class="number">0</span>, num_pos, torch.ones_like(num_pos))</span><br><span class="line">        total_loss = torch.<span class="built_in">sum</span>(</span><br><span class="line">            pos_conf_loss) + torch.<span class="built_in">sum</span>(neg_conf_loss) + torch.<span class="built_in">sum</span>(self.alpha * pos_loc_loss)</span><br><span class="line">        total_loss = total_loss / torch.<span class="built_in">sum</span>(num_pos)</span><br><span class="line">        <span class="keyword">return</span> total_loss</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">weights_init</span>(<span class="params">net, init_type=<span class="string">'normal'</span>, init_gain=<span class="number">0.02</span></span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">init_func</span>(<span class="params">m</span>):</span><br><span class="line">        classname = m.__class__.__name__</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">hasattr</span>(m, <span class="string">'weight'</span>) <span class="keyword">and</span> classname.find(<span class="string">'Conv'</span>) != -<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span> init_type == <span class="string">'normal'</span>:</span><br><span class="line">                torch.nn.init.normal_(m.weight.data, <span class="number">0.0</span>, init_gain)</span><br><span class="line">            <span class="keyword">elif</span> init_type == <span class="string">'xavier'</span>:</span><br><span class="line">                torch.nn.init.xavier_normal_(m.weight.data, gain=init_gain)</span><br><span class="line">            <span class="keyword">elif</span> init_type == <span class="string">'kaiming'</span>:</span><br><span class="line">                torch.nn.init.kaiming_normal_(</span><br><span class="line">                    m.weight.data, a=<span class="number">0</span>, mode=<span class="string">'fan_in'</span>)</span><br><span class="line">            <span class="keyword">elif</span> init_type == <span class="string">'orthogonal'</span>:</span><br><span class="line">                torch.nn.init.orthogonal_(m.weight.data, gain=init_gain)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">raise</span> NotImplementedError(</span><br><span class="line">                    <span class="string">'initialization method [%s] is not implemented'</span> % init_type)</span><br><span class="line">        <span class="keyword">elif</span> classname.find(<span class="string">'BatchNorm2d'</span>) != -<span class="number">1</span>:</span><br><span class="line">            torch.nn.init.normal_(m.weight.data, <span class="number">1.0</span>, <span class="number">0.02</span>)</span><br><span class="line">            torch.nn.init.constant_(m.bias.data, <span class="number">0.0</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'initialize network with %s type'</span> % init_type)</span><br><span class="line">    net.apply(init_func)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_lr_scheduler</span>(<span class="params">lr_decay_type, lr, min_lr, total_iters, warmup_iters_ratio=<span class="number">0.1</span>, warmup_lr_ratio=<span class="number">0.1</span>, no_aug_iter_ratio=<span class="number">0.3</span>, step_num=<span class="number">10</span></span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">yolox_warm_cos_lr</span>(<span class="params">lr, min_lr, total_iters, warmup_total_iters, warmup_lr_start, no_aug_iter, iters</span>):</span><br><span class="line">        <span class="keyword">if</span> iters &lt;= warmup_total_iters:</span><br><span class="line">            <span class="comment"># lr = (lr - warmup_lr_start) * iters / float(warmup_total_iters) + warmup_lr_start</span></span><br><span class="line">            lr = (lr - warmup_lr_start) * <span class="built_in">pow</span>(iters /</span><br><span class="line">                                              <span class="built_in">float</span>(warmup_total_iters), <span class="number">2</span>) + warmup_lr_start</span><br><span class="line">        <span class="keyword">elif</span> iters &gt;= total_iters - no_aug_iter:</span><br><span class="line">            lr = min_lr</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            lr = min_lr + <span class="number">0.5</span> * (lr - min_lr) * (</span><br><span class="line">                <span class="number">1.0</span> + math.cos(math.pi * (iters - warmup_total_iters) /</span><br><span class="line">                               (total_iters - warmup_total_iters - no_aug_iter))</span><br><span class="line">            )</span><br><span class="line">        <span class="keyword">return</span> lr</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">step_lr</span>(<span class="params">lr, decay_rate, step_size, iters</span>):</span><br><span class="line">        <span class="keyword">if</span> step_size &lt; <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">"step_size must above 1."</span>)</span><br><span class="line">        n = iters // step_size</span><br><span class="line">        out_lr = lr * decay_rate ** n</span><br><span class="line">        <span class="keyword">return</span> out_lr</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> lr_decay_type == <span class="string">"cos"</span>:</span><br><span class="line">        warmup_total_iters = <span class="built_in">min</span>(<span class="built_in">max</span>(warmup_iters_ratio * total_iters, <span class="number">1</span>), <span class="number">3</span>)</span><br><span class="line">        warmup_lr_start = <span class="built_in">max</span>(warmup_lr_ratio * lr, <span class="number">1e-6</span>)</span><br><span class="line">        no_aug_iter = <span class="built_in">min</span>(<span class="built_in">max</span>(no_aug_iter_ratio * total_iters, <span class="number">1</span>), <span class="number">15</span>)</span><br><span class="line">        func = partial(yolox_warm_cos_lr, lr, min_lr, total_iters,</span><br><span class="line">                       warmup_total_iters, warmup_lr_start, no_aug_iter)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        decay_rate = (min_lr / lr) ** (<span class="number">1</span> / (step_num - <span class="number">1</span>))</span><br><span class="line">        step_size = total_iters / step_num</span><br><span class="line">        func = partial(step_lr, lr, decay_rate, step_size)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> func</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">set_optimizer_lr</span>(<span class="params">optimizer, lr_scheduler_func, epoch</span>):</span><br><span class="line">    lr = lr_scheduler_func(epoch)</span><br><span class="line">    <span class="keyword">for</span> param_group <span class="keyword">in</span> optimizer.param_groups:</span><br><span class="line">        param_group[<span class="string">'lr'</span>] = lr</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+  
+  
+    
+    <div class="footer">
+      
+      
+      
+      
+        <div class="donate">
+          <div class="imgs">
+            
+              <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" srcset="data:image/png;base64,666">
+            
+              <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" srcset="data:image/png;base64,666">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    
+
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-04T21:29:19+08:00">
+  <a class="notlink">
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年10月4日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SSD/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>SSD</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>损失函数</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/&title=SSD损失函数详解 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="volantis-static/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/&title=SSD损失函数详解 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="volantis-static/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/zh-CN/SSD%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/&title=SSD损失函数详解 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="volantis-static/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        
+        <div class="hoverbox">
+          <a class="share"><img src="volantis-static/media/org.volantis/logo/128/wechat.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/wechat.png" srcset="data:image/png;base64,666"></a>
+          <div class="target">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEdUlEQVR42u3cQW7cMAwF0Ln/pdt9gYHFT4pOiqddJh6LeuqCZIh+/lhX1gcBWLAWWLBgLbArsJ9wffv+v59/+/lrYF+eO/38NL7T58seYMGCBQsWLFiwYFdhjxPghwCr76te0NP3uudpfx8sWLBgwYIFCxbsK7CnBcEpSDdhn963u8/je8GCBQsWLFiwYMH+CthTmG6h0G2IdwsGsGDBggULFixYsP8n7HShMZ3gTxUiYMGCBQsWLFiwYH8m7HQCXd2nO0AxVRC8PgkDFixYsGDBggUL9gi2uk4D+60/xx5gwYIFCxYsWLBgV2BvJdqnga8n8MX9yw5gwYIFCxYsWLBgV2DTweJqYn3roqpxVn9fvWiwYMGCBQsWLFiwu7BVmGrinX6eJvhTjfvT94IFCxYsWLBgwYLdhS0nwJcKg6l9pwqddB+wYMGCBQsWLFiwu7BbgVW/nzbIpwcyTuMECxYsWLBgwYIFuwP7CVe18X0c2OGFphfULSwe4wELFixYsGDBggW7ApsObqSDFNOJ/enz3cGTYxewYMGCBQsWLFiwr8Cmje1uYdEtKKYb7vEFgAULFixYsGDBgl2BrR58atCj+/tuo7pdCFQHNsCCBQsWLFiwYMGOwp4CVRvRaeLdHcToFg7t94MFCxYsWLBgwYJdgT1NhKsBpQVH9aKrF1wFLF8oWLBgwYIFCxYs2FXYdLAhTbirAx/VhL3boE8HUcCCBQsWLFiwYMHuwnYHNtICIm1kdxvc3cKjXHmBBQsWLFiwYMGC/bP5H5qlAxspfDWetNC4NhACFixYsGDBggUL9hXYsUR5GGK6MEgHrB/PBRYsWLBgwYIFC3YFttsITgczbiX20437cqECFixYsGDBggUL9hXYtFDoNq6rANMJfjooAhYsWLBgwYIFC/Yd2O4LuwcvBz58MWmhdPwXBLBgwYIFCxYsWLArsMcN3bABXgWpHjQtWKbAwYIFCxYsWLBgwe7CTg0wpIF1Ly69wG4DHSxYsGDBggULFuw7sFXI6sGmC4QpsG7D/utzYMGCBQsWLFiwYFdgbzWw00DTC0vh0oGQ+C8IYMGCBQsWLFiwYEdgb8Okz0/FdbsB/lh5gQULFixYsGDBgr0C2234pol3db8ULL3Q+OLAggULFixYsGDBrsC2BxSKB6oe4PbAx6e4Hs8NFixYsGDBggULdgW2m7DHAXQHI8LCYQr2WuUFFixYsGDBggUL9gi2u04HhKca6F3o6sWCBQsWLFiwYMGC/Zmwn3BtDXyMJe7DBQVYsGDBggULFizYnwFbLQjSxH06sU+B0wGQ8sAGWLBgwYIFCxYs2BXYqQGMdPBjunDpvq+8D1iwYMGCBQsWLNhfDTuWcIcHrDa800b7eoEAFixYsGDBggULdgS228g+BWkPBIf/IMr7gAULFixYsGDBgn0FdnpgIy0MTuNIC4D0Ah7fBxYsWLBgwYIFC3YVdmpgodsAn/q8mvhPFTJgwYIFCxYsWLBgd2Ct2QUWLFgLLFiwFtir6y/DM1GFJCUuoQAAAABJRU5ErkJggg==">
+          </div>
+        </div>
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class="prev" href="/zh-CN/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>hexo标签插件测试</p>
+          <p class="content">前言本文语法参考volantis4.0,博客正在使用的版本为4.3.1
+问题总结如下：
+1.在复选框checkbox下，选中状态比不选中状态框提前，对不齐。
+2.button基础按钮那里本文写的...</p>
+        </a>
+      
+      
+        <a class="next" href="/zh-CN/YOLOV5/">
+          <p class="title">YOLOV5论文笔记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">参考博文：
+1.pytorch搭建yolov5
+2.yolov5-pytorch
+3.以YOLOV4为例详解anchor_based目标检测训练过程
+整体结构解析.werjxhfjdirj{zo...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  
+
+
+
+
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper sticky shadow desktop mobile" id="toc-div">
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-text">损失函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-text">位置损失函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%AE%E4%BF%A1%E5%BA%A6%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-text">置信度损失函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-text">源代码</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="SSD损失函数详解";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="2185397204" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="mailto:2395856915@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://github.com/pistachio0812" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class="copyright">
+        <p><a href="/">Copyright ©2020-2023江西理工大学.All Rights Reserved</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("volantis-static/libs/@fortawesome/fontawesome-free/css/all.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("volantis-static/libs/font-awesome-animation/font-awesome-animation.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("volantis-static/libs/node-waves/dist/waves.min.css", window.volantis.loadcss);
+  
+  
+</script>
+<!-- required -->
+
+<script src="/volantis-static/libs/jquery/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="volantis-static/libs/vanilla-lazyload/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="volantis-static/libs/flying-pages/flying-pages.min.js"></script>
+  
+
+
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '2185397204';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("volantis-static/libs/aplayer/dist/APlayer.min.js")
+  window.volantis.LoadMetingJS=0
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return
+    clearInterval(checkAPlayer)
+	if (!window.volantis.LoadMetingJS&&!window.MetingJSElement){
+	  window.LoadMetingJS=1
+      loadScript("volantis-static/libs/meting/dist/Meting.min.js")
+	  }
+  }, 2500)
+
+</script>
+
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+  
+<script src="/volantis-static/libs/node-waves/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+  
+<script src="/volantis-static/libs/comment_typing/comment_typing.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,zh-TW,default">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>rss学习笔记 - 阿月浑子-Hexo博客</title>
+  
+    <meta name="keywords" content="学习笔记,rss">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="阿月浑子-Hexo博客" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end -->
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<body>
+  
+
+<header id="l_header" class="l_header auto shadow show" style="opacity: 0">
+  <div class="container">
+  <div id="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="volantis-static/media/org.volantis/blog/Logo-NavBar@3x.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>留言箱
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fa-solid fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis" rel="external nofollow noopener noreferrer" target="_blank">
+                  主题源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" id="https:githubcomvolantis-xhexo-theme-volantisreleases" rel="external nofollow noopener noreferrer" target="_blank">
+                  更新日志
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" id="faqs">
+                  看 FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/volantis-docs/" id="https:githubcomvolantis-xvolantis-docs" rel="external nofollow noopener noreferrer" target="_blank">
+                  看 本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/issues/" id="https:githubcomvolantis-xhexo-theme-volantisissues" rel="external nofollow noopener noreferrer" target="_blank">
+                  提 Issue
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  文学黑洞
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://meiriyiwen.com/random" id="https:meiriyiwencomrandom" rel="external nofollow noopener noreferrer" target="_blank">
+                  每日一文
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.marxists.org/chinese/index.html" id="https:wwwmarxistsorgchineseindexhtml" rel="external nofollow noopener noreferrer" target="_blank">
+                  马克思主义文库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.yikm.net/" id="https:wwwyikmnet" rel="external nofollow noopener noreferrer" target="_blank">
+                  游戏厅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.xiaozhongjishu.com/" id="https:wwwxiaozhongjishucom" rel="external nofollow noopener noreferrer" target="_blank">
+                  小众技术工具库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h m-phone">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>留言箱
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fa-solid fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis" rel="external nofollow noopener noreferrer" target="_blank">
+                  主题源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" id="https:githubcomvolantis-xhexo-theme-volantisreleases" rel="external nofollow noopener noreferrer" target="_blank">
+                  更新日志
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" id="faqs">
+                  看 FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/volantis-docs/" id="https:githubcomvolantis-xvolantis-docs" rel="external nofollow noopener noreferrer" target="_blank">
+                  看 本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/issues/" id="https:githubcomvolantis-xhexo-theme-volantisissues" rel="external nofollow noopener noreferrer" target="_blank">
+                  提 Issue
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  文学黑洞
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://meiriyiwen.com/random" id="https:meiriyiwencomrandom" rel="external nofollow noopener noreferrer" target="_blank">
+                  每日一文
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.marxists.org/chinese/index.html" id="https:wwwmarxistsorgchineseindexhtml" rel="external nofollow noopener noreferrer" target="_blank">
+                  马克思主义文库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.yikm.net/" id="https:wwwyikmnet" rel="external nofollow noopener noreferrer" target="_blank">
+                  游戏厅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.xiaozhongjishu.com/" id="https:wwwxiaozhongjishucom" rel="external nofollow noopener noreferrer" target="_blank">
+                  小众技术工具库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="full" class="cover-wrapper post dock" style="display: none;">
+          
+            <div class="cover-bg lazyload placeholder" data-bg="https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg"></div>
+          
+          <div class="cover-body">
+  <div class="top">
+    
+    
+      <p class="title">相思似海深旧事如天远</p>
+    
+    
+      <p class="subtitle">where there is a will there is a way</p>
+    
+  </div>
+  <div class="bottom">
+    <div class="menu navigation">
+      <div class="list-h">
+        
+          
+            <a href="/v5/getting-started/" id="v5getting-started">
+              <img src="volantis-static/media/twemoji/assets/svg/1f5c3.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f5c3.svg" srcset="data:image/png;base64,666"><p>文档</p>
+            </a>
+          
+            <a href="/faqs/" id="faqs">
+              <img src="volantis-static/media/twemoji/assets/svg/1f516.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f516.svg" srcset="data:image/png;base64,666"><p>帮助</p>
+            </a>
+          
+            <a href="/examples/" id="examples">
+              <img src="volantis-static/media/twemoji/assets/svg/1f396.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f396.svg" srcset="data:image/png;base64,666"><p>示例</p>
+            </a>
+          
+            <a href="/contributors/" id="contributors">
+              <img src="volantis-static/media/twemoji/assets/svg/1f389.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f389.svg" srcset="data:image/png;base64,666"><p>社区</p>
+            </a>
+          
+            <a href="/archives/" id="archives">
+              <img src="volantis-static/media/twemoji/assets/svg/1f4f0.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f4f0.svg" srcset="data:image/png;base64,666"><p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis">
+              <img src="volantis-static/media/twemoji/assets/svg/1f9ec.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f9ec.svg" srcset="data:image/png;base64,666"><p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id="safearea">
+      <div class="body-wrapper" id="pjax-container">
+        
+
+<div class="l_main">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        rss学习笔记
+      </h1>
+      <div class="new-meta-box">
+        
+          
+            
+<div class="new-meta-item author">
+  <a class="author" target="_blank" href="https://blog.csdn.net/qq_38452951" rel="external nofollow noopener noreferrer">
+    <img no-lazy src="https://img0.baidu.com/it/u=178892670,2966992691&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=400">
+    <p>阿月浑子</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item category">
+    <a class="notlink">
+      <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/rss/">rss</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年10月10日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：1.4k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：5分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>参考博文：</p>
+<p>1.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tutorial.html">RSS 教程 | 菜鸟教程 (runoob.com)</a></p>
+<p>通过使用 RSS，您可以有选择地浏览您感兴趣的以及与您的工作相关的新闻。</p>
+<p>通过使用 RSS，您可以把需要的信息从不需要的信息（兜售信息，垃圾邮件等）中分离出来。</p>
+<p>通过使用 RSS，您可以创建自己的新闻频道，并将之发布到因特网。</p>
+<h3 id="rss工作原理"><a href="#rss工作原理" class="headerlink" title="rss工作原理"></a>rss工作原理</h3><p>RSS 用于在网站间分享信息。</p>
+<p>使用 RSS，您在名为聚合器的公司注册您的内容。</p>
+<p>步骤之一是，创建一个 RSS 文档，然后使用 .xml 后缀来保存它。然后把此文件上传到您的网站。接下来，通过一个 RSS 聚合器来注册。每天，聚合器都会到被注册的网站搜索 RSS 文档，校验其链接，并显示有关 feed 的信息，这样客户就能够链接到使他们产生兴趣的文档。</p>
+<h3 id="rss实例"><a href="#rss实例" class="headerlink" title="rss实例"></a>rss实例</h3><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">rss</span> <span class="attr">version</span>=<span class="string">"2.0"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">channel</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程首页<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span>&gt;</span>http://www.runoob.com<span class="tag">&lt;/<span class="name">link</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">description</span>&gt;</span>免费编程教程<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>RSS 教程<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span>&gt;</span>http://www.runoob.com/rss<span class="tag">&lt;/<span class="name">link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>菜鸟教程 Rss 教程<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>XML 教程<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span>&gt;</span>http://www.runoob.com/xml<span class="tag">&lt;/<span class="name">link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>菜鸟教程 XML 教程<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">channel</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">rss</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>文档中的第一行：XML 声明 - 定义了文档中使用的 XML 版本和字符编码。此例子遵守 1.0 规范，并使用 UTF-8 字符集(可支持中文)。</p>
+<p>下一行是标识此文档是一个 RSS 文档的 RSS 声明（此例是 RSS version 2.0）。</p>
+<p>下一行含有 <channel> 元素。此元素用于描述 RSS feed。</channel></p>
+<p><channel> 元素有三个必需的子元素：</channel></p>
+<ul>
+<li><title> - 定义频道的标题。（比如 菜鸟教程首页）</title></li>
+<li><link> - 定义到达频道的超链接。（比如 www.runoob.com）</li>
+<li><description> - 描述此频道（比如 免费编程教程）</description></li>
+</ul>
+<p>每个 <channel> 元素可拥有一个或多个 <item> 元素。</item></channel></p>
+<p>每个 <item> 元素可定义 RSS feed 中的一篇文章或 “story”。</item></p>
+<p><item> 元素拥有三个必需的子元素：</item></p>
+<ul>
+<li><title> - 定义项目的标题。（比如 RSS 教程）</title></li>
+<li><link> - 定义到达项目的超链接。（比如 <a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.runoob.com/rss）">http://www.runoob.com/rss）</a></li>
+<li><description> - 描述此项目（比如 菜鸟教程 Rss 教程）</description></li>
+</ul>
+<p>最后，后面的两行关闭 <channel> 和 <rss> 元素。</rss></channel></p>
+<h3 id="rss发布到web"><a href="#rss发布到web" class="headerlink" title="rss发布到web"></a>rss发布到web</h3><p>现在是时候把您的 RSS 文件上传到网上了。下面是具体的步骤：</p>
+<p>1.为您的 RSS 命名。请注意文件必须有 .xml 的后缀。</p>
+<ol>
+<li><p>验证您的 RSS 文件。（可以在 <a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.feedvalidator.org/">http://www.feedvalidator.org</a> 找到很好的验证器）。</p>
+</li>
+<li><p>把 RSS 文件上传到您的 web 服务器上的 web 目录。</p>
+</li>
+<li><p>把这个小的橙色按钮 <style>.kvwcuiboixbn{zoom:80%;}</style><img src="/zh-CN/RSS/RSS/rss.gif" class="lazyload" data-srcset="/zh-CN/RSS/RSS/rss.gif" srcset="data:image/png;base64,666" alt="RSS Logo">或 <style>.pbkrmswaepzi{zoom:80%;}</style><img src="/zh-CN/RSS/RSS/xml.gif" class="lazyload" data-srcset="/zh-CN/RSS/RSS/xml.gif" srcset="data:image/png;base64,666" alt="XML Logo">拷贝到您的 web 目录。</p>
+</li>
+<li><p>在你希望向外界提供 RSS 的页面上放置这个小按钮。然后向这个按钮添加一个指向 RSS 文件的链接。代码应该类似这样：</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.runoob.com/feed"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">loading</span>=<span class="string">"lazy"</span> <span class="attr">src</span>=<span class="string">"http://www.runoob.com/images/rss.gif"</span> <span class="attr">width</span>=<span class="string">"36"</span> <span class="attr">height</span>=<span class="string">"14"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<ol>
+<li>把你的 RSS feed 提交到 RSS Feed 目录。要注意！feed 的 URL 不是你的页面，而是您的指向您的 feed 的 URL，比如 “<a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.runoob.com/feed&quot;。">http://www.runoob.com/feed"。</a> 此处提供一些免费的 RSS 聚合服务：</li>
+</ol>
+<ul>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.newsisfree.com/">Newsisfree</a>: <a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.newsisfree.com/user/new/">点我注册</a></li>
+</ul>
+<ol>
+<li>在重要的搜索引擎注册您的 feed ：</li>
+</ol>
+<ul>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="http://wordpress.org/">WordPress</a></li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.blogger.com/">Blogger</a></li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="http://radio.userland.com/">Radio</a></li>
+</ul>
+<ol>
+<li>更新您的 feed - 现在您已获得了来自 Google、Yahoo、以及 MSN 的 RSS feed 按钮。请您务必经常更新您的内容，并保持 RSS feed 的长期可用。</li>
+</ol>
+<h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a><channel>元素</channel></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">元素</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-category-channel.html">category</a></td>
+<td style="text-align:left">可选的。为 feed 定义所属的一个或多个种类。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-cloud.html">cloud</a></td>
+<td style="text-align:left">可选的。注册进程，以获得 feed 更新的立即通知。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-copyright.html">copyright</a></td>
+<td style="text-align:left">可选。告知版权资料。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html">description</a></td>
+<td style="text-align:left">必需的。描述频道。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-docs.html">docs</a></td>
+<td style="text-align:left">可选的。规定指向当前 RSS 文件所用格式说明的 URL。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-generator.html">generator</a></td>
+<td style="text-align:left">可选的。规定用于生成 feed 的程序。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-image.html">image</a></td>
+<td style="text-align:left">可选的。在聚合器呈现某个 feed 时，显示一个图像。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-language.html">language</a></td>
+<td style="text-align:left">可选的。规定编写 feed 所用的语言。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-lastbuilddate.html">lastBuildDate</a></td>
+<td style="text-align:left">可选的。定义 feed 内容的最后修改日期。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html">link</a></td>
+<td style="text-align:left">必需的。定义指向频道的超链接。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-managingeditor.html">manageingEditor</a></td>
+<td style="text-align:left">可选的。定义 feed 内容编辑的电子邮件地址。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-pubdate.html">pubDate</a></td>
+<td style="text-align:left">可选的。为 feed 的内容定义最后发布日期。</td>
+</tr>
+<tr>
+<td style="text-align:left"><rating></rating></td>
+<td style="text-align:left">可选的。feed 的 PICS 级别。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-skipDays.html">skipDays</a></td>
+<td style="text-align:left">可选的。规定忽略 feed 更新的天。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-skipHours.html">skipHours</a></td>
+<td style="text-align:left">可选的。规定忽略 feed 更新的小时。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-textinput.html">textInput</a></td>
+<td style="text-align:left">可选的。规定应当与 feed 一同显示的文本输入域。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html">title</a></td>
+<td style="text-align:left">必需的。定义频道的标题。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-ttl.html">ttl</a></td>
+<td style="text-align:left">可选的。指定从 feed 源更新此 feed 之前，feed 可被缓存的分钟数。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-webmaster.html">webMaster</a></td>
+<td style="text-align:left">可选的。定义此 feed 的 web 管理员的电子邮件地址。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="元素-1"><a href="#元素-1" class="headerlink" title="元素"></a><item>元素</item></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">元素</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-author.html">author</a></td>
+<td style="text-align:left">可选的。规定项目作者的电子邮件地址。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-category-item.html">category</a></td>
+<td style="text-align:left">可选的。定义项目所属的一个或多个类别。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-comments.html">comments</a></td>
+<td style="text-align:left">可选的。允许项目连接到有关此项目的注释（文件）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html">description</a></td>
+<td style="text-align:left">必需的。描述此项目。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-enclosure.html">enclosure</a></td>
+<td style="text-align:left">可选的。允许将一个媒体文件导入一个项中。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-guid.html">guid</a></td>
+<td style="text-align:left">可选的。为项目定义一个唯一的标识符。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html">link</a></td>
+<td style="text-align:left">必需的。定义指向此项目的超链接。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-pubdate-item.html">pubDate</a></td>
+<td style="text-align:left">可选的。定义此项目的最后发布日期。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-source.html">source</a></td>
+<td style="text-align:left">可选的。为此项目指定一个第三方来源。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html">title</a></td>
+<td style="text-align:left">必需的。定义此项目的标题。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+  
+  
+    
+    <div class="footer">
+      
+      
+      
+      
+        <div class="donate">
+          <div class="imgs">
+            
+              <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" srcset="data:image/png;base64,666">
+            
+              <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" srcset="data:image/png;base64,666">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    
+
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-10T20:16:05+08:00">
+  <a class="notlink">
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年10月10日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>学习笔记</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/rss/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>rss</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/zh-CN/RSS/&title=rss学习笔记 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="volantis-static/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/zh-CN/RSS/&title=rss学习笔记 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="volantis-static/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/zh-CN/RSS/&title=rss学习笔记 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="volantis-static/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        
+        <div class="hoverbox">
+          <a class="share"><img src="volantis-static/media/org.volantis/logo/128/wechat.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/wechat.png" srcset="data:image/png;base64,666"></a>
+          <div class="target">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC6klEQVR42u3aSXLDMAwEQP3/08k9FVeIAWQbTvPmRRLZukwBuL6sX9eFAAwYMGDAgFkDc4Xrzwcc/v/n76fPfXTf7nnAgAEDBgwYMPtgjgNQuKFTuOr/T/d3/GLAgAEDBgwYMGthqsHq7uBXDmjd84ABAwYMGDBg/j1MFez0utP9gAEDBgwYMGDAVDeSBra0IZc28MCAAQMGDBgwnwdTblANFajSF5DuBwwYMGDAgAHzOTDTDa5Xf47PAwYMGDBgwIBZA9Nd0wc7LTDdtcCAAQMGDBgwe2DSgPQXUPf3bkErbvCBAQMGDBgwYNbATAe7FPRZA0XHg0NgwIABAwYMmHUw1QHiKahuQOwGRzBgwIABAwbMfpjqA6uFozTgpY25lxWqwIABAwYMGDAvg0kbXlPXd19QvB8wYMCAAQMGzBqYqQHj04CVBsF2Aep0X2DAgAEDBgyYNTBpY+1VBanq9+VBJjBgwIABAwbMGpjuwE4aEKtB7u4BaTBgwIABAwbMPpipglA66FMuJBWD4ulzwIABAwYMGDD7YNIHTBei0mA53vgDAwYMGDBgwKyDqTbO2kEqDIp3DQyBAQMGDBgwYD4PJh1MrjbgpgLf6XnaAQ8MGDBgwIAB8zYwaQHproZctwFYLWyBAQMGDBgwYD4PphvY0vtWC2ZTsGDAgAEDBgyYfTBxIAobcCnsVIOt3HADAwYMGDBgwKyHeXbhqTugfR0uMGDAgAEDBsx+mO4g0VRDbOrA5YAIBgwYMGDAgFkD0113BbgqSAr+MOCBAQMGDBgwYN4e5grX6aDP6fd3NdLKwREMGDBgwIABsw6mO8jTBUsLYLcHPDBgwIABAwbMGphqwyotKFUh0kJXOXiCAQMGDBgwYMA0C0jdgSAwYMCAAQMGDJgUZur+aZCsFuDAgAEDBgwYMPth0oHnqY13G2spPBgwYMCAAQNmL8x446p43TR4fF8wYMCAAQMGzBoYCwwYMGDAgAGzbH0DP3FeBglHZ6UAAAAASUVORK5CYII=">
+          </div>
+        </div>
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class="prev" href="/zh-CN/Logo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>Logo语言的学习</p>
+          <p class="content">参考博文：
+1.logo（程序设计语言）
+2.Logo 简介_w3cschool
+Logo 是一种易于学习的编程语言。它用于教学生和儿童如何编程计算机。它被开发用于处理单词列表。
+安装logo如...</p>
+        </a>
+      
+      
+        <a class="next" href="/zh-CN/%E5%85%8D%E8%B4%B9cdn/">
+          <p class="title">jsDelivr+Github 使用方法<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">参考博文：
+1.免费CDN：jsDelivr+Github 使用方法
+由于本人搭建博客需要换字体，又怕别人的链接失效，因此，想要把资源把握在自己的手里，通过查阅相关资料，找到上面的方法，尝试了一...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  
+
+
+
+
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper sticky shadow desktop mobile" id="toc-div">
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#rss%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">rss工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rss%E5%AE%9E%E4%BE%8B"><span class="toc-text">rss实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rss%E5%8F%91%E5%B8%83%E5%88%B0web"><span class="toc-text">rss发布到web</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0"><span class="toc-text">元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0-1"><span class="toc-text">元素</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="rss学习笔记";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="2185397204" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="mailto:2395856915@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://github.com/pistachio0812" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class="copyright">
+        <p><a href="/">Copyright ©2020-2023江西理工大学.All Rights Reserved</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("volantis-static/libs/@fortawesome/fontawesome-free/css/all.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("volantis-static/libs/font-awesome-animation/font-awesome-animation.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("volantis-static/libs/node-waves/dist/waves.min.css", window.volantis.loadcss);
+  
+  
+</script>
+<!-- required -->
+
+<script src="/volantis-static/libs/jquery/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="volantis-static/libs/vanilla-lazyload/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="volantis-static/libs/flying-pages/flying-pages.min.js"></script>
+  
+
+
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '2185397204';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("volantis-static/libs/aplayer/dist/APlayer.min.js")
+  window.volantis.LoadMetingJS=0
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return
+    clearInterval(checkAPlayer)
+	if (!window.volantis.LoadMetingJS&&!window.MetingJSElement){
+	  window.LoadMetingJS=1
+      loadScript("volantis-static/libs/meting/dist/Meting.min.js")
+	  }
+  }, 2500)
+
+</script>
+
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+  
+<script src="/volantis-static/libs/node-waves/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+  
+<script src="/volantis-static/libs/comment_typing/comment_typing.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

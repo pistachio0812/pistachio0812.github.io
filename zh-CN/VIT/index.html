@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,zh-TW,default">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>vision transformer论文笔记 - 阿月浑子-Hexo博客</title>
+  
+    <meta name="keywords" content="论文笔记,transformer">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="阿月浑子-Hexo博客" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end -->
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<body>
+  
+
+<header id="l_header" class="l_header auto shadow show" style="opacity: 0">
+  <div class="container">
+  <div id="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="volantis-static/media/org.volantis/blog/Logo-NavBar@3x.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>留言箱
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fa-solid fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis" rel="external nofollow noopener noreferrer" target="_blank">
+                  主题源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" id="https:githubcomvolantis-xhexo-theme-volantisreleases" rel="external nofollow noopener noreferrer" target="_blank">
+                  更新日志
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" id="faqs">
+                  看 FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/volantis-docs/" id="https:githubcomvolantis-xvolantis-docs" rel="external nofollow noopener noreferrer" target="_blank">
+                  看 本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/issues/" id="https:githubcomvolantis-xhexo-theme-volantisissues" rel="external nofollow noopener noreferrer" target="_blank">
+                  提 Issue
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  文学黑洞
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://meiriyiwen.com/random" id="https:meiriyiwencomrandom" rel="external nofollow noopener noreferrer" target="_blank">
+                  每日一文
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.marxists.org/chinese/index.html" id="https:wwwmarxistsorgchineseindexhtml" rel="external nofollow noopener noreferrer" target="_blank">
+                  马克思主义文库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.yikm.net/" id="https:wwwyikmnet" rel="external nofollow noopener noreferrer" target="_blank">
+                  游戏厅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.xiaozhongjishu.com/" id="https:wwwxiaozhongjishucom" rel="external nofollow noopener noreferrer" target="_blank">
+                  小众技术工具库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h m-phone">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>留言箱
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fa-solid fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis" rel="external nofollow noopener noreferrer" target="_blank">
+                  主题源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/releases/" id="https:githubcomvolantis-xhexo-theme-volantisreleases" rel="external nofollow noopener noreferrer" target="_blank">
+                  更新日志
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" id="faqs">
+                  看 FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/volantis-docs/" id="https:githubcomvolantis-xvolantis-docs" rel="external nofollow noopener noreferrer" target="_blank">
+                  看 本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/volantis-x/hexo-theme-volantis/issues/" id="https:githubcomvolantis-xhexo-theme-volantisissues" rel="external nofollow noopener noreferrer" target="_blank">
+                  提 Issue
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  文学黑洞
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://meiriyiwen.com/random" id="https:meiriyiwencomrandom" rel="external nofollow noopener noreferrer" target="_blank">
+                  每日一文
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.marxists.org/chinese/index.html" id="https:wwwmarxistsorgchineseindexhtml" rel="external nofollow noopener noreferrer" target="_blank">
+                  马克思主义文库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.yikm.net/" id="https:wwwyikmnet" rel="external nofollow noopener noreferrer" target="_blank">
+                  游戏厅
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://www.xiaozhongjishu.com/" id="https:wwwxiaozhongjishucom" rel="external nofollow noopener noreferrer" target="_blank">
+                  小众技术工具库
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="full" class="cover-wrapper post dock" style="display: none;">
+          
+            <div class="cover-bg lazyload placeholder" data-bg="https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg"></div>
+          
+          <div class="cover-body">
+  <div class="top">
+    
+    
+      <p class="title">相思似海深旧事如天远</p>
+    
+    
+      <p class="subtitle">where there is a will there is a way</p>
+    
+  </div>
+  <div class="bottom">
+    <div class="menu navigation">
+      <div class="list-h">
+        
+          
+            <a href="/v5/getting-started/" id="v5getting-started">
+              <img src="volantis-static/media/twemoji/assets/svg/1f5c3.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f5c3.svg" srcset="data:image/png;base64,666"><p>文档</p>
+            </a>
+          
+            <a href="/faqs/" id="faqs">
+              <img src="volantis-static/media/twemoji/assets/svg/1f516.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f516.svg" srcset="data:image/png;base64,666"><p>帮助</p>
+            </a>
+          
+            <a href="/examples/" id="examples">
+              <img src="volantis-static/media/twemoji/assets/svg/1f396.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f396.svg" srcset="data:image/png;base64,666"><p>示例</p>
+            </a>
+          
+            <a href="/contributors/" id="contributors">
+              <img src="volantis-static/media/twemoji/assets/svg/1f389.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f389.svg" srcset="data:image/png;base64,666"><p>社区</p>
+            </a>
+          
+            <a href="/archives/" id="archives">
+              <img src="volantis-static/media/twemoji/assets/svg/1f4f0.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f4f0.svg" srcset="data:image/png;base64,666"><p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" id="https:githubcomvolantis-xhexo-theme-volantis">
+              <img src="volantis-static/media/twemoji/assets/svg/1f9ec.svg" class="lazyload" data-srcset="volantis-static/media/twemoji/assets/svg/1f9ec.svg" srcset="data:image/png;base64,666"><p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id="safearea">
+      <div class="body-wrapper" id="pjax-container">
+        
+
+<div class="l_main">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        vision transformer论文笔记
+      </h1>
+      <div class="new-meta-box">
+        
+          
+            
+<div class="new-meta-item author">
+  <a class="author" target="_blank" href="https://blog.csdn.net/qq_38452951" rel="external nofollow noopener noreferrer">
+    <img no-lazy src="https://img0.baidu.com/it/u=178892670,2966992691&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=400">
+    <p>阿月浑子</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item category">
+    <a class="notlink">
+      <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/">目标检测</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年4月18日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：5.9k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：27分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>论文地址：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2010.11929.pdf">https://arxiv.org/pdf/2010.11929.pdf</a></p>
+<p>源码地址：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/google-research/vision_transformer">google-research/vision_transformer (github.com)</a></p>
+<p>文章引用源码：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/bubbliiiing/classification-pytorch">https://github.com/bubbliiiing/classification-pytorch</a></p>
+<p>文章出处：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/weixin_44791964/article/details/122637701">https://blog.csdn.net/weixin_44791964/article/details/122637701</a></p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>Vision Transformer是Transformer的视觉版本，Transformer基本上已经成为了自然语言处理的标配，但是在视觉中的运用还受到限制。</p>
+<p>Vision Transformer打破了这种NLP与CV的隔离，将Transformer应用于图像图块（patch）序列上，进一步完成图像分类任务。简单来理解，Vision Transformer就是将输入进来的图片，每隔一定的区域大小划分图片块。然后将划分后的图片块组合成序列，将组合后的结果传入Transformer特有的Multi-head Self-attention进行特征提取。最后利用Cls Token进行分类。</p>
+<h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p><style>.htddlqbylwis{}</style><img src="/zh-CN/VIT/VIT/image-20220418091306571.png" class="lazyload" data-srcset="/zh-CN/VIT/VIT/image-20220418091306571.png" srcset="data:image/png;base64,666"></p>
+<p>与寻常的分类网络类似，整个Vision Transformer可以分为两部分，一部分是特征提取部分，另一部分是分类部分。</p>
+<p>在特征提取部分，VIT所做的工作是特征提取。特征提取部分在图片中的对应区域是Patch+Position Embedding和Transformer Encoder。Patch+Position Embedding的作用主要是对输入进来的图片进行分块处理，每隔一定的区域大小划分图片块。然后将划分后的图片块组合成序列。在获得序列信息后，传入Transformer Encoder进行特征提取，这是Transformer特有的Multi-head Self-attention结构，通过自注意力机制，关注每个图片块的重要程度。</p>
+<p>在分类部分，VIT所做的工作是利用提取到的特征进行分类。在进行特征提取的时候，我们会在图片序列中添加上Cls Token，该Token会作为一个单位的序列信息一起进行特征提取，提取的过程中，该Cls Token会与其它的特征进行特征交互，融合其它图片序列的特征。最终，我们利用Multi-head Self-attention结构提取特征后的Cls Token进行全连接分类。</p>
+<h3 id="网络结构详解"><a href="#网络结构详解" class="headerlink" title="网络结构详解"></a>网络结构详解</h3><h4 id="特征提取部分"><a href="#特征提取部分" class="headerlink" title="特征提取部分"></a>特征提取部分</h4><p>a）Patch+Position Embedding</p>
+<p><style>.fiugvtfbxkit{}</style><img src="/zh-CN/VIT/VIT/image-20220418091855460.png" class="lazyload" data-srcset="/zh-CN/VIT/VIT/image-20220418091855460.png" srcset="data:image/png;base64,666"></p>
+<p>该部分作用：对输入进来的图片进行分块处理，每隔一定的区域大小划分图片块。然后将划分后的图片块组合成序列。</p>
+<p>该部分首先对输入进来的图片进行分块处理，处理方式其实很简单，使用的是现成的卷积。由于卷积使用的是滑动窗口的思想，我们只需要设定特定的步长，就可以输入进来的图片进行分块处理了。</p>
+<p>在VIT中，我们常设置这个卷积的卷积核大小为16x16，步长也为16x16，此时卷积就会每隔16个像素点进行一次特征提取，由于卷积核大小为16x16，两个图片区域的特征提取过程就不会有重叠。当我们输入的图片是[224, 224, 3]的时候，我们可以获得一个[14, 14, 768]的特征层。</p>
+<p><style>.wrtpynsgedju{}</style><img src="/zh-CN/VIT/VIT/58cc10deb7dc45ae90ae606966d7c724.gif" class="lazyload" data-srcset="/zh-CN/VIT/VIT/58cc10deb7dc45ae90ae606966d7c724.gif" srcset="data:image/png;base64,666"></p>
+<p>下一步就是将这个特征层组合成序列，组合的方式非常简单，就是将高宽维度进行平铺，[14, 14, 768]在高宽维度平铺后，获得一个196, 768的特征层。平铺完成后，我们会在图片序列中添加上Cls Token，该Token会作为一个单位的序列信息一起进行特征提取，图中的这个0*就是Cls Token，我们此时获得一个197, 768的特征层。</p>
+<p><style>.xhsltsgcmynk{}</style><img src="/zh-CN/VIT/VIT/image-20220418092240916.png" class="lazyload" data-srcset="/zh-CN/VIT/VIT/image-20220418092240916.png" srcset="data:image/png;base64,666"></p>
+<p>添加完成Cls Token后，再为所有特征添加上位置信息，这样网络才有区分不同区域的能力。添加方式其实也非常简单，我们生成一个197, 768的参数矩阵，这个参数矩阵是可训练的，把这个矩阵加上197, 768的特征层即可。</p>
+<p>到这里，Patch+Position Embedding就构建完成了，构建代码如下：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># [224, 224, 3]-&gt;[14, 14, 768]</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PatchEmbed</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input_shape=[<span class="number">224</span>, <span class="number">224</span>], patch_size=<span class="number">16</span>, in_chans=<span class="number">3</span>, num_features=<span class="number">768</span>, norm_layer=<span class="literal">None</span>, flatten=<span class="literal">True</span></span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="comment"># 196 = 14 * 14</span></span><br><span class="line">        self.num_patches    = (input_shape[<span class="number">0</span>] // patch_size) * (input_shape[<span class="number">1</span>] // patch_size)</span><br><span class="line">        self.flatten        = flatten</span><br><span class="line"></span><br><span class="line">        self.proj = nn.Conv2d(in_chans, num_features, kernel_size=patch_size, stride=patch_size)</span><br><span class="line">        self.norm = norm_layer(num_features) <span class="keyword">if</span> norm_layer <span class="keyword">else</span> nn.Identity()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.proj(x)</span><br><span class="line">        <span class="keyword">if</span> self.flatten:</span><br><span class="line">            x = x.flatten(<span class="number">2</span>).transpose(<span class="number">1</span>, <span class="number">2</span>)  <span class="comment"># BCHW -&gt; BNC</span></span><br><span class="line">        x = self.norm(x)</span><br><span class="line">        <span class="comment"># x = [b, 196, 768]</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">VisionTransformer</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params"></span></span><br><span class="line"><span class="params">            self, input_shape=[<span class="number">224</span>, <span class="number">224</span>], patch_size=<span class="number">16</span>, in_chans=<span class="number">3</span>, num_classes=<span class="number">1000</span>, num_features=<span class="number">768</span>,</span></span><br><span class="line"><span class="params">            depth=<span class="number">12</span>, num_heads=<span class="number">12</span>, mlp_ratio=<span class="number">4.</span>, qkv_bias=<span class="literal">True</span>, drop_rate=<span class="number">0.1</span>, attn_drop_rate=<span class="number">0.1</span>, drop_path_rate=<span class="number">0.1</span>,</span></span><br><span class="line"><span class="params">            norm_layer=partial(<span class="params">nn.LayerNorm, eps=<span class="number">1e-6</span></span>), act_layer=GELU</span></span><br><span class="line"><span class="params">        </span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   224, 224, 3 -&gt; 196, 768</span></span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        self.patch_embed    = PatchEmbed(input_shape=input_shape, patch_size=patch_size, in_chans=in_chans, num_features=num_features)</span><br><span class="line">        num_patches         = (<span class="number">224</span> // patch_size) * (<span class="number">224</span> // patch_size)</span><br><span class="line">        self.num_features   = num_features</span><br><span class="line">        self.new_feature_shape = [<span class="built_in">int</span>(input_shape[<span class="number">0</span>] // patch_size), <span class="built_in">int</span>(input_shape[<span class="number">1</span>] // patch_size)]</span><br><span class="line">        self.old_feature_shape = [<span class="built_in">int</span>(<span class="number">224</span> // patch_size), <span class="built_in">int</span>(<span class="number">224</span> // patch_size)]</span><br><span class="line"></span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   classtoken部分是transformer的分类特征。用于堆叠到序列化后的图片特征中，作为一个单位的序列特征进行特征提取。</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#   在利用步长为16x16的卷积将输入图片划分成14x14的部分后，将14x14部分的特征平铺，一幅图片会存在序列长度为196的特征。</span></span><br><span class="line">        <span class="comment">#   此时生成一个classtoken，将classtoken堆叠到序列长度为196的特征上，获得一个序列长度为197的特征。</span></span><br><span class="line">        <span class="comment">#   在特征提取的过程中，classtoken会与图片特征进行特征的交互。最终分类时，我们取出classtoken的特征，利用全连接分类。</span></span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   196, 768 -&gt; 197, 768</span></span><br><span class="line">        self.cls_token      = nn.Parameter(torch.zeros(<span class="number">1</span>, <span class="number">1</span>, num_features))</span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   为网络提取到的特征添加上位置信息。</span></span><br><span class="line">        <span class="comment">#   以输入图片为224, 224, 3为例，我们获得的序列化后的图片特征为196, 768。加上classtoken后就是197, 768</span></span><br><span class="line">        <span class="comment">#   此时生成的pos_Embedding的shape也为197, 768，代表每一个特征的位置信息。</span></span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   197, 768 -&gt; 197, 768</span></span><br><span class="line">        self.pos_embed      = nn.Parameter(torch.zeros(<span class="number">1</span>, num_patches + <span class="number">1</span>, num_features))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward_features</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="comment"># x = [b, 196, 768]</span></span><br><span class="line">        x = self.patch_embed(x)</span><br><span class="line">        <span class="comment"># cls_token = [b, 1, 768]</span></span><br><span class="line">        cls_token = self.cls_token.expand(x.shape[<span class="number">0</span>], -<span class="number">1</span>, -<span class="number">1</span>) </span><br><span class="line">        <span class="comment"># x = [b, 197, 768]</span></span><br><span class="line">        x = torch.cat((cls_token, x), dim=<span class="number">1</span>)</span><br><span class="line">        <span class="comment"># [1, 1, 768]</span></span><br><span class="line">        cls_token_pe = self.pos_embed[:, <span class="number">0</span>:<span class="number">1</span>, :]</span><br><span class="line">        <span class="comment"># [1, 196, 768]</span></span><br><span class="line">        img_token_pe = self.pos_embed[:, <span class="number">1</span>: , :]</span><br><span class="line">		<span class="comment"># [1, 196, 768]-&gt;[1, 14, 14, 768]-&gt;[1, 768, 14, 14]</span></span><br><span class="line">        img_token_pe = img_token_pe.view(<span class="number">1</span>, *self.old_feature_shape, -<span class="number">1</span>).permute(<span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        <span class="comment"># 做插值，以防输入图片不是224*224</span></span><br><span class="line">        img_token_pe = F.interpolate(img_token_pe, size=self.new_feature_shape, mode=<span class="string">'bicubic'</span>, align_corners=<span class="literal">False</span>)</span><br><span class="line">        <span class="comment"># [1, 768, 14, 14]-&gt;[1, 14, 14, 768]-&gt;[1, 196, 768]</span></span><br><span class="line">        img_token_pe = img_token_pe.permute(<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>).flatten(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        <span class="comment"># [1, 197, 768]</span></span><br><span class="line">        pos_embed = torch.cat([cls_token_pe, img_token_pe], dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        x = self.pos_drop(x + pos_embed)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>b）transformer encoder</p>
+<p><style>.wgbqyocmuewg{}</style><img src="/zh-CN/VIT/VIT/8ff82ad32b994a12bfc2356718ac9683.gif" class="lazyload" data-srcset="/zh-CN/VIT/VIT/8ff82ad32b994a12bfc2356718ac9683.gif" srcset="data:image/png;base64,666"></p>
+<p>在上一步<strong>获得shape为197, 768的序列信息</strong>后，将<strong>序列信息传入Transformer Encoder进行特征提取</strong>，这是Transformer特有的Multi-head Self-attention结构，<strong>通过自注意力机制，关注每个图片块的重要程度。</strong></p>
+<p>1)self-attention结构解析</p>
+<p>看懂Self-attention结构，其实看懂下面这个动图就可以了，动图中存在<strong>一个序列的三个单位输入</strong>，<strong>每一个序列单位的输入</strong>都可以通过<strong>三个处理（比如全连接）获得Query、Key、Value</strong>，Query是查询向量、Key是键向量、Value值向量。</p>
+<p><style>.pabgmrlsoldx{}</style><img src="/zh-CN/VIT/VIT/32c551decdb64331a1c4ec0471cc1f3d.gif" class="lazyload" data-srcset="/zh-CN/VIT/VIT/32c551decdb64331a1c4ec0471cc1f3d.gif" srcset="data:image/png;base64,666"></p>
+<p>如果我们想要获得input-1的输出，那么我们进行如下几步：<br>1、利用input-1的查询向量，分别乘上input-1、input-2、input-3的键向量，此时我们获得了三个score。<br>2、然后对这三个score取softmax，获得了input-1、input-2、input-3各自的重要程度。<br>3、然后将这个重要程度乘上input-1、input-2、input-3的值向量，求和。<br>4、此时我们获得了input-1的输出。</p>
+<p>如图所示，我们进行如下几步：<br>1、input-1的查询向量为[1, 0, 2]，分别乘上input-1、input-2、input-3的键向量，获得三个score为2，4，4。<br>2、然后对这三个score取softmax，获得了input-1、input-2、input-3各自的重要程度，获得三个重要程度为0.0，0.5，0.5。<br>3、然后将这个重要程度乘上input-1、input-2、input-3的值向量，求和，即<br>0.0 ∗ [ 1 , 2 , 3 ] + 0.5 ∗ [ 2 , 8 , 0 ] + 0.5 ∗ [ 2 , 6 , 3 ] = [ 2.0 , 7.0 , 1.5 ]<br>4、此时我们获得了input-1的输出 [2.0, 7.0, 1.5]。</p>
+<p>上述的例子中，序列长度仅为3，每个单位序列的特征长度仅为3，在VIT的Transformer Encoder中，序列长度为197，每个单位序列的特征长度为768 // num_heads。但计算过程是一样的。在实际运算时，我们采用矩阵进行运算。<br>2)self-attention的矩阵运算</p>
+<p>实际的矩阵运算过程如下图所示。我以实际矩阵为例子给大家解析：</p>
+<p><style>.tgwppquteili{}</style><img src="/zh-CN/VIT/VIT/19f323060f1f41ba99e743cea1fa5174.png" class="lazyload" data-srcset="/zh-CN/VIT/VIT/19f323060f1f41ba99e743cea1fa5174.png" srcset="data:image/png;base64,666"></p>
+<p>输入的Query、Key、Value如下图所示：</p>
+<p><style>.krtbwukqupgm{}</style><img src="/zh-CN/VIT/VIT/2500484f29ae4671944a06543ad3e026.png" class="lazyload" data-srcset="/zh-CN/VIT/VIT/2500484f29ae4671944a06543ad3e026.png" srcset="data:image/png;base64,666"></p>
+<p>首先利用 查询向量query 叉乘 转置后的键向量key，这一步可以通俗的理解为，利用查询向量去查询序列的特征，获得序列每个部分的重要程度score。</p>
+<p>输出的每一行，都代表input-1、input-2、input-3，对当前input的贡献，我们对这个贡献值取一个softmax。</p>
+<p><style>.nmyenptnudhs{}</style><img src="/zh-CN/VIT/VIT/image-20220418104816862.png" class="lazyload" data-srcset="/zh-CN/VIT/VIT/image-20220418104816862.png" srcset="data:image/png;base64,666"></p>
+<p>然后利用 score 叉乘 value，<strong>这一步可以通俗的理解为，将序列每个部分的重要程度重新施加到序列的值上去。</strong></p>
+<p><style>.clxumkcixpkt{}</style><img src="/zh-CN/VIT/VIT/c41d889912a64057ab571bdfd5458910.png" class="lazyload" data-srcset="/zh-CN/VIT/VIT/c41d889912a64057ab571bdfd5458910.png" srcset="data:image/png;base64,666"></p>
+<p>矩阵代码运算如下：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">soft_max</span>(<span class="params">z</span>):</span><br><span class="line">    t = np.exp(z)</span><br><span class="line">    a = np.exp(z) / np.expand_dims(np.<span class="built_in">sum</span>(t, axis=<span class="number">1</span>), <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line">Query = np.array([</span><br><span class="line">    [<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>],</span><br><span class="line">    [<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>],</span><br><span class="line">    [<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">Key = np.array([</span><br><span class="line">    [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">    [<span class="number">4</span>,<span class="number">4</span>,<span class="number">0</span>],</span><br><span class="line">    [<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">Value = np.array([</span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">    [<span class="number">2</span>,<span class="number">8</span>,<span class="number">0</span>],</span><br><span class="line">    [<span class="number">2</span>,<span class="number">6</span>,<span class="number">3</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">scores = Query @ Key.T</span><br><span class="line"><span class="built_in">print</span>(scores)</span><br><span class="line">scores = soft_max(scores)</span><br><span class="line"><span class="built_in">print</span>(scores)</span><br><span class="line">out = scores @ Value</span><br><span class="line"><span class="built_in">print</span>(out)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>3）Multihead多头注意力机制</p>
+<p>多头注意力机制的示意图如图所示：</p>
+<p><style>.fqtunjouebbf{}</style><img src="/zh-CN/VIT/VIT/430e12e75fd44c82ac95e504b5da0d50.png" class="lazyload" data-srcset="/zh-CN/VIT/VIT/430e12e75fd44c82ac95e504b5da0d50.png" srcset="data:image/png;base64,666"></p>
+<p>这幅图给人的感觉略显迷茫，我们跳脱出这个图，直接从矩阵的shape入手会清晰很多。</p>
+<p>在第一步进行图像的分割后，我们获得的特征层为197, 768。</p>
+<p>在施加多头的时候，我们直接对196, 768的最后一维度进行分割，比如我们想分割成12个头，那么矩阵的shape就变成了196, 12, 64。</p>
+<p>然后我们将196, 12, 64进行转置，将12放到前面去，获得的特征层为12, 196, 64。之后我们忽略这个12，把它和batch维度同等对待，只对196, 64进行处理，其实也就是上面的注意力机制的过程了。</p>
+<p><style>.xxunhqfryzlh{zoom:50%;}</style><img src="/zh-CN/VIT/VIT/90787898063c45fe888c136ba4b32e64.png" class="lazyload" data-srcset="/zh-CN/VIT/VIT/90787898063c45fe888c136ba4b32e64.png" srcset="data:image/png;base64,666" alt="img"></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#--------------------------------------------------------------------------#</span></span><br><span class="line"><span class="comment">#   Attention机制</span></span><br><span class="line"><span class="comment">#   将输入的特征qkv特征进行划分，首先生成query, key, value。query是查询向量、key是键向量、v是值向量。</span></span><br><span class="line"><span class="comment">#   然后利用 查询向量query 叉乘 转置后的键向量key，这一步可以通俗的理解为，利用查询向量去查询序列的特征，获得序列每个部分的重要程度score。</span></span><br><span class="line"><span class="comment">#   然后利用 score 叉乘 value，这一步可以通俗的理解为，将序列每个部分的重要程度重新施加到序列的值上去。</span></span><br><span class="line"><span class="comment">#--------------------------------------------------------------------------#</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Attention</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, dim, num_heads=<span class="number">8</span>, qkv_bias=<span class="literal">False</span>, attn_drop=<span class="number">0.</span>, proj_drop=<span class="number">0.</span></span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.num_heads  = num_heads</span><br><span class="line">        self.scale      = (dim // num_heads) ** -<span class="number">0.5</span></span><br><span class="line">		<span class="comment"># 768-&gt;768*3</span></span><br><span class="line">        self.qkv        = nn.Linear(dim, dim * <span class="number">3</span>, bias=qkv_bias)</span><br><span class="line">        self.attn_drop  = nn.Dropout(attn_drop)</span><br><span class="line">        self.proj       = nn.Linear(dim, dim)</span><br><span class="line">        self.proj_drop  = nn.Dropout(proj_drop)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="comment"># batch, 196, 768</span></span><br><span class="line">        B, N, C     = x.shape</span><br><span class="line">        <span class="comment"># batch, 196, 768 -&gt; batch, 196, 768*3 -&gt; batch, 196, 3, 8, 768/8=96 -&gt; 3, batch, 8, 196, 96</span></span><br><span class="line">        qkv         = self.qkv(x).reshape(B, N, <span class="number">3</span>, self.num_heads, C // self.num_heads).permute(<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>)</span><br><span class="line">        <span class="comment"># 3 * 1, batch, 8, 196, 96  -&gt; q, k, v = batch: 16, head: 8, patch: 196, each_head_attention_channels: 96</span></span><br><span class="line">        q, k, v     = qkv[<span class="number">0</span>], qkv[<span class="number">1</span>], qkv[<span class="number">2</span>]</span><br><span class="line">		<span class="comment"># batch, 8, 196, 96 @ batch, 8, 96, 196 -&gt; batch, 8, 196, 196</span></span><br><span class="line">        attn = (q @ k.transpose(-<span class="number">2</span>, -<span class="number">1</span>)) * self.scale</span><br><span class="line">        attn = attn.softmax(dim=-<span class="number">1</span>)</span><br><span class="line">        attn = self.attn_drop(attn)</span><br><span class="line">		<span class="comment"># batch, 8, 196, 196 @ batch, 8, 196, 96 -&gt; batch, 8, 196, 96 -&gt; batch, 196, 8, 96 -&gt; batch, 196, 768</span></span><br><span class="line">        x = (attn @ v).transpose(<span class="number">1</span>, <span class="number">2</span>).reshape(B, N, C)</span><br><span class="line">        <span class="comment"># batch, 196, 768 -&gt; batch, 196, 768</span></span><br><span class="line">        x = self.proj(x)</span><br><span class="line">        <span class="comment"># Dropout(batch, 196, 768)</span></span><br><span class="line">        x = self.proj_drop(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>4）TransformerBlock的构建</p>
+<p><style>.rbmevcgxsbyz{}</style><img src="/zh-CN/VIT/VIT/4036cdfc91a6477d91009d574788a78b.png" class="lazyload" data-srcset="/zh-CN/VIT/VIT/4036cdfc91a6477d91009d574788a78b.png" srcset="data:image/png;base64,666"></p>
+<p><strong>在完成MultiHeadSelfAttention的构建后，我们需要在其后加上两个全连接。就构建了整个TransformerBlock</strong></p>
+<p>block流程见下图：</p>
+<p><style>.hvjtkxmqbphv{zoom: 80%;}</style><img src="/zh-CN/VIT/VIT/e3bf360d541c4eb1a243e100f17a48b6.png" class="lazyload" data-srcset="/zh-CN/VIT/VIT/e3bf360d541c4eb1a243e100f17a48b6.png" srcset="data:image/png;base64,666" alt="img"></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Mlp</span>(nn.Module):</span><br><span class="line">    <span class="string">""" MLP as used in Vision Transformer, MLP-Mixer and related networks</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, in_features, hidden_features=<span class="literal">None</span>, out_features=<span class="literal">None</span>, act_layer=GELU, drop=<span class="number">0.</span></span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        out_features    = out_features <span class="keyword">or</span> in_features</span><br><span class="line">        hidden_features = hidden_features <span class="keyword">or</span> in_features</span><br><span class="line">        drop_probs      = (drop, drop)</span><br><span class="line"></span><br><span class="line">        self.fc1    = nn.Linear(in_features, hidden_features)</span><br><span class="line">        self.act    = act_layer()</span><br><span class="line">        self.drop1  = nn.Dropout(drop_probs[<span class="number">0</span>])</span><br><span class="line">        self.fc2    = nn.Linear(hidden_features, out_features)</span><br><span class="line">        self.drop2  = nn.Dropout(drop_probs[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="comment"># batch, 196, 768 -&gt; batch, 196, 768</span></span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        <span class="comment"># batch, 196, 768 -&gt; batch, 196, 768</span></span><br><span class="line">        x = self.act(x)</span><br><span class="line">        <span class="comment"># batch, 196, 768 -&gt; batch, 196, 768</span></span><br><span class="line">        x = self.drop1(x)</span><br><span class="line">        <span class="comment"># batch, 196, 768 -&gt; batch, 196, 768</span></span><br><span class="line">        x = self.fc2(x)</span><br><span class="line">        <span class="comment"># batch, 196, 768 -&gt; batch, 196, 768</span></span><br><span class="line">        x = self.drop2(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment">#  a transoformer encoder block</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Block</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, dim, num_heads, mlp_ratio=<span class="number">4.</span>, qkv_bias=<span class="literal">False</span>, drop=<span class="number">0.</span>, attn_drop=<span class="number">0.</span>,</span></span><br><span class="line"><span class="params">                 drop_path=<span class="number">0.</span>, act_layer=GELU, norm_layer=nn.LayerNorm</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.norm1      = norm_layer(dim)</span><br><span class="line">        self.attn       = Attention(dim, num_heads=num_heads, qkv_bias=qkv_bias, attn_drop=attn_drop, proj_drop=drop)</span><br><span class="line">        self.norm2      = norm_layer(dim)</span><br><span class="line">        self.mlp        = Mlp(in_features=dim, hidden_features=<span class="built_in">int</span>(dim * mlp_ratio), act_layer=act_layer, drop=drop)</span><br><span class="line">        self.drop_path  = DropPath(drop_path) <span class="keyword">if</span> drop_path &gt; <span class="number">0.</span> <span class="keyword">else</span> nn.Identity()</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = x + self.drop_path(self.attn(self.norm1(x)))</span><br><span class="line">        x = x + self.drop_path(self.mlp(self.norm2(x)))</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>c）VIT模型构建</p>
+<p><style>.wwrkymrxmftn{}</style><img src="/zh-CN/VIT/VIT/image-20220418105537648.png" class="lazyload" data-srcset="/zh-CN/VIT/VIT/image-20220418105537648.png" srcset="data:image/png;base64,666"></p>
+<p>整个VIT模型由一个Patch+Position Embedding加上多个TransformerBlock组成。典型的TransforerBlock的数量为12个</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">VisionTransformer</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params"></span></span><br><span class="line"><span class="params">            self, input_shape=[<span class="number">224</span>, <span class="number">224</span>], patch_size=<span class="number">16</span>, in_chans=<span class="number">3</span>, num_classes=<span class="number">1000</span>, num_features=<span class="number">768</span>,</span></span><br><span class="line"><span class="params">            depth=<span class="number">12</span>, num_heads=<span class="number">12</span>, mlp_ratio=<span class="number">4.</span>, qkv_bias=<span class="literal">True</span>, drop_rate=<span class="number">0.1</span>, attn_drop_rate=<span class="number">0.1</span>, drop_path_rate=<span class="number">0.1</span>,</span></span><br><span class="line"><span class="params">            norm_layer=partial(<span class="params">nn.LayerNorm, eps=<span class="number">1e-6</span></span>), act_layer=GELU</span></span><br><span class="line"><span class="params">        </span>):</span><br><span class="line">        <span class="built_in">super</span>(VisionTransformer, self).__init__()</span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   224, 224, 3 -&gt; batch, 196, 768</span></span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        self.patch_embed    = PatchEmbed(input_shape=input_shape, patch_size=patch_size, in_chans=in_chans, num_features=num_features)</span><br><span class="line">        num_patches         = (<span class="number">224</span> // patch_size) * (<span class="number">224</span> // patch_size)</span><br><span class="line">        self.num_features   = num_features</span><br><span class="line">        self.new_feature_shape = [<span class="built_in">int</span>(input_shape[<span class="number">0</span>] // patch_size), <span class="built_in">int</span>(input_shape[<span class="number">1</span>] // patch_size)]</span><br><span class="line">        self.old_feature_shape = [<span class="built_in">int</span>(<span class="number">224</span> // patch_size), <span class="built_in">int</span>(<span class="number">224</span> // patch_size)]</span><br><span class="line"></span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   classtoken部分是transformer的分类特征。用于堆叠到序列化后的图片特征中，作为一个单位的序列特征进行特征提取。</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#   在利用步长为16x16的卷积将输入图片划分成14x14的部分后，将14x14部分的特征平铺，一幅图片会存在序列长度为196的特征。</span></span><br><span class="line">        <span class="comment">#   此时生成一个classtoken，将classtoken堆叠到序列长度为196的特征上，获得一个序列长度为197的特征。</span></span><br><span class="line">        <span class="comment">#   在特征提取的过程中，classtoken会与图片特征进行特征的交互。最终分类时，我们取出classtoken的特征，利用全连接分类。</span></span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   1, 1, 768</span></span><br><span class="line">        self.cls_token      = nn.Parameter(torch.zeros(<span class="number">1</span>, <span class="number">1</span>, num_features))</span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   为网络提取到的特征添加上位置信息。</span></span><br><span class="line">        <span class="comment">#   以输入图片为224, 224, 3为例，我们获得的序列化后的图片特征为196, 768。加上classtoken后就是197, 768</span></span><br><span class="line">        <span class="comment">#   此时生成的pos_Embedding的shape也为197, 768，代表每一个特征的位置信息。</span></span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   1, 197, 768</span></span><br><span class="line">        self.pos_embed      = nn.Parameter(torch.zeros(<span class="number">1</span>, num_patches + <span class="number">1</span>, num_features))</span><br><span class="line">        <span class="comment"># 1, 197, 768</span></span><br><span class="line">        self.pos_drop       = nn.Dropout(p=drop_rate)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   197, 768 -&gt; 197, 768  12次</span></span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        dpr = [x.item() <span class="keyword">for</span> x <span class="keyword">in</span> torch.linspace(<span class="number">0</span>, drop_path_rate, depth)]</span><br><span class="line">        self.blocks = nn.Sequential(</span><br><span class="line">            *[</span><br><span class="line">                Block(</span><br><span class="line">                    dim         = num_features, </span><br><span class="line">                    num_heads   = num_heads, </span><br><span class="line">                    mlp_ratio   = mlp_ratio, </span><br><span class="line">                    qkv_bias    = qkv_bias, </span><br><span class="line">                    drop        = drop_rate,</span><br><span class="line">                    attn_drop   = attn_drop_rate, </span><br><span class="line">                    drop_path   = dpr[i], </span><br><span class="line">                    norm_layer  = norm_layer, </span><br><span class="line">                    act_layer   = act_layer</span><br><span class="line">                )<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(depth)</span><br><span class="line">            ]</span><br><span class="line">        )</span><br><span class="line">        self.norm = norm_layer(num_features)</span><br><span class="line">        self.head = nn.Linear(num_features, num_classes) <span class="keyword">if</span> num_classes &gt; <span class="number">0</span> <span class="keyword">else</span> nn.Identity()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward_features</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.patch_embed(x)</span><br><span class="line">        cls_token = self.cls_token.expand(x.shape[<span class="number">0</span>], -<span class="number">1</span>, -<span class="number">1</span>) </span><br><span class="line">        x = torch.cat((cls_token, x), dim=<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        cls_token_pe = self.pos_embed[:, <span class="number">0</span>:<span class="number">1</span>, :]</span><br><span class="line">        img_token_pe = self.pos_embed[:, <span class="number">1</span>: , :]</span><br><span class="line"></span><br><span class="line">        img_token_pe = img_token_pe.view(<span class="number">1</span>, *self.old_feature_shape, -<span class="number">1</span>).permute(<span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        img_token_pe = F.interpolate(img_token_pe, size=self.new_feature_shape, mode=<span class="string">'bicubic'</span>, align_corners=<span class="literal">False</span>)</span><br><span class="line">        img_token_pe = img_token_pe.permute(<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>).flatten(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        pos_embed = torch.cat([cls_token_pe, img_token_pe], dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        x = self.pos_drop(x + pos_embed)</span><br><span class="line">        x = self.blocks(x)</span><br><span class="line">        x = self.norm(x)</span><br><span class="line">        <span class="keyword">return</span> x[:, <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="comment"># # 整个Transformer Encoder = batch, 768</span></span><br><span class="line">        x = self.forward_features(x)</span><br><span class="line">        <span class="comment"># 最后的MLP Header = batch, 768 -&gt; 768 -&gt; 1000 -&gt; batch, 1000</span></span><br><span class="line">        x = self.head(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">freeze_backbone</span>(<span class="params">self</span>):</span><br><span class="line">        backbone = [self.patch_embed, self.cls_token, self.pos_embed, self.pos_drop, self.blocks[:<span class="number">8</span>]]</span><br><span class="line">        <span class="keyword">for</span> module <span class="keyword">in</span> backbone:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="keyword">for</span> param <span class="keyword">in</span> module.parameters():</span><br><span class="line">                    param.requires_grad = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                module.requires_grad = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">Unfreeze_backbone</span>(<span class="params">self</span>):</span><br><span class="line">        backbone = [self.patch_embed, self.cls_token, self.pos_embed, self.pos_drop, self.blocks[:<span class="number">8</span>]]</span><br><span class="line">        <span class="keyword">for</span> module <span class="keyword">in</span> backbone:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="keyword">for</span> param <span class="keyword">in</span> module.parameters():</span><br><span class="line">                    param.requires_grad = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                module.requires_grad = <span class="literal">True</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="分类部分"><a href="#分类部分" class="headerlink" title="分类部分"></a>分类部分</h4><p><style>.olbgrdashjte{}</style><img src="/zh-CN/VIT/VIT/image-20220418105537648.png" class="lazyload" data-srcset="/zh-CN/VIT/VIT/image-20220418105537648.png" srcset="data:image/png;base64,666"></p>
+<p>在分类部分，VIT所做的工作是利用提取到的特征进行分类。</p>
+<p>在进行特征提取的时候，我们会在图片序列中添加上Cls Token，该Token会作为一个单位的序列信息一起进行特征提取，提取的过程中，该Cls Token会与其它的特征进行特征交互，融合其它图片序列的特征。</p>
+<p>最终，我们利用Multi-head Self-attention结构提取特征后的Cls Token进行全连接分类。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">VisionTransformer</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params"></span></span><br><span class="line"><span class="params">            self, input_shape=[<span class="number">224</span>, <span class="number">224</span>], patch_size=<span class="number">16</span>, in_chans=<span class="number">3</span>, num_classes=<span class="number">1000</span>, num_features=<span class="number">768</span>,</span></span><br><span class="line"><span class="params">            depth=<span class="number">12</span>, num_heads=<span class="number">12</span>, mlp_ratio=<span class="number">4.</span>, qkv_bias=<span class="literal">True</span>, drop_rate=<span class="number">0.1</span>, attn_drop_rate=<span class="number">0.1</span>, drop_path_rate=<span class="number">0.1</span>,</span></span><br><span class="line"><span class="params">            norm_layer=partial(<span class="params">nn.LayerNorm, eps=<span class="number">1e-6</span></span>), act_layer=GELU</span></span><br><span class="line"><span class="params">        </span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   224, 224, 3 -&gt; 196, 768</span></span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        self.patch_embed    = PatchEmbed(input_shape=input_shape, patch_size=patch_size, in_chans=in_chans, num_features=num_features)</span><br><span class="line">        num_patches         = (<span class="number">224</span> // patch_size) * (<span class="number">224</span> // patch_size)</span><br><span class="line">        self.num_features   = num_features</span><br><span class="line">        self.new_feature_shape = [<span class="built_in">int</span>(input_shape[<span class="number">0</span>] // patch_size), <span class="built_in">int</span>(input_shape[<span class="number">1</span>] // patch_size)]</span><br><span class="line">        self.old_feature_shape = [<span class="built_in">int</span>(<span class="number">224</span> // patch_size), <span class="built_in">int</span>(<span class="number">224</span> // patch_size)]</span><br><span class="line"></span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   classtoken部分是transformer的分类特征。用于堆叠到序列化后的图片特征中，作为一个单位的序列特征进行特征提取。</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#   在利用步长为16x16的卷积将输入图片划分成14x14的部分后，将14x14部分的特征平铺，一幅图片会存在序列长度为196的特征。</span></span><br><span class="line">        <span class="comment">#   此时生成一个classtoken，将classtoken堆叠到序列长度为196的特征上，获得一个序列长度为197的特征。</span></span><br><span class="line">        <span class="comment">#   在特征提取的过程中，classtoken会与图片特征进行特征的交互。最终分类时，我们取出classtoken的特征，利用全连接分类。</span></span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   196, 768 -&gt; 197, 768</span></span><br><span class="line">        self.cls_token      = nn.Parameter(torch.zeros(<span class="number">1</span>, <span class="number">1</span>, num_features))</span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   为网络提取到的特征添加上位置信息。</span></span><br><span class="line">        <span class="comment">#   以输入图片为224, 224, 3为例，我们获得的序列化后的图片特征为196, 768。加上classtoken后就是197, 768</span></span><br><span class="line">        <span class="comment">#   此时生成的pos_Embedding的shape也为197, 768，代表每一个特征的位置信息。</span></span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   197, 768 -&gt; 197, 768</span></span><br><span class="line">        self.pos_embed      = nn.Parameter(torch.zeros(<span class="number">1</span>, num_patches + <span class="number">1</span>, num_features))</span><br><span class="line">        self.pos_drop       = nn.Dropout(p=drop_rate)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   197, 768 -&gt; 197, 768  12次</span></span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        dpr = [x.item() <span class="keyword">for</span> x <span class="keyword">in</span> torch.linspace(<span class="number">0</span>, drop_path_rate, depth)]</span><br><span class="line">        self.blocks = nn.Sequential(</span><br><span class="line">            *[</span><br><span class="line">                Block(</span><br><span class="line">                    dim         = num_features, </span><br><span class="line">                    num_heads   = num_heads, </span><br><span class="line">                    mlp_ratio   = mlp_ratio, </span><br><span class="line">                    qkv_bias    = qkv_bias, </span><br><span class="line">                    drop        = drop_rate,</span><br><span class="line">                    attn_drop   = attn_drop_rate, </span><br><span class="line">                    drop_path   = dpr[i], </span><br><span class="line">                    norm_layer  = norm_layer, </span><br><span class="line">                    act_layer   = act_layer</span><br><span class="line">                )<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(depth)</span><br><span class="line">            ]</span><br><span class="line">        )</span><br><span class="line">        self.norm = norm_layer(num_features)</span><br><span class="line">        self.head = nn.Linear(num_features, num_classes) <span class="keyword">if</span> num_classes &gt; <span class="number">0</span> <span class="keyword">else</span> nn.Identity()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward_features</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.patch_embed(x)</span><br><span class="line">        cls_token = self.cls_token.expand(x.shape[<span class="number">0</span>], -<span class="number">1</span>, -<span class="number">1</span>) </span><br><span class="line">        x = torch.cat((cls_token, x), dim=<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        cls_token_pe = self.pos_embed[:, <span class="number">0</span>:<span class="number">1</span>, :]</span><br><span class="line">        img_token_pe = self.pos_embed[:, <span class="number">1</span>: , :]</span><br><span class="line"></span><br><span class="line">        img_token_pe = img_token_pe.view(<span class="number">1</span>, *self.old_feature_shape, -<span class="number">1</span>).permute(<span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        img_token_pe = F.interpolate(img_token_pe, size=self.new_feature_shape, mode=<span class="string">'bicubic'</span>, align_corners=<span class="literal">False</span>)</span><br><span class="line">        img_token_pe = img_token_pe.permute(<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>).flatten(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        pos_embed = torch.cat([cls_token_pe, img_token_pe], dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        x = self.pos_drop(x + pos_embed)</span><br><span class="line">        x = self.blocks(x)</span><br><span class="line">        x = self.norm(x)</span><br><span class="line">        <span class="keyword">return</span> x[:, <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.forward_features(x)</span><br><span class="line">        x = self.head(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">freeze_backbone</span>(<span class="params">self</span>):</span><br><span class="line">        backbone = [self.patch_embed, self.cls_token, self.pos_embed, self.pos_drop, self.blocks[:<span class="number">8</span>]]</span><br><span class="line">        <span class="keyword">for</span> module <span class="keyword">in</span> backbone:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="keyword">for</span> param <span class="keyword">in</span> module.parameters():</span><br><span class="line">                    param.requires_grad = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                module.requires_grad = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">Unfreeze_backbone</span>(<span class="params">self</span>):</span><br><span class="line">        backbone = [self.patch_embed, self.cls_token, self.pos_embed, self.pos_drop, self.blocks[:<span class="number">8</span>]]</span><br><span class="line">        <span class="keyword">for</span> module <span class="keyword">in</span> backbone:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="keyword">for</span> param <span class="keyword">in</span> module.parameters():</span><br><span class="line">                    param.requires_grad = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                module.requires_grad = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="VIT构建代码"><a href="#VIT构建代码" class="headerlink" title="VIT构建代码"></a>VIT构建代码</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> partial</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="comment">#--------------------------------------#</span></span><br><span class="line"><span class="comment">#   Gelu激活函数的实现</span></span><br><span class="line"><span class="comment">#   利用近似的数学公式</span></span><br><span class="line"><span class="comment">#--------------------------------------#</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GELU</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(GELU, self).__init__()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.5</span> * x * (<span class="number">1</span> + F.tanh(np.sqrt(<span class="number">2</span> / np.pi) * (x + <span class="number">0.044715</span> * torch.<span class="built_in">pow</span>(x,<span class="number">3</span>))))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">drop_path</span>(<span class="params">x, drop_prob: <span class="built_in">float</span> = <span class="number">0.</span>, training: <span class="built_in">bool</span> = <span class="literal">False</span></span>):</span><br><span class="line">    <span class="keyword">if</span> drop_prob == <span class="number">0.</span> <span class="keyword">or</span> <span class="keyword">not</span> training:</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    keep_prob       = <span class="number">1</span> - drop_prob</span><br><span class="line">    shape           = (x.shape[<span class="number">0</span>],) + (<span class="number">1</span>,) * (x.ndim - <span class="number">1</span>)</span><br><span class="line">    random_tensor   = keep_prob + torch.rand(shape, dtype=x.dtype, device=x.device)</span><br><span class="line">    random_tensor.floor_() </span><br><span class="line">    output          = x.div(keep_prob) * random_tensor</span><br><span class="line">    <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DropPath</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, drop_prob=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(DropPath, self).__init__()</span><br><span class="line">        self.drop_prob = drop_prob</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> drop_path(x, self.drop_prob, self.training)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PatchEmbed</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input_shape=[<span class="number">224</span>, <span class="number">224</span>], patch_size=<span class="number">16</span>, in_chans=<span class="number">3</span>, num_features=<span class="number">768</span>, norm_layer=<span class="literal">None</span>, flatten=<span class="literal">True</span></span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.num_patches    = (input_shape[<span class="number">0</span>] // patch_size) * (input_shape[<span class="number">1</span>] // patch_size)</span><br><span class="line">        self.flatten        = flatten</span><br><span class="line"></span><br><span class="line">        self.proj = nn.Conv2d(in_chans, num_features, kernel_size=patch_size, stride=patch_size)</span><br><span class="line">        self.norm = norm_layer(num_features) <span class="keyword">if</span> norm_layer <span class="keyword">else</span> nn.Identity()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.proj(x)</span><br><span class="line">        <span class="keyword">if</span> self.flatten:</span><br><span class="line">            x = x.flatten(<span class="number">2</span>).transpose(<span class="number">1</span>, <span class="number">2</span>)  <span class="comment"># BCHW -&gt; BNC</span></span><br><span class="line">        x = self.norm(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line"><span class="comment">#   Attention机制</span></span><br><span class="line"><span class="comment">#   将输入的特征qkv特征进行划分，首先生成query, key, value。query是查询向量、key是键向量、v是值向量。</span></span><br><span class="line"><span class="comment">#   然后利用 查询向量query 叉乘 转置后的键向量key，这一步可以通俗的理解为，利用查询向量去查询序列的特征，获得序列每个部分的重要程度score。</span></span><br><span class="line"><span class="comment">#   然后利用 score 叉乘 value，这一步可以通俗的理解为，将序列每个部分的重要程度重新施加到序列的值上去。</span></span><br><span class="line"><span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Attention</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, dim, num_heads=<span class="number">8</span>, qkv_bias=<span class="literal">False</span>, attn_drop=<span class="number">0.</span>, proj_drop=<span class="number">0.</span></span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.num_heads  = num_heads</span><br><span class="line">        self.scale      = (dim // num_heads) ** -<span class="number">0.5</span></span><br><span class="line"></span><br><span class="line">        self.qkv        = nn.Linear(dim, dim * <span class="number">3</span>, bias=qkv_bias)</span><br><span class="line">        self.attn_drop  = nn.Dropout(attn_drop)</span><br><span class="line">        self.proj       = nn.Linear(dim, dim)</span><br><span class="line">        self.proj_drop  = nn.Dropout(proj_drop)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        B, N, C     = x.shape</span><br><span class="line">        qkv         = self.qkv(x).reshape(B, N, <span class="number">3</span>, self.num_heads, C // self.num_heads).permute(<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>)</span><br><span class="line">        q, k, v     = qkv[<span class="number">0</span>], qkv[<span class="number">1</span>], qkv[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">        attn = (q @ k.transpose(-<span class="number">2</span>, -<span class="number">1</span>)) * self.scale</span><br><span class="line">        attn = attn.softmax(dim=-<span class="number">1</span>)</span><br><span class="line">        attn = self.attn_drop(attn)</span><br><span class="line"></span><br><span class="line">        x = (attn @ v).transpose(<span class="number">1</span>, <span class="number">2</span>).reshape(B, N, C)</span><br><span class="line">        x = self.proj(x)</span><br><span class="line">        x = self.proj_drop(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Mlp</span>(nn.Module):</span><br><span class="line">    <span class="string">""" MLP as used in Vision Transformer, MLP-Mixer and related networks</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, in_features, hidden_features=<span class="literal">None</span>, out_features=<span class="literal">None</span>, act_layer=GELU, drop=<span class="number">0.</span></span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        out_features    = out_features <span class="keyword">or</span> in_features</span><br><span class="line">        hidden_features = hidden_features <span class="keyword">or</span> in_features</span><br><span class="line">        drop_probs      = (drop, drop)</span><br><span class="line"></span><br><span class="line">        self.fc1    = nn.Linear(in_features, hidden_features)</span><br><span class="line">        self.act    = act_layer()</span><br><span class="line">        self.drop1  = nn.Dropout(drop_probs[<span class="number">0</span>])</span><br><span class="line">        self.fc2    = nn.Linear(hidden_features, out_features)</span><br><span class="line">        self.drop2  = nn.Dropout(drop_probs[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.drop1(x)</span><br><span class="line">        x = self.fc2(x)</span><br><span class="line">        x = self.drop2(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Block</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, dim, num_heads, mlp_ratio=<span class="number">4.</span>, qkv_bias=<span class="literal">False</span>, drop=<span class="number">0.</span>, attn_drop=<span class="number">0.</span>,</span></span><br><span class="line"><span class="params">                 drop_path=<span class="number">0.</span>, act_layer=GELU, norm_layer=nn.LayerNorm</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.norm1      = norm_layer(dim)</span><br><span class="line">        self.attn       = Attention(dim, num_heads=num_heads, qkv_bias=qkv_bias, attn_drop=attn_drop, proj_drop=drop)</span><br><span class="line">        self.norm2      = norm_layer(dim)</span><br><span class="line">        self.mlp        = Mlp(in_features=dim, hidden_features=<span class="built_in">int</span>(dim * mlp_ratio), act_layer=act_layer, drop=drop)</span><br><span class="line">        self.drop_path  = DropPath(drop_path) <span class="keyword">if</span> drop_path &gt; <span class="number">0.</span> <span class="keyword">else</span> nn.Identity()</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = x + self.drop_path(self.attn(self.norm1(x)))</span><br><span class="line">        x = x + self.drop_path(self.mlp(self.norm2(x)))</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">        </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">VisionTransformer</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params"></span></span><br><span class="line"><span class="params">            self, input_shape=[<span class="number">224</span>, <span class="number">224</span>], patch_size=<span class="number">16</span>, in_chans=<span class="number">3</span>, num_classes=<span class="number">1000</span>, num_features=<span class="number">768</span>,</span></span><br><span class="line"><span class="params">            depth=<span class="number">12</span>, num_heads=<span class="number">12</span>, mlp_ratio=<span class="number">4.</span>, qkv_bias=<span class="literal">True</span>, drop_rate=<span class="number">0.1</span>, attn_drop_rate=<span class="number">0.1</span>, drop_path_rate=<span class="number">0.1</span>,</span></span><br><span class="line"><span class="params">            norm_layer=partial(<span class="params">nn.LayerNorm, eps=<span class="number">1e-6</span></span>), act_layer=GELU</span></span><br><span class="line"><span class="params">        </span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   224, 224, 3 -&gt; 196, 768</span></span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        self.patch_embed    = PatchEmbed(input_shape=input_shape, patch_size=patch_size, in_chans=in_chans, num_features=num_features)</span><br><span class="line">        num_patches         = (<span class="number">224</span> // patch_size) * (<span class="number">224</span> // patch_size)</span><br><span class="line">        self.num_features   = num_features</span><br><span class="line">        self.new_feature_shape = [<span class="built_in">int</span>(input_shape[<span class="number">0</span>] // patch_size), <span class="built_in">int</span>(input_shape[<span class="number">1</span>] // patch_size)]</span><br><span class="line">        self.old_feature_shape = [<span class="built_in">int</span>(<span class="number">224</span> // patch_size), <span class="built_in">int</span>(<span class="number">224</span> // patch_size)]</span><br><span class="line"></span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   classtoken部分是transformer的分类特征。用于堆叠到序列化后的图片特征中，作为一个单位的序列特征进行特征提取。</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#   在利用步长为16x16的卷积将输入图片划分成14x14的部分后，将14x14部分的特征平铺，一幅图片会存在序列长度为196的特征。</span></span><br><span class="line">        <span class="comment">#   此时生成一个classtoken，将classtoken堆叠到序列长度为196的特征上，获得一个序列长度为197的特征。</span></span><br><span class="line">        <span class="comment">#   在特征提取的过程中，classtoken会与图片特征进行特征的交互。最终分类时，我们取出classtoken的特征，利用全连接分类。</span></span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   196, 768 -&gt; 197, 768</span></span><br><span class="line">        self.cls_token      = nn.Parameter(torch.zeros(<span class="number">1</span>, <span class="number">1</span>, num_features))</span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   为网络提取到的特征添加上位置信息。</span></span><br><span class="line">        <span class="comment">#   以输入图片为224, 224, 3为例，我们获得的序列化后的图片特征为196, 768。加上classtoken后就是197, 768</span></span><br><span class="line">        <span class="comment">#   此时生成的pos_Embedding的shape也为197, 768，代表每一个特征的位置信息。</span></span><br><span class="line">        <span class="comment">#--------------------------------------------------------------------------------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   197, 768 -&gt; 197, 768</span></span><br><span class="line">        self.pos_embed      = nn.Parameter(torch.zeros(<span class="number">1</span>, num_patches + <span class="number">1</span>, num_features))</span><br><span class="line">        self.pos_drop       = nn.Dropout(p=drop_rate)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        <span class="comment">#   197, 768 -&gt; 197, 768  12次</span></span><br><span class="line">        <span class="comment">#-----------------------------------------------#</span></span><br><span class="line">        dpr = [x.item() <span class="keyword">for</span> x <span class="keyword">in</span> torch.linspace(<span class="number">0</span>, drop_path_rate, depth)]</span><br><span class="line">        self.blocks = nn.Sequential(</span><br><span class="line">            *[</span><br><span class="line">                Block(</span><br><span class="line">                    dim         = num_features, </span><br><span class="line">                    num_heads   = num_heads, </span><br><span class="line">                    mlp_ratio   = mlp_ratio, </span><br><span class="line">                    qkv_bias    = qkv_bias, </span><br><span class="line">                    drop        = drop_rate,</span><br><span class="line">                    attn_drop   = attn_drop_rate, </span><br><span class="line">                    drop_path   = dpr[i], </span><br><span class="line">                    norm_layer  = norm_layer, </span><br><span class="line">                    act_layer   = act_layer</span><br><span class="line">                )<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(depth)</span><br><span class="line">            ]</span><br><span class="line">        )</span><br><span class="line">        self.norm = norm_layer(num_features)</span><br><span class="line">        self.head = nn.Linear(num_features, num_classes) <span class="keyword">if</span> num_classes &gt; <span class="number">0</span> <span class="keyword">else</span> nn.Identity()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward_features</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.patch_embed(x)</span><br><span class="line">        cls_token = self.cls_token.expand(x.shape[<span class="number">0</span>], -<span class="number">1</span>, -<span class="number">1</span>) </span><br><span class="line">        x = torch.cat((cls_token, x), dim=<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        cls_token_pe = self.pos_embed[:, <span class="number">0</span>:<span class="number">1</span>, :]</span><br><span class="line">        img_token_pe = self.pos_embed[:, <span class="number">1</span>: , :]</span><br><span class="line"></span><br><span class="line">        img_token_pe = img_token_pe.view(<span class="number">1</span>, *self.old_feature_shape, -<span class="number">1</span>).permute(<span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        img_token_pe = F.interpolate(img_token_pe, size=self.new_feature_shape, mode=<span class="string">'bicubic'</span>, align_corners=<span class="literal">False</span>)</span><br><span class="line">        img_token_pe = img_token_pe.permute(<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>).flatten(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        pos_embed = torch.cat([cls_token_pe, img_token_pe], dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        x = self.pos_drop(x + pos_embed)</span><br><span class="line">        x = self.blocks(x)</span><br><span class="line">        x = self.norm(x)</span><br><span class="line">        <span class="keyword">return</span> x[:, <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.forward_features(x)</span><br><span class="line">        x = self.head(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">freeze_backbone</span>(<span class="params">self</span>):</span><br><span class="line">        backbone = [self.patch_embed, self.cls_token, self.pos_embed, self.pos_drop, self.blocks[:<span class="number">8</span>]]</span><br><span class="line">        <span class="keyword">for</span> module <span class="keyword">in</span> backbone:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="keyword">for</span> param <span class="keyword">in</span> module.parameters():</span><br><span class="line">                    param.requires_grad = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                module.requires_grad = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">Unfreeze_backbone</span>(<span class="params">self</span>):</span><br><span class="line">        backbone = [self.patch_embed, self.cls_token, self.pos_embed, self.pos_drop, self.blocks[:<span class="number">8</span>]]</span><br><span class="line">        <span class="keyword">for</span> module <span class="keyword">in</span> backbone:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="keyword">for</span> param <span class="keyword">in</span> module.parameters():</span><br><span class="line">                    param.requires_grad = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                module.requires_grad = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">vit</span>(<span class="params">input_shape=[<span class="number">224</span>, <span class="number">224</span>], pretrained=<span class="literal">False</span>, num_classes=<span class="number">1000</span></span>):</span><br><span class="line">    model = VisionTransformer(input_shape)</span><br><span class="line">    <span class="keyword">if</span> pretrained:</span><br><span class="line">        model.load_state_dict(torch.load(<span class="string">"model_data/vit-patch_16.pth"</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> num_classes!=<span class="number">1000</span>:</span><br><span class="line">        model.head = nn.Linear(model.num_features, num_classes)</span><br><span class="line">    <span class="keyword">return</span> model</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+  
+  
+    
+    <div class="footer">
+      
+      
+      
+      
+        <div class="donate">
+          <div class="imgs">
+            
+              <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" srcset="data:image/png;base64,666">
+            
+              <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png" srcset="data:image/png;base64,666">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    
+
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-04T21:32:47+08:00">
+  <a class="notlink">
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年10月4日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>论文笔记</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/transformer/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>transformer</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pistachio0812.github.io/zh-CN/VIT/&title=vision transformer论文笔记 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="volantis-static/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://pistachio0812.github.io/zh-CN/VIT/&title=vision transformer论文笔记 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="volantis-static/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pistachio0812.github.io/zh-CN/VIT/&title=vision transformer论文笔记 - 阿月浑子-Hexo博客&summary=">
+          
+            <img src="volantis-static/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        
+        <div class="hoverbox">
+          <a class="share"><img src="volantis-static/media/org.volantis/logo/128/wechat.png" class="lazyload" data-srcset="volantis-static/media/org.volantis/logo/128/wechat.png" srcset="data:image/png;base64,666"></a>
+          <div class="target">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC9UlEQVR42u3awXIqMQwEQP7/p5P7q0etNRKwCu3bErK2m8uUpMeP9d/1QAAGDBgwYMCsgXmE63KDw+//+/fTfZ+9t3sfMGDAgAEDBsw+mOMAdHGgU5juhavnO/5hwIABAwYMGDBrYarBKj3I6QXLAa17HzBgwIABAwbM18NUC1vVYFh9BgMGDBgwYMCASQNe2sBLC2BgwIABAwYMmO+DKTeohhtwU/t8vBMJBgwYMGDAgHkbzHSD69PPYwPQYMCAAQMGDJjbwnTX9MVOC0yvWmDAgAEDBgyYPTBpQJoqNE0XptLzgwEDBgwYMGD2wUwHuxT0XQNFx4NDYMCAAQMGDJg1MN2B5y5UFWKqcHYZ8MCAAQMGDBgwa2Cqn59eeOo9pz9o2rgDAwYMGDBgwOyB6b64XRhqDgSNB1MwYMCAAQMGzDqYNOhVgdOGWTpoVN0PDBgwYMCAAbMHZqqh9a6C1FQh7en/gQEDBgwYMGDWwKQXPS0UpYGxCpoWtMCAAQMGDBgwe2G6gS4teKWFq+7A0uUzGDBgwIABA2YdTBrUpgpEaYOvew8wYMCAAQMGzN+DGR8sLjbmpgaOyt8HAwYMGDBgwKyBSYPQdAOuG/iqgfMy4IEBAwYMGDBgbg/zqiBVPWBaoOoWvsCAAQMGDBgwe2HSAZx0VYGqgF1YMGDAgAEDBsw+mDgQDRe6uoGuex4wYMCAAQMGzF6Y7qBzt4BUHTiqBsXL94EBAwYMGDBg1sKkhaXphtjUhcsBEQwYMGDAgAGzBmaqgdYNgmkjrlu4upyoAgMGDBgwYMDcFuYRrqsDd4PYVCOtHBzBgAEDBgwYMOtgPjXIU4U/veBYwAMDBgwYMGDArIGpNqy6ja9TiHftDwYMGDBgwID5Ppi0YDVVMOvuBwYMGDBgwIAB0y4UhYGv2sArT4aDAQMGDBgwYG4Pkw48dwPXVGMthQcDBgwYMGDA7IV5deNsCmpqsPrp52DAgAEDBgyYNTAWGDBgwIABA2bZ+gVtzOFKX9nFxQAAAABJRU5ErkJggg==">
+          </div>
+        </div>
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class="prev" href="/zh-CN/centernet/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>CenterNet论文笔记</p>
+          <p class="content">论文地址：CenterNet: Keypoint Triplets for Object Detection (thecvf.com)
+源码地址： CenterNet: Keypoint Tri...</p>
+        </a>
+      
+      
+        <a class="next" href="/zh-CN/%E9%A9%AC%E8%A3%A4%E5%85%88%E7%94%9F/">
+          <p class="title">马裤先生<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">火车在北平东站还没开，同屋那位睡上铺的穿马裤，戴平光的眼镜，青缎子洋服上身，胸袋插着小楷羊毫，足登青绒快靴的先生发了问：「你也是从北平上车？」很和气的。
+火车还没动呢，不从北平上车，由哪儿呢？我...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  
+
+
+
+
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper sticky shadow desktop mobile" id="toc-div">
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-text">实现思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-text">整体架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E8%AF%A6%E8%A7%A3"><span class="toc-text">网络结构详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%E9%83%A8%E5%88%86"><span class="toc-text">特征提取部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E9%83%A8%E5%88%86"><span class="toc-text">分类部分</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VIT%E6%9E%84%E5%BB%BA%E4%BB%A3%E7%A0%81"><span class="toc-text">VIT构建代码</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="vision transformer论文笔记";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="2185397204" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="mailto:2395856915@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://github.com/pistachio0812" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class="copyright">
+        <p><a href="/">Copyright ©2020-2023江西理工大学.All Rights Reserved</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("volantis-static/libs/@fortawesome/fontawesome-free/css/all.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("volantis-static/libs/font-awesome-animation/font-awesome-animation.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("volantis-static/libs/node-waves/dist/waves.min.css", window.volantis.loadcss);
+  
+  
+</script>
+<!-- required -->
+
+<script src="/volantis-static/libs/jquery/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="volantis-static/libs/vanilla-lazyload/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="volantis-static/libs/flying-pages/flying-pages.min.js"></script>
+  
+
+
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '2185397204';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("volantis-static/libs/aplayer/dist/APlayer.min.js")
+  window.volantis.LoadMetingJS=0
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return
+    clearInterval(checkAPlayer)
+	if (!window.volantis.LoadMetingJS&&!window.MetingJSElement){
+	  window.LoadMetingJS=1
+      loadScript("volantis-static/libs/meting/dist/Meting.min.js")
+	  }
+  }, 2500)
+
+</script>
+
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+  
+<script src="/volantis-static/libs/node-waves/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+  
+<script src="/volantis-static/libs/comment_typing/comment_typing.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
