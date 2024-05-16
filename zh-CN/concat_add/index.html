@@ -701,7 +701,7 @@
   <p>参考博文：</p>
 <p>1.<a target="_blank" rel="external nofollow noopener noreferrer" href="https://openreview.net/pdf?id=q2ZaVU6bEsT">https://openreview.net/pdf?id=q2ZaVU6bEsT</a></p>
 <p>今天偶然看到了这篇论文，论文里有一部分讲到了concat,add还有自适应的关系，很感兴趣，记录下来。</p>
-<p><style>.fytyzupdnlqb{zoom:50%;}</style><img src="/zh-CN/concat_add/concat_add/image-20220508171742020.png" class="lazyload" data-srcset="/zh-CN/concat_add/concat_add/image-20220508171742020.png" srcset="data:image/png;base64,666" alt="image-20220508171742020"></p>
+<p><style>.iscvrufiuevf{zoom:50%;}</style><img src="/zh-CN/concat_add/concat_add/image-20220508171742020.png" class="lazyload" data-srcset="/zh-CN/concat_add/concat_add/image-20220508171742020.png" srcset="data:image/png;base64,666" alt="image-20220508171742020"></p>
 <p>方法（a）和（c）分别是加权融合和连接操作。即在空间和通道维度上直接添加特征图。方法（b）是一种自适应融合方法。具体来说，假设输入的大小可以表示为（bs，C，H，W），我们可以通过卷积运算得到（bs，3，H，W）的空间自适应权重，连接和 Softmax。三个通道与三个输入一一对应，通过计算加权和可以将上下文信息聚合到输出。</p>
 
   

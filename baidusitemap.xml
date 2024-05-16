@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://pistachio0812.github.io/zh-CN/YOLOV3/</loc>
+    <lastmod>2024-05-16</lastmod>
+  </url>
+  <url>
     <loc>http://pistachio0812.github.io/zh-CN/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8tensorboard/</loc>
     <lastmod>2022-11-27</lastmod>
   </url>
@@ -150,10 +154,6 @@
   </url>
   <url>
     <loc>http://pistachio0812.github.io/zh-CN/YOLOV5/</loc>
-    <lastmod>2022-10-04</lastmod>
-  </url>
-  <url>
-    <loc>http://pistachio0812.github.io/zh-CN/YOLOV3/</loc>
     <lastmod>2022-10-04</lastmod>
   </url>
   <url>

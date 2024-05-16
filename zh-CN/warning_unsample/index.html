@@ -703,7 +703,7 @@
 <p>刚刚想测试一下grad-cam的代码，结果模型碰到一个问题，就是nn.functional.unsample被抛弃了</p>
 <p>问题：</p>
 <p><code>UserWarning: nn.functional.upsample_bilinear is deprecated. Use nn.functional.interpolate instead.</code></p>
-<p><style>.hgaqcygucxbi{zoom:50%;}</style><img src="/zh-CN/warning_unsample/warning_unsample/image-20220922212820063.png" class="lazyload" data-srcset="/zh-CN/warning_unsample/warning_unsample/image-20220922212820063.png" srcset="data:image/png;base64,666" alt="image-20220922212820063"></p>
+<p><style>.nwldotgjcklf{zoom:50%;}</style><img src="/zh-CN/warning_unsample/warning_unsample/image-20220922212820063.png" class="lazyload" data-srcset="/zh-CN/warning_unsample/warning_unsample/image-20220922212820063.png" srcset="data:image/png;base64,666" alt="image-20220922212820063"></p>
 <p>代码：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">feat1 = F.upsample_bilinear(self.fusion_layers[<span class="number">1</span>](feat1), size=(<span class="number">38</span>, <span class="number">38</span>))</span><br></pre></td></tr></tbody></table></figure>
 <p>错误原因：</p>
